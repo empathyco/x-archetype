@@ -3,12 +3,8 @@
     <template #default="{ facet }">
       <Facet :facet="facet">
         <AllFilter :facet="facet" />
-        <SlicedFilters :max="8">
-          <MultiSelectFilters
-            v-slot="{ filter }"
-            :animation="staggeredFadeAndSlide"
-            :filters="facet.filters"
-          >
+        <SlicedFilters :max="8" :filters="facet.filters">
+          <MultiSelectFilters v-slot="{ filter }" :animation="staggeredFadeAndSlide">
             <SimpleFilter :filter="filter" />
           </MultiSelectFilters>
         </SlicedFilters>
@@ -35,7 +31,8 @@
     SimpleFilter,
     MultiSelectFilters,
     AllFilter,
-    Facets
+    Facets,
+    SlicedFilters
   } from '@empathy/x-components/facets';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
@@ -52,7 +49,8 @@
       MultiSelectFilters,
       AllFilter,
       Facets,
-      Facet: FacetComponent
+      Facet: FacetComponent,
+      SlicedFilters
     }
   })
   export default class FacetsComponent extends Vue {
