@@ -13,4 +13,5 @@ export const adapter = new EmpathyAdapterBuilder()
       totalResults: 'catalog.numFound'
     }
   })
+  .setInstance('platform')
   .build();

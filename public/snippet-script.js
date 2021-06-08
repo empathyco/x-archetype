@@ -3,7 +3,7 @@ function getURLParameter(name) {
     (new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(window.location.href) || [, ''])[1].replace(/\+/g, '%20')) || null;
 }
 
-var instance = getURLParameter('instance') || 'platform';
+var instance = getURLParameter('instance') || undefined;
 var env = getURLParameter('env') || undefined;
 var scope = getURLParameter('scope') || 'desktop';
 var lang = getURLParameter('lang') || 'en';

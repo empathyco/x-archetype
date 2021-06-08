@@ -22,6 +22,6 @@
     }
   })
   export default class SortComponent extends Vue {
-    public sortValues: Sort[] = ['', 'priceSort asc', 'priceSort desc'];
+    public sortValues: Sort[] = ['', 'price asc', 'price desc'];
   }
 </script>

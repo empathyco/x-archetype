@@ -1,12 +1,17 @@
 import { EmpathySearchRequest, SearchRequest } from '@empathy/search-adapter';
 
 /**
- * This mapper modifies the request to the API.
+ * This mapper modifies the request sent to the API.
  *
- * @param rawRequest - This is the raw request that it'll send to the API.
- * @param request - This is the Empathy request handle by the app.
+ * @param rawRequest - The initial
+ * {@link @empathy/search-adapter#SearchRequest | SearchRequest} object without
+ * any modification.
+ * @param request - The {@link @empathy/search-adapter#EmpathySearchRequest |
+ * empathy's search request object} with the changes done in previous hooks or
+ * mappers.
  *
- * @returns A new object which can be handled by XComponents.
+ * @returns A new {@link @empathy/search-adapter#EmpathySearchRequest |
+ * empathy's search request object}.
  */
 export function customRequestMapper(
   rawRequest: SearchRequest,
