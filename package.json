@@ -1,6 +1,10 @@
 {
-  "name": "x-components-archetype",
+  "name": "@empathyco/x-archetype",
+  "author": "Empathy Systems Corporation S.L.",
   "version": "0.2.0",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/empathyco/x-archetype",
+  "description": "Starting point to setup a X Components project",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open --skip-plugins eslint",
@@ -31,8 +35,8 @@
   "devDependencies": {
     "@cypress/webpack-preprocessor": "~5.1.1",
     "@empathybroker/deep-merge": "^1.2.1",
-    "@empathy/eslint-plugin-x": "^1.2.0",
     "@empathy/x-translations": "^1.0.0",
+    "@empathyco/eslint-plugin-x": "^1.2.0",
     "@rollup/plugin-buble": "~0.21.3",
     "@rollup/plugin-commonjs": "~14.0.0",
     "@rollup/plugin-json": "~4.1.0",
@@ -70,7 +74,7 @@
     "wrapper-webpack-plugin": "~2.1.0",
     "eslint": "7.18.0"
   },
-  "prettier": "@empathy/eslint-plugin-x/prettier-config",
+  "prettier": "@empathyco/eslint-plugin-x/prettier-config",
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
