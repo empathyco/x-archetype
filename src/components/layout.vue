@@ -36,7 +36,7 @@
         <Recommendations v-if="!$x.totalResults" />
         <ResultsList v-infinite-scroll:mainScroll>
           <template #result="{ result }">
-            <Result :result="result" />
+            <ResultComponent :result="result" />
           </template>
         </ResultsList>
         <PartialResults />
@@ -64,13 +64,12 @@
   import { Sort, Spellcheck } from './body';
   import { Empathize } from './empathize';
   import { Facet, Facets } from './facets';
-  import { PartialResults, Recommendations, Results } from './results';
+  import { PartialResults, Recommendations, Results, ResultComponent } from './results';
   import SearchBox from './search-box.vue';
-  import Result from '@/components/results/result.vue';
 
   @Component({
     components: {
-      Result,
+      ResultComponent,
       BaseScroll,
       Close: BaseIdModalClose,
       Recommendations,
