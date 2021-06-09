@@ -47,8 +47,8 @@ declare module '@empathy/search-adapter' {
  *
  * @returns A new object which can be handled by XComponents.
  */
-export function resultMapper(rawResult: Result, result: EmpathyResult): EmpathyResult {
-  return Object.assign<EmpathyResult, Partial<EmpathyResult>>(result, {
+export function resultMapper(rawResult: EmpathyResult, result: Result): Result {
+  return Object.assign<Result, Partial<Result>>(result, {
     gender: rawResult.gender,
     color: rawResult.color,
     year: rawResult.year,
