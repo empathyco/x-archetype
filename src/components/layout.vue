@@ -32,11 +32,15 @@
         <span>No results found for '{{ $x.query.search }}'.Try with another query.</span>
       </div>
 
-      <Scroll id="mainScroll" class="x-scroll">
+      <BaseScroll id="mainScroll" class="x-scroll">
         <Recommendations v-if="!$x.totalResults" />
-        <Results />
+        <ResultsList v-infinite-scroll:mainScroll>
+          <template #result="{ result }">
+            <Result :result="result" />
+          </template>
+        </ResultsList>
         <PartialResults />
-      </Scroll>
+      </BaseScroll>
 
       <ScrollToTop scroll-id="mainScroll" :threshold-px="100">⬆</ScrollToTop>
     </main>
@@ -47,12 +51,14 @@
   import { RelatedTags } from '@empathy/x-components/related-tags';
   import { ClearFilters, SelectedFiltersList, SelectedFilters } from '@empathy/x-components/facets';
   import {
-    BaseIdScroll,
     BaseColumnPickerList,
     BaseScrollToTop,
     StaggeredFadeAndSlide,
-    BaseIdModalClose
+    BaseIdModalClose,
+    BaseScroll,
+    infiniteScroll
   } from '@empathy/x-components';
+  import { ResultsList } from '@empathy/x-components/search';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
   import { Sort, Spellcheck } from './body';
@@ -60,10 +66,12 @@
   import { Facet, Facets } from './facets';
   import { PartialResults, Recommendations, Results } from './results';
   import SearchBox from './search-box.vue';
+  import Result from '@/components/results/result.vue';
 
   @Component({
     components: {
-      Scroll: BaseIdScroll,
+      Result,
+      BaseScroll,
       Close: BaseIdModalClose,
       Recommendations,
       Empathize,
@@ -79,7 +87,11 @@
       ColumnPicker: BaseColumnPickerList,
       ScrollToTop: BaseScrollToTop,
       Sort,
-      PartialResults
+      PartialResults,
+      ResultsList
+    },
+    directives: {
+      'infinite-scroll': infiniteScroll
     }
   })
   export default class Layout extends Vue {
