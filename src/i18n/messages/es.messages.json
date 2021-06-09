@@ -25,11 +25,11 @@
       "title": "Recomendaciones"
     },
     "facets": {
-      "hierarchical_category": "Categorías",
-      "rootCategories_facet": "Categorías",
-      "brand_facet": "Marcas",
-      "age_facet": "Edad",
-      "price_facet": "Precio"
+      "gender": "Género",
+      "categoryPaths": "Categorías",
+      "price": "Precio",
+      "usage": "Uso",
+      "season": "Temporada"
     }
   },
   "tablet": {
