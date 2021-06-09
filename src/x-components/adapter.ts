@@ -1,6 +1,6 @@
 import { EmpathyAdapterBuilder } from '@empathy/search-adapter';
-import { customRequestMapper } from '@/adapters/demo-request-mapper';
-import { resultMapper } from '@/adapters/demo-result.mapper';
+import { customRequestMapper } from '../adapters/demo-request-mapper';
+import { resultMapper } from '../adapters/demo-result.mapper';
 
 export const adapter = new EmpathyAdapterBuilder()
   .addRequestMapper(customRequestMapper)
