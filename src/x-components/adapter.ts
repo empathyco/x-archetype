@@ -1,4 +1,11 @@
-import { EmpathyAdapterBuilder } from '@empathy/search-adapter';
+import {
+  DEPENDENCIES,
+  EmpathyAdapterBuilder,
+  EmpathyFacetMapper,
+  EmpathyNumberRangeFacetMapper,
+  EmpathySimpleFacetMapper
+} from '@empathy/search-adapter';
+import { HierarchicalFacetMapper } from '../adapters/demo-hierarchical-mapper';
 import { customRequestMapper } from '../adapters/demo-request-mapper';
 import { resultMapper } from '../adapters/demo-result.mapper';
 
@@ -12,6 +19,14 @@ export const adapter = new EmpathyAdapterBuilder()
       facets: 'catalog.facets',
       totalResults: 'catalog.numFound'
     }
+  })
+  .setFacetConfig({ modelName: 'HierarchicalFacet' }, 'categoryPaths')
+  .configureContainer(container => {
+    container.unbind(DEPENDENCIES.ResponseMappers.facets);
+    container.bind(DEPENDENCIES.ResponseMappers.facets).to(EmpathyFacetMapper);
+    container.bind(DEPENDENCIES.ResponseMappers.facets).to(HierarchicalFacetMapper);
+    container.bind(DEPENDENCIES.ResponseMappers.facets).to(EmpathyNumberRangeFacetMapper);
+    container.bind(DEPENDENCIES.ResponseMappers.facets).to(EmpathySimpleFacetMapper);
   })
   .setInstance('platform')
   .build();

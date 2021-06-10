@@ -11,6 +11,32 @@
       </Facet>
     </template>
 
+    <template #categoryPaths="{ facet }">
+      <BaseHeaderTogglePanel class="x-facet">
+        <template #header-content>
+          <span>{{ facet.label }}</span>
+          <span class="x-icon">▾</span>
+        </template>
+        <SelectedFilters :facetId="facet.id" />
+        <AllFilter :facet="facet" />
+        <Filters
+          v-slot="{ filter: hierarchicalFilter }"
+          :filters="facet.filters"
+          :animation="staggeredFadeAndSlide"
+        >
+          <HierarchicalFilter
+            v-slot="{ filter, clickFilter, cssClasses, isDisabled }"
+            :filter="hierarchicalFilter"
+          >
+            <label :class="cssClasses">
+              <input @change="clickFilter" :disabled="isDisabled" type="checkbox" />
+              {{ filter.label }}
+            </label>
+          </HierarchicalFilter>
+        </Filters>
+      </BaseHeaderTogglePanel>
+    </template>
+
     <template #brand_facet="{ facet }">
       <Facet :facet="facet">
         <SearchableFilters :filters="facet.filters" />
@@ -26,13 +52,16 @@
 </template>
 
 <script lang="ts">
-  import { StaggeredFadeAndSlide } from '@empathy/x-components';
+  import { BaseHeaderTogglePanel, StaggeredFadeAndSlide } from '@empathy/x-components';
   import {
     SimpleFilter,
     MultiSelectFilters,
     AllFilter,
     Facets,
-    SlicedFilters
+    SlicedFilters,
+    SelectedFilters,
+    Filters,
+    HierarchicalFilter
   } from '@empathy/x-components/facets';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
@@ -42,6 +71,7 @@
 
   @Component({
     components: {
+      BaseHeaderTogglePanel,
       SearchableFilters,
       StaggeredFadeAndSlide,
       NumberRangeFilters,
@@ -50,7 +80,10 @@
       AllFilter,
       Facets,
       Facet: FacetComponent,
-      SlicedFilters
+      Filters,
+      HierarchicalFilter,
+      SlicedFilters,
+      SelectedFilters
     }
   })
   export default class FacetsComponent extends Vue {
