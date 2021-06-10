@@ -1,13 +1,37 @@
 <template>
-  <div class="x-layout">
-    <header class="x-header">
-      <Close modalId="x-components-app">Close X</Close>
-      <SearchBox />
-      <Empathize />
-      <RelatedTags :animation="staggeredFadeAndSlide" />
-    </header>
+  <Layout class="x-layout">
+    <template #header-middle>
+      <div
+        class="x-list x-list--vertical x-list--gap-05 x-list--align-stretch x-list__item--expand"
+      >
+        <SearchBox />
+        <RelatedTags :animation="resultsAnimation" />
+      </div>
+    </template>
 
-    <aside class="x-facets">
+    <template #header-end>
+      <div class="x-list x-list--horizontal x-list--align-center x-list--gap-06">
+        <button class="x-button x-button--ghost">
+          <CartIcon class="x-icon--l" />
+        </button>
+        <Close class="x-button--ghost" modalId="x-components-app">
+          <CloseIcon class="x-icon--l" />
+        </Close>
+      </div>
+    </template>
+
+    <template #empathize>
+      <Empathize />
+    </template>
+
+    <template #toolbar-body>
+      <nav v-if="$x.totalResults" class="x-toolbar">
+        <ColumnPicker :columns="[4, 6]" />
+        <Sort />
+      </nav>
+    </template>
+
+    <template #main-aside>
       <SelectedFilters>
         <template #default="{ selectedFilters }">
           Filters selected: {{ selectedFilters.length }}
@@ -18,44 +42,47 @@
         Clear {{ selectedFilters.length }} filters
       </ClearFilters>
       <Facets />
-    </aside>
+    </template>
 
-    <nav v-if="$x.totalResults" class="x-toolbar">
-      <ColumnPicker :columns="[4, 6]" />
-      <Sort />
-    </nav>
-
-    <main class="x-body">
+    <template #main-body>
       <Spellcheck />
 
       <div v-if="!$x.totalResults && $x.query.searchBox" class="x-no-results">
         <span>No results found for '{{ $x.query.search }}'.Try with another query.</span>
       </div>
 
-      <BaseScroll id="mainScroll" class="x-scroll">
-        <Recommendations v-if="!$x.totalResults" />
-        <ResultsList v-infinite-scroll:mainScroll>
-          <template #result="{ result }">
+      <Recommendations v-if="!$x.totalResults" />
+      <ResultsList v-infinite-scroll:body-scroll>
+        <template #layout="{ results }">
+          <BaseVariableColumnGrid
+            #default="{ item: result }"
+            :animation="resultsAnimation"
+            :items="results"
+          >
             <Result :result="result" />
-          </template>
-        </ResultsList>
-        <PartialResults />
-      </BaseScroll>
+          </BaseVariableColumnGrid>
+        </template>
+      </ResultsList>
+      <PartialResults />
 
       <ScrollToTop scroll-id="mainScroll" :threshold-px="100">⬆</ScrollToTop>
-    </main>
-  </div>
+    </template>
+  </Layout>
 </template>
 
 <script lang="ts">
   import { RelatedTags } from '@empathy/x-components/related-tags';
   import { ClearFilters, SelectedFiltersList, SelectedFilters } from '@empathy/x-components/facets';
   import {
+    BaseVariableColumnGrid,
     BaseColumnPickerList,
+    BaseScroll,
     BaseScrollToTop,
+    CartIcon,
+    CloseIcon,
     StaggeredFadeAndSlide,
     BaseIdModalClose,
-    BaseScroll,
+    Layout,
     infiniteScroll
   } from '@empathy/x-components';
   import { ResultsList } from '@empathy/x-components/search';
@@ -69,48 +96,41 @@
 
   @Component({
     components: {
-      Result,
       BaseScroll,
+      BaseVariableColumnGrid,
+      CartIcon,
       Close: BaseIdModalClose,
-      Recommendations,
+      CloseIcon,
+      ClearFilters,
       Empathize,
       Facets,
       Facet,
+      Layout,
+      Recommendations,
+      RelatedTags,
+      Result,
+      Results,
+      ResultsList,
       SearchBox,
       Spellcheck,
-      RelatedTags,
-      ClearFilters,
       SelectedFiltersList,
       SelectedFilters,
-      Results,
       ColumnPicker: BaseColumnPickerList,
       ScrollToTop: BaseScrollToTop,
       Sort,
-      PartialResults,
-      ResultsList
+      PartialResults
     },
     directives: {
       'infinite-scroll': infiniteScroll
     }
   })
-  export default class Layout extends Vue {
-    protected staggeredFadeAndSlide = StaggeredFadeAndSlide;
+  export default class Main extends Vue {
+    protected resultsAnimation = StaggeredFadeAndSlide;
   }
 </script>
 
 <style scoped>
   .x-layout {
     height: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-  }
-  .x-body {
-    display: flex;
-    flex-flow: column nowrap;
-  }
-
-  .x-body,
-  .x-scroll {
-    flex: 1 1 1px;
   }
 </style>

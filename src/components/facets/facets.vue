@@ -11,6 +11,17 @@
       </Facet>
     </template>
 
+    <template #categoryPaths="{ facet }">
+      <Facet :facet="facet">
+        <AllFilter :facet="facet" />
+        <SlicedFilters :max="8" :filters="facet.filters">
+          <MultiSelectFilters v-slot="{ filter }" :animation="staggeredFadeAndSlide">
+            <HierarchicalFilter :filter="filter" />
+          </MultiSelectFilters>
+        </SlicedFilters>
+      </Facet>
+    </template>
+
     <template #brand_facet="{ facet }">
       <Facet :facet="facet">
         <SearchableFilters :filters="facet.filters" />
@@ -29,6 +40,7 @@
   import { StaggeredFadeAndSlide } from '@empathy/x-components';
   import {
     SimpleFilter,
+    HierarchicalFilter,
     MultiSelectFilters,
     AllFilter,
     Facets,
@@ -42,6 +54,7 @@
 
   @Component({
     components: {
+      HierarchicalFilter,
       SearchableFilters,
       StaggeredFadeAndSlide,
       NumberRangeFilters,

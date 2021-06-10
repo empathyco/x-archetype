@@ -1,5 +1,5 @@
 <template>
-  <BaseHeaderTogglePanel :startCollapsed="true" :animation="collapseFromTop">
+  <BaseHeaderTogglePanel class="x-facet" :startCollapsed="true" :animation="collapseFromTop">
     <template #header-content>
       {{ $t(`facets.${facet.label}`) }}
       <SelectedFilters :facetId="facet.id" />
