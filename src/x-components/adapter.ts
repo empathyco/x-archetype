@@ -13,5 +13,11 @@ export const adapter = new EmpathyAdapterBuilder()
       totalResults: 'catalog.numFound'
     }
   })
+  .setFeatureConfig('relatedTags', {
+    endpoint: 'https://search.internal.test.empathy.co/query/empathy/relatedtags',
+    responsePaths: {
+      relatedTags: 'data.relatedtags'
+    }
+  })
   .setInstance('platform')
   .build();
