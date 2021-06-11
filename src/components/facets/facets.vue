@@ -12,29 +12,12 @@
     </template>
 
     <template #categoryPaths="{ facet }">
-      <BaseHeaderTogglePanel class="x-facet">
-        <template #header-content>
-          <span>{{ facet.label }}</span>
-          <span class="x-icon">▾</span>
-        </template>
-        <SelectedFilters :facetId="facet.id" />
+      <Facet :facet="facet">
         <AllFilter :facet="facet" />
-        <Filters
-          v-slot="{ filter: hierarchicalFilter }"
-          :filters="facet.filters"
-          :animation="staggeredFadeAndSlide"
-        >
-          <HierarchicalFilter
-            v-slot="{ filter, clickFilter, cssClasses, isDisabled }"
-            :filter="hierarchicalFilter"
-          >
-            <label :class="cssClasses">
-              <input @change="clickFilter" :disabled="isDisabled" type="checkbox" />
-              {{ filter.label }}
-            </label>
-          </HierarchicalFilter>
+        <Filters #default="{ filter }" :filters="facet.filters" :animation="staggeredFadeAndSlide">
+          <HierarchicalFilter :filter="filter" />
         </Filters>
-      </BaseHeaderTogglePanel>
+      </Facet>
     </template>
 
     <template #brand_facet="{ facet }">
