@@ -19,5 +19,11 @@ export const adapter = new EmpathyAdapterBuilder()
       relatedTags: 'data.relatedtags'
     }
   })
+  .setFeatureConfig('nextQueries', {
+    endpoint: 'https://search.internal.test.empathy.co/query/empathy/nextqueries',
+    responsePaths: {
+      nextQueries: 'data.nextQueries'
+    }
+  })
   .setInstance('platform')
   .build();
