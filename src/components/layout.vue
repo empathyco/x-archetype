@@ -66,7 +66,6 @@
   import { Facet, Facets } from './facets';
   import { PartialResults, Recommendations, Results, Result } from './results';
   import SearchBox from './search-box.vue';
-  import Result from '@/components/results/result.vue';
 
   @Component({
     components: {
