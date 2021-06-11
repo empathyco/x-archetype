@@ -11,6 +11,15 @@
       </Facet>
     </template>
 
+    <template #categoryPaths="{ facet }">
+      <Facet :facet="facet">
+        <AllFilter :facet="facet" />
+        <Filters #default="{ filter }" :filters="facet.filters" :animation="staggeredFadeAndSlide">
+          <HierarchicalFilter :filter="filter" />
+        </Filters>
+      </Facet>
+    </template>
+
     <template #brand_facet="{ facet }">
       <Facet :facet="facet">
         <SearchableFilters :filters="facet.filters" />
@@ -26,13 +35,16 @@
 </template>
 
 <script lang="ts">
-  import { StaggeredFadeAndSlide } from '@empathy/x-components';
+  import { BaseHeaderTogglePanel, StaggeredFadeAndSlide } from '@empathy/x-components';
   import {
     SimpleFilter,
     MultiSelectFilters,
     AllFilter,
     Facets,
-    SlicedFilters
+    SlicedFilters,
+    SelectedFilters,
+    Filters,
+    HierarchicalFilter
   } from '@empathy/x-components/facets';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
@@ -42,6 +54,7 @@
 
   @Component({
     components: {
+      BaseHeaderTogglePanel,
       SearchableFilters,
       StaggeredFadeAndSlide,
       NumberRangeFilters,
@@ -50,7 +63,10 @@
       AllFilter,
       Facets,
       Facet: FacetComponent,
-      SlicedFilters
+      Filters,
+      HierarchicalFilter,
+      SlicedFilters,
+      SelectedFilters
     }
   })
   export default class FacetsComponent extends Vue {

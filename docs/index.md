@@ -76,7 +76,7 @@ replaced for the repository name:
     
 ### Configure Adapter
 
-Configure the adapter in [x-components/adapter.ts](../src/x-components/adapter.ts) file. Remember
+Configure the adapter in [x-components/adapter.ts](../src/adapter/adapter.ts) file. Remember
 to export it to use in the plugin configuration (see next section). You can find more information
 about the adapter here: 
 [search-adapter](https://bitbucket.org/colbenson/search-adapter/src/master/README.md)
