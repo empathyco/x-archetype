@@ -5,7 +5,7 @@
         class="x-list x-list--vertical x-list--gap-05 x-list--align-stretch x-list__item--expand"
       >
         <SearchBox />
-        <RelatedTags :animation="resultsAnimation" />
+        <RelatedTags />
       </div>
     </template>
 
@@ -15,7 +15,7 @@
           <CartIcon class="x-icon--l" />
         </button>
         <Close class="x-button--ghost" modalId="x-components-app">
-          <CloseIcon class="x-icon--l" />
+          <CrossIcon class="x-icon--l" />
         </Close>
       </div>
     </template>
@@ -71,27 +71,30 @@
 </template>
 
 <script lang="ts">
-  import { RelatedTags } from '@empathy/x-components/related-tags';
-  import { ClearFilters, SelectedFiltersList, SelectedFilters } from '@empathy/x-components/facets';
   import {
-    BaseVariableColumnGrid,
     BaseColumnPickerList,
+    BaseIdModalClose,
     BaseScroll,
     BaseScrollToTop,
+    BaseVariableColumnGrid,
     CartIcon,
-    CloseIcon,
-    StaggeredFadeAndSlide,
-    BaseIdModalClose,
+    CrossIcon,
+    CrossTinyIcon,
+    infiniteScroll,
     Layout,
-    infiniteScroll
+    PlusIcon,
+    SlidingPanel,
+    StaggeredFadeAndSlide
   } from '@empathy/x-components';
+  import { ClearFilters, SelectedFilters, SelectedFiltersList } from '@empathy/x-components/facets';
   import { ResultsList } from '@empathy/x-components/search';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
+  import RelatedTags from './related-tags.vue';
   import { Sort, Spellcheck } from './body';
   import { Empathize } from './empathize';
   import { Facet, Facets } from './facets';
-  import { PartialResults, Recommendations, Results, Result } from './results';
+  import { PartialResults, Recommendations, Result, Results } from './results';
   import SearchBox from './search-box.vue';
 
   @Component({
@@ -100,12 +103,14 @@
       BaseVariableColumnGrid,
       CartIcon,
       Close: BaseIdModalClose,
-      CloseIcon,
+      CrossIcon,
+      CrossTinyIcon,
       ClearFilters,
       Empathize,
       Facets,
       Facet,
       Layout,
+      PlusIcon,
       Recommendations,
       RelatedTags,
       Result,
@@ -115,6 +120,7 @@
       Spellcheck,
       SelectedFiltersList,
       SelectedFilters,
+      SlidingPanel,
       ColumnPicker: BaseColumnPickerList,
       ScrollToTop: BaseScrollToTop,
       Sort,
