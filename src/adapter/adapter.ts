@@ -32,6 +32,12 @@ export const adapter = new EmpathyAdapterBuilder()
       nextQueries: 'data.nextQueries'
     }
   })
+  .setFeatureConfig('suggestions', {
+    endpoint: 'https://search.internal.test.empathy.co/query/empathy/empathize',
+    responsePaths: {
+      topTrends: 'data.topTrends'
+    }
+  })
   .setFacetConfig({ modelName: 'HierarchicalFacet' }, 'categoryPaths')
   .configureContainer(container => {
     container.unbind(DEPENDENCIES.ResponseMappers.facets);
