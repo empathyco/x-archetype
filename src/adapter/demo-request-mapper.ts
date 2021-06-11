@@ -8,8 +8,13 @@ import {
   RequestMapperContext,
   SearchRequest
 } from '@empathy/search-adapter';
-import { Filter } from '@empathy/search-types';
+import { Filter, Sort } from '@empathy/search-types';
 import { injectable, multiInject } from 'inversify';
+
+export declare enum SortDirection {
+  ASC = 'asc',
+  DESC = 'desc'
+}
 
 export interface PlatformSearchRequest {
   catalogue?: string;
@@ -20,7 +25,7 @@ export interface PlatformSearchRequest {
   rows?: number;
   scope?: string;
   sort?: string;
-  sortDirection?: 'asc' | 'desc';
+  sortDirection?: SortDirection;
   start?: number;
   store?: string;
   warehouse?: string;
@@ -30,31 +35,34 @@ export interface PlatformSearchRequest {
  * @public
  */
 @injectable()
-export class EmpathySearchRequestMapper
-  implements RequestMapper<SearchRequest, PlatformSearchRequest>
-{
-  private readonly mapQuery: MapRequest<QueryableRequest, string>;
+export class SearchRequestMapper implements RequestMapper<SearchRequest, PlatformSearchRequest> {
   private readonly mapFilters: MapRequest<Dictionary<Filter[]>, string[]>;
+  private readonly mapQuery: MapRequest<QueryableRequest, string>;
+  private readonly mapSort: MapRequest<Sort | undefined, string | undefined>;
 
   public constructor(
     @multiInject(DEPENDENCIES.RequestMappers.Parameters.query)
     queryMapper: RequestMapper<QueryableRequest, string>[],
     @multiInject(DEPENDENCIES.RequestMappers.Parameters.filters)
-    filtersMapper: RequestMapper<Dictionary<Filter[]>, string[]>[]
+    filtersMapper: RequestMapper<Dictionary<Filter[]>, string[]>[],
+    @multiInject(DEPENDENCIES.RequestMappers.Parameters.sort)
+    sortMappers: RequestMapper<Sort | undefined, string | undefined>[]
   ) {
     this.mapQuery = pipeMappers(...queryMapper);
     this.mapFilters = pipeMappers(...filtersMapper);
+    this.mapSort = pipeMappers(...sortMappers);
   }
 
   map(
-    { query, relatedTags = [], filters = {}, ...rest }: SearchRequest,
+    { query, relatedTags = [], filters = {}, sort, ...rest }: SearchRequest,
     request: PlatformSearchRequest,
     context: RequestMapperContext
   ): PlatformSearchRequest {
     return Object.assign<PlatformSearchRequest, Partial<PlatformSearchRequest>>(request, {
       ...rest,
       query: query && this.mapQuery({ query, relatedTags }, query, context),
-      filter: this.mapFilters(filters, [], context)
+      filter: this.mapFilters(filters, [], context),
+      sort: this.mapSort(sort, '', context)
     });
   }
 }
