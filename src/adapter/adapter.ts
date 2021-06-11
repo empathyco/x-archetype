@@ -5,9 +5,9 @@ import {
   EmpathyNumberRangeFacetMapper,
   EmpathySimpleFacetMapper
 } from '@empathy/search-adapter';
-import { HierarchicalFacetMapper } from '../adapters/demo-hierarchical-mapper';
-import { customRequestMapper } from '../adapters/demo-request-mapper';
-import { resultMapper } from '../adapters/demo-result.mapper';
+import { HierarchicalFacetMapper } from './demo-hierarchical-mapper';
+import { customRequestMapper } from './demo-request-mapper';
+import { resultMapper } from './demo-result.mapper';
 
 export const adapter = new EmpathyAdapterBuilder()
   .addRequestMapper(customRequestMapper)

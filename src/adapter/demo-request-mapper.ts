@@ -18,6 +18,7 @@ export function customRequestMapper(
   request: EmpathySearchRequest
 ): EmpathySearchRequest {
   return Object.assign(request, {
-    query: rawRequest.query
+    query: rawRequest.query,
+    q: undefined
   });
 }

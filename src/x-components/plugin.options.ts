@@ -3,7 +3,7 @@ import App from '../App.vue';
 import { I18n } from '../i18n/i18n.plugin';
 import * as messages from '../i18n/messages';
 import store from '../store';
-import { adapter } from './adapter';
+import { adapter } from '../adapter/adapter';
 
 export const installXOptions: InstallXOptions = {
   adapter,
