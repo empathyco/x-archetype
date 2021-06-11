@@ -64,7 +64,7 @@
   import { Sort, Spellcheck } from './body';
   import { Empathize } from './empathize';
   import { Facet, Facets } from './facets';
-  import { PartialResults, Recommendations, Results } from './results';
+  import { PartialResults, Recommendations, Results, Result } from './results';
   import SearchBox from './search-box.vue';
   import Result from '@/components/results/result.vue';
 
