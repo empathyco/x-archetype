@@ -41,6 +41,9 @@
     "sortBy": {
       "label": "Ordenar por"
     },
+    "selectedFilters": {
+      "clear": "Limpiar { selectedFiltersNumber } filtros"
+    },
     "noResults": {
       "message": "No se han encontrado resultados para '{query}'. Prueba con otra búsqueda."
     }

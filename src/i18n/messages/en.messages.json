@@ -41,6 +41,9 @@
     "sort": {
       "label": "Sort by"
     },
+    "selectedFilters": {
+      "clear": "Clear { selectedFiltersNumber } filters"
+    },
     "noResults": {
       "message": "No results found for '{query}'. Try with another query."
     }

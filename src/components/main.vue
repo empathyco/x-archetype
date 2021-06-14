@@ -41,15 +41,7 @@
     </template>
 
     <template #main-aside>
-      <SelectedFilters>
-        <template #default="{ selectedFilters }">
-          Filters selected: {{ selectedFilters.length }}
-        </template>
-      </SelectedFilters>
-      <SelectedFiltersList />
-      <ClearFilters v-slot="{ selectedFilters }" :alwaysVisible="false">
-        Clear {{ selectedFilters.length }} filters
-      </ClearFilters>
+      <SelectedFilters />
       <Facets />
     </template>
 
@@ -98,16 +90,16 @@
     SlidingPanel,
     StaggeredFadeAndSlide
   } from '@empathy/x-components';
-  import { ClearFilters, SelectedFilters, SelectedFiltersList } from '@empathy/x-components/facets';
   import { ResultsList } from '@empathy/x-components/search';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
-  import RelatedTags from './related-tags.vue';
-  import Spellcheck from './spellcheck.vue';
   import Empathize from './empathize.vue';
   import { Facet, Facets } from './facets';
+  import RelatedTags from './related-tags.vue';
   import { PartialResults, Recommendations, Result, Results } from './results';
   import SearchBox from './search-box.vue';
+  import SelectedFilters from './selected-filters.vue';
+  import Spellcheck from './spellcheck.vue';
   import Toolbar from './toolbar.vue';
 
   @Component({
@@ -119,7 +111,6 @@
       Close: BaseIdModalClose,
       CrossIcon,
       CrossTinyIcon,
-      ClearFilters,
       Empathize,
       Facets,
       Facet,
@@ -133,7 +124,6 @@
       ResultsList,
       SearchBox,
       Spellcheck,
-      SelectedFiltersList,
       SelectedFilters,
       SlidingPanel,
       ScrollToTop: BaseScrollToTop,

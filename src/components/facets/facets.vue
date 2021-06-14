@@ -1,5 +1,5 @@
 <template>
-  <Facets>
+  <Facets class="x-list--padding-05 x-list--padding-top">
     <template #default="{ facet }">
       <Facet :facet="facet">
         <AllFilter :facet="facet" />
