@@ -42,7 +42,7 @@
   }
 </style>
 <style>
-  * {
+  *:not(.x-keyboard-navigation *) {
     outline: none;
   }
 </style>

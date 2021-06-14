@@ -8,7 +8,7 @@
       "title": "Popular searches"
     },
     "historyQueries": {
-      "clear": "Clear history queries",
+      "clear": "Clear all",
       "removeLabel": "Remove {suggestion} from history queries",
       "title": "History Queries"
     },
@@ -30,6 +30,16 @@
       "price": "Price",
       "usage": "Usage",
       "season": "Season"
+    },
+    "toggleAside": {
+      "hideAside": "Hide Filters",
+      "showAside": "Show Filters"
+    },
+    "totalResults": {
+      "message": "{totalResults} results"
+    },
+    "noResults": {
+      "message": "No results found for '{query}'. Try with another query."
     }
   },
   "tablet": {

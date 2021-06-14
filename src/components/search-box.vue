@@ -1,6 +1,6 @@
 <template>
   <div class="x-input-group x-input-group--line x-list__item--expand">
-    <SearchIcon class="x-input-group__action" />
+    <SearchIcon />
     <SearchInput :placeholder="$t('searchBox.placeholder')" />
     <ClearSearchInput>{{ $t('searchBox.clear') }}</ClearSearchInput>
   </div>

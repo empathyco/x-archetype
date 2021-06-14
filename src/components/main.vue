@@ -1,5 +1,5 @@
 <template>
-  <Layout class="x-layout">
+  <Layout class="x-layout" :isAsideOpen="isAsideOpen">
     <template #header-middle>
       <div
         class="x-list x-list--vertical x-list--gap-05 x-list--align-stretch x-list__item--expand"
@@ -24,7 +24,24 @@
       <Empathize />
     </template>
 
+    <template #toolbar-aside>
+      <button
+        v-if="$x.totalResults > 0"
+        @click="isAsideOpen = !isAsideOpen"
+        class="x-button x-button--ghost"
+      >
+        <FiltersIcon />
+        <span v-if="isAsideOpen">{{ $t('toggleAside.hideAside') }}</span>
+        <span v-else>{{ $t('toggleAside.showAside') }}</span>
+      </button>
+    </template>
+
     <template #toolbar-body>
+      <div class="x-row">
+        <div class="x-row__item--span-9">
+          {{ $t('totalResults.message', { totalResults: $x.totalResults }) }}
+        </div>
+      </div>
       <nav v-if="$x.totalResults" class="x-toolbar">
         <ColumnPicker :columns="[4, 6]" />
         <Sort />
@@ -47,8 +64,11 @@
     <template #main-body>
       <Spellcheck />
 
-      <div v-if="!$x.totalResults && $x.query.searchBox" class="x-no-results">
-        <span>No results found for '{{ $x.query.search }}'.Try with another query.</span>
+      <div
+        v-if="!$x.totalResults && $x.query.search && $x.status.search !== 'loading'"
+        class="x-no-results"
+      >
+        <span v-html="$t('noResults.message', { query: $x.query.search })" />
       </div>
 
       <Recommendations v-if="!$x.totalResults" />
@@ -80,6 +100,7 @@
     CartIcon,
     CrossIcon,
     CrossTinyIcon,
+    FiltersIcon,
     infiniteScroll,
     Layout,
     PlusIcon,
@@ -92,7 +113,7 @@
   import { Component } from 'vue-property-decorator';
   import RelatedTags from './related-tags.vue';
   import { Sort, Spellcheck } from './body';
-  import { Empathize } from './empathize';
+  import Empathize from './empathize.vue';
   import { Facet, Facets } from './facets';
   import { PartialResults, Recommendations, Result, Results } from './results';
   import SearchBox from './search-box.vue';
@@ -109,6 +130,7 @@
       Empathize,
       Facets,
       Facet,
+      FiltersIcon,
       Layout,
       PlusIcon,
       Recommendations,
@@ -132,6 +154,7 @@
   })
   export default class Main extends Vue {
     protected resultsAnimation = StaggeredFadeAndSlide;
+    protected isAsideOpen = true;
   }
 </script>
 
