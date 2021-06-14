@@ -38,6 +38,9 @@
     "totalResults": {
       "message": "{totalResults} resultados"
     },
+    "sortBy": {
+      "label": "Ordenar por"
+    },
     "noResults": {
       "message": "No se han encontrado resultados para '{query}'. Prueba con otra búsqueda."
     }

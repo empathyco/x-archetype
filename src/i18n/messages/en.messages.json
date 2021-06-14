@@ -38,6 +38,9 @@
     "totalResults": {
       "message": "{totalResults} results"
     },
+    "sort": {
+      "label": "Sort by"
+    },
     "noResults": {
       "message": "No results found for '{query}'. Try with another query."
     }

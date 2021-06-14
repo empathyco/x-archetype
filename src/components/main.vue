@@ -37,15 +37,7 @@
     </template>
 
     <template #toolbar-body>
-      <div class="x-row">
-        <div class="x-row__item--span-9">
-          {{ $t('totalResults.message', { totalResults: $x.totalResults }) }}
-        </div>
-      </div>
-      <nav v-if="$x.totalResults" class="x-toolbar">
-        <ColumnPicker :columns="[4, 6]" />
-        <Sort />
-      </nav>
+      <Toolbar v-if="$x.totalResults" />
     </template>
 
     <template #main-aside>
@@ -92,7 +84,6 @@
 
 <script lang="ts">
   import {
-    BaseColumnPickerList,
     BaseIdModalClose,
     BaseScroll,
     BaseScrollToTop,
@@ -112,14 +103,16 @@
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
   import RelatedTags from './related-tags.vue';
-  import { Sort, Spellcheck } from './body';
+  import Spellcheck from './spellcheck.vue';
   import Empathize from './empathize.vue';
   import { Facet, Facets } from './facets';
   import { PartialResults, Recommendations, Result, Results } from './results';
   import SearchBox from './search-box.vue';
+  import Toolbar from './toolbar.vue';
 
   @Component({
     components: {
+      Toolbar,
       BaseScroll,
       BaseVariableColumnGrid,
       CartIcon,
@@ -143,9 +136,7 @@
       SelectedFiltersList,
       SelectedFilters,
       SlidingPanel,
-      ColumnPicker: BaseColumnPickerList,
       ScrollToTop: BaseScrollToTop,
-      Sort,
       PartialResults
     },
     directives: {
