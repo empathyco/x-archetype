@@ -11,11 +11,6 @@ import {
 import { Filter, Sort } from '@empathy/search-types';
 import { injectable, multiInject } from 'inversify';
 
-export declare enum SortDirection {
-  ASC = 'asc',
-  DESC = 'desc'
-}
-
 export interface PlatformSearchRequest {
   catalogue?: string;
   filter: string[];
@@ -25,7 +20,7 @@ export interface PlatformSearchRequest {
   rows?: number;
   scope?: string;
   sort?: string;
-  sortDirection?: SortDirection;
+  sortDirection?: string;
   start?: number;
   store?: string;
   warehouse?: string;
