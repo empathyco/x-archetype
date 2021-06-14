@@ -3,15 +3,16 @@ import {
   EmpathyAdapterBuilder,
   EmpathyFacetMapper,
   EmpathyNumberRangeFacetMapper,
+  EmpathyRequestParamsMapper,
   EmpathySimpleFacetMapper
 } from '@empathy/search-adapter';
 import { HierarchicalFacetMapper } from './demo-hierarchical-mapper';
-import { customRequestMapper } from './demo-request-mapper';
+import { SearchRequestMapper } from './demo-request-mapper';
 import { resultMapper } from './demo-result.mapper';
 
 export const adapter = new EmpathyAdapterBuilder()
-  .addRequestMapper(customRequestMapper)
   .addMapper(resultMapper, 'results')
+  .replaceClassRequestMapper(SearchRequestMapper)
   .setFeatureConfig('search', {
     endpoint: 'https://search.internal.test.empathy.co/query/empathy/search',
     responsePaths: {
@@ -45,6 +46,7 @@ export const adapter = new EmpathyAdapterBuilder()
     container.bind(DEPENDENCIES.ResponseMappers.facets).to(HierarchicalFacetMapper);
     container.bind(DEPENDENCIES.ResponseMappers.facets).to(EmpathyNumberRangeFacetMapper);
     container.bind(DEPENDENCIES.ResponseMappers.facets).to(EmpathySimpleFacetMapper);
+    container.bind(DEPENDENCIES.requestMappers).to(EmpathyRequestParamsMapper);
   })
   .setInstance('platform')
   .build();
