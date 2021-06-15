@@ -7,6 +7,7 @@ import {
   EmpathySimpleFacetMapper
 } from '@empathy/search-adapter';
 import { HierarchicalFacetMapper } from './demo-hierarchical-mapper';
+import { RequestFiltersMapper } from './demo-request-filters.mapper';
 import { SearchRequestMapper } from './demo-request-mapper';
 import { resultMapper } from './demo-result.mapper';
 
@@ -54,6 +55,7 @@ export const adapter = new EmpathyAdapterBuilder()
     container.bind(DEPENDENCIES.ResponseMappers.facets).to(HierarchicalFacetMapper);
     container.bind(DEPENDENCIES.ResponseMappers.facets).to(EmpathyNumberRangeFacetMapper);
     container.bind(DEPENDENCIES.ResponseMappers.facets).to(EmpathySimpleFacetMapper);
+    container.bind(DEPENDENCIES.RequestMappers.Parameters.filtersValue).to(RequestFiltersMapper);
     container.bind(DEPENDENCIES.requestMappers).to(EmpathyRequestParamsMapper);
   })
   .setInstance('platform')
