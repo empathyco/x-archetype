@@ -4,6 +4,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
 import path from 'path';
 import copy from 'rollup-plugin-copy';
 import del from 'rollup-plugin-delete';
@@ -18,7 +19,10 @@ import json from '@rollup/plugin-json';
 
 const jsOutputDirectory = path.join(process.cwd(), 'dist');
 
-const postCSSPlugins = [autoprefixer({ grid: true })];
+const postCSSPlugins = [
+  autoprefixer({ grid: true }),
+  cssnano({ preset: ['default', { mergeLonghand: false }] })
+];
 
 /**
  * Creates a rollup configuration for projects that use X-Components. This configuration can be customized with the options object.

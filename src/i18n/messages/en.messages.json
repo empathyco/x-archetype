@@ -31,6 +31,12 @@
       "usage": "Usage",
       "season": "Season"
     },
+    "filters": {
+      "all": "All"
+    },
+    "filtersSearch": {
+      "placeholder": "Search"
+    },
     "toggleAside": {
       "hideAside": "Hide Filters",
       "showAside": "Show Filters"

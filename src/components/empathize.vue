@@ -12,7 +12,7 @@
     </QuerySuggestions>
 
     <div
-      v-if="$x.nextQueries.length > 0 && !$x.query.searchBox"
+      v-if="$x.nextQueries.length > 0"
       class="x-row__item x-row__item--span-4 x-list x-list--gap-03"
     >
       <h1 class="x-title3 x-list x-list--horizontal x-list--gap-03 x-list--align-center">

@@ -94,7 +94,7 @@
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
   import Empathize from './empathize.vue';
-  import { Facet, Facets } from './facets';
+  import Facets from './facets/facets.vue';
   import RelatedTags from './related-tags.vue';
   import { PartialResults, Recommendations, Result, Results } from './results';
   import SearchBox from './search-box.vue';
@@ -113,7 +113,6 @@
       CrossTinyIcon,
       Empathize,
       Facets,
-      Facet,
       FiltersIcon,
       Layout,
       PlusIcon,
