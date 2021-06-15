@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div class="x-list x-list--horizontal x-list--justify-center">
-      <BaseIdModalOpen modalId="x-components-app">Start</BaseIdModalOpen>
-    </div>
+    <BaseIdModalOpen class="x-start" modalId="x-components-app">Start</BaseIdModalOpen>
 
     <BaseIdModal
       @click.stop.native
@@ -20,6 +18,7 @@
   import { BaseIdModalOpen, BaseIdModal, CollapseFromTop } from '@empathy/x-components';
   import Main from './components/main.vue';
   import '@empathy/x-components/css/full-theme.css';
+  import './design-system/tokens.scss';
 
   @Component({
     components: {
@@ -39,6 +38,13 @@
     height: 100%;
     background-color: white;
     overflow: auto;
+  }
+
+  .x-start {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 </style>
 <style>

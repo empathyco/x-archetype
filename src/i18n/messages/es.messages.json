@@ -55,6 +55,9 @@
     "selectedFilters": {
       "clear": "Limpiar { selectedFiltersNumber } filtros"
     },
+    "result": {
+      "addToCart": "AÑADIR AL CARRITO"
+    },
     "noResults": {
       "message": "No se han encontrado resultados para '{query}'. Prueba con otra búsqueda."
     }

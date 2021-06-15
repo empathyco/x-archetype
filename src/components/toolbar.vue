@@ -9,10 +9,10 @@
       <span v-else>{{ column }}</span>
     </ColumnPicker>
 
-    <SortDropdown v-if="$x.totalResults" :items="sortValues">
+    <SortDropdown v-if="$x.totalResults" class="x-dropdown--l" :items="sortValues">
       <template #toggle="{ item, isOpen }">
         <span class="x-text">{{ $t('sort.label') }}</span>
-        {{ item || 'Default' }}
+        <span class="x-list__item--expand">{{ item || 'Default' }}</span>
         <ChevronTinyUpIcon v-if="isOpen" />
         <ChevronTinyDownIcon v-else />
       </template>

@@ -70,6 +70,7 @@
           <template #layout="{ recommendations }">
             <BaseVariableColumnGrid
               #default="{ item: result }"
+              class="x-grid"
               :animation="resultsAnimation"
               :items="recommendations"
             >
@@ -83,6 +84,7 @@
         <template #layout="{ results }">
           <BaseVariableColumnGrid
             #default="{ item: result }"
+            class="x-grid"
             :animation="resultsAnimation"
             :items="results"
           >
@@ -168,5 +170,11 @@
 <style scoped>
   .x-layout {
     height: 100%;
+  }
+</style>
+
+<style>
+  .x-grid .x-staggered-fade-and-slide--leave-active {
+    position: unset !important;
   }
 </style>

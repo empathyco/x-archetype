@@ -3,13 +3,20 @@
     <BaseResultLink class="x-result__picture" :result="result">
       <BaseResultImage class="x-picture--colored" :result="result">
         <template #placeholder>
-          <div style="padding-top: 100%; background-color: lightgray"></div>
+          <BasePlaceholderImage />
         </template>
         <template #fallback>
-          <div style="padding-top: 100%; background-color: lightsalmon"></div>
+          <BaseFallbackImage />
         </template>
       </BaseResultImage>
     </BaseResultLink>
+
+    <div class="x-result__overlay x-list">
+      <BaseAddToCart class="x-list__item--expand">
+        {{ $t('result.addToCart') }}
+      </BaseAddToCart>
+    </div>
+
     <BaseResultLink class="x-result__description x-list x-list--gap-04" :result="result">
       <div class="x-list x-list--gap-02">
         <h1 class="x-small x-text--bold">{{ result.season }}</h1>
@@ -26,11 +33,21 @@
 
 <script lang="ts">
   import { Result } from '@empathy/search-types';
-  import { BaseResultLink, BaseResultImage, BaseResultCurrentPrice } from '@empathy/x-components';
+  import {
+    BaseAddToCart,
+    BaseResultLink,
+    BaseResultImage,
+    BaseResultCurrentPrice,
+    BasePlaceholderImage,
+    BaseFallbackImage
+  } from '@empathy/x-components';
   import { Component, Prop, Vue } from 'vue-property-decorator';
 
   @Component({
     components: {
+      BaseAddToCart,
+      BaseFallbackImage,
+      BasePlaceholderImage,
       BaseResultCurrentPrice,
       BaseResultImage,
       BaseResultLink
