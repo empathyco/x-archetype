@@ -25,14 +25,19 @@
       "title": "Recomendaciones"
     },
     "facets": {
-      "gender": "Género",
-      "categoryPaths": "Categorías",
-      "price": "Precio",
-      "usage": "Uso",
-      "season": "Temporada"
+      "gender": "GÉNERO",
+      "categoryPaths": "CATEGORÍAS",
+      "price": "PRECI",
+      "usage": "USO",
+      "season": "TEMPORADA"
     },
     "filters": {
       "all": "Todo"
+    },
+    "priceFilter": {
+      "lessThan": "hasta {max}",
+      "fromTo": "{min} - {max}",
+      "from": "desde {min}"
     },
     "filtersSearch": {
       "placeholder": "Buscar"

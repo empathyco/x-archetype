@@ -99,10 +99,10 @@
             <template #default="{ filter }">
               <BasePriceFilterLabel
                 :filter="filter"
-                :configCurrency="{ format: 'i €' }"
-                lessThan="Less than {max}"
-                fromTo="From {min} to {max}"
-                from="More than {min}"
+                format="i €"
+                :lessThan="$t('priceFilter.lessThan')"
+                :fromTo="$t('priceFilter.fromTo')"
+                :from="$t('priceFilter.from')"
               />
             </template>
           </NumberRangeFilter>

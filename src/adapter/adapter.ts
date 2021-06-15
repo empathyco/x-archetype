@@ -9,9 +9,11 @@ import {
 import { HierarchicalFacetMapper } from './demo-hierarchical-mapper';
 import { SearchRequestMapper } from './demo-request-mapper';
 import { resultMapper } from './demo-result.mapper';
+import { priceFilterMapper } from './demo-price-filter-mapper';
 
 export const adapter = new EmpathyAdapterBuilder()
   .addMapper(resultMapper, 'results')
+  .addMapper(priceFilterMapper, 'numberRangeFilter')
   .replaceClassRequestMapper(SearchRequestMapper)
   .setFeatureConfig('search', {
     endpoint: 'https://search.internal.test.empathy.co/query/empathy/search',
@@ -48,6 +50,7 @@ export const adapter = new EmpathyAdapterBuilder()
     }
   })
   .setFacetConfig({ modelName: 'HierarchicalFacet' }, 'categoryPaths')
+  .setFacetConfig({ modelName: 'NumberRangeFacet' }, 'price')
   .configureContainer(container => {
     container.unbind(DEPENDENCIES.ResponseMappers.facets);
     container.bind(DEPENDENCIES.ResponseMappers.facets).to(EmpathyFacetMapper);

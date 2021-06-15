@@ -1,13 +1,15 @@
 <template>
   <div class="x-list x-list--horizontal x-list--gap-06 x-list--justify-end x-list--align-center">
-    <span>{{ $t('totalResults.message', { totalResults: $x.totalResults }) }}</span>
+    <span v-if="$x.totalResults">
+      {{ $t('totalResults.message', { totalResults: $x.totalResults }) }}
+    </span>
 
     <ColumnPicker #default="{ column }" :columns="columnsValues">
       <span v-if="column === 0">auto</span>
       <span v-else>{{ column }}</span>
     </ColumnPicker>
 
-    <SortDropdown :items="sortValues">
+    <SortDropdown v-if="$x.totalResults" :items="sortValues">
       <template #toggle="{ item, isOpen }">
         <span class="x-text">{{ $t('sort.label') }}</span>
         {{ item || 'Default' }}

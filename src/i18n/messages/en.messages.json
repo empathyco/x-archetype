@@ -25,14 +25,19 @@
       "title": "Recommendations"
     },
     "facets": {
-      "gender": "Gender",
-      "categoryPaths": "Categories",
-      "price": "Price",
-      "usage": "Usage",
-      "season": "Season"
+      "gender": "GENDER",
+      "categoryPaths": "CATEGORIES",
+      "price": "PRICE",
+      "usage": "USAGE",
+      "season": "SEASON"
     },
     "filters": {
       "all": "All"
+    },
+    "priceFilter": {
+      "lessThan": "less than {max}",
+      "fromTo": "{min} - {max}",
+      "from": "from {min}"
     },
     "filtersSearch": {
       "placeholder": "Search"

@@ -1,11 +1,17 @@
 <template>
   <Layout class="x-layout" :isAsideOpen="isAsideOpen">
+    <template #header-start>
+      <div class="x-list x-list--padding-top x-list--padding-04">
+        <Logo />
+      </div>
+    </template>
+
     <template #header-middle>
       <div
         class="x-list x-list--vertical x-list--gap-05 x-list--align-stretch x-list__item--expand"
       >
         <SearchBox />
-        <RelatedTags />
+        <RelatedTags v-if="!$x.isEmpathizeOpen" />
       </div>
     </template>
 
@@ -37,7 +43,7 @@
     </template>
 
     <template #toolbar-body>
-      <Toolbar v-if="$x.totalResults" />
+      <Toolbar />
     </template>
 
     <template #main-aside>
@@ -107,8 +113,10 @@
   import { Component } from 'vue-property-decorator';
   import Empathize from './empathize.vue';
   import Facets from './facets/facets.vue';
+  import Logo from './logo.vue';
   import RelatedTags from './related-tags.vue';
-  import { PartialResults, Result, Results } from './results';
+  import Result from './results/result.vue';
+  import PartialResults from './results/partial-results.vue';
   import SearchBox from './search-box.vue';
   import SelectedFilters from './selected-filters.vue';
   import Spellcheck from './spellcheck.vue';
@@ -116,6 +124,7 @@
 
   @Component({
     components: {
+      Logo,
       Toolbar,
       BaseScroll,
       BaseVariableColumnGrid,
@@ -131,7 +140,6 @@
       Recommendations,
       RelatedTags,
       Result,
-      Results,
       ResultsList,
       SearchBox,
       Spellcheck,
