@@ -55,7 +55,18 @@
         <span v-html="$t('noResults.message', { query: $x.query.search })" />
       </div>
 
-      <Recommendations v-if="!$x.totalResults" />
+      <Recommendations v-if="!$x.totalResults">
+        <template #layout="{ recommendations }">
+          <BaseVariableColumnGrid
+            #default="{ item: result }"
+            :animation="resultsAnimation"
+            :items="recommendations"
+          >
+            <Result :result="result" />
+          </BaseVariableColumnGrid>
+        </template>
+      </Recommendations>
+
       <ResultsList v-infinite-scroll:body-scroll>
         <template #layout="{ results }">
           <BaseVariableColumnGrid
@@ -91,12 +102,13 @@
     StaggeredFadeAndSlide
   } from '@empathy/x-components';
   import { ResultsList } from '@empathy/x-components/search';
+  import { Recommendations } from '@empathy/x-components/recommendations';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
   import Empathize from './empathize.vue';
   import Facets from './facets/facets.vue';
   import RelatedTags from './related-tags.vue';
-  import { PartialResults, Recommendations, Result, Results } from './results';
+  import { PartialResults, Result, Results } from './results';
   import SearchBox from './search-box.vue';
   import SelectedFilters from './selected-filters.vue';
   import Spellcheck from './spellcheck.vue';
