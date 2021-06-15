@@ -20,7 +20,8 @@ export const adapter = new EmpathyAdapterBuilder()
     responsePaths: {
       results: 'catalog.content',
       facets: 'catalog.facets',
-      totalResults: 'catalog.numFound'
+      totalResults: 'catalog.numFound',
+      spellcheck: 'catalog.spellchecked'
     }
   })
   .setFeatureConfig('relatedTags', {
