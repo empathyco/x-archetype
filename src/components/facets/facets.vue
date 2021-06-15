@@ -1,5 +1,5 @@
 <template>
-  <Facets>
+  <Facets class="x-list--padding-05 x-list--padding-top">
     <template #default="{ facet }">
       <Facet :facet="facet">
         <AllFilter :facet="facet" />
@@ -38,13 +38,13 @@
   import { BaseHeaderTogglePanel, StaggeredFadeAndSlide } from '@empathy/x-components';
   import {
     SimpleFilter,
+    HierarchicalFilter,
     MultiSelectFilters,
     AllFilter,
     Facets,
     SlicedFilters,
     SelectedFilters,
-    Filters,
-    HierarchicalFilter
+    Filters
   } from '@empathy/x-components/facets';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
@@ -55,6 +55,7 @@
   @Component({
     components: {
       BaseHeaderTogglePanel,
+      HierarchicalFilter,
       SearchableFilters,
       StaggeredFadeAndSlide,
       NumberRangeFilters,
@@ -64,7 +65,6 @@
       Facets,
       Facet: FacetComponent,
       Filters,
-      HierarchicalFilter,
       SlicedFilters,
       SelectedFilters
     }

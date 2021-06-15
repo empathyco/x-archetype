@@ -1,6 +1,8 @@
 <template>
   <div>
-    <BaseIdModalOpen modalId="x-components-app">Open X</BaseIdModalOpen>
+    <div class="x-list x-list--horizontal x-list--justify-center">
+      <BaseIdModalOpen modalId="x-components-app">Start</BaseIdModalOpen>
+    </div>
 
     <BaseIdModal
       @click.stop.native
@@ -8,7 +10,7 @@
       modalId="x-components-app"
       :animation="collapseFromTop"
     >
-      <Layout />
+      <Main />
     </BaseIdModal>
   </div>
 </template>
@@ -16,11 +18,12 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { BaseIdModalOpen, BaseIdModal, CollapseFromTop } from '@empathy/x-components';
-  import Layout from './components/layout.vue';
+  import Main from './components/main.vue';
+  import '@empathy/x-components/css/full-theme.css';
 
   @Component({
     components: {
-      Layout,
+      Main,
       BaseIdModalOpen,
       BaseIdModal
     }
@@ -36,5 +39,10 @@
     height: 100%;
     background-color: white;
     overflow: auto;
+  }
+</style>
+<style>
+  *:not(.x-keyboard-navigation *) {
+    outline: none;
   }
 </style>

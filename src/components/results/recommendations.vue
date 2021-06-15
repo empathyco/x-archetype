@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ $t('recommendations.title') }}</h1>
+    <h1 v-if="$x.recommendations.length > 0">{{ $t('recommendations.title') }}</h1>
     <Recommendations
       #default="{ recommendation }"
       :animation="staggeredFadeAndSlide"

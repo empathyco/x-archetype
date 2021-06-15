@@ -30,6 +30,22 @@
       "price": "Precio",
       "usage": "Uso",
       "season": "Temporada"
+    },
+    "toggleAside": {
+      "hideAside": "Ocultar Filtros",
+      "showAside": "Mostrar Filters"
+    },
+    "totalResults": {
+      "message": "{totalResults} resultados"
+    },
+    "sortBy": {
+      "label": "Ordenar por"
+    },
+    "selectedFilters": {
+      "clear": "Limpiar { selectedFiltersNumber } filtros"
+    },
+    "noResults": {
+      "message": "No se han encontrado resultados para '{query}'. Prueba con otra búsqueda."
     }
   },
   "tablet": {
