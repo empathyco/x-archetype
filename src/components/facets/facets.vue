@@ -8,7 +8,7 @@
           <span>{{ $t('filters.all') }}</span>
         </AllFilter>
 
-        <SlicedFilters :max="8" :filters="facet.filters">
+        <SlicedFilters :max="6" :filters="facet.filters">
           <MultiSelectFilters
             #default="{ filter }"
             class="x-list--gap-03"
@@ -42,7 +42,7 @@
           :animation="staggeredFadeAndSlide"
         >
           <HierarchicalFilter :filter="filter">
-            <template #label>
+            <template #label="{ filter }">
               <CheckboxCardSelectedIcon v-if="filter.selected" />
               <CheckboxCardUnselectedIcon v-else />
               <span class="x-filter__label">{{ filter.label }}</span>

@@ -63,23 +63,23 @@
 
       <div
         v-if="!$x.totalResults && $x.recommendations.length > 0"
-        class="x-list x-list--align-center x-list--padding-07 x-list--padding-bottom"
+        class="x-list x-list--align-center x-list--padding-07 x-list--gap-07 x-list--padding-bottom"
       >
         <h1 class="x-title1 x-text--bold">{{ $t('recommendations.title') }}</h1>
+        <Recommendations v-if="!$x.totalResults">
+          <template #layout="{ recommendations }">
+            <BaseVariableColumnGrid
+              #default="{ item: result }"
+              :animation="resultsAnimation"
+              :items="recommendations"
+            >
+              <Result :result="result" />
+            </BaseVariableColumnGrid>
+          </template>
+        </Recommendations>
       </div>
-      <Recommendations v-if="!$x.totalResults">
-        <template #layout="{ recommendations }">
-          <BaseVariableColumnGrid
-            #default="{ item: result }"
-            :animation="resultsAnimation"
-            :items="recommendations"
-          >
-            <Result :result="result" />
-          </BaseVariableColumnGrid>
-        </template>
-      </Recommendations>
 
-      <ResultsList v-infinite-scroll:body-scroll>
+      <ResultsList v-if="$x.totalResults" v-infinite-scroll:body-scroll>
         <template #layout="{ results }">
           <BaseVariableColumnGrid
             #default="{ item: result }"
@@ -90,6 +90,7 @@
           </BaseVariableColumnGrid>
         </template>
       </ResultsList>
+
       <PartialResults />
 
       <ScrollToTop scroll-id="mainScroll" :threshold-px="100">⬆</ScrollToTop>
