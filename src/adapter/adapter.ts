@@ -39,6 +39,14 @@ export const adapter = new EmpathyAdapterBuilder()
       topTrends: 'data.topTrends'
     }
   })
+  .setFeatureConfig('topRecommendations', {
+    endpoint:
+      'https://search.internal.test.empathy.co/query/empathy/search?' +
+      'scope=desktop&lang=en&device=mobile&rows=24&start=0&origin=default&query=b',
+    responsePaths: {
+      results: 'catalog.content'
+    }
+  })
   .setFacetConfig({ modelName: 'HierarchicalFacet' }, 'categoryPaths')
   .configureContainer(container => {
     container.unbind(DEPENDENCIES.ResponseMappers.facets);
