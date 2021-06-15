@@ -6,19 +6,13 @@
 
     <SelectedFiltersList class="x-list--wrap x-list--justify-stretch x-list--gap-05">
       <template #default="{ filter }">
-        <SimpleFilter :filter="filter" />
+        <SimpleFilter class="x-tag" :filter="filter" />
       </template>
 
       <template #price="{ filter }">
-        <NumberRangeFilter :filter="filter">
+        <NumberRangeFilter class="x-tag" :filter="filter">
           <template #default="{ filter }">
-            <BasePriceFilterLabel
-              :filter="filter"
-              format="i €"
-              :lessThan="$t('priceFilter.lessThan')"
-              :fromTo="$t('priceFilter.fromTo')"
-              :from="$t('priceFilter.from')"
-            />
+            <PriceFilterLabel :filter="filter" />
           </template>
         </NumberRangeFilter>
       </template>
@@ -27,7 +21,6 @@
 </template>
 
 <script lang="ts">
-  import { BasePriceFilterLabel } from '@empathy/x-components';
   import {
     ClearFilters,
     NumberRangeFilter,
@@ -36,15 +29,16 @@
   } from '@empathy/x-components/facets';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
+  import PriceFilterLabel from './price-filter-label.vue';
 
   @Component({
     components: {
-      BasePriceFilterLabel,
+      PriceFilterLabel,
       ClearFilters,
       SelectedFiltersList,
       NumberRangeFilter,
       SimpleFilter
     }
   })
-  export default class SelectedFilters extends Vue {}
+  export default class SelectedFiltersComponent extends Vue {}
 </script>

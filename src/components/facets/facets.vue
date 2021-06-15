@@ -97,13 +97,9 @@
         >
           <NumberRangeFilter :filter="filter">
             <template #default="{ filter }">
-              <BasePriceFilterLabel
-                :filter="filter"
-                format="i €"
-                :lessThan="$t('priceFilter.lessThan')"
-                :fromTo="$t('priceFilter.fromTo')"
-                :from="$t('priceFilter.from')"
-              />
+              <CheckboxCardSelectedIcon v-if="filter.selected" />
+              <CheckboxCardUnselectedIcon v-else />
+              <PriceFilterLabel :filter="filter" />
             </template>
           </NumberRangeFilter>
         </Filters>
@@ -117,8 +113,7 @@
     BaseHeaderTogglePanel,
     StaggeredFadeAndSlide,
     CheckboxCardUnselectedIcon,
-    CheckboxCardSelectedIcon,
-    BasePriceFilterLabel
+    CheckboxCardSelectedIcon
   } from '@empathy/x-components';
   import {
     SimpleFilter,
@@ -134,13 +129,13 @@
   } from '@empathy/x-components/facets';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
+  import PriceFilterLabel from '../price-filter-label.vue';
   import Facet from './facet.vue';
 
   @Component({
     components: {
       AllFilter,
       BaseHeaderTogglePanel,
-      BasePriceFilterLabel,
       CheckboxCardUnselectedIcon,
       CheckboxCardSelectedIcon,
       Facet,
@@ -150,6 +145,7 @@
       HierarchicalFilter,
       MultiSelectFilters,
       NumberRangeFilter,
+      PriceFilterLabel,
       SelectedFilters,
       SimpleFilter,
       SlicedFilters,

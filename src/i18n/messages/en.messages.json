@@ -22,7 +22,7 @@
       "title": "SKU Search"
     },
     "recommendations": {
-      "title": "Recommendations"
+      "title": "Top Clicked"
     },
     "facets": {
       "gender": "GENDER",

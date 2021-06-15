@@ -34,7 +34,7 @@
       <button
         v-if="$x.totalResults > 0"
         @click="isAsideOpen = !isAsideOpen"
-        class="x-button x-button--ghost"
+        class="x-button x-button--ghost x-button--ghost-start"
       >
         <FiltersIcon />
         <span v-if="isAsideOpen">{{ $t('toggleAside.hideAside') }}</span>
@@ -47,8 +47,8 @@
     </template>
 
     <template #main-aside>
-      <SelectedFilters />
-      <Facets />
+      <SelectedFilters v-if="$x.totalResults > 0" />
+      <Facets v-if="$x.totalResults > 0" />
     </template>
 
     <template #main-body>
@@ -61,6 +61,12 @@
         <span v-html="$t('noResults.message', { query: $x.query.search })" />
       </div>
 
+      <div
+        v-if="!$x.totalResults && $x.recommendations.length > 0"
+        class="x-list x-list--align-center x-list--padding-07 x-list--padding-bottom"
+      >
+        <h1 class="x-title1 x-text--bold">{{ $t('recommendations.title') }}</h1>
+      </div>
       <Recommendations v-if="!$x.totalResults">
         <template #layout="{ recommendations }">
           <BaseVariableColumnGrid

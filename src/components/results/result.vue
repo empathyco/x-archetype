@@ -1,5 +1,5 @@
 <template>
-  <article class="x-result" style="max-width: 300px">
+  <article class="x-result">
     <BaseResultLink class="x-result__picture" :result="result">
       <BaseResultImage class="x-picture--colored" :result="result">
         <template #placeholder>
@@ -15,7 +15,11 @@
         <h1 class="x-small x-text--bold">{{ result.season }}</h1>
         <h2 class="x-text x-text--secondary x-ellipsis">{{ result.name }}</h2>
       </div>
-      <BaseResultCurrentPrice :result="result" class="x-text x-text--accent x-text--bold" />
+      <BaseResultCurrentPrice
+        format="i,iii.dd €"
+        :result="result"
+        class="x-text x-text--accent x-text--bold"
+      />
     </BaseResultLink>
   </article>
 </template>
