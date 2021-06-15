@@ -17,11 +17,9 @@
   import { ClearFilters, SelectedFiltersList, SimpleFilter } from '@empathy/x-components/facets';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
-  import { BasePriceFilterLabel } from '@empathy/x-components';
 
   @Component({
     components: {
-      BasePriceFilterLabel,
       ClearFilters,
       SelectedFiltersList,
       SimpleFilter
