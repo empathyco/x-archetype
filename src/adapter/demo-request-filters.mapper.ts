@@ -8,7 +8,10 @@ export class RequestFiltersMapper implements RequestMapper<Filter[], string[]> {
     if (filters.length > 1) {
       return filters
         .filter(filter => {
-          return (isHierarchicalFilter(filter) && filter.parentId) || !isHierarchicalFilter(filter);
+          return (
+            !isHierarchicalFilter(filter) ||
+            !filters.some(f => isHierarchicalFilter(f) && f.parentId === filter.id)
+          );
         })
         .map(filter => (filter as BooleanFilter).value);
     } else {
