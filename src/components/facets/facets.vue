@@ -26,7 +26,7 @@
       </Facet>
     </template>
 
-    <template #price="{ facet }">
+    <template #price_facet="{ facet }">
       <Facet :facet="facet">
         <NumberRangeFilters :filters="facet.filters" />
       </Facet>

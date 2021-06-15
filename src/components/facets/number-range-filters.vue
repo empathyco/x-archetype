@@ -1,22 +1,31 @@
 <template>
   <Filters v-slot="{ filter }" :filters="filters" :animation="staggeredFadeAndSlide">
-    <CustomNumberRangeFilter :filter="filter" />
+    <NumberRangeFilter :filter="filter">
+      <template #default="{ filter }">
+        <BasePriceFilterLabel
+          :filter="filter"
+          :configCurrency="{ format: 'i €' }"
+          lessThan="Less than {max}"
+          fromTo="From {min} to {max}"
+          from="More than {min}"
+        />
+      </template>
+    </NumberRangeFilter>
   </Filters>
 </template>
 
 <script lang="ts">
   import { Filter } from '@empathy/search-types';
   import { BasePriceFilterLabel, StaggeredFadeAndSlide } from '@empathy/x-components';
-  import { Filters } from '@empathy/x-components/facets';
+  import { NumberRangeFilter, Filters } from '@empathy/x-components/facets';
   import Vue from 'vue';
   import { Component, Prop } from 'vue-property-decorator';
-  import CustomNumberRangeFilter from './number-range-filter.vue';
 
   @Component({
     components: {
       Filters,
       BasePriceFilterLabel,
-      CustomNumberRangeFilter,
+      NumberRangeFilter,
       StaggeredFadeAndSlide
     }
   })

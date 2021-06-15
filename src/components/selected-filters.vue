@@ -8,8 +8,7 @@
       #default="{ filter }"
       class="x-list--wrap x-list--justify-stretch x-list--gap-05"
     >
-      <CustomNumberRangeFilter v-if="filter.modelName === 'NumberRangeFilter'" :filter="filter" />
-      <SimpleFilter v-else :filter="filter" />
+      <SimpleFilter :filter="filter" />
     </SelectedFiltersList>
   </div>
 </template>
@@ -19,11 +18,9 @@
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
   import { BasePriceFilterLabel } from '@empathy/x-components';
-  import CustomNumberRangeFilter from './facets/number-range-filter.vue';
 
   @Component({
     components: {
-      CustomNumberRangeFilter,
       BasePriceFilterLabel,
       ClearFilters,
       SelectedFiltersList,
