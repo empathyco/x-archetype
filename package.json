@@ -1,7 +1,7 @@
 {
   "name": "@empathyco/x-archetype",
   "author": "Empathy Systems Corporation S.L.",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "license": "Apache-2.0",
   "homepage": "https://github.com/empathyco/x-archetype",
   "description": "Starting point to setup a X Components project",
