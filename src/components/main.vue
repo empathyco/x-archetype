@@ -57,7 +57,7 @@
         class="x-list x-list--padding-06 x-list--padding-bottom"
       >
         <Spellcheck />
-        <NoResults v-if="!spellcheckedQuery" />
+        <NoResults />
       </div>
 
       <div

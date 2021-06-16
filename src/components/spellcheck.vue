@@ -1,5 +1,6 @@
 <template>
   <Spellcheck
+    v-if="$x.totalResults > 0"
     #default="{ query }"
     class="x-message x-list x-list--wrap x-list--justify-center x-list--align-center"
   >
