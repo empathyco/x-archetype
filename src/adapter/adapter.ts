@@ -48,7 +48,7 @@ export const adapter = new EmpathyAdapterBuilder()
   .setFeatureConfig('topRecommendations', {
     endpoint:
       'https://search.internal.{env}.empathy.co/query/empathy/search?' +
-      'scope=desktop&lang=en&device=mobile&rows=24&start=0&origin=default&query=c',
+      'scope=desktop&lang=en&device=mobile&rows=24&start=0&origin=default&query=e',
     responsePaths: {
       results: 'catalog.content'
     }
