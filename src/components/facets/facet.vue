@@ -2,8 +2,8 @@
   <BaseHeaderTogglePanel class="x-facet" :startCollapsed="true" :animation="collapseFromTop">
     <template #header-content="{ open }">
       <span>{{ $t(`facets.${facet.label}`) }}</span>
-      <ChevronUpIcon v-if="open" />
-      <ChevronDownIcon v-else />
+      <ChevronDownIcon v-if="open" class="x-icon__up" />
+      <ChevronDownIcon v-else class="x-icon__down" />
     </template>
     <slot />
   </BaseHeaderTogglePanel>
@@ -35,3 +35,16 @@
     public facet?: Facet;
   }
 </script>
+
+<style scoped lang="scss">
+  .x-icon {
+    transition: transform 0.3s ease-in-out;
+    &__up {
+      transform: rotate(180deg);
+    }
+
+    &__down {
+      transform: rotate(0deg);
+    }
+  }
+</style>
