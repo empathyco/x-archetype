@@ -52,13 +52,12 @@
     </template>
 
     <template #main-body>
-      <Spellcheck />
-
       <div
-        v-if="!$x.totalResults && $x.query.search && $x.status.search !== 'loading'"
-        class="x-no-results"
+        v-if="$x.totalResults === 0 || spellcheckedQuery"
+        class="x-list x-list--padding-06 x-list--padding-bottom"
       >
-        <span v-html="$t('noResults.message', { query: $x.query.search })" />
+        <Spellcheck />
+        <NoResults v-if="!spellcheckedQuery" />
       </div>
 
       <div
@@ -114,7 +113,8 @@
     Layout,
     PlusIcon,
     SlidingPanel,
-    StaggeredFadeAndSlide
+    StaggeredFadeAndSlide,
+    State
   } from '@empathy/x-components';
   import { ResultsList } from '@empathy/x-components/search';
   import { Recommendations } from '@empathy/x-components/recommendations';
@@ -123,6 +123,7 @@
   import Empathize from './empathize.vue';
   import Facets from './facets/facets.vue';
   import Logo from './logo.vue';
+  import NoResults from './no-results.vue';
   import RelatedTags from './related-tags.vue';
   import Result from './results/result.vue';
   import PartialResults from './results/partial-results.vue';
@@ -133,8 +134,6 @@
 
   @Component({
     components: {
-      Logo,
-      Toolbar,
       BaseScroll,
       BaseVariableColumnGrid,
       CartIcon,
@@ -145,6 +144,9 @@
       Facets,
       FiltersIcon,
       Layout,
+      Logo,
+      NoResults,
+      PartialResults,
       PlusIcon,
       Recommendations,
       RelatedTags,
@@ -155,7 +157,7 @@
       SelectedFilters,
       SlidingPanel,
       ScrollToTop: BaseScrollToTop,
-      PartialResults
+      Toolbar
     },
     directives: {
       'infinite-scroll': infiniteScroll
@@ -164,6 +166,9 @@
   export default class Main extends Vue {
     protected resultsAnimation = StaggeredFadeAndSlide;
     protected isAsideOpen = true;
+
+    @State('search', 'spellcheckedQuery')
+    public spellcheckedQuery!: string;
   }
 </script>
 

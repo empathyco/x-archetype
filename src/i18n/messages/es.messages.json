@@ -58,6 +58,9 @@
     "result": {
       "addToCart": "AÑADIR AL CARRITO"
     },
+    "spellcheck": {
+      "message": "No se han encontrado resultados para <span class=\"x-text--accent\">'{query}'</span>. Aquí tienes resultados para"
+    },
     "noResults": {
       "message": "No se han encontrado resultados para '{query}'. Prueba con otra búsqueda."
     }

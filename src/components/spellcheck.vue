@@ -1,9 +1,10 @@
 <template>
-  <Spellcheck>
-    <template #default="{ query }">
-      No results found for '{{ query }}'. We show you results for
-      <SpellcheckButton />
-    </template>
+  <Spellcheck
+    #default="{ query }"
+    class="x-message x-list x-list--wrap x-list--justify-center x-list--align-center"
+  >
+    <span v-html="$t('spellcheck.message', { query })" class="x-text" />
+    <SpellcheckButton class="x-button x-button--ghost" />
   </Spellcheck>
 </template>
 

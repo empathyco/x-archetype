@@ -47,8 +47,34 @@
     transform: translate(-50%, -50%);
   }
 </style>
-<style>
+<style lang="scss">
+  :root {
+    //color
+    --x-color-background-message: var(--x-color-neutral-95);
+    --x-color-border-message: var(--x-color-background-message);
+    --x-color-texxt-message: var(--x-color-text);
+
+    //border
+    --x-border-width-message: var(--x-border-width);
+
+    //spacing
+    --x-space-padding-message: var(--x-space-06);
+  }
+
   *:not(.x-keyboard-navigation *) {
     outline: none;
+  }
+
+  .x-message {
+    // color
+    background-color: var(--x-color-background-message);
+    border-style: solid;
+    border-color: var(--x-color-border-message);
+
+    // border
+    border-width: var(--x-border-width-message);
+
+    // spacing
+    padding: var(--x-space-padding-message);
   }
 </style>

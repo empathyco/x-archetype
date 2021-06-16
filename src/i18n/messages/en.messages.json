@@ -58,8 +58,11 @@
     "result": {
       "addToCart": "ADD TO CART"
     },
+    "spellcheck": {
+      "message": "No results found for <span class=\"x-text x-text--accent x-text--bold\">'{query}'</span>. We show you results for"
+    },
     "noResults": {
-      "message": "No results found for '{query}'. Try with another query."
+      "message": "No results found for <span class=\"x-text x-text--accent x-text--bold\">'{query}'</span>. Try with another query."
     }
   },
   "tablet": {
