@@ -94,7 +94,9 @@
 
       <PartialResults />
 
-      <ScrollToTop scroll-id="mainScroll" :threshold-px="100">⬆</ScrollToTop>
+      <ScrollToTop class="x-button--round" scroll-id="mainScroll" :threshold-px="100">
+        <ChevronUpIcon />
+      </ScrollToTop>
     </template>
   </Layout>
 </template>
@@ -106,6 +108,7 @@
     BaseScrollToTop,
     BaseVariableColumnGrid,
     CartIcon,
+    ChevronUpIcon,
     CrossIcon,
     CrossTinyIcon,
     FiltersIcon,
@@ -137,6 +140,7 @@
       BaseScroll,
       BaseVariableColumnGrid,
       CartIcon,
+      ChevronUpIcon,
       Close: BaseIdModalClose,
       CrossIcon,
       CrossTinyIcon,
