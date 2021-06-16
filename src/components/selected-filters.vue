@@ -10,10 +10,8 @@
       </template>
 
       <template #price="{ filter }">
-        <NumberRangeFilter class="x-tag" :filter="filter">
-          <template #default="{ filter }">
-            <PriceFilterLabel :filter="filter" />
-          </template>
+        <NumberRangeFilter #default="{ filter: priceFilter }" class="x-tag" :filter="filter">
+          <PriceFilterLabel :filter="priceFilter" />
         </NumberRangeFilter>
       </template>
     </SelectedFiltersList>

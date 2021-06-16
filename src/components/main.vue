@@ -167,18 +167,14 @@
     protected resultsAnimation = StaggeredFadeAndSlide;
     protected isAsideOpen = true;
 
+    // TODO add the spellcheckedQuery to alias API
     @State('search', 'spellcheckedQuery')
     public spellcheckedQuery!: string;
   }
 </script>
 
-<style scoped>
-  .x-layout {
-    height: 100%;
-  }
-</style>
-
 <style>
+  /* TODO try to find a solution to position absolute issue */
   .x-grid .x-staggered-fade-and-slide--leave-active {
     position: unset !important;
   }
