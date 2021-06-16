@@ -1,7 +1,7 @@
 <template>
   <article class="x-result">
     <BaseResultLink class="x-result__picture" :result="result">
-      <BaseResultImage class="x-picture--colored" :result="result">
+      <BaseResultImage :result="result">
         <template #placeholder>
           <BasePlaceholderImage />
         </template>
@@ -13,7 +13,8 @@
 
     <div class="x-result__overlay x-list">
       <BaseAddToCart class="x-list__item--expand">
-        {{ $t('result.addToCart') }}
+        <CartIcon />
+        <span>{{ $t('result.addToCart') }}</span>
       </BaseAddToCart>
     </div>
 
@@ -39,7 +40,8 @@
     BaseResultImage,
     BaseResultCurrentPrice,
     BasePlaceholderImage,
-    BaseFallbackImage
+    BaseFallbackImage,
+    CartIcon
   } from '@empathy/x-components';
   import { Component, Prop, Vue } from 'vue-property-decorator';
 
@@ -50,7 +52,8 @@
       BasePlaceholderImage,
       BaseResultCurrentPrice,
       BaseResultImage,
-      BaseResultLink
+      BaseResultLink,
+      CartIcon
     }
   })
   export default class ResultComponent extends Vue {

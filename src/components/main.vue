@@ -1,5 +1,5 @@
 <template>
-  <Layout class="x-layout" :isAsideOpen="isAsideOpen">
+  <Layout :isAsideOpen="isAsideOpen">
     <template #header-start>
       <div class="x-list x-list--padding-top x-list--padding-04">
         <Logo />
@@ -94,7 +94,7 @@
 
       <PartialResults />
 
-      <ScrollToTop class="x-button--round" scroll-id="mainScroll" :threshold-px="100">
+      <ScrollToTop class="x-button--round" scrollId="mainScroll" :thresholdPx="100">
         <ChevronUpIcon />
       </ScrollToTop>
     </template>
