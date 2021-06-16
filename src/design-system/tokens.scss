@@ -1,0 +1,16 @@
+:root {
+  --x-color-lead: #36515b;
+  --x-color-auxiliary: #d84022;
+  --x-color-neutral-10: #1a1a1a;
+  --x-color-neutral-35: #595959;
+  --x-color-neutral-70: #cfd4d7;
+  --x-color-neutral-95: #f5f6f7;
+  --x-color-neutral-100: #ffffff;
+
+  --x-color-background-tag: var(--x-color-neutral-95);
+  --x-color-border-tag: var(--x-color-neutral-95);
+  --x-color-background-tag-selected: var(--x-color-neutral-100);
+  --x-color-border-tag-selected: var(--x-color-neutral-10);
+
+  --x-color-border-dropdown-toggle: transparent;
+}

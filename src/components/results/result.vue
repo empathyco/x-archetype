@@ -1,21 +1,56 @@
 <template>
-  <BaseResultLink :result="result">
-    <template #default="{ result }">
-      <BaseResultImage :result="result" />
-      <span>{{ result.name }}</span>
-    </template>
-  </BaseResultLink>
+  <article class="x-result">
+    <BaseResultLink class="x-result__picture" :result="result">
+      <BaseResultImage class="x-picture--colored" :result="result">
+        <template #placeholder>
+          <BasePlaceholderImage />
+        </template>
+        <template #fallback>
+          <BaseFallbackImage />
+        </template>
+      </BaseResultImage>
+    </BaseResultLink>
+
+    <div class="x-result__overlay x-list">
+      <BaseAddToCart class="x-list__item--expand">
+        {{ $t('result.addToCart') }}
+      </BaseAddToCart>
+    </div>
+
+    <BaseResultLink class="x-result__description x-list x-list--gap-04" :result="result">
+      <div class="x-list x-list--gap-02">
+        <h1 class="x-small x-text--bold">{{ result.season }}</h1>
+        <h2 class="x-text x-text--secondary x-ellipsis">{{ result.name }}</h2>
+      </div>
+      <BaseResultCurrentPrice
+        format="i,iii.dd €"
+        :result="result"
+        class="x-text x-text--accent x-text--bold"
+      />
+    </BaseResultLink>
+  </article>
 </template>
 
 <script lang="ts">
   import { Result } from '@empathy/search-types';
-  import { BaseResultLink, BaseResultImage } from '@empathy/x-components';
+  import {
+    BaseAddToCart,
+    BaseResultLink,
+    BaseResultImage,
+    BaseResultCurrentPrice,
+    BasePlaceholderImage,
+    BaseFallbackImage
+  } from '@empathy/x-components';
   import { Component, Prop, Vue } from 'vue-property-decorator';
 
   @Component({
     components: {
-      BaseResultLink,
-      BaseResultImage
+      BaseAddToCart,
+      BaseFallbackImage,
+      BasePlaceholderImage,
+      BaseResultCurrentPrice,
+      BaseResultImage,
+      BaseResultLink
     }
   })
   export default class ResultComponent extends Vue {

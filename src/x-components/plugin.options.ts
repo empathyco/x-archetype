@@ -33,6 +33,11 @@ export const installXOptions: InstallXOptions = {
         // Please remove this config if your client has not this kind of issue.
         identifierDetectionRegexp: '^[a-zA-Z][0-9]+'
       }
+    },
+    recommendations: {
+      config: {
+        maxItemsToRequest: 24
+      }
     }
   }
 };

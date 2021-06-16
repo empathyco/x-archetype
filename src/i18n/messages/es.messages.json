@@ -22,14 +22,47 @@
       "title": "Búsqueda SKU"
     },
     "recommendations": {
-      "title": "Recomendaciones"
+      "title": "Top Clicked"
     },
     "facets": {
-      "gender": "Género",
-      "categoryPaths": "Categorías",
-      "price": "Precio",
-      "usage": "Uso",
-      "season": "Temporada"
+      "gender": "GÉNERO",
+      "categoryPaths": "CATEGORÍAS",
+      "price": "PRECI",
+      "usage": "USO",
+      "season": "TEMPORADA"
+    },
+    "filters": {
+      "all": "Todo"
+    },
+    "priceFilter": {
+      "lessThan": "hasta {max}",
+      "fromTo": "{min} - {max}",
+      "from": "desde {min}"
+    },
+    "filtersSearch": {
+      "placeholder": "Buscar"
+    },
+    "toggleAside": {
+      "hideAside": "Ocultar Filtros",
+      "showAside": "Mostrar Filters"
+    },
+    "totalResults": {
+      "message": "{totalResults} resultados"
+    },
+    "sortBy": {
+      "label": "Ordenar por"
+    },
+    "selectedFilters": {
+      "clear": "Limpiar { selectedFiltersNumber } filtros"
+    },
+    "result": {
+      "addToCart": "AÑADIR AL CARRITO"
+    },
+    "spellcheck": {
+      "message": "No se han encontrado resultados para <span class=\"x-text--accent\">'{query}'</span>. Aquí tienes resultados para"
+    },
+    "noResults": {
+      "message": "No se han encontrado resultados para '{query}'. Prueba con otra búsqueda."
     }
   },
   "tablet": {

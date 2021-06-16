@@ -1,8 +1,9 @@
 <template>
-  <BaseHeaderTogglePanel :startCollapsed="true" :animation="collapseFromTop">
-    <template #header-content>
-      {{ $t(`facets.${facet.label}`) }}
-      <SelectedFilters :facetId="facet.id" />
+  <BaseHeaderTogglePanel class="x-facet" :startCollapsed="true" :animation="collapseFromTop">
+    <template #header-content="{ open }">
+      <span>{{ $t(`facets.${facet.label}`) }}</span>
+      <ChevronUpIcon v-if="open" />
+      <ChevronDownIcon v-else />
     </template>
     <slot />
   </BaseHeaderTogglePanel>
@@ -11,12 +12,19 @@
 <script lang="ts">
   import { Facet } from '@empathy/search-types';
   import { Vue, Component, Prop } from 'vue-property-decorator';
-  import { BaseHeaderTogglePanel, CollapseFromTop } from '@empathy/x-components';
+  import {
+    BaseHeaderTogglePanel,
+    CollapseFromTop,
+    ChevronDownIcon,
+    ChevronUpIcon
+  } from '@empathy/x-components';
   import { SelectedFilters } from '@empathy/x-components/facets';
 
   @Component({
     components: {
       BaseHeaderTogglePanel,
+      ChevronDownIcon,
+      ChevronUpIcon,
       SelectedFilters
     }
   })
