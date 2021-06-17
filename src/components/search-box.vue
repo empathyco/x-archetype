@@ -1,6 +1,6 @@
 <template>
-  <div class="x-search-box">
-    <SearchButton>&#128269;</SearchButton>
+  <div class="x-input-group x-input-group--line x-list__item--expand">
+    <SearchIcon />
     <SearchInput :placeholder="$t('searchBox.placeholder')" />
     <ClearSearchInput>{{ $t('searchBox.clear') }}</ClearSearchInput>
   </div>
@@ -8,6 +8,7 @@
 
 <script lang="ts">
   import { ClearSearchInput, SearchButton, SearchInput } from '@empathy/x-components/search-box';
+  import { SearchIcon } from '@empathy/x-components';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
 
@@ -15,6 +16,7 @@
     components: {
       ClearSearchInput,
       SearchButton,
+      SearchIcon,
       SearchInput
     }
   })

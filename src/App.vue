@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BaseIdModalOpen modalId="x-components-app">Open X</BaseIdModalOpen>
+    <BaseIdModalOpen class="x-start" modalId="x-components-app">Start</BaseIdModalOpen>
 
     <BaseIdModal
       @click.stop.native
@@ -8,7 +8,7 @@
       modalId="x-components-app"
       :animation="collapseFromTop"
     >
-      <Layout />
+      <Main />
     </BaseIdModal>
   </div>
 </template>
@@ -16,11 +16,13 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { BaseIdModalOpen, BaseIdModal, CollapseFromTop } from '@empathy/x-components';
-  import Layout from './components/layout.vue';
+  import Main from './components/main.vue';
+  import '@empathy/x-components/css/full-theme.css';
+  import './design-system/tokens.scss';
 
   @Component({
     components: {
-      Layout,
+      Main,
       BaseIdModalOpen,
       BaseIdModal
     }
@@ -36,5 +38,43 @@
     height: 100%;
     background-color: white;
     overflow: auto;
+  }
+
+  .x-start {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
+<style lang="scss">
+  :root {
+    //color
+    --x-color-background-message: var(--x-color-neutral-95);
+    --x-color-border-message: var(--x-color-background-message);
+    --x-color-texxt-message: var(--x-color-text);
+
+    //border
+    --x-border-width-message: var(--x-border-width);
+
+    //spacing
+    --x-space-padding-message: var(--x-space-06);
+  }
+
+  *:not(.x-keyboard-navigation *) {
+    outline: none;
+  }
+
+  .x-message {
+    // color
+    background-color: var(--x-color-background-message);
+    border-style: solid;
+    border-color: var(--x-color-border-message);
+
+    // border
+    border-width: var(--x-border-width-message);
+
+    // spacing
+    padding: var(--x-space-padding-message);
   }
 </style>

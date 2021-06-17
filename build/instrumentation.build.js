@@ -19,7 +19,10 @@ import json from '@rollup/plugin-json';
 
 const jsOutputDirectory = path.join(process.cwd(), 'dist');
 
-const postCSSPlugins = [autoprefixer({ grid: true }), cssnano({ preset: 'default' })];
+const postCSSPlugins = [
+  autoprefixer({ grid: true }),
+  cssnano({ preset: ['default', { mergeLonghand: false }] })
+];
 
 /**
  * Creates a rollup configuration for projects that use X-Components. This configuration can be customized with the options object.
@@ -62,7 +65,7 @@ export function createConfig({
     plugins: [
       del(
         mergeConfig('del', {
-          targets: [`${ jsOutputDirectory }/*`]
+          targets: [`${jsOutputDirectory}/*`]
         })
       ),
       htmlTemplate(
@@ -72,9 +75,7 @@ export function createConfig({
         })
       ),
       copy({
-        targets: [
-          { src: ['public/**', '!public/index.html'], dest: 'dist/' }
-        ]
+        targets: [{ src: ['public/**', '!public/index.html'], dest: 'dist/' }]
       }),
       // Resolving plugins
       replace(

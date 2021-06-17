@@ -8,7 +8,7 @@
       "title": "Popular searches"
     },
     "historyQueries": {
-      "clear": "Clear history queries",
+      "clear": "Clear all",
       "removeLabel": "Remove {suggestion} from history queries",
       "title": "History Queries"
     },
@@ -22,14 +22,47 @@
       "title": "SKU Search"
     },
     "recommendations": {
-      "title": "Recommendations"
+      "title": "Top Clicked"
     },
     "facets": {
-      "gender": "Gender",
-      "categoryPaths": "Categories",
-      "price": "Price",
-      "usage": "Usage",
-      "season": "Season"
+      "gender": "GENDER",
+      "categoryPaths": "CATEGORIES",
+      "price": "PRICE",
+      "usage": "USAGE",
+      "season": "SEASON"
+    },
+    "filters": {
+      "all": "All"
+    },
+    "priceFilter": {
+      "lessThan": "less than {max}",
+      "fromTo": "{min} - {max}",
+      "from": "from {min}"
+    },
+    "filtersSearch": {
+      "placeholder": "Search"
+    },
+    "toggleAside": {
+      "hideAside": "Hide Filters",
+      "showAside": "Show Filters"
+    },
+    "totalResults": {
+      "message": "{totalResults} results"
+    },
+    "sort": {
+      "label": "Sort by"
+    },
+    "selectedFilters": {
+      "clear": "Clear { selectedFiltersNumber } filters"
+    },
+    "result": {
+      "addToCart": "ADD TO CART"
+    },
+    "spellcheck": {
+      "message": "No results found for <span class=\"x-text x-text--accent x-text--bold\">'{query}'</span>. We show you results for"
+    },
+    "noResults": {
+      "message": "No results found for <span class=\"x-text x-text--accent x-text--bold\">'{query}'</span>. Try with another query."
     }
   },
   "tablet": {
