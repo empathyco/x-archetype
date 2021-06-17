@@ -6,6 +6,7 @@ import {
   EmpathyRequestParamsMapper,
   EmpathySimpleFacetMapper
 } from '@empathy/search-adapter';
+import { SnippetConfig } from '@empathy/x-components';
 import { HierarchicalFacetMapper } from './demo-hierarchical-mapper';
 import { RequestFiltersMapper } from './demo-request-filters.mapper';
 import { SearchRequestMapper } from './demo-request-mapper';
@@ -13,8 +14,14 @@ import { resultMapper } from './demo-result.mapper';
 import { priceFilterMapper } from './demo-price-filter-mapper';
 import { EmpathyEndpointsService } from './empathy-endpoints.service';
 
+declare global {
+  interface Window {
+    initX: SnippetConfig;
+  }
+}
+
 export const adapter = new EmpathyAdapterBuilder()
-  .setEnvironment((window as any).initX.env)
+  .setEnvironment(window.initX.env ?? 'test')
   .addMapper(resultMapper, 'results')
   .addMapper(priceFilterMapper, 'numberRangeFilter')
   .replaceClassRequestMapper(SearchRequestMapper)

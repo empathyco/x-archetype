@@ -11,13 +11,19 @@
 
     <SortDropdown v-if="$x.totalResults" class="x-dropdown--l" :items="sortValues">
       <template #toggle="{ item, isOpen }">
-        <span class="x-text">{{ $t('sort.label') }}</span>
-        <span class="x-text x-list__item--expand">{{ item || 'Default' }}</span>
+        <span>{{ $t('sort.label') }}</span>
+        <!--TODO: remove the `x-text` class when this task done:
+        https://searchbroker.atlassian.net/browse/EX-4196-->
+        <span class="x-text x-dropdown__toggle-selected-value x-list__item--expand">
+          {{ item || 'Default' }}
+        </span>
         <ChevronTinyUpIcon v-if="isOpen" />
         <ChevronTinyDownIcon v-else />
       </template>
 
       <template #item="{ item, isHighlighted, isSelected }">
+        <!--TODO: remove the `x-text` class when this task done:
+        https://searchbroker.atlassian.net/browse/EX-4196-->
         <span class="x-text x-list__item--expand">{{ item || 'Default' }}</span>
         <CheckTinyIcon v-if="isSelected" />
       </template>
