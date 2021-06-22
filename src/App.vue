@@ -17,7 +17,7 @@
   import { Component, Vue } from 'vue-property-decorator';
   import { BaseIdModalOpen, BaseIdModal, CollapseFromTop } from '@empathy/x-components';
   import Main from './components/main.vue';
-  import '@empathy/x-components/css/full-theme.css';
+  import '@empathy/x-components/design-system/full-theme.css';
   import './design-system/tokens.scss';
 
   @Component({

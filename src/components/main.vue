@@ -1,5 +1,5 @@
 <template>
-  <Layout :isAsideOpen="isAsideOpen">
+  <Layout>
     <template #header-start>
       <div class="x-list x-list--padding-top x-list--padding-04">
         <Logo />
@@ -31,15 +31,17 @@
     </template>
 
     <template #toolbar-aside>
-      <button
+      <BaseIdTogglePanelButton
         v-if="$x.totalResults > 0"
-        @click="isAsideOpen = !isAsideOpen"
+        panelId="aside-panel"
         class="x-button x-button--ghost x-button--ghost-start"
       >
-        <FiltersIcon />
-        <span v-if="isAsideOpen">{{ $t('toggleAside.hideAside') }}</span>
-        <span v-else>{{ $t('toggleAside.showAside') }}</span>
-      </button>
+        <template #default="{ isPanelOpen }">
+          <FiltersIcon />
+          <span v-if="isPanelOpen">{{ $t('toggleAside.hideAside') }}</span>
+          <span v-else>{{ $t('toggleAside.showAside') }}</span>
+        </template>
+      </BaseIdTogglePanelButton>
     </template>
 
     <template #toolbar-body>
@@ -103,6 +105,7 @@
 
 <script lang="ts">
   import {
+    BaseIdTogglePanelButton,
     BaseIdModalClose,
     BaseScroll,
     BaseScrollToTop,
@@ -137,6 +140,7 @@
 
   @Component({
     components: {
+      BaseIdTogglePanelButton,
       BaseScroll,
       BaseVariableColumnGrid,
       CartIcon,
@@ -169,7 +173,6 @@
   })
   export default class Main extends Vue {
     protected resultsAnimation = StaggeredFadeAndSlide;
-    protected isAsideOpen = true;
 
     // TODO add the spellcheckedQuery to alias API
     @State('search', 'spellcheckedQuery')

@@ -23,7 +23,7 @@
   "dependencies": {
     "@empathy/search-adapter": "^6.1.0",
     "@empathy/search-types": "^9.0.0",
-    "@empathy/x-components": "2.1.0-alpha.1",
+    "@empathy/x-components": "3.0.0-alpha.0",
     "reflect-metadata": "^0.1.13",
     "vue": "^2.6.0 <2.6.13",
     "vue-class-component": "~7.1.0",
