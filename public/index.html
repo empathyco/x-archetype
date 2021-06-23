@@ -12,8 +12,22 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
       rel="stylesheet"
     />
+    <style>
+      @supports (-webkit-touch-callout: none) {
+        .not-ios {
+          display: none;
+        }
+      }
+      @supports not (-webkit-touch-callout: none) {
+        .ios {
+          display: none;
+        }
+      }
+    </style>
   </head>
   <body style="background: lightgrey">
+    <label class="ios">iOS</label>
+    <label class="not-ios">not iOS</label>
     <script src="./snippet-script.js"></script>
     <!-- built files will be auto injected -->
   </body>
