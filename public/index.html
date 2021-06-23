@@ -13,14 +13,15 @@
       rel="stylesheet"
     />
     <style>
-      @supports (-webkit-touch-callout: none) {
+      .ios {
+        display: none;
+      }
+      @media not all and (min-resolution: 0.001dpcm) {
         .not-ios {
           display: none;
         }
-      }
-      @supports not (-webkit-touch-callout: none) {
         .ios {
-          display: none;
+          display: block;
         }
       }
     </style>
