@@ -48,7 +48,7 @@
       <Toolbar />
     </template>
 
-    <template v-if="$x.device === 'desktop'" #main-aside>
+    <template #main-aside>
       <SelectedFilters v-if="$x.totalResults > 0" />
       <Facets v-if="$x.totalResults > 0" />
     </template>
