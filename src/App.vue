@@ -1,5 +1,6 @@
 <template>
   <div>
+    <DeviceDetector :breakpoints="breakpoints" />
     <BaseIdModalOpen class="x-start" modalId="x-components-app">Start</BaseIdModalOpen>
 
     <BaseIdModal
@@ -14,8 +15,9 @@
 </template>
 
 <script lang="ts">
+  import { DeviceDetector } from '@empathy/x-components/device';
   import { Component, Vue } from 'vue-property-decorator';
-  import { BaseIdModalOpen, BaseIdModal, CollapseFromTop } from '@empathy/x-components';
+  import { BaseIdModalOpen, BaseIdModal, CollapseFromTop, Dictionary } from '@empathy/x-components';
   import Main from './components/main.vue';
   import '@empathy/x-components/design-system/full-theme.css';
   import './design-system/tokens.scss';
@@ -24,11 +26,18 @@
     components: {
       Main,
       BaseIdModalOpen,
-      BaseIdModal
+      BaseIdModal,
+      DeviceDetector
     }
   })
   export default class Layer extends Vue {
     protected collapseFromTop = CollapseFromTop;
+
+    protected breakpoints: Dictionary<number> = {
+      mobile: 500,
+      tablet: 900,
+      desktop: Number.POSITIVE_INFINITY
+    };
   }
 </script>
 
