@@ -1,62 +1,55 @@
 # X Components Archetype
 
-The purpose of this project is to be the starting point for a customer X Components setup.
+The purpose of this project is to be the starting point for an X Components setup.
 
 ## Getting started
 
+### X Components
+
+The X Components Archetype imports the X Components library along with several tools predefined. Visit the
+[X Components repository](https://github.com/empathyco/x/tree/main/packages/x-components#readme) for further
+information.
+
 ### Cloning project
 
-The first step to start a new setup with the archetype is to clone the archetype project.
+The first step to start a new setup with the archetype is cloning the project.
 
-1. Create the new repository in bitbucket accessing this URL and entering the name of the new
-repository. The repository name `<new-repository-name>` will be used in the next commands:
-    
-    [https://bitbucket.org/repo/create?owner=colbenson](https://bitbucket.org/repo/create?owner=colbenson)  
-    ![create bitbucket repository](index-1-create-repository.png "create bitbucket repository")
+We recommend to use [Degit](https://github.com/Rich-Harris/degit) which let us copying a project without the `.git`
+folder (without an initialized repository). It basically performs the same as:
 
-2. To clone the Archetype in your local execute the next command replacing `<new-repository-name>`
-with your new repository name used in the step 1:
+```
+git clone --depth 1 https://github.com/empathyco/x-archetype.git
+rm -rf .git
+```
 
-    ```
-    git clone -b master https://bitbucket.org/colbenson/x-components-archetype.git <new-repository-name>
-    ```
+You can follow these steps:
 
-3. Then access to the directory:
+1. Clone the repository using degit. The following command will clone all the content of the `main` branch by default
+in the current directory without any information about the source git repository (therefore without `.git` folder):
 
     ```
-    cd <new-repository-name>
+    degit https://github.com/empathyco/x-archetype.git
     ```
 
-4. Finally, reinitialize the repository and add the new repository:
+2. Initialize a repository:
 
     ```
-    rm -rf .git
     git init
-    git remote add origin https://bitbucket.org/colbenson/<new-repository-name>.git
+    git remote add origin <your-repository-url>
     git add .
-    git commit -m "initial commit"
-    git push -u origin master
+    git commit -m "Initial X-Components Archetype"
+    git push -u origin main
     ```
 
 ### Customizing project
 
-1. Replace the name in `package.json` (`x-components-archetype`) for the repository name:
+1. Replace the name in `package.json` (`@empathyco/x-archetype`) for the repository name:
 
     ```
     {
-      "name": "x-components-archetype",
+      "name": "@empathyco/x-archetype",
       "version": "0.1.0",
       ...
-    }
-    ```
-
-2. Replace the `Jenkinsfile` content. The client property `<new-repository-name>` should be
-replaced for the repository name:
-
-    ```
-    empathyXPipeline {
-      client = '<new-repository-name>',
-      builder = 'cypress/browsers:node12.13.0-chrome80-ff74'
     }
     ```
 
@@ -77,15 +70,14 @@ replaced for the repository name:
 ### Configure Adapter
 
 Configure the adapter in [x-components/adapter.ts](../src/adapter/adapter.ts) file. Remember
-to export it to use in the plugin configuration (see next section). You can find more information
+to export it in order to be used in the plugin configuration (see next section). You can find more information
 about the adapter here: 
-[search-adapter](https://bitbucket.org/colbenson/search-adapter/src/master/README.md)
+[search-adapter](https://github.com/empathyco/x/tree/main/packages/search-adapter#readme)
      
 ### Configure Plugin
 
 Modify the plugin options [x-components/plugin.options.ts](../src/x-components/plugin.options.ts)
-file. The adapter is mandatory and is imported from the previous file. To know more about the
-plugin options visit: <!-- TODO: Add here the link to the Plugin doc page-->
+file. The adapter is mandatory, and it is imported from the previous file.
 
 ### Internationalization
 
