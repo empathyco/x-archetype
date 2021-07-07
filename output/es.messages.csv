@@ -1,0 +1,29 @@
+key;base;tablet;desktop
+searchBox.clear;Borrar;Borrar tablet;Borrar desktop
+searchBox.placeholder;Empieza a buscar;Empieza a buscar tablet;Empieza a buscar desktop
+popularSearches.title;Búsquedas populares;Búsquedas populares tablet;Búsquedas populares desktop
+historyQueries.clear;Limpiar historial;;
+historyQueries.removeLabel;Borrar {suggestion} del historial;;
+historyQueries.title;Historial;;
+querySuggestions.title;Sugerencias;;
+nextQueries.title;Para ti;;
+identifierResults.title;Búsqueda SKU;;
+recommendations.title;Top Clicked;;
+facets.gender;GÉNERO;;
+facets.categoryPaths;CATEGORÍAS;;
+facets.price;PRECI;;
+facets.usage;USO;;
+facets.season;TEMPORADA;;
+filters.all;Todo;;
+priceFilter.lessThan;hasta {max};;
+priceFilter.fromTo;{min} - {max};;
+priceFilter.from;desde {min};;
+filtersSearch.placeholder;Buscar;;
+toggleAside.hideAside;Ocultar Filtros;;
+toggleAside.showAside;Mostrar Filters;;
+totalResults.message;{totalResults} resultados;;
+sortBy.label;Ordenar por;;
+selectedFilters.clear;Limpiar { selectedFiltersNumber } filtros;;
+result.addToCart;AÑADIR AL CARRITO;;
+spellcheck.message;No se han encontrado resultados para <span class="x-text--accent">'{query}'</span>. Aquí tienes resultados para;;
+noResults.message;No se han encontrado resultados para '{query}'. Prueba con otra búsqueda.;;

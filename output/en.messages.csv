@@ -1,0 +1,29 @@
+key;base;tablet;desktop
+searchBox.clear;Clear;Clear tablet;Clear desktop
+searchBox.placeholder;Start to search;Start to search tablet;Start to search desktop
+popularSearches.title;Popular searches;Popular searches tablet;Popular searches desktop
+historyQueries.clear;Clear all;;
+historyQueries.removeLabel;Remove {suggestion} from history queries;;
+historyQueries.title;History Queries;;
+querySuggestions.title;Suggestions;;
+nextQueries.title;Next Queries;;
+identifierResults.title;SKU Search;;
+recommendations.title;Top Clicked;;
+facets.gender;GENDER;;
+facets.categoryPaths;CATEGORIES;;
+facets.price;PRICE;;
+facets.usage;USAGE;;
+facets.season;SEASON;;
+filters.all;All;;
+priceFilter.lessThan;less than {max};;
+priceFilter.fromTo;{min} - {max};;
+priceFilter.from;from {min};;
+filtersSearch.placeholder;Search;;
+toggleAside.hideAside;Hide Filters;;
+toggleAside.showAside;Show Filters;;
+totalResults.message;{totalResults} results;;
+sort.label;Sort by;;
+selectedFilters.clear;Clear { selectedFiltersNumber } filters;;
+result.addToCart;ADD TO CART;;
+spellcheck.message;No results found for <span class="x-text x-text--accent x-text--bold">'{query}'</span>. We show you results for;;
+noResults.message;No results found for <span class="x-text x-text--accent x-text--bold">'{query}'</span>. Try with another query.;;
