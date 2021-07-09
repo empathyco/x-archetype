@@ -8,6 +8,7 @@
       class="x-modal"
       modalId="x-components-app"
       :animation="collapseFromTop"
+      dir="ltr"
     >
       <Main />
     </BaseIdModal>
