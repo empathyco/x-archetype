@@ -50,7 +50,11 @@
     protected snippetConfig!: SnippetConfig;
 
     protected get documentDirection(): string {
-      return this.snippetConfig.documentDirection ?? 'ltr';
+      return (
+        document.documentElement.dir ||
+        document.body.dir ||
+        (this.snippetConfig.documentDirection ?? 'ltr')
+      );
     }
   }
 </script>
