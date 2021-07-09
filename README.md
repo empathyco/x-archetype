@@ -23,19 +23,19 @@ run `npm run commit` and the commitizen wizard will guide you in writing the com
 
 This project has a couple a of npm commands which allow you to export/import the translations:
 
-- If you want to export to a `csv` file the messages of the project:
+- If you want to export to a .csv file the messages of the project:
 
 ```shell
 npm run json:csv
 ```
 
-- If you want to import the translations in a `csv` file to this project:
+- If you want to import the translations in a .csv file to this project:
 
 ```shell
 npm run csv:json
 ```
 
-In that case you need to put the `csv` files inside a folder called `output`in the root directory.
+In that case you need to put the .csv files inside a folder called `output`in the root directory.
 
 ## License
 

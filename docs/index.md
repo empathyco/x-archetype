@@ -15,7 +15,7 @@ information of X Components.
 
 The first step to start a new setup with the archetype is cloning the project.
 
-We recommend to use [Degit](https://github.com/Rich-Harris/degit) which let us copying a project without the `.git`
+We recommend using [Degit](https://github.com/Rich-Harris/degit) which let us copying a project without the .git
 folder (without an initialized repository). Degit is installed as a dev dependency in this project. It basically
 performs the same as:
 
@@ -27,7 +27,7 @@ rm -rf .git
 You can follow these steps:
 
 1. Clone the repository using *degit*. The following command will clone all the content of the `main` branch by default
-in the current directory without any information about the source git repository (therefore without `.git` folder):
+in the current directory without any information about the source git repository (therefore without .git folder):
 
     ```
     npx degit https://github.com/empathyco/x-archetype.git <your-target-folder>
@@ -86,7 +86,7 @@ file. The adapter is mandatory, and it is imported from the previous file.
 X Components implements its own design system with *design components* and *design tokens*. You can easily modify the
 resultant application appearance overriding them in the predefined [tokens file](../src/design-system/tokens.scss).
 
-You can take a look to the [X Components design system README](https://github.com/empathyco/x/tree/main/packages/x-components/contributing/design-system.md)
+You can take a look at the [X Components design system README](https://github.com/empathyco/x/tree/main/packages/x-components/contributing/design-system.md)
 and see how it works.
 
 You can also see this design system in action running the X Components project with these steps:
