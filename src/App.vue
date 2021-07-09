@@ -8,6 +8,7 @@
       class="x-modal"
       modalId="x-components-app"
       :animation="collapseFromTop"
+      :dir="documentDirection"
     >
       <Main />
     </BaseIdModal>
@@ -16,8 +17,14 @@
 
 <script lang="ts">
   import { DeviceDetector } from '@empathy/x-components/device';
-  import { Component, Vue } from 'vue-property-decorator';
-  import { BaseIdModalOpen, BaseIdModal, CollapseFromTop, Dictionary } from '@empathy/x-components';
+  import { Component, Inject, Vue } from 'vue-property-decorator';
+  import {
+    BaseIdModalOpen,
+    BaseIdModal,
+    CollapseFromTop,
+    Dictionary,
+    SnippetConfig
+  } from '@empathy/x-components';
   import Main from './components/main.vue';
   import '@empathy/x-components/design-system/full-theme.css';
   import './design-system/tokens.scss';
@@ -38,6 +45,17 @@
       tablet: 900,
       desktop: Number.POSITIVE_INFINITY
     };
+
+    @Inject('snippetConfig')
+    protected snippetConfig!: SnippetConfig;
+
+    protected get documentDirection(): string {
+      return (
+        document.documentElement.dir ||
+        document.body.dir ||
+        (this.snippetConfig.documentDirection ?? 'ltr')
+      );
+    }
   }
 </script>
 
