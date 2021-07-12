@@ -179,10 +179,3 @@
     public spellcheckedQuery!: string;
   }
 </script>
-
-<style>
-  /* TODO try to find a solution to position absolute issue */
-  .x-grid .x-staggered-fade-and-slide--leave-active {
-    position: unset !important;
-  }
-</style>

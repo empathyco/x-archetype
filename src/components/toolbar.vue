@@ -9,7 +9,12 @@
       <span v-else>{{ column }}</span>
     </ColumnPicker>
 
-    <SortDropdown v-if="$x.totalResults" class="x-dropdown--l" :items="sortValues">
+    <SortDropdown
+      v-if="$x.totalResults"
+      class="x-dropdown--l"
+      :items="sortValues"
+      :animation="collapseFromTop"
+    >
       <template #toggle="{ item, isOpen }">
         <span>{{ $t('sort.label') }}</span>
         <!--TODO: remove the `x-text` class when this task done:
@@ -36,7 +41,8 @@
     BaseColumnPickerList,
     CheckTinyIcon,
     ChevronTinyDownIcon,
-    ChevronTinyUpIcon
+    ChevronTinyUpIcon,
+    CollapseFromTop
   } from '@empathy/x-components';
   import { Component, Vue } from 'vue-property-decorator';
   import { Sort } from '@empathy/search-types';
@@ -54,5 +60,7 @@
   export default class SortComponent extends Vue {
     public columnsValues: number[] = [4, 6, 0];
     public sortValues: Sort[] = ['', 'price asc', 'price desc'];
+
+    protected collapseFromTop = CollapseFromTop;
   }
 </script>
