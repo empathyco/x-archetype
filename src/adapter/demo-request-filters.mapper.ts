@@ -1,5 +1,5 @@
-import { RequestMapper } from '@empathy/search-adapter';
-import { BooleanFilter, Filter, isHierarchicalFilter } from '@empathy/search-types';
+import { RequestMapper } from '@empathyco/x-adapter';
+import { BooleanFilter, Filter, isHierarchicalFilter } from '@empathyco/x-types';
 import { injectable } from 'inversify';
 
 @injectable()

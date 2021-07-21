@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-  import { DeviceDetector } from '@empathy/x-components/device';
+  import { DeviceDetector } from '@empathyco/x-components/device';
   import { Component, Inject, Vue } from 'vue-property-decorator';
   import {
     BaseIdModalOpen,
@@ -24,9 +24,9 @@
     CollapseFromTop,
     Dictionary,
     SnippetConfig
-  } from '@empathy/x-components';
+  } from '@empathyco/x-components';
   import Main from './components/main.vue';
-  import '@empathy/x-components/design-system/full-theme.css';
+  import '@empathyco/x-components/design-system/full-theme.css';
   import './design-system/tokens.scss';
 
   @Component({

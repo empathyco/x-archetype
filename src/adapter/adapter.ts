@@ -5,8 +5,8 @@ import {
   EmpathyNumberRangeFacetMapper,
   EmpathyRequestParamsMapper,
   EmpathySimpleFacetMapper
-} from '@empathy/search-adapter';
-import { SnippetConfig } from '@empathy/x-components';
+} from '@empathyco/x-adapter';
+import { SnippetConfig } from '@empathyco/x-components';
 import { HierarchicalFacetMapper } from './demo-hierarchical-mapper';
 import { RequestFiltersMapper } from './demo-request-filters.mapper';
 import { SearchRequestMapper } from './demo-request-mapper';

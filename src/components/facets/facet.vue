@@ -10,15 +10,15 @@
 </template>
 
 <script lang="ts">
-  import { Facet } from '@empathy/search-types';
+  import { Facet } from '@empathyco/x-types';
   import { Vue, Component, Prop } from 'vue-property-decorator';
   import {
     BaseHeaderTogglePanel,
     CollapseFromTop,
     ChevronDownIcon,
     ChevronUpIcon
-  } from '@empathy/x-components';
-  import { SelectedFilters } from '@empathy/x-components/facets';
+  } from '@empathyco/x-components';
+  import { SelectedFilters } from '@empathyco/x-components/facets';
 
   @Component({
     components: {

@@ -9,15 +9,15 @@
 </template>
 
 <script lang="ts">
-  import { Filter } from '@empathy/search-types';
-  import { StaggeredFadeAndSlide } from '@empathy/x-components';
+  import { Filter } from '@empathyco/x-types';
+  import { StaggeredFadeAndSlide } from '@empathyco/x-components';
   import {
     Filters,
     FiltersSearch,
     MultiSelectFilters,
     SimpleFilter,
     SlicedFilters
-  } from '@empathy/x-components/facets';
+  } from '@empathyco/x-components/facets';
   import Vue from 'vue';
   import { Component, Prop } from 'vue-property-decorator';
 

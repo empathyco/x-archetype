@@ -12,7 +12,7 @@
     </BaseResultLink>
 
     <div class="x-result__overlay x-list">
-      <BaseAddToCart class="x-list__item--expand">
+      <BaseAddToCart :result="result" class="x-list__item--expand">
         <CartIcon />
         <span>{{ $t('result.addToCart') }}</span>
       </BaseAddToCart>
@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts">
-  import { Result } from '@empathy/search-types';
+  import { Result } from '@empathyco/x-types';
   import {
     BaseAddToCart,
     BaseResultLink,
@@ -42,7 +42,7 @@
     BasePlaceholderImage,
     BaseFallbackImage,
     CartIcon
-  } from '@empathy/x-components';
+  } from '@empathyco/x-components';
   import { Component, Prop, Vue } from 'vue-property-decorator';
 
   @Component({

@@ -95,10 +95,12 @@
       </ResultsList>
 
       <PartialResults />
+    </template>
 
-      <ScrollToTop class="x-button--round" scrollId="mainScroll" :thresholdPx="100">
+    <template #scroll-to-top>
+      <BaseScrollToTop class="x-button x-button--round" scrollId="body-scroll" :thresholdPx="100">
         <ChevronUpIcon />
-      </ScrollToTop>
+      </BaseScrollToTop>
     </template>
   </Layout>
 </template>
@@ -121,9 +123,9 @@
     SlidingPanel,
     StaggeredFadeAndSlide,
     State
-  } from '@empathy/x-components';
-  import { ResultsList } from '@empathy/x-components/search';
-  import { Recommendations } from '@empathy/x-components/recommendations';
+  } from '@empathyco/x-components';
+  import { ResultsList } from '@empathyco/x-components/search';
+  import { Recommendations } from '@empathyco/x-components/recommendations';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
   import Empathize from './empathize.vue';
@@ -164,7 +166,7 @@
       Spellcheck,
       SelectedFilters,
       SlidingPanel,
-      ScrollToTop: BaseScrollToTop,
+      BaseScrollToTop,
       Toolbar
     },
     directives: {

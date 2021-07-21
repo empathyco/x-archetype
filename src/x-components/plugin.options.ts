@@ -1,4 +1,4 @@
-import { InstallXOptions } from '@empathy/x-components';
+import { InstallXOptions } from '@empathyco/x-components';
 import App from '../App.vue';
 import { I18n } from '../i18n/i18n.plugin';
 import * as messages from '../i18n/messages';

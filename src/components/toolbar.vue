@@ -43,10 +43,10 @@
     ChevronTinyDownIcon,
     ChevronTinyUpIcon,
     CollapseFromTop
-  } from '@empathy/x-components';
+  } from '@empathyco/x-components';
   import { Component, Vue } from 'vue-property-decorator';
-  import { Sort } from '@empathy/search-types';
-  import { SortDropdown } from '@empathy/x-components/search';
+  import { Sort } from '@empathyco/x-types';
+  import { SortDropdown } from '@empathyco/x-components/search';
 
   @Component({
     components: {

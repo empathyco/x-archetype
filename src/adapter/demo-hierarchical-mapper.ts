@@ -11,8 +11,8 @@ import {
   pipeMappers,
   ResponseMapper,
   ResponseMapperContext
-} from '@empathy/search-adapter';
-import { HierarchicalFacet, HierarchicalFilter } from '@empathy/search-types';
+} from '@empathyco/x-adapter';
+import { HierarchicalFacet, HierarchicalFilter } from '@empathyco/x-types';
 import { injectable, multiInject } from 'inversify';
 
 export interface PlatformFilter {

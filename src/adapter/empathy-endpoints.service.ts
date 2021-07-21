@@ -1,4 +1,4 @@
-import { DEPENDENCIES, EmpathyAdapterConfig, EndpointsService } from '@empathy/search-adapter';
+import { DEPENDENCIES, EmpathyAdapterConfig, EndpointsService } from '@empathyco/x-adapter';
 import { inject, injectable } from 'inversify';
 
 @injectable()

@@ -1,5 +1,5 @@
-import { EmpathyResult } from '@empathy/search-adapter';
-import { Result } from '@empathy/search-types';
+import { EmpathyResult } from '@empathyco/x-adapter';
+import { Result } from '@empathyco/x-types';
 
 /**
  * Custom platform result which extends the base {@link Result}.
@@ -31,11 +31,11 @@ interface CustomResult {
   categories: string[];
 }
 
-declare module '@empathy/search-types' {
+declare module '@empathyco/x-types' {
   interface Result extends CustomResult {}
 }
 
-declare module '@empathy/search-adapter' {
+declare module '@empathyco/x-adapter' {
   interface EmpathyResult extends CustomResult {}
 }
 

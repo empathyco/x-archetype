@@ -15,8 +15,8 @@
 </template>
 
 <script lang="ts">
-  import { PartialResultsList, PartialQueryButton } from '@empathy/x-components/search';
-  import { BaseGrid } from '@empathy/x-components';
+  import { PartialResultsList, PartialQueryButton } from '@empathyco/x-components/search';
+  import { BaseGrid } from '@empathyco/x-components';
   import { Component, Vue } from 'vue-property-decorator';
   import ResultComponent from './result.vue';
 

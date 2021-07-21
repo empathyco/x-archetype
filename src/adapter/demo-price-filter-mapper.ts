@@ -1,5 +1,5 @@
-import { EmpathyFilter } from '@empathy/search-adapter';
-import { NumberRangeFilter } from '@empathy/search-types';
+import { EmpathyFilter } from '@empathyco/x-adapter';
+import { NumberRangeFilter } from '@empathyco/x-types';
 
 /**
  * Price filter mapper.

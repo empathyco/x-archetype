@@ -11,7 +11,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { Spellcheck, SpellcheckButton } from '@empathy/x-components/search';
+  import { Spellcheck, SpellcheckButton } from '@empathyco/x-components/search';
 
   @Component({
     components: {
