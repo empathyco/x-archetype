@@ -1,4 +1,4 @@
-import polyFillsWrapper from '../node_modules/@empathyco/x-components/build-helpers/plugins/polyfills-wrapper.plugin';
+import polyFillsWrapper from '@empathyco/x-components/build-helpers/plugins/polyfills-wrapper.plugin';
 import buble from '@rollup/plugin-buble';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';

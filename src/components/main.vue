@@ -98,7 +98,7 @@
     </template>
 
     <template #scroll-to-top>
-      <BaseScrollToTop class="x-button x-button--round" scrollId="body-scroll" :thresholdPx="100">
+      <BaseScrollToTop class="x-button--round" scrollId="body-scroll" :thresholdPx="100">
         <ChevronUpIcon />
       </BaseScrollToTop>
     </template>
