@@ -75,5 +75,3 @@ export const adapter = new EmpathyAdapterBuilder()
   }, 'topRecommendations')
   .setInstance('platform')
   .build();
-
-console.log('beltran', adapter);
