@@ -13,8 +13,8 @@
 </template>
 
 <script lang="ts">
-  import { Empathize } from '@empathy/x-components/empathize';
-  import { BaseKeyboardNavigation, CollapseFromTop } from '@empathy/x-components';
+  import { Empathize } from '@empathyco/x-components/empathize';
+  import { BaseKeyboardNavigation, CollapseFromTop } from '@empathyco/x-components';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
   import IdentifierResultsComponent from './identifier-results.vue';

@@ -14,8 +14,8 @@
 </template>
 
 <script lang="ts">
-  import { IdentifierResults, IdentifierResult } from '@empathy/x-components/identifier-results';
-  import { BaseResultLink, FadeAndSlide } from '@empathy/x-components';
+  import { IdentifierResults, IdentifierResult } from '@empathyco/x-components/identifier-results';
+  import { BaseResultLink, FadeAndSlide } from '@empathyco/x-components';
   import { Component, Vue } from 'vue-property-decorator';
 
   @Component({

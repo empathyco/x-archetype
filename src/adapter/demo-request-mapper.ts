@@ -7,8 +7,8 @@ import {
   RequestMapper,
   RequestMapperContext,
   SearchRequest
-} from '@empathy/search-adapter';
-import { Filter, Sort } from '@empathy/search-types';
+} from '@empathyco/x-adapter';
+import { Filter, Sort } from '@empathyco/x-types';
 import { injectable, multiInject } from 'inversify';
 
 export interface PlatformSearchRequest {

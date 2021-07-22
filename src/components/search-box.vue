@@ -7,8 +7,8 @@
 </template>
 
 <script lang="ts">
-  import { ClearSearchInput, SearchButton, SearchInput } from '@empathy/x-components/search-box';
-  import { SearchIcon } from '@empathy/x-components';
+  import { ClearSearchInput, SearchButton, SearchInput } from '@empathyco/x-components/search-box';
+  import { SearchIcon } from '@empathyco/x-components';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
 

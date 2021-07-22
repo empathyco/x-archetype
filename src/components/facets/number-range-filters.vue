@@ -15,9 +15,9 @@
 </template>
 
 <script lang="ts">
-  import { Filter } from '@empathy/search-types';
-  import { BasePriceFilterLabel, StaggeredFadeAndSlide } from '@empathy/x-components';
-  import { NumberRangeFilter, Filters } from '@empathy/x-components/facets';
+  import { Filter } from '@empathyco/x-types';
+  import { BasePriceFilterLabel, StaggeredFadeAndSlide } from '@empathyco/x-components';
+  import { NumberRangeFilter, Filters } from '@empathyco/x-components/facets';
   import Vue from 'vue';
   import { Component, Prop } from 'vue-property-decorator';
 

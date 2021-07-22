@@ -17,8 +17,8 @@
 </template>
 
 <script lang="ts">
-  import { BaseVariableColumnGrid, StaggeredFadeAndSlide } from '@empathy/x-components';
-  import { ResultsList } from '@empathy/x-components/search';
+  import { BaseVariableColumnGrid, StaggeredFadeAndSlide } from '@empathyco/x-components';
+  import { ResultsList } from '@empathyco/x-components/search';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
   import ResultComponent from './result.vue';

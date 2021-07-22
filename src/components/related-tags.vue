@@ -29,8 +29,8 @@
     PlusIcon,
     SlidingPanel,
     StaggeredFadeAndSlide
-  } from '@empathy/x-components';
-  import { RelatedTags } from '@empathy/x-components/related-tags';
+  } from '@empathyco/x-components';
+  import { RelatedTags } from '@empathyco/x-components/related-tags';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
 

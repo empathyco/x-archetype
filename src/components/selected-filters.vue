@@ -24,7 +24,7 @@
     NumberRangeFilter,
     SelectedFiltersList,
     SimpleFilter
-  } from '@empathy/x-components/facets';
+  } from '@empathyco/x-components/facets';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
   import PriceFilterLabel from './price-filter-label.vue';

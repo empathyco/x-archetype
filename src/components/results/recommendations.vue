@@ -13,8 +13,8 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { StaggeredFadeAndSlide } from '@empathy/x-components';
-  import { Recommendations } from '@empathy/x-components/recommendations';
+  import { StaggeredFadeAndSlide } from '@empathyco/x-components';
+  import { Recommendations } from '@empathyco/x-components/recommendations';
   import ResultComponent from './result.vue';
 
   @Component({

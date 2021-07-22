@@ -6,8 +6,8 @@
 </template>
 
 <script lang="ts">
-  import { FadeAndSlide } from '@empathy/x-components';
-  import { QuerySuggestions } from '@empathy/x-components/query-suggestions';
+  import { FadeAndSlide } from '@empathyco/x-components';
+  import { QuerySuggestions } from '@empathyco/x-components/query-suggestions';
   import { Component, Vue } from 'vue-property-decorator';
 
   @Component({

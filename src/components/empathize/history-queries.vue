@@ -17,12 +17,12 @@
 </template>
 
 <script lang="ts">
-  import { FadeAndSlide } from '@empathy/x-components';
+  import { FadeAndSlide } from '@empathyco/x-components';
   import {
     ClearHistoryQueries,
     HistoryQueries,
     HistoryQuery
-  } from '@empathy/x-components/history-queries';
+  } from '@empathyco/x-components/history-queries';
   import { Component, Vue } from 'vue-property-decorator';
 
   @Component({

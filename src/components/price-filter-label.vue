@@ -9,8 +9,8 @@
 </template>
 
 <script lang="ts">
-  import { Filter } from '@empathy/search-types';
-  import { BasePriceFilterLabel } from '@empathy/x-components';
+  import { Filter } from '@empathyco/x-types';
+  import { BasePriceFilterLabel } from '@empathyco/x-components';
   import { Component, Prop, Vue } from 'vue-property-decorator';
 
   @Component({

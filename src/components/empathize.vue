@@ -104,7 +104,7 @@
 </template>
 
 <script lang="ts">
-  import { Empathize } from '@empathy/x-components/empathize';
+  import { Empathize } from '@empathyco/x-components/empathize';
   import {
     BaseKeyboardNavigation,
     CrossTinyIcon,
@@ -114,11 +114,11 @@
     Nq4Icon,
     SearchIcon,
     TrendingTinyIcon
-  } from '@empathy/x-components';
-  import { ClearHistoryQueries, HistoryQueries } from '@empathy/x-components/history-queries';
-  import { NextQueries } from '@empathy/x-components/next-queries';
-  import { PopularSearches } from '@empathy/x-components/popular-searches';
-  import { QuerySuggestions } from '@empathy/x-components/query-suggestions';
+  } from '@empathyco/x-components';
+  import { ClearHistoryQueries, HistoryQueries } from '@empathyco/x-components/history-queries';
+  import { NextQueries } from '@empathyco/x-components/next-queries';
+  import { PopularSearches } from '@empathyco/x-components/popular-searches';
+  import { QuerySuggestions } from '@empathyco/x-components/query-suggestions';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
 
