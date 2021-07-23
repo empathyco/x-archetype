@@ -53,11 +53,9 @@ export const adapter = new EmpathyAdapterBuilder()
     }
   })
   .setFeatureConfig('topRecommendations', {
-    endpoint:
-      'https://search.internal.{env}.empathy.co/query/empathy/search?' +
-      'scope=desktop&lang=en&device=mobile&rows=24&start=0&origin=default&query=e',
+    endpoint: 'https://search.internal.{env}.empathy.co/query/empathy/topclicked',
     responsePaths: {
-      results: 'catalog.content'
+      results: 'topclicked.content'
     }
   })
   .setFacetConfig({ modelName: 'HierarchicalFacet' }, 'categoryPaths')
@@ -72,5 +70,8 @@ export const adapter = new EmpathyAdapterBuilder()
     container.bind(DEPENDENCIES.requestMappers).to(EmpathyRequestParamsMapper);
     container.rebind(DEPENDENCIES.endpointsService).to(EmpathyEndpointsService);
   })
+  .onBeforeRequest(({ request }) => {
+    delete request.scope;
+  }, 'topRecommendations')
   .setInstance('platform')
   .build();
