@@ -7,7 +7,9 @@ import {
   EmpathySimpleFacetMapper
 } from '@empathyco/x-adapter';
 import { SnippetConfig } from '@empathyco/x-components';
+import { bannerMapper } from './demo-banner-mapper';
 import { HierarchicalFacetMapper } from './demo-hierarchical-mapper';
+import { promotedMapper } from './demo-promoted-mapper';
 import { RequestFiltersMapper } from './demo-request-filters.mapper';
 import { SearchRequestMapper } from './demo-request-mapper';
 import { resultMapper } from './demo-result.mapper';
@@ -23,6 +25,8 @@ declare global {
 export const adapter = new EmpathyAdapterBuilder()
   .setEnvironment(window.initX.env ?? 'test')
   .addMapper(resultMapper, 'results')
+  .addMapper(bannerMapper, 'banners')
+  .addMapper(promotedMapper, 'promoteds')
   .addMapper(priceFilterMapper, 'numberRangeFilter')
   .replaceClassRequestMapper(SearchRequestMapper)
   .setFeatureConfig('search', {
@@ -31,7 +35,9 @@ export const adapter = new EmpathyAdapterBuilder()
       results: 'catalog.content',
       facets: 'catalog.facets',
       totalResults: 'catalog.numFound',
-      spellcheck: 'catalog.spellchecked'
+      spellcheck: 'catalog.spellchecked',
+      banners: 'banner.content',
+      promoteds: 'promoted.content'
     }
   })
   .setFeatureConfig('relatedTags', {
@@ -73,5 +79,8 @@ export const adapter = new EmpathyAdapterBuilder()
   .onBeforeRequest(({ request }) => {
     delete request.scope;
   }, 'topRecommendations')
+  .onBeforeRequest(({ request }) => {
+    delete request.scope;
+  }, 'search')
   .setInstance('platform')
   .build();
