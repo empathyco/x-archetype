@@ -16,7 +16,7 @@
     "lint": "vue-cli-service lint",
     "release": "standard-version --no-verify",
     "release:alpha": "standard-version --no-verify --prerelease alpha",
-    "install:local": "npm install file:../x/packages/x-components/empathyco-x-components-3.0.0-alpha.7.tgz --no-save",
+    "install:local": "npm install file:../x/packages/x-components/empathyco-x-components-3.0.0-alpha.8.tgz --no-save",
     "json:csv": "json-csv ./src/i18n/messages",
     "csv:json": "csv-json ./output ./src/i18n/messages"
   },
