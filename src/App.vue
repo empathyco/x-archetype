@@ -75,17 +75,19 @@
   }
 </style>
 <style lang="scss">
+  //TODO: move all this to the XComponents Design System
+
   :root {
     //color
-    --x-color-background-message: var(--x-color-neutral-95);
-    --x-color-border-message: var(--x-color-background-message);
-    --x-color-texxt-message: var(--x-color-text);
+    --x-color-background-message-default: var(--x-color-base-neutral-95);
+    --x-color-border-message-default: var(--x-color-background-message-default);
+    --x-color-text-message-default: var(--x-color-text-default);
 
     //border
-    --x-border-width-message: var(--x-border-width);
+    --x-size-border-width-message-default: var(--x-size-border-width-base);
 
     //spacing
-    --x-space-padding-message: var(--x-space-06);
+    --x-space-padding-message: var(--x-size-base-06);
   }
 
   *:not(.x-keyboard-navigation *) {
@@ -94,15 +96,21 @@
 
   .x-message {
     // color
-    background-color: var(--x-color-background-message);
+    background-color: var(--x-color-background-message-default);
     border-style: solid;
-    border-color: var(--x-color-border-message);
+    border-color: var(--x-color-border-message-default);
 
     // border
-    border-width: var(--x-border-width-message);
+    border-width: var(--x-size-border-width-message-default);
 
     // spacing
     padding: var(--x-space-padding-message);
+  }
+
+  .x-layout__scroll-to-top {
+    position: fixed;
+    bottom: var(--x-size-base-03);
+    right: var(--x-size-base-06);
   }
 
   .x-banner,

@@ -90,7 +90,6 @@
               <template #Banner="{ item: banner }">
                 <Banner :banner="banner" />
               </template>
-
               <template #Promoted="{ item: promoted }">
                 <Promoted :promoted="promoted" />
               </template>
