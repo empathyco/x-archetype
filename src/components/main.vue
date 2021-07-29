@@ -82,16 +82,11 @@
       </div>
 
       <ResultsList v-if="$x.totalResults" v-infinite-scroll:body-scroll>
-        <template #layout="{ results }">
-          <BaseVariableColumnGrid
-            #default="{ item: result }"
-            class="x-grid"
-            :animation="resultsAnimation"
-            :items="results"
-          >
+        <BaseVariableColumnGrid class="x-grid" :animation="resultsAnimation">
+          <template #default="{ item: result }">
             <Result :result="result" />
-          </BaseVariableColumnGrid>
-        </template>
+          </template>
+        </BaseVariableColumnGrid>
       </ResultsList>
 
       <PartialResults />
