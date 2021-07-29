@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@empathyco/x-adapter": "^6.2.0-alpha.4",
-    "@empathyco/x-components": "^3.0.0-alpha.8",
+    "@empathyco/x-components": "^3.0.0-alpha.9",
     "@empathyco/x-types": "^9.1.0-alpha.2",
     "reflect-metadata": "^0.1.13",
     "vue": "^2.6.0",
