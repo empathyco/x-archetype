@@ -79,5 +79,10 @@ export const adapter = new EmpathyAdapterBuilder()
   .onBeforeRequest(({ request }) => {
     delete request.scope;
   }, 'topRecommendations')
+  .onBeforeRequest(({ request }) => {
+    if (request.scope === 'none') {
+      delete request.scope;
+    }
+  }, 'search')
   .setInstance('platform')
   .build();
