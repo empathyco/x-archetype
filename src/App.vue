@@ -104,4 +104,11 @@
     // spacing
     padding: var(--x-space-padding-message);
   }
+
+  .x-banner,
+  .x-promoted {
+    &__title {
+      display: none;
+    }
+  }
 </style>

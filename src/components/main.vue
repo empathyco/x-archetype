@@ -82,7 +82,7 @@
       </div>
       <ResultsList v-if="$x.totalResults" v-infinite-scroll:body-scroll>
         <BannersList>
-          <PromotedLists>
+          <PromotedsList>
             <BaseVariableColumnGrid class="x-grid" :animation="resultsAnimation">
               <template #Result="{ item: result }">
                 <Result :result="result" />
@@ -95,7 +95,7 @@
                 <Promoted :promoted="promoted" />
               </template>
             </BaseVariableColumnGrid>
-          </PromotedLists>
+          </PromotedsList>
         </BannersList>
       </ResultsList>
       <PartialResults />
