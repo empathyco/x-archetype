@@ -80,15 +80,23 @@
           </template>
         </Recommendations>
       </div>
-
       <ResultsList v-if="$x.totalResults" v-infinite-scroll:body-scroll>
-        <BaseVariableColumnGrid class="x-grid" :animation="resultsAnimation">
-          <template #default="{ item: result }">
-            <Result :result="result" />
-          </template>
-        </BaseVariableColumnGrid>
+        <BannersList>
+          <PromotedsList>
+            <BaseVariableColumnGrid class="x-grid" :animation="resultsAnimation">
+              <template #Result="{ item: result }">
+                <Result :result="result" />
+              </template>
+              <template #Banner="{ item: banner }">
+                <Banner :banner="banner" />
+              </template>
+              <template #Promoted="{ item: promoted }">
+                <Promoted :promoted="promoted" />
+              </template>
+            </BaseVariableColumnGrid>
+          </PromotedsList>
+        </BannersList>
       </ResultsList>
-
       <PartialResults />
     </template>
 
@@ -119,7 +127,13 @@
     StaggeredFadeAndSlide,
     State
   } from '@empathyco/x-components';
-  import { ResultsList } from '@empathyco/x-components/search';
+  import {
+    Banner,
+    BannersList,
+    ResultsList,
+    Promoted,
+    PromotedsList
+  } from '@empathyco/x-components/search';
   import { Recommendations } from '@empathyco/x-components/recommendations';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
@@ -138,6 +152,8 @@
   @Component({
     components: {
       BaseIdTogglePanelButton,
+      Banner,
+      BannersList,
       BaseScroll,
       BaseVariableColumnGrid,
       CartIcon,
@@ -153,6 +169,8 @@
       NoResults,
       PartialResults,
       PlusIcon,
+      Promoted,
+      PromotedsList,
       Recommendations,
       RelatedTags,
       Result,

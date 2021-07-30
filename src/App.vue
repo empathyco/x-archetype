@@ -112,4 +112,11 @@
     bottom: var(--x-size-base-03);
     right: var(--x-size-base-06);
   }
+
+  .x-banner,
+  .x-promoted {
+    &__title {
+      display: none;
+    }
+  }
 </style>
