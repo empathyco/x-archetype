@@ -25,6 +25,7 @@ const postCSSPlugins = [autoprefixer(), cssnano({ preset: ['default', { mergeLon
  * Creates a rollup configuration for projects that use X-Components. This configuration can be customized with the options object.
  *
  * @param {boolean} extractCss - If true, the build will generate a `.css` and a `.js` file.
+ * @param {string} outputCss - If `extractCss` is true, the build will generate a `.css` in this path.
  * @param {import('rollup').InputOptions} input - Overrides the entry file. Check http://rollupjs.org/guide/en/#input
  * @param {import('rollup').OutputOptions} output - Overrides the output settings. Check http://rollupjs.org/guide/en/#outputdir
  * @param {Record<string, Record<string, unknown>>} plugins - A dictionary that allows overriding specific plugin configurations.
@@ -35,6 +36,7 @@ const postCSSPlugins = [autoprefixer(), cssnano({ preset: ['default', { mergeLon
  */
 export function createConfig({
   extractCss = false,
+  outputCss = './styles.css',
   input = path.join(process.cwd(), 'src/main.ts'),
   output,
   plugins = {}
@@ -71,7 +73,10 @@ export function createConfig({
       htmlTemplate(
         mergeConfig('htmlTemplate', {
           template: path.resolve(process.cwd(), 'public/index.html'),
-          target: 'index.html'
+          target: 'index.html',
+          replaceVars: {
+            __EXTRACTED_CSS__: extractCss ? `<link href="${outputCss}" rel="stylesheet"/>` : ''
+          }
         })
       ),
       copy({
@@ -114,7 +119,7 @@ export function createConfig({
       ),
       styles(
         mergeConfig('styles', {
-          mode: extractCss ? ['extract', './style.css'] : 'inject',
+          mode: extractCss ? ['extract', outputCss] : 'inject',
           plugins: postCSSPlugins
         })
       ),
