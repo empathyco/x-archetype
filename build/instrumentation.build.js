@@ -1,6 +1,6 @@
-import polyFillsWrapper from '../node_modules/@empathyco/x-components/build-helpers/plugins/polyfills-wrapper.plugin';
 import buble from '@rollup/plugin-buble';
 import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import autoprefixer from 'autoprefixer';
@@ -9,25 +9,23 @@ import path from 'path';
 import copy from 'rollup-plugin-copy';
 import del from 'rollup-plugin-delete';
 import htmlTemplate from 'rollup-plugin-generate-html-template';
-import postcss from 'rollup-plugin-postcss';
 import sourcemaps from 'rollup-plugin-sourcemaps';
+import styles from 'rollup-plugin-styles';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 import visualizer from 'rollup-plugin-visualizer';
 import vue from 'rollup-plugin-vue';
-import json from '@rollup/plugin-json';
+import polyFillsWrapper from '../node_modules/@empathyco/x-components/build-helpers/plugins/polyfills-wrapper.plugin';
 
 const jsOutputDirectory = path.join(process.cwd(), 'dist');
 
-const postCSSPlugins = [
-  autoprefixer({ grid: true }),
-  cssnano({ preset: ['default', { mergeLonghand: false }] })
-];
+const postCSSPlugins = [autoprefixer(), cssnano({ preset: ['default', { mergeLonghand: false }] })];
 
 /**
  * Creates a rollup configuration for projects that use X-Components. This configuration can be customized with the options object.
  *
- * @param {boolean} extractCSS - If true, the build will generate a `.css` and a `.js` file.
+ * @param {boolean} extractCss - If true, the build will generate a `.css` and a `.js` file.
+ * @param {string} outputCss - If `extractCss` is true, the build will generate a `.css` in this path.
  * @param {import('rollup').InputOptions} input - Overrides the entry file. Check http://rollupjs.org/guide/en/#input
  * @param {import('rollup').OutputOptions} output - Overrides the output settings. Check http://rollupjs.org/guide/en/#outputdir
  * @param {Record<string, Record<string, unknown>>} plugins - A dictionary that allows overriding specific plugin configurations.
@@ -35,7 +33,8 @@ const postCSSPlugins = [
  * @returns {import('rollup').RollupOptions}
  */
 export function createConfig({
-  extractCSS = false,
+  extractCss = false,
+  outputCss = './styles.css',
   input = path.join(process.cwd(), 'src/main.ts'),
   output,
   plugins = {}
@@ -60,6 +59,7 @@ export function createConfig({
       file: path.join(jsOutputDirectory, 'app.js'),
       format: 'iife',
       sourcemap: true,
+      assetFileNames: '[name][extname]',
       ...output
     },
     plugins: [
@@ -71,7 +71,10 @@ export function createConfig({
       htmlTemplate(
         mergeConfig('htmlTemplate', {
           template: path.resolve(process.cwd(), 'public/index.html'),
-          target: 'index.html'
+          target: 'index.html',
+          replaceVars: {
+            __EXTRACTED_CSS__: extractCss ? `<link href="${outputCss}" rel="stylesheet"/>` : ''
+          }
         })
       ),
       copy({
@@ -92,7 +95,7 @@ export function createConfig({
       // Code transpiling plugins
       vue(
         mergeConfig('vue', {
-          css: !extractCSS, // css: false = extract; css: true = no extract.
+          css: !extractCss, // css: false = extract; css: true = no extract.
           needMap: false,
           style: {
             postcssPlugins: postCSSPlugins
@@ -112,9 +115,9 @@ export function createConfig({
           include: ['**/*.js', '**/*.mjs']
         })
       ),
-      postcss(
-        mergeConfig('postcss', {
-          extract: extractCSS,
+      styles(
+        mergeConfig('styles', {
+          mode: extractCss ? ['extract', outputCss] : 'inject',
           plugins: postCSSPlugins
         })
       ),
