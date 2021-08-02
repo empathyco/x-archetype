@@ -24,15 +24,17 @@ const postCSSPlugins = [autoprefixer(), cssnano({ preset: ['default', { mergeLon
 /**
  * Creates a rollup configuration for projects that use X-Components. This configuration can be customized with the options object.
  *
- * @param {boolean} extractCSS - If true, the build will generate a `.css` and a `.js` file.
+ * @param {boolean} extractCss - If true, the build will generate a `.css` and a `.js` file.
  * @param {import('rollup').InputOptions} input - Overrides the entry file. Check http://rollupjs.org/guide/en/#input
  * @param {import('rollup').OutputOptions} output - Overrides the output settings. Check http://rollupjs.org/guide/en/#outputdir
  * @param {Record<string, Record<string, unknown>>} plugins - A dictionary that allows overriding specific plugin configurations.
  *
+ * @remarks If the `extractCss` is true, a `./styles.css` file is generated and it must be included in the `index.html` file manually.
+ *
  * @returns {import('rollup').RollupOptions}
  */
 export function createConfig({
-  extractCSS = false,
+  extractCss = false,
   input = path.join(process.cwd(), 'src/main.ts'),
   output,
   plugins = {}
@@ -57,7 +59,7 @@ export function createConfig({
       file: path.join(jsOutputDirectory, 'app.js'),
       format: 'iife',
       sourcemap: true,
-      assetFileNames: "[name][extname]",
+      assetFileNames: '[name][extname]',
       ...output
     },
     plugins: [
@@ -90,7 +92,7 @@ export function createConfig({
       // Code transpiling plugins
       vue(
         mergeConfig('vue', {
-          css: !extractCSS, // css: false = extract; css: true = no extract.
+          css: !extractCss, // css: false = extract; css: true = no extract.
           needMap: false,
           style: {
             postcssPlugins: postCSSPlugins
@@ -112,7 +114,7 @@ export function createConfig({
       ),
       styles(
         mergeConfig('styles', {
-          mode: extractCSS ? ['extract', './style.css'] : 'inject',
+          mode: extractCss ? ['extract', './style.css'] : 'inject',
           plugins: postCSSPlugins
         })
       ),
