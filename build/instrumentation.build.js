@@ -101,7 +101,6 @@ export function createConfig({
       ),
       typescript(
         mergeConfig('typescript', {
-          objectHashIgnoreUnknownHack: true,
           tsconfigOverride: {
             exclude: ['node_modules', '**/*.spec.ts', '*test*']
           }

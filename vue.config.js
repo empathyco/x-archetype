@@ -14,6 +14,15 @@ function init() {
 
 module.exports = {
   configureWebpack: {
+    module: {
+      rules: [
+        {
+          test: /\.ts|js|vue$/,
+          enforce: "pre",
+          use: ["source-map-loader"],
+        }
+      ],
+    },
     plugins: [
       new WrapperPlugin({
         test: /app\.js$/,
