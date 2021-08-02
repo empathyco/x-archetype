@@ -30,8 +30,6 @@ const postCSSPlugins = [autoprefixer(), cssnano({ preset: ['default', { mergeLon
  * @param {import('rollup').OutputOptions} output - Overrides the output settings. Check http://rollupjs.org/guide/en/#outputdir
  * @param {Record<string, Record<string, unknown>>} plugins - A dictionary that allows overriding specific plugin configurations.
  *
- * @remarks If the `extractCss` is true, a `./styles.css` file is generated and it must be included in the `index.html` file manually.
- *
  * @returns {import('rollup').RollupOptions}
  */
 export function createConfig({
