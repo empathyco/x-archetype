@@ -68,15 +68,6 @@ export function createConfig({
           targets: [`${jsOutputDirectory}/*`]
         })
       ),
-      htmlTemplate(
-        mergeConfig('htmlTemplate', {
-          template: path.resolve(process.cwd(), 'public/index.html'),
-          target: 'index.html',
-          replaceVars: {
-            __EXTRACTED_CSS__: extractCss ? `<link href="${outputCss}" rel="stylesheet"/>` : ''
-          }
-        })
-      ),
       copy({
         targets: [{ src: ['public/**', '!public/index.html'], dest: 'dist/' }]
       }),
@@ -119,6 +110,11 @@ export function createConfig({
         mergeConfig('styles', {
           mode: extractCss ? ['extract', outputCss] : 'inject',
           plugins: postCSSPlugins
+        })
+      ),
+      htmlTemplate(
+        mergeConfig('htmlTemplate', {
+          template: path.resolve(process.cwd(), 'public/index.html')
         })
       ),
       sourcemaps(mergeConfig('sourcemaps')),
