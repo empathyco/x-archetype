@@ -5,6 +5,7 @@ export default createConfig({
     input: Check input options at http://rollupjs.org/guide/en/#input
     output: Check all output options at http://rollupjs.org/guide/en/#outputdir
   */
+  extractCss: true,
   plugins: {
     // Modify plugins options here.
   }
