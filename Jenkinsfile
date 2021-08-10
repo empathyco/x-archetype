@@ -1,3 +1,3 @@
 XComponentsPipeline {
-    client = 'Archetype'
+    instance = 'Archetype'
 }
