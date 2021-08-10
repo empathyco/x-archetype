@@ -1,2 +1,3 @@
 XComponentsPipeline {
+    instance = 'Archetype'
 }
