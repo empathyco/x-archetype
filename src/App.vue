@@ -23,11 +23,13 @@
     BaseIdModal,
     CollapseFromTop,
     Dictionary,
-    SnippetConfig
+    SnippetConfig,
+    XProvide
   } from '@empathyco/x-components';
   import Main from './components/main.vue';
   import '@empathyco/x-components/design-system/full-theme.css';
   import './design-system/tokens.scss';
+  import currencies from './currency/currencies';
 
   @Component({
     components: {
@@ -55,6 +57,11 @@
         document.body.dir ||
         (this.snippetConfig.documentDirection ?? 'ltr')
       );
+    }
+
+    @XProvide('currencyFormat')
+    public get currencyFormat(): string {
+      return currencies[this.snippetConfig.currency!];
     }
   }
 </script>

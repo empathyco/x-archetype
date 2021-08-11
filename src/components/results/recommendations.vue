@@ -6,7 +6,9 @@
       :animation="staggeredFadeAndSlide"
       class="x-recommendations"
     >
-      <Result :result="recommendation" />
+      <Result :result="recommendation">
+        <BaseResultCurrentPrice :result="result" class="x-text x-text--accent x-text--bold" />
+      </Result>
     </Recommendations>
   </div>
 </template>
