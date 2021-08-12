@@ -24,12 +24,7 @@
         <h2 class="x-text x-text--secondary x-ellipsis">{{ result.name }}</h2>
       </div>
 
-      <!--
-        @slot Customized price slot.
-      -->
-      <slot name="price">
-        <BaseResultCurrentPrice :result="result" class="x-text x-text--accent x-text--bold" />
-      </slot>
+      <BaseResultCurrentPrice :result="result" class="x-text x-text--accent x-text--bold" />
     </BaseResultLink>
   </article>
 </template>

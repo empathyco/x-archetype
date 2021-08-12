@@ -29,7 +29,7 @@
   import Main from './components/main.vue';
   import '@empathyco/x-components/design-system/full-theme.css';
   import './design-system/tokens.scss';
-  import currencies from './currency/currencies';
+  import currencies from './i18n/currencies';
 
   @Component({
     components: {
