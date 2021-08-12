@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@empathyco/x-adapter": "^6.2.0-alpha.4",
-    "@empathyco/x-components": "^3.0.0-alpha.10",
+    "@empathyco/x-components": "^3.0.0-alpha.14",
     "@empathyco/x-types": "^9.1.0-alpha.2",
     "reflect-metadata": "^0.1.13",
     "tslib": "~2.3.0",

@@ -23,11 +23,8 @@
         <h1 class="x-small x-text--bold">{{ result.season }}</h1>
         <h2 class="x-text x-text--secondary x-ellipsis">{{ result.name }}</h2>
       </div>
-      <BaseResultCurrentPrice
-        format="i,iii.dd €"
-        :result="result"
-        class="x-text x-text--accent x-text--bold"
-      />
+
+      <BaseResultCurrentPrice :result="result" class="x-text x-text--accent x-text--bold" />
     </BaseResultLink>
   </article>
 </template>
