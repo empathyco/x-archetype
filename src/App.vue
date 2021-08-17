@@ -1,17 +1,16 @@
 <template>
   <div>
     <DeviceDetector :breakpoints="breakpoints" />
-    <BaseIdModalOpen class="x-start" modalId="x-components-app">Start</BaseIdModalOpen>
+    <BaseEventsModalOpen class="x-start">Start</BaseEventsModalOpen>
 
-    <BaseIdModal
-      @click.stop.native
+    <BaseEventsModal
+      :eventsToOpenModal="['UserClickedOpenEventsModal', 'UserOpenXProgrammatically']"
       class="x-modal"
-      modalId="x-components-app"
       :animation="collapseFromTop"
       :dir="documentDirection"
     >
       <Main />
-    </BaseIdModal>
+    </BaseEventsModal>
   </div>
 </template>
 
@@ -19,8 +18,8 @@
   import { DeviceDetector } from '@empathyco/x-components/device';
   import { Component, Inject, Vue } from 'vue-property-decorator';
   import {
-    BaseIdModalOpen,
-    BaseIdModal,
+    BaseEventsModal,
+    BaseEventsModalOpen,
     CollapseFromTop,
     Dictionary,
     SnippetConfig,
@@ -34,8 +33,8 @@
   @Component({
     components: {
       Main,
-      BaseIdModalOpen,
-      BaseIdModal,
+      BaseEventsModal,
+      BaseEventsModalOpen,
       DeviceDetector
     }
   })

@@ -20,7 +20,7 @@
         <button class="x-button x-button--ghost">
           <CartIcon class="x-icon--l" />
         </button>
-        <Close class="x-button--ghost" modalId="x-components-app">
+        <Close class="x-button--ghost">
           <CrossIcon class="x-icon--l" />
         </Close>
       </div>
@@ -111,7 +111,7 @@
 <script lang="ts">
   import {
     BaseIdTogglePanelButton,
-    BaseIdModalClose,
+    BaseEventsModalClose,
     BaseScroll,
     BaseScrollToTop,
     BaseVariableColumnGrid,
@@ -158,7 +158,7 @@
       BaseVariableColumnGrid,
       CartIcon,
       ChevronUpIcon,
-      Close: BaseIdModalClose,
+      Close: BaseEventsModalClose,
       CrossIcon,
       CrossTinyIcon,
       Empathize,
