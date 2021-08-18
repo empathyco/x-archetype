@@ -17,7 +17,7 @@
 
 <script lang="ts">
   import { DeviceDetector } from '@empathyco/x-components/device';
-  import { Component, Inject, Vue } from 'vue-property-decorator';
+  import { Component, Inject, Vue, Watch } from 'vue-property-decorator';
   import {
     BaseIdModalOpen,
     BaseIdModal,
@@ -26,6 +26,7 @@
     SnippetConfig,
     XProvide
   } from '@empathyco/x-components';
+  import { adapter } from './adapter/adapter';
   import Main from './components/main.vue';
   import '@empathyco/x-components/design-system/full-theme.css';
   import './design-system/tokens.scss';
@@ -62,6 +63,20 @@
     @XProvide('currencyFormat')
     public get currencyFormat(): string {
       return currencies[this.snippetConfig.currency!];
+    }
+
+    @Watch('snippetConfig.lang')
+    syncLang(lang: string): void {
+      this.$setLocale(lang);
+    }
+
+    @Watch('snippetConfig.searchLang')
+    syncSearchLang(searchLang: string): void {
+      adapter.setConfig({
+        requestParams: {
+          lang: searchLang
+        }
+      });
     }
   }
 </script>

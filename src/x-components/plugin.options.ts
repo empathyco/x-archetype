@@ -17,8 +17,7 @@ export const installXOptions: InstallXOptions = {
       messages
     });
     vue.use(i18n);
-    (window as any).setLocale = i18n.setLocale.bind(i18n); // Only for testing
-    (window as any).setDevice = i18n.setDevice.bind(i18n); // Only for testing
+    vue.prototype.$setLocale = i18n.setLocale.bind(i18n);
 
     return {
       i18n: i18n.vueI18n
