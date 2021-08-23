@@ -68,6 +68,7 @@
     @Watch('snippetConfig.lang')
     syncLang(lang: string): void {
       this.$setLocale(lang);
+      this.syncSearchLang(lang);
     }
 
     @Watch('snippetConfig.searchLang')
