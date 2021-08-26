@@ -46,7 +46,7 @@
         :animation="collapseFromTop"
       >
         <template #toggle>
-          <span class="x-text x-extra-params-name">{{ extraParamName }}:</span>
+          <span class="x-text x-extra-params-name">{{ catalogExtraParam }}:</span>
           <span class="x-text--bold x-text">{{ value }}</span>
           <ChevronTinyDownIcon />
         </template>
@@ -88,7 +88,7 @@
     public columnsValues: number[] = [4, 6, 0];
     public sortValues: Sort[] = ['', 'price asc', 'price desc'];
     public catalogs: string[] = ['en', 'es'];
-    public extraParamName = 'catalog';
+    public catalogExtraParam = 'catalog';
 
     protected collapseFromTop = CollapseFromTop;
   }

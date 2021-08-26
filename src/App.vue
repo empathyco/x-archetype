@@ -142,6 +142,7 @@
     }
   }
 
+  // TODO - Remove this classes when the design-system fix the chevron animation
   .x-dropdown {
     &__toggle {
       .x-icon {
