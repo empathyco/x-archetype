@@ -141,4 +141,22 @@
       display: none;
     }
   }
+
+  // TODO - Remove this classes when the design-system fix the chevron animation
+  .x-dropdown {
+    &__toggle {
+      .x-icon {
+        transition: transform 0.3s ease-in-out;
+      }
+    }
+    &--is-open {
+      .x-dropdown {
+        &__toggle {
+          .x-icon {
+            transition: transform 0.3s ease-in-out;
+          }
+        }
+      }
+    }
+  }
 </style>
