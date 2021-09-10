@@ -1,5 +1,8 @@
 <template>
-  <div class="x-input-group x-input-group--line x-list__item--expand">
+  <div
+    class="x-input-group"
+    :class="$x.device === 'mobile' ? 'x-input-group--card' : 'x-input-group--line'"
+  >
     <SearchIcon />
     <SearchInput :placeholder="$t('searchBox.placeholder')" />
     <ClearSearchInput>{{ $t('searchBox.clear') }}</ClearSearchInput>

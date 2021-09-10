@@ -11,7 +11,7 @@
       </BaseResultImage>
     </BaseResultLink>
 
-    <div class="x-result__overlay x-list">
+    <div class="x-result__overlay x-list x-list--horizontal">
       <BaseAddToCart :result="result" class="x-list__item--expand">
         <CartIcon />
         <span>{{ $t('result.addToCart') }}</span>

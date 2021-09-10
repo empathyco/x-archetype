@@ -1,5 +1,5 @@
 <template>
-  <Filters v-slot="{ filter }" :filters="filters" :animation="staggeredFadeAndSlide">
+  <FiltersList v-slot="{ filter }" :filters="filters" :animation="staggeredFadeAndSlide">
     <NumberRangeFilter :filter="filter">
       <template #default="{ filter }">
         <BasePriceFilterLabel
@@ -11,19 +11,19 @@
         />
       </template>
     </NumberRangeFilter>
-  </Filters>
+  </FiltersList>
 </template>
 
 <script lang="ts">
   import { Filter } from '@empathyco/x-types';
   import { BasePriceFilterLabel, StaggeredFadeAndSlide } from '@empathyco/x-components';
-  import { NumberRangeFilter, Filters } from '@empathyco/x-components/facets';
+  import { NumberRangeFilter, FiltersList } from '@empathyco/x-components/facets';
   import Vue from 'vue';
   import { Component, Prop } from 'vue-property-decorator';
 
   @Component({
     components: {
-      Filters,
+      FiltersList,
       BasePriceFilterLabel,
       NumberRangeFilter,
       StaggeredFadeAndSlide

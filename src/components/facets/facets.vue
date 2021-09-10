@@ -1,5 +1,5 @@
 <template>
-  <Facets class="x-list--gap-06 x-list--padding-05 x-list--padding-top">
+  <Facets>
     <template #default="{ facet }">
       <Facet :facet="facet">
         <AllFilter #default="{ isSelected }" :facet="facet">
@@ -9,7 +9,7 @@
         </AllFilter>
 
         <SlicedFilters :max="6" :filters="facet.filters">
-          <MultiSelectFilters
+          <FiltersList
             #default="{ filter }"
             class="x-list--gap-03"
             :animation="staggeredFadeAndSlide"
@@ -22,7 +22,7 @@
                 <span class="x-filter__count">({{ filter.totalResults }})</span>
               </template>
             </SimpleFilter>
-          </MultiSelectFilters>
+          </FiltersList>
         </SlicedFilters>
       </Facet>
     </template>
@@ -35,7 +35,7 @@
           <span>{{ $t('filters.all') }}</span>
         </AllFilter>
 
-        <Filters
+        <FiltersList
           #default="{ filter }"
           class="x-list--gap-03"
           :filters="facet.filters"
@@ -49,7 +49,7 @@
               <span class="x-filter__count">({{ filter.totalResults }})</span>
             </template>
           </HierarchicalFilter>
-        </Filters>
+        </FiltersList>
       </Facet>
     </template>
 
@@ -89,7 +89,7 @@
 
     <template #price="{ facet }">
       <Facet :facet="facet">
-        <Filters
+        <FiltersList
           #default="{ filter }"
           class="x-list--gap-03"
           :filters="facet.filters"
@@ -102,7 +102,7 @@
               <PriceFilterLabel :filter="filter" />
             </template>
           </NumberRangeFilter>
-        </Filters>
+        </FiltersList>
       </Facet>
     </template>
   </Facets>
@@ -118,18 +118,17 @@
   import {
     SimpleFilter,
     HierarchicalFilter,
-    MultiSelectFilters,
     AllFilter,
     Facets,
     SlicedFilters,
     SelectedFilters,
-    Filters,
+    FiltersList,
     NumberRangeFilter,
     FiltersSearch
   } from '@empathyco/x-components/facets';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
-  import PriceFilterLabel from '../price-filter-label.vue';
+  import PriceFilterLabel from './price-filter-label.vue';
   import Facet from './facet.vue';
 
   @Component({
@@ -140,10 +139,9 @@
       CheckboxCardSelectedIcon,
       Facet,
       Facets,
-      Filters,
+      FiltersList,
       FiltersSearch,
       HierarchicalFilter,
-      MultiSelectFilters,
       NumberRangeFilter,
       PriceFilterLabel,
       SelectedFilters,

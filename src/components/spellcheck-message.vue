@@ -19,5 +19,5 @@
       SpellcheckButton
     }
   })
-  export default class SpellcheckComponent extends Vue {}
+  export default class SpellcheckMessage extends Vue {}
 </script>
