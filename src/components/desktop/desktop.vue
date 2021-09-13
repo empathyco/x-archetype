@@ -85,7 +85,7 @@
   import { Empathize } from '@empathyco/x-components/empathize';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
-  import PredictiveLayer from '../empathize.vue';
+  import PredictiveLayer from '../predictive-layer.vue';
   import EnvSelector from '../env-selector.vue';
   import Facets from '../facets/facets.vue';
   import Logo from '../logo.vue';

@@ -97,7 +97,7 @@
   import { Component } from 'vue-property-decorator';
   import ScrollToTop from '../scroll-to-top.vue';
   import Sort from '../sort.vue';
-  import Empathize from '../empathize.vue';
+  import Empathize from '../predictive-layer.vue';
   import Facets from '../facets/facets.vue';
   import SelectedFilters from '../facets/selected-filters.vue';
   import NoResultsMessage from '../no-results-message.vue';

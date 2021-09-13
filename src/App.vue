@@ -1,14 +1,8 @@
 <template>
   <div class="x" :dir="documentDirection">
     <DeviceDetector :breakpoints="breakpoints" />
-    <BaseEventsModalOpen class="x-start">Start</BaseEventsModalOpen>
 
-    <BaseEventsModal
-      :eventsToOpenModal="['UserClickedOpenEventsModal', 'UserOpenXProgrammatically']"
-      class="x-modal"
-      :animation="collapseFromTop"
-      :dir="documentDirection"
-    >
+    <BaseEventsModal :eventsToOpenModal="openEvents" class="x-modal" :animation="collapseFromTop">
       <Mobile v-if="$x.device === 'mobile'" />
       <Desktop v-else />
     </BaseEventsModal>
@@ -44,6 +38,8 @@
   })
   export default class Layer extends Vue {
     protected collapseFromTop = CollapseFromTop;
+
+    protected openEvents = ['UserClickedOpenEventsModal', 'UserOpenXProgrammatically'];
 
     protected breakpoints: Dictionary<number> = {
       mobile: 640,
@@ -90,13 +86,6 @@
     height: 100%;
     background-color: white;
     overflow: auto;
-  }
-
-  .x-start {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 </style>
 <style lang="scss">
