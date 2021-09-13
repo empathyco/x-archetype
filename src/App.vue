@@ -1,15 +1,10 @@
 <template>
-  <div>
+  <div class="x" :dir="documentDirection">
     <DeviceDetector :breakpoints="breakpoints" />
-    <BaseEventsModalOpen class="x-start">Start</BaseEventsModalOpen>
 
-    <BaseEventsModal
-      :eventsToOpenModal="['UserClickedOpenEventsModal', 'UserOpenXProgrammatically']"
-      class="x-modal"
-      :animation="collapseFromTop"
-      :dir="documentDirection"
-    >
-      <Main />
+    <BaseEventsModal :eventsToOpenModal="openEvents" class="x-modal" :animation="collapseFromTop">
+      <Mobile v-if="$x.device === 'mobile'" />
+      <Desktop v-else />
     </BaseEventsModal>
   </div>
 </template>
@@ -26,14 +21,16 @@
     XProvide
   } from '@empathyco/x-components';
   import { adapter } from './adapter/adapter';
-  import Main from './components/main.vue';
+  import Desktop from './components/desktop/desktop.vue';
   import '@empathyco/x-components/design-system/full-theme.css';
   import './design-system/tokens.scss';
+  import Mobile from './components/mobile/mobile.vue';
   import currencies from './i18n/currencies';
 
   @Component({
     components: {
-      Main,
+      Mobile,
+      Desktop,
       BaseEventsModal,
       BaseEventsModalOpen,
       DeviceDetector
@@ -42,8 +39,10 @@
   export default class Layer extends Vue {
     protected collapseFromTop = CollapseFromTop;
 
+    protected openEvents = ['UserClickedOpenEventsModal', 'UserOpenXProgrammatically'];
+
     protected breakpoints: Dictionary<number> = {
-      mobile: 500,
+      mobile: 640,
       tablet: 900,
       desktop: Number.POSITIVE_INFINITY
     };
@@ -88,13 +87,6 @@
     background-color: white;
     overflow: auto;
   }
-
-  .x-start {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
 </style>
 <style lang="scss">
   //TODO: move all this to the XComponents Design System
@@ -127,6 +119,10 @@
 
     // spacing
     padding: var(--x-space-padding-message);
+
+    .x-button {
+      --x-size-height-button-default: auto;
+    }
   }
 
   .x-layout__scroll-to-top {

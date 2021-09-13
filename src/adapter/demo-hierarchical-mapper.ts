@@ -55,27 +55,33 @@ export class HierarchicalFacetMapper implements ResponseMapper<EmpathyFacet, Hie
     rawFilters: PlatformFilter[],
     context: ResponseMapperContext
   ): HierarchicalFilter[] {
-    const initFilterProps: Partial<HierarchicalFilter> = { facetId: facet.id, parentId: null };
-    return this.mapDeepFilters(rawFilters, initFilterProps, context);
+    const filters: HierarchicalFilter[] = [];
+    const initFilterProps: Readonly<Partial<HierarchicalFilter>> = {
+      facetId: facet.id,
+      parentId: null
+    };
+    rawFilters.forEach(rawFilter => {
+      this.mapDeepFilter(rawFilter, initFilterProps, context, filters);
+    });
+    return filters;
   }
 
-  protected mapDeepFilters(
-    rawFilters: PlatformFilter[] = [],
+  protected mapDeepFilter(
+    rawFilter: PlatformFilter,
     initFilterProps: Readonly<Partial<HierarchicalFilter>>,
-    context: ResponseMapperContext
-  ): HierarchicalFilter[] {
-    return rawFilters.map(rawFilter => {
-      const filter = this.mapFilter(
-        rawFilter,
-        { ...initFilterProps } as HierarchicalFilter,
-        context
-      );
-      filter.children = this.mapDeepFilters(
-        rawFilter.children?.values,
+    context: ResponseMapperContext,
+    filters: HierarchicalFilter[]
+  ): HierarchicalFilter['id'] {
+    const filter = this.mapFilter(rawFilter, { ...initFilterProps } as HierarchicalFilter, context);
+    filter.children = rawFilter.children?.values.map(rawFilterChild =>
+      this.mapDeepFilter(
+        rawFilterChild,
         { ...initFilterProps, parentId: filter.id },
-        context
-      );
-      return filter;
-    });
+        context,
+        filters
+      )
+    );
+    filters.push(filter);
+    return filter.id;
   }
 }

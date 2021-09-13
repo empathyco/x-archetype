@@ -1,9 +1,9 @@
 <template>
   <FiltersSearch :filters="filters">
     <SlicedFilters :max="8">
-      <MultiSelectFilters v-slot="{ filter }" :animation="staggeredFadeAndSlide">
+      <FiltersList v-slot="{ filter }" :animation="staggeredFadeAndSlide">
         <SimpleFilter :filter="filter" />
-      </MultiSelectFilters>
+      </FiltersList>
     </SlicedFilters>
   </FiltersSearch>
 </template>
@@ -12,9 +12,8 @@
   import { Filter } from '@empathyco/x-types';
   import { StaggeredFadeAndSlide } from '@empathyco/x-components';
   import {
-    Filters,
+    FiltersList,
     FiltersSearch,
-    MultiSelectFilters,
     SimpleFilter,
     SlicedFilters
   } from '@empathyco/x-components/facets';
@@ -23,11 +22,10 @@
 
   @Component({
     components: {
-      Filters,
+      FiltersList,
       FiltersSearch,
       SlicedFilters,
       SimpleFilter,
-      MultiSelectFilters,
       StaggeredFadeAndSlide
     }
   })

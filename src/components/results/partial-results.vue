@@ -2,7 +2,7 @@
   <PartialResultsList>
     <template #default="{ partialResult }">
       <span>{{ partialResult.query }}</span>
-      <BaseGrid :columns="4" :items="partialResult.results">
+      <BaseGrid :columns="$x.device === 'mobile' ? 2 : 4" :items="partialResult.results">
         <template #Result="{ item }">
           <Result :result="item" />
         </template>

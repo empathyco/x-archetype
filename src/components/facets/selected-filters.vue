@@ -1,5 +1,5 @@
 <template>
-  <div class="x-list x-list--gap-05 x-list--padding-05 x-list--padding-bottom">
+  <div>
     <ClearFilters #default="{ selectedFilters }" class="x-button--secondary" :alwaysVisible="false">
       {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
     </ClearFilters>

@@ -1,7 +1,7 @@
 <template>
   <SlidingPanel
-    v-if="$x.relatedTags.length > 0"
     class="x-sliding-panel--buttons-overflow x-sliding-panel--show-buttons-on-hover"
+    :showButtons="$x.device !== 'mobile'"
   >
     <RelatedTags class="x-list--gap-03 x-tag--pill" :animation="relatedTagsAnimation">
       <template #sliding-panel-left-button>
