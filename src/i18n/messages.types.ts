@@ -2,8 +2,8 @@
 
 export interface Messages {
   searchBox: {
-    placeholder: string;
     clear: string;
+    placeholder: string;
   };
   popularSearches: {
     title: string;
@@ -26,6 +26,43 @@ export interface Messages {
     title: string;
   };
   facets: {
-    [key: string]: string;
+    gender: string;
+    categoryPaths: string;
+    price: string;
+    usage: string;
+    season: string;
+  };
+  filters: {
+    all: string;
+  };
+  priceFilter: {
+    lessThan: string;
+    fromTo: string;
+    from: string;
+  };
+  filtersSearch: {
+    placeholder: string;
+  };
+  toggleAside: {
+    hideAside: string;
+    showAside: string;
+  };
+  totalResults: {
+    message: string;
+  };
+  sort: {
+    label: string;
+  };
+  selectedFilters: {
+    clear: string;
+  };
+  result: {
+    addToCart: string;
+  };
+  spellcheck: {
+    message: string;
+  };
+  noResults: {
+    message: string;
   };
 }

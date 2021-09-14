@@ -2,6 +2,8 @@ import { DeepPartial } from '@empathyco/x-components';
 import VueI18n from 'vue-i18n';
 import { Messages } from './messages.types';
 
+//TODO: Move all this types to archetype utils package in monorepo
+
 /** Supported locales. */
 export type Locale = string;
 

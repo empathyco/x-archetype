@@ -18,6 +18,7 @@ export const installXOptions: InstallXOptions = {
     });
     vue.use(i18n);
     vue.prototype.$setLocale = i18n.setLocale.bind(i18n);
+    vue.prototype.$setLocaleDevice = i18n.setDevice.bind(i18n);
 
     return {
       i18n: i18n.vueI18n
