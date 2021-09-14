@@ -49,7 +49,7 @@
     "totalResults": {
       "message": "{totalResults} resultados"
     },
-    "sortBy": {
+    "sort": {
       "label": "Ordenar por"
     },
     "selectedFilters": {

@@ -1,6 +1,6 @@
 <template>
   <div class="x" :dir="documentDirection">
-    <DeviceDetector :breakpoints="breakpoints" />
+    <DeviceDetector @DeviceProvided="$setLocaleDevice" :breakpoints="breakpoints" />
 
     <BaseEventsModal :eventsToOpenModal="openEvents" class="x-modal" :animation="collapseFromTop">
       <Mobile v-if="$x.device === 'mobile'" />
@@ -123,12 +123,6 @@
     .x-button {
       --x-size-height-button-default: auto;
     }
-  }
-
-  .x-layout__scroll-to-top {
-    position: fixed;
-    bottom: var(--x-size-base-03);
-    right: var(--x-size-base-06);
   }
 
   .x-banner,

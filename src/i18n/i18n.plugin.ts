@@ -3,6 +3,8 @@ import { VueConstructor } from 'vue';
 import VueI18n, { LocaleMessageObject } from 'vue-i18n';
 import { AnyMessages, Device, I18nOptions, LoadLazyMessagesByDevice, Locale } from './i18n.types';
 
+//TODO: Move all this types to archetype utils package in monorepo
+
 /**
  * I18n settings manager.
  */
