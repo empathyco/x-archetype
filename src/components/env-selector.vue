@@ -1,7 +1,7 @@
 <template>
-  <RenderlessExtraParams #default="{ value, updateValue }" name="env" defaultValue="staging">
+  <RenderlessExtraParams #default="{ value, updateValue }" name="env" :defaultValue="defaultValue">
     <BaseDropdown
-      @change="updateValue"
+      @change="selectedValue => updateConfig(selectedValue, updateValue)"
       class="x-dropdown"
       :value="value"
       :items="catalogs"
@@ -24,11 +24,13 @@
     BaseDropdown,
     CheckTinyIcon,
     ChevronTinyDownIcon,
-    CollapseFromTop
+    CollapseFromTop,
+    SnippetConfig
   } from '@empathyco/x-components';
   import { RenderlessExtraParams } from '@empathyco/x-components/extra-params';
   import Vue from 'vue';
-  import { Component } from 'vue-property-decorator';
+  import { Component, Inject } from 'vue-property-decorator';
+  import { adapter } from '../adapter/adapter';
 
   @Component({
     components: {
@@ -41,5 +43,23 @@
   export default class EnvSelector extends Vue {
     public catalogs: string[] = ['staging', 'test'];
     protected collapseFromTop = CollapseFromTop;
+    protected defaultValue = 'staging';
+
+    @Inject('snippetConfig')
+    protected snippetConfig!: SnippetConfig;
+
+    beforeMount(): void {
+      this.defaultValue = this.snippetConfig.env ?? this.defaultValue;
+    }
+
+    protected updateConfig(
+      selectedValue: 'staging' | 'test' | undefined,
+      updateValue: (value: unknown) => void
+    ): void {
+      updateValue(selectedValue);
+      adapter.setConfig({
+        env: selectedValue
+      });
+    }
   }
 </script>
