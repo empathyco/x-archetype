@@ -41,7 +41,7 @@ export const adapter = new EmpathyAdapterBuilder()
     }
   })
   .setFeatureConfig('relatedTags', {
-    endpoint: 'https://search.internal.{env}.empathy.co/query/empathy/relatedtags',
+    endpoint: 'https://beacon-api.internal.{env}.empathy.co/relatedtags/empathy',
     responsePaths: {
       relatedTags: 'data.relatedtags'
     }
