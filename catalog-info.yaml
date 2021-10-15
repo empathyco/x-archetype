@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Interface-X-Archetype
+  tags:
+    - x
+    - frontend
+    - interface
+    - archetype
+    - docs
+  description: Commerce Search & Discovery Frontend components
+  annotations:
+    github.com/project-slug: empathyco/x-archetype
+    backstage.io/techdocs-ref: url:https://github.com/empathyco/x-archetype/tree/main
+    backstage.io/edit-url: https://github.com/empathyco/x-archetype/edit/main/catalog-info.yaml
+    sonarqube.org/project-key: x-components-archetype
+    jenkins.io/github-folder: GitHub X/x-archetype/
+    jira/project-key: EX
+  links:
+    - url: https://x.empathy.co/
+      title: Interface X Archetype Prod
+      icon: web
+    - url: https://x.staging.empathy.co/
+      title: Interface X Archetype Staging
+      icon: web
+    - url: https://x.test.empathy.co/
+      title: Interface X Archetype Test
+      icon: web
+    - url: https://docs.empathy.co/empathy-for-developers/build-search-ui/web-archetype-integration-guide.html
+      title: Integrating the Archetype project documentation
+      icon: web
+spec:
+  type: website
+  lifecycle: production
+  owner: x
