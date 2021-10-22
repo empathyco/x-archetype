@@ -55,7 +55,8 @@ export const adapter = new EmpathyAdapterBuilder()
   .setFeatureConfig('suggestions', {
     endpoint: 'https://search.internal.{env}.empathy.co/query/empathy/empathize',
     responsePaths: {
-      topTrends: 'data.topTrends'
+      topTrends: 'topTrends.content',
+      suggestions: 'topTrends.content'
     }
   })
   .setFeatureConfig('topRecommendations', {
