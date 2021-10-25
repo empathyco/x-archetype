@@ -27,7 +27,7 @@
       </Facet>
     </template>
 
-    <template #categoryPaths="{ facet }">
+    <template #category-paths="{ facet }">
       <Facet :facet="facet">
         <AllFilter #default="{ isSelected }" :facet="facet">
           <CheckboxCardSelectedIcon v-if="isSelected" />
