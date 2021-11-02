@@ -1,7 +1,7 @@
 <template>
   <article class="x-result">
     <BaseResultLink class="x-result__picture" :result="result">
-      <BaseResultImage :result="result">
+      <BaseResultImage :result="result" class="x-picture--colored">
         <template #placeholder>
           <BasePlaceholderImage />
         </template>

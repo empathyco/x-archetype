@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="!$x.totalResults && $x.recommendations.length > 0"
+    v-if="(!$x.query.search || $x.noResults) && $x.recommendations.length > 0"
     class="x-list x-list--align-center x-list--padding-07 x-list--gap-07 x-list--padding-bottom"
   >
     <h1 class="x-title1 x-text--bold">{{ $t('recommendations.title') }}</h1>
@@ -8,10 +8,8 @@
       <template #layout="{ recommendations }">
         <BaseGrid
           #default="{ item: result }"
-          class="x-grid"
           :animation="staggeredFadeAndSlide"
           :items="recommendations"
-          :columns="$x.device === 'mobile' ? 2 : 4"
         >
           <Result :result="result" />
         </BaseGrid>
