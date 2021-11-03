@@ -1,10 +1,10 @@
 <template>
-  <RenderlessExtraParams #default="{ value, updateValue }" name="env" :defaultValue="defaultValue">
+  <RenderlessExtraParams #default="{ value, updateValue }" name="env">
     <BaseDropdown
-      @change="selectedValue => updateConfig(selectedValue, updateValue)"
+      @change="updateValue"
       class="x-dropdown"
       :value="value"
-      :items="catalogs"
+      :items="environments"
       :animation="collapseFromTop"
     >
       <template #toggle>
@@ -25,11 +25,12 @@
     CheckTinyIcon,
     ChevronTinyDownIcon,
     CollapseFromTop,
-    SnippetConfig
+    Dictionary,
+    XOn
   } from '@empathyco/x-components';
   import { RenderlessExtraParams } from '@empathyco/x-components/extra-params';
   import Vue from 'vue';
-  import { Component, Inject } from 'vue-property-decorator';
+  import { Component } from 'vue-property-decorator';
   import { adapter } from '../adapter/adapter';
 
   @Component({
@@ -41,25 +42,19 @@
     }
   })
   export default class EnvSelector extends Vue {
-    public catalogs: string[] = ['staging', 'test'];
+    public environments: string[] = ['staging', 'test'];
     protected collapseFromTop = CollapseFromTop;
+
     protected defaultValue = 'staging';
 
-    @Inject('snippetConfig')
-    protected snippetConfig!: SnippetConfig;
-
-    beforeMount(): void {
-      this.defaultValue = this.snippetConfig.env ?? this.defaultValue;
-    }
-
-    protected updateConfig(
-      selectedValue: 'staging' | 'test' | undefined,
-      updateValue: (value: unknown) => void
-    ): void {
-      updateValue(selectedValue);
-      adapter.setConfig({
-        env: selectedValue
-      });
+    // TODO: remove when Adapter refactored and stateless
+    @XOn('ExtraParamsChanged')
+    updateAdapterConfig(extraParams: Dictionary<unknown>): void {
+      if ('env' in extraParams) {
+        adapter.setConfig({
+          env: extraParams.env as 'live' | 'staging' | 'test'
+        });
+      }
     }
   }
 </script>

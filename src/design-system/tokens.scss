@@ -1,14 +1,29 @@
 :root {
+  // base colors
   --x-color-base-auxiliary: #d84022;
   --x-color-base-neutral-70: #cfd4d7;
   --x-color-base-neutral-95: #f5f6f7;
 
+  // Tag
   --x-color-background-tag-default: var(--x-color-base-neutral-95);
   --x-color-border-tag-default: var(--x-color-base-neutral-95);
   --x-color-background-tag-default-selected: var(--x-color-base-neutral-100);
   --x-color-border-tag-default-selected: var(--x-color-base-neutral-10);
 
+  // Dropdown
   --x-color-border-dropdown-toggle-default: transparent;
 
+  // Layout
   --x-size-margin-left-layout-s: var(--x-size-base-10);
+  --x-size-border-width-layout-columns-header: 0 0 1px;
+
+  // Grid
+  --x-size-min-width-grid-item: var(--x-size-base-20);
+
+  // Message
+  --x-color-background-message-default: var(--x-color-base-neutral-95);
+  --x-color-border-message-default: var(--x-color-background-message-default);
+  --x-color-text-message-default: var(--x-color-text-default);
+  --x-size-border-width-message-default: var(--x-size-border-width-base);
+  --x-space-padding-message: var(--x-size-base-06);
 }

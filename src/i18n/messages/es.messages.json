@@ -64,23 +64,5 @@
     "noResults": {
       "message": "No se han encontrado resultados para '{query}'. Prueba con otra búsqueda."
     }
-  },
-  "tablet": {
-    "searchBox": {
-      "clear": "Borrar tablet",
-      "placeholder": "Empieza a buscar tablet"
-    },
-    "popularSearches": {
-      "title": "Búsquedas populares tablet"
-    }
-  },
-  "desktop": {
-    "searchBox": {
-      "clear": "Borrar desktop",
-      "placeholder": "Empieza a buscar desktop"
-    },
-    "popularSearches": {
-      "title": "Búsquedas populares desktop"
-    }
   }
 }

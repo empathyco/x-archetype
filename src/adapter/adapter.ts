@@ -37,7 +37,8 @@ export const adapter = new EmpathyAdapterBuilder()
       totalResults: 'catalog.numFound',
       spellcheck: 'catalog.spellchecked',
       banners: 'banner.content',
-      promoteds: 'promoted.content'
+      promoteds: 'promoted.content',
+      redirections: 'direct.content'
     }
   })
   .setFeatureConfig('relatedTags', {

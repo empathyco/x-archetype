@@ -64,23 +64,5 @@
     "noResults": {
       "message": "No results found for <span class=\"x-text x-text--accent x-text--bold\">'{query}'</span>. Try with another query."
     }
-  },
-  "tablet": {
-    "searchBox": {
-      "clear": "Clear tablet",
-      "placeholder": "Start to search tablet"
-    },
-    "popularSearches": {
-      "title": "Popular searches tablet"
-    }
-  },
-  "desktop": {
-    "searchBox": {
-      "clear": "Clear desktop",
-      "placeholder": "Start to search desktop"
-    },
-    "popularSearches": {
-      "title": "Popular searches desktop"
-    }
   }
 }
