@@ -10,8 +10,16 @@ export class EmpathyEndpointsService implements EndpointsService {
       rawUrl = `https://${rawUrl}`;
     }
 
-    return rawUrl
-      .replace(/{env}/g, this.config.env === 'live' ? '' : `${this.config.env}`)
-      .replace(/{instance}/g, this.config.instance);
+    if (!rawUrl.includes('relatedtags')) {
+      if (this.config.env === 'test') {
+        return rawUrl.replace(/{env}/g, 'search.internal.test.empathy.co');
+      } else if (this.config.env === 'staging') {
+        return rawUrl.replace(/{env}/g, 'api.staging.empathy.co/search/v1');
+      } else {
+        return rawUrl.replace(/{env}/g, 'api.empathy.co/search/v1');
+      }
+    } else {
+      return rawUrl.replace(/{env}/g, this.config.env);
+    }
   }
 }
