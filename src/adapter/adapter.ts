@@ -30,7 +30,7 @@ export const adapter = new EmpathyAdapterBuilder()
   .addMapper(priceFilterMapper, 'numberRangeFilter')
   .replaceClassRequestMapper(SearchRequestMapper)
   .setFeatureConfig('search', {
-    endpoint: 'https://{env}/query/empathy/search',
+    endpoint: '{env}/query/empathy/search',
     responsePaths: {
       results: 'catalog.content',
       facets: 'catalog.facets',
@@ -42,7 +42,7 @@ export const adapter = new EmpathyAdapterBuilder()
     }
   })
   .setFeatureConfig('relatedTags', {
-    endpoint: 'https://beacon-api.internal.{env}.empathy.co/relatedtags/empathy',
+    endpoint: 'beacon-api.internal.{env}.empathy.co/relatedtags/empathy',
     responsePaths: {
       relatedTags: 'data.relatedtags'
     }
