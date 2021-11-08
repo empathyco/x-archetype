@@ -30,7 +30,7 @@ export const adapter = new EmpathyAdapterBuilder()
   .addMapper(priceFilterMapper, 'numberRangeFilter')
   .replaceClassRequestMapper(SearchRequestMapper)
   .setFeatureConfig('search', {
-    endpoint: 'https://search.internal.{env}.empathy.co/query/empathy/search',
+    endpoint: '{env}/query/empathy/search',
     responsePaths: {
       results: 'catalog.content',
       facets: 'catalog.facets',
@@ -42,25 +42,25 @@ export const adapter = new EmpathyAdapterBuilder()
     }
   })
   .setFeatureConfig('relatedTags', {
-    endpoint: 'https://beacon-api.internal.{env}.empathy.co/relatedtags/empathy',
+    endpoint: 'beacon-api.internal.{env}.empathy.co/relatedtags/empathy',
     responsePaths: {
       relatedTags: 'data.relatedtags'
     }
   })
   .setFeatureConfig('nextQueries', {
-    endpoint: 'https://search.internal.{env}.empathy.co/query/empathy/nextqueries',
+    endpoint: '{env}/query/empathy/nextqueries',
     responsePaths: {
       nextQueries: 'data.nextQueries'
     }
   })
   .setFeatureConfig('suggestions', {
-    endpoint: 'https://search.internal.{env}.empathy.co/query/empathy/empathize',
+    endpoint: '{env}/query/empathy/empathize',
     responsePaths: {
       suggestions: 'topTrends.content'
     }
   })
   .setFeatureConfig('topRecommendations', {
-    endpoint: 'https://search.internal.{env}.empathy.co/query/empathy/topclicked',
+    endpoint: '{env}/query/empathy/topclicked',
     responsePaths: {
       results: 'topclicked.content'
     }
