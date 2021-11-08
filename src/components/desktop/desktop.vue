@@ -49,19 +49,23 @@
     </template>
 
     <template #main-body>
-      <div
-        v-if="$x.totalResults === 0 || $x.spellcheckedQuery"
-        class="x-list x-list--padding-06 x-list--padding-bottom"
-      >
-        <SpellcheckMessage />
-        <NoResultsMessage />
-      </div>
+      <Redirection />
 
-      <Recommendations />
+      <template v-if="!$x.redirections.length">
+        <div
+          v-if="$x.noResults || $x.spellcheckedQuery"
+          class="x-list x-list--padding-06 x-list--padding-bottom"
+        >
+          <SpellcheckMessage />
+          <NoResultsMessage />
+        </div>
 
-      <Results />
+        <Results />
 
-      <PartialResults />
+        <PartialResults />
+
+        <Recommendations />
+      </template>
     </template>
 
     <template #scroll-to-top>
@@ -93,6 +97,7 @@
   import RelatedTags from '../related-tags.vue';
   import Recommendations from '../results/recommendations.vue';
   import PartialResults from '../results/partial-results.vue';
+  import Redirection from '../results/redirection.vue';
   import Results from '../results/results.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import SearchBox from '../search-box.vue';
@@ -103,6 +108,7 @@
 
   @Component({
     components: {
+      Redirection,
       ScrollToTop,
       DesktopToggleAside,
       EnvSelector,

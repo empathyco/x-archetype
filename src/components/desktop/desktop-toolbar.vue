@@ -1,6 +1,9 @@
 <template>
-  <div class="x-list x-list--horizontal x-list--gap-06 x-list--justify-end x-list--align-center">
-    <span v-if="$x.totalResults">
+  <div
+    v-if="$x.totalResults"
+    class="x-list x-list--horizontal x-list--gap-06 x-list--justify-end x-list--align-center"
+  >
+    <span>
       {{ $t('totalResults.message', { totalResults: $x.totalResults }) }}
     </span>
 

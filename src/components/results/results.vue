@@ -3,13 +3,13 @@
     <BannersList>
       <PromotedsList>
         <component :is="grid" :columns="2" class="x-grid" :animation="staggeredFadeAndSlide">
-          <template #Result="{ item: result }">
+          <template #result="{ item: result }">
             <Result :result="result" />
           </template>
-          <template #Banner="{ item: banner }">
+          <template #banner="{ item: banner }">
             <Banner :banner="banner" />
           </template>
-          <template #Promoted="{ item: promoted }">
+          <template #promoted="{ item: promoted }">
             <Promoted :promoted="promoted" />
           </template>
         </component>

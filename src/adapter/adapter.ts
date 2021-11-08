@@ -37,7 +37,8 @@ export const adapter = new EmpathyAdapterBuilder()
       totalResults: 'catalog.numFound',
       spellcheck: 'catalog.spellchecked',
       banners: 'banner.content',
-      promoteds: 'promoted.content'
+      promoteds: 'promoted.content',
+      redirections: 'direct.content'
     }
   })
   .setFeatureConfig('relatedTags', {
@@ -55,7 +56,7 @@ export const adapter = new EmpathyAdapterBuilder()
   .setFeatureConfig('suggestions', {
     endpoint: 'https://search.internal.{env}.empathy.co/query/empathy/empathize',
     responsePaths: {
-      suggestions: 'data.topTrends'
+      suggestions: 'topTrends.content'
     }
   })
   .setFeatureConfig('topRecommendations', {
