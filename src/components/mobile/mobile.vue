@@ -24,7 +24,7 @@
     </template>
 
     <template #predictive>
-      <Empathize class="x-list x-list--background-neutral-100" />
+      <Empathize class="x-list x-background--neutral-100" />
     </template>
 
     <template #main>

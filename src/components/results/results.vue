@@ -7,10 +7,14 @@
             <Result :result="result" />
           </template>
           <template #banner="{ item: banner }">
-            <Banner :banner="banner" />
+            <MainScrollItem :item="banner" tag="article">
+              <Banner :banner="banner" />
+            </MainScrollItem>
           </template>
           <template #promoted="{ item: promoted }">
-            <Promoted :promoted="promoted" />
+            <MainScrollItem :item="promoted" tag="article">
+              <Promoted :promoted="promoted" />
+            </MainScrollItem>
           </template>
         </component>
       </PromotedsList>
@@ -22,9 +26,10 @@
   import {
     BaseGrid,
     BaseVariableColumnGrid,
-    StaggeredFadeAndSlide,
-    infiniteScroll
+    infiniteScroll,
+    StaggeredFadeAndSlide
   } from '@empathyco/x-components';
+  import { MainScrollItem } from '@empathyco/x-components/scroll';
   import {
     Banner,
     BannersList,
@@ -42,6 +47,7 @@
       BannersList,
       BaseGrid,
       BaseVariableColumnGrid,
+      MainScrollItem,
       Promoted,
       PromotedsList,
       Result,
