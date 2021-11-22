@@ -1,5 +1,5 @@
 <template>
-  <article class="x-result">
+  <MainScrollItem :item="result" tag="article" class="x-result">
     <BaseResultLink class="x-result__picture" :result="result">
       <BaseResultImage :result="result" class="x-picture--colored">
         <template #placeholder>
@@ -26,7 +26,7 @@
 
       <BaseResultCurrentPrice :result="result" class="x-text x-text--accent x-text--bold" />
     </BaseResultLink>
-  </article>
+  </MainScrollItem>
 </template>
 
 <script lang="ts">
@@ -40,6 +40,7 @@
     BaseFallbackImage,
     CartIcon
   } from '@empathyco/x-components';
+  import { MainScrollItem } from '@empathyco/x-components/scroll';
   import { Component, Prop, Vue } from 'vue-property-decorator';
 
   @Component({
@@ -50,7 +51,8 @@
       BaseResultCurrentPrice,
       BaseResultImage,
       BaseResultLink,
-      CartIcon
+      CartIcon,
+      MainScrollItem
     }
   })
   export default class ResultComponent extends Vue {

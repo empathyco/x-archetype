@@ -9,8 +9,12 @@ function getURLParameter(name) {
   );
 }
 
+function getEnv() {
+  return document.location.host.includes('.test.') ? 'test' : 'staging';
+}
+
 var instance = getURLParameter('instance') || undefined;
-var env = getURLParameter('env') || 'test';
+var env = getEnv();
 var scope = getURLParameter('scope') || 'desktop';
 var lang = getURLParameter('lang') || 'en';
 var device = getURLParameter('device') || 'mobile';

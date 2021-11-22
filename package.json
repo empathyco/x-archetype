@@ -16,14 +16,14 @@
     "lint": "vue-cli-service lint",
     "release": "standard-version --no-verify",
     "release:alpha": "standard-version --no-verify --prerelease alpha",
-    "install:local": "npm install file:../x/packages/x-components/empathyco-x-components-3.0.0-alpha.29.tgz --no-save",
+    "install:local": "npm install file:../x/packages/x-components/empathyco-x-components-3.0.0-alpha.30.tgz --no-save",
     "json:csv": "json-csv ./src/i18n/messages",
     "csv:json": "csv-json ./output ./src/i18n/messages"
   },
   "dependencies": {
-    "@empathyco/x-adapter": "7.0.0-alpha.5",
-    "@empathyco/x-components": "^3.0.0-alpha.29",
-    "@empathyco/x-types": "^10.0.0-alpha.9",
+    "@empathyco/x-adapter": "^7.0.0-alpha.6",
+    "@empathyco/x-components": "^3.0.0-alpha.30",
+    "@empathyco/x-types": "^10.0.0-alpha.11",
     "reflect-metadata": "^0.1.13",
     "tslib": "~2.3.0",
     "vue": "^2.6.0",

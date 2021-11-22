@@ -42,7 +42,7 @@ export const adapter = new EmpathyAdapterBuilder()
     }
   })
   .setFeatureConfig('relatedTags', {
-    endpoint: 'beacon-api.internal.{env}.empathy.co/relatedtags/empathy',
+    endpoint: '{env}.empathy.co/relatedtags/empathy',
     responsePaths: {
       relatedTags: 'data.relatedtags'
     }

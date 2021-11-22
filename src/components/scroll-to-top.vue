@@ -1,19 +1,20 @@
 <template>
-  <BaseScrollToTop class="x-button--round" scrollId="main-scroll" :thresholdPx="100">
+  <ScrollToTop class="x-button--round" scrollId="main-scroll" :thresholdPx="100">
     <ChevronUpIcon />
-  </BaseScrollToTop>
+  </ScrollToTop>
 </template>
 
 <script lang="ts">
-  import { BaseScrollToTop, ChevronUpIcon } from '@empathyco/x-components';
+  import { ChevronUpIcon } from '@empathyco/x-components';
+  import { ScrollToTop } from '@empathyco/x-components/scroll';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
 
   @Component({
     components: {
-      BaseScrollToTop,
+      ScrollToTop,
       ChevronUpIcon
     }
   })
-  export default class ScrollToTop extends Vue {}
+  export default class ScrollToTopComponent extends Vue {}
 </script>
