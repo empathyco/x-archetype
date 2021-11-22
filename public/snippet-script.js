@@ -14,7 +14,7 @@ function getEnv() {
 }
 
 var instance = getURLParameter('instance') || undefined;
-var env = getEnv('env');
+var env = getEnv();
 var scope = getURLParameter('scope') || 'desktop';
 var lang = getURLParameter('lang') || 'en';
 var device = getURLParameter('device') || 'mobile';
