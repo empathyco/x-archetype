@@ -21,9 +21,9 @@
     "csv:json": "csv-json ./output ./src/i18n/messages"
   },
   "dependencies": {
-    "@empathyco/x-adapter": "7.0.0-alpha.5",
+    "@empathyco/x-adapter": "^7.0.0-alpha.6",
     "@empathyco/x-components": "^3.0.0-alpha.30",
-    "@empathyco/x-types": "^10.0.0-alpha.9",
+    "@empathyco/x-types": "^10.0.0-alpha.11",
     "reflect-metadata": "^0.1.13",
     "tslib": "~2.3.0",
     "vue": "^2.6.0",
