@@ -27,11 +27,7 @@ export const installXOptions: InstallXOptions = {
   xModules: {
     identifierResults: {
       config: {
-        // This config overrides the default identifier search regex.
-        // As the juguettos client has SKUs starting with a letter followed by numbers.
-
-        // Please remove this config if your client has not this kind of issue.
-        identifierDetectionRegexp: '^[a-zA-Z][0-9]+'
+        identifierDetectionRegexp: '^[0-9]+'
       }
     }
   }

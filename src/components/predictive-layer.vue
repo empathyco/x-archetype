@@ -14,8 +14,22 @@
           : 'x-row x-row--gap-06 x-row--align-start'
       "
     >
+      <IdentifierResults
+        #default="{ identifierResult }"
+        :animation="suggestionsAnimation"
+        class="x-row__item x-row__item--span-12 x-list x-list--gap-04"
+      >
+        <BaseResultLink #default="{ result }" :result="identifierResult" class="x-suggestion">
+          <BarCodeIcon />
+          <IdentifierResult class="x-text x-text--bold" :result="result" />
+          <span class="x-text x-text--bold x-ellipsis">
+            {{ result.name }}
+          </span>
+        </BaseResultLink>
+      </IdentifierResults>
+
       <QuerySuggestions
-        v-if="$x.query.searchBox"
+        v-if="$x.query.searchBox && !$x.identifierResults"
         #suggestion-content="{ queryHTML }"
         class="x-row__item x-row__item--span-4 x-list x-list--gap-03"
         :animation="suggestionsAnimation"
@@ -26,7 +40,7 @@
       </QuerySuggestions>
 
       <div
-        v-if="$x.nextQueries.length > 0"
+        v-if="$x.nextQueries.length > 0 && !$x.identifierResults"
         class="x-row__item x-row__item--span-4 x-list x-list--gap-03"
       >
         <h1
@@ -121,7 +135,9 @@
 <script lang="ts">
   import { Empathize } from '@empathyco/x-components/empathize';
   import {
+    BarCodeIcon,
     BaseKeyboardNavigation,
+    BaseResultLink,
     CollapseFromTop,
     CrossTinyIcon,
     FadeAndSlide,
@@ -132,6 +148,7 @@
     TrendingTinyIcon
   } from '@empathyco/x-components';
   import { ClearHistoryQueries, HistoryQueries } from '@empathyco/x-components/history-queries';
+  import { IdentifierResult, IdentifierResults } from '@empathyco/x-components/identifier-results';
   import { NextQueries } from '@empathyco/x-components/next-queries';
   import { PopularSearches } from '@empathyco/x-components/popular-searches';
   import { QuerySuggestions } from '@empathyco/x-components/query-suggestions';
@@ -152,7 +169,11 @@
       PopularSearches,
       QuerySuggestions,
       SearchIcon,
-      TrendingTinyIcon
+      TrendingTinyIcon,
+      IdentifierResults,
+      IdentifierResult,
+      BaseResultLink,
+      BarCodeIcon
     }
   })
   export default class PredictiveLayer extends Vue {
