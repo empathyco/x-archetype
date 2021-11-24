@@ -32,7 +32,13 @@ export const adapter = new EmpathyAdapterBuilder()
   .setFeatureConfig('search', {
     endpoint: '{env}/query/empathy/search',
     responsePaths: {
-      results: 'catalog.content'
+      results: 'catalog.content',
+      facets: 'catalog.facets',
+      totalResults: 'catalog.numFound',
+      spellcheck: 'catalog.spellchecked',
+      banners: 'banner.content',
+      promoteds: 'promoted.content',
+      redirections: 'direct.content'
     }
   })
   .setFeatureConfig('searchById', {
