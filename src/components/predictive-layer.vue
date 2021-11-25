@@ -29,7 +29,7 @@
       </IdentifierResults>
 
       <QuerySuggestions
-        v-if="$x.query.searchBox && !$x.identifierResults"
+        v-if="$x.query.searchBox && $x.identifierResults.length === 0"
         #suggestion-content="{ queryHTML }"
         class="x-row__item x-row__item--span-4 x-list x-list--gap-03"
         :animation="suggestionsAnimation"
@@ -40,7 +40,7 @@
       </QuerySuggestions>
 
       <div
-        v-if="$x.nextQueries.length > 0 && !$x.identifierResults"
+        v-if="$x.nextQueries.length > 0 && $x.identifierResults.length === 0"
         class="x-row__item x-row__item--span-4 x-list x-list--gap-03"
       >
         <h1
