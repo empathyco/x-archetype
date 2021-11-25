@@ -157,23 +157,23 @@
 
   @Component({
     components: {
+      BarCodeIcon,
       BaseKeyboardNavigation,
-      CrossTinyIcon,
+      BaseResultLink,
       ClearHistoryQueries,
+      CrossTinyIcon,
       Empathize,
       HistoryIcon,
       HistoryQueries,
+      IdentifierResults,
+      IdentifierResult,
       MinusIcon,
       NextQueries,
       Nq4Icon,
       PopularSearches,
       QuerySuggestions,
       SearchIcon,
-      TrendingTinyIcon,
-      IdentifierResults,
-      IdentifierResult,
-      BaseResultLink,
-      BarCodeIcon
+      TrendingTinyIcon
     }
   })
   export default class PredictiveLayer extends Vue {

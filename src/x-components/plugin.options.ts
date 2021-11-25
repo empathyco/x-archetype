@@ -23,12 +23,5 @@ export const installXOptions: InstallXOptions = {
     return {
       i18n: i18n.vueI18n
     };
-  },
-  xModules: {
-    identifierResults: {
-      config: {
-        identifierDetectionRegexp: '^[0-9]+'
-      }
-    }
   }
 };
