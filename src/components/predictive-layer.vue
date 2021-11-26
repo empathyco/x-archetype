@@ -140,7 +140,7 @@
     BaseResultLink,
     CollapseFromTop,
     CrossTinyIcon,
-    FadeAndSlide,
+    StaggeredFadeAndSlide,
     HistoryIcon,
     MinusIcon,
     Nq4Icon,
@@ -177,7 +177,7 @@
     }
   })
   export default class PredictiveLayer extends Vue {
-    public suggestionsAnimation = FadeAndSlide;
+    public suggestionsAnimation = StaggeredFadeAndSlide;
     public empathizeAnimation = CollapseFromTop;
   }
 </script>
