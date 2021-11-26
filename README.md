@@ -1,9 +1,9 @@
-# X Components Archetype
+# Interface X
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Created by](https://img.shields.io/badge/Created%20by-Empathy.co-green)](https://www.empathy.co)
 
-Welcome to the X Components Archetype
+Welcome to the Interface X Archetype
 
 ## What is this repository for?
 
