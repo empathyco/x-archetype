@@ -7,10 +7,10 @@ you can compose a search interface using the components provided by the library.
 
 ### Interface X Components
 
-The Interface X Components Archetype imports the Interface X Components library along with several
+The Interface Interface X imports the Interface X Components library along with several
 tools predefined. Visit the
 [Interface X Components repository](https://github.com/empathyco/x/tree/main/packages/x-components#readme)
-for further information of Interface X Components.
+for further information on Interface X Components.
 
 ### Integrating Interface X Archetype
 
