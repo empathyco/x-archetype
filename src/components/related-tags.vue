@@ -12,8 +12,8 @@
         <ChevronLeftIcon />
       </template>
 
-      <template #related-tag-content="{ relatedTag, isSelected, isHighlightCurated }">
-        <TagIcon v-if="isHighlightCurated" />
+      <template #related-tag-content="{ relatedTag, isSelected, shouldHighlightCurated }">
+        <TagIcon v-if="shouldHighlightCurated" />
         {{ relatedTag.tag }}
         <CrossTinyIcon v-if="isSelected" />
         <PlusIcon v-else />
