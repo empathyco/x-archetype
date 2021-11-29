@@ -60,6 +60,9 @@ export function resultMapper(rawResult: EmpathyResult, result: Result): Result {
     season: rawResult.season,
     categories: rawResult.categories,
     categoryIds: rawResult.categoryIds,
-    categoryPaths: rawResult.categoryPaths
+    categoryPaths: rawResult.categoryPaths,
+    identifier: {
+      value: rawResult.id
+    }
   });
 }

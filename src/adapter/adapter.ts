@@ -42,6 +42,12 @@ export const adapter = new EmpathyAdapterBuilder()
       queryTagging: 'catalog.tagging.query'
     }
   })
+  .setFeatureConfig('searchById', {
+    endpoint: '{env}/query/empathy/skusearch',
+    responsePaths: {
+      results: 'catalog.content'
+    }
+  })
   .setFeatureConfig('relatedTags', {
     endpoint: '{env}.empathy.co/relatedtags/empathy',
     responsePaths: {
