@@ -17,7 +17,7 @@
       <IdentifierResults
         #default="{ identifierResult }"
         :animation="suggestionsAnimation"
-        class="x-row__item x-row__item--span-12 x-list x-list--gap-04"
+        class="x-row__item x-row__item--span-12 x-list x-list--gap-03"
       >
         <BaseResultLink #default="{ result }" :result="identifierResult" class="x-suggestion">
           <BarCodeIcon />
