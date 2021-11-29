@@ -20,7 +20,7 @@ var lang = getURLParameter('lang') || 'en';
 var device = getURLParameter('device') || 'mobile';
 var searchLang = getURLParameter('searchLang') || lang;
 var currency = getURLParameter('currency') || 'EUR';
-var consent = getURLParameter('consent') === 'true' || false;
+var consent = getURLParameter('consent') !== 'false';
 var documentDirection = getURLParameter('doc-dir') || 'ltr';
 
 window.initX = {

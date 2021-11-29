@@ -2,6 +2,7 @@
   <div class="x" :dir="documentDirection">
     <SnippetConfigExtraParams />
     <DeviceDetector @DeviceProvided="$setLocaleDevice" :breakpoints="breakpoints" />
+    <Tagging />
     <UrlHandler env="env" />
 
     <BaseEventsModal :eventsToOpenModal="openEvents" class="x-modal" :animation="collapseFromTop">
@@ -22,6 +23,7 @@
   } from '@empathyco/x-components';
   import '@empathyco/x-components/design-system/full-theme.css';
   import { DeviceDetector } from '@empathyco/x-components/device';
+  import { Tagging } from '@empathyco/x-components/tagging';
   import { UrlHandler } from '@empathyco/x-components/url';
   import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params';
   import { Component, Inject, Vue, Watch } from 'vue-property-decorator';
@@ -39,6 +41,7 @@
       BaseEventsModalOpen,
       DeviceDetector,
       SnippetConfigExtraParams,
+      Tagging,
       UrlHandler
     }
   })
