@@ -15,7 +15,9 @@
 
     <template #sub-header>
       <div v-if="$x.relatedTags.length > 0" class="x-list x-list--padding-03">
-        <RelatedTags />
+        <LocationProvider location="predictive_layer">
+          <RelatedTags />
+        </LocationProvider>
       </div>
     </template>
 
@@ -24,25 +26,15 @@
     </template>
 
     <template #predictive>
-      <Empathize class="x-list x-background--neutral-100" />
+      <LocationProvider location="predictive_layer">
+        <Empathize class="x-list x-background--neutral-100" />
+      </LocationProvider>
     </template>
 
     <template #main>
-      <div class="x-list x-list--padding-03">
-        <div
-          v-if="$x.totalResults === 0 || $x.spellcheckedQuery"
-          class="x-list x-list--padding-06 x-list--padding-bottom"
-        >
-          <SpellcheckMessage />
-          <NoResultsMessage />
-        </div>
-
-        <Recommendations />
-
-        <Results />
-
-        <PartialResults />
-      </div>
+      <LocationProvider location="results">
+        <Main />
+      </LocationProvider>
     </template>
 
     <template #floating>
@@ -91,35 +83,25 @@
     BaseIdModalOpen,
     BaseScroll,
     FiltersIcon,
-    SingleColumnLayout
+    SingleColumnLayout,
+    LocationProvider
   } from '@empathyco/x-components';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
+  import Main from '../main.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import Sort from '../sort.vue';
   import Empathize from '../predictive-layer.vue';
   import Facets from '../facets/facets.vue';
   import SelectedFilters from '../facets/selected-filters.vue';
-  import NoResultsMessage from '../no-results-message.vue';
   import RelatedTags from '../related-tags.vue';
-  import PartialResults from '../results/partial-results.vue';
-  import Recommendations from '../results/recommendations.vue';
-  import Results from '../results/results.vue';
   import SearchBox from '../search-box.vue';
-  import SpellcheckMessage from '../spellcheck-message.vue';
   import MobileCloseAside from './mobile-close-aside.vue';
   import MobileOpenAside from './mobile-open-aside.vue';
   import MobileToolbar from './mobile-toolbar.vue';
 
   @Component({
     components: {
-      ScrollToTop,
-      Sort,
-      SelectedFilters,
-      Facets,
-      MobileCloseAside,
-      MobileOpenAside,
-      MobileToolbar,
       ArrowIcon,
       BaseIdModalOpen,
       BaseScroll,
@@ -127,14 +109,18 @@
       ColumnPicker: BaseColumnPickerList,
       Empathize,
       FiltersIcon,
-      SingleColumnLayout,
-      NoResultsMessage,
-      PartialResults,
-      Recommendations,
+      Facets,
+      LocationProvider,
+      Main,
+      MobileCloseAside,
+      MobileOpenAside,
+      MobileToolbar,
       RelatedTags,
-      Results,
+      ScrollToTop,
       SearchBox,
-      SpellcheckMessage
+      SelectedFilters,
+      SingleColumnLayout,
+      Sort
     }
   })
   export default class Mobile extends Vue {}

@@ -11,7 +11,9 @@
         class="x-list x-list--vertical x-list--gap-05 x-list--align-stretch x-list__item--expand"
       >
         <SearchBox />
-        <RelatedTags v-if="!$x.isEmpathizeOpen && $x.relatedTags.length > 0" />
+        <LocationProvider location="predictive_layer">
+          <RelatedTags v-if="!$x.isEmpathizeOpen && $x.relatedTags.length > 0" />
+        </LocationProvider>
       </div>
     </template>
 
@@ -26,7 +28,9 @@
     </template>
 
     <template #sub-header>
-      <PredictiveLayer />
+      <LocationProvider location="predictive_layer">
+        <PredictiveLayer />
+      </LocationProvider>
     </template>
 
     <template #toolbar-aside>
@@ -49,23 +53,9 @@
     </template>
 
     <template #main-body>
-      <Redirection />
-
-      <template v-if="!$x.redirections.length">
-        <div
-          v-if="$x.noResults || $x.spellcheckedQuery"
-          class="x-list x-list--padding-06 x-list--padding-bottom"
-        >
-          <SpellcheckMessage />
-          <NoResultsMessage />
-        </div>
-
-        <Results />
-
-        <PartialResults />
-
-        <Recommendations />
-      </template>
+      <LocationProvider location="results">
+        <Main />
+      </LocationProvider>
     </template>
 
     <template #scroll-to-top>
@@ -82,6 +72,7 @@
     CartIcon,
     CrossIcon,
     CrossTinyIcon,
+    LocationProvider,
     MultiColumnMaxWidthLayout,
     PlusIcon,
     SlidingPanel
@@ -89,49 +80,40 @@
   import { Empathize } from '@empathyco/x-components/empathize';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
-  import PredictiveLayer from '../predictive-layer.vue';
   import EnvSelector from '../env-selector.vue';
   import Facets from '../facets/facets.vue';
+  import SelectedFilters from '../facets/selected-filters.vue';
   import Logo from '../logo.vue';
-  import NoResultsMessage from '../no-results-message.vue';
+  import Main from '../main.vue';
+  import PredictiveLayer from '../predictive-layer.vue';
   import RelatedTags from '../related-tags.vue';
-  import Recommendations from '../results/recommendations.vue';
-  import PartialResults from '../results/partial-results.vue';
-  import Redirection from '../results/redirection.vue';
-  import Results from '../results/results.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import SearchBox from '../search-box.vue';
-  import SelectedFilters from '../facets/selected-filters.vue';
-  import SpellcheckMessage from '../spellcheck-message.vue';
   import DesktopToggleAside from './desktop-toggle-aside.vue';
   import DesktopToolbar from './desktop-toolbar.vue';
 
   @Component({
     components: {
-      Redirection,
-      ScrollToTop,
-      DesktopToggleAside,
-      EnvSelector,
       BaseScroll,
       BaseVariableColumnGrid,
       CartIcon,
       Close: BaseEventsModalClose,
       CrossIcon,
       CrossTinyIcon,
+      DesktopToggleAside,
       DesktopToolbar,
+      EnvSelector,
       Empathize,
-      PredictiveLayer,
       Facets,
-      MultiColumnMaxWidthLayout,
+      LocationProvider,
       Logo,
-      NoResultsMessage,
-      PartialResults,
+      Main,
+      MultiColumnMaxWidthLayout,
       PlusIcon,
+      PredictiveLayer,
       RelatedTags,
-      Results,
-      Recommendations,
+      ScrollToTop,
       SearchBox,
-      SpellcheckMessage,
       SelectedFilters,
       SlidingPanel
     }
