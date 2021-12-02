@@ -17,7 +17,7 @@
 
       <PartialResults />
 
-      <LocationProvider v-if="!$x.query.search" location="no_results">
+      <LocationProvider v-if="!$x.noResults" location="no_results">
         <Recommendations />
       </LocationProvider>
 

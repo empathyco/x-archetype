@@ -11,6 +11,7 @@
         class="x-list x-list--vertical x-list--gap-05 x-list--align-stretch x-list__item--expand"
       >
         <SearchBox />
+
         <LocationProvider location="predictive_layer">
           <RelatedTags v-if="!$x.isEmpathizeOpen && $x.relatedTags.length > 0" />
         </LocationProvider>
