@@ -133,20 +133,20 @@
 </template>
 
 <script lang="ts">
-  import { Empathize } from '@empathyco/x-components/empathize';
   import {
     BarCodeIcon,
     BaseKeyboardNavigation,
     BaseResultLink,
     CollapseFromTop,
     CrossTinyIcon,
-    StaggeredFadeAndSlide,
     HistoryIcon,
     MinusIcon,
     Nq4Icon,
     SearchIcon,
+    StaggeredFadeAndSlide,
     TrendingTinyIcon
   } from '@empathyco/x-components';
+  import { Empathize } from '@empathyco/x-components/empathize';
   import { ClearHistoryQueries, HistoryQueries } from '@empathyco/x-components/history-queries';
   import { IdentifierResult, IdentifierResults } from '@empathyco/x-components/identifier-results';
   import { NextQueries } from '@empathyco/x-components/next-queries';

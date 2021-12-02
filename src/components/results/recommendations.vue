@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="(!$x.query.search || $x.noResults) && $x.recommendations.length > 0"
+    v-if="$x.recommendations.length > 0"
     class="x-list x-list--align-center x-list--padding-07 x-list--gap-07 x-list--padding-bottom"
   >
     <h1 class="x-title1 x-text--bold">{{ $t('recommendations.title') }}</h1>
