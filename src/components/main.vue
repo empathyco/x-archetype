@@ -13,9 +13,13 @@
         </div>
       </div>
 
-      <Results />
+      <LocationProvider location="results">
+        <Results />
+      </LocationProvider>
 
-      <PartialResults />
+      <LocationProvider location="results">
+        <PartialResults />
+      </LocationProvider>
 
       <LocationProvider v-if="$x.noResults" location="no_results">
         <Recommendations />
