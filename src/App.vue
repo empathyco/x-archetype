@@ -1,6 +1,7 @@
 <template>
   <div class="x" :dir="documentDirection">
     <SnippetConfigExtraParams />
+    <SnippetCallbacks />
     <DeviceDetector @DeviceProvided="$setLocaleDevice" :breakpoints="breakpoints" />
     <Tagging />
     <UrlHandler env="env" />
@@ -18,6 +19,7 @@
     BaseEventsModalOpen,
     CollapseFromTop,
     Dictionary,
+    SnippetCallbacks,
     SnippetConfig,
     XProvide
   } from '@empathyco/x-components';
@@ -40,6 +42,7 @@
       BaseEventsModal,
       BaseEventsModalOpen,
       DeviceDetector,
+      SnippetCallbacks,
       SnippetConfigExtraParams,
       Tagging,
       UrlHandler

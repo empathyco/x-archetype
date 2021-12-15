@@ -84,6 +84,11 @@ export const adapter = new EmpathyAdapterBuilder()
     container.bind(DEPENDENCIES.requestMappers).to(EmpathyRequestParamsMapper);
     container.rebind(DEPENDENCIES.endpointsService).to(EmpathyEndpointsService);
   })
+  .setResultTrackingConfig({
+    click: 'tagging.click',
+    add2cart: 'tagging.add2cart',
+    checkout: 'tagging.checkout'
+  })
   .onBeforeRequest(({ request }) => {
     delete request.scope;
   }, 'topRecommendations')
