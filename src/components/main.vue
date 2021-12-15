@@ -3,14 +3,12 @@
     <Redirection />
 
     <template v-if="!$x.redirections.length">
-      <div class="x-list x-list--padding-03">
-        <div
-          v-if="$x.totalResults === 0 || $x.spellcheckedQuery"
-          class="x-list x-list--padding-06 x-list--padding-bottom"
-        >
-          <SpellcheckMessage />
-          <NoResultsMessage />
-        </div>
+      <div
+        v-if="$x.totalResults === 0 || $x.spellcheckedQuery"
+        class="x-padding--03 x-padding--bottom-07"
+      >
+        <SpellcheckMessage />
+        <NoResultsMessage />
       </div>
 
       <LocationProvider location="results">
