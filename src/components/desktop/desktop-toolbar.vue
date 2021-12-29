@@ -2,6 +2,7 @@
   <div
     v-if="$x.totalResults"
     class="x-list x-list--horizontal x-list--gap-06 x-list--justify-end x-list--align-center"
+    data-test="total-results"
   >
     <span>
       {{ $t('totalResults.message', { totalResults: $x.totalResults }) }}

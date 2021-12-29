@@ -4,6 +4,7 @@
     class="x-dropdown--l"
     :items="sortValues"
     :animation="collapseFromTop"
+    data-test="sort-dropdown-toggle"
   >
     <template #toggle="{ item }">
       <span>{{ $t('sort.label') }}</span>

@@ -1,65 +1,91 @@
-// eslint-disable-next-line @typescript-eslint/no-namespace
-declare namespace Cypress {
-  interface Chainable {
-    /**
-     * Gets a DOM element searching by its data-test attribute.
-     *
-     * @example
-     * cy.getByDataTest('query-suggestion')
-     *
-     * @param value - The data test attribute value to look for in the DOM.
-     * @returns A Chainable object.
-     * @internal
-     */
-    getByDataTest(value: string): Chainable;
-    /**
-     * Searches a query by typing it in the search input and pressing enter.
-     *
-     * @example
-     * cy.searchAQuery('lego')
-     *
-     * @param query - The query to search.
-     * @returns A Chainable object.
-     * @internal
-     */
-    searchQuery(query: string): Chainable;
-    /**
-     * Types a query into the search input.
-     *
-     * @example
-     * cy.typeAQuery('lego')
-     *
-     * @param query - The query to type in the search input.
-     * @returns A Chainable object.
-     * @internal
-     */
-    typeQuery(query: string): Chainable;
+import { AnyFunction, forEach } from '@empathyco/x-components';
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace Cypress {
+    interface Chainable extends CustomCommands, CustomDualCommands {}
   }
 }
 
-/**
- * Command implementation for {@link Cypress.Chainable.getByDataTest}.
- *
- * @param value - The data test attribute value to look for in the DOM.
- * @returns A Chainable object.
- * @internal
- */
-Cypress.Commands.add('getByDataTest', (value: string) => cy.get(`[data-test=${value}]`));
+import Loggable = Cypress.Loggable;
+import Timeoutable = Cypress.Timeoutable;
+import Withinable = Cypress.Withinable;
+import Shadow = Cypress.Shadow;
 
-/**
- * Command implementation for {@link Cypress.Chainable.searchQuery}.
- *
- * @param query - The query to search.
- * @returns A Chainable object.
- * @internal
- */
-Cypress.Commands.add('searchQuery', (query: string) => cy.typeQuery(query).type('{enter}'));
+interface CustomCommands {
+  /**
+   * Searches a query by typing it in the search input and pressing enter.
+   *
+   * @example
+   * cy.searchAQuery('lego')
+   *
+   * @param query - The query to search.
+   * @returns A Chainable object.
+   * @internal
+   */
+  searchQuery(query: string): Cypress.Chainable<JQuery>;
+  /**
+   * Types a query into the search input.
+   *
+   * @example
+   * cy.typeAQuery('lego')
+   *
+   * @param query - The query to type in the search input.
+   * @returns A Chainable object.
+   * @internal
+   */
+  typeQuery(query: string): Cypress.Chainable<JQuery>;
+  /**
+   * Focus into the search input.
+   *
+   * @example
+   * cy.focusSearchInput()
+   *
+   * @returns A Chainable object.
+   */
+  focusSearchInput(): Cypress.Chainable<JQuery>;
+}
+interface CustomDualCommands {
+  /**
+   * Gets a DOM element searching by its data-test attribute.
+   *
+   * @example
+   * cy.getByDataTest('query-suggestion')
+   *
+   * @param value - The data test attribute value to look for in the DOM.
+   * @param options - The options passed to the Cypress command.
+   * @returns A Chainable object.
+   */
+  getByDataTest(value: string, options?: CypressCommandOptions): Cypress.Chainable<JQuery>;
+}
 
-/**
- * Command implementation for {@link Cypress.Chainable.typeQuery}.
- *
- * @param query - The query to type in the search input.
- * @returns A Chainable object.
- * @internal
- */
-Cypress.Commands.add('typeQuery', (query: string) => cy.getByDataTest('search-input').type(query));
+type AddPreviousParam<Functions extends Record<keyof Functions, AnyFunction>> = {
+  [Key in keyof Functions]: (
+    previous: unknown,
+    ...args: Parameters<Functions[Key]>
+  ) => ReturnType<Functions[Key]>;
+};
+
+type CypressCommandOptions = Partial<Loggable & Timeoutable & Withinable & Shadow>;
+
+const customCommands: CustomCommands = {
+  searchQuery: query => cy.typeQuery(query).type('{enter}'),
+  typeQuery: query => cy.getByDataTest('search-input').type(query),
+  focusSearchInput: () => cy.getByDataTest('search-input').click()
+};
+
+const customDualCommands: AddPreviousParam<CustomDualCommands> = {
+  getByDataTest: (previous, value, options?: CypressCommandOptions) => {
+    const selector = `[data-test=${value}]`;
+    return previous ? cy.wrap(previous).find(selector, options) : cy.get(selector, options);
+  }
+};
+
+// Register the commands
+forEach(customCommands, (name, implementation) => {
+  Cypress.Commands.add(name, implementation);
+});
+
+forEach(customDualCommands, (name, implementation) => {
+  Cypress.Commands.add(name, { prevSubject: 'optional' }, implementation);
+});

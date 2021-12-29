@@ -85,7 +85,7 @@
     "typescript": "~4.3.5",
     "vue-template-compiler": "^2.6.0",
     "wrapper-webpack-plugin": "~2.1.0",
-    "cypress": "~9.1.0"
+    "cypress": "~8.4.0"
   },
   "prettier": "@empathyco/eslint-plugin-x/prettier-config",
   "gitHooks": {
