@@ -1,8 +1,4 @@
-import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps';
-
-Given('an intercepted search response', () => {
-  cy.intercept('**/empathy/search?*').as('interceptedResults');
-});
+import { Then, When } from 'cypress-cucumber-preprocessor/steps';
 
 Then('results are ordered by {string}', (sortOrder: string) => {
   cy.getByDataTest('sort-dropdown-toggle').should('contain', sortOrder);

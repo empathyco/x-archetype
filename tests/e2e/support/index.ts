@@ -25,6 +25,16 @@ interface CustomCommands {
    */
   searchQuery(query: string): Cypress.Chainable<JQuery>;
   /**
+   * Searches multiple queries by typing it in the search input and pressing enter.
+   *
+   * @example
+   * cy.searchQueries('lego', 'palymobil')
+   *
+   * @param queries - The query to search.
+   * @returns A Chainable object.
+   */
+  searchQueries(...queries: string[]): void;
+  /**
    * Types a query into the search input.
    *
    * @example
@@ -44,6 +54,15 @@ interface CustomCommands {
    * @returns A Chainable object.
    */
   focusSearchInput(): Cypress.Chainable<JQuery>;
+  /**
+   * Clear search input.
+   *
+   * @example
+   * cy.clearSearchInput()
+   *
+   * @returns A Chainable object.
+   */
+  clearSearchInput(): Cypress.Chainable<JQuery>;
 }
 interface CustomDualCommands {
   /**
@@ -70,8 +89,15 @@ type CypressCommandOptions = Partial<Loggable & Timeoutable & Withinable & Shado
 
 const customCommands: CustomCommands = {
   searchQuery: query => cy.typeQuery(query).type('{enter}'),
+  searchQueries: (...queries) => {
+    queries.forEach(query => {
+      cy.clearSearchInput();
+      cy.typeQuery(query).type('{enter}');
+    });
+  },
   typeQuery: query => cy.getByDataTest('search-input').type(query),
-  focusSearchInput: () => cy.getByDataTest('search-input').click()
+  focusSearchInput: () => cy.getByDataTest('search-input').click(),
+  clearSearchInput: () => cy.getByDataTest('clear-search-input').click()
 };
 
 const customDualCommands: AddPreviousParam<CustomDualCommands> = {

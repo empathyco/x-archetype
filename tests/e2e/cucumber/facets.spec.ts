@@ -21,26 +21,76 @@ When('filter {int} from facet {int} is clicked', (filterNumber: number, facetNum
     .click();
   cy.getByDataTest('base-filters-item')
     .should('have.length.at.least', filterNumber + 1)
+    .getByDataTest('filter')
     .eq(filterNumber)
-    .click()
-    .invoke('text')
-    .as('selectedFilter');
+    .click();
 });
 
 Then(
-  'filter {int} from facet {int} is selected',
-  function (this: { selectedFilter: string }, filterNumber: number, facetNumber: number) {
+  'filter {int} from facet {int} is selected is {string}',
+  (filterNumber: number, facetNumber: number, isSelected: string) => {
     cy.getByDataTest('facets-facet')
+      .eq(facetNumber)
       .getByDataTest('base-filters-item')
-      .eq(facetNumber)
-      .get('[data-test=base-filters-item]')
       .eq(filterNumber)
-      .get('[data-test=filter]')
-      .should('have.attr', 'aria-checked');
+      .getByDataTest('filter')
+      .should('have.attr', 'aria-checked', isSelected);
+  }
+);
+
+When('clear filters button is clicked', () => {
+  cy.getByDataTest('clear-filters').click();
+});
+
+// Scenario 4
+When('facet {int} is {string}', (facetNumber: number) => {
+  cy.getByDataTest('facets-facet').getByDataTest('toggle-panel-header').eq(facetNumber).click();
+});
+
+// Scenario 5
+When(
+  'child filter {int} from parent filter {int} in {int} is clicked',
+  (childFilterIndex: number, parentFilterIndex: number, facetNumber: number) => {
     cy.getByDataTest('facets-facet')
       .eq(facetNumber)
-      .get('[data-test=base-filters-item]')
-      .eq(filterNumber)
-      .get('[data-test=filter]')
-      .should('contain', this.selectedFilter);
-});
+      .getByDataTest('base-filters-item')
+      .eq(parentFilterIndex)
+      .getByDataTest('children-filters')
+      .getByDataTest('filter')
+      .eq(childFilterIndex)
+      .click()
+      .invoke('text')
+      .as(`clickedChildFilter${childFilterIndex}`);
+  }
+);
+
+Then(
+  'selection status of child filter {int} from parent filter {int} in facet {int} is {string}',
+  (
+    childFilterIndex: number,
+    hierarchicalFilterIndex: number,
+    facetIndex: number,
+    isSelected: string
+  ) => {
+    cy.getByDataTest('facets-facet')
+      .eq(facetIndex)
+      .getByDataTest('base-filters-item')
+      .eq(hierarchicalFilterIndex)
+      .getByDataTest('children-filters')
+      .getByDataTest('filter')
+      .eq(childFilterIndex)
+      .should('have.attr', 'aria-checked', isSelected);
+  }
+);
+
+Then(
+  'selection status of filter number {int} in facet {int} is {string}',
+  (hierarchicalFilterIndex: number, facetIndex: number, isSelected: string) => {
+    cy.getByDataTest('facets-facet')
+      .eq(facetIndex)
+      .getByDataTest('base-filters-item')
+      .eq(hierarchicalFilterIndex)
+      .getByDataTest('filter')
+      .should('have.attr', 'aria-checked', isSelected);
+  }
+);
