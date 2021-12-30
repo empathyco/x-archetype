@@ -1,17 +1,7 @@
-const webpack = require('@cypress/webpack-preprocessor');
-const browserify = require('@cypress/browserify-preprocessor');
-const cucumber = require('cypress-cucumber-preprocessor').default;
-const resolve = require('resolve');
+const webpack = require("@cypress/webpack-preprocessor");
 
-module.exports = (on, config) => {
-  const options = {
-    ...browserify.defaultOptions,
-    typescript: resolve.sync('typescript', { baseDir: config.projectRoot }),
-  };
-
-  on('file:preprocessor', webpack({
-    webpackOptions: require('@vue/cli-service/webpack.config.js')
+module.exports = on => {
+  on("file:preprocessor", webpack({
+    webpackOptions: require("../webpack.config.js")
   }));
-
-  on('file:preprocessor', cucumber(options));
 };
