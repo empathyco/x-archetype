@@ -55,9 +55,9 @@ export const adapter = new EmpathyAdapterBuilder()
     }
   })
   .setFeatureConfig('nextQueries', {
-    endpoint: '{env}/query/empathy/nextqueries',
+    endpoint: '{env}.empathy.co/nextqueries/empathy',
     responsePaths: {
-      nextQueries: 'data.nextQueries'
+      nextQueries: 'data.nextqueries'
     }
   })
   .setFeatureConfig('suggestions', {

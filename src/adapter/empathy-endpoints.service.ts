@@ -10,7 +10,7 @@ export class EmpathyEndpointsService implements EndpointsService {
       rawUrl = `https://${rawUrl}`;
     }
 
-    if (!rawUrl.includes('relatedtags')) {
+    if (!rawUrl.includes('relatedtags') && !rawUrl.includes('nextqueries')) {
       if (this.config.env === 'test') {
         return rawUrl.replace(/{env}/g, 'search.internal.test.empathy.co');
       } else if (this.config.env === 'staging') {
