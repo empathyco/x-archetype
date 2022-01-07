@@ -1,40 +1,44 @@
 import { Then, When } from 'cypress-cucumber-preprocessor/steps';
+import '../cucumber/global-definitions';
+
+/**
+ * Click on a filter from a certain facet.
+ *
+ * @param facetName - Name of the facet which the filter to be clicked belongs to.
+ * @param nthFilter - Position of the filter to be clicked.
+ *
+ * @internal
+ */
+function clickFacetNthFilter(facetName: string, nthFilter: number): void {
+  cy.getByDataTest(facetName)
+    .getByDataTest('base-filters-item')
+    .eq(nthFilter)
+    .click('top')
+    .invoke('text')
+    .as(`clickedFilter${nthFilter}`);
+}
 
 // Scenario 1
-Then('facets are displayed', () => {
-  cy.getByDataTest('facets-facet').should('have.length.at.least', 1);
+Then('facets are displayed is {boolean}', (areVisible: boolean) => {
+  cy.getByDataTest('facets-facet').should(`${areVisible ? '' : 'not.'}exist`);
 });
 
 When('hide-show filters button is clicked', () => {
   cy.getByDataTest('base-id-toggle-button').click();
 });
 
-Then('facets are not displayed', () => {
-  cy.getByDataTest('facets-facet').should('not.exist');
-});
-
 // Scenario 2
-When('filter {int} from facet {int} is clicked', (filterNumber: number, facetNumber: number) => {
-  cy.getByDataTest('facets-facet')
-    .should('have.length.at.least', facetNumber + 1)
-    .eq(facetNumber)
-    .click();
-  cy.getByDataTest('base-filters-item')
-    .should('have.length.at.least', filterNumber + 1)
-    .getByDataTest('filter')
-    .eq(filterNumber)
-    .click();
+When('filter {int} from facet {string} is clicked', (filterNumber: number, facetName: string) => {
+  clickFacetNthFilter(facetName, filterNumber);
 });
 
 Then(
-  'filter {int} from facet {int} is selected is {string}',
-  (filterNumber: number, facetNumber: number, isSelected: string) => {
-    cy.getByDataTest('facets-facet')
-      .eq(facetNumber)
-      .getByDataTest('base-filters-item')
-      .eq(filterNumber)
-      .getByDataTest('filter')
-      .should('have.attr', 'aria-checked', isSelected);
+  'filter {int} from facet {string} is selected is {boolean}',
+  function (this: any, filterNumber: number, facetName: string, isSelected: boolean) {
+    cy.getByDataTest(facetName)
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      .contains(this[`clickedFilter${filterNumber}`].trim())
+      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-filter--is-selected');
   }
 );
 
@@ -43,16 +47,15 @@ When('clear filters button is clicked', () => {
 });
 
 // Scenario 4
-When('facet {int} is {string}', (facetNumber: number) => {
-  cy.getByDataTest('facets-facet').getByDataTest('toggle-panel-header').eq(facetNumber).click();
+When('facet {string} is {string}', (facetName: string) => {
+  cy.getByDataTest(facetName).click();
 });
 
 // Scenario 5
 When(
-  'child filter {int} from parent filter {int} in {int} is clicked',
-  (childFilterIndex: number, parentFilterIndex: number, facetNumber: number) => {
-    cy.getByDataTest('facets-facet')
-      .eq(facetNumber)
+  'child filter {int} from parent filter {int} in {string} is clicked',
+  (childFilterIndex: number, parentFilterIndex: number, facetName: string) => {
+    cy.getByDataTest(facetName)
       .getByDataTest('base-filters-item')
       .eq(parentFilterIndex)
       .getByDataTest('children-filters')
@@ -65,32 +68,33 @@ When(
 );
 
 Then(
-  'selection status of child filter {int} from parent filter {int} in facet {int} is {string}',
-  (
+  'selection status of child filter {int} from parent filter {int} in facet {string} is {boolean}',
+  function (
+    this: any,
     childFilterIndex: number,
     hierarchicalFilterIndex: number,
-    facetIndex: number,
-    isSelected: string
-  ) => {
-    cy.getByDataTest('facets-facet')
-      .eq(facetIndex)
+    facetName: string,
+    isSelected: boolean
+  ) {
+    cy.getByDataTest(facetName)
       .getByDataTest('base-filters-item')
       .eq(hierarchicalFilterIndex)
       .getByDataTest('children-filters')
       .getByDataTest('filter')
       .eq(childFilterIndex)
-      .should('have.attr', 'aria-checked', isSelected);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      .should('contain', this[`clickedChildFilter${childFilterIndex}`].replace(/[^a-z]/gi, ''))
+      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-filter--is-selected');
   }
 );
 
 Then(
-  'selection status of filter number {int} in facet {int} is {string}',
-  (hierarchicalFilterIndex: number, facetIndex: number, isSelected: string) => {
-    cy.getByDataTest('facets-facet')
-      .eq(facetIndex)
+  'selection status of filter number {int} in facet {string} is {boolean}',
+  (hierarchicalFilterIndex: number, facetName: string, isSelected: boolean) => {
+    cy.getByDataTest(facetName)
       .getByDataTest('base-filters-item')
       .eq(hierarchicalFilterIndex)
       .getByDataTest('filter')
-      .should('have.attr', 'aria-checked', isSelected);
+      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-filter--is-selected');
   }
 );

@@ -1,11 +1,11 @@
 import { Then, When } from 'cypress-cucumber-preprocessor/steps';
 
 Then('results are ordered by {string}', (sortOrder: string) => {
-  cy.getByDataTest('sort-dropdown-toggle').should('contain', sortOrder);
+  cy.getByDataTest('sort-dropdown').should('contain', sortOrder);
 });
 
 When('{string} order is clicked', (sortOrder: string) => {
-  cy.getByDataTest('sort-dropdown-toggle').click();
+  cy.getByDataTest('sort-dropdown').click();
   cy.getByDataTest('dropdown-item').children().contains(sortOrder).click();
 });
 

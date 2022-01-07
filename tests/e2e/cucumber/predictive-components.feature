@@ -34,7 +34,7 @@ Feature: Predictive components
   Scenario Outline: 3. Clear a history query
     Given a "<list>" of queries already searched
     When  search input is focused
-    And   delete button of <historyQueryItem> is clicked
+    And   history query number <historyQueryItem> delete button is clicked
     Then  the deleted history query is removed from history queries
     Examples:
       | list               | historyQueryItem |
@@ -46,5 +46,5 @@ Feature: Predictive components
     And   clear history queries button is clicked
     Then  no history queries are displayed
     Examples:
-      | list               | historyQueryItem |
-      | shirt, shoe, skirt | 0                |
+      | list               |
+      | shirt, shoe, skirt |

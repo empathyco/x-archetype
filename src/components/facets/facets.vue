@@ -1,7 +1,7 @@
 <template>
   <Facets>
     <template #default="{ facet }">
-      <Facet :facet="facet">
+      <Facet :facet="facet" :data-test="facet.label">
         <AllFilter #default="{ isSelected }" :facet="facet">
           <CheckboxCardSelectedIcon v-if="isSelected" />
           <CheckboxCardUnselectedIcon v-else />
@@ -28,7 +28,7 @@
     </template>
 
     <template #category-paths="{ facet }">
-      <Facet :facet="facet">
+      <Facet :facet="facet" :data-test="facet.label">
         <AllFilter #default="{ isSelected }" :facet="facet">
           <CheckboxCardSelectedIcon v-if="isSelected" />
           <CheckboxCardUnselectedIcon v-else />
@@ -54,7 +54,7 @@
     </template>
 
     <template #usage="{ facet }">
-      <Facet :facet="facet">
+      <Facet :facet="facet" :data-test="facet.label">
         <FiltersSearch class="x-list--gap-03" :filters="facet.filters">
           <template #search="{ query, setQuery }">
             <input
@@ -88,7 +88,7 @@
     </template>
 
     <template #price="{ facet }">
-      <Facet :facet="facet">
+      <Facet :facet="facet" :data-test="facet.label">
         <FiltersList
           #default="{ filter }"
           class="x-list--gap-03"

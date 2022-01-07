@@ -23,7 +23,7 @@ When('focus is set on the search input', () => {
 });
 
 Then('next queries are displayed', () => {
-  cy.getByDataTest('next-query').should('have.length.at.least', 1).invoke('text').as('nextQueries');
+  cy.getByDataTest('next-query').should('have.length.at.least', 1);
 });
 
 When('search input is cleared', () => {
@@ -75,7 +75,7 @@ And('a {string} of queries already searched', (list: string) => {
   cy.clearSearchInput();
 });
 
-When('delete button of {int} is clicked', (historyQueryItem: number) => {
+When('history query number {int} delete button is clicked', (historyQueryItem: number) => {
   cy.getByDataTest('history-query')
     .eq(historyQueryItem)
     .invoke('text')

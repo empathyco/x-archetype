@@ -4,7 +4,7 @@
       <PromotedsList>
         <component :is="grid" :columns="2" class="x-grid" :animation="staggeredFadeAndSlide">
           <template #result="{ item: result }">
-            <Result :result="result" />
+            <Result :result="result" data-test="search-grid-result" />
           </template>
           <template #banner="{ item: banner }">
             <MainScrollItem :item="banner" tag="article">
