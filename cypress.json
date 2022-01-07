@@ -7,5 +7,5 @@
   "screenshotsFolder": "tests/e2e/screenshots",
   "supportFile": "tests/e2e/support/index.ts",
   "video": false,
-  "testFiles": "**/*.feature"
+  "testFiles": "**/*.features"
 }
