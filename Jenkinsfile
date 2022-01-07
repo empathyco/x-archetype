@@ -1,4 +1,7 @@
+XComponentsPipeline {
+    instance = 'Archetype'
+}
 npmPackagePipeline {
   build = true
-  runner = 'cypress/browsers:node12.13.0-chrome80-ff74'
+  runner = 'cypress/browsers:node14.15.0-chrome86-ff82'
 }
