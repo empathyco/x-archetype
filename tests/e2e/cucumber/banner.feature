@@ -1,11 +1,12 @@
 Feature: Banner component
 
   Scenario Outline: 1. Banner exists and has an image
-    Given start page
+    Given start page with "<view>" size view
     And   a results API with a banner
-    Then  start button is clicked
-    When  a "<query>" is typed
+    When  start button is clicked
+    And   "<query>" is searched
     Then  banner is displayed
     Examples:
-      | query |
-      | shirt |
+      | query | view        |
+      | shirt | macbook-13  |
+      | shirt | iphone-7    |

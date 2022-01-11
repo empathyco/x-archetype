@@ -1,9 +1,10 @@
 Feature: Sort component
 
   Scenario Outline: 1. Sorting orders the results
-    Given start page
+    Given start page with "<view>" size view
     Then  start button is clicked
-    When  a "<query>" is typed
+    When  "<query>" is searched
+    And   facets are shown if hidden on "<view>"
     Then  results are ordered by "Default"
     Given an intercepted search response
     When  "<sortOrder>" order is clicked
@@ -11,6 +12,6 @@ Feature: Sort component
     And   search request contains the selected sort "<sortOrder>"
 
     Examples:
-      | query   | sortOrder  |
-      | skirt   | price asc  |
-      | skirt   | price desc |
+      | query   | sortOrder  | view        |
+      | skirt   | price asc  | macbook-13  |
+      | skirt   | price desc | iphone-7    |

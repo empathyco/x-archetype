@@ -1,5 +1,6 @@
 import { Then, When } from 'cypress-cucumber-preprocessor/steps';
 import '../cucumber/global-definitions';
+import ViewportPreset = Cypress.ViewportPreset;
 
 /**
  * Click on a filter from a certain facet.
@@ -11,7 +12,7 @@ import '../cucumber/global-definitions';
  */
 function clickFacetNthFilter(facetName: string, nthFilter: number): void {
   cy.getByDataTest(facetName)
-    .getByDataTest('base-filters-item')
+    .getByDataTest('filter')
     .eq(nthFilter)
     .click('top')
     .invoke('text')
@@ -23,11 +24,22 @@ Then('facets are displayed is {boolean}', (areVisible: boolean) => {
   cy.getByDataTest('facets-facet').should(`${areVisible ? '' : 'not.'}exist`);
 });
 
-When('hide-show filters button is clicked', () => {
-  cy.getByDataTest('base-id-toggle-button').click();
-});
+When(
+  'hide-show filters button is clicked on {string} after facets being displayed is {boolean}',
+  (view: ViewportPreset, areFacetsVisible: boolean) => {
+    if (view.includes('macbook')) {
+      cy.getByDataTest('base-id-toggle-button').click();
+    } else {
+      cy.getByDataTest(`${areFacetsVisible ? 'close' : 'open'}-modal-id`).click();
+    }
+  }
+);
 
 // Scenario 2
+When('facet {string} is {string}', (facetName: string) => {
+  cy.getByDataTest(facetName).click();
+});
+
 When('filter {int} from facet {string} is clicked', (filterNumber: number, facetName: string) => {
   clickFacetNthFilter(facetName, filterNumber);
 });
@@ -47,9 +59,7 @@ When('clear filters button is clicked', () => {
 });
 
 // Scenario 4
-When('facet {string} is {string}', (facetName: string) => {
-  cy.getByDataTest(facetName).click();
-});
+
 
 // Scenario 5
 When(
