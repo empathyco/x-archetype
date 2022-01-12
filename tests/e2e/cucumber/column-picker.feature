@@ -11,4 +11,3 @@ Feature: Column picker component
     Examples:
       | query   | columns | view        |
       | shirt   | 6       | macbook-13  |
-      | shirt   | 0       | iphone-7    |
