@@ -58,9 +58,6 @@ When('clear filters button is clicked', () => {
   cy.getByDataTest('clear-filters').click();
 });
 
-// Scenario 4
-
-
 // Scenario 5
 When(
   'child filter {int} from parent filter {int} in {string} is clicked',
