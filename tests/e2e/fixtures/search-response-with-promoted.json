@@ -1,0 +1,894 @@
+{
+  "catalog": {
+    "content": [
+      {
+        "image": "https://assets.empathy.co/images-demo/2222.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Black+Sandal\u0026productId\u003d2222-U\u0026position\u003d1\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F2222.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Black+Sandal\u0026productId\u003d2222-U\u0026position\u003d1\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F2222.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Black+Sandal\u0026productId\u003d2222-U\u0026position\u003d1\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F2222.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Men",
+        "color": "Black",
+        "year": "2010",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "2222",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/2222.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 3000038.0,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 80.75,
+        "popularity": 10,
+        "name": "Puma Men Black Sandal",
+        "season": "Fall",
+        "id": "2222-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:48.835Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/15074.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dGanuchi+Men+Brown+Sandal\u0026productId\u003d15074-U\u0026position\u003d2\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F15074.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dGanuchi+Men+Brown+Sandal\u0026productId\u003d15074-U\u0026position\u003d2\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F15074.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dGanuchi+Men+Brown+Sandal\u0026productId\u003d15074-U\u0026position\u003d2\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F15074.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Men",
+        "color": "Brown",
+        "year": "2012",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "15074",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/15074.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 2000019.0,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 76.99,
+        "popularity": 6,
+        "name": "Ganuchi Men Brown Sandal",
+        "season": "Summer",
+        "id": "15074-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:47.769Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/15068.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dGanuchi+Men+Black+Sandal\u0026productId\u003d15068-U\u0026position\u003d3\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F15068.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dGanuchi+Men+Black+Sandal\u0026productId\u003d15068-U\u0026position\u003d3\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F15068.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dGanuchi+Men+Black+Sandal\u0026productId\u003d15068-U\u0026position\u003d3\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F15068.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Men",
+        "color": "Black",
+        "year": "2012",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "15068",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/15068.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 1000038.0,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 96.95,
+        "popularity": 5,
+        "name": "Ganuchi Men Black Sandal",
+        "season": "Fall",
+        "id": "15068-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:55.603Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/47217.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dFranco+Leone+Men+Black+Sandals\u0026productId\u003d47217-U\u0026position\u003d4\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F47217.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dFranco+Leone+Men+Black+Sandals\u0026productId\u003d47217-U\u0026position\u003d4\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F47217.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dFranco+Leone+Men+Black+Sandals\u0026productId\u003d47217-U\u0026position\u003d4\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F47217.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Men",
+        "color": "Black",
+        "year": "2012",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "47217",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/47217.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 38.32314,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 39.99,
+        "popularity": 5,
+        "name": "Franco Leone Men Black Sandals",
+        "season": "Summer",
+        "id": "47217-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:49.864Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/15073.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dGanuchi+Men+Black+Sandal\u0026productId\u003d15073-U\u0026position\u003d5\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F15073.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dGanuchi+Men+Black+Sandal\u0026productId\u003d15073-U\u0026position\u003d5\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F15073.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dGanuchi+Men+Black+Sandal\u0026productId\u003d15073-U\u0026position\u003d5\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F15073.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Men",
+        "color": "Black",
+        "year": "2012",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "15073",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/15073.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 37.99336,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 25.75,
+        "popularity": 10,
+        "name": "Ganuchi Men Black Sandal",
+        "season": "Fall",
+        "id": "15073-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:47.968Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/2233.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Carbon+Sandal\u0026productId\u003d2233-U\u0026position\u003d6\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F2233.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Carbon+Sandal\u0026productId\u003d2233-U\u0026position\u003d6\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F2233.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Carbon+Sandal\u0026productId\u003d2233-U\u0026position\u003d6\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F2233.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Men",
+        "color": "Black",
+        "year": "2010",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "2233",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/2233.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 37.99336,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 41.75,
+        "popularity": 10,
+        "name": "Puma Men Carbon Sandal",
+        "season": "Fall",
+        "id": "2233-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:50.999Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/17965.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Women+Black+Sandal\u0026productId\u003d17965-U\u0026position\u003d7\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F17965.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Women+Black+Sandal\u0026productId\u003d17965-U\u0026position\u003d7\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F17965.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Women+Black+Sandal\u0026productId\u003d17965-U\u0026position\u003d7\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F17965.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Women",
+        "color": "Black",
+        "year": "2011",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "17965",
+        "type": "Sports Sandals",
+        "url": "https://assets.empathy.co/images-demo/17965.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 37.99336,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 32.75,
+        "popularity": 4,
+        "name": "Puma Women Black Sandal",
+        "season": "Fall",
+        "id": "17965-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:53.463Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/3838.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dCrocs+Women+Olivia+Black+Sandal\u0026productId\u003d3838-U\u0026position\u003d8\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F3838.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dCrocs+Women+Olivia+Black+Sandal\u0026productId\u003d3838-U\u0026position\u003d8\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F3838.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dCrocs+Women+Olivia+Black+Sandal\u0026productId\u003d3838-U\u0026position\u003d8\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F3838.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Women",
+        "color": "Black",
+        "year": "2011",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Shoes|e5eef62d8__b5efa9ec3"],
+        "usage": "Casual",
+        "groupId": "3838",
+        "type": "Flats",
+        "url": "https://assets.empathy.co/images-demo/3838.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 37.69452,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__b5efa9ec3"],
+        "size": "U",
+        "price": 27.75,
+        "popularity": 6,
+        "name": "Crocs Women Olivia Black Sandal",
+        "season": "Summer",
+        "id": "3838-U",
+        "categories": ["Footwear", "Shoes"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:47.043Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/3805.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dCrocs+Unisex+Beach+Black+Sandal\u0026productId\u003d3805-U\u0026position\u003d9\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F3805.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dCrocs+Unisex+Beach+Black+Sandal\u0026productId\u003d3805-U\u0026position\u003d9\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F3805.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dCrocs+Unisex+Beach+Black+Sandal\u0026productId\u003d3805-U\u0026position\u003d9\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F3805.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Unisex",
+        "color": "Black",
+        "year": "2011",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "3805",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/3805.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 37.69452,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 47.75,
+        "popularity": 6,
+        "name": "Crocs Unisex Beach Black Sandal",
+        "season": "Summer",
+        "id": "3805-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:52.085Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/3577.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dADIDAS+Men+Black+Alumin+Sandal\u0026productId\u003d3577-U\u0026position\u003d10\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F3577.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dADIDAS+Men+Black+Alumin+Sandal\u0026productId\u003d3577-U\u0026position\u003d10\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F3577.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dADIDAS+Men+Black+Alumin+Sandal\u0026productId\u003d3577-U\u0026position\u003d10\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F3577.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Men",
+        "color": "Black",
+        "year": "2011",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "3577",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/3577.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 37.69452,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 59.99,
+        "popularity": 4,
+        "name": "ADIDAS Men Black Alumin Sandal",
+        "season": "Summer",
+        "id": "3577-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:55.580Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/4114.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dFila+Men+Obsidian+Black+Sandal\u0026productId\u003d4114-U\u0026position\u003d11\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F4114.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dFila+Men+Obsidian+Black+Sandal\u0026productId\u003d4114-U\u0026position\u003d11\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F4114.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dFila+Men+Obsidian+Black+Sandal\u0026productId\u003d4114-U\u0026position\u003d11\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F4114.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Men",
+        "color": "Black",
+        "year": "2011",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "4114",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/4114.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 37.69452,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 64.99,
+        "popularity": 4,
+        "name": "Fila Men Obsidian Black Sandal",
+        "season": "Summer",
+        "id": "4114-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:56.976Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/4064.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dCrocs+Men+Yukon+Black+Sandal\u0026productId\u003d4064-U\u0026position\u003d12\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F4064.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dCrocs+Men+Yukon+Black+Sandal\u0026productId\u003d4064-U\u0026position\u003d12\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F4064.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dCrocs+Men+Yukon+Black+Sandal\u0026productId\u003d4064-U\u0026position\u003d12\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F4064.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Men",
+        "color": "Black",
+        "year": "2011",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "4064",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/4064.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 37.69452,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 54.0,
+        "popularity": 4,
+        "name": "Crocs Men Yukon Black Sandal",
+        "season": "Summer",
+        "id": "4064-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:57.247Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/3840.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dCrocs+Women+Lady+Black+Sandal\u0026productId\u003d3840-U\u0026position\u003d13\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F3840.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dCrocs+Women+Lady+Black+Sandal\u0026productId\u003d3840-U\u0026position\u003d13\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F3840.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dCrocs+Women+Lady+Black+Sandal\u0026productId\u003d3840-U\u0026position\u003d13\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F3840.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Women",
+        "color": "Black",
+        "year": "2011",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Shoes|e5eef62d8__b5efa9ec3"],
+        "usage": "Casual",
+        "groupId": "3840",
+        "type": "Flats",
+        "url": "https://assets.empathy.co/images-demo/3840.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 37.69452,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__b5efa9ec3"],
+        "size": "U",
+        "price": 77.0,
+        "popularity": 2,
+        "name": "Crocs Women Lady Black Sandal",
+        "season": "Summer",
+        "id": "3840-U",
+        "categories": ["Footwear", "Shoes"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:53.369Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/4104.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dFila+Men+Tremor+Black+Sandal\u0026productId\u003d4104-U\u0026position\u003d14\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F4104.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dFila+Men+Tremor+Black+Sandal\u0026productId\u003d4104-U\u0026position\u003d14\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F4104.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dFila+Men+Tremor+Black+Sandal\u0026productId\u003d4104-U\u0026position\u003d14\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F4104.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Men",
+        "color": "Black",
+        "year": "2011",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "4104",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/4104.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 37.69452,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 14.99,
+        "popularity": 2,
+        "name": "Fila Men Tremor Black Sandal",
+        "season": "Summer",
+        "id": "4104-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:54.522Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/19363.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dRedtape+Men+Comfort+Black+Sandal\u0026productId\u003d19363-U\u0026position\u003d15\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F19363.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dRedtape+Men+Comfort+Black+Sandal\u0026productId\u003d19363-U\u0026position\u003d15\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F19363.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dRedtape+Men+Comfort+Black+Sandal\u0026productId\u003d19363-U\u0026position\u003d15\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F19363.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Men",
+        "color": "Black",
+        "year": "2012",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "19363",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/19363.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 37.69452,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 69.99,
+        "popularity": 1,
+        "name": "Redtape Men Comfort Black Sandal",
+        "season": "Summer",
+        "id": "19363-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:53.929Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/4278.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dRockport+Men+Joquelp+Black+Sandal\u0026productId\u003d4278-U\u0026position\u003d16\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F4278.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dRockport+Men+Joquelp+Black+Sandal\u0026productId\u003d4278-U\u0026position\u003d16\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F4278.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dRockport+Men+Joquelp+Black+Sandal\u0026productId\u003d4278-U\u0026position\u003d16\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F4278.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Men",
+        "color": "Black",
+        "year": "2011",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "4278",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/4278.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 37.69452,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 97.75,
+        "popularity": 0,
+        "name": "Rockport Men Joquelp Black Sandal",
+        "season": "Summer",
+        "id": "4278-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:48.575Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/3627.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Argon+Black+Sandal\u0026productId\u003d3627-U\u0026position\u003d17\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F3627.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Argon+Black+Sandal\u0026productId\u003d3627-U\u0026position\u003d17\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F3627.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Argon+Black+Sandal\u0026productId\u003d3627-U\u0026position\u003d17\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F3627.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Men",
+        "color": "Black",
+        "year": "2011",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "3627",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/3627.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 37.69452,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 33.95,
+        "popularity": 0,
+        "name": "Puma Men Argon Black Sandal",
+        "season": "Summer",
+        "id": "3627-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:57.394Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/5606.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dADIDAS+Men+Kendall+Black+Floater\u0026productId\u003d5606-U\u0026position\u003d18\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F5606.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dADIDAS+Men+Kendall+Black+Floater\u0026productId\u003d5606-U\u0026position\u003d18\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F5606.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dADIDAS+Men+Kendall+Black+Floater\u0026productId\u003d5606-U\u0026position\u003d18\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F5606.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Men",
+        "color": "Black",
+        "year": "2011",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "5606",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/5606.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 37.52514,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 51.75,
+        "popularity": 2,
+        "name": "ADIDAS Men Kendall Black Floater",
+        "season": "Summer",
+        "id": "5606-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:48.377Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/9225.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Snipper+Black+Sandal\u0026productId\u003d9225-U\u0026position\u003d19\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F9225.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Snipper+Black+Sandal\u0026productId\u003d9225-U\u0026position\u003d19\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F9225.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Snipper+Black+Sandal\u0026productId\u003d9225-U\u0026position\u003d19\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F9225.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Men",
+        "color": "Black",
+        "year": "2011",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "9225",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/9225.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 36.69452,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 16.95,
+        "popularity": 10,
+        "name": "Puma Men Snipper Black Sandal",
+        "season": "Fall",
+        "id": "9225-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:48.947Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/17973.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Rio+Black+Sandal\u0026productId\u003d17973-U\u0026position\u003d20\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F17973.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Rio+Black+Sandal\u0026productId\u003d17973-U\u0026position\u003d20\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F17973.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Rio+Black+Sandal\u0026productId\u003d17973-U\u0026position\u003d20\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F17973.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Men",
+        "color": "Black",
+        "year": "2011",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "17973",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/17973.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 36.69452,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 97.99,
+        "popularity": 10,
+        "name": "Puma Men Rio Black Sandal",
+        "season": "Fall",
+        "id": "17973-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:50.134Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/16995.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dRocia+Women+Casual+Black+Sandal\u0026productId\u003d16995-U\u0026position\u003d21\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F16995.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dRocia+Women+Casual+Black+Sandal\u0026productId\u003d16995-U\u0026position\u003d21\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F16995.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dRocia+Women+Casual+Black+Sandal\u0026productId\u003d16995-U\u0026position\u003d21\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F16995.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Women",
+        "color": "Black",
+        "year": "2012",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "16995",
+        "type": "Sports Sandals",
+        "url": "https://assets.empathy.co/images-demo/16995.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 36.69452,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 20.75,
+        "popularity": 10,
+        "name": "Rocia Women Casual Black Sandal",
+        "season": "Winter",
+        "id": "16995-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:51.074Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/2623.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dCarlton+London+Women+Black+Sandal\u0026productId\u003d2623-U\u0026position\u003d22\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F2623.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dCarlton+London+Women+Black+Sandal\u0026productId\u003d2623-U\u0026position\u003d22\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F2623.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dCarlton+London+Women+Black+Sandal\u0026productId\u003d2623-U\u0026position\u003d22\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F2623.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Women",
+        "color": "Black",
+        "year": "2010",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Shoes|e5eef62d8__b5efa9ec3"],
+        "usage": "Casual",
+        "groupId": "2623",
+        "type": "Flats",
+        "url": "https://assets.empathy.co/images-demo/2623.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 36.69452,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__b5efa9ec3"],
+        "size": "U",
+        "price": 30.75,
+        "popularity": 10,
+        "name": "Carlton London Women Black Sandal",
+        "season": "Fall",
+        "id": "2623-U",
+        "categories": ["Footwear", "Shoes"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:51.692Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/17960.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Hopper+Black+Sandal\u0026productId\u003d17960-U\u0026position\u003d23\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F17960.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Hopper+Black+Sandal\u0026productId\u003d17960-U\u0026position\u003d23\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F17960.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dPuma+Men+Hopper+Black+Sandal\u0026productId\u003d17960-U\u0026position\u003d23\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F17960.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Men",
+        "color": "Black",
+        "year": "2011",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Sandal|e5eef62d8__e509259dc"],
+        "usage": "Casual",
+        "groupId": "17960",
+        "type": "Sandals",
+        "url": "https://assets.empathy.co/images-demo/17960.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 36.69452,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__e509259dc"],
+        "size": "U",
+        "price": 93.0,
+        "popularity": 10,
+        "name": "Puma Men Hopper Black Sandal",
+        "season": "Fall",
+        "id": "17960-U",
+        "categories": ["Footwear", "Sandal"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:53.026Z"
+        }
+      },
+      {
+        "image": "https://assets.empathy.co/images-demo/17021.jpg",
+        "tagging": {
+          "add2cart": "https://api.staging.empathy.co/tagging/v1/track/empathy/add2cart?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dRocia+Women+Casual+Black+Sandal\u0026productId\u003d17021-U\u0026position\u003d24\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F17021.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "checkout": "https://api.staging.empathy.co/tagging/v1/track/empathy/checkout?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dRocia+Women+Casual+Black+Sandal\u0026productId\u003d17021-U\u0026position\u003d24\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F17021.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse",
+          "click": "https://api.staging.empathy.co/tagging/v1/track/empathy/click?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026title\u003dRocia+Women+Casual+Black+Sandal\u0026productId\u003d17021-U\u0026position\u003d24\u0026page\u003d1\u0026url\u003dhttps%3A%2F%2Fassets.empathy.co%2Fimages-demo%2F17021.jpg\u0026follow\u003dfalse\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+        },
+        "gender": "Women",
+        "color": "Black",
+        "year": "2012",
+        "categoryPaths": ["/Footwear|e5eef62d8", "e5eef62d8/Shoes|e5eef62d8__b5efa9ec3"],
+        "usage": "Casual",
+        "groupId": "17021",
+        "type": "Flats",
+        "url": "https://assets.empathy.co/images-demo/17021.jpg",
+        "_jobProperties": {
+          "jobId": "a93b9472-0d33-4cf0-9dd7-b0d36749bc07",
+          "_eb_date_": "2021-11-25T15:08:46.147Z"
+        },
+        "score": 36.69452,
+        "categoryIds": ["e5eef62d8", "e5eef62d8__b5efa9ec3"],
+        "size": "U",
+        "price": 31.99,
+        "popularity": 10,
+        "name": "Rocia Women Casual Black Sandal",
+        "season": "Winter",
+        "id": "17021-U",
+        "categories": ["Footwear", "Shoes"],
+        "indexMetrics": {
+          "generatedTime": "2021-11-25T15:08:46.025Z",
+          "readTime": "2021-11-25T15:08:46.025Z",
+          "transformedTime": "2021-11-25T15:08:54.551Z"
+        }
+      }
+    ],
+    "numFound": 9035,
+    "tagging": {
+      "query": "https://api.staging.empathy.co/tagging/v1/track/empathy/query?q\u003dsandal\u0026lang\u003den\u0026scope\u003ddesktop\u0026totalHits\u003d9035\u0026page\u003d1\u0026origin\u003dsearch_box%3Anone\u0026filtered\u003dfalse\u0026spellcheck\u003dfalse"
+    },
+    "facets": [
+      {
+        "facet": "categoryPaths",
+        "values": [
+          {
+            "id": "e5eef62d8",
+            "value": "Footwear",
+            "count": 8313,
+            "filter": "categoryIds:e5eef62d8"
+          },
+          {
+            "id": "b08648dbd",
+            "value": "Accessories",
+            "count": 713,
+            "filter": "categoryIds:b08648dbd"
+          },
+          { "id": "78d9b7366", "value": "Apparel", "count": 19, "filter": "categoryIds:78d9b7366" },
+          {
+            "id": "ffc61e1e9",
+            "value": "Personal Care",
+            "count": 8,
+            "filter": "categoryIds:ffc61e1e9"
+          },
+          {
+            "id": "048616815",
+            "value": "Free Items",
+            "count": 1,
+            "filter": "categoryIds:048616815"
+          }
+        ]
+      },
+      {
+        "facet": "price",
+        "values": [
+          { "id": "10.0-20.0", "value": "10.0-20.0", "count": 987, "filter": "price:10.0-20.0" },
+          { "id": "20.0-30.0", "value": "20.0-30.0", "count": 959, "filter": "price:20.0-30.0" },
+          { "id": "30.0-40.0", "value": "30.0-40.0", "count": 1021, "filter": "price:30.0-40.0" },
+          { "id": "40.0-50.0", "value": "40.0-50.0", "count": 997, "filter": "price:40.0-50.0" },
+          { "id": "50.0-60.0", "value": "50.0-60.0", "count": 1031, "filter": "price:50.0-60.0" },
+          { "id": "60.0-70.0", "value": "60.0-70.0", "count": 1035, "filter": "price:60.0-70.0" },
+          { "id": "70.0-80.0", "value": "70.0-80.0", "count": 1027, "filter": "price:70.0-80.0" },
+          { "id": "80.0-90.0", "value": "80.0-90.0", "count": 1006, "filter": "price:80.0-90.0" },
+          { "id": "90.0-100.0", "value": "90.0-100.0", "count": 991, "filter": "price:90.0-100.0" }
+        ]
+      },
+      {
+        "facet": "gender",
+        "values": [
+          { "id": "men", "value": "men", "count": 5796, "filter": "gender:men" },
+          { "id": "women", "value": "women", "count": 2684, "filter": "gender:women" },
+          { "id": "unisex", "value": "unisex", "count": 470, "filter": "gender:unisex" },
+          { "id": "girls", "value": "girls", "count": 59, "filter": "gender:girls" },
+          { "id": "boys", "value": "boys", "count": 45, "filter": "gender:boys" }
+        ]
+      }
+    ]
+  },
+  "direct": { "content": [] },
+  "banner": { "content": [] },
+  "promoted": {
+    "content": [
+      {
+        "image_url": "https://assets.empathy.co/images-demo/2550.jpg",
+        "id": "6171812278bdcf48b4caf3d8",
+        "title": "Promoted Sandal",
+        "url": "https://assets.empathy.co/images-demo/2550.jpg"
+      }
+    ]
+  }
+}
