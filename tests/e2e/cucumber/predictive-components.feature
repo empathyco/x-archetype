@@ -8,7 +8,9 @@ Feature: Predictive components
     And   popular searches are displayed
     When  a "<query>" is typed
     Then  query suggestions are displayed
-    When  focus is set on the search input
+    When  search input is cleared
+    And   "<query>" is searched
+    And   focus is set on the search input
     Then  next queries are displayed
     When  search input is cleared
     Then  history queries are displayed

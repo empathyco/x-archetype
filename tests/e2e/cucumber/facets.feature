@@ -19,7 +19,7 @@ Feature: Facets component
     When  start button is clicked
     And   "<query>" is searched
     And   facets are shown if hidden on "<view>"
-    And   facet "<facetName>" is "unfolded"
+    And   facet "<facetName>" is unfolded
     And   filter <filterNumber> from facet "<facetName>" is clicked
     Then  filter <filterNumber> from facet "<facetName>" is selected is true
     When  filter <filterNumber> from facet "<facetName>" is clicked
@@ -37,9 +37,10 @@ Feature: Facets component
     When  start button is clicked
     And   "<query>" is searched
     And   facets are shown if hidden on "<view>"
-    And   facet "<facetName>" is "unfolded"
+    And   facet "<facetName>" is unfolded
     And   filter <filterNumber> from facet "<facetName>" is clicked
-    And   filter <filterNumber2> from facet "<facetName>" is clicked
+    Then  filter <filterNumber> from facet "<facetName>" is selected is true
+    When  filter <filterNumber2> from facet "<facetName>" is clicked
     Then  filter <filterNumber> from facet "<facetName>" is selected is true
     And   filter <filterNumber2> from facet "<facetName>" is selected is true
     Examples:
@@ -52,12 +53,12 @@ Feature: Facets component
     When  start button is clicked
     And   "<query>" is searched
     And   facets are shown if hidden on "<view>"
-    And   facet "<facetName>" is "unfolded"
+    And   facet "<facetName>" is unfolded
     And   filter <filterNumber> from facet "<facetName>" is clicked
-    And   facet "<facetName>" is "folded"
-    And   facet "<facetName2>" is "unfolded"
+    Then  filter <filterNumber> from facet "<facetName>" is selected is true
+    When  facet "<facetName2>" is unfolded
     And   filter <filterNumber2> from facet "<facetName2>" is clicked
-    And   facet "<facetName>" is "unfolded"
+    And   facet "<facetName>" is unfolded
     Then  filter <filterNumber> from facet "<facetName>" is selected is true
     And   filter <filterNumber2> from facet "<facetName2>" is selected is true
     Examples:
@@ -70,16 +71,18 @@ Feature: Facets component
     When  start button is clicked
     And   "<query>" is searched
     And   facets are shown if hidden on "<view>"
-    And   facet "<facetName>" is "unfolded"
+    And   facet "<facetName>" is unfolded
     And   filter <hierarchicalFilter> from facet "<facetName>" is clicked
-    And   child filter <childFilter> from parent filter <hierarchicalFilter> in "<facetName>" is clicked
+    Then  selection status of filter number <hierarchicalFilter> in facet "<facetName>" is true
+    When  child filter <childFilter> from parent filter <hierarchicalFilter> in "<facetName>" is clicked
     Then  selection status of child filter <childFilter> from parent filter <hierarchicalFilter> in facet "<facetName>" is true
     And   selection status of filter number <hierarchicalFilter> in facet "<facetName>" is true
     When  child filter <childFilter> from parent filter <hierarchicalFilter> in "<facetName>" is clicked
     Then  selection status of child filter <childFilter> from parent filter <hierarchicalFilter> in facet "<facetName>" is false
     And   selection status of filter number <hierarchicalFilter> in facet "<facetName>" is true
     When  child filter <childFilter> from parent filter <hierarchicalFilter> in "<facetName>" is clicked
-    And   filter <hierarchicalFilter> from facet "<facetName>" is clicked
+    Then  selection status of child filter <childFilter> from parent filter <hierarchicalFilter> in facet "<facetName>" is true
+    When  filter <hierarchicalFilter> from facet "<facetName>" is clicked
     Then  selection status of child filter <childFilter> from parent filter <hierarchicalFilter> in facet "<facetName>" is false
     And   selection status of filter number <hierarchicalFilter> in facet "<facetName>" is false
     Examples:

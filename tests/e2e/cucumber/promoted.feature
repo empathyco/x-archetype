@@ -2,7 +2,7 @@ Feature: Promoted component
 
   Scenario Outline: 1. Promoted exists and has an image
     Given start page with "<view>" size view
-    And   a results API with a promoted item
+    And   a results API with a promoted
     When  start button is clicked
     And   "<query>" is searched
     Then  promoted is displayed

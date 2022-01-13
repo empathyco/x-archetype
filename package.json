@@ -9,7 +9,7 @@
   "scripts": {
     "serve": "vue-cli-service serve --open --skip-plugins eslint",
     "build": "rollup -c",
-    "build:serve": "concurrently \"rollup -c -w\" \"npm start\"",
+    "build:serve": "concurrently \"rollup -c -w\" \"npm run serve:dist\"",
     "serve:dist": "live-server dist --host=localhost --cors",
     "cy:open": "cypress open",
     "cy:run": "cypress run --headless --browser chrome",
@@ -62,7 +62,7 @@
     "commitizen": "~4.0.3",
     "concurrently": "~6.5.1",
     "cssnano": "~4.1.10",
-    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-cucumber-preprocessor": "~4.3.1",
     "cz-conventional-changelog": "~3.1.0",
     "eslint": "7.18.0",
     "lint-staged": "~10.0.7",

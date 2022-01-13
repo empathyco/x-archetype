@@ -1,7 +1,5 @@
 import { And, Then, When } from 'cypress-cucumber-preprocessor/steps';
 
-let historyQueriesList: string[];
-
 And('recommendations are displayed', () => {
   cy.getByDataTest('recommendation-item').should('have.length.at.least', 1);
 });
@@ -70,8 +68,7 @@ Then('related tag {int} is displayed as not selected', (relatedTagItem: number) 
 
 // Scenario 3
 And('a {string} of queries already searched', (list: string) => {
-  historyQueriesList = list.split(', ');
-  cy.searchQueries(...historyQueriesList);
+  cy.searchQueries(...list.split(', '));
   cy.clearSearchInput();
 });
 
@@ -89,8 +86,8 @@ Then(
   'the deleted history query is removed from history queries',
   function (this: { deletedHistoryQuery: string }) {
     cy.getByDataTest('history-query').should(historicalQueries => {
-      historicalQueries.each((_, e) => {
-        expect(e).to.not.have.text(this.deletedHistoryQuery);
+      historicalQueries.each((_, historyQuery) => {
+        expect(historyQuery).to.not.have.text(this.deletedHistoryQuery);
       });
     });
   }

@@ -3,21 +3,10 @@ import '../cucumber/global-definitions';
 import ViewportPreset = Cypress.ViewportPreset;
 
 /**
- * Click on a filter from a certain facet.
+ * TODO https://searchbroker.atlassian.net/browse/EX-5266 .
  *
- * @param facetName - Name of the facet which the filter to be clicked belongs to.
- * @param nthFilter - Position of the filter to be clicked.
- *
- * @internal
+ * @public
  */
-function clickFacetNthFilter(facetName: string, nthFilter: number): void {
-  cy.getByDataTest(facetName)
-    .getByDataTest('filter')
-    .eq(nthFilter)
-    .click('top')
-    .invoke('text')
-    .as(`clickedFilter${nthFilter}`);
-}
 
 // Scenario 1
 Then('facets are displayed is {boolean}', (areVisible: boolean) => {
@@ -28,7 +17,7 @@ When(
   'hide-show filters button is clicked on {string} after facets being displayed is {boolean}',
   (view: ViewportPreset, areFacetsVisible: boolean) => {
     if (view.includes('macbook')) {
-      cy.getByDataTest('base-id-toggle-button').click();
+      cy.getByDataTest('toggle-facets-button').click();
     } else {
       cy.getByDataTest(`${areFacetsVisible ? 'close' : 'open'}-modal-id`).click();
     }
@@ -36,12 +25,13 @@ When(
 );
 
 // Scenario 2
-When('facet {string} is {string}', (facetName: string) => {
-  cy.getByDataTest(facetName).click();
-});
-
 When('filter {int} from facet {string} is clicked', (filterNumber: number, facetName: string) => {
-  clickFacetNthFilter(facetName, filterNumber);
+  cy.getByDataTest(facetName)
+    .getByDataTest('filter')
+    .eq(filterNumber)
+    .click()
+    .invoke('text')
+    .as(`clickedFilter${filterNumber}`);
 });
 
 Then(
@@ -50,12 +40,18 @@ Then(
     cy.getByDataTest(facetName)
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       .contains(this[`clickedFilter${filterNumber}`].trim())
-      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-filter--is-selected');
+      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-filter--is-selected')
+      .should('have.attr', 'aria-checked');
   }
 );
 
 When('clear filters button is clicked', () => {
   cy.getByDataTest('clear-filters').click();
+});
+
+// Scenario 4
+When('facet {string} is unfolded', (facetName: string) => {
+  cy.getByDataTest(facetName).click();
 });
 
 // Scenario 5
@@ -91,7 +87,8 @@ Then(
       .eq(childFilterIndex)
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       .should('contain', this[`clickedChildFilter${childFilterIndex}`].replace(/[^a-z]/gi, ''))
-      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-filter--is-selected');
+      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-filter--is-selected')
+      .should('have.attr', 'aria-checked');
   }
 );
 

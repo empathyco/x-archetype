@@ -5,5 +5,5 @@ Then('no results message is displayed', () => {
 });
 
 And('there are no results', () => {
-  cy.getByDataTest('total-results').should('not.exist');
+  cy.getByDataTest('search-grid-result').should('not.exist');
 });
