@@ -1,5 +1,5 @@
 /**
- * Creates a {@link @empathyco/x-types#Promoted | Promoted} stub.
+ * Creates a PlatformPromoted stub.
  *
  * @returns Array of Promoted stub.
  *
