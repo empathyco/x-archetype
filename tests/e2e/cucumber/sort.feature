@@ -10,7 +10,6 @@ Feature: Sort component
     When  "<sortOrder>" order is clicked
     Then  results are ordered by "<sortOrder>"
     And   search request contains the selected sort "<sortOrder>"
-
     Examples:
       | query   | sortOrder  | view        |
       | skirt   | price asc  | macbook-13  |

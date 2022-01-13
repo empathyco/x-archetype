@@ -13,6 +13,7 @@ Then('facets are displayed is {boolean}', (areVisible: boolean) => {
   cy.getByDataTest('facets-facet').should(`${areVisible ? '' : 'not.'}exist`);
 });
 
+
 When(
   'hide-show filters button is clicked on {string} after facets being displayed is {boolean}',
   (view: ViewportPreset, areFacetsVisible: boolean) => {
