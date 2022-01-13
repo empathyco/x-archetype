@@ -5,7 +5,7 @@ Given('start page', () => {
 });
 
 Given('an intercepted search response', () => {
-  cy.intercept('**/empathy/search?*').as('interceptedResults');
+  cy.intercept('https://api.staging.empathy.co/search/v1/query/*/search*').as('interceptedResults');
 });
 
 Then('start button is clicked', () => {

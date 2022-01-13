@@ -1,5 +1,3 @@
-import { Promoted } from '@empathyco/x-types';
-
 /**
  * Creates a {@link @empathyco/x-types#Promoted | Promoted} stub.
  *
@@ -7,7 +5,7 @@ import { Promoted } from '@empathyco/x-types';
  *
  * @internal
  */
-export function getPromotedsStub(): Promoted[] {
+export function getPromotedsStub(): PlatformPromoted[] {
   return [createPromotedStub('1'), createPromotedStub('2')];
 }
 
@@ -20,18 +18,18 @@ export function getPromotedsStub(): Promoted[] {
  *
  * @internal
  */
-export function createPromotedStub(identifier: string): Promoted {
+export function createPromotedStub(identifier: string): PlatformPromoted {
   return {
-    id: `xp-${identifier}`,
-    title: `Promoted ${identifier}`,
-    url: `http://x-components-promoted-${identifier}.com`,
-    image: `xp-${identifier}.jpg`,
-    tagging: {
-      click: {
-        params: {},
-        url: ''
-      }
-    },
-    modelName: 'Promoted'
+    image_url: `https://picsum.photos/seed/${identifier}/100/100`,
+    id: identifier,
+    title: identifier,
+    url: `#${identifier}`
   };
+}
+
+export interface PlatformPromoted {
+  image_url: string;
+  id: string;
+  title: string;
+  url: string;
 }

@@ -1,5 +1,3 @@
-import { Banner } from '@empathyco/x-types';
-
 /**
  * Creates a {@link @empathyco/x-types#Banner | banners} stub.
  *
@@ -7,7 +5,7 @@ import { Banner } from '@empathyco/x-types';
  *
  * @internal
  */
-export function getBannersStub(): Banner[] {
+export function getBannersStub(): PlatformBanner[] {
   return [createBannerStub('1'), createBannerStub('2')];
 }
 
@@ -20,18 +18,18 @@ export function getBannersStub(): Banner[] {
  *
  * @internal
  */
-export function createBannerStub(identifier: string): Banner {
+export function createBannerStub(identifier: string): PlatformBanner {
   return {
-    id: `xb-${identifier}`,
-    title: `Banner ${identifier}`,
-    url: `http://x-components-banner-${identifier}.com`,
-    image: `xb-${identifier}.jpg`,
-    tagging: {
-      click: {
-        params: {},
-        url: ''
-      }
-    },
-    modelName: 'Banner'
+    image_url: `https://picsum.photos/seed/${identifier}/100/100`,
+    id: identifier,
+    title: identifier,
+    url: `#${identifier}`
   };
+}
+
+export interface PlatformBanner {
+  image_url: string;
+  id: string;
+  title: string;
+  url: string;
 }

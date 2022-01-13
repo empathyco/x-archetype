@@ -2,6 +2,12 @@ import { Then, When } from 'cypress-cucumber-preprocessor/steps';
 import '../cucumber/global-definitions';
 
 /**
+ * TODO https://searchbroker.atlassian.net/browse/EX-5266 .
+ *
+ * @public
+ */
+
+/**
  * Click on a filter from a certain facet.
  *
  * @param facetName - Name of the facet which the filter to be clicked belongs to.
@@ -11,9 +17,9 @@ import '../cucumber/global-definitions';
  */
 function clickFacetNthFilter(facetName: string, nthFilter: number): void {
   cy.getByDataTest(facetName)
-    .getByDataTest('base-filters-item')
+    .getByDataTest('filter')
     .eq(nthFilter)
-    .click('top')
+    .click()
     .invoke('text')
     .as(`clickedFilter${nthFilter}`);
 }
@@ -24,7 +30,7 @@ Then('facets are displayed is {boolean}', (areVisible: boolean) => {
 });
 
 When('hide-show filters button is clicked', () => {
-  cy.getByDataTest('base-id-toggle-button').click();
+  cy.getByDataTest('toggle-facets-button').click();
 });
 
 // Scenario 2
@@ -38,7 +44,8 @@ Then(
     cy.getByDataTest(facetName)
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       .contains(this[`clickedFilter${filterNumber}`].trim())
-      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-filter--is-selected');
+      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-filter--is-selected')
+      .should('have.attr', 'aria-checked');
   }
 );
 
@@ -84,7 +91,8 @@ Then(
       .eq(childFilterIndex)
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       .should('contain', this[`clickedChildFilter${childFilterIndex}`].replace(/[^a-z]/gi, ''))
-      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-filter--is-selected');
+      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-filter--is-selected')
+      .should('have.attr', 'aria-checked');
   }
 );
 

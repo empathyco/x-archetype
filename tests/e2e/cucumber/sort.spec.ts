@@ -6,7 +6,7 @@ Then('results are ordered by {string}', (sortOrder: string) => {
 
 When('{string} order is clicked', (sortOrder: string) => {
   cy.getByDataTest('sort-dropdown').click();
-  cy.getByDataTest('dropdown-item').children().contains(sortOrder).click();
+  cy.getByDataTest('dropdown-item').contains(sortOrder).click();
 });
 
 Then('search request contains the selected sort {string}', (sortOption: string) => {

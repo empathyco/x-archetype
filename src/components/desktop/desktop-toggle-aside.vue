@@ -2,6 +2,7 @@
   <BaseIdTogglePanelButton
     panelId="aside-panel"
     class="x-button x-button--ghost x-button--ghost-start"
+    data-test="toggle-facets-button"
   >
     <template #default="{ isPanelOpen }">
       <FiltersIcon />
