@@ -1,5 +1,5 @@
 /**
- * Creates a {@link @empathyco/x-types#Banner | banners} stub.
+ * Creates a PlatformBanner stub.
  *
  * @returns Array of banners stub.
  *
