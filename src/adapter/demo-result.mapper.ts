@@ -6,29 +6,29 @@ import { Result } from '@empathyco/x-types';
  */
 interface CustomResult {
   /** Gender of the result. */
-  gender?: string;
+  gender: string;
   /** Color of the result. */
-  color?: string;
+  color: string;
   /** Year of the result. */
-  year?: string;
+  year: string;
   /** List of category paths of the result. */
-  categoryPaths?: string[];
+  categoryPaths: string[];
   /** Usage of the result. */
-  usage?: string;
+  usage: string;
   /** Group ID of the result. */
-  groupId?: string;
+  groupId: string;
   /** Type of the result. */
-  type?: string;
+  type: string;
   /** Score of the result. */
-  score?: number;
+  score: number;
   /** List of category ids of the result. */
-  categoryIds?: string[];
+  categoryIds: string[];
   /** Size of the result. */
-  size?: string;
+  size: string;
   /** Season of the result. */
   season: string;
   /** List of categories of the result. */
-  categories?: string[];
+  categories: string[];
 }
 
 declare module '@empathyco/x-types' {
