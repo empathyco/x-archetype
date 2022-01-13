@@ -28,7 +28,7 @@ interface CustomResult {
   /** Season of the result. */
   season: string;
   /** List of categories of the result. */
-  categories?: string[];
+  categories: string[];
 }
 
 declare module '@empathyco/x-types' {
