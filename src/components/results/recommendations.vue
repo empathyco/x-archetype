@@ -11,7 +11,7 @@
           :animation="staggeredFadeAndSlide"
           :items="recommendations"
         >
-          <Result :result="result" />
+          <Result :result="result" data-test="recommendation-item" />
         </BaseGrid>
       </template>
     </Recommendations>
