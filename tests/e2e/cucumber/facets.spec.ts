@@ -7,23 +7,6 @@ import '../cucumber/global-definitions';
  * @public
  */
 
-/**
- * Click on a filter from a certain facet.
- *
- * @param facetName - Name of the facet which the filter to be clicked belongs to.
- * @param nthFilter - Position of the filter to be clicked.
- *
- * @internal
- */
-function clickFacetNthFilter(facetName: string, nthFilter: number): void {
-  cy.getByDataTest(facetName)
-    .getByDataTest('filter')
-    .eq(nthFilter)
-    .click()
-    .invoke('text')
-    .as(`clickedFilter${nthFilter}`);
-}
-
 // Scenario 1
 Then('facets are displayed is {boolean}', (areVisible: boolean) => {
   cy.getByDataTest('facets-facet').should(`${areVisible ? '' : 'not.'}exist`);
@@ -35,7 +18,12 @@ When('hide-show filters button is clicked', () => {
 
 // Scenario 2
 When('filter {int} from facet {string} is clicked', (filterNumber: number, facetName: string) => {
-  clickFacetNthFilter(facetName, filterNumber);
+  cy.getByDataTest(facetName)
+    .getByDataTest('filter')
+    .eq(filterNumber)
+    .click()
+    .invoke('text')
+    .as(`clickedFilter${filterNumber}`);
 });
 
 Then(
@@ -54,7 +42,7 @@ When('clear filters button is clicked', () => {
 });
 
 // Scenario 4
-When('facet {string} is {string}', (facetName: string) => {
+When('facet {string} is unfolded', (facetName: string) => {
   cy.getByDataTest(facetName).click();
 });
 

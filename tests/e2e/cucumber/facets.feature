@@ -17,7 +17,7 @@ Feature: Facets component
 
   Scenario Outline: 2. Filters can be selected and deselected / cleared
     When  a "<query>" is typed
-    And   facet "<facetName>" is "unfolded"
+    And   facet "<facetName>" is unfolded
     And   filter <filterNumber> from facet "<facetName>" is clicked
     Then  filter <filterNumber> from facet "<facetName>" is selected is true
     When  filter <filterNumber> from facet "<facetName>" is clicked
@@ -31,7 +31,7 @@ Feature: Facets component
 
   Scenario Outline: 3. Multiple filters from the same facet can be selected
     When  a "<query>" is typed
-    And   facet "<facetName>" is "unfolded"
+    And   facet "<facetName>" is unfolded
     And   filter <filterNumber> from facet "<facetName>" is clicked
     Then  filter <filterNumber> from facet "<facetName>" is selected is true
     When  filter <filterNumber2> from facet "<facetName>" is clicked
@@ -43,12 +43,12 @@ Feature: Facets component
 
   Scenario Outline: 4. Multiple filters from different facets can be selected
     When  a "<query>" is typed
-    And   facet "<facetName>" is "unfolded"
+    And   facet "<facetName>" is unfolded
     And   filter <filterNumber> from facet "<facetName>" is clicked
     Then  filter <filterNumber> from facet "<facetName>" is selected is true
-    When  facet "<facetName2>" is "unfolded"
+    When  facet "<facetName2>" is unfolded
     And   filter <filterNumber2> from facet "<facetName2>" is clicked
-    And   facet "<facetName>" is "unfolded"
+    And   facet "<facetName>" is unfolded
     Then  filter <filterNumber> from facet "<facetName>" is selected is true
     And   filter <filterNumber2> from facet "<facetName2>" is selected is true
     Examples:
@@ -57,7 +57,7 @@ Feature: Facets component
 
   Scenario Outline: 5. Hierarchical filters selection
     When  a "<query>" is typed
-    And   facet "<facetName>" is "unfolded"
+    And   facet "<facetName>" is unfolded
     And   filter <hierarchicalFilter> from facet "<facetName>" is clicked
     Then  selection status of filter number <hierarchicalFilter> in facet "<facetName>" is true
     When  child filter <childFilter> from parent filter <hierarchicalFilter> in "<facetName>" is clicked
