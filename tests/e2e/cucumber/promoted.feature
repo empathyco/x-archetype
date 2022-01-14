@@ -1,11 +1,12 @@
 Feature: Promoted component
 
   Scenario Outline: 1. Promoted exists and has an image
-    Given start page
+    Given start page with "<view>" size view
     And   a results API with a promoted
-    Then  start button is clicked
-    When  a "<query>" is typed
+    When  start button is clicked
+    And   "<query>" is searched
     Then  promoted is displayed
     Examples:
-      | query  |
-      | sandal |
+      | query  | view        |
+      | sandal | macbook-13  |
+      | sandal | iphone-7    |

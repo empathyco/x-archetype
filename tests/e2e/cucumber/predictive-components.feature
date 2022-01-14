@@ -1,10 +1,8 @@
 Feature: Predictive components
 
-  Background:
-    Given start page
-    Then  start button is clicked
-
   Scenario Outline: 1. Predictive components are displayed as expected
+    Given start page with "<view>" size view
+    When  start button is clicked
     Then  recommendations are displayed
     And   search input is focused
     And   popular searches are displayed
@@ -17,11 +15,14 @@ Feature: Predictive components
     When  search input is cleared
     Then  history queries are displayed
     Examples:
-      | query |
-      | shirt |
+      | query | view        |
+      | shirt | macbook-13  |
+      | shirt | iphone-7    |
 
   Scenario Outline: 2. Related tags interaction
-    When  "<query>" is searched
+    Given start page with "<view>" size view
+    When  start button is clicked
+    And   "<query>" is searched
     Then  related tags are displayed
     Given an intercepted search response
     When  related tag <relatedTagIndex> is clicked
@@ -30,23 +31,30 @@ Feature: Predictive components
     When  related tag 0 is clicked
     Then  related tag <relatedTagIndex> is displayed as not selected
     Examples:
-      | query   | relatedTagIndex |
-      | shorts  | 1               |
+      | query   | relatedTagIndex | view        |
+      | shorts  | 1               | macbook-13  |
+      | shorts  | 1               | iphone-7    |
 
   Scenario Outline: 3. Clear a history query
+    Given start page with "<view>" size view
+    When  start button is clicked
     Given a "<list>" of queries already searched
     When  search input is focused
     And   history query number <historyQueryItem> delete button is clicked
     Then  the deleted history query is removed from history queries
     Examples:
-      | list               | historyQueryItem |
-      | shirt, shoe, skirt | 0                |
+      | list               | historyQueryItem | view        |
+      | shirt, shoe, skirt | 0                | macbook-13  |
+      | shirt, shoe, skirt | 0                | iphone-7    |
 
   Scenario Outline: 4. Clear all history queries
+    Given start page with "<view>" size view
+    When  start button is clicked
     Given a "<list>" of queries already searched
     When  search input is focused
     And   clear history queries button is clicked
     Then  no history queries are displayed
     Examples:
-      | list               |
-      | shirt, shoe, skirt |
+      | list               | view        |
+      | shirt, shoe, skirt | macbook-13  |
+      | shirt, shoe, skirt | iphone-7    |

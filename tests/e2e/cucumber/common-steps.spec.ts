@@ -1,6 +1,8 @@
 import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps';
+import ViewportPreset = Cypress.ViewportPreset;
 
-Given('start page', () => {
+Given('start page with {string} size view', (view: ViewportPreset) => {
+  cy.viewport(view);
   cy.visit('/');
 });
 
@@ -22,4 +24,10 @@ When('{string} is searched', (query: string) => {
   cy.searchQuery(query).then(() => {
     cy.getByDataTest('search-input').invoke('val').as('searchedQuery');
   });
+});
+
+When('facets are shown if hidden on {string}', (view: ViewportPreset) => {
+  if (!view.includes('macbook')) {
+    cy.getByDataTest('open-modal-id').click();
+  }
 });
