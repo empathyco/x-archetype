@@ -56,8 +56,8 @@ export function createConfig({
   return {
     input,
     output: {
-      file: path.join(jsOutputDirectory, 'app.js'),
-      format: 'iife',
+      dir: jsOutputDirectory,
+      format: 'es',
       sourcemap: true,
       assetFileNames: '[name][extname]',
       ...output
@@ -114,7 +114,8 @@ export function createConfig({
       ),
       htmlTemplate(
         mergeConfig('htmlTemplate', {
-          template: path.resolve(process.cwd(), 'public/index.html')
+          template: path.resolve(process.cwd(), 'public/index.html'),
+          attrs: ["type='module'"]
         })
       ),
       sourcemaps(mergeConfig('sourcemaps')),
