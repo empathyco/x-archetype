@@ -5,59 +5,50 @@
     <DeviceDetector @DeviceProvided="$setLocaleDevice" :breakpoints="breakpoints" />
     <Tagging />
     <UrlHandler env="env" />
-
-    <BaseEventsModal :eventsToOpenModal="openEvents" class="x-modal" :animation="collapseFromTop">
-      <Mobile v-if="$x.device === 'mobile'" />
-      <Desktop v-else />
-    </BaseEventsModal>
+    <SearchLayout v-if="isOpen" />
   </div>
 </template>
 
 <script lang="ts">
   import {
-    BaseEventsModal,
-    BaseEventsModalOpen,
-    CollapseFromTop,
     Dictionary,
     SnippetCallbacks,
     SnippetConfig,
+    XOn,
     XProvide
   } from '@empathyco/x-components';
-  import '@empathyco/x-components/design-system/full-theme.css';
   import { DeviceDetector } from '@empathyco/x-components/device';
   import { Tagging } from '@empathyco/x-components/tagging';
   import { UrlHandler } from '@empathyco/x-components/url';
   import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params';
   import { Component, Inject, Vue, Watch } from 'vue-property-decorator';
   import { adapter } from './adapter/adapter';
-  import Desktop from './components/desktop/desktop.vue';
-  import Mobile from './components/mobile/mobile.vue';
-  import './design-system/tokens.scss';
   import currencies from './i18n/currencies';
+  import '@empathyco/x-components/design-system/full-theme.css';
+  import './design-system/tokens.scss';
 
   @Component({
     components: {
-      Mobile,
-      Desktop,
-      BaseEventsModal,
-      BaseEventsModalOpen,
       DeviceDetector,
       SnippetCallbacks,
       SnippetConfigExtraParams,
       Tagging,
-      UrlHandler
+      UrlHandler,
+      SearchLayout: () => import('./components/search-layout.vue').then(m => m.default)
     }
   })
   export default class Layer extends Vue {
-    protected collapseFromTop = CollapseFromTop;
-
-    protected openEvents = ['UserClickedOpenEventsModal', 'UserOpenXProgrammatically'];
-
     protected breakpoints: Dictionary<number> = {
       mobile: 640,
       tablet: 900,
       desktop: Number.POSITIVE_INFINITY
     };
+    protected isOpen = false;
+
+    @XOn(['UserClickedOpenEventsModal', 'UserOpenXProgrammatically'])
+    open(): void {
+      this.isOpen = true;
+    }
 
     @Inject('snippetConfig')
     protected snippetConfig!: SnippetConfig;
