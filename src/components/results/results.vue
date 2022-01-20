@@ -2,21 +2,26 @@
   <ResultsList v-if="$x.totalResults" v-infinite-scroll:main-scroll>
     <BannersList>
       <PromotedsList>
-        <component :is="grid" :columns="2" class="x-grid" :animation="staggeredFadeAndSlide">
-          <template #result="{ item: result }">
-            <Result :result="result" data-test="search-grid-result" />
-          </template>
-          <template #banner="{ item: banner }">
-            <MainScrollItem :item="banner" tag="article">
-              <Banner :banner="banner" />
-            </MainScrollItem>
-          </template>
-          <template #promoted="{ item: promoted }">
-            <MainScrollItem :item="promoted" tag="article">
-              <Promoted :promoted="promoted" />
-            </MainScrollItem>
-          </template>
-        </component>
+        <NextQueriesList>
+          <component :is="grid" :columns="2" class="x-grid" :animation="staggeredFadeAndSlide">
+            <template #result="{ item: result }">
+              <Result :result="result" data-test="search-grid-result" />
+            </template>
+            <template #banner="{ item: banner }">
+              <MainScrollItem :item="banner" tag="article">
+                <Banner :banner="banner" />
+              </MainScrollItem>
+            </template>
+            <template #promoted="{ item: promoted }">
+              <MainScrollItem :item="promoted" tag="article">
+                <Promoted :promoted="promoted" />
+              </MainScrollItem>
+            </template>
+            <template #next-queries-group="{ item: { nextQueries } }">
+              <NextQueriesGroup :nextQueries="nextQueries" />
+            </template>
+          </component>
+        </NextQueriesList>
       </PromotedsList>
     </BannersList>
   </ResultsList>
@@ -39,7 +44,9 @@
   } from '@empathyco/x-components/search';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
+  import { NextQueriesList } from '@empathyco/x-components/next-queries';
   import Result from './result.vue';
+  import NextQueriesGroup from './next-queries-group.vue';
 
   @Component({
     components: {
@@ -48,6 +55,8 @@
       BaseGrid,
       BaseVariableColumnGrid,
       MainScrollItem,
+      NextQueriesGroup,
+      NextQueriesList,
       Promoted,
       PromotedsList,
       Result,
