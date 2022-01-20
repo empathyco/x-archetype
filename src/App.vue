@@ -24,8 +24,9 @@
   import { Component, Inject, Vue, Watch } from 'vue-property-decorator';
   import { adapter } from './adapter/adapter';
   import currencies from './i18n/currencies';
-  import '@empathyco/x-components/design-system/full-theme.css';
-  import './design-system/tokens.scss';
+  import '@empathyco/x-components/design-system/base.css';
+  import '@empathyco/x-components/design-system/button-default.css';
+  import '@empathyco/x-components/design-system/typography-default.css';
 
   @Component({
     components: {

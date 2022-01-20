@@ -11,6 +11,8 @@
   import { BaseEventsModal, CollapseFromTop } from '@empathyco/x-components';
   import Mobile from './mobile/mobile.vue';
   import Desktop from './desktop/desktop.vue';
+  import '@empathyco/x-components/design-system/full-theme.css';
+  import '../design-system/tokens.scss';
 
   @Component({
     components: {
