@@ -43,14 +43,7 @@
     </template>
 
     <template #main-aside>
-      <SelectedFilters
-        v-if="$x.totalResults > 0"
-        class="x-list x-list--gap-05 x-list--padding-05 x-list--padding-bottom"
-      />
-      <Facets
-        v-if="$x.totalResults > 0"
-        class="x-list--gap-06 x-list--padding-05 x-list--padding-top"
-      />
+      <FacetsAndFilters v-if="$x.query.search" />
     </template>
 
     <template #main-body>
@@ -82,8 +75,6 @@
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
   import EnvSelector from '../env-selector.vue';
-  import Facets from '../facets/facets.vue';
-  import SelectedFilters from '../facets/selected-filters.vue';
   import Logo from '../logo.vue';
   import Main from '../main.vue';
   import PredictiveLayer from '../predictive-layer.vue';
@@ -105,7 +96,6 @@
       DesktopToolbar,
       EnvSelector,
       Empathize,
-      Facets,
       LocationProvider,
       Logo,
       Main,
@@ -115,8 +105,8 @@
       RelatedTags,
       ScrollToTop,
       SearchBox,
-      SelectedFilters,
-      SlidingPanel
+      SlidingPanel,
+      FacetsAndFilters: () => import('../facets/facets-and-filters.vue')
     }
   })
   export default class Desktop extends Vue {}

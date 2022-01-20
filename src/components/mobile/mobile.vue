@@ -1,13 +1,12 @@
 <template>
   <SingleColumnLayout>
     <template #header>
+      <!-- eslint-disable max-len-->
       <div
-        class="
-          x-list x-list--horizontal x-list__item--expand x-list--padding-03 x-list--align-center
-        "
+        class="x-list x-list--horizontal x-list__item--expand x-list--padding-03 x-list--align-center"
       >
         <Close class="x-button--ghost">
-          <ArrowIcon />
+          <ArrowUpIcon />
         </Close>
         <SearchBox class="x-list__item--expand" />
       </div>
@@ -48,25 +47,12 @@
     </template>
 
     <template #aside>
+      <!-- eslint-disable max-len-->
       <div
         v-if="$x.totalResults > 0"
-        class="
-          x-list
-          x-list--vertical
-          x-list__item--expand
-          x-list--padding-03
-          x-list--padding-left
-          x-list--padding-right
-        "
+        class="x-list x-list--vertical x-list__item--expand x-list--padding-03 x-list--padding-left x-list--padding-right"
       >
-        <BaseScroll class="x-list__item--expand">
-          <Sort class="x-list--padding-04 x-list--padding-bottom" />
-          <Facets class="x-list--gap-06 x-list--padding-04 x-list--padding-bottom" />
-        </BaseScroll>
-        <SelectedFilters
-          v-if="$x.selectedFilters.length"
-          class="x-list x-list--gap-05 x-list--padding-04 x-list--padding-bottom"
-        />
+        <FacetsAndFilters v-if="$x.query.search" />
         <div class="x-list x-list--padding-03 x-list--padding-bottom">
           <MobileCloseAside />
         </div>
@@ -77,7 +63,7 @@
 
 <script lang="ts">
   import {
-    ArrowIcon,
+    ArrowUpIcon,
     BaseColumnPickerList,
     BaseEventsModalClose,
     BaseIdModalOpen,
@@ -92,8 +78,6 @@
   import ScrollToTop from '../scroll-to-top.vue';
   import Sort from '../sort.vue';
   import Empathize from '../predictive-layer.vue';
-  import Facets from '../facets/facets.vue';
-  import SelectedFilters from '../facets/selected-filters.vue';
   import RelatedTags from '../related-tags.vue';
   import SearchBox from '../search-box.vue';
   import MobileCloseAside from './mobile-close-aside.vue';
@@ -102,14 +86,13 @@
 
   @Component({
     components: {
-      ArrowIcon,
+      ArrowUpIcon,
       BaseIdModalOpen,
       BaseScroll,
       Close: BaseEventsModalClose,
       ColumnPicker: BaseColumnPickerList,
       Empathize,
       FiltersIcon,
-      Facets,
       LocationProvider,
       Main,
       MobileCloseAside,
@@ -118,9 +101,9 @@
       RelatedTags,
       ScrollToTop,
       SearchBox,
-      SelectedFilters,
       SingleColumnLayout,
-      Sort
+      Sort,
+      FacetsAndFilters: () => import('../facets/facets-and-filters.vue')
     }
   })
   export default class Mobile extends Vue {}

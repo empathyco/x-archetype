@@ -35,7 +35,7 @@
       SnippetConfigExtraParams,
       Tagging,
       UrlHandler,
-      SearchLayout: () => import('./components/search-layout.vue').then(m => m.default)
+      SearchLayout: () => import('./components/search-layout.vue')
     }
   })
   export default class Layer extends Vue {
