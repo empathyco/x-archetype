@@ -1,12 +1,13 @@
 <template>
   <SingleColumnLayout>
     <template #header>
-      <!-- eslint-disable max-len-->
       <div
-        class="x-list x-list--horizontal x-list__item--expand x-list--padding-03 x-list--align-center"
+        class="
+          x-list x-list--horizontal x-list__item--expand x-list--padding-03 x-list--align-center
+        "
       >
         <Close class="x-button--ghost">
-          <ArrowLeftIcon />
+          <ArrowIcon />
         </Close>
         <SearchBox class="x-list__item--expand" />
       </div>
@@ -47,10 +48,16 @@
     </template>
 
     <template #aside>
-      <!-- eslint-disable max-len-->
       <div
         v-if="$x.totalResults > 0"
-        class="x-list x-list--vertical x-list__item--expand x-list--padding-03 x-list--padding-left x-list--padding-right"
+        class="
+          x-list
+          x-list--vertical
+          x-list__item--expand
+          x-list--padding-03
+          x-list--padding-left
+          x-list--padding-right
+        "
       >
         <BaseScroll class="x-list__item--expand">
           <Sort class="x-list--padding-04 x-list--padding-bottom" />
@@ -70,7 +77,7 @@
 
 <script lang="ts">
   import {
-    ArrowLeftIcon,
+    ArrowIcon,
     BaseColumnPickerList,
     BaseEventsModalClose,
     BaseIdModalOpen,
@@ -95,7 +102,7 @@
 
   @Component({
     components: {
-      ArrowLeftIcon,
+      ArrowIcon,
       BaseIdModalOpen,
       BaseScroll,
       Close: BaseEventsModalClose,
