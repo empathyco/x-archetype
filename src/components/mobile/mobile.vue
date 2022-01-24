@@ -7,7 +7,7 @@
         "
       >
         <Close class="x-button--ghost">
-          <ArrowIcon />
+          <ArrowLeftIcon />
         </Close>
         <SearchBox class="x-list__item--expand" />
       </div>
@@ -50,14 +50,7 @@
     <template #aside>
       <div
         v-if="$x.totalResults > 0"
-        class="
-          x-list
-          x-list--vertical
-          x-list__item--expand
-          x-list--padding-03
-          x-list--padding-left
-          x-list--padding-right
-        "
+        class="x-list x-list--vertical x-list__item--expand x-list--padding-03 x-list--padding-left x-list--padding-right"
       >
         <BaseScroll class="x-list__item--expand">
           <Sort class="x-list--padding-04 x-list--padding-bottom" />
@@ -77,7 +70,7 @@
 
 <script lang="ts">
   import {
-    ArrowIcon,
+    ArrowLeftIcon,
     BaseColumnPickerList,
     BaseEventsModalClose,
     BaseIdModalOpen,
@@ -102,7 +95,7 @@
 
   @Component({
     components: {
-      ArrowIcon,
+      ArrowLeftIcon,
       BaseIdModalOpen,
       BaseScroll,
       Close: BaseEventsModalClose,
