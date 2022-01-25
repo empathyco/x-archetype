@@ -19,11 +19,7 @@ export class EmpathyEndpointsService implements EndpointsService {
         return rawUrl.replace(/{env}/g, 'api.empathy.co/search/v1');
       }
     } else {
-      if (this.config.env === 'test') {
-        return rawUrl.replace(/{env}/g, 'beacon-api.internal.test');
-      } else {
-        return rawUrl.replace(/{env}/g, 'api.staging');
-      }
+      return rawUrl.replace(/{env}/g, `beacon-api.internal.${this.config.env}`);
     }
   }
 }
