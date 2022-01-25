@@ -11,7 +11,7 @@
       #suggestion="{ suggestion }"
       :suggestions="nextQueries"
       class="x-list--gap-06"
-      :max-items-to-render="3"
+      :max-items-to-render="4"
     >
       <!-- eslint-disable max-len-->
       <NextQuery
@@ -20,7 +20,7 @@
         class="x-tag x-tag--pill x-list x-list--gap-03 x-padding--bottom-03 x-padding--top-03 x-border-color--neutral-10 x-background--neutral-100"
       >
         <LightBulbOn class="x-icon--l" />
-        <span class="x-font-size--05 x-ellipsis">{{ nextQuery.query }}</span>
+        <span class="x-font-size--05 x-ellipsis x-flex-auto">{{ nextQuery.query }}</span>
         <ArrowRightIcon class="x-icon--l" />
       </NextQuery>
     </NextQueries>
