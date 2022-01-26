@@ -19,6 +19,10 @@ export interface Messages {
   nextQueries: {
     title: string;
   };
+  nextQueriesGroup: {
+    title: string;
+    message: string;
+  };
   identifierResults: {
     title: string;
   };
