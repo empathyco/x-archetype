@@ -1,14 +1,16 @@
 <template>
   <div class="x-list x-list--vertical">
-    <Redirection />
+    <Redirection v-if="hasQuery" />
 
     <template v-if="!$x.redirections.length">
       <div
         v-if="$x.totalResults === 0 || $x.spellcheckedQuery"
         class="x-padding--03 x-padding--bottom-07"
       >
-        <SpellcheckMessage />
-        <NoResultsMessage />
+        <template v-if="hasQuery">
+          <SpellcheckMessage />
+          <NoResultsMessage />
+        </template>
       </div>
 
       <LocationProvider location="results">
@@ -32,25 +34,23 @@
 
 <script lang="ts">
   import { LocationProvider } from '@empathyco/x-components';
-  import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
-  import Redirection from './results/redirection.vue';
-  import NoResultsMessage from './no-results-message.vue';
+  import Redirection from './search-has-query/redirection.vue';
   import PartialResults from './results/partial-results.vue';
   import Recommendations from './results/recommendations.vue';
   import Results from './results/results.vue';
-  import SpellcheckMessage from './spellcheck-message.vue';
+  import HasQueryMixin from './has-query.mixin.vue';
 
   @Component({
     components: {
       LocationProvider,
-      NoResultsMessage,
       PartialResults,
       Recommendations,
       Redirection,
       Results,
-      SpellcheckMessage
+      NoResultsMessage: () => import('./search-has-query').then(m => m.NoResultsMessage),
+      SpellcheckMessage: () => import('./search-has-query').then(m => m.SpellcheckMessage)
     }
   })
-  export default class Main extends Vue {}
+  export default class Main extends HasQueryMixin {}
 </script>

@@ -110,9 +110,9 @@
       SearchBox,
       SingleColumnLayout,
       Sort,
-      RelatedTags: () => import('../search-has-query.components').then(m => m.RelatedTags),
-      SelectedFilters: () => import('../search-has-query.components').then(m => m.SelectedFilters),
-      Facets: () => import('../search-has-query.components').then(m => m.Facets)
+      RelatedTags: () => import('../search-has-query').then(m => m.RelatedTags),
+      SelectedFilters: () => import('../search-has-query').then(m => m.SelectedFilters),
+      Facets: () => import('../search-has-query').then(m => m.Facets)
     }
   })
   export default class Mobile extends HasQueryMixin {}

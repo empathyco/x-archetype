@@ -9,12 +9,13 @@
 
 <script lang="ts">
   import { Component } from 'vue-property-decorator';
-  import HasQueryMixin from './has-query.mixin.vue';
+  import { Spellcheck, SpellcheckButton } from '@empathyco/x-components/search';
+  import HasQueryMixin from '../has-query.mixin.vue';
 
   @Component({
     components: {
-      Spellcheck: () => import('./search-has-query.components').then(m => m.Spellcheck),
-      SpellcheckButton: () => import('./search-has-query.components').then(m => m.SpellcheckButton)
+      Spellcheck,
+      SpellcheckButton
     }
   })
   export default class SpellcheckMessage extends HasQueryMixin {}

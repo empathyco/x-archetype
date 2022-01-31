@@ -24,10 +24,8 @@
     components: {
       BaseGrid,
       Result: ResultComponent,
-      PartialResultsList: () =>
-        import('../search-has-query.components').then(m => m.PartialResultsList),
-      PartialQueryButton: () =>
-        import('../search-has-query.components').then(m => m.PartialQueryButton)
+      PartialResultsList: () => import('../search-has-query').then(m => m.PartialResultsList),
+      PartialQueryButton: () => import('../search-has-query').then(m => m.PartialQueryButton)
     }
   })
   export default class PartialResults extends HasQueryMixin {}

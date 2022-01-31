@@ -1,6 +1,5 @@
 <template>
   <RedirectionComponent
-    v-if="hasQuery"
     #default="{ redirection, redirect, abortRedirect, isRedirecting, delayInSeconds }"
     class="x-margin--top-03 x-margin--bottom-03"
     delayInSeconds="5"
@@ -23,16 +22,16 @@
 
 <script lang="ts">
   import { AutoProgressBar } from '@empathyco/x-components';
-  import { Component } from 'vue-property-decorator';
-  import HasQueryMixin from '../has-query.mixin.vue';
+  import { Redirection as RedirectionComponent } from '@empathyco/x-components/search';
+  import { Component, Vue } from 'vue-property-decorator';
 
   @Component({
     components: {
       AutoProgressBar,
-      RedirectionComponent: () => import('../search-has-query.components').then(m => m.Redirection)
+      RedirectionComponent
     }
   })
-  export default class Redirection extends HasQueryMixin {}
+  export default class Redirection extends Vue {}
 </script>
 
 <style scoped lang="scss"></style>
