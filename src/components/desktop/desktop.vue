@@ -43,7 +43,16 @@
     </template>
 
     <template #main-aside>
-      <FacetsAndFilters v-if="$x.query.search" />
+      <template v-if="hasQuery">
+        <SelectedFilters
+          v-if="$x.totalResults > 0"
+          class="x-list x-list--gap-05 x-list--padding-05 x-list--padding-bottom"
+        />
+        <Facets
+          v-if="$x.totalResults > 0"
+          class="x-list--gap-06 x-list--padding-05 x-list--padding-top"
+        />
+      </template>
     </template>
 
     <template #main-body>
@@ -72,15 +81,14 @@
     SlidingPanel
   } from '@empathyco/x-components';
   import { Empathize } from '@empathyco/x-components/empathize';
-  import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
   import EnvSelector from '../env-selector.vue';
   import Logo from '../logo.vue';
   import Main from '../main.vue';
   import PredictiveLayer from '../predictive-layer.vue';
-  import RelatedTags from '../related-tags.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import SearchBox from '../search-box.vue';
+  import HasQueryMixin from '../has-query.mixin.vue';
   import DesktopToggleAside from './desktop-toggle-aside.vue';
   import DesktopToolbar from './desktop-toolbar.vue';
 
@@ -102,12 +110,13 @@
       MultiColumnMaxWidthLayout,
       PlusIcon,
       PredictiveLayer,
-      RelatedTags,
       ScrollToTop,
       SearchBox,
       SlidingPanel,
-      FacetsAndFilters: () => import('../facets/facets-and-filters.vue')
+      RelatedTags: () => import('../search-has-query.components').then(m => m.RelatedTags),
+      SelectedFilters: () => import('../search-has-query.components').then(m => m.SelectedFilters),
+      Facets: () => import('../search-has-query.components').then(m => m.Facets)
     }
   })
-  export default class Desktop extends Vue {}
+  export default class Desktop extends HasQueryMixin {}
 </script>

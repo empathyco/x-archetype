@@ -52,7 +52,16 @@
         v-if="$x.totalResults > 0"
         class="x-list x-list--vertical x-list__item--expand x-list--padding-03 x-list--padding-left x-list--padding-right"
       >
-        <FacetsAndFilters v-if="$x.query.search" />
+        <template v-if="hasQuery">
+          <BaseScroll class="x-list__item--expand">
+            <Sort class="x-list--padding-04 x-list--padding-bottom" />
+            <Facets class="x-list--gap-06 x-list--padding-04 x-list--padding-bottom" />
+          </BaseScroll>
+          <SelectedFilters
+            v-if="$x.selectedFilters.length"
+            class="x-list x-list--gap-05 x-list--padding-04 x-list--padding-bottom"
+          />
+        </template>
         <div class="x-list x-list--padding-03 x-list--padding-bottom">
           <MobileCloseAside />
         </div>
@@ -72,14 +81,13 @@
     SingleColumnLayout,
     LocationProvider
   } from '@empathyco/x-components';
-  import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
   import Main from '../main.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import Sort from '../sort.vue';
   import Empathize from '../predictive-layer.vue';
-  import RelatedTags from '../related-tags.vue';
   import SearchBox from '../search-box.vue';
+  import HasQueryMixin from '../has-query.mixin.vue';
   import MobileCloseAside from './mobile-close-aside.vue';
   import MobileOpenAside from './mobile-open-aside.vue';
   import MobileToolbar from './mobile-toolbar.vue';
@@ -98,15 +106,16 @@
       MobileCloseAside,
       MobileOpenAside,
       MobileToolbar,
-      RelatedTags,
       ScrollToTop,
       SearchBox,
       SingleColumnLayout,
       Sort,
-      FacetsAndFilters: () => import('../facets/facets-and-filters.vue')
+      RelatedTags: () => import('../search-has-query.components').then(m => m.RelatedTags),
+      SelectedFilters: () => import('../search-has-query.components').then(m => m.SelectedFilters),
+      Facets: () => import('../search-has-query.components').then(m => m.Facets)
     }
   })
-  export default class Mobile extends Vue {}
+  export default class Mobile extends HasQueryMixin {}
 </script>
 
 <style lang="scss"></style>

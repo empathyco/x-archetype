@@ -1,5 +1,5 @@
 <template>
-  <PartialResultsList>
+  <PartialResultsList v-if="hasQuery">
     <template #default="{ partialResult }">
       <span>{{ partialResult.query }}</span>
       <BaseGrid :columns="$x.device === 'mobile' ? 2 : 4" :items="partialResult.results">
@@ -15,18 +15,20 @@
 </template>
 
 <script lang="ts">
-  import { PartialResultsList, PartialQueryButton } from '@empathyco/x-components/search';
   import { BaseGrid } from '@empathyco/x-components';
-  import { Component, Vue } from 'vue-property-decorator';
+  import { Component } from 'vue-property-decorator';
+  import HasQueryMixin from '../has-query.mixin.vue';
   import ResultComponent from './result.vue';
 
   @Component({
     components: {
       BaseGrid,
-      PartialResultsList,
-      PartialQueryButton,
-      Result: ResultComponent
+      Result: ResultComponent,
+      PartialResultsList: () =>
+        import('../search-has-query.components').then(m => m.PartialResultsList),
+      PartialQueryButton: () =>
+        import('../search-has-query.components').then(m => m.PartialQueryButton)
     }
   })
-  export default class PartialResults extends Vue {}
+  export default class PartialResults extends HasQueryMixin {}
 </script>
