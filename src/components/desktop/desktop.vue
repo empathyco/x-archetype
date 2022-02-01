@@ -42,17 +42,15 @@
       <DesktopToolbar />
     </template>
 
-    <template #main-aside>
-      <template v-if="hasSearched">
-        <SelectedFilters
-          v-if="$x.totalResults > 0"
-          class="x-list x-list--gap-05 x-list--padding-05 x-list--padding-bottom"
-        />
-        <Facets
-          v-if="$x.totalResults > 0"
-          class="x-list--gap-06 x-list--padding-05 x-list--padding-top"
-        />
-      </template>
+    <template v-if="hasSearched" #main-aside>
+      <SelectedFilters
+        v-if="$x.totalResults > 0"
+        class="x-list x-list--gap-05 x-list--padding-05 x-list--padding-bottom"
+      />
+      <Facets
+        v-if="$x.totalResults > 0"
+        class="x-list--gap-06 x-list--padding-05 x-list--padding-top"
+      />
     </template>
 
     <template #main-body>

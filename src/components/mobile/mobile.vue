@@ -46,22 +46,20 @@
       </div>
     </template>
 
-    <template #aside>
+    <template v-if="hasSearched" #aside>
       <!-- eslint-disable max-len-->
       <div
         v-if="$x.totalResults > 0"
         class="x-list x-list--vertical x-list__item--expand x-list--padding-03 x-list--padding-left x-list--padding-right"
       >
-        <template v-if="hasSearched">
-          <BaseScroll class="x-list__item--expand">
-            <Sort class="x-list--padding-04 x-list--padding-bottom" />
-            <Facets class="x-list--gap-06 x-list--padding-04 x-list--padding-bottom" />
-          </BaseScroll>
-          <SelectedFilters
-            v-if="$x.selectedFilters.length"
-            class="x-list x-list--gap-05 x-list--padding-04 x-list--padding-bottom"
-          />
-        </template>
+        <BaseScroll class="x-list__item--expand">
+          <Sort class="x-list--padding-04 x-list--padding-bottom" />
+          <Facets class="x-list--gap-06 x-list--padding-04 x-list--padding-bottom" />
+        </BaseScroll>
+        <SelectedFilters
+          v-if="$x.selectedFilters.length"
+          class="x-list x-list--gap-05 x-list--padding-04 x-list--padding-bottom"
+        />
         <div class="x-list x-list--padding-03 x-list--padding-bottom">
           <MobileCloseAside />
         </div>
