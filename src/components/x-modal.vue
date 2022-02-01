@@ -21,7 +21,7 @@
       Desktop
     }
   })
-  export default class SearchLayout extends Vue {
+  export default class XModal extends Vue {
     protected openEvents = ['UserClickedOpenEventsModal', 'UserOpenXProgrammatically'];
     protected collapseFromTop = CollapseFromTop;
   }
