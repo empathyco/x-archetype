@@ -14,11 +14,11 @@
       </div>
 
       <LocationProvider location="results">
-        <Results />
+        <Results v-if="hasSearched" />
       </LocationProvider>
 
       <LocationProvider location="results">
-        <PartialResults />
+        <PartialResults v-if="hasSearched" />
       </LocationProvider>
 
       <LocationProvider v-if="$x.noResults" location="no_results">
@@ -34,22 +34,19 @@
 
 <script lang="ts">
   import { LocationProvider } from '@empathyco/x-components';
-  import { Component } from 'vue-property-decorator';
-  import PartialResults from './results/partial-results.vue';
+  import { Component, Vue } from 'vue-property-decorator';
   import Recommendations from './results/recommendations.vue';
-  import Results from './results/results.vue';
-  import HasSearchedMixin from './has-searched.mixin.vue';
 
   @Component({
     components: {
       LocationProvider,
-      PartialResults,
       Recommendations,
-      Results,
+      PartialResults: () => import('./search').then(m => m.PartialResults),
+      Results: () => import('./search').then(m => m.Results),
       NoResultsMessage: () => import('./search').then(m => m.NoResultsMessage),
       Redirection: () => import('./search').then(m => m.Redirection),
       SpellcheckMessage: () => import('./search').then(m => m.SpellcheckMessage)
     }
   })
-  export default class Main extends HasSearchedMixin {}
+  export default class Main extends Vue {}
 </script>

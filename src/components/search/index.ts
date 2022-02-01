@@ -1,4 +1,6 @@
-import { PartialResultsList, PartialQueryButton } from '@empathyco/x-components/search';
+import Results from './results/results.vue';
+import PartialResults from './results/partial-results.vue';
+import Sort from './sort.vue';
 import Facets from './facets/facets.vue';
 import SelectedFilters from './facets/selected-filters.vue';
 import RelatedTags from './related-tags.vue';
@@ -8,11 +10,12 @@ import Redirection from './redirection.vue';
 
 export {
   Redirection,
-  PartialResultsList,
-  PartialQueryButton,
   Facets,
   SelectedFilters,
   RelatedTags,
   SpellcheckMessage,
-  NoResultsMessage
+  NoResultsMessage,
+  Results,
+  PartialResults,
+  Sort
 };

@@ -20,11 +20,10 @@
 <script lang="ts">
   import { BaseColumnPickerList } from '@empathyco/x-components';
   import { Component, Vue } from 'vue-property-decorator';
-  import Sort from '../sort.vue';
 
   @Component({
     components: {
-      Sort,
+      Sort: () => import('../search').then(m => m.Sort),
       ColumnPicker: BaseColumnPickerList
     }
   })

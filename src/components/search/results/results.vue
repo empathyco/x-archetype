@@ -39,7 +39,7 @@
   } from '@empathyco/x-components/search';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
-  import Result from './result.vue';
+  import Result from '../../results/result.vue';
 
   @Component({
     components: {
