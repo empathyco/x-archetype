@@ -25,18 +25,18 @@
           <Recommendations />
         </LocationProvider>
       </template>
-
-      <LocationProvider v-if="!$x.query.search" location="no_query">
-        <Recommendations />
-      </LocationProvider>
     </template>
+    <LocationProvider v-if="!$x.query.search" location="no_query">
+      <Recommendations />
+    </LocationProvider>
   </div>
 </template>
 
 <script lang="ts">
   import { LocationProvider } from '@empathyco/x-components';
-  import { Component, Vue } from 'vue-property-decorator';
+  import { Component } from 'vue-property-decorator';
   import Recommendations from './results/recommendations.vue';
+  import HasSearchedMixin from './has-searched.mixin.vue';
 
   @Component({
     components: {
@@ -49,5 +49,5 @@
       SpellcheckMessage: () => import('./search').then(m => m.SpellcheckMessage)
     }
   })
-  export default class Main extends Vue {}
+  export default class Main extends HasSearchedMixin {}
 </script>
