@@ -60,6 +60,7 @@ export function createConfig({
       format: 'es',
       sourcemap: true,
       assetFileNames: '[name][extname]',
+      entryFileNames: 'app.js',
       ...output
     },
     plugins: [
