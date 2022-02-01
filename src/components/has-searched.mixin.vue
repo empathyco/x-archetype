@@ -4,12 +4,12 @@
   import Component from 'vue-class-component';
 
   @Component
-  export default class HasQueryMixin extends Vue {
-    protected hasQuery = false;
+  export default class HasSearchedMixin extends Vue {
+    protected hasSearched = false;
     @XOn(['UserAcceptedAQuery', 'ParamsLoadedFromUrl'])
     open(payload: string | UrlParams): void {
       if (typeof payload === 'string' || payload.query.length > 0) {
-        this.hasQuery = true;
+        this.hasSearched = true;
       }
     }
   }

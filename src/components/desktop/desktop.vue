@@ -43,7 +43,7 @@
     </template>
 
     <template #main-aside>
-      <template v-if="hasQuery">
+      <template v-if="hasSearched">
         <SelectedFilters
           v-if="$x.totalResults > 0"
           class="x-list x-list--gap-05 x-list--padding-05 x-list--padding-bottom"
@@ -88,7 +88,7 @@
   import PredictiveLayer from '../predictive-layer.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import SearchBox from '../search-box.vue';
-  import HasQueryMixin from '../has-query.mixin.vue';
+  import HasSearchedMixin from '../has-searched.mixin.vue';
   import DesktopToggleAside from './desktop-toggle-aside.vue';
   import DesktopToolbar from './desktop-toolbar.vue';
 
@@ -113,10 +113,10 @@
       ScrollToTop,
       SearchBox,
       SlidingPanel,
-      RelatedTags: () => import('../search-has-query').then(m => m.RelatedTags),
-      SelectedFilters: () => import('../search-has-query').then(m => m.SelectedFilters),
-      Facets: () => import('../search-has-query').then(m => m.Facets)
+      RelatedTags: () => import('../search').then(m => m.RelatedTags),
+      SelectedFilters: () => import('../search').then(m => m.SelectedFilters),
+      Facets: () => import('../search').then(m => m.Facets)
     }
   })
-  export default class Desktop extends HasQueryMixin {}
+  export default class Desktop extends HasSearchedMixin {}
 </script>

@@ -52,7 +52,7 @@
         v-if="$x.totalResults > 0"
         class="x-list x-list--vertical x-list__item--expand x-list--padding-03 x-list--padding-left x-list--padding-right"
       >
-        <template v-if="hasQuery">
+        <template v-if="hasSearched">
           <BaseScroll class="x-list__item--expand">
             <Sort class="x-list--padding-04 x-list--padding-bottom" />
             <Facets class="x-list--gap-06 x-list--padding-04 x-list--padding-bottom" />
@@ -87,7 +87,7 @@
   import Sort from '../sort.vue';
   import Empathize from '../predictive-layer.vue';
   import SearchBox from '../search-box.vue';
-  import HasQueryMixin from '../has-query.mixin.vue';
+  import HasSearchedMixin from '../has-searched.mixin.vue';
   import MobileCloseAside from './mobile-close-aside.vue';
   import MobileOpenAside from './mobile-open-aside.vue';
   import MobileToolbar from './mobile-toolbar.vue';
@@ -110,12 +110,12 @@
       SearchBox,
       SingleColumnLayout,
       Sort,
-      RelatedTags: () => import('../search-has-query').then(m => m.RelatedTags),
-      SelectedFilters: () => import('../search-has-query').then(m => m.SelectedFilters),
-      Facets: () => import('../search-has-query').then(m => m.Facets)
+      RelatedTags: () => import('../search').then(m => m.RelatedTags),
+      SelectedFilters: () => import('../search').then(m => m.SelectedFilters),
+      Facets: () => import('../search').then(m => m.Facets)
     }
   })
-  export default class Mobile extends HasQueryMixin {}
+  export default class Mobile extends HasSearchedMixin {}
 </script>
 
 <style lang="scss"></style>
