@@ -5,7 +5,7 @@
     <DeviceDetector @DeviceProvided="$setLocaleDevice" :breakpoints="breakpoints" />
     <Tagging />
     <UrlHandler env="env" />
-    <SearchLayout v-if="isOpen" />
+    <XModal v-if="isOpen" />
   </div>
 </template>
 
@@ -34,7 +34,7 @@
       SnippetConfigExtraParams,
       Tagging,
       UrlHandler,
-      SearchLayout: () => import('./components/x-modal.vue')
+      XModal: () => import('./components/x-modal.vue')
     }
   })
   export default class Layer extends Vue {
