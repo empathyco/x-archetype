@@ -1,7 +1,7 @@
 <template>
   <FiltersList v-slot="{ filter }" :filters="filters" :animation="staggeredFadeAndSlide">
     <NumberRangeFilter :filter="filter">
-      <template #default="{ filter }">
+      <template #label>
         <BasePriceFilterLabel
           :filter="filter"
           :configCurrency="{ format: 'i €' }"
