@@ -6,7 +6,7 @@
         class="x-list x-list--horizontal x-list__item--expand x-list--padding-03 x-list--align-center"
       >
         <Close class="x-button--ghost">
-          <ArrowUpIcon />
+          <ArrowLeftIcon />
         </Close>
         <SearchBox class="x-list__item--expand" />
       </div>
@@ -70,7 +70,7 @@
 
 <script lang="ts">
   import {
-    ArrowUpIcon,
+    ArrowLeftIcon,
     BaseColumnPickerList,
     BaseEventsModalClose,
     BaseIdModalOpen,
@@ -91,7 +91,7 @@
 
   @Component({
     components: {
-      ArrowUpIcon,
+      ArrowLeftIcon,
       BaseIdModalOpen,
       BaseScroll,
       Close: BaseEventsModalClose,
