@@ -11,8 +11,7 @@ Given('an intercepted search response', () => {
 });
 
 Then('start button is clicked', () => {
-  // eslint-disable-next-line cypress/no-unnecessary-waiting
-  cy.wait(100);
+  cy.get('div.x').should('exist');
   cy.getByDataTest('start-button').click();
 });
 
