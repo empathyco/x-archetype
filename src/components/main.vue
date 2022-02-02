@@ -36,7 +36,7 @@
   import { LocationProvider } from '@empathyco/x-components';
   import { Component } from 'vue-property-decorator';
   import Recommendations from './results/recommendations.vue';
-  import HasSearchedMixin from './has-searched.mixin.vue';
+  import HasSearchedMixin from './has-searched.mixin';
 
   @Component({
     components: {

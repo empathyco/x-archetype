@@ -84,7 +84,7 @@
   import ScrollToTop from '../scroll-to-top.vue';
   import Empathize from '../predictive-layer.vue';
   import SearchBox from '../search-box.vue';
-  import HasSearchedMixin from '../has-searched.mixin.vue';
+  import HasSearchedMixin from '../has-searched.mixin';
   import MobileCloseAside from './mobile-close-aside.vue';
   import MobileOpenAside from './mobile-open-aside.vue';
   import MobileToolbar from './mobile-toolbar.vue';

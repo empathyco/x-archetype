@@ -33,5 +33,3 @@
   })
   export default class Redirection extends Vue {}
 </script>
-
-<style scoped lang="scss"></style>

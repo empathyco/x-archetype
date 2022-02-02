@@ -86,7 +86,7 @@
   import PredictiveLayer from '../predictive-layer.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import SearchBox from '../search-box.vue';
-  import HasSearchedMixin from '../has-searched.mixin.vue';
+  import HasSearchedMixin from '../has-searched.mixin';
   import DesktopToggleAside from './desktop-toggle-aside.vue';
   import DesktopToolbar from './desktop-toolbar.vue';
 

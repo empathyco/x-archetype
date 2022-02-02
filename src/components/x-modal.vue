@@ -1,5 +1,5 @@
 <template>
-  <BaseEventsModal :eventsToOpenModal="openEvents" class="x-modal" :animation="collapseFromTop">
+  <BaseEventsModal :eventsToOpenModal="openEvents" :animation="collapseFromTop">
     <Mobile v-if="$x.device === 'mobile'" />
     <Desktop v-else />
   </BaseEventsModal>
@@ -24,5 +24,3 @@
     protected collapseFromTop = CollapseFromTop;
   }
 </script>
-
-<style scoped></style>
