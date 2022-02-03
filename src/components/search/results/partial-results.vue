@@ -15,17 +15,17 @@
 </template>
 
 <script lang="ts">
-  import { PartialResultsList, PartialQueryButton } from '@empathyco/x-components/search';
   import { BaseGrid } from '@empathyco/x-components';
   import { Component, Vue } from 'vue-property-decorator';
-  import ResultComponent from './result.vue';
+  import { PartialQueryButton, PartialResultsList } from '@empathyco/x-components/search';
+  import ResultComponent from '../../results/result.vue';
 
   @Component({
     components: {
       BaseGrid,
+      Result: ResultComponent,
       PartialResultsList,
-      PartialQueryButton,
-      Result: ResultComponent
+      PartialQueryButton
     }
   })
   export default class PartialResults extends Vue {}

@@ -11,6 +11,7 @@ Given('an intercepted search response', () => {
 });
 
 Then('start button is clicked', () => {
+  cy.getByDataTest('x').should('exist');
   cy.getByDataTest('start-button').click();
 });
 

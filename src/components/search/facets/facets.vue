@@ -96,7 +96,7 @@
           :animation="staggeredFadeAndSlide"
         >
           <NumberRangeFilter :filter="filter">
-            <template #default="{ filter }">
+            <template #label>
               <CheckboxCardSelectedIcon v-if="filter.selected" />
               <CheckboxCardUnselectedIcon v-else />
               <PriceFilterLabel :filter="filter" />

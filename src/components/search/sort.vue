@@ -43,5 +43,3 @@
     public sortValues: Sort[] = ['', 'price asc', 'price desc'];
   }
 </script>
-
-<style scoped lang="scss"></style>

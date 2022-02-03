@@ -23,11 +23,13 @@
 <script lang="ts">
   import { AutoProgressBar } from '@empathyco/x-components';
   import { Redirection as RedirectionComponent } from '@empathyco/x-components/search';
-  import Vue from 'vue';
-  import { Component } from 'vue-property-decorator';
+  import { Component, Vue } from 'vue-property-decorator';
 
-  @Component({ components: { AutoProgressBar, RedirectionComponent } })
+  @Component({
+    components: {
+      AutoProgressBar,
+      RedirectionComponent
+    }
+  })
   export default class Redirection extends Vue {}
 </script>
-
-<style scoped lang="scss"></style>

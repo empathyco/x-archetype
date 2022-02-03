@@ -46,7 +46,7 @@
       </div>
     </template>
 
-    <template #aside>
+    <template v-if="hasSearched" #aside>
       <!-- eslint-disable max-len-->
       <div
         v-if="$x.totalResults > 0"
@@ -79,16 +79,12 @@
     SingleColumnLayout,
     LocationProvider
   } from '@empathyco/x-components';
-  import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
   import Main from '../main.vue';
   import ScrollToTop from '../scroll-to-top.vue';
-  import Sort from '../sort.vue';
   import Empathize from '../predictive-layer.vue';
-  import Facets from '../facets/facets.vue';
-  import SelectedFilters from '../facets/selected-filters.vue';
-  import RelatedTags from '../related-tags.vue';
   import SearchBox from '../search-box.vue';
+  import HasSearchedMixin from '../has-searched.mixin';
   import MobileCloseAside from './mobile-close-aside.vue';
   import MobileOpenAside from './mobile-open-aside.vue';
   import MobileToolbar from './mobile-toolbar.vue';
@@ -102,21 +98,21 @@
       ColumnPicker: BaseColumnPickerList,
       Empathize,
       FiltersIcon,
-      Facets,
       LocationProvider,
       Main,
       MobileCloseAside,
       MobileOpenAside,
       MobileToolbar,
-      RelatedTags,
       ScrollToTop,
       SearchBox,
-      SelectedFilters,
       SingleColumnLayout,
-      Sort
+      Sort: () => import('../search').then(m => m.Sort),
+      RelatedTags: () => import('../search').then(m => m.RelatedTags),
+      SelectedFilters: () => import('../search').then(m => m.SelectedFilters),
+      Facets: () => import('../search').then(m => m.Facets)
     }
   })
-  export default class Mobile extends Vue {}
+  export default class Mobile extends HasSearchedMixin {}
 </script>
 
 <style lang="scss"></style>

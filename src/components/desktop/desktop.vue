@@ -42,7 +42,7 @@
       <DesktopToolbar />
     </template>
 
-    <template #main-aside>
+    <template v-if="hasSearched" #main-aside>
       <SelectedFilters
         v-if="$x.totalResults > 0"
         class="x-list x-list--gap-05 x-list--padding-05 x-list--padding-bottom"
@@ -79,17 +79,14 @@
     SlidingPanel
   } from '@empathyco/x-components';
   import { Empathize } from '@empathyco/x-components/empathize';
-  import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
   import EnvSelector from '../env-selector.vue';
-  import Facets from '../facets/facets.vue';
-  import SelectedFilters from '../facets/selected-filters.vue';
   import Logo from '../logo.vue';
   import Main from '../main.vue';
   import PredictiveLayer from '../predictive-layer.vue';
-  import RelatedTags from '../related-tags.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import SearchBox from '../search-box.vue';
+  import HasSearchedMixin from '../has-searched.mixin';
   import DesktopToggleAside from './desktop-toggle-aside.vue';
   import DesktopToolbar from './desktop-toolbar.vue';
 
@@ -105,19 +102,19 @@
       DesktopToolbar,
       EnvSelector,
       Empathize,
-      Facets,
       LocationProvider,
       Logo,
       Main,
       MultiColumnMaxWidthLayout,
       PlusIcon,
       PredictiveLayer,
-      RelatedTags,
       ScrollToTop,
       SearchBox,
-      SelectedFilters,
-      SlidingPanel
+      SlidingPanel,
+      RelatedTags: () => import('../search').then(m => m.RelatedTags),
+      SelectedFilters: () => import('../search').then(m => m.SelectedFilters),
+      Facets: () => import('../search').then(m => m.Facets)
     }
   })
-  export default class Desktop extends Vue {}
+  export default class Desktop extends HasSearchedMixin {}
 </script>
