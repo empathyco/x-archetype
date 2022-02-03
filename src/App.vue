@@ -1,5 +1,5 @@
 <template>
-  <div class="x" :dir="documentDirection">
+  <div class="x" data-test="x" :dir="documentDirection">
     <SnippetConfigExtraParams />
     <SnippetCallbacks />
     <DeviceDetector @DeviceProvided="$setLocaleDevice" :breakpoints="breakpoints" />
