@@ -63,6 +63,7 @@ export function createConfig({
       entryFileNames: 'app.js',
       ...output
     },
+    preserveEntrySignatures: 'strict',
     plugins: [
       del(
         mergeConfig('del', {

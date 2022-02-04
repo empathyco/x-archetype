@@ -34,7 +34,7 @@
       SnippetConfigExtraParams,
       Tagging,
       UrlHandler,
-      XModal: () => import('./components/x-modal.vue')
+      XModal: () => import('./components/x-modal.vue').then(m => m.default)
     }
   })
   export default class Layer extends Vue {
