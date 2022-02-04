@@ -61,6 +61,18 @@ export function createConfig({
       sourcemap: true,
       assetFileNames: '[name][extname]',
       entryFileNames: 'app.js',
+      chunkFileNames: chunkInfo => {
+        switch (chunkInfo.name) {
+          case 'main':
+            return 'x-core-[hash].js';
+          case 'x-modal':
+            return 'x-empty-search-[hash].js';
+          case 'index':
+            return 'x-search-[hash].js';
+          default:
+            return '[name].[hash].js';
+        }
+      },
       ...output
     },
     preserveEntrySignatures: 'strict',
