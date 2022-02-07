@@ -1,4 +1,3 @@
-import buble from '@rollup/plugin-buble';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
@@ -116,11 +115,6 @@ export function createConfig({
         })
       ),
       json(),
-      buble(
-        mergeConfig('buble', {
-          include: ['**/*.js', '**/*.mjs']
-        })
-      ),
       styles(
         mergeConfig('styles', {
           mode: extractCss ? ['extract', outputCss] : 'inject',
