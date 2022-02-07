@@ -46,10 +46,6 @@ When('related tag {int} is clicked', (relatedTagIndex: number) => {
     .as('clickedRelatedTag');
 });
 
-Then('search request contains the origin {string} in the URL', (origin: string) => {
-  cy.wait('@interceptedResults').its('request.url').should('contain', `origin=${origin}`);
-});
-
 Then(
   'clicked related tag is shown in position {int} as selected',
   function (this: { clickedRelatedTag: string }, relatedTagPosition: number) {

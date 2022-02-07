@@ -6,8 +6,9 @@ Given('start page with {string} size view', (view: ViewportPreset) => {
   cy.visit('/');
 });
 
-Given('an intercepted search response', () => {
-  cy.intercept('https://api.staging.empathy.co/search/v1/query/*/search*').as('interceptedResults');
+Given('start page with {string} size view and mocked adapter', (view: ViewportPreset) => {
+  cy.viewport(view);
+  cy.visit('/useMockedAdapter=true');
 });
 
 Then('start button is clicked', () => {
@@ -30,4 +31,14 @@ When('facets are shown if hidden on {string}', (view: ViewportPreset) => {
   if (!view.includes('macbook')) {
     cy.getByDataTest('open-modal-id').click();
   }
+});
+
+When('facets are hidden if shown on {string}', (view: ViewportPreset) => {
+  if (!view.includes('macbook')) {
+    cy.getByDataTest('close-modal-id').click();
+  }
+});
+
+Then('search request contains the origin {string} in the URL', (origin: string) => {
+  cy.wait('@interceptedResults').its('request.url').should('contain', `origin=${origin}`);
 });

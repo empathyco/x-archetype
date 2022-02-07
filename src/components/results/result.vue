@@ -21,7 +21,9 @@
     <BaseResultLink class="x-result__description x-list x-list--gap-04" :result="result">
       <div class="x-list x-list--gap-02">
         <h1 class="x-small x-text--bold">{{ result.season }}</h1>
-        <h2 class="x-text x-text--secondary x-ellipsis">{{ result.name }}</h2>
+        <h2 class="x-text x-text--secondary x-ellipsis" data-test="result-title">
+          {{ result.name }}
+        </h2>
       </div>
 
       <BaseResultCurrentPrice :result="result" class="x-text x-text--accent x-text--bold" />
