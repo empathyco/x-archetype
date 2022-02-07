@@ -13,7 +13,7 @@
       </template>
 
       <template #related-tag-content="{ relatedTag, isSelected, shouldHighlightCurated }">
-        <TagIcon v-if="shouldHighlightCurated" />
+        <CuratedCheckIcon v-if="shouldHighlightCurated" />
         {{ relatedTag.tag }}
         <CrossTinyIcon v-if="isSelected" />
         <PlusIcon v-else />
@@ -34,7 +34,7 @@
     PlusIcon,
     SlidingPanel,
     StaggeredFadeAndSlide,
-    TagIcon
+    CuratedCheckIcon
   } from '@empathyco/x-components';
   import { RelatedTags } from '@empathyco/x-components/related-tags';
   import Vue from 'vue';
@@ -48,7 +48,7 @@
       PlusIcon,
       RelatedTags,
       SlidingPanel,
-      TagIcon
+      CuratedCheckIcon
     }
   })
   export default class RelatedTagsComponent extends Vue {
