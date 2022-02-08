@@ -18,16 +18,22 @@ module.exports = {
       rules: [
         {
           test: /\.ts|js|vue$/,
-          enforce: "pre",
-          use: ["source-map-loader"],
+          enforce: 'pre',
+          use: ['source-map-loader']
+        },
+        {
+          test: /@empathyco\/x-components/,
+          exclude: /\.css$/,
+          enforce: 'pre',
+          use: ['babel-loader']
         }
-      ],
+      ]
     },
     plugins: [
       new WrapperPlugin({
         test: /app\.js$/,
-        header: `(function(){${ snippet }})();`,
-        footer: `(${ init.toString() })()`
+        header: `(function(){${snippet}})();`,
+        footer: `(${init.toString()})()`
       })
     ]
   }
