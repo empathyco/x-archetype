@@ -1,7 +1,7 @@
 {
   "name": "@empathyco/x-archetype",
   "author": "Empathy Systems Corporation S.L.",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "license": "Apache-2.0",
   "homepage": "https://github.com/empathyco/x-archetype",
   "description": "Starting point to setup a X Components project",
@@ -21,7 +21,7 @@
     "lint": "vue-cli-service lint",
     "release": "standard-version --no-verify",
     "release:alpha": "standard-version --no-verify --prerelease alpha",
-    "install:local": "npm install file:../x/packages/x-components/empathyco-x-components-3.0.0-alpha.47.tgz --no-save",
+    "install:local": "npm install file:../x/packages/x-components/empathyco-x-components-3.0.0-alpha.49.tgz --no-save",
     "json:csv": "json-csv ./src/i18n/messages",
     "csv:json": "csv-json ./output ./src/i18n/messages"
   },
