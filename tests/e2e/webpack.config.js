@@ -32,6 +32,10 @@ module.exports = {
             loader: 'cypress-cucumber-preprocessor/lib/featuresLoader'
           }
         ]
+      },
+      {
+        test: /@empathyco\/x-components.+\.js$/,
+        use: ['babel-loader']
       }
     ]
   }

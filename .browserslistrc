@@ -1,3 +1,7 @@
-> 1%
-last 2 versions
-not dead
+> 0.65% and last 3 versions and not dead
+not op_mob > 0
+not baidu > 0
+not ie >= 0
+not ie_mob >= 0
+not op_mini all
+not and_uc >= 0

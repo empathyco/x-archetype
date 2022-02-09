@@ -13,21 +13,22 @@ function init() {
 }
 
 module.exports = {
+  transpileDependencies: ['@empathyco/x-components'],
   configureWebpack: {
     module: {
       rules: [
         {
           test: /\.ts|js|vue$/,
-          enforce: "pre",
-          use: ["source-map-loader"],
+          enforce: 'pre',
+          use: ['source-map-loader']
         }
-      ],
+      ]
     },
     plugins: [
       new WrapperPlugin({
         test: /app\.js$/,
-        header: `(function(){${ snippet }})();`,
-        footer: `(${ init.toString() })()`
+        header: `(function(){${snippet}})();`,
+        footer: `(${init.toString()})()`
       })
     ]
   }

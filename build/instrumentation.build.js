@@ -1,4 +1,3 @@
-import buble from '@rollup/plugin-buble';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
@@ -61,8 +60,21 @@ export function createConfig({
       sourcemap: true,
       assetFileNames: '[name][extname]',
       entryFileNames: 'app.js',
+      chunkFileNames: chunkInfo => {
+        switch (chunkInfo.name) {
+          case 'main':
+            return 'x-core-[hash].js';
+          case 'x-modal':
+            return 'x-empty-search-[hash].js';
+          case 'index':
+            return 'x-search-[hash].js';
+          default:
+            return '[name].[hash].js';
+        }
+      },
       ...output
     },
+    preserveEntrySignatures: 'strict',
     plugins: [
       del(
         mergeConfig('del', {
@@ -75,7 +87,8 @@ export function createConfig({
       // Resolving plugins
       replace(
         mergeConfig('replace', {
-          'process.env.NODE_ENV': JSON.stringify('production')
+          'process.env.NODE_ENV': JSON.stringify('production'),
+          preventAssignment: true
         })
       ),
       commonjs(mergeConfig('commonjs')),
@@ -102,11 +115,6 @@ export function createConfig({
         })
       ),
       json(),
-      buble(
-        mergeConfig('buble', {
-          include: ['**/*.js', '**/*.mjs']
-        })
-      ),
       styles(
         mergeConfig('styles', {
           mode: extractCss ? ['extract', outputCss] : 'inject',
