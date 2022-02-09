@@ -34,9 +34,7 @@ module.exports = {
         ]
       },
       {
-        test: /@empathyco\/x-components/,
-        exclude: /\.css$/,
-        enforce: 'pre',
+        test: /@empathyco\/x-components.+\.js$/,
         use: ['babel-loader']
       }
     ]

@@ -13,6 +13,7 @@ function init() {
 }
 
 module.exports = {
+  transpileDependencies: ['@empathyco/x-components'],
   configureWebpack: {
     module: {
       rules: [
@@ -20,12 +21,6 @@ module.exports = {
           test: /\.ts|js|vue$/,
           enforce: 'pre',
           use: ['source-map-loader']
-        },
-        {
-          test: /@empathyco\/x-components/,
-          exclude: /\.css$/,
-          enforce: 'pre',
-          use: ['babel-loader']
         }
       ]
     },
