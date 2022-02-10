@@ -25,13 +25,9 @@ Then('new related results are displayed', () => {
 });
 
 Then('new related results are different from previous ones', () => {
-  console.log(resultsList[0]);
-  console.log(newResultsList[0]);
   expect(newResultsList.every(item => resultsList.includes(item))).to.eq(false);
-  resultsList = Object.assign([], newResultsList);
+  resultsList = newResultsList;
   newResultsList = [];
-  console.log(resultsList[0]);
-  console.log(newResultsList[0]);
 });
 
 When('next query number {int} is clicked', (nextQueryItem: number) => {

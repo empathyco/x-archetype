@@ -5,7 +5,7 @@ const trackEndpoint = `${mockedApiUrl}/tagging/v1/track/empathy`;
 
 // Results
 Given('an intercepted search response', () => {
-  cy.intercept('https://api.staging.empathy.co/search/v1/query/*/search*').as('interceptedResults');
+  cy.intercept(searchEndpoint).as('interceptedResults');
 });
 
 Given('a results API with query {string}', (query: string) => {
