@@ -1,18 +1,18 @@
 <template>
   <Empathize
-    class="x-list"
+    :animation="empathizeAnimation"
     :class="
       $x.device === 'mobile' ? 'x-list--padding-03' : 'x-list--padding-05 x-list--padding-bottom'
     "
-    :animation="empathizeAnimation"
+    class="x-list"
   >
     <BaseKeyboardNavigation
-      class="x-list__item--expand"
       :class="
         $x.device === 'mobile'
           ? 'x-list x-list--vertical x-list--gap-06'
           : 'x-row x-row--gap-06 x-row--align-start'
       "
+      class="x-list__item--expand"
     >
       <IdentifierResults
         #default="{ identifierResult }"
@@ -21,7 +21,7 @@
       >
         <BaseResultLink #default="{ result }" :result="identifierResult" class="x-suggestion">
           <BarCodeIcon />
-          <IdentifierResult class="x-text x-text--bold" :result="result" />
+          <IdentifierResult :result="result" class="x-text x-text--bold" />
           <span class="x-text x-text--bold x-ellipsis">
             {{ result.name }}
           </span>
@@ -31,9 +31,9 @@
       <QuerySuggestions
         v-if="$x.query.searchBox && $x.identifierResults.length === 0"
         #suggestion-content="{ queryHTML }"
-        class="x-row__item x-row__item--span-4 x-list x-list--gap-03"
         :animation="suggestionsAnimation"
         :max-items-to-render="5"
+        class="x-row__item x-row__item--span-4 x-list x-list--gap-03"
       >
         <SearchIcon />
         <span v-html="queryHTML" />
@@ -54,9 +54,9 @@
           <span>{{ $t('nextQueries.title') }}</span>
         </h1>
         <NextQueries
-          class="x-list x-list--gap-03"
           :animation="suggestionsAnimation"
           :max-items-to-render="5"
+          class="x-list x-list--gap-03"
         >
           <template #suggestion-content="{ suggestion }">
             <Nq4Icon />
@@ -81,9 +81,9 @@
         </h1>
 
         <HistoryQueries
-          class="x-list x-list--gap-03"
           :animation="suggestionsAnimation"
           :max-items-to-render="4"
+          class="x-list x-list--gap-03"
         >
           <template #suggestion-content="{ queryHTML }">
             <HistoryIcon />
@@ -118,9 +118,9 @@
           <span>{{ $t('popularSearches.title') }}</span>
         </h1>
         <PopularSearches
-          class="x-list x-list--gap-03"
           :animation="suggestionsAnimation"
           :max-items-to-render="5"
+          class="x-list x-list--gap-03"
         >
           <template #suggestion-content="{ suggestion }">
             <TrendingTinyIcon />
@@ -134,10 +134,10 @@
 
 <script lang="ts">
   import {
+    animateScale,
     BarCodeIcon,
     BaseKeyboardNavigation,
     BaseResultLink,
-    CollapseFromTop,
     CrossTinyIcon,
     HistoryIcon,
     MinusIcon,
@@ -177,7 +177,7 @@
     }
   })
   export default class PredictiveLayer extends Vue {
+    public empathizeAnimation = animateScale();
     public suggestionsAnimation = StaggeredFadeAndSlide;
-    public empathizeAnimation = CollapseFromTop;
   }
 </script>

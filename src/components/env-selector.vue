@@ -5,7 +5,7 @@
       class="x-dropdown"
       :value="value"
       :items="environments"
-      :animation="collapseFromTop"
+      :animation="animation"
     >
       <template #toggle>
         <span class="x-text--bold x-text">{{ value }}</span>
@@ -24,7 +24,7 @@
     BaseDropdown,
     CheckTinyIcon,
     ChevronTinyDownIcon,
-    CollapseFromTop,
+    animateClipPath,
     Dictionary,
     XOn
   } from '@empathyco/x-components';
@@ -43,7 +43,7 @@
   })
   export default class EnvSelector extends Vue {
     public environments: string[] = ['staging', 'test'];
-    protected collapseFromTop = CollapseFromTop;
+    protected animation = animateClipPath();
 
     protected defaultValue = 'staging';
 
