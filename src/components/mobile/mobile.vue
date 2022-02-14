@@ -48,7 +48,6 @@
     </template>
 
     <template v-if="hasSearched" #aside>
-      <!-- eslint-disable max-len-->
       <div
         v-if="$x.totalResults > 0"
         class="
