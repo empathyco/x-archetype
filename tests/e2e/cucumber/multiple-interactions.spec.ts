@@ -5,6 +5,7 @@ let newResultsList: string[] = [];
 
 Then('related results are displayed', () => {
   resultsList = [];
+  cy.getByDataTest('search-grid-result').first().scrollIntoView();
   cy.getByDataTest('search-grid-result')
     .should('be.visible')
     .should('have.length.at.least', 1)
@@ -15,6 +16,7 @@ Then('related results are displayed', () => {
 });
 
 Then('new related results are displayed', () => {
+  cy.getByDataTest('search-grid-result').first().scrollIntoView();
   cy.getByDataTest('search-grid-result')
     .should('be.visible')
     .should('have.length.at.least', 1)
@@ -31,7 +33,12 @@ Then('new related results are different from previous ones', () => {
 });
 
 When('next query number {int} is clicked', (nextQueryItem: number) => {
-  cy.getByDataTest('next-query').eq(nextQueryItem).click().invoke('text').as('searchedQuery');
+  cy.getByDataTest('next-query')
+    .should('be.visible')
+    .eq(nextQueryItem)
+    .click()
+    .invoke('text')
+    .as('searchedQuery');
 });
 
 When('scroll down for two seconds', () => {
