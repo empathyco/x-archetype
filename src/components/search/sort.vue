@@ -3,7 +3,7 @@
     v-if="$x.totalResults"
     class="x-dropdown--l"
     :items="sortValues"
-    :animation="collapseFromTop"
+    :animation="animation"
   >
     <template #toggle="{ item }">
       <span>{{ $t('sort.label') }}</span>
@@ -29,7 +29,7 @@
   import { Component } from 'vue-property-decorator';
   import { Sort } from '@empathyco/x-types';
   import { SortDropdown } from '@empathyco/x-components/search';
-  import { CheckTinyIcon, ChevronTinyDownIcon, CollapseFromTop } from '@empathyco/x-components';
+  import { CheckTinyIcon, ChevronTinyDownIcon, animateScale } from '@empathyco/x-components';
 
   @Component({
     components: {
@@ -39,7 +39,7 @@
     }
   })
   export default class extends Vue {
-    protected collapseFromTop = CollapseFromTop;
+    protected animation = animateScale();
     public sortValues: Sort[] = ['', 'price asc', 'price desc'];
   }
 </script>

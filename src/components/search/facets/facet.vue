@@ -1,5 +1,5 @@
 <template>
-  <BaseHeaderTogglePanel class="x-facet" :startCollapsed="true" :animation="collapseFromTop">
+  <BaseHeaderTogglePanel class="x-facet" :startCollapsed="true" :animation="animation">
     <template #header-content="{ open }">
       <span>{{ $t(`facets.${facet.label}`) }}</span>
       <ChevronUpIcon v-if="open" />
@@ -14,7 +14,7 @@
   import { Vue, Component, Prop } from 'vue-property-decorator';
   import {
     BaseHeaderTogglePanel,
-    CollapseFromTop,
+    animateScale,
     ChevronDownIcon,
     ChevronUpIcon
   } from '@empathyco/x-components';
@@ -29,7 +29,7 @@
     }
   })
   export default class FacetComponent extends Vue {
-    public collapseFromTop = CollapseFromTop;
+    public animation = animateScale();
 
     @Prop()
     public facet?: Facet;

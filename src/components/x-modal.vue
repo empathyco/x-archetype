@@ -1,5 +1,5 @@
 <template>
-  <BaseEventsModal :eventsToOpenModal="openEvents" :animation="collapseFromTop">
+  <BaseEventsModal :eventsToOpenModal="openEvents" :animation="animation">
     <Mobile v-if="$x.device === 'mobile'" />
     <Desktop v-else />
   </BaseEventsModal>
@@ -8,7 +8,7 @@
 <script lang="ts">
   import Component from 'vue-class-component';
   import Vue from 'vue';
-  import { BaseEventsModal, CollapseFromTop } from '@empathyco/x-components';
+  import { BaseEventsModal, animateClipPath } from '@empathyco/x-components';
   import Mobile from './mobile/mobile.vue';
   import Desktop from './desktop/desktop.vue';
 
@@ -21,6 +21,6 @@
   })
   export default class XModal extends Vue {
     protected openEvents = ['UserClickedOpenEventsModal', 'UserOpenXProgrammatically'];
-    protected collapseFromTop = CollapseFromTop;
+    protected animation = animateClipPath();
   }
 </script>
