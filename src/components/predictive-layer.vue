@@ -59,7 +59,8 @@
           class="x-list x-list--gap-03"
         >
           <template #suggestion-content="{ suggestion }">
-            <Nq4Icon />
+            <CuratedCheckIcon v-if="suggestion.isCurated" />
+            <Nq4Icon v-else />
             <span>{{ suggestion.query }}</span>
           </template>
         </NextQueries>
@@ -139,6 +140,7 @@
     BaseKeyboardNavigation,
     BaseResultLink,
     CrossTinyIcon,
+    CuratedCheckIcon,
     HistoryIcon,
     MinusIcon,
     Nq4Icon,
@@ -162,6 +164,7 @@
       BaseResultLink,
       ClearHistoryQueries,
       CrossTinyIcon,
+      CuratedCheckIcon,
       Empathize,
       HistoryIcon,
       HistoryQueries,

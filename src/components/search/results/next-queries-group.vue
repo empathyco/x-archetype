@@ -24,7 +24,8 @@
           x-background--neutral-100
         "
       >
-        <LightBulbOn class="x-icon--l" />
+        <CuratedCheckIcon v-if="nextQuery.isCurated" />
+        <LightBulbOn v-else />
         <span class="x-font-size--05 x-ellipsis x-flex-auto">{{ nextQuery.query }}</span>
         <ArrowRightIcon class="x-icon--l" />
       </NextQuery>
@@ -33,7 +34,7 @@
 </template>
 
 <script lang="ts">
-  import { ArrowRightIcon, LightBulbOn } from '@empathyco/x-components';
+  import { ArrowRightIcon, LightBulbOn, CuratedCheckIcon } from '@empathyco/x-components';
   import { Component, Prop, Vue } from 'vue-property-decorator';
   import { NextQueries, NextQueriesList, NextQuery } from '@empathyco/x-components/next-queries';
   import { NextQuery as NextQueryModel } from '@empathyco/x-types';
@@ -41,6 +42,7 @@
   @Component({
     components: {
       ArrowRightIcon,
+      CuratedCheckIcon,
       LightBulbOn,
       NextQuery,
       NextQueries,
