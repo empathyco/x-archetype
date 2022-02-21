@@ -14,7 +14,6 @@ import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 import visualizer from 'rollup-plugin-visualizer';
 import vue from 'rollup-plugin-vue';
-import polyFillsWrapper from '../node_modules/@empathyco/x-components/build-helpers/plugins/polyfills-wrapper.plugin';
 
 const jsOutputDirectory = path.join(process.cwd(), 'dist');
 
@@ -59,11 +58,9 @@ export function createConfig({
       format: 'es',
       sourcemap: true,
       assetFileNames: '[name][extname]',
-      entryFileNames: 'app.js',
+      entryFileNames: 'x-core.js',
       chunkFileNames: chunkInfo => {
         switch (chunkInfo.name) {
-          case 'main':
-            return 'x-core-[hash].js';
           case 'x-modal':
             return 'x-empty-search-[hash].js';
           case 'index':
@@ -74,7 +71,7 @@ export function createConfig({
       },
       ...output
     },
-    preserveEntrySignatures: 'strict',
+    preserveEntrySignatures: false,
     plugins: [
       del(
         mergeConfig('del', {
@@ -128,7 +125,6 @@ export function createConfig({
         })
       ),
       sourcemaps(mergeConfig('sourcemaps')),
-      polyFillsWrapper(mergeConfig('polyfillsWrapper')),
       terser(
         mergeConfig('terser', {
           output: { comments: false }
