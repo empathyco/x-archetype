@@ -58,7 +58,7 @@ export function createConfig({
       format: 'es',
       sourcemap: true,
       assetFileNames: '[name][extname]',
-      entryFileNames: 'x-core.js',
+      entryFileNames: 'app.js',
       chunkFileNames: chunkInfo => {
         switch (chunkInfo.name) {
           case 'x-modal':
@@ -136,5 +136,3 @@ export function createConfig({
     ]
   };
 }
-
-export default createConfig();

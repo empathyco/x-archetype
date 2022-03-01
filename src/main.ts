@@ -5,4 +5,4 @@ import { installXOptions } from './x-components/plugin.options';
 
 Vue.config.productionTip = false;
 
-new XInstaller(installXOptions);
+new XInstaller(installXOptions).init();
