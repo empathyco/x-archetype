@@ -6,7 +6,6 @@ import {
   EmpathyRequestParamsMapper,
   EmpathySimpleFacetMapper
 } from '@empathyco/x-adapter';
-import { SnippetConfig } from '@empathyco/x-components';
 import { bannerMapper } from './demo-banner-mapper';
 import { HierarchicalFacetMapper } from './demo-hierarchical-mapper';
 import { promotedMapper } from './demo-promoted-mapper';
@@ -16,14 +15,7 @@ import { resultMapper } from './demo-result.mapper';
 import { priceFilterMapper } from './demo-price-filter-mapper';
 import { EmpathyEndpointsService } from './empathy-endpoints.service';
 
-declare global {
-  interface Window {
-    initX: SnippetConfig;
-  }
-}
-
 export const adapter = new EmpathyAdapterBuilder()
-  .setEnvironment(window.initX.env ?? 'test')
   .addMapper(resultMapper, 'results')
   .addMapper(bannerMapper, 'banners')
   .addMapper(promotedMapper, 'promoteds')

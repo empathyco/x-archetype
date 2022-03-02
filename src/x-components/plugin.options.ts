@@ -10,6 +10,10 @@ export const installXOptions: InstallXOptions = {
   store,
   app: App,
   async installExtraPlugins({ vue, snippet }) {
+    // TODO: Remove this adapter configuration when the new stateless adapter is finished
+    adapter.setConfig({
+      env: snippet.env ?? 'test'
+    });
     const i18n = await I18n.create({
       locale: snippet.lang,
       device: snippet.device ?? 'mobile',
