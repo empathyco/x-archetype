@@ -28,5 +28,5 @@ Feature: Multiple interactions
 
     Examples:
       | query   | view        | nextQueryItem | filterNumber | facetName | queryWithRTs | relatedTagItem |
-      | shirt   | macbook-13  | 1             | 1            | price     | shorts       | 1              |
-      | shirt   | iphone-7    | 1             | 1            | price     | shorts       | 1              |
+      | shirt   | macbook-13  | 0             | 1            | price     | shorts       | 1              |
+      | shirt   | iphone-7    | 0             | 1            | price     | shorts       | 1              |
