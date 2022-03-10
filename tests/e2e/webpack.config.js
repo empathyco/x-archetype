@@ -1,8 +1,11 @@
+const { DefinePlugin } = require('webpack');
+
 module.exports = {
+  mode: 'production',
   resolve: {
-    extensions: ['.ts', '.js', '.feature', '.features']
+    extensions: ['.ts', '.js', '.feature', '.features'],
+    fallback: { "path": false, fs: 'false', child_process: 'false', readline: 'false' }
   },
-  node: { fs: 'empty', child_process: 'empty', readline: 'empty' },
   module: {
     rules: [
       {
@@ -38,5 +41,10 @@ module.exports = {
         use: ['babel-loader']
       }
     ]
-  }
+  },
+  plugins: [
+      new DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      })
+  ]
 };
