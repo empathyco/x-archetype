@@ -1,11 +1,8 @@
 <template>
   <div class="x-list x-padding--06 x-background--neutral-95 x-list--gap-06">
     <div class="x-list x-list--gap-03">
-      <h1 class="x-title2 x-text--bold">{{ $t('nextQueriesGroup.title') }}</h1>
-      <p
-        v-html="$t('nextQueriesGroup.message', { query: $x.query.search })"
-        class="x-text x-font-size--05"
-      />
+      <h1 class="x-title3 x-text--bold">{{ $t('nextQueriesGroup.title') }}</h1>
+      <p v-html="$t('nextQueriesGroup.message', { query: $x.query.search })" class="x-text" />
     </div>
     <NextQueries
       #suggestion="{ suggestion }"
@@ -26,8 +23,8 @@
       >
         <CuratedCheckIcon v-if="nextQuery.isCurated" />
         <LightBulbOn v-else />
-        <span class="x-font-size--05 x-ellipsis x-flex-auto">{{ nextQuery.query }}</span>
-        <ArrowRightIcon class="x-icon--l" />
+        <span class="x-text x-ellipsis x-flex-auto">{{ nextQuery.query }}</span>
+        <ArrowRightIcon class="x-icon--m" />
       </NextQuery>
     </NextQueries>
   </div>
