@@ -1,35 +1,26 @@
 import { Then, When } from 'cypress-cucumber-preprocessor/steps';
 
-let resultsList: string[] = [];
-let newResultsList: string[] = [];
-
 Then('related results are displayed', () => {
-  resultsList = [];
   cy.getByDataTest('search-grid-result').first().scrollIntoView();
   cy.getByDataTest('search-grid-result')
     .should('be.visible')
     .should('have.length.at.least', 1)
-    .getByDataTest('result-title')
-    .each($resultTitle => {
-      resultsList.push($resultTitle.text());
-    });
+    .invoke('text')
+    .as('resultsList');
 });
 
-Then('new related results are displayed', () => {
+Then('related results have changed', () => {
   cy.getByDataTest('search-grid-result').first().scrollIntoView();
-  cy.getByDataTest('search-grid-result')
-    .should('be.visible')
-    .should('have.length.at.least', 1)
-    .getByDataTest('result-title')
-    .each($resultTitle => {
-      newResultsList.push($resultTitle.text());
-    });
-});
-
-Then('new related results are different from previous ones', () => {
-  expect(newResultsList.every(item => resultsList.includes(item))).to.eq(false);
-  resultsList = newResultsList;
-  newResultsList = [];
+  cy.get<string>('@resultsList').then(resultsList => {
+    cy.getByDataTest('search-grid-result')
+      .should('be.visible')
+      .should('have.length.at.least', 1)
+      .should(newResultsList => {
+        expect(newResultsList.text()).to.be.not.equal(resultsList);
+      })
+      .invoke('text')
+      .as('resultsList');
+  });
 });
 
 When('next query number {int} is clicked', (nextQueryItem: number) => {
@@ -42,7 +33,7 @@ When('next query number {int} is clicked', (nextQueryItem: number) => {
 });
 
 When('scroll down for two seconds', () => {
-  cy.getByDataTest('base-scroll').eq(1).scrollTo(0, 1000, { duration: 2000 });
+  cy.get('#main-scroll').scrollTo(0, 1000, { duration: 2000, ensureScrollable: false });
 });
 
 When('related tag number {int} is clicked', (relatedTagItem: number) => {
