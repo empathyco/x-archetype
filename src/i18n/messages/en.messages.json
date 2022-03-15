@@ -20,7 +20,7 @@
     },
     "nextQueriesGroup": {
       "title": "You may be interested",
-      "message": "This is what other shoppers searched after <span class=\"x-text x-text--bold x-font-size--05\">\"{query}\"</span>"
+      "message": "This is what other shoppers searched after <span class=\"x-text x-text--bold\">\"{query}\"</span>"
     },
     "identifierResults": {
       "title": "SKU Search"
