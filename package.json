@@ -63,7 +63,7 @@
     "cypress-cucumber-preprocessor": "~4.3.1",
     "eslint": "7.18.0",
     "http-server": "^14.1.0",
-    "lint-staged": "~11.2.6",
+    "lint-staged": "~12.3.7",
     "postcss": "~8.3.11",
     "prettier": "~2.4.1 < 2.5.0",
     "process": "~0.11.10",
