@@ -92,7 +92,7 @@
   },
   "lint-staged": {
     "./{src,tests}/**/*.{vue,js,jsx,ts,tsx}": [
-      "npm run lint:fix"
+      "eslint --fix"
     ]
   }
 }
