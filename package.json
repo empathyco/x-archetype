@@ -18,7 +18,7 @@
     "test": "npm run test:e2e:ci",
     "test:unit": "vue-cli-service test:unit",
     "commit": "git-cz",
-    "lint": "eslint src tests --ext .ts,.vue",
+    "lint": "eslint src tests build --ext .ts,.tsx,.vue,.js,.jsx",
     "lint:fix": "npm run lint -- --fix",
     "install:local": "npm install file:../x/packages/x-components/empathyco-x-components-3.0.0-alpha.55.tgz --no-save",
     "json:csv": "json-csv ./src/i18n/messages",
@@ -91,7 +91,7 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "./{src,tests}/**/*.{vue,js,jsx,ts,tsx}": [
+    "./{src,tests,build}/**/*.{vue,js,jsx,ts,tsx}": [
       "eslint --fix"
     ]
   }
