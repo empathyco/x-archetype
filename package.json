@@ -91,7 +91,7 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "./src/**/*.{vue,js,jsx,ts,tsx}": [
+    "./{src,tests}/**/*.{vue,js,jsx,ts,tsx}": [
       "npm run lint:fix"
     ]
   }
