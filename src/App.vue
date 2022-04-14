@@ -10,17 +10,12 @@
 </template>
 
 <script lang="ts">
-  import {
-    Dictionary,
-    SnippetCallbacks,
-    SnippetConfig,
-    XOn,
-    XProvide
-  } from '@empathyco/x-components';
+  import { SnippetCallbacks, SnippetConfig, XOn, XProvide } from '@empathyco/x-components';
   import { DeviceDetector } from '@empathyco/x-components/device';
   import { Tagging } from '@empathyco/x-components/tagging';
   import { UrlHandler } from '@empathyco/x-components/url';
   import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params';
+  import { Dictionary } from '@empathyco/x-utils';
   import { Component, Inject, Vue, Watch } from 'vue-property-decorator';
   import { adapter } from './adapter/adapter';
   import currencies from './i18n/currencies';

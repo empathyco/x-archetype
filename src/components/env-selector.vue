@@ -25,10 +25,10 @@
     CheckTinyIcon,
     ChevronTinyDownIcon,
     animateClipPath,
-    Dictionary,
     XOn
   } from '@empathyco/x-components';
   import { RenderlessExtraParams } from '@empathyco/x-components/extra-params';
+  import { Dictionary } from '@empathyco/x-utils';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
   import { adapter } from '../adapter/adapter';
