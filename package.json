@@ -18,7 +18,8 @@
     "test": "npm run test:e2e:ci",
     "test:unit": "vue-cli-service test:unit",
     "commit": "git-cz",
-    "lint": "vue-cli-service lint",
+    "lint": "eslint src tests --ext .ts,.vue",
+    "lint:fix": "npm run lint -- --fix",
     "install:local": "npm install file:../x/packages/x-components/empathyco-x-components-3.0.0-alpha.55.tgz --no-save",
     "json:csv": "json-csv ./src/i18n/messages",
     "csv:json": "csv-json ./output ./src/i18n/messages"
@@ -62,7 +63,7 @@
     "cssnano": "~4.1.10",
     "cypress": "~8.4.0",
     "cypress-cucumber-preprocessor": "~4.3.1",
-    "eslint": "7.32.0",
+    "eslint": "7.18.0",
     "http-server": "^14.1.0",
     "lint-staged": "~11.2.6",
     "postcss": "~8.3.11",
@@ -91,7 +92,7 @@
   },
   "lint-staged": {
     "./src/**/*.{vue,js,jsx,ts,tsx}": [
-      "vue-cli-service lint"
+      "npm run lint:fix"
     ]
   }
 }

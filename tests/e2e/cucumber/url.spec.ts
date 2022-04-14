@@ -6,7 +6,7 @@ Given(
   'a URL with query parameter {string} and {string} size view',
   (query: string, view: ViewportPreset) => {
     cy.viewport(view);
-    cy.visit(`/?query=${query}`)
+    cy.visit(`/?query=${query}`);
   }
 );
 
