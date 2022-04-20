@@ -3,7 +3,7 @@
   "author": "Empathy Systems Corporation S.L.",
   "version": "0.8.0",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/empathyco/x",
+  "homepage": "https://github.com/empathyco/x-archetype",
   "description": "Starting point to setup a X Components project",
   "private": true,
   "scripts": {
