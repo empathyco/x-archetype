@@ -24,11 +24,11 @@
     "csv:json": "csv-json ./output ./src/i18n/messages"
   },
   "dependencies": {
-    "@empathyco/x-adapter": "^7.0.0-alpha.23",
-    "@empathyco/x-components": "^3.0.0-alpha.84",
-    "@empathyco/x-deep-merge": "^1.3.0-alpha.11",
+    "@empathyco/x-adapter": "^7.0.0-alpha.24",
+    "@empathyco/x-components": "^3.0.0-alpha.87",
+    "@empathyco/x-deep-merge": "^1.3.0-alpha.12",
     "@empathyco/x-types": "^10.0.0-alpha.20",
-    "@empathyco/x-utils": "^0.1.0-alpha.10",
+    "@empathyco/x-utils": "^0.1.0-alpha.11",
     "reflect-metadata": "^0.1.13",
     "tslib": "~2.3.0",
     "vue": "^2.6.0",
@@ -40,8 +40,8 @@
   },
   "devDependencies": {
     "@cypress/webpack-preprocessor": "~5.11.1",
-    "@empathyco/eslint-plugin-x": "^2.0.0-alpha.5",
-    "@empathyco/x-translations": "^1.1.0-alpha.14",
+    "@empathyco/eslint-plugin-x": "^2.0.0-alpha.6",
+    "@empathyco/x-translations": "^1.1.0-alpha.15",
     "@rollup/plugin-commonjs": "~21.0.1",
     "@rollup/plugin-json": "~4.1.0",
     "@rollup/plugin-node-resolve": "~13.1.3",
