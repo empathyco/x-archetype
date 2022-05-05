@@ -1,4 +1,4 @@
-import { AnyFunction, forEach } from '@empathyco/x-components';
+import { AnyFunction, forEach } from '@empathyco/x-utils';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace

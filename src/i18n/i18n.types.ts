@@ -1,4 +1,4 @@
-import { DeepPartial } from '@empathyco/x-components';
+import { DeepPartial } from '@empathyco/x-utils';
 import VueI18n from 'vue-i18n';
 import { Messages } from './messages.types';
 

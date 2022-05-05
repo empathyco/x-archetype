@@ -49,13 +49,13 @@ export class SearchRequestMapper implements RequestMapper<SearchRequest, Platfor
   }
 
   map(
-    { query, relatedTags = [], filters = {}, sort, ...rest }: SearchRequest,
+    { query, filters = {}, sort, ...rest }: SearchRequest,
     request: PlatformSearchRequest,
     context: RequestMapperContext
   ): PlatformSearchRequest {
     return Object.assign<PlatformSearchRequest, Partial<PlatformSearchRequest>>(request, {
       ...rest,
-      query: query && this.mapQuery({ query, relatedTags }, query, context),
+      query: query && this.mapQuery({ query }, query, context),
       filter: this.mapFilters(filters, [], context),
       sort: this.mapSort(sort, '', context)
     });
