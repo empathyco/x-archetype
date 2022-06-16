@@ -8,7 +8,8 @@
 <script lang="ts">
   import Component from 'vue-class-component';
   import Vue from 'vue';
-  import { BaseEventsModal, animateClipPath } from '@empathyco/x-components';
+  import { BaseEventsModal, animateClipPath, XEvent } from '@empathyco/x-components';
+  import { Prop } from 'vue-property-decorator';
   import Mobile from './mobile/mobile.vue';
   import Desktop from './desktop/desktop.vue';
 
@@ -20,7 +21,8 @@
     }
   })
   export default class XModal extends Vue {
-    protected openEvents = ['UserClickedOpenEventsModal', 'UserOpenXProgrammatically'];
+    @Prop()
+    public openEvents?: XEvent[];
     protected animation = animateClipPath();
   }
 </script>
