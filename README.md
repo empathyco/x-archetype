@@ -13,6 +13,15 @@ the [documentation](./docs/index.md).
 If you want to contribute to this project please keep in mind that it uses
 [Conventional Commits](https://www.conventionalcommits.org/) for its commit messages.
 
+## How to install
+
+This project is a default setup of the [Interface X Components](https://github.com/empathyco/x). To run the project and see the components up&running:
+
+1. Clone it to your local environment:
+   `git clone https://github.com/empathyco/x-archetype.git`.
+2. Install the dependencies `npm install`
+3. Serve the project to be launched at browser: `npm run serve`.
+
 ## Translations
 
 This project has a couple a of npm commands which allow you to export/import the translations:
