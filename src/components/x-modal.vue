@@ -21,8 +21,18 @@
     }
   })
   export default class XModal extends Vue {
+    /**
+     * List of events to open the modal when emitted.
+     *
+     * @public
+     */
     @Prop()
     public openEvents?: XEvent[];
+    /**
+     * Animation to use for opening/closing the modal.
+     *
+     * @internal
+     */
     protected animation = animateClipPath();
   }
 </script>
