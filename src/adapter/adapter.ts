@@ -6,15 +6,15 @@ export const adapter = platformAdapter;
 /* Code sample about how to extend the result mapper with more fields. */
 
 interface EmpathyDemoPlatformResult extends PlatformResult {
-  year: string;
+  season: string;
 }
 
 declare module '@empathyco/x-types' {
   export interface Result {
-    year: string;
+    season: string;
   }
 }
 
 resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
-  year: 'year'
+  season: 'season'
 });
