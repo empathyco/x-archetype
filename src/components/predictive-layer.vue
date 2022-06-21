@@ -26,6 +26,7 @@
         class="x-row__item x-row__item--span-4 x-list x-list--gap-03 x-list--align-start"
       >
         <h1
+          v-if="!$x.query.searchBox"
           class="
             x-title3
             x-text--bold x-text--secondary
@@ -89,7 +90,7 @@
         </h1>
         <NextQueries
           :animation="suggestionsAnimation"
-          :max-items-to-render="$x.query.searchBox ? 3 : 4"
+          :max-items-to-render="3"
           class="x-list x-list--gap-03"
         >
           <template #suggestion-content="{ suggestion }">
@@ -116,7 +117,7 @@
         </h1>
         <PopularSearches
           :animation="suggestionsAnimation"
-          :max-items-to-render="3"
+          :max-items-to-render="4"
           class="x-list x-list--gap-03"
         >
           <template #suggestion-content="{ suggestion }">
