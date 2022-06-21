@@ -17,7 +17,6 @@
   import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params';
   import { Dictionary } from '@empathyco/x-utils';
   import { Component, Inject, Vue, Watch } from 'vue-property-decorator';
-  import { adapter } from './adapter/adapter';
   import currencies from './i18n/currencies';
   import '@empathyco/x-components/design-system/full-theme.css';
   import './design-system/tokens.scss';
@@ -69,16 +68,6 @@
     @Watch('snippetConfig.lang')
     syncLang(lang: string): void {
       this.$setLocale(lang);
-      this.syncSearchLang(lang);
-    }
-
-    @Watch('snippetConfig.searchLang')
-    syncSearchLang(searchLang: string): void {
-      adapter.setConfig({
-        requestParams: {
-          lang: searchLang
-        }
-      });
     }
   }
 </script>
