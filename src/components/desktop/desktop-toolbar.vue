@@ -9,8 +9,8 @@
     </span>
 
     <ColumnPicker v-slot="{ column }" :columns="columnsValues">
-      <span v-if="column === 0">auto</span>
-      <span v-else>{{ column }}</span>
+      <Grid2ColIcon v-if="column === 4" />
+      <Grid1ColIcon v-if="column === 2" />
     </ColumnPicker>
 
     <BaseIdModalOpen
@@ -28,17 +28,25 @@
 </template>
 
 <script lang="ts">
-  import { BaseColumnPickerList, BaseIdModalOpen, FiltersIcon } from '@empathyco/x-components';
+  import {
+    BaseColumnPickerList,
+    BaseIdModalOpen,
+    FiltersIcon,
+    Grid2ColIcon,
+    Grid1ColIcon
+  } from '@empathyco/x-components';
   import { Component, Vue } from 'vue-property-decorator';
 
   @Component({
     components: {
       BaseIdModalOpen,
       ColumnPicker: BaseColumnPickerList,
-      FiltersIcon
+      FiltersIcon,
+      Grid2ColIcon,
+      Grid1ColIcon
     }
   })
   export default class DesktopToolbar extends Vue {
-    public columnsValues: number[] = [4, 6, 0];
+    public columnsValues: number[] = [4, 2];
   }
 </script>
