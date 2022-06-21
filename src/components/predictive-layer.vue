@@ -6,14 +6,7 @@
     "
     class="x-list"
   >
-    <BaseKeyboardNavigation
-      :class="
-        $x.device === 'mobile'
-          ? 'x-list x-list--vertical x-list--gap-06'
-          : 'x-row x-row--gap-06 x-row--align-start'
-      "
-      class="x-list__item--expand"
-    >
+    <BaseKeyboardNavigation class="x-list x-list--vertical x-list--gap-06 x-list__item--expand">
       <IdentifierResults
         #default="{ identifierResult }"
         :animation="suggestionsAnimation"
@@ -27,6 +20,47 @@
           </span>
         </BaseResultLink>
       </IdentifierResults>
+
+      <div
+        v-if="$x.historyQueries.length > 0"
+        class="x-row__item x-row__item--span-4 x-list x-list--gap-03 x-list--align-start"
+      >
+        <h1
+          class="
+            x-title3
+            x-text--bold x-text--secondary
+            x-list x-list--horizontal x-list--gap-03 x-list--align-center
+          "
+        >
+          <MinusIcon />
+          <span>{{ $t('historyQueries.title') }}</span>
+        </h1>
+
+        <HistoryQueries
+          :animation="suggestionsAnimation"
+          :max-items-to-render="$x.query.searchBox ? 2 : 4"
+          class="x-list x-list--gap-03"
+        >
+          <template #suggestion-content="{ queryHTML }">
+            <HistoryIcon />
+            <span v-html="queryHTML" />
+          </template>
+
+          <template #suggestion-remove-content="{ suggestion }">
+            <span :aria-label="$t('historyQueries.removeLabel', { suggestion: suggestion.query })">
+              <CrossTinyIcon />
+            </span>
+          </template>
+        </HistoryQueries>
+
+        <ClearHistoryQueries
+          v-if="!$x.query.searchBox"
+          class="x-button--ghost x-button--ghost-start"
+        >
+          <CrossTinyIcon />
+          <span>{{ $t('historyQueries.clear') }}</span>
+        </ClearHistoryQueries>
+      </div>
 
       <QuerySuggestions
         v-if="$x.query.searchBox && $x.identifierResults.length === 0"
@@ -55,7 +89,7 @@
         </h1>
         <NextQueries
           :animation="suggestionsAnimation"
-          :max-items-to-render="5"
+          :max-items-to-render="$x.query.searchBox ? 3 : 4"
           class="x-list x-list--gap-03"
         >
           <template #suggestion-content="{ suggestion }">
@@ -64,44 +98,6 @@
             <span>{{ suggestion.query }}</span>
           </template>
         </NextQueries>
-      </div>
-
-      <div
-        v-if="$x.historyQueries.length > 0 && !$x.query.searchBox"
-        class="x-row__item x-row__item--span-4 x-list x-list--gap-03 x-list--align-start"
-      >
-        <h1
-          class="
-            x-title3
-            x-text--bold x-text--secondary
-            x-list x-list--horizontal x-list--gap-03 x-list--align-center
-          "
-        >
-          <MinusIcon />
-          <span>{{ $t('historyQueries.title') }}</span>
-        </h1>
-
-        <HistoryQueries
-          :animation="suggestionsAnimation"
-          :max-items-to-render="4"
-          class="x-list x-list--gap-03"
-        >
-          <template #suggestion-content="{ queryHTML }">
-            <HistoryIcon />
-            <span v-html="queryHTML" />
-          </template>
-
-          <template #suggestion-remove-content="{ suggestion }">
-            <span :aria-label="$t('historyQueries.removeLabel', { suggestion: suggestion.query })">
-              <CrossTinyIcon />
-            </span>
-          </template>
-        </HistoryQueries>
-
-        <ClearHistoryQueries class="x-button--ghost x-button--ghost-start">
-          <CrossTinyIcon />
-          <span>{{ $t('historyQueries.clear') }}</span>
-        </ClearHistoryQueries>
       </div>
 
       <div
@@ -120,7 +116,7 @@
         </h1>
         <PopularSearches
           :animation="suggestionsAnimation"
-          :max-items-to-render="5"
+          :max-items-to-render="3"
           class="x-list x-list--gap-03"
         >
           <template #suggestion-content="{ suggestion }">
