@@ -13,6 +13,8 @@
 
           <LocationProvider location="predictive_layer">
             <PredictiveLayer />
+          </LocationProvider>
+          <LocationProvider location="predictive_layer">
             <RelatedTags v-if="!$x.isEmpathizeOpen && $x.relatedTags.length > 0" />
           </LocationProvider>
         </div>
