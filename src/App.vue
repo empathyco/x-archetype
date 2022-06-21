@@ -5,12 +5,12 @@
     <DeviceDetector @DeviceProvided="$setLocaleDevice" :breakpoints="breakpoints" />
     <Tagging />
     <UrlHandler env="env" />
-    <XModal v-if="isOpen" />
+    <XModal v-if="isOpen" :openEvents="openEvents" />
   </div>
 </template>
 
 <script lang="ts">
-  import { SnippetCallbacks, SnippetConfig, XOn, XProvide } from '@empathyco/x-components';
+  import { SnippetCallbacks, SnippetConfig, XEvent, XOn, XProvide } from '@empathyco/x-components';
   import { DeviceDetector } from '@empathyco/x-components/device';
   import { Tagging } from '@empathyco/x-components/tagging';
   import { UrlHandler } from '@empathyco/x-components/url';
@@ -39,8 +39,13 @@
       desktop: Number.POSITIVE_INFINITY
     };
     protected isOpen = false;
+    protected openEvents: XEvent[] = [
+      'UserClickedOpenEventsModal',
+      'UserOpenXProgrammatically',
+      'UserClickedOpenX'
+    ];
 
-    @XOn(['UserClickedOpenEventsModal', 'UserOpenXProgrammatically'])
+    @XOn((component: Vue) => (component as Layer).openEvents)
     open(): void {
       this.isOpen = true;
     }
