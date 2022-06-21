@@ -44,7 +44,15 @@
       </LocationProvider>
     </template>
 
-    <template v-if="hasSearched" #right-aside></template>
+    <template v-if="hasSearched" #right-aside>
+      <div class="x-background--neutral-100 x-list__item--expand x-list x-list--vertical">
+        <Sort />
+        <Facets
+          v-if="$x.totalResults > 0"
+          class="x-list--gap-06 x-list--padding-05 x-list--padding-top"
+        />
+      </div>
+    </template>
 
     <template #scroll-to-top>
       <ScrollToTop />
@@ -98,7 +106,8 @@
       SlidingPanel,
       RelatedTags: () => import('../search').then(m => m.RelatedTags),
       SelectedFilters: () => import('../search').then(m => m.SelectedFilters),
-      Facets: () => import('../search').then(m => m.Facets)
+      Facets: () => import('../search').then(m => m.Facets),
+      Sort: () => import('../search').then(m => m.Sort)
     }
   })
   export default class Desktop extends HasSearchedMixin {}
