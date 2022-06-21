@@ -91,7 +91,7 @@ const customCommands: CustomCommands = {
   searchQuery: query => cy.typeQuery(query).type('{enter}'),
   searchQueries: (...queries) => {
     queries.forEach(query => {
-      cy.clearSearchInput();
+      cy.getByDataTest('search-input').clear();
       cy.typeQuery(query).type('{enter}');
     });
   },
