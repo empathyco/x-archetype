@@ -2,8 +2,6 @@ import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
-import autoprefixer from 'autoprefixer';
-import cssnano from 'cssnano';
 import path from 'path';
 import copy from 'rollup-plugin-copy';
 import del from 'rollup-plugin-delete';
@@ -17,8 +15,6 @@ import vue from 'rollup-plugin-vue';
 
 const jsOutputDirectory = path.join(process.cwd(), 'dist');
 
-const postCSSPlugins = [autoprefixer(), cssnano({ preset: ['default', { mergeLonghand: false }] })];
-
 /**
  * Creates a rollup configuration for projects that use X-Components. This configuration can be customized with the options object.
  *
@@ -31,11 +27,12 @@ const postCSSPlugins = [autoprefixer(), cssnano({ preset: ['default', { mergeLon
  * @returns {import('rollup').RollupOptions}
  */
 export function createConfig({
-  extractCss = false,
   outputCss = './styles.css',
   input = path.join(process.cwd(), 'src/main.ts'),
   output,
-  plugins = {}
+  plugins = {},
+  prePlugins = [],
+  postPlugins = []
 } = {}) {
   /**
    * Merges a default config with the user one coming from this rollup plugin options.
@@ -59,20 +56,11 @@ export function createConfig({
       sourcemap: true,
       assetFileNames: '[name][extname]',
       entryFileNames: 'app.js',
-      chunkFileNames: chunkInfo => {
-        switch (chunkInfo.name) {
-          case 'x-modal':
-            return 'x-empty-search-[hash].js';
-          case 'index':
-            return 'x-search-[hash].js';
-          default:
-            return '[name].[hash].js';
-        }
-      },
       ...output
     },
     preserveEntrySignatures: false,
     plugins: [
+      ...prePlugins,
       del(
         mergeConfig('del', {
           targets: [`${jsOutputDirectory}/*`]
@@ -97,11 +85,8 @@ export function createConfig({
       // Code transpiling plugins
       vue(
         mergeConfig('vue', {
-          css: !extractCss, // css: false = extract; css: true = no extract.
-          needMap: false,
-          style: {
-            postcssPlugins: postCSSPlugins
-          }
+          css: false,
+          needMap: false
         })
       ),
       typescript(
@@ -114,8 +99,12 @@ export function createConfig({
       json(),
       styles(
         mergeConfig('styles', {
-          mode: extractCss ? ['extract', outputCss] : 'inject',
-          plugins: postCSSPlugins
+          mode: [
+            'inject',
+            (varname, id) =>
+              // eslint-disable-next-line max-len
+              `import {createInjector} from 'vue-runtime-helpers';const injector=createInjector({});injector('${id}',{source:${varname}})`
+          ]
         })
       ),
       htmlTemplate(
@@ -132,7 +121,8 @@ export function createConfig({
       ),
       /* Can't calculate real minified size with `sourcemap: true` and `gzipSize: true`:
        https://github.com/btd/rollup-plugin-visualizer/issues/72 */
-      visualizer(mergeConfig('visualizer', { sourcemap: true }))
+      visualizer(mergeConfig('visualizer', { sourcemap: true })),
+      ...postPlugins
     ]
   };
 }

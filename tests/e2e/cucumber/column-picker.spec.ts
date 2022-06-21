@@ -7,6 +7,7 @@ Then('grid shows {int} results per row', (columns: number) => {
 When('value {int} from column picker list is clicked', (columns: number) => {
   cy.getByDataTest('column-picker-list')
     .children(`.x-column-picker-list__item--${columns}-cols`)
+    .should('be.visible')
     .click();
 });
 

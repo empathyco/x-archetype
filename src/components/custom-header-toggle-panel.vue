@@ -1,7 +1,7 @@
 <template>
   <BaseHeaderTogglePanel class="x-facet" :startCollapsed="true" :animation="animation">
     <template #header-content="{ open }">
-      <span>{{ $t(`facets.${facet.label}`) }}</span>
+      <slot name="header" />
       <ChevronUpIcon v-if="open" />
       <ChevronDownIcon v-else />
     </template>
@@ -10,28 +10,22 @@
 </template>
 
 <script lang="ts">
-  import { Facet } from '@empathyco/x-types';
-  import { Vue, Component, Prop } from 'vue-property-decorator';
+  import { Vue, Component } from 'vue-property-decorator';
   import {
     BaseHeaderTogglePanel,
     animateScale,
     ChevronDownIcon,
     ChevronUpIcon
   } from '@empathyco/x-components';
-  import { SelectedFilters } from '@empathyco/x-components/facets';
 
   @Component({
     components: {
       BaseHeaderTogglePanel,
       ChevronDownIcon,
-      ChevronUpIcon,
-      SelectedFilters
+      ChevronUpIcon
     }
   })
-  export default class FacetComponent extends Vue {
+  export default class CustomHeaderTogglePanel extends Vue {
     public animation = animateScale();
-
-    @Prop()
-    public facet?: Facet;
   }
 </script>

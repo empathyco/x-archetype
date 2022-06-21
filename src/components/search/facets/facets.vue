@@ -1,75 +1,77 @@
 <template>
   <Facets>
     <template #default="{ facet }">
-      <Facet :facet="facet" :data-test="facet.label">
-        <AllFilter #default="{ isSelected }" :facet="facet">
-          <CheckboxCardSelectedIcon v-if="isSelected" />
-          <CheckboxCardUnselectedIcon v-else />
-          <span>{{ $t('filters.all') }}</span>
-        </AllFilter>
+      <CustomHeaderTogglePanel :data-test="facet.label">
+        <template #header>
+          <span>{{ $t(`facets.${facet.label}`) }}</span>
+        </template>
+        <template #default>
+          <AllFilter v-slot="{ isSelected }" :facet="facet">
+            <CheckboxCardSelectedIcon v-if="isSelected" />
+            <CheckboxCardUnselectedIcon v-else />
+            <span>{{ $t('filters.all') }}</span>
+          </AllFilter>
 
-        <SlicedFilters :max="6" :filters="facet.filters">
+          <SlicedFilters :max="6" :filters="facet.filters">
+            <FiltersList
+              v-slot="{ filter }"
+              class="x-list--gap-03"
+              :animation="staggeredFadeAndSlide"
+            >
+              <SimpleFilter :filter="filter">
+                <template #label>
+                  <CheckboxCardSelectedIcon v-if="filter.selected" />
+                  <CheckboxCardUnselectedIcon v-else />
+                  <span class="x-filter__label">{{ filter.label }}</span>
+                  <span class="x-filter__count">({{ filter.totalResults }})</span>
+                </template>
+              </SimpleFilter>
+            </FiltersList>
+          </SlicedFilters>
+        </template>
+      </CustomHeaderTogglePanel>
+    </template>
+
+    <template #category-paths="{ facet }">
+      <CustomHeaderTogglePanel :data-test="facet.label">
+        <template #header>
+          <span>{{ $t(`facets.${facet.label}`) }}</span>
+        </template>
+        <template #default>
+          <AllFilter v-slot="{ isSelected }" :facet="facet">
+            <CheckboxCardSelectedIcon v-if="isSelected" />
+            <CheckboxCardUnselectedIcon v-else />
+            <span>{{ $t('filters.all') }}</span>
+          </AllFilter>
+
           <FiltersList
-            #default="{ filter }"
+            v-slot="{ filter }"
             class="x-list--gap-03"
+            :filters="facet.filters"
             :animation="staggeredFadeAndSlide"
           >
-            <SimpleFilter :filter="filter">
-              <template #label>
+            <HierarchicalFilter :filter="filter">
+              <template #label="{ filter }">
                 <CheckboxCardSelectedIcon v-if="filter.selected" />
                 <CheckboxCardUnselectedIcon v-else />
                 <span class="x-filter__label">{{ filter.label }}</span>
                 <span class="x-filter__count">({{ filter.totalResults }})</span>
               </template>
-            </SimpleFilter>
+            </HierarchicalFilter>
           </FiltersList>
-        </SlicedFilters>
-      </Facet>
-    </template>
-
-    <template #category-paths="{ facet }">
-      <Facet :facet="facet" :data-test="facet.label">
-        <AllFilter #default="{ isSelected }" :facet="facet">
-          <CheckboxCardSelectedIcon v-if="isSelected" />
-          <CheckboxCardUnselectedIcon v-else />
-          <span>{{ $t('filters.all') }}</span>
-        </AllFilter>
-
-        <FiltersList
-          #default="{ filter }"
-          class="x-list--gap-03"
-          :filters="facet.filters"
-          :animation="staggeredFadeAndSlide"
-        >
-          <HierarchicalFilter :filter="filter">
-            <template #label="{ filter }">
-              <CheckboxCardSelectedIcon v-if="filter.selected" />
-              <CheckboxCardUnselectedIcon v-else />
-              <span class="x-filter__label">{{ filter.label }}</span>
-              <span class="x-filter__count">({{ filter.totalResults }})</span>
-            </template>
-          </HierarchicalFilter>
-        </FiltersList>
-      </Facet>
+        </template>
+      </CustomHeaderTogglePanel>
     </template>
 
     <template #usage="{ facet }">
-      <Facet :facet="facet" :data-test="facet.label">
-        <FiltersSearch class="x-list--gap-03" :filters="facet.filters">
-          <template #search="{ query, setQuery }">
-            <input
-              @input="setQuery($event.target.value)"
-              :value="query"
-              type="search"
-              class="x-input x-filters-search__input"
-              data-test="filters-search-input"
-              :placeholder="$t('filtersSearch.placeholder')"
-            />
-          </template>
-
+      <CustomHeaderTogglePanel :data-test="facet.label">
+        <template #header>
+          <span>{{ $t(`facets.${facet.label}`) }}</span>
+        </template>
+        <template #default>
           <SlicedFilters :max="8">
             <MultiSelectFilters
-              #default="{ filter }"
+              v-slot="{ filter }"
               class="x-list--gap-03"
               :animation="staggeredFadeAndSlide"
             >
@@ -83,27 +85,32 @@
               </SimpleFilter>
             </MultiSelectFilters>
           </SlicedFilters>
-        </FiltersSearch>
-      </Facet>
+        </template>
+      </CustomHeaderTogglePanel>
     </template>
 
     <template #price="{ facet }">
-      <Facet :facet="facet" :data-test="facet.label">
-        <FiltersList
-          #default="{ filter }"
-          class="x-list--gap-03"
-          :filters="facet.filters"
-          :animation="staggeredFadeAndSlide"
-        >
-          <NumberRangeFilter :filter="filter">
-            <template #label>
-              <CheckboxCardSelectedIcon v-if="filter.selected" />
-              <CheckboxCardUnselectedIcon v-else />
-              <PriceFilterLabel :filter="filter" />
-            </template>
-          </NumberRangeFilter>
-        </FiltersList>
-      </Facet>
+      <CustomHeaderTogglePanel :data-test="facet.label">
+        <template #header>
+          <span>{{ $t(`facets.${facet.label}`) }}</span>
+        </template>
+        <template #default>
+          <FiltersList
+            v-slot="{ filter }"
+            class="x-list--gap-03"
+            :filters="facet.filters"
+            :animation="staggeredFadeAndSlide"
+          >
+            <NumberRangeFilter :filter="filter">
+              <template #label>
+                <CheckboxCardSelectedIcon v-if="filter.selected" />
+                <CheckboxCardUnselectedIcon v-else />
+                <PriceFilterLabel :filter="filter" />
+              </template>
+            </NumberRangeFilter>
+          </FiltersList>
+        </template>
+      </CustomHeaderTogglePanel>
     </template>
   </Facets>
 </template>
@@ -128,8 +135,8 @@
   } from '@empathyco/x-components/facets';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
+  import CustomHeaderTogglePanel from '../../custom-header-toggle-panel.vue';
   import PriceFilterLabel from './price-filter-label.vue';
-  import Facet from './facet.vue';
 
   @Component({
     components: {
@@ -137,7 +144,7 @@
       BaseHeaderTogglePanel,
       CheckboxCardUnselectedIcon,
       CheckboxCardSelectedIcon,
-      Facet,
+      CustomHeaderTogglePanel,
       Facets,
       FiltersList,
       FiltersSearch,

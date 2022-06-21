@@ -1,68 +1,65 @@
 <template>
-  <MultiColumnMaxWidthLayout>
-    <template #header-start>
-      <div class="x-list x-list--padding-top x-list--padding-04">
-        <Logo />
-      </div>
-    </template>
+  <FixedHeaderAndAsidesLayout>
+    <template #header>
+      <div class="x-list x-list--horizontal x-list__item--expand">
+        <div class="x-list x-list--padding-top x-list--padding-04">
+          <Logo />
+        </div>
 
-    <template #header-middle>
-      <div
-        class="x-list x-list--vertical x-list--gap-05 x-list--align-stretch x-list__item--expand"
-      >
-        <SearchBox />
+        <div
+          class="x-list x-list--vertical x-list--gap-05 x-list--align-stretch x-list__item--expand"
+        >
+          <SearchBox />
 
-        <LocationProvider location="predictive_layer">
-          <RelatedTags v-if="!$x.isEmpathizeOpen && $x.relatedTags.length > 0" />
-        </LocationProvider>
-      </div>
-    </template>
+          <LocationProvider location="predictive_layer">
+            <PredictiveLayer />
+          </LocationProvider>
+          <LocationProvider location="predictive_layer">
+            <RelatedTags v-if="!$x.isEmpathizeOpen && $x.relatedTags.length > 0" />
+          </LocationProvider>
+        </div>
 
-    <template #header-end>
-      <div class="x-list x-list--wrap-reverse x-list--justify-end">
-        <EnvSelector />
+        <div class="x-list x-list--wrap-reverse x-list--justify-end">
+          <EnvSelector />
 
-        <Close class="x-button--ghost">
-          <CrossIcon class="x-icon--l" />
-        </Close>
+          <Close class="x-button--ghost">
+            <CrossIcon class="x-icon--l" />
+          </Close>
+        </div>
       </div>
     </template>
 
     <template #sub-header>
-      <LocationProvider location="predictive_layer">
-        <PredictiveLayer />
-      </LocationProvider>
-    </template>
-
-    <template #toolbar-aside>
-      <DesktopToggleAside v-if="$x.totalResults > 0" />
-    </template>
-
-    <template #toolbar-body>
       <DesktopToolbar />
     </template>
 
-    <template v-if="hasSearched" #main-aside>
+    <template #toolbar>
       <SelectedFilters
         v-if="$x.totalResults > 0"
         class="x-list x-list--gap-05 x-list--padding-05 x-list--padding-bottom"
       />
-      <Facets
-        v-if="$x.totalResults > 0"
-        class="x-list--gap-06 x-list--padding-05 x-list--padding-top"
-      />
     </template>
 
-    <template #main-body>
+    <template #main>
       <LocationProvider location="results">
         <Main />
       </LocationProvider>
     </template>
 
+    <template v-if="hasSearched" #right-aside>
+      <div class="x-background--neutral-100 x-list__item--expand x-list x-list--vertical">
+        <Sort />
+        <Facets
+          v-if="$x.totalResults > 0"
+          class="x-list--gap-06 x-list--padding-05 x-list--padding-top"
+        />
+      </div>
+    </template>
+
     <template #scroll-to-top>
       <ScrollToTop />
     </template>
-  </MultiColumnMaxWidthLayout>
+  </FixedHeaderAndAsidesLayout>
 </template>
 
 <script lang="ts">
@@ -73,8 +70,8 @@
     CartIcon,
     CrossIcon,
     CrossTinyIcon,
+    FixedHeaderAndAsidesLayout,
     LocationProvider,
-    MultiColumnMaxWidthLayout,
     PlusIcon,
     SlidingPanel
   } from '@empathyco/x-components';
@@ -87,7 +84,6 @@
   import ScrollToTop from '../scroll-to-top.vue';
   import SearchBox from '../search-box.vue';
   import HasSearchedMixin from '../has-searched.mixin';
-  import DesktopToggleAside from './desktop-toggle-aside.vue';
   import DesktopToolbar from './desktop-toolbar.vue';
 
   @Component({
@@ -98,14 +94,13 @@
       Close: BaseEventsModalClose,
       CrossIcon,
       CrossTinyIcon,
-      DesktopToggleAside,
       DesktopToolbar,
       EnvSelector,
       Empathize,
+      FixedHeaderAndAsidesLayout,
       LocationProvider,
       Logo,
       Main,
-      MultiColumnMaxWidthLayout,
       PlusIcon,
       PredictiveLayer,
       ScrollToTop,
@@ -113,7 +108,8 @@
       SlidingPanel,
       RelatedTags: () => import('../search').then(m => m.RelatedTags),
       SelectedFilters: () => import('../search').then(m => m.SelectedFilters),
-      Facets: () => import('../search').then(m => m.Facets)
+      Facets: () => import('../search').then(m => m.Facets),
+      Sort: () => import('../search').then(m => m.Sort)
     }
   })
   export default class Desktop extends HasSearchedMixin {}

@@ -15,7 +15,8 @@
 
   // Layout
   --x-size-margin-left-layout-s: var(--x-size-base-10);
-  --x-size-border-width-layout-columns-header: 0 0 1px;
+  --x-color-background-layout-header-backdrop: transparent;
+  --x-color-background-layout-header: var(--x-color-base-neutral-100);
 
   // Grid
   --x-size-min-width-grid-item: var(--x-size-base-20);
