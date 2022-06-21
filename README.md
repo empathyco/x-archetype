@@ -20,7 +20,8 @@ This project is a default setup of the [Interface X Components](https://github.c
 1. Clone it to your local environment:
    `git clone https://github.com/empathyco/x-archetype.git`.
 2. Install the dependencies `npm install`
-3. Serve the project to be launched at browser: `npm run serve`.
+3. Run the development server: `npm run serve`.
+4. Open http://localhost:8080.
 
 ## Translations
 
