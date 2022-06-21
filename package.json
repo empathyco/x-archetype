@@ -65,7 +65,7 @@
     "http-server": "^14.1.0",
     "lint-staged": "~11.2.6",
     "postcss": "~8.3.11",
-    "postcss-dir-pseudo-class": "^6.0.4",
+    "postcss-dir-pseudo-class": "~6.0.4",
     "postcss-import": "~14.1.0",
     "postcss-logical": "~5.0.4",
     "postcss-nested": "~5.0.6",
