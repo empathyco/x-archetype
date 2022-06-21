@@ -1,4 +1,6 @@
-module.exports = {
+const { defineConfig } = require('@vue/cli-service');
+
+module.exports = defineConfig({
   transpileDependencies: ['@empathyco/x-components'],
   configureWebpack: {
     module: {
@@ -11,4 +13,4 @@ module.exports = {
       ]
     }
   }
-};
+});

@@ -27,7 +27,7 @@
 
     <template #predictive>
       <LocationProvider location="predictive_layer">
-        <Empathize class="x-list x-background--neutral-100" />
+        <PredictiveLayer class="x-list x-background--neutral-100" />
       </LocationProvider>
     </template>
 
@@ -89,7 +89,7 @@
   import { Component } from 'vue-property-decorator';
   import Main from '../main.vue';
   import ScrollToTop from '../scroll-to-top.vue';
-  import Empathize from '../predictive-layer.vue';
+  import PredictiveLayer from '../predictive-layer.vue';
   import SearchBox from '../search-box.vue';
   import HasSearchedMixin from '../has-searched.mixin';
   import MobileCloseAside from './mobile-close-aside.vue';
@@ -103,13 +103,13 @@
       BaseScroll,
       Close: BaseEventsModalClose,
       ColumnPicker: BaseColumnPickerList,
-      Empathize,
       FiltersIcon,
       LocationProvider,
       Main,
       MobileCloseAside,
       MobileOpenAside,
       MobileToolbar,
+      PredictiveLayer,
       ScrollToTop,
       SearchBox,
       SingleColumnLayout,

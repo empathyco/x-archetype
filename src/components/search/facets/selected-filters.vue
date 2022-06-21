@@ -1,20 +1,20 @@
 <template>
-  <div>
-    <ClearFilters #default="{ selectedFilters }" class="x-button--secondary" :alwaysVisible="false">
-      {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
-    </ClearFilters>
-
+  <div class="x-list x-list--horizontal">
     <SelectedFiltersList class="x-list--wrap x-list--justify-stretch x-list--gap-05">
       <template #default="{ filter }">
         <SimpleFilter class="x-tag" :filter="filter" />
       </template>
 
       <template #price="{ filter }">
-        <NumberRangeFilter #default="{ filter: priceFilter }" class="x-tag" :filter="filter">
+        <NumberRangeFilter v-slot="{ filter: priceFilter }" class="x-tag" :filter="filter">
           <PriceFilterLabel :filter="priceFilter" />
         </NumberRangeFilter>
       </template>
     </SelectedFiltersList>
+
+    <ClearFilters v-slot="{ selectedFilters }" class="x-button--secondary" :alwaysVisible="false">
+      {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
+    </ClearFilters>
   </div>
 </template>
 

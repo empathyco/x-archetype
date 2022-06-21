@@ -8,23 +8,34 @@
       {{ $t('totalResults.message', { totalResults: $x.totalResults }) }}
     </span>
 
-    <ColumnPicker #default="{ column }" :columns="columnsValues">
+    <ColumnPicker v-slot="{ column }" :columns="columnsValues">
       <span v-if="column === 0">auto</span>
       <span v-else>{{ column }}</span>
     </ColumnPicker>
 
-    <Sort />
+    <BaseIdModalOpen
+      modalId="right-aside"
+      class="x-button x-button--ghost x-button--ghost-start"
+      data-test="toggle-facets-button"
+    >
+      <template #default="{ isPanelOpen }">
+        <FiltersIcon />
+        <span v-if="isPanelOpen">{{ $t('toggleAside.hideAside') }}</span>
+        <span v-else>{{ $t('toggleAside.showAside') }}</span>
+      </template>
+    </BaseIdModalOpen>
   </div>
 </template>
 
 <script lang="ts">
-  import { BaseColumnPickerList } from '@empathyco/x-components';
+  import { BaseColumnPickerList, BaseIdModalOpen, FiltersIcon } from '@empathyco/x-components';
   import { Component, Vue } from 'vue-property-decorator';
 
   @Component({
     components: {
-      Sort: () => import('../search').then(m => m.Sort),
-      ColumnPicker: BaseColumnPickerList
+      BaseIdModalOpen,
+      ColumnPicker: BaseColumnPickerList,
+      FiltersIcon
     }
   })
   export default class DesktopToolbar extends Vue {
