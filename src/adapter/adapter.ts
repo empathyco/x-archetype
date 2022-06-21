@@ -1,5 +1,11 @@
-import { platformAdapter, PlatformResult, resultSchema } from '@empathyco/x-adapter-platform';
-import { Result } from '@empathyco/x-types';
+import {
+  platformAdapter,
+  PlatformRecommendationsRequest,
+  PlatformResult,
+  recommendationsRequestMutableSchema,
+  resultSchema
+} from '@empathyco/x-adapter-platform';
+import { RecommendationsRequest, Result } from '@empathyco/x-types';
 
 export const adapter = platformAdapter;
 
@@ -17,4 +23,12 @@ declare module '@empathyco/x-types' {
 
 resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
   season: 'season'
+});
+
+recommendationsRequestMutableSchema.$override<
+  RecommendationsRequest,
+  Partial<PlatformRecommendationsRequest>
+>({
+  // TODO Top clicked demo endpoint breaks if it receives the scope parameter
+  extraParams: ({ extraParams: { scope, ...extraParams } = {} }) => extraParams
 });
