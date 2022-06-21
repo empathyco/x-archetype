@@ -48,7 +48,7 @@
     },
     "toggleAside": {
       "hideAside": "Ocultar Filtros",
-      "showAside": "Mostrar Filtros"
+      "showAside": "Ordenar y Filtrar"
     },
     "totalResults": {
       "message": "{totalResults} resultados"

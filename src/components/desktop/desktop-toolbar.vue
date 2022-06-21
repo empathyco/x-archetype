@@ -18,11 +18,8 @@
       class="x-button x-button--ghost x-button--ghost-start"
       data-test="toggle-facets-button"
     >
-      <template #default="{ isPanelOpen }">
-        <FiltersIcon />
-        <span v-if="isPanelOpen">{{ $t('toggleAside.hideAside') }}</span>
-        <span v-else>{{ $t('toggleAside.showAside') }}</span>
-      </template>
+      <FiltersIcon />
+      <span>{{ $t('toggleAside.showAside') }}</span>
     </BaseIdModalOpen>
   </div>
 </template>
