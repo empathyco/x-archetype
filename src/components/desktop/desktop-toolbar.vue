@@ -11,6 +11,8 @@
       class="x-list__item--expand"
     />
 
+    <span class="x-uppercase">{{ $t('columnPicker.message') }}</span>
+
     <ColumnPicker v-slot="{ column }" :columns="columnsValues">
       <Grid2ColIcon v-if="column === 4" />
       <Grid1ColIcon v-if="column === 2" />

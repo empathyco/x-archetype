@@ -67,6 +67,9 @@
     },
     "noResults": {
       "message": "No se han encontrado resultados para '{query}'. Prueba con otra búsqueda."
+    },
+    "columnPicker": {
+      "message": "Ver"
     }
   },
   "mobile": {

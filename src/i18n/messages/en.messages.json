@@ -67,6 +67,9 @@
     },
     "noResults": {
       "message": "No results found for <span class=\"x-text x-text--accent x-text--bold\">'{query}'</span>. Try with another query."
+    },
+    "columnPicker": {
+      "message": "View"
     }
   },
   "mobile": {
