@@ -4,9 +4,12 @@
     class="x-list x-list--horizontal x-list--gap-06 x-list--justify-end x-list--align-center"
     data-test="total-results"
   >
-    <span>
-      {{ $t('totalResults.message', { totalResults: $x.totalResults }) }}
-    </span>
+    <span
+      v-html="
+        $t('totalResults.message', { totalResults: $x.totalResults, query: $x.query.searchBox })
+      "
+      class="x-list__item--expand"
+    />
 
     <ColumnPicker v-slot="{ column }" :columns="columnsValues">
       <Grid2ColIcon v-if="column === 4" />

@@ -51,7 +51,7 @@
       "showAside": "Ordenar y Filtrar"
     },
     "totalResults": {
-      "message": "{totalResults} resultados"
+      "message": "{totalResults} resultados para <span class=\"x-text x-text--bold\">{query}</span>"
     },
     "sort": {
       "label": "Ordenar por"
@@ -67,6 +67,11 @@
     },
     "noResults": {
       "message": "No se han encontrado resultados para '{query}'. Prueba con otra búsqueda."
+    }
+  },
+  "mobile": {
+    "totalResults": {
+      "message": "{totalResults} resultados"
     }
   }
 }
