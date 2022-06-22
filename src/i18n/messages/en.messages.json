@@ -35,6 +35,9 @@
       "usage": "USAGE",
       "season": "SEASON"
     },
+    "facetsPanel": {
+      "title": "SORT & FILTER"
+    },
     "filters": {
       "all": "All"
     },

@@ -35,6 +35,9 @@
       "usage": "USO",
       "season": "TEMPORADA"
     },
+    "facetsPanel": {
+      "title": "ORDENAR & FILTRAR"
+    },
     "filters": {
       "all": "Todo"
     },

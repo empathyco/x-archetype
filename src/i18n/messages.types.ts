@@ -36,6 +36,9 @@ export interface Messages {
     usage: string;
     season: string;
   };
+  facetsPanel: {
+    title: string;
+  };
   filters: {
     all: string;
   };
