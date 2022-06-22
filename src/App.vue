@@ -91,4 +91,11 @@
       display: none;
     }
   }
+
+  // Full width predictive layer with position absolute
+  .x-layout--fixed-header-and-asides {
+    .x-empathize {
+      width: 100%;
+    }
+  }
 </style>
