@@ -51,7 +51,7 @@
       "showAside": "Sort & Filter"
     },
     "totalResults": {
-      "message": "{totalResults} num results for <span class=\"x-text x-text--bold\">{query}</span>"
+      "message": "{totalResults} results for <span class=\"x-text x-text--bold\">{query}</span>"
     },
     "sort": {
       "label": "Sort by"
