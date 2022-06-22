@@ -1,9 +1,13 @@
 <template>
-  <div class="x-list x-list--horizontal x-list--align-center x-list--gap-05">
+  <div class="x-list x-list--horizontal x-list--align-center">
     <span class="x-uppercase">{{ $t('columnPicker.message') }}</span>
 
-    <BaseColumnPickerList v-slot="{ column }" :columns="columnsValues">
-      <component :is="columnIcon(column)" class="x-icon--l" />
+    <BaseColumnPickerList v-slot="{ column }" :columns="values">
+      <component
+        :is="icon(column)"
+        class="x-icon--l x-padding--left-05"
+        :class="{ 'x-padding--right-05': icon(column) === 'Grid2ColIcon' }"
+      />
     </BaseColumnPickerList>
   </div>
 </template>
@@ -20,15 +24,15 @@
     }
   })
   export default class ColumnPicker extends Vue {
-    public get columnsValues(): number[] {
+    protected get values(): number[] {
       return this.$x.device === 'mobile' ? [2, 1] : [4, 2];
     }
 
-    columnIcon(column: number): unknown {
+    protected icon(column: number): string {
       if (this.$x.device === 'mobile') {
-        return column === 2 ? Grid2ColIcon : Grid1ColIcon;
+        return column === 2 ? 'Grid2ColIcon' : 'Grid1ColIcon';
       } else {
-        return column === 4 ? Grid2ColIcon : Grid1ColIcon;
+        return column === 4 ? 'Grid2ColIcon' : 'Grid1ColIcon';
       }
     }
   }
