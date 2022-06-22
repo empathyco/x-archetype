@@ -1,5 +1,5 @@
 <template>
-  <div class="x-input-group x-input-group--card">
+  <div class="x-input-group x-input-group--card x-border-color--lead">
     <SearchInput
       :placeholder="$t('searchBox.placeholder')"
       :class="$x.device === 'mobile' ? 'x-padding--left-05' : 'x-padding--left-08'"
