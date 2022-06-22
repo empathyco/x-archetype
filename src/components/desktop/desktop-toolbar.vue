@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="$x.totalResults"
-    class="x-list x-list--horizontal x-list--gap-06 x-list--justify-end x-list--align-center"
+    class="x-list x-list--horizontal x-list--gap-08 x-list--justify-end x-list--align-center"
     data-test="total-results"
   >
     <span
@@ -11,12 +11,7 @@
       class="x-list__item--expand"
     />
 
-    <span class="x-uppercase">{{ $t('columnPicker.message') }}</span>
-
-    <ColumnPicker v-slot="{ column }" :columns="columnsValues">
-      <Grid2ColIcon v-if="column === 4" />
-      <Grid1ColIcon v-if="column === 2" />
-    </ColumnPicker>
+    <ColumnPicker />
 
     <BaseIdModalOpen
       modalId="right-aside"
@@ -30,25 +25,16 @@
 </template>
 
 <script lang="ts">
-  import {
-    BaseColumnPickerList,
-    BaseIdModalOpen,
-    FiltersIcon,
-    Grid2ColIcon,
-    Grid1ColIcon
-  } from '@empathyco/x-components';
+  import { BaseIdModalOpen, FiltersIcon } from '@empathyco/x-components';
   import { Component, Vue } from 'vue-property-decorator';
+  import ColumnPicker from '../column-picker.vue';
 
   @Component({
     components: {
       BaseIdModalOpen,
-      ColumnPicker: BaseColumnPickerList,
       FiltersIcon,
-      Grid2ColIcon,
-      Grid1ColIcon
+      ColumnPicker
     }
   })
-  export default class DesktopToolbar extends Vue {
-    public columnsValues: number[] = [4, 2];
-  }
+  export default class DesktopToolbar extends Vue {}
 </script>

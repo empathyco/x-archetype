@@ -6,12 +6,7 @@
       {{ $t('totalResults.message', { totalResults: $x.totalResults }) }}
     </span>
 
-    <span class="x-uppercase">{{ $t('columnPicker.message') }}</span>
-
-    <ColumnPicker v-slot="{ column }" :columns="columnsValues">
-      <Grid2ColIcon v-if="column === 2" />
-      <Grid1ColIcon v-if="column === 1" />
-    </ColumnPicker>
+    <ColumnPicker />
 
     <EnvSelector />
   </div>
@@ -19,18 +14,14 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { BaseColumnPickerList, Grid2ColIcon, Grid1ColIcon } from '@empathyco/x-components';
   import EnvSelector from '../env-selector.vue';
+  import ColumnPicker from '../column-picker.vue';
 
   @Component({
     components: {
-      ColumnPicker: BaseColumnPickerList,
-      EnvSelector,
-      Grid2ColIcon,
-      Grid1ColIcon
+      ColumnPicker,
+      EnvSelector
     }
   })
-  export default class MobileToolbar extends Vue {
-    public columnsValues: number[] = [2, 1];
-  }
+  export default class MobileToolbar extends Vue {}
 </script>
