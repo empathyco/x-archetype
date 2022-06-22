@@ -1,6 +1,8 @@
 :root {
   // base colors
   --x-color-base-auxiliary: #d84022;
+  --x-color-base-lead: #243D48;
+  --x-color-base-neutral-10: #243D48;
   --x-color-base-neutral-70: #cfd4d7;
   --x-color-base-neutral-95: #f5f6f7;
 
@@ -27,4 +29,11 @@
   --x-color-text-message-default: var(--x-color-text-default);
   --x-size-border-width-message-default: var(--x-size-border-width-base);
   --x-space-padding-message: var(--x-size-base-06);
+
+  // Input
+  --x-color-background-button-default: var(--x-color-base-neutral-10);
+  --x-number-font-weight-input-group-default-button: var(--x-number-font-weight-base-regular);
+  --x-size-font-input-group-default: var(--x-size-font-base-m);
+  --x-size-gap-input-group-default: var(--x-size-base-05);
+  --x-size-height-input-group-default: var(--x-size-base-08);
 }
