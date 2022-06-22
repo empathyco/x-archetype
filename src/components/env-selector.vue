@@ -21,17 +21,14 @@
 
 <script lang="ts">
   import {
+    animateClipPath,
     BaseDropdown,
     CheckTinyIcon,
-    ChevronTinyDownIcon,
-    animateClipPath,
-    XOn
+    ChevronTinyDownIcon
   } from '@empathyco/x-components';
   import { RenderlessExtraParams } from '@empathyco/x-components/extra-params';
-  import { Dictionary } from '@empathyco/x-utils';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
-  import { adapter } from '../adapter/adapter';
 
   @Component({
     components: {
@@ -46,15 +43,5 @@
     protected animation = animateClipPath();
 
     protected defaultValue = 'staging';
-
-    // TODO: remove when Adapter refactored and stateless
-    @XOn('ExtraParamsChanged')
-    updateAdapterConfig(extraParams: Dictionary<unknown>): void {
-      if ('env' in extraParams) {
-        adapter.setConfig({
-          env: extraParams.env as 'live' | 'staging' | 'test'
-        });
-      }
-    }
   }
 </script>
