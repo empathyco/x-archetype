@@ -20,6 +20,19 @@
     >
       <FiltersIcon />
       <span>{{ $t('toggleAside.showAside') }}</span>
+      <span
+        v-if="$x.selectedFilters.length"
+        class="
+          x-background--accent
+          x-border-radius--20
+          x-padding--01 x-padding--right-03 x-padding--left-03
+          x-text--light
+          x-font-color--neutral-100
+          x-font-size--04
+        "
+      >
+        {{ $x.selectedFilters.length }}
+      </span>
     </BaseIdModalOpen>
   </div>
 </template>
