@@ -6,11 +6,8 @@
     "
     class="x-list"
   >
-    <BaseKeyboardNavigation
-      class="x-list x-list--gap-06 x-list__item--expand"
-      :class="$x.device === 'mobile' ? 'x-list--vertical' : 'x-list--horizontal'"
-    >
-      <div class="x-list x-list--vertical x-list--gap-06 x-list__item--expand x-flex-1">
+    <BaseKeyboardNavigation :class="$x.device === 'mobile' ? '' : 'x-row x-row--align-start'">
+      <div class="x-row__item x-row__item--span-5">
         <IdentifierResults
           v-slot="{ identifierResult }"
           :animation="suggestionsAnimation"
@@ -134,8 +131,8 @@
         </div>
       </div>
 
-      <div class="x-flex-1">
-        <Recommendations />
+      <div class="x-row__item x-row__item--start-6 x-row__item--span-7">
+        <CustomRecommendations />
       </div>
     </BaseKeyboardNavigation>
   </Empathize>
@@ -164,8 +161,7 @@
   import { QuerySuggestions } from '@empathyco/x-components/query-suggestions';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
-  import Result from './results/result.vue';
-  import Recommendations from './results/recommendations.vue';
+  import CustomRecommendations from './custom-recommendations.vue';
 
   @Component({
     components: {
@@ -185,8 +181,7 @@
       Nq4Icon,
       PopularSearches,
       QuerySuggestions,
-      Recommendations,
-      Result,
+      CustomRecommendations,
       SearchIcon,
       TrendingTinyIcon
     }
