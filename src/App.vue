@@ -91,4 +91,8 @@
       display: none;
     }
   }
+
+  .x-recommendations__item {
+    max-width: 142px;
+  }
 </style>

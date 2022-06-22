@@ -6,125 +6,136 @@
     "
     class="x-list"
   >
-    <BaseKeyboardNavigation class="x-list x-list--vertical x-list--gap-06 x-list__item--expand">
-      <IdentifierResults
-        #default="{ identifierResult }"
-        :animation="suggestionsAnimation"
-        class="x-row__item x-row__item--span-12 x-list x-list--gap-03"
-      >
-        <BaseResultLink #default="{ result }" :result="identifierResult" class="x-suggestion">
-          <BarCodeIcon />
-          <IdentifierResult :result="result" class="x-text x-text--bold" />
-          <span class="x-text x-text--bold x-ellipsis">
-            {{ result.name }}
-          </span>
-        </BaseResultLink>
-      </IdentifierResults>
-
-      <div
-        v-if="$x.historyQueries.length > 0"
-        class="x-row__item x-row__item--span-4 x-list x-list--gap-03 x-list--align-start"
-      >
-        <h1
-          v-if="!$x.query.searchBox"
-          class="
-            x-title3
-            x-text--bold x-text--secondary
-            x-list x-list--horizontal x-list--gap-03 x-list--align-center
-          "
-        >
-          <MinusIcon />
-          <span>{{ $t('historyQueries.title') }}</span>
-        </h1>
-
-        <HistoryQueries
+    <BaseKeyboardNavigation
+      class="x-list x-list--gap-06 x-list__item--expand"
+      :class="$x.device === 'mobile' ? 'x-list--vertical' : 'x-list--horizontal'"
+    >
+      <div class="x-list x-list--vertical x-list--gap-06 x-list__item--expand x-flex-1">
+        <IdentifierResults
+          v-slot="{ identifierResult }"
           :animation="suggestionsAnimation"
-          :max-items-to-render="$x.query.searchBox ? 2 : 4"
-          class="x-list x-list--gap-03"
+          class="x-row__item x-row__item--span-12 x-list x-list--gap-03"
         >
-          <template #suggestion-content="{ queryHTML }">
-            <HistoryIcon />
-            <span v-html="queryHTML" />
-          </template>
-
-          <template #suggestion-remove-content="{ suggestion }">
-            <span :aria-label="$t('historyQueries.removeLabel', { suggestion: suggestion.query })">
-              <CrossTinyIcon />
+          <BaseResultLink v-slot="{ result }" :result="identifierResult" class="x-suggestion">
+            <BarCodeIcon />
+            <IdentifierResult :result="result" class="x-text x-text--bold" />
+            <span class="x-text x-text--bold x-ellipsis">
+              {{ result.name }}
             </span>
-          </template>
-        </HistoryQueries>
+          </BaseResultLink>
+        </IdentifierResults>
 
-        <ClearHistoryQueries
-          v-if="!$x.query.searchBox"
-          class="x-button--ghost x-button--ghost-start"
+        <div
+          v-if="$x.historyQueries.length > 0"
+          class="x-row__item x-row__item--span-4 x-list x-list--gap-03 x-list--align-start"
         >
-          <CrossTinyIcon />
-          <span>{{ $t('historyQueries.clear') }}</span>
-        </ClearHistoryQueries>
+          <h1
+            v-if="!$x.query.searchBox"
+            class="
+              x-title3
+              x-text--bold x-text--secondary
+              x-list x-list--horizontal x-list--gap-03 x-list--align-center
+            "
+          >
+            <MinusIcon />
+            <span>{{ $t('historyQueries.title') }}</span>
+          </h1>
+
+          <HistoryQueries
+            :animation="suggestionsAnimation"
+            :max-items-to-render="$x.query.searchBox ? 2 : 4"
+            class="x-list x-list--gap-03"
+          >
+            <template #suggestion-content="{ queryHTML }">
+              <HistoryIcon />
+              <span v-html="queryHTML" />
+            </template>
+
+            <template #suggestion-remove-content="{ suggestion }">
+              <span
+                :aria-label="$t('historyQueries.removeLabel', { suggestion: suggestion.query })"
+              >
+                <CrossTinyIcon />
+              </span>
+            </template>
+          </HistoryQueries>
+
+          <ClearHistoryQueries
+            v-if="!$x.query.searchBox"
+            class="x-button--ghost x-button--ghost-start"
+          >
+            <CrossTinyIcon />
+            <span>{{ $t('historyQueries.clear') }}</span>
+          </ClearHistoryQueries>
+        </div>
+
+        <QuerySuggestions
+          v-if="$x.query.searchBox && $x.identifierResults.length === 0"
+          #suggestion-content="{ queryHTML }"
+          :animation="suggestionsAnimation"
+          :max-items-to-render="5"
+          class="x-row__item x-row__item--span-4 x-list x-list--gap-03"
+        >
+          <SearchIcon />
+          <span v-html="queryHTML" />
+        </QuerySuggestions>
+
+        <div
+          v-if="$x.nextQueries.length > 0 && $x.identifierResults.length === 0"
+          class="x-row__item x-row__item--span-4 x-list x-list--gap-03"
+        >
+          <h1
+            class="
+              x-title3
+              x-text--bold x-text--secondary
+              x-list x-list--horizontal x-list--gap-03 x-list--align-center
+            "
+          >
+            <MinusIcon />
+            <span>{{ $t('nextQueries.title') }}</span>
+          </h1>
+          <NextQueries
+            :animation="suggestionsAnimation"
+            :max-items-to-render="3"
+            class="x-list x-list--gap-03"
+          >
+            <template #suggestion-content="{ suggestion }">
+              <CuratedCheckIcon v-if="suggestion.isCurated" />
+              <Nq4Icon v-else />
+              <span>{{ suggestion.query }}</span>
+            </template>
+          </NextQueries>
+        </div>
+
+        <div
+          v-if="$x.popularSearches.length > 0 && !$x.query.searchBox"
+          class="x-row__item x-row__item--span-4 x-list x-list--gap-03"
+        >
+          <h1
+            class="
+              x-title3
+              x-text--bold x-text--secondary
+              x-list x-list--horizontal x-list--gap-03 x-list--align-center
+            "
+          >
+            <MinusIcon />
+            <span>{{ $t('popularSearches.title') }}</span>
+          </h1>
+          <PopularSearches
+            :animation="suggestionsAnimation"
+            :max-items-to-render="4"
+            class="x-list x-list--gap-03"
+          >
+            <template #suggestion-content="{ suggestion }">
+              <TrendingTinyIcon />
+              <span>{{ suggestion.query }}</span>
+            </template>
+          </PopularSearches>
+        </div>
       </div>
 
-      <QuerySuggestions
-        v-if="$x.query.searchBox && $x.identifierResults.length === 0"
-        #suggestion-content="{ queryHTML }"
-        :animation="suggestionsAnimation"
-        :max-items-to-render="5"
-        class="x-row__item x-row__item--span-4 x-list x-list--gap-03"
-      >
-        <SearchIcon />
-        <span v-html="queryHTML" />
-      </QuerySuggestions>
-
-      <div
-        v-if="$x.nextQueries.length > 0 && $x.identifierResults.length === 0"
-        class="x-row__item x-row__item--span-4 x-list x-list--gap-03"
-      >
-        <h1
-          class="
-            x-title3
-            x-text--bold x-text--secondary
-            x-list x-list--horizontal x-list--gap-03 x-list--align-center
-          "
-        >
-          <MinusIcon />
-          <span>{{ $t('nextQueries.title') }}</span>
-        </h1>
-        <NextQueries
-          :animation="suggestionsAnimation"
-          :max-items-to-render="3"
-          class="x-list x-list--gap-03"
-        >
-          <template #suggestion-content="{ suggestion }">
-            <CuratedCheckIcon v-if="suggestion.isCurated" />
-            <Nq4Icon v-else />
-            <span>{{ suggestion.query }}</span>
-          </template>
-        </NextQueries>
-      </div>
-
-      <div
-        v-if="$x.popularSearches.length > 0 && !$x.query.searchBox"
-        class="x-row__item x-row__item--span-4 x-list x-list--gap-03"
-      >
-        <h1
-          class="
-            x-title3
-            x-text--bold x-text--secondary
-            x-list x-list--horizontal x-list--gap-03 x-list--align-center
-          "
-        >
-          <MinusIcon />
-          <span>{{ $t('popularSearches.title') }}</span>
-        </h1>
-        <PopularSearches
-          :animation="suggestionsAnimation"
-          :max-items-to-render="4"
-          class="x-list x-list--gap-03"
-        >
-          <template #suggestion-content="{ suggestion }">
-            <TrendingTinyIcon />
-            <span>{{ suggestion.query }}</span>
-          </template>
-        </PopularSearches>
+      <div class="x-flex-1">
+        <Recommendations />
       </div>
     </BaseKeyboardNavigation>
   </Empathize>
@@ -153,6 +164,8 @@
   import { QuerySuggestions } from '@empathyco/x-components/query-suggestions';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
+  import Result from './results/result.vue';
+  import Recommendations from './results/recommendations.vue';
 
   @Component({
     components: {
@@ -172,6 +185,8 @@
       Nq4Icon,
       PopularSearches,
       QuerySuggestions,
+      Recommendations,
+      Result,
       SearchIcon,
       TrendingTinyIcon
     }
