@@ -6,8 +6,11 @@
     "
     class="x-list"
   >
-    <BaseKeyboardNavigation :class="$x.device === 'mobile' ? '' : 'x-row x-row--align-start'">
-      <div class="x-row__item x-row__item--span-5">
+    <BaseKeyboardNavigation class="x-row x-row--gap-04 x-row--align-start">
+      <div
+        class="x-row__item"
+        :class="$x.device === 'mobile' ? 'x-row__item--span-12' : 'x-row__item--span-5'"
+      >
         <IdentifierResults
           v-slot="{ identifierResult }"
           :animation="suggestionsAnimation"
@@ -131,7 +134,14 @@
         </div>
       </div>
 
-      <div class="x-row__item x-row__item--start-6 x-row__item--span-7">
+      <div
+        class="x-row__item"
+        :class="
+          $x.device === 'mobile'
+            ? 'x-row__item--span-12'
+            : 'x-row__item--start-6 x-row__item--span-7'
+        "
+      >
         <CustomRecommendations />
       </div>
     </BaseKeyboardNavigation>
