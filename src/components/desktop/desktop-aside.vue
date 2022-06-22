@@ -9,7 +9,7 @@
       "
     >
       <span class="x-title2 x-font-color--neutral-10 x-font-weight--bold x-margin--right-auto">
-        {{ $t('facets.title') }}
+        {{ $t('facetsPanel.title') }}
       </span>
       <BaseIdModalClose class="x-button--ghost x-button--ghost-end" modalId="right-aside">
         <CrossIcon class="x-icon--m x-font-color--neutral-10" />
