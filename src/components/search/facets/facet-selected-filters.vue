@@ -19,9 +19,7 @@
   import { FacetFilter } from '@empathyco/x-types';
   import { Component, Prop, Vue } from 'vue-property-decorator';
 
-  @Component({
-    components: {}
-  })
+  @Component
   export default class FacetSelectedFilters extends Vue {
     @Prop({ required: true })
     public selectedFilters!: FacetFilter[];
