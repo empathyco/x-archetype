@@ -81,7 +81,7 @@
   import EnvSelector from '../env-selector.vue';
   import Logo from '../logo.vue';
   import Main from '../main.vue';
-  import PredictiveLayer from '../predictive-layer.vue';
+  import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import SearchBox from '../search-box.vue';
   import HasSearchedMixin from '../has-searched.mixin';

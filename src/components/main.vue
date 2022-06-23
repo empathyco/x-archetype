@@ -26,9 +26,6 @@
         </LocationProvider>
       </template>
     </template>
-    <LocationProvider v-if="!$x.query.search" location="no_query">
-      <Recommendations />
-    </LocationProvider>
   </div>
 </template>
 

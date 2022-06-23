@@ -98,4 +98,8 @@
       width: 100%;
     }
   }
+
+  .x-recommendations__item {
+    max-width: 142px;
+  }
 </style>
