@@ -38,6 +38,7 @@ export interface Messages {
   };
   facetsPanel: {
     title: string;
+    viewResults: string;
   };
   filters: {
     all: string;

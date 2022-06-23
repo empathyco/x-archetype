@@ -36,7 +36,8 @@
       "season": "SEASON"
     },
     "facetsPanel": {
-      "title": "SORT & FILTER"
+      "title": "SORT & FILTER",
+      "viewResults": "VIEW {totalResults} RESULTS"
     },
     "filters": {
       "all": "All"

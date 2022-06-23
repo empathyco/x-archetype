@@ -3,12 +3,12 @@
     <template #default="{ facet }">
       <CustomHeaderTogglePanel :data-test="facet.label">
         <template #header>
-          <span>{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="x-font-size--05 x-font-weight--bold">{{ $t(`facets.${facet.label}`) }}</span>
         </template>
         <template #default>
           <AllFilter v-slot="{ isSelected }" :facet="facet">
-            <CheckboxCardSelectedIcon v-if="isSelected" />
-            <CheckboxCardUnselectedIcon v-else />
+            <CheckboxCardSelectedIcon v-if="isSelected" class="x-icon--l" />
+            <CheckboxCardUnselectedIcon v-else class="x-icon--l" />
             <span>{{ $t('filters.all') }}</span>
           </AllFilter>
 
@@ -20,8 +20,8 @@
             >
               <SimpleFilter :filter="filter">
                 <template #label>
-                  <CheckboxCardSelectedIcon v-if="filter.selected" />
-                  <CheckboxCardUnselectedIcon v-else />
+                  <CheckboxCardSelectedIcon v-if="filter.selected" class="x-icon--l" />
+                  <CheckboxCardUnselectedIcon v-else class="x-icon--l" />
                   <span class="x-filter__label">{{ filter.label }}</span>
                   <span class="x-filter__count">({{ filter.totalResults }})</span>
                 </template>
@@ -35,12 +35,12 @@
     <template #category-paths="{ facet }">
       <CustomHeaderTogglePanel :data-test="facet.label">
         <template #header>
-          <span>{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="x-font-size--05 x-font-weight--bold">{{ $t(`facets.${facet.label}`) }}</span>
         </template>
         <template #default>
           <AllFilter v-slot="{ isSelected }" :facet="facet">
-            <CheckboxCardSelectedIcon v-if="isSelected" />
-            <CheckboxCardUnselectedIcon v-else />
+            <CheckboxCardSelectedIcon v-if="isSelected" class="x-icon--l" />
+            <CheckboxCardUnselectedIcon v-else class="x-icon--l" />
             <span>{{ $t('filters.all') }}</span>
           </AllFilter>
 
@@ -52,8 +52,8 @@
           >
             <HierarchicalFilter :filter="filter">
               <template #label="{ filter }">
-                <CheckboxCardSelectedIcon v-if="filter.selected" />
-                <CheckboxCardUnselectedIcon v-else />
+                <CheckboxCardSelectedIcon v-if="filter.selected" class="x-icon--l" />
+                <CheckboxCardUnselectedIcon v-else class="x-icon--l" />
                 <span class="x-filter__label">{{ filter.label }}</span>
                 <span class="x-filter__count">({{ filter.totalResults }})</span>
               </template>
@@ -66,7 +66,7 @@
     <template #usage="{ facet }">
       <CustomHeaderTogglePanel :data-test="facet.label">
         <template #header>
-          <span>{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="x-font-size--05 x-font-weight--bold">{{ $t(`facets.${facet.label}`) }}</span>
         </template>
         <template #default>
           <SlicedFilters :max="8">
@@ -77,8 +77,8 @@
             >
               <SimpleFilter :filter="filter">
                 <template #label>
-                  <CheckboxCardSelectedIcon v-if="filter.selected" />
-                  <CheckboxCardUnselectedIcon v-else />
+                  <CheckboxCardSelectedIcon v-if="filter.selected" class="x-icon--l" />
+                  <CheckboxCardUnselectedIcon v-else class="x-icon--l" />
                   <span class="x-filter__label">{{ filter.label }}</span>
                   <span class="x-filter__count">({{ filter.totalResults }})</span>
                 </template>
@@ -92,7 +92,7 @@
     <template #price="{ facet }">
       <CustomHeaderTogglePanel :data-test="facet.label">
         <template #header>
-          <span>{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="x-font-size--05 x-font-weight--bold">{{ $t(`facets.${facet.label}`) }}</span>
         </template>
         <template #default>
           <FiltersList
@@ -103,8 +103,8 @@
           >
             <NumberRangeFilter :filter="filter">
               <template #label>
-                <CheckboxCardSelectedIcon v-if="filter.selected" />
-                <CheckboxCardUnselectedIcon v-else />
+                <CheckboxCardSelectedIcon v-if="filter.selected" class="x-icon--l" />
+                <CheckboxCardUnselectedIcon v-else class="x-icon--l" />
                 <PriceFilterLabel :filter="filter" />
               </template>
             </NumberRangeFilter>

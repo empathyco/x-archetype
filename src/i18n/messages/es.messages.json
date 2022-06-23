@@ -36,7 +36,8 @@
       "season": "TEMPORADA"
     },
     "facetsPanel": {
-      "title": "ORDENAR & FILTRAR"
+      "title": "ORDENAR & FILTRAR",
+      "viewResults": "VER {totalResults} RESULTADOS"
     },
     "filters": {
       "all": "Todo"
