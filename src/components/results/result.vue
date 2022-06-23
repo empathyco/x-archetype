@@ -18,15 +18,12 @@
       </BaseAddToCart>
     </div>
 
-    <BaseResultLink class="x-result__description x-list x-list--gap-04" :result="result">
-      <div class="x-list x-list--gap-02">
-        <h1 class="x-small x-text--bold">{{ result.season }}</h1>
-        <h2 class="x-text x-text--secondary x-ellipsis" data-test="result-title">
-          {{ result.name }}
-        </h2>
-      </div>
-
-      <BaseResultCurrentPrice :result="result" class="x-text x-text--accent x-text--bold" />
+    <BaseResultLink class="x-result__description x-list x-list--gap-02" :result="result">
+      <h1 class="x-small x-uppercase">{{ result.season }}</h1>
+      <h2 class="x-text x-ellipsis" data-test="result-title">
+        {{ result.name }}
+      </h2>
+      <BaseResultCurrentPrice :result="result" class="x-text x-text--bold" />
     </BaseResultLink>
   </MainScrollItem>
 </template>
