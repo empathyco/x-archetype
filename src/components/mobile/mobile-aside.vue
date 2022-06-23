@@ -2,12 +2,9 @@
   <div
     v-if="$x.totalResults > 0"
     class="
-      x-list
-      x-list--vertical
-      x-list__item--expand
-      x-list--padding-05
-      x-list--padding-left
-      x-list--padding-right
+      x-list x-list--vertical x-list__item--expand
+      x-padding--05
+      x-list--padding-left x-list--padding-right
     "
   >
     <BaseScroll class="x-list__item--expand">
