@@ -41,4 +41,9 @@
   --x-size-font-input-group-default: var(--x-size-font-base-m);
   --x-size-gap-input-group-default: var(--x-size-base-05);
   --x-size-height-input-group-default: var(--x-size-base-08);
+
+  // Button
+  --x-color-background-button-tertiary: rgba(255, 255, 255, 0.85);
+  --x-color-text-button-tertiary: var(--x-color-base-lead);
+  --x-size-border-width-button-tertiary: 0;
 }

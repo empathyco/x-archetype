@@ -12,8 +12,10 @@
     </BaseResultLink>
 
     <div class="x-result__overlay x-list x-list--horizontal">
-      <BaseAddToCart :result="result" class="x-list__item--expand">
-        <CartIcon />
+      <BaseAddToCart
+        :result="result"
+        class="x-list__item--expand x-button--pill x-button--tertiary x-margin--05"
+      >
         <span>{{ $t('result.addToCart') }}</span>
       </BaseAddToCart>
     </div>
