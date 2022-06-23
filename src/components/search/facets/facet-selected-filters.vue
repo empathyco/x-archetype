@@ -6,8 +6,8 @@
         x-small
         x-background--accent
         x-font-color--neutral-100
-        x-border-radius--pill
-        x-padding--left-04 x-padding--right-04 x-padding--top-01 x-padding--bottom-01
+        x-border-radius--20
+        x-padding--01 x-padding--right-03 x-padding--left-03
       "
     >
       {{ selectedFilters.length }}
