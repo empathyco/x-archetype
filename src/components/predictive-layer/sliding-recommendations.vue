@@ -39,5 +39,5 @@
       SlidingPanel
     }
   })
-  export default class CustomRecommendations extends Vue {}
+  export default class SlidingRecommendations extends Vue {}
 </script>

@@ -134,16 +134,14 @@
         </div>
       </div>
 
-      <div
+      <SlidingRecommendations
         class="x-row__item"
         :class="
           $x.device === 'mobile'
             ? 'x-row__item--span-12'
             : 'x-row__item--start-6 x-row__item--span-7'
         "
-      >
-        <CustomRecommendations />
-      </div>
+      />
     </BaseKeyboardNavigation>
   </Empathize>
 </template>
@@ -171,7 +169,7 @@
   import { QuerySuggestions } from '@empathyco/x-components/query-suggestions';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
-  import CustomRecommendations from './custom-recommendations.vue';
+  import SlidingRecommendations from './sliding-recommendations.vue';
 
   @Component({
     components: {
@@ -191,7 +189,7 @@
       Nq4Icon,
       PopularSearches,
       QuerySuggestions,
-      CustomRecommendations,
+      SlidingRecommendations,
       SearchIcon,
       TrendingTinyIcon
     }
