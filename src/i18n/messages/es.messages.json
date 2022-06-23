@@ -61,7 +61,7 @@
       "label": "Ordenar por"
     },
     "selectedFilters": {
-      "clear": "Limpiar { selectedFiltersNumber } filtros"
+      "clear": "Limpiar {selectedFiltersNumber} filtros"
     },
     "result": {
       "addToCart": "AÑADIR AL CARRITO"

@@ -1,5 +1,9 @@
 <template>
-  <BaseHeaderTogglePanel class="x-facet" :startCollapsed="true" :animation="animation">
+  <BaseHeaderTogglePanel
+    class="x-facet x-list x-list--gap-05"
+    :startCollapsed="true"
+    :animation="animation"
+  >
     <template #header-content="{ open }">
       <slot name="header" />
       <ChevronUpIcon v-if="open" class="x-icon--l" />

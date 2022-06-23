@@ -12,7 +12,7 @@
         {{ $t('facetsPanel.title') }}
       </span>
       <BaseIdModalClose class="x-button--ghost x-button--ghost-end" modalId="right-aside">
-        <CrossIcon class="x-icon--m x-font-color--neutral-10" />
+        <CrossTinyIcon class="x-icon--l x-font-color--neutral-10" />
       </BaseIdModalClose>
     </div>
     <div class="x-scroll x-list__item--expand x-padding--08">
@@ -57,7 +57,7 @@
 </template>
 
 <script lang="ts">
-  import { BaseIdModalClose, CrossIcon } from '@empathyco/x-components';
+  import { BaseIdModalClose, CrossTinyIcon } from '@empathyco/x-components';
   import { Component, Vue } from 'vue-property-decorator';
   import { ClearFilters } from '@empathyco/x-components/facets';
   import CustomFacets from '../search/facets/custom-facets.vue';
@@ -68,7 +68,7 @@
       CustomFacets,
       Sort,
       BaseIdModalClose,
-      CrossIcon,
+      CrossTinyIcon,
       ClearFilters
     }
   })

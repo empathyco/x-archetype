@@ -1,7 +1,14 @@
 <template>
   <Facets>
     <template #default="{ facet, selectedFilters }">
-      <CustomHeaderTogglePanel :data-test="facet.label">
+      <CustomHeaderTogglePanel
+        :data-test="facet.label"
+        class="
+          x-border-width--bottom-01 x-border-width--00
+          x-border-color--neutral-95
+          x-padding--bottom-04
+        "
+      >
         <template #header>
           <span class="x-font-size--05 x-font-weight--bold">{{ $t(`facets.${facet.label}`) }}</span>
           <FacetSelectedFilters :selectedFilters="selectedFilters" />
@@ -34,7 +41,14 @@
     </template>
 
     <template #category-paths="{ facet, selectedFilters }">
-      <CustomHeaderTogglePanel :data-test="facet.label">
+      <CustomHeaderTogglePanel
+        :data-test="facet.label"
+        class="
+          x-border-width--bottom-01 x-border-width--00
+          x-border-color--neutral-95
+          x-padding--bottom-04
+        "
+      >
         <template #header>
           <span class="x-font-size--05 x-font-weight--bold">{{ $t(`facets.${facet.label}`) }}</span>
           <FacetSelectedFilters :selectedFilters="selectedFilters" />
@@ -66,7 +80,14 @@
     </template>
 
     <template #usage="{ facet, selectedFilters }">
-      <CustomHeaderTogglePanel :data-test="facet.label">
+      <CustomHeaderTogglePanel
+        :data-test="facet.label"
+        class="
+          x-border-width--bottom-01 x-border-width--00
+          x-border-color--neutral-95
+          x-padding--bottom-04
+        "
+      >
         <template #header>
           <span class="x-font-size--05 x-font-weight--bold">{{ $t(`facets.${facet.label}`) }}</span>
           <FacetSelectedFilters :selectedFilters="selectedFilters" />
@@ -93,7 +114,14 @@
     </template>
 
     <template #price="{ facet, selectedFilters }">
-      <CustomHeaderTogglePanel :data-test="facet.label">
+      <CustomHeaderTogglePanel
+        :data-test="facet.label"
+        class="
+          x-border-width--bottom-01 x-border-width--00
+          x-border-color--neutral-95
+          x-padding--bottom-04
+        "
+      >
         <template #header>
           <span class="x-font-size--05 x-font-weight--bold">{{ $t(`facets.${facet.label}`) }}</span>
           <FacetSelectedFilters :selectedFilters="selectedFilters" />

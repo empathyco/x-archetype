@@ -1,5 +1,12 @@
 <template>
-  <CustomHeaderTogglePanel :data-test="'sort'">
+  <CustomHeaderTogglePanel
+    :data-test="'sort'"
+    class="
+      x-border-width--bottom-01 x-border-width--00
+      x-border-color--neutral-95
+      x-padding--bottom-04
+    "
+  >
     <template #header>
       <span class="x-font-size--05 x-font-weight--bold x-padding--bottom-02">Sort by</span>
       {{ $x.selectedSort || 'Default' }}
