@@ -11,7 +11,7 @@
         <ChevronLeftIcon class="x-icon--l" />
       </template>
 
-      <Recommendations v-if="!$x.totalResults">
+      <Recommendations>
         <template #default="{ recommendation }">
           <Result :result="recommendation" data-test="recommendation-item" />
         </template>
