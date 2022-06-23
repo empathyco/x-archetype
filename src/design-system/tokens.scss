@@ -1,7 +1,7 @@
 :root {
   // base colors
   --x-color-base-auxiliary: #d84022;
-  --x-color-base-accent: #0086B2;
+  --x-color-base-accent: #0086b2;
   --x-color-base-lead: #243d48;
   --x-color-base-neutral-10: #243d48;
   --x-color-base-neutral-70: #cfd4d7;
@@ -52,4 +52,9 @@
 
   // Options list
   --x-size-border-width-right-option-list-item-default: 0px;
+
+  // Modal overlay
+  .x-modal__overlay {
+    background-color: rgba(36, 60, 71, 0.58) !important;
+  }
 }

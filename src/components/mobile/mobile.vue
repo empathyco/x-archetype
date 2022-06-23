@@ -1,5 +1,5 @@
 <template>
-  <SingleColumnLayout>
+  <SingleColumnLayout :asideAnimation="animation">
     <template #header>
       <div
         class="
@@ -48,33 +48,7 @@
     </template>
 
     <template v-if="hasSearched" #aside>
-      <div
-        v-if="$x.totalResults > 0"
-        class="
-          x-list
-          x-list--vertical
-          x-list__item--expand
-          x-list--padding-03
-          x-list--padding-left
-          x-list--padding-right
-        "
-      >
-        <BaseScroll class="x-list__item--expand">
-          <Sort class="x-list--padding-04 x-list--padding-bottom" />
-          <CustomFacets class="x-list--gap-06 x-list--padding-04 x-list--padding-bottom" />
-        </BaseScroll>
-        <SelectedFilters
-          v-if="$x.selectedFilters.length"
-          class="
-            x-list x-list--gap-05 x-list--padding-04 x-list--padding-bottom
-            x-border-width--top-01
-            x-padding--top-03
-          "
-        />
-        <div class="x-list x-list--padding-03 x-list--padding-bottom">
-          <MobileCloseAside />
-        </div>
-      </div>
+      <MobileAside />
     </template>
   </SingleColumnLayout>
 </template>
@@ -88,7 +62,8 @@
     BaseScroll,
     FiltersIcon,
     SingleColumnLayout,
-    LocationProvider
+    LocationProvider,
+    animateTranslate
   } from '@empathyco/x-components';
   import { Component } from 'vue-property-decorator';
   import Main from '../main.vue';
@@ -117,13 +92,13 @@
       ScrollToTop,
       SearchBox,
       SingleColumnLayout,
-      Sort: () => import('../search').then(m => m.Sort),
-      RelatedTags: () => import('../search').then(m => m.RelatedTags),
-      SelectedFilters: () => import('../search').then(m => m.SelectedFilters),
-      CustomFacets: () => import('../search').then(m => m.CustomFacets)
+      MobileAside: () => import('./mobile-aside.vue'),
+      RelatedTags: () => import('../search').then(m => m.RelatedTags)
     }
   })
-  export default class Mobile extends HasSearchedMixin {}
+  export default class Mobile extends HasSearchedMixin {
+    public animation = animateTranslate('bottom');
+  }
 </script>
 
 <style lang="scss"></style>
