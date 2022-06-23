@@ -61,7 +61,7 @@
       >
         <BaseScroll class="x-list__item--expand">
           <Sort class="x-list--padding-04 x-list--padding-bottom" />
-          <Facets class="x-list--gap-06 x-list--padding-04 x-list--padding-bottom" />
+          <CustomFacets class="x-list--gap-06 x-list--padding-04 x-list--padding-bottom" />
         </BaseScroll>
         <SelectedFilters
           v-if="$x.selectedFilters.length"
@@ -120,7 +120,7 @@
       Sort: () => import('../search').then(m => m.Sort),
       RelatedTags: () => import('../search').then(m => m.RelatedTags),
       SelectedFilters: () => import('../search').then(m => m.SelectedFilters),
-      Facets: () => import('../search').then(m => m.Facets)
+      CustomFacets: () => import('../search').then(m => m.CustomFacets)
     }
   })
   export default class Mobile extends HasSearchedMixin {}

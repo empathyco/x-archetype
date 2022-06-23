@@ -17,7 +17,7 @@
     </div>
     <div class="x-scroll x-list__item--expand x-padding--08">
       <Sort />
-      <Facets
+      <CustomFacets
         v-if="$x.totalResults > 0"
         class="x-list--gap-06 x-list--padding-05 x-list--padding-top"
       />
@@ -60,12 +60,12 @@
   import { BaseIdModalClose, CrossIcon } from '@empathyco/x-components';
   import { Component, Vue } from 'vue-property-decorator';
   import { ClearFilters } from '@empathyco/x-components/facets';
-  import Facets from '../search/facets/facets.vue';
+  import CustomFacets from '../search/facets/custom-facets.vue';
   import Sort from '../search/sort.vue';
 
   @Component({
     components: {
-      Facets,
+      CustomFacets,
       Sort,
       BaseIdModalClose,
       CrossIcon,

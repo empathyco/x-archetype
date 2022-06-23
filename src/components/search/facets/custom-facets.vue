@@ -163,7 +163,7 @@
       FacetSelectedFilters
     }
   })
-  export default class FacetsComponent extends Vue {
+  export default class CustomFacets extends Vue {
     protected staggeredFadeAndSlide = StaggeredFadeAndSlide;
   }
 </script>
