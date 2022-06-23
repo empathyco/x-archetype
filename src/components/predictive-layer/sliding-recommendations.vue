@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!$x.query.searchBox && $x.recommendations.length > 0" class="x-list x-list--gap-04">
+  <div v-if="$x.recommendations.length > 0" class="x-list x-list--gap-04">
     <h1 class="x-title3 x-text--bold">{{ $t('recommendations.title') }}</h1>
     <SlidingPanel
       class="x-sliding-panel--show-buttons-on-hover"

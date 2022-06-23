@@ -135,6 +135,7 @@
       </div>
 
       <SlidingRecommendations
+        v-if="!$x.query.searchBox"
         class="x-row__item"
         :class="
           $x.device === 'mobile'
