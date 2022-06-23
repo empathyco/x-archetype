@@ -65,7 +65,11 @@
         </BaseScroll>
         <SelectedFilters
           v-if="$x.selectedFilters.length"
-          class="x-list x-list--gap-05 x-list--padding-04 x-list--padding-bottom"
+          class="
+            x-list x-list--gap-05 x-list--padding-04 x-list--padding-bottom
+            x-border-width--top-01
+            x-padding--top-03
+          "
         />
         <div class="x-list x-list--padding-03 x-list--padding-bottom">
           <MobileCloseAside />

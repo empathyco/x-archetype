@@ -52,7 +52,7 @@
     },
     "toggleAside": {
       "hideAside": "Ocultar Filtros",
-      "showAside": "Mostrar Filtros"
+      "showAside": "Ordenar & filtrar"
     },
     "totalResults": {
       "message": "{totalResults} resultados"
