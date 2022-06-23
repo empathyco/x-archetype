@@ -73,4 +73,7 @@ export interface Messages {
   noResults: {
     message: string;
   };
+  columnPicker: {
+    message: string;
+  };
 }

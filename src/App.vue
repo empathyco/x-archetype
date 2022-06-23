@@ -91,4 +91,15 @@
       display: none;
     }
   }
+
+  // Full width predictive layer with position absolute
+  .x-layout--fixed-header-and-asides {
+    .x-empathize {
+      width: 100%;
+    }
+  }
+
+  .x-recommendations__item {
+    max-width: 142px;
+  }
 </style>

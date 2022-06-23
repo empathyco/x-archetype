@@ -9,11 +9,12 @@
         <div
           class="x-list x-list--vertical x-list--gap-05 x-list--align-stretch x-list__item--expand"
         >
-          <SearchBox />
-
-          <LocationProvider location="predictive_layer">
-            <PredictiveLayer />
-          </LocationProvider>
+          <div class="x-relative">
+            <SearchBox />
+            <LocationProvider location="predictive_layer">
+              <PredictiveLayer class="x-absolute x-background--neutral-100 x-shadow--04" />
+            </LocationProvider>
+          </div>
           <LocationProvider location="predictive_layer">
             <RelatedTags v-if="!$x.isEmpathizeOpen && $x.relatedTags.length > 0" />
           </LocationProvider>
@@ -74,7 +75,7 @@
   import EnvSelector from '../env-selector.vue';
   import Logo from '../logo.vue';
   import Main from '../main.vue';
-  import PredictiveLayer from '../predictive-layer.vue';
+  import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import SearchBox from '../search-box.vue';
   import HasSearchedMixin from '../has-searched.mixin';
