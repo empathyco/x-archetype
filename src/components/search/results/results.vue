@@ -3,7 +3,7 @@
     <BannersList>
       <PromotedsList>
         <NextQueriesList>
-          <component :is="grid" :columns="2" class="x-grid" :animation="staggeredFadeAndSlide">
+          <BaseVariableColumnGrid class="x-grid" :animation="staggeredFadeAndSlide">
             <template #result="{ item: result }">
               <Result :result="result" data-test="search-grid-result" />
             </template>
@@ -20,7 +20,7 @@
             <template #next-queries-group="{ item: { nextQueries } }">
               <NextQueriesGroup :nextQueries="nextQueries" />
             </template>
-          </component>
+          </BaseVariableColumnGrid>
         </NextQueriesList>
       </PromotedsList>
     </BannersList>
@@ -29,7 +29,6 @@
 
 <script lang="ts">
   import {
-    BaseGrid,
     BaseVariableColumnGrid,
     infiniteScroll,
     StaggeredFadeAndSlide
@@ -52,7 +51,6 @@
     components: {
       Banner,
       BannersList,
-      BaseGrid,
       BaseVariableColumnGrid,
       MainScrollItem,
       NextQueriesGroup,
@@ -68,8 +66,5 @@
   })
   export default class Results extends Vue {
     protected staggeredFadeAndSlide = StaggeredFadeAndSlide;
-    protected get grid(): string {
-      return this.$x.device === 'mobile' ? 'BaseGrid' : 'BaseVariableColumnGrid';
-    }
   }
 </script>
