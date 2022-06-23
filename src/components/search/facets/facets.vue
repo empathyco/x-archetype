@@ -1,9 +1,10 @@
 <template>
   <Facets>
-    <template #default="{ facet }">
+    <template #default="{ facet, selectedFilters }">
       <CustomHeaderTogglePanel :data-test="facet.label">
         <template #header>
           <span class="x-font-size--05 x-font-weight--bold">{{ $t(`facets.${facet.label}`) }}</span>
+          <FacetSelectedFilters :selectedFilters="selectedFilters" />
         </template>
         <template #default>
           <AllFilter v-slot="{ isSelected }" :facet="facet">
@@ -32,10 +33,11 @@
       </CustomHeaderTogglePanel>
     </template>
 
-    <template #category-paths="{ facet }">
+    <template #category-paths="{ facet, selectedFilters }">
       <CustomHeaderTogglePanel :data-test="facet.label">
         <template #header>
           <span class="x-font-size--05 x-font-weight--bold">{{ $t(`facets.${facet.label}`) }}</span>
+          <FacetSelectedFilters :selectedFilters="selectedFilters" />
         </template>
         <template #default>
           <AllFilter v-slot="{ isSelected }" :facet="facet">
@@ -63,10 +65,11 @@
       </CustomHeaderTogglePanel>
     </template>
 
-    <template #usage="{ facet }">
+    <template #usage="{ facet, selectedFilters }">
       <CustomHeaderTogglePanel :data-test="facet.label">
         <template #header>
           <span class="x-font-size--05 x-font-weight--bold">{{ $t(`facets.${facet.label}`) }}</span>
+          <FacetSelectedFilters :selectedFilters="selectedFilters" />
         </template>
         <template #default>
           <SlicedFilters :max="8">
@@ -89,10 +92,11 @@
       </CustomHeaderTogglePanel>
     </template>
 
-    <template #price="{ facet }">
+    <template #price="{ facet, selectedFilters }">
       <CustomHeaderTogglePanel :data-test="facet.label">
         <template #header>
           <span class="x-font-size--05 x-font-weight--bold">{{ $t(`facets.${facet.label}`) }}</span>
+          <FacetSelectedFilters :selectedFilters="selectedFilters" />
         </template>
         <template #default>
           <FiltersList
@@ -137,6 +141,7 @@
   import { Component } from 'vue-property-decorator';
   import CustomHeaderTogglePanel from '../../custom-header-toggle-panel.vue';
   import PriceFilterLabel from './price-filter-label.vue';
+  import FacetSelectedFilters from './facet-selected-filters.vue';
 
   @Component({
     components: {
@@ -154,7 +159,8 @@
       SelectedFilters,
       SimpleFilter,
       SlicedFilters,
-      StaggeredFadeAndSlide
+      StaggeredFadeAndSlide,
+      FacetSelectedFilters
     }
   })
   export default class FacetsComponent extends Vue {
