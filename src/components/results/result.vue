@@ -23,7 +23,13 @@
       <h2 class="x-text x-ellipsis" data-test="result-title">
         {{ result.name }}
       </h2>
-      <BaseResultCurrentPrice :result="result" class="x-text x-text--bold" />
+      <div class="x-list x-list--horizontal x-list--gap-04">
+        <BaseResultCurrentPrice :result="result" class="x-text x-text--bold" />
+        <BaseResultPreviousPrice
+          :result="result"
+          class="x-text x-text--secondary x-text--light x-text--stroke"
+        />
+      </div>
     </BaseResultLink>
   </MainScrollItem>
 </template>
@@ -35,6 +41,7 @@
     BaseResultLink,
     BaseResultImage,
     BaseResultCurrentPrice,
+    BaseResultPreviousPrice,
     BasePlaceholderImage,
     BaseFallbackImage,
     CartIcon
@@ -48,6 +55,7 @@
       BaseFallbackImage,
       BasePlaceholderImage,
       BaseResultCurrentPrice,
+      BaseResultPreviousPrice,
       BaseResultImage,
       BaseResultLink,
       CartIcon,

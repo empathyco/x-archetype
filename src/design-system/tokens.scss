@@ -4,8 +4,12 @@
   --x-color-base-accent: #0086B2;
   --x-color-base-lead: #243D48;
   --x-color-base-neutral-10: #243D48;
+  --x-color-base-neutral-35: #4F656E;
   --x-color-base-neutral-70: #cfd4d7;
   --x-color-base-neutral-95: #f5f6f7;
+
+  // Typography
+  --x-color-text-secondary: var(--x-color-base-neutral-35);
 
   // Tag
   --x-color-background-tag-default: var(--x-color-base-neutral-95);
