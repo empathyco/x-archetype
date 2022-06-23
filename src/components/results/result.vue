@@ -11,7 +11,7 @@
       </BaseResultImage>
     </BaseResultLink>
 
-    <div class="x-result__overlay x-list x-list--horizontal">
+    <div v-if="$x.device === 'desktop'" class="x-result__overlay x-list x-list--horizontal">
       <BaseAddToCart
         :result="result"
         class="x-list__item--expand x-button--pill x-button--tertiary x-margin--05"
@@ -20,7 +20,11 @@
       </BaseAddToCart>
     </div>
 
-    <BaseResultLink class="x-result__description x-list x-list--gap-02" :result="result">
+    <BaseResultLink
+      class="x-result__description x-list"
+      :class="$x.device === 'mobile' ? 'x-list--gap-01' : 'x-list--gap-02'"
+      :result="result"
+    >
       <h1 class="x-small x-uppercase">{{ result.season }}</h1>
       <h2 class="x-text x-ellipsis" data-test="result-title">
         {{ result.name }}

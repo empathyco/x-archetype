@@ -27,6 +27,7 @@
 
   // Grid
   --x-size-min-width-grid-item: var(--x-size-base-20);
+  --x-size-gap-grid: var(--x-size-base-07) var(--x-size-base-05);
 
   // Message
   --x-color-background-message-default: var(--x-color-base-neutral-95);
@@ -46,4 +47,8 @@
   --x-color-background-button-tertiary: rgba(255, 255, 255, 0.85);
   --x-color-text-button-tertiary: var(--x-color-base-lead);
   --x-size-border-width-button-tertiary: 0;
+
+  .x-mobile {
+    --x-size-gap-grid: var(--x-size-base-03);
+  }
 }
