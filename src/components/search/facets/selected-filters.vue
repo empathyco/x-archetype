@@ -12,7 +12,12 @@
       </template>
     </SelectedFiltersList>
 
-    <ClearFilters v-slot="{ selectedFilters }" class="x-button--secondary" :alwaysVisible="false">
+    <ClearFilters
+      v-if="$x.device === 'desktop'"
+      v-slot="{ selectedFilters }"
+      class="x-button--secondary"
+      :alwaysVisible="false"
+    >
       {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
     </ClearFilters>
   </div>
