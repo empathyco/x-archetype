@@ -31,6 +31,9 @@
   --x-size-min-width-grid-item: var(--x-size-base-20);
   --x-size-gap-grid: var(--x-size-base-07) var(--x-size-base-05);
 
+  // Result
+  --x-size-gap-result-default: var(--x-size-base-02);
+
   // Message
   --x-color-background-message-default: var(--x-color-base-neutral-95);
   --x-color-border-message-default: var(--x-color-background-message-default);
@@ -51,6 +54,10 @@
   --x-size-border-width-button-tertiary: 0;
 
   .x-mobile {
+    // Grid
     --x-size-gap-grid: var(--x-size-base-03);
+
+    // Result
+    --x-size-gap-result-default: var(--x-size-base-01);
   }
 }

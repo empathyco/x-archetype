@@ -16,12 +16,12 @@
         :result="result"
         class="x-list__item--expand x-button--pill x-button--tertiary x-margin--05"
       >
-        <span>{{ $t('result.addToCart') }}</span>
+        {{ $t('result.addToCart') }}
       </BaseAddToCart>
     </div>
 
     <BaseResultLink
-      class="x-result__description x-list"
+      class="x-result__description x-list x-list--vertical"
       :class="$x.device === 'mobile' ? 'x-list--gap-01' : 'x-list--gap-02'"
       :result="result"
     >
