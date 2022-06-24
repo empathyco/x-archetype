@@ -12,9 +12,6 @@
       "removeLabel": "Remove {suggestion} from history queries",
       "title": "History Queries"
     },
-    "querySuggestions": {
-      "title": "Suggestions"
-    },
     "nextQueries": {
       "title": "Next Queries"
     },
@@ -22,32 +19,26 @@
       "title": "You may be interested",
       "message": "This is what other shoppers searched after <span class=\"x-text x-text--bold\">\"{query}\"</span>"
     },
-    "identifierResults": {
-      "title": "SKU Search"
-    },
     "recommendations": {
       "title": "Top Clicked"
     },
     "facets": {
       "gender": "GENDER",
       "categoryPaths": "CATEGORIES",
-      "price": "PRICE",
-      "usage": "USAGE",
-      "season": "SEASON"
+      "price": "PRICE"
     },
     "filters": {
-      "all": "All"
+      "all": "Show more"
+    },
+    "partialResults": {
+      "message": "VIEW ALL"
     },
     "priceFilter": {
       "lessThan": "less than {max}",
       "fromTo": "{min} - {max}",
       "from": "from {min}"
     },
-    "filtersSearch": {
-      "placeholder": "Search"
-    },
     "toggleAside": {
-      "hideAside": "Hide Filters",
       "showAside": "Sort & Filter"
     },
     "totalResults": {
@@ -66,7 +57,7 @@
       "message": "No results found for <span class=\"x-text x-text--accent x-text--bold\">'{query}'</span>. We show you results for"
     },
     "noResults": {
-      "message": "No results found for <span class=\"x-text x-text--accent x-text--bold\">'{query}'</span>. Try with another query."
+      "message": "Sorry but there are no results for <span class=\"x-text x-text--accent x-text--bold\">'{query}'</span>. You may be interested in these products"
     },
     "columnPicker": {
       "message": "View"

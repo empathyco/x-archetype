@@ -12,9 +12,6 @@
       "removeLabel": "Borrar {suggestion} del historial",
       "title": "Historial"
     },
-    "querySuggestions": {
-      "title": "Sugerencias"
-    },
     "nextQueries": {
       "title": "Para ti"
     },
@@ -22,32 +19,27 @@
       "title": "Te podría interesar",
       "message": "Esto es lo que otros compradores han buscado después de <span class=\"x-text x-text--bold\">\"{query}\"</span>"
     },
-    "identifierResults": {
-      "title": "Búsqueda SKU"
-    },
     "recommendations": {
       "title": "Top Clicked"
     },
     "facets": {
       "gender": "GÉNERO",
       "categoryPaths": "CATEGORÍAS",
-      "price": "PRECI",
-      "usage": "USO",
-      "season": "TEMPORADA"
+      "price": "PRECIO"
     },
     "filters": {
-      "all": "Todo"
+      "all": "Mostrar más"
+    },
+
+    "partialResults": {
+      "message": "VER TODOS"
     },
     "priceFilter": {
       "lessThan": "hasta {max}",
       "fromTo": "{min} - {max}",
       "from": "desde {min}"
     },
-    "filtersSearch": {
-      "placeholder": "Buscar"
-    },
     "toggleAside": {
-      "hideAside": "Ocultar Filtros",
       "showAside": "Ordenar y Filtrar"
     },
     "totalResults": {
@@ -57,7 +49,7 @@
       "label": "Ordenar por"
     },
     "selectedFilters": {
-      "clear": "Limpiar { selectedFiltersNumber } filtros"
+      "clear": "Limpiar {selectedFiltersNumber} filtros"
     },
     "result": {
       "addToCart": "AÑADIR AL CARRITO"
@@ -66,7 +58,7 @@
       "message": "No se han encontrado resultados para <span class=\"x-text--accent\">'{query}'</span>. Aquí tienes resultados para"
     },
     "noResults": {
-      "message": "No se han encontrado resultados para '{query}'. Prueba con otra búsqueda."
+      "message": "No se han encontrado resultados para '{query}'. Quizás te interesen estos productos"
     },
     "columnPicker": {
       "message": "Ver"

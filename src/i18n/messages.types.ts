@@ -13,18 +13,12 @@ export interface Messages {
     removeLabel: string;
     title: string;
   };
-  querySuggestions: {
-    title: string;
-  };
   nextQueries: {
     title: string;
   };
   nextQueriesGroup: {
     title: string;
     message: string;
-  };
-  identifierResults: {
-    title: string;
   };
   recommendations: {
     title: string;
@@ -33,22 +27,19 @@ export interface Messages {
     gender: string;
     categoryPaths: string;
     price: string;
-    usage: string;
-    season: string;
   };
   filters: {
     all: string;
+  };
+  partialResults: {
+    message: string;
   };
   priceFilter: {
     lessThan: string;
     fromTo: string;
     from: string;
   };
-  filtersSearch: {
-    placeholder: string;
-  };
   toggleAside: {
-    hideAside: string;
     showAside: string;
   };
   totalResults: {
