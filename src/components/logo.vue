@@ -59,3 +59,10 @@
     </g>
   </svg>
 </template>
+
+<style scoped lang="scss">
+  svg {
+    width: auto;
+    max-width: 142px;
+  }
+</style>

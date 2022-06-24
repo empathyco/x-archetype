@@ -2,15 +2,19 @@
   <FixedHeaderAndAsidesLayout>
     <template #header>
       <div
-        class="x-list__item--expand x-row x-row--align-start x-padding--top-06 x-padding--bottom-06"
+        class="
+          x-list__item--expand
+          x-row x-row--align-start x-row--gap-04
+          x-padding--top-06 x-padding--bottom-07
+        "
       >
-        <div class="x-row__item x-row__item--span-3 x-padding--top-04">
+        <div class="x-row__item x-row__item--span-2 x-list x-padding--top-04">
           <Logo />
         </div>
 
         <div
           class="
-            x-row__item x-row__item--span-6
+            x-row__item x-row__item--span-8
             x-list x-list--vertical x-list--gap-05 x-list--align-stretch
           "
         >
@@ -25,7 +29,12 @@
           </LocationProvider>
         </div>
 
-        <div class="x-row__item x-row__item--span-3 x-list x-list--horizontal x-list--justify-end">
+        <div
+          class="
+            x-row__item x-row__item--span-2
+            x-list x-list--horizontal x-list--justify-end x-list--wrap-reverse
+          "
+        >
           <EnvSelector />
 
           <Close class="x-button--ghost x-padding--right-00">
