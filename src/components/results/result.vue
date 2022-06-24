@@ -25,7 +25,7 @@
       :class="$x.device === 'mobile' ? 'x-list--gap-01' : 'x-list--gap-02'"
       :result="result"
     >
-      <h1 class="x-small x-uppercase">{{ result.season }}</h1>
+      <span class="x-small x-uppercase">{{ result.season }}</span>
       <h2 class="x-text x-ellipsis" data-test="result-title">
         {{ result.name }}
       </h2>
