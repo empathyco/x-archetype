@@ -33,8 +33,6 @@ export interface Messages {
     gender: string;
     categoryPaths: string;
     price: string;
-    usage: string;
-    season: string;
   };
   facetsPanel: {
     title: string;
@@ -42,6 +40,8 @@ export interface Messages {
   };
   filters: {
     all: string;
+    showMore: string;
+    showLess: string;
   };
   priceFilter: {
     lessThan: string;
@@ -52,7 +52,6 @@ export interface Messages {
     placeholder: string;
   };
   toggleAside: {
-    hideAside: string;
     showAside: string;
   };
   totalResults: {

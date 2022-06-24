@@ -102,4 +102,8 @@
   .x-recommendations__item {
     max-width: 142px;
   }
+  .x-modal__overlay {
+    background: var(--x-color-background-modal-overlay-default) !important;
+    opacity: 0.3 !important;
+  }
 </style>

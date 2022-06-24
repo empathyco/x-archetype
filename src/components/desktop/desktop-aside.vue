@@ -17,17 +17,14 @@
     </div>
     <div class="x-scroll x-list__item--expand x-padding--08">
       <Sort />
-      <CustomFacets
-        v-if="$x.totalResults > 0"
-        class="x-list--gap-06 x-list--padding-05 x-list--padding-top"
-      />
+      <CustomFacets v-if="$x.totalResults > 0" />
     </div>
     <div
       class="
         x-list x-list--horizontal x-list--gap-05
         x-border-width--top-01
         x-border-color--neutral-10
-        x-padding--08 x-padding--top-06 x-padding--bottom-07
+        x-padding--08 x-padding--top-06 x-padding--bottom-05
       "
     >
       <ClearFilters

@@ -1,11 +1,7 @@
 <template>
   <CustomHeaderTogglePanel
     :data-test="'sort'"
-    class="
-      x-border-width--bottom-01 x-border-width--00
-      x-border-color--neutral-95
-      x-padding--bottom-04
-    "
+    class="x-border-width--bottom-01 x-border-width--00 x-border-color--neutral-95"
   >
     <template #header>
       <span class="x-font-size--05 x-font-weight--bold x-padding--bottom-02">Sort by</span>
@@ -14,7 +10,7 @@
     <template #default>
       <SortList
         v-if="$x.totalResults"
-        class="x-list x-list--vertical x-list--align-start x-list--gap-05"
+        class="x-list x-list--vertical x-list--align-start x-list--gap-06 x-padding--bottom-05"
         :items="sortValues"
       >
         <template #default="{ item, isSelected }">

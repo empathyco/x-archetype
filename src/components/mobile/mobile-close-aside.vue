@@ -2,8 +2,10 @@
   <div
     class="
       x-list x-list--horizontal x-list--gap-05
-      x-border-color--neutral-10
-      x-padding--05 x-padding--top-03 x-padding--bottom-04
+      x-border-width--top-01
+      x-border-color--neutral-95
+      x-padding--top-06 x-padding--bottom-06
+      x-margin--right-05 x-margin--left-05
     "
   >
     <ClearFilters

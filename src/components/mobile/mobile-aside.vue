@@ -1,25 +1,14 @@
 <template>
-  <div
-    v-if="$x.totalResults > 0"
-    class="
-      x-list x-list--vertical x-list__item--expand
-      x-padding--05
-      x-list--padding-left x-list--padding-right
-    "
-  >
-    <BaseScroll class="x-list__item--expand">
-      <Sort class="x-list--padding-04 x-list--padding-bottom" />
-      <CustomFacets class="x-list--gap-06 x-list--padding-04 x-list--padding-bottom" />
+  <div v-if="$x.totalResults > 0" class="x-list x-list--vertical x-list__item--expand">
+    <BaseScroll class="x-list__item--expand x-padding--05">
+      <Sort />
+      <CustomFacets />
     </BaseScroll>
     <SelectedFilters
       v-if="$x.selectedFilters.length"
-      class="
-        x-list x-list--gap-05 x-list--padding-04 x-list--padding-bottom
-        x-border-width--top-01
-        x-padding--top-03
-      "
+      class="x-list x-list--gap-05 x-padding--05 x-border-width--top-01"
     />
-    <div class="x-list x-list--padding-03 x-list--padding-bottom">
+    <div class="x-list">
       <MobileCloseAside />
     </div>
   </div>
