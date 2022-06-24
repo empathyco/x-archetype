@@ -102,4 +102,10 @@
   .x-recommendations__item {
     max-width: 142px;
   }
+
+  .x-desktop {
+    .x-empathize {
+      z-index: 1;
+    }
+  }
 </style>
