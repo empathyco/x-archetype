@@ -12,12 +12,7 @@
           <Logo />
         </div>
 
-        <div
-          class="
-            x-row__item x-row__item--span-8
-            x-list x-list--vertical x-list--gap-05 x-list--align-stretch
-          "
-        >
+        <div class="x-row__item x-row__item--span-8 x-list x-list--vertical x-list--gap-05">
           <div class="x-relative">
             <SearchBox />
             <LocationProvider location="predictive_layer">
@@ -38,7 +33,7 @@
           <EnvSelector />
 
           <Close class="x-button--ghost x-padding--right-00">
-            <CrossIcon />
+            <CrossIcon class="x-icon--l" />
           </Close>
         </div>
       </div>

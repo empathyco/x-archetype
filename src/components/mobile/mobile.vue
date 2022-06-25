@@ -2,9 +2,7 @@
   <SingleColumnLayout>
     <template #header>
       <div
-        class="
-          x-list x-list--horizontal x-list__item--expand x-list--padding-05 x-list--align-center
-        "
+        class="x-list x-list--horizontal x-list__item--expand x-padding--05 x-list--align-center"
       >
         <Close class="x-button--ghost x-padding--left-00">
           <ArrowLeftIcon class="x-icon--l" />
@@ -14,7 +12,10 @@
     </template>
 
     <template #sub-header>
-      <div v-if="$x.relatedTags.length > 0" class="x-list x-list--padding-05 x-padding--top-00">
+      <div
+        v-if="$x.relatedTags.length > 0"
+        class="x-list__item--expand x-list x-padding--05 x-padding--top-00"
+      >
         <LocationProvider location="predictive_layer">
           <RelatedTags />
         </LocationProvider>
