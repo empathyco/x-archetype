@@ -1,53 +1,38 @@
 <template>
-  <SlidingPanel
-    class="x-sliding-panel--buttons-overflow x-sliding-panel--show-buttons-on-hover"
-    :showButtons="$x.device !== 'mobile'"
-  >
+  <CustomSlidingPanel class="x-sliding-panel--buttons-overflow">
     <RelatedTags
       class="x-list--gap-03 x-tag--pill"
       :highlightCurated="true"
       :animation="relatedTagsAnimation"
     >
-      <template #sliding-panel-left-button>
-        <ChevronLeftIcon />
-      </template>
-
       <template #related-tag-content="{ relatedTag, isSelected, shouldHighlightCurated }">
         <CuratedCheckIcon v-if="shouldHighlightCurated" />
         {{ relatedTag.tag }}
         <CrossTinyIcon v-if="isSelected" />
         <PlusIcon v-else />
       </template>
-
-      <template #sliding-panel-right-button>
-        <ChevronRightIcon />
-      </template>
     </RelatedTags>
-  </SlidingPanel>
+  </CustomSlidingPanel>
 </template>
 
 <script lang="ts">
   import {
-    ChevronLeftIcon,
-    ChevronRightIcon,
     CrossTinyIcon,
     PlusIcon,
-    SlidingPanel,
     StaggeredFadeAndSlide,
     CuratedCheckIcon
   } from '@empathyco/x-components';
   import { RelatedTags } from '@empathyco/x-components/related-tags';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
+  import CustomSlidingPanel from '../custom-sliding-panel.vue';
 
   @Component({
     components: {
-      ChevronLeftIcon,
-      ChevronRightIcon,
+      CustomSlidingPanel,
       CrossTinyIcon,
       PlusIcon,
       RelatedTags,
-      SlidingPanel,
       CuratedCheckIcon
     }
   })
