@@ -96,7 +96,7 @@
   export default class SelectedFiltersComponent extends Vue {}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .x-clear-filters {
     --x-size-height-button-default: auto;
   }
