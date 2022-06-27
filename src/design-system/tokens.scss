@@ -4,8 +4,12 @@
   --x-color-base-accent: #0086b2;
   --x-color-base-lead: #243d48;
   --x-color-base-neutral-10: #243d48;
+  --x-color-base-neutral-35: #4f656e;
   --x-color-base-neutral-70: #bbc3c6;
   --x-color-base-neutral-95: #f5f6f7;
+
+  // Icons
+  --x-size-stroke-width-icon-default: 0.8px;
 
   // Tag
   --x-color-border-tag-default: var(--x-color-base-neutral-70);
@@ -65,4 +69,16 @@
 
   // Modal overlay
   --x-color-background-modal-overlay-default: var(--x-color-base-lead);
+
+  // Suggestions
+  --x-number-font-weight-suggestion-default-matching: var(--x-number-font-weight-base-bold);
+  --x-number-font-weight-suggestion-matching-part-default: var(--x-number-font-weight-tag-default);
+
+  .x-mobile {
+    --x-size-gap-suggestion-default: var(--x-size-base-06);
+
+    .x-suggestion-group .x-button {
+      --x-size-padding-right-button-default: var(--x-size-base-03);
+    }
+  }
 }

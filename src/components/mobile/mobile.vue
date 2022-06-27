@@ -28,7 +28,7 @@
 
     <template #predictive>
       <LocationProvider location="predictive_layer">
-        <PredictiveLayer class="x-list x-background--neutral-100" />
+        <PredictiveLayer class="x-list x-list__item--expand x-background--neutral-100" />
       </LocationProvider>
     </template>
 

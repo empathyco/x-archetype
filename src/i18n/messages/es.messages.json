@@ -10,7 +10,7 @@
     "historyQueries": {
       "clear": "Limpiar historial",
       "removeLabel": "Borrar {suggestion} del historial",
-      "title": "Historial"
+      "title": "HISTORIAL"
     },
     "querySuggestions": {
       "title": "Sugerencias"
@@ -26,7 +26,7 @@
       "title": "Búsqueda SKU"
     },
     "recommendations": {
-      "title": "Top Clicked"
+      "title": "TOP CLICKED"
     },
     "facets": {
       "gender": "Género",

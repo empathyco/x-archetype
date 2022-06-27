@@ -5,18 +5,18 @@
       "placeholder": "Start to search"
     },
     "popularSearches": {
-      "title": "Popular searches"
+      "title": "POPULAR SEARCHES"
     },
     "historyQueries": {
       "clear": "Clear all",
       "removeLabel": "Remove {suggestion} from history queries",
-      "title": "History Queries"
+      "title": "HISTORY QUERIES"
     },
     "querySuggestions": {
       "title": "Suggestions"
     },
     "nextQueries": {
-      "title": "Next Queries"
+      "title": "NEXT QUERIES"
     },
     "nextQueriesGroup": {
       "title": "You may be interested",
@@ -26,7 +26,7 @@
       "title": "SKU Search"
     },
     "recommendations": {
-      "title": "Top Clicked"
+      "title": "TOP CLICKED"
     },
     "facets": {
       "gender": "Gender",
