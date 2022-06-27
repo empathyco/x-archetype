@@ -46,7 +46,11 @@
     <template #toolbar>
       <SelectedFilters
         v-if="$x.totalResults > 0"
-        class="x-list x-list--gap-05 x-list--padding-05 x-list--padding-bottom"
+        class="
+          x-border-width--top-01
+          x-border-color--neutral-95
+          x-padding--05 x-padding--right-00 x-padding--left-00
+        "
       />
     </template>
 
