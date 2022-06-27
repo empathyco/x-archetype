@@ -29,14 +29,18 @@
       "title": "Top Clicked"
     },
     "facets": {
-      "gender": "GÉNERO",
-      "categoryPaths": "CATEGORÍAS",
-      "price": "PRECI",
-      "usage": "USO",
-      "season": "TEMPORADA"
+      "gender": "Género",
+      "categoryPaths": "Categorías",
+      "price": "Precio"
+    },
+    "facetsPanel": {
+      "title": "ORDENAR & FILTRAR",
+      "viewResults": "VER {totalResults} RESULTADOS"
     },
     "filters": {
-      "all": "Todo"
+      "all": "Todo",
+      "showMore": "Mostrar más",
+      "showLess": "Mostrar menos"
     },
     "priceFilter": {
       "lessThan": "hasta {max}",
@@ -47,8 +51,7 @@
       "placeholder": "Buscar"
     },
     "toggleAside": {
-      "hideAside": "Ocultar Filtros",
-      "showAside": "Ordenar y Filtrar"
+      "showAside": "Ordenar & filtrar"
     },
     "totalResults": {
       "message": "{totalResults} resultados para <span class=\"x-text x-text--bold\">{query}</span>"
@@ -57,7 +60,7 @@
       "label": "Ordenar por"
     },
     "selectedFilters": {
-      "clear": "Limpiar { selectedFiltersNumber } filtros"
+      "clear": "LIMPIAR {selectedFiltersNumber} FILTROS"
     },
     "result": {
       "addToCart": "AÑADIR AL CARRITO"

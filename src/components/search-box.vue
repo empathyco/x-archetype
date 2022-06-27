@@ -13,7 +13,7 @@
       v-if="$x.device === 'desktop' || !$x.query.searchBox"
       class="x-button x-input-group__action"
     >
-      <SearchIcon />
+      <SearchTinyIcon class="x-icon--l" />
     </button>
     <ClearSearchInput v-else class="x-input-group__action">
       <CrossTinyIcon class="x-icon--l" />
@@ -23,7 +23,7 @@
 
 <script lang="ts">
   import { ClearSearchInput, SearchButton, SearchInput } from '@empathyco/x-components/search-box';
-  import { SearchIcon, CrossTinyIcon } from '@empathyco/x-components';
+  import { CrossTinyIcon, SearchTinyIcon } from '@empathyco/x-components';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
 
@@ -32,8 +32,8 @@
       ClearSearchInput,
       CrossTinyIcon,
       SearchButton,
-      SearchIcon,
-      SearchInput
+      SearchInput,
+      SearchTinyIcon
     }
   })
   export default class SearchBox extends Vue {}

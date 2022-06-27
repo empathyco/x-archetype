@@ -1,41 +1,49 @@
 <template>
-  <SortDropdown
-    v-if="$x.totalResults"
-    class="x-dropdown--l"
-    :items="sortValues"
-    :animation="animation"
+  <CustomHeaderTogglePanel
+    :data-test="'sort'"
+    class="x-border-width--bottom-01 x-border-width--00 x-border-color--neutral-95"
   >
-    <template #toggle="{ item }">
-      <span>{{ $t('sort.label') }}</span>
-      <!--TODO: remove the `x-text` class when this task done:
-      https://searchbroker.atlassian.net/browse/EX-4196-->
-      <span class="x-text x-dropdown__toggle-selected-value x-list__item--expand">
-        {{ item || 'Default' }}
-      </span>
-      <ChevronTinyDownIcon />
+    <template #header>
+      <span class="x-font-size--05 x-font-weight--bold x-padding--bottom-02">Sort by</span>
+      {{ $x.selectedSort || 'Default' }}
     </template>
-
-    <template #item="{ item, isHighlighted, isSelected }">
-      <!--TODO: remove the `x-text` class when this task done:
-      https://searchbroker.atlassian.net/browse/EX-4196-->
-      <span class="x-text x-list__item--expand">{{ item || 'Default' }}</span>
-      <CheckTinyIcon v-if="isSelected" />
+    <template #default>
+      <SortList
+        v-if="$x.totalResults"
+        class="x-list x-list--vertical x-list--align-start x-list--gap-06 x-padding--bottom-05"
+        :items="sortValues"
+      >
+        <template #default="{ item, isSelected }">
+          <RadioButtonSelectedIcon v-if="isSelected" class="x-icon--l" />
+          <RadioButtonUnselectedIcon v-else class="x-icon--l" />
+          <span class="x-font-color--neutral-10" :class="{ 'x-text--bold': isSelected }">
+            {{ item || 'Default' }}
+          </span>
+        </template>
+      </SortList>
     </template>
-  </SortDropdown>
+  </CustomHeaderTogglePanel>
 </template>
 
 <script lang="ts">
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
   import { Sort } from '@empathyco/x-types';
-  import { SortDropdown } from '@empathyco/x-components/search';
-  import { CheckTinyIcon, ChevronTinyDownIcon, animateScale } from '@empathyco/x-components';
-
+  import { SortList } from '@empathyco/x-components/search';
+  import {
+    CheckTinyIcon,
+    RadioButtonSelectedIcon,
+    RadioButtonUnselectedIcon,
+    animateScale
+  } from '@empathyco/x-components';
+  import CustomHeaderTogglePanel from '../custom-header-toggle-panel.vue';
   @Component({
     components: {
-      SortDropdown,
+      SortList,
       CheckTinyIcon,
-      ChevronTinyDownIcon
+      CustomHeaderTogglePanel,
+      RadioButtonSelectedIcon,
+      RadioButtonUnselectedIcon
     }
   })
   export default class extends Vue {

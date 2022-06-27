@@ -1,7 +1,21 @@
 <template>
-  <BaseIdModalOpen modalId="aside-modal" class="x-button x-button--pill">
+  <BaseIdModalOpen
+    modalId="aside-modal"
+    class="x-button x-button--pill x-padding--04 x-padding--right-05 x-padding--left-05"
+  >
     <FiltersIcon />
     <span>{{ $t('toggleAside.showAside') }}</span>
+    <span
+      v-if="$x.selectedFilters.length > 0"
+      class="
+        x-background--neutral-100
+        x-font-color--neutral-10
+        x-border-radius--20
+        x-padding--01 x-padding--right-03 x-padding--left-03
+      "
+    >
+      {{ $x.selectedFilters.length }}
+    </span>
   </BaseIdModalOpen>
 </template>
 
