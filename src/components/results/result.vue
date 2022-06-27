@@ -11,22 +11,31 @@
       </BaseResultImage>
     </BaseResultLink>
 
-    <div class="x-result__overlay x-list x-list--horizontal">
-      <BaseAddToCart :result="result" class="x-list__item--expand">
-        <CartIcon />
-        <span>{{ $t('result.addToCart') }}</span>
+    <div v-if="$x.device === 'desktop'" class="x-result__overlay x-list x-list--horizontal">
+      <BaseAddToCart
+        :result="result"
+        class="x-list__item--expand x-button--pill x-button--tertiary x-margin--05"
+      >
+        {{ $t('result.addToCart') }}
       </BaseAddToCart>
     </div>
 
-    <BaseResultLink class="x-result__description x-list x-list--gap-04" :result="result">
-      <div class="x-list x-list--gap-02">
-        <h1 class="x-small x-text--bold">{{ result.season }}</h1>
-        <h2 class="x-text x-text--secondary x-ellipsis" data-test="result-title">
-          {{ result.name }}
-        </h2>
+    <BaseResultLink
+      class="x-result__description x-list x-list--vertical"
+      :class="$x.device === 'mobile' ? 'x-list--gap-01' : 'x-list--gap-02'"
+      :result="result"
+    >
+      <h2 class="x-small x-ellipsis x-uppercase" data-test="result-title">
+        {{ result.name }}
+      </h2>
+      <span v-if="showDescription" class="x-text">{{ result.season }}</span>
+      <div class="x-list x-list--horizontal x-list--gap-04">
+        <BaseResultCurrentPrice :result="result" class="x-text x-text--bold" format="i.iii,dd? €" />
+        <BaseResultPreviousPrice
+          :result="result"
+          class="x-text x-text--secondary x-text--light x-text--stroke"
+        />
       </div>
-
-      <BaseResultCurrentPrice :result="result" class="x-text x-text--accent x-text--bold" />
     </BaseResultLink>
   </MainScrollItem>
 </template>
@@ -38,6 +47,7 @@
     BaseResultLink,
     BaseResultImage,
     BaseResultCurrentPrice,
+    BaseResultPreviousPrice,
     BasePlaceholderImage,
     BaseFallbackImage,
     CartIcon
@@ -51,6 +61,7 @@
       BaseFallbackImage,
       BasePlaceholderImage,
       BaseResultCurrentPrice,
+      BaseResultPreviousPrice,
       BaseResultImage,
       BaseResultLink,
       CartIcon,
@@ -60,5 +71,8 @@
   export default class ResultComponent extends Vue {
     @Prop()
     public result!: Result;
+
+    @Prop({ default: true })
+    public showDescription!: boolean;
   }
 </script>

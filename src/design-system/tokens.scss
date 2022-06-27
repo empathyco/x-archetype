@@ -4,8 +4,12 @@
   --x-color-base-accent: #0086b2;
   --x-color-base-lead: #243d48;
   --x-color-base-neutral-10: #243d48;
+  --x-color-base-neutral-35: #4f656e;
   --x-color-base-neutral-70: #bbc3c6;
   --x-color-base-neutral-95: #f5f6f7;
+
+  // Typography
+  --x-color-text-secondary: var(--x-color-base-neutral-35);
 
   // Tag
   --x-color-border-tag-default: var(--x-color-base-neutral-70);
@@ -29,6 +33,10 @@
 
   // Grid
   --x-size-min-width-grid-item: var(--x-size-base-20);
+  --x-size-gap-grid: var(--x-size-base-07) var(--x-size-base-05);
+
+  // Result
+  --x-size-gap-result-default: var(--x-size-base-02);
 
   // Message
   --x-color-background-message-default: var(--x-color-base-neutral-95);
@@ -65,4 +73,17 @@
 
   // Modal overlay
   --x-color-background-modal-overlay-default: var(--x-color-base-lead);
+
+  // Button
+  --x-color-background-button-tertiary: rgba(255, 255, 255, 0.85);
+  --x-color-text-button-tertiary: var(--x-color-base-lead);
+  --x-size-border-width-button-tertiary: 0;
+
+  .x-mobile {
+    // Grid
+    --x-size-gap-grid: var(--x-size-base-03);
+
+    // Result
+    --x-size-gap-result-default: var(--x-size-base-01);
+  }
 }
