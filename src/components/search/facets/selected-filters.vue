@@ -95,3 +95,9 @@
   })
   export default class SelectedFiltersComponent extends Vue {}
 </script>
+
+<style lang="scss">
+  .x-clear-filters {
+    min-height: auto !important;
+  }
+</style>
