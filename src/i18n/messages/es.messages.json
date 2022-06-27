@@ -60,10 +60,10 @@
       "addToCart": "AÑADIR AL CARRITO"
     },
     "spellcheck": {
-      "message": "<span>No se han encontrado resultados para <span class=\"x-text x-font-color--neutral-10 x-text--bold\">\"{query}\"</span></span>Quizás estes interesado en estos productos"
+      "message": "No se han encontrado resultados para <span class=\"x-text--accent\">'{query}'</span>. Aquí tienes resultados para"
     },
     "noResults": {
-      "message": "No se han encontrado resultados para '{query}'. Quizás te interesen estos productos"
+      "message": "<span>No se han encontrado resultados para <span class=\"x-text x-font-color--neutral-10 x-text--bold x-font-size--05\">\"{query}\"</span></span>Quizás te interesen estos productos"
     },
     "columnPicker": {
       "message": "Ver"
@@ -72,6 +72,9 @@
   "mobile": {
     "totalResults": {
       "message": "{totalResults} resultados"
+    },
+    "noResults": {
+      "message": "<span>No se han encontrado resultados para <span class=\"x-text x-font-color--neutral-10 x-text--bold\">\"{query}\"</span></span>Quizás te interesen estos productos"
     }
   }
 }
