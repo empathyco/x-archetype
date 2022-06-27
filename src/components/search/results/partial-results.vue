@@ -8,7 +8,7 @@
         </template>
       </BaseGrid>
       <PartialQueryButton :query="partialResult.query">
-        {{ $t('partialResults.message') }}
+        {{ $t('partialResults.message', partialResult.results.length) }}
       </PartialQueryButton>
     </template>
   </PartialResultsList>

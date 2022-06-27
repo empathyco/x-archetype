@@ -28,11 +28,11 @@
       "price": "PRECIO"
     },
     "filters": {
-      "all": "Mostrar más"
+      "all": "All"
     },
 
     "partialResults": {
-      "message": "VER TODOS"
+      "message": "Ver todos los resultados ({totalResults})"
     },
     "priceFilter": {
       "lessThan": "hasta {max}",

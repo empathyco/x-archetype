@@ -1,9 +1,5 @@
 <template>
-  <div
-    v-if="$x.noResults"
-    class="x-no-results x-message x-list x-list--wrap x-list--align-center x-list--justify-center"
-    data-test="no-results"
-  >
+  <div v-if="$x.noResults" class="x-no-results x-message" data-test="no-results">
     <span v-html="$t('noResults.message', { query: $x.query.search })" class="x-text" />
   </div>
 </template>
