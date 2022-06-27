@@ -13,7 +13,11 @@
 
       <Recommendations class="x-list--gap-04">
         <template #default="{ recommendation }">
-          <Result :result="recommendation" data-test="recommendation-item" />
+          <Result
+            :result="recommendation"
+            data-test="recommendation-item"
+            :show-description="false"
+          />
         </template>
       </Recommendations>
 

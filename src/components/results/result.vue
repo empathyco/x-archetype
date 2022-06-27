@@ -25,10 +25,10 @@
       :class="$x.device === 'mobile' ? 'x-list--gap-01' : 'x-list--gap-02'"
       :result="result"
     >
-      <span class="x-small x-uppercase">{{ result.season }}</span>
-      <h2 class="x-text x-ellipsis" data-test="result-title">
+      <h2 class="x-small x-ellipsis x-uppercase" data-test="result-title">
         {{ result.name }}
       </h2>
+      <span v-if="showDescription" class="x-text">{{ result.season }}</span>
       <div class="x-list x-list--horizontal x-list--gap-04">
         <BaseResultCurrentPrice :result="result" class="x-text x-text--bold" format="i.iii,dd? €" />
         <BaseResultPreviousPrice
@@ -71,5 +71,8 @@
   export default class ResultComponent extends Vue {
     @Prop()
     public result!: Result;
+
+    @Prop({ default: true })
+    public showDescription!: boolean;
   }
 </script>
