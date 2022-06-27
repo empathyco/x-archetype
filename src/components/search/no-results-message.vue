@@ -1,7 +1,10 @@
 <template>
-  <div v-if="$x.noResults" class="x-no-results x-message" data-test="no-results">
-    <span v-html="$t('noResults.message', { query: $x.query.search })" class="x-text" />
-  </div>
+  <span
+    v-if="$x.noResults"
+    v-html="$t('noResults.message', { query: $x.query.search })"
+    class="x-message x-text"
+    :class="{ 'x-font-size--05': $x.device === 'desktop' }"
+  />
 </template>
 
 <script lang="ts">

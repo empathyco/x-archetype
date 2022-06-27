@@ -1,6 +1,6 @@
 :root {
   // base colors
-  --x-color-base-auxiliary: #d84022;
+  --x-color-base-auxiliary: #e5f3f7;
   --x-color-base-accent: #0086b2;
   --x-color-base-lead: #243d48;
   --x-color-base-neutral-10: #243d48;
@@ -17,6 +17,10 @@
 
   // Dropdown
   --x-color-border-dropdown-toggle-default: transparent;
+  --x-size-padding-left-dropdown-toggle-default: 0;
+  --x-size-padding-right-dropdown-toggle-default: 0;
+  --x-size-width-dropdown: 100%;
+  --x-color-text-dropdown-toggle-default: var(--x-color-neutral-10);
 
   // Layout
   --x-size-margin-left-layout-s: var(--x-size-base-10);
@@ -39,4 +43,26 @@
   --x-size-font-input-group-default: var(--x-size-font-base-m);
   --x-size-gap-input-group-default: var(--x-size-base-05);
   --x-size-height-input-group-default: var(--x-size-base-08);
+
+  // Aside
+  --x-size-width-layout-aside: 480px;
+
+  // Facets
+  --x-color-text-facet-default: var(--x-color-base-lead);
+  --x-size-line-height-filter-default: var(--x-size-line-height-base-m);
+  --x-size-gap-facet-header-default: var(--x-size-base-04);
+  --x-size-padding-top-facet-header-default: var(--x-size-base-07);
+  --x-size-padding-bottom-facet-header-default: var(--x-size-base-07);
+  --x-size-font-facet-default: 14px;
+
+  // Filters
+  --x-size-padding-top-filter-default: var(--x-size-base-05);
+  --x-size-padding-bottom-filter-default: var(--x-size-base-05);
+  --x-size-padding-left-filter-default: var(--x-size-base-02);
+
+  // Options list
+  --x-size-border-width-right-option-list-item-default: 0px;
+
+  // Modal overlay
+  --x-color-background-modal-overlay-default: var(--x-color-base-lead);
 }

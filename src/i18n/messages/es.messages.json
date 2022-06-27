@@ -23,14 +23,19 @@
       "title": "Top Clicked"
     },
     "facets": {
-      "gender": "GÉNERO",
-      "categoryPaths": "CATEGORÍAS",
-      "price": "PRECIO"
+      "gender": "Género",
+      "categoryPaths": "Categorías",
+      "price": "Precio"
+    },
+    "facetsPanel": {
+      "title": "ORDENAR & FILTRAR",
+      "viewResults": "VER {totalResults} RESULTADOS"
     },
     "filters": {
-      "all": "All"
+      "all": "Todo",
+      "showMore": "Mostrar más",
+      "showLess": "Mostrar menos"
     },
-
     "partialResults": {
       "message": "Ver todos los resultados ({totalResults})"
     },
@@ -49,13 +54,13 @@
       "label": "Ordenar por"
     },
     "selectedFilters": {
-      "clear": "Limpiar {selectedFiltersNumber} filtros"
+      "clear": "LIMPIAR {selectedFiltersNumber} FILTROS"
     },
     "result": {
       "addToCart": "AÑADIR AL CARRITO"
     },
     "spellcheck": {
-      "message": "No se han encontrado resultados para <span class=\"x-text--accent\">'{query}'</span>. Aquí tienes resultados para"
+      "message": "<span>No se han encontrado resultados para <span class=\"x-text x-font-color--neutral-10 x-text--bold\">\"{query}\"</span></span>Quizás estes interesado en estos productos"
     },
     "noResults": {
       "message": "No se han encontrado resultados para '{query}'. Quizás te interesen estos productos"

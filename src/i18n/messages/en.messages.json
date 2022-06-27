@@ -19,16 +19,25 @@
       "title": "You may be interested",
       "message": "This is what other shoppers searched after <span class=\"x-text x-text--bold\">\"{query}\"</span>"
     },
+    "identifierResults": {
+      "title": "SKU Search"
+    },
     "recommendations": {
       "title": "Top Clicked"
     },
     "facets": {
-      "gender": "GENDER",
-      "categoryPaths": "CATEGORIES",
-      "price": "PRICE"
+      "gender": "Gender",
+      "categoryPaths": "Categories",
+      "price": "Price"
+    },
+    "facetsPanel": {
+      "title": "SORT & FILTER",
+      "viewResults": "VIEW {totalResults} RESULTS"
     },
     "filters": {
-      "all": "All"
+      "all": "All",
+      "showMore": "Show more",
+      "showLess": "Show less"
     },
     "partialResults": {
       "message": "View all results ({totalResults})"
@@ -48,7 +57,7 @@
       "label": "Sort by"
     },
     "selectedFilters": {
-      "clear": "Clear { selectedFiltersNumber } filters"
+      "clear": "CLEAR {selectedFiltersNumber} FILTERS"
     },
     "result": {
       "addToCart": "ADD TO CART"
@@ -57,7 +66,7 @@
       "message": "No results found for <span class=\"x-text x-text--accent x-text--bold\">'{query}'</span>. We show you results for"
     },
     "noResults": {
-      "message": "<span class=\"x-text x-list x-list--horizontal x-list__item-expand\">Sorry but there are no results for <span class=\"x-text x-font-color--neutral-10 x-text--bold x-margin--left-03\">\"{query}\"</span></span>You may be interested in these products"
+      "message": "<span>Sorry but there are no results for <span class=\"x-text x-font-color--neutral-10 x-text--bold x-font-size--05\">\"{query}\"</span></span>You may be interested in these products"
     },
     "columnPicker": {
       "message": "View"
@@ -66,6 +75,9 @@
   "mobile": {
     "totalResults": {
       "message": "{totalResults} results"
+    },
+    "noResults": {
+      "message": "<span>Sorry but there are no results for <span class=\"x-text x-font-color--neutral-10 x-text--bold\">\"{query}\"</span></span>You may be interested in these products"
     }
   }
 }

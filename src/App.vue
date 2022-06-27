@@ -92,14 +92,20 @@
     }
   }
 
-  // Full width predictive layer with position absolute
-  .x-layout--fixed-header-and-asides {
+  .x-recommendations__item {
+    max-width: 142px;
+  }
+
+  // The width is needed because the empathize has position absolute.
+  // The z-index is to avoid the related tags appearing over the empathize.
+  .x-desktop {
     .x-empathize {
+      z-index: 1;
       width: 100%;
     }
   }
-
-  .x-recommendations__item {
-    max-width: 142px;
+  .x-modal__overlay {
+    background: var(--x-color-background-modal-overlay-default) !important;
+    opacity: 0.3 !important;
   }
 </style>

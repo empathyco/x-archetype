@@ -1,18 +1,63 @@
 <template>
-  <div class="x-list x-list--horizontal">
-    <SelectedFiltersList class="x-list--wrap x-list--justify-stretch x-list--gap-05">
-      <template #default="{ filter }">
-        <SimpleFilter class="x-tag" :filter="filter" />
+  <div class="x-list x-list--horizontal x-list--align-center">
+    <SlidingPanel
+      class="x-sliding-panel--show-buttons-on-hover"
+      :showButtons="true"
+      :buttonClass="'x-button--ghost x-padding--00'"
+      :resetOnContentChange="false"
+    >
+      <template #sliding-panel-left-button>
+        <ChevronLeftIcon class="x-icon--l" />
       </template>
+      <SelectedFiltersList class="x-list x-list--wrap x-list--gap-03">
+        <template #default="{ filter }">
+          <SimpleFilter
+            class="
+              x-tag x-tag--pill x-tag--ghost
+              x-background--auxiliary
+              x-padding--04 x-padding--top-03 x-padding--bottom-03
+            "
+            :filter="filter"
+          >
+            <template #label="{ filter }">
+              <span class="x-text x-text--bold x-font-color--accent">{{ filter.label }}</span>
+              <CrossTinyIcon class="x-font-color--accent" />
+            </template>
+          </SimpleFilter>
+        </template>
 
-      <template #price="{ filter }">
-        <NumberRangeFilter v-slot="{ filter: priceFilter }" class="x-tag" :filter="filter">
-          <PriceFilterLabel :filter="priceFilter" />
-        </NumberRangeFilter>
+        <template #price="{ filter }">
+          <NumberRangeFilter
+            class="
+              x-tag x-tag--pill x-tag--ghost
+              x-background--auxiliary
+              x-padding--04 x-padding--top-03 x-padding--bottom-03
+            "
+            :filter="filter"
+          >
+            <template #label="{ filter }">
+              <PriceFilterLabel class="x-text x-text--bold x-font-color--accent" :filter="filter" />
+              <CrossTinyIcon class="x-font-color--accent" />
+            </template>
+          </NumberRangeFilter>
+        </template>
+      </SelectedFiltersList>
+      <template #sliding-panel-right-button>
+        <ChevronRightIcon class="x-icon--l" />
       </template>
-    </SelectedFiltersList>
+    </SlidingPanel>
 
-    <ClearFilters v-slot="{ selectedFilters }" class="x-button--secondary" :alwaysVisible="false">
+    <ClearFilters
+      v-if="$x.device === 'desktop'"
+      v-slot="{ selectedFilters }"
+      class="
+        x-button--secondary x-button--round
+        x-padding--05 x-padding--top-03 x-padding--bottom-03
+        x-margin--left-03
+        x-list__item--flex-none
+      "
+      :alwaysVisible="false"
+    >
       {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
     </ClearFilters>
   </div>
@@ -27,16 +72,32 @@
   } from '@empathyco/x-components/facets';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
+  import {
+    ChevronLeftIcon,
+    ChevronRightIcon,
+    CrossTinyIcon,
+    SlidingPanel
+  } from '@empathyco/x-components';
   import PriceFilterLabel from './price-filter-label.vue';
 
   @Component({
     components: {
-      PriceFilterLabel,
+      ChevronLeftIcon,
+      ChevronRightIcon,
+      CrossTinyIcon,
       ClearFilters,
-      SelectedFiltersList,
       NumberRangeFilter,
+      PriceFilterLabel,
+      SelectedFiltersList,
+      SlidingPanel,
       SimpleFilter
     }
   })
   export default class SelectedFiltersComponent extends Vue {}
 </script>
+
+<style lang="scss" scoped>
+  .x-clear-filters {
+    --x-size-height-button-default: auto;
+  }
+</style>

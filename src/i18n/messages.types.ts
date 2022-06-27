@@ -28,8 +28,14 @@ export interface Messages {
     categoryPaths: string;
     price: string;
   };
+  facetsPanel: {
+    title: string;
+    viewResults: string;
+  };
   filters: {
     all: string;
+    showMore: string;
+    showLess: string;
   };
   partialResults: {
     message: string;
