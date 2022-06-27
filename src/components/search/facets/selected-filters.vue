@@ -98,6 +98,6 @@
 
 <style lang="scss">
   .x-clear-filters {
-    min-height: auto !important;
+    --x-size-height-button-default: auto;
   }
 </style>
