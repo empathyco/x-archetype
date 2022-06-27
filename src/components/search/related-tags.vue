@@ -1,5 +1,12 @@
 <template>
-  <CustomSlidingPanel class="x-sliding-panel--buttons-overflow">
+  <SlidingPanel
+    class="x-sliding-panel--buttons-overflow x-sliding-panel--show-buttons-on-hover"
+    :buttonClass="'x-button--ghost x-padding--00'"
+    :showButtons="$x.device !== 'mobile'"
+  >
+    <template #sliding-panel-left-button>
+      <ChevronLeftIcon class="x-icon--l" />
+    </template>
     <RelatedTags
       class="x-list--gap-03 x-tag--pill"
       :highlightCurated="true"
@@ -12,27 +19,34 @@
         <PlusIcon v-else />
       </template>
     </RelatedTags>
-  </CustomSlidingPanel>
+    <template #sliding-panel-right-button>
+      <ChevronRightIcon class="x-icon--l" />
+    </template>
+  </SlidingPanel>
 </template>
 
 <script lang="ts">
   import {
+    ChevronLeftIcon,
+    ChevronRightIcon,
     CrossTinyIcon,
     PlusIcon,
+    SlidingPanel,
     StaggeredFadeAndSlide,
     CuratedCheckIcon
   } from '@empathyco/x-components';
   import { RelatedTags } from '@empathyco/x-components/related-tags';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
-  import CustomSlidingPanel from '../custom-sliding-panel.vue';
 
   @Component({
     components: {
-      CustomSlidingPanel,
+      ChevronLeftIcon,
+      ChevronRightIcon,
       CrossTinyIcon,
       PlusIcon,
       RelatedTags,
+      SlidingPanel,
       CuratedCheckIcon
     }
   })
