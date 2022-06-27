@@ -104,4 +104,8 @@
       width: 100%;
     }
   }
+  .x-modal__overlay {
+    background: var(--x-color-background-modal-overlay-default) !important;
+    opacity: 0.3 !important;
+  }
 </style>
