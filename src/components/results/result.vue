@@ -30,7 +30,7 @@
         {{ result.name }}
       </h2>
       <div class="x-list x-list--horizontal x-list--gap-04">
-        <BaseResultCurrentPrice :result="result" class="x-text x-text--bold" />
+        <BaseResultCurrentPrice :result="result" class="x-text x-text--bold" format="i.iii,dd? €" />
         <BaseResultPreviousPrice
           :result="result"
           class="x-text x-text--secondary x-text--light x-text--stroke"
