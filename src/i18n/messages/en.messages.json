@@ -57,7 +57,7 @@
       "label": "Sort by"
     },
     "selectedFilters": {
-      "clear": "Clear { selectedFiltersNumber } filters"
+      "clear": "CLEAR {selectedFiltersNumber} FILTERS"
     },
     "result": {
       "addToCart": "ADD TO CART"
