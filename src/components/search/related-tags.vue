@@ -1,28 +1,27 @@
 <template>
   <SlidingPanel
     class="x-sliding-panel--buttons-overflow x-sliding-panel--show-buttons-on-hover"
+    :buttonClass="'x-button--ghost x-padding--00'"
     :showButtons="$x.device !== 'mobile'"
   >
+    <template #sliding-panel-left-button>
+      <ChevronLeftIcon class="x-icon--l" />
+    </template>
     <RelatedTags
       class="x-list--gap-03 x-tag--pill"
       :highlightCurated="true"
       :animation="relatedTagsAnimation"
     >
-      <template #sliding-panel-left-button>
-        <ChevronLeftIcon />
-      </template>
-
       <template #related-tag-content="{ relatedTag, isSelected, shouldHighlightCurated }">
         <CuratedCheckIcon v-if="shouldHighlightCurated" />
         {{ relatedTag.tag }}
         <CrossTinyIcon v-if="isSelected" />
         <PlusIcon v-else />
       </template>
-
-      <template #sliding-panel-right-button>
-        <ChevronRightIcon />
-      </template>
     </RelatedTags>
+    <template #sliding-panel-right-button>
+      <ChevronRightIcon class="x-icon--l" />
+    </template>
   </SlidingPanel>
 </template>
 
