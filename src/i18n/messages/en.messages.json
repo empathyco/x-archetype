@@ -29,14 +29,18 @@
       "title": "Top Clicked"
     },
     "facets": {
-      "gender": "GENDER",
-      "categoryPaths": "CATEGORIES",
-      "price": "PRICE",
-      "usage": "USAGE",
-      "season": "SEASON"
+      "gender": "Gender",
+      "categoryPaths": "Categories",
+      "price": "Price"
+    },
+    "facetsPanel": {
+      "title": "SORT & FILTER",
+      "viewResults": "VIEW {totalResults} RESULTS"
     },
     "filters": {
-      "all": "All"
+      "all": "All",
+      "showMore": "Show more",
+      "showLess": "Show less"
     },
     "priceFilter": {
       "lessThan": "less than {max}",
@@ -47,7 +51,6 @@
       "placeholder": "Search"
     },
     "toggleAside": {
-      "hideAside": "Hide Filters",
       "showAside": "Sort & Filter"
     },
     "totalResults": {

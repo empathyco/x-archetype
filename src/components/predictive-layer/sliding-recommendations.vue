@@ -10,13 +10,11 @@
       <template #sliding-panel-left-button>
         <ChevronLeftIcon class="x-icon--l" />
       </template>
-
       <Recommendations>
         <template #default="{ recommendation }">
           <Result :result="recommendation" data-test="recommendation-item" />
         </template>
       </Recommendations>
-
       <template #sliding-panel-right-button>
         <ChevronRightIcon class="x-icon--l" />
       </template>

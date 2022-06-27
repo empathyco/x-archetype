@@ -1,14 +1,18 @@
 <template>
   <FixedHeaderAndAsidesLayout>
     <template #header>
-      <div class="x-list x-list--horizontal x-list__item--expand">
-        <div class="x-list x-list--padding-top x-list--padding-04">
+      <div
+        class="
+          x-list__item--expand
+          x-row x-row--align-start x-row--gap-04
+          x-padding--top-06 x-padding--bottom-07
+        "
+      >
+        <div class="x-row__item x-row__item--span-2 x-list x-padding--top-04">
           <Logo />
         </div>
 
-        <div
-          class="x-list x-list--vertical x-list--gap-05 x-list--align-stretch x-list__item--expand"
-        >
+        <div class="x-row__item x-row__item--span-8 x-list x-list--vertical x-list--gap-05">
           <div class="x-relative">
             <SearchBox />
             <LocationProvider location="predictive_layer">
@@ -16,14 +20,19 @@
             </LocationProvider>
           </div>
           <LocationProvider location="predictive_layer">
-            <RelatedTags v-if="!$x.isEmpathizeOpen && $x.relatedTags.length > 0" />
+            <RelatedTags v-if="$x.relatedTags.length > 0" />
           </LocationProvider>
         </div>
 
-        <div class="x-list x-list--wrap-reverse x-list--justify-end">
+        <div
+          class="
+            x-row__item x-row__item--span-2
+            x-list x-list--horizontal x-list--justify-end x-list--wrap-reverse
+          "
+        >
           <EnvSelector />
 
-          <Close class="x-button--ghost">
+          <Close class="x-button--ghost x-padding--right-00">
             <CrossIcon class="x-icon--l" />
           </Close>
         </div>
@@ -52,13 +61,7 @@
     </template>
 
     <template v-if="hasSearched" #right-aside>
-      <div class="x-background--neutral-100 x-list__item--expand x-list x-list--vertical">
-        <Sort />
-        <Facets
-          v-if="$x.totalResults > 0"
-          class="x-list--gap-06 x-list--padding-05 x-list--padding-top"
-        />
-      </div>
+      <DesktopAside />
     </template>
 
     <template #scroll-to-top>
@@ -113,8 +116,7 @@
       SlidingPanel,
       RelatedTags: () => import('../search').then(m => m.RelatedTags),
       SelectedFilters: () => import('../search').then(m => m.SelectedFilters),
-      Facets: () => import('../search').then(m => m.Facets),
-      Sort: () => import('../search').then(m => m.Sort)
+      DesktopAside: () => import('./desktop-aside.vue')
     }
   })
   export default class Desktop extends HasSearchedMixin {}

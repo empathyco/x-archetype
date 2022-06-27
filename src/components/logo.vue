@@ -1,6 +1,6 @@
 <template functional>
   <svg
-    width="192px"
+    width="142px"
     height="19px"
     viewBox="0 0 192 19"
     version="1.1"
@@ -62,6 +62,7 @@
 
 <style scoped lang="scss">
   svg {
-    width: 100%;
+    width: auto;
+    max-width: 142px;
   }
 </style>
