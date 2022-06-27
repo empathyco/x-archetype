@@ -15,7 +15,7 @@
         <CrossTinyIcon class="x-icon--l x-font-color--neutral-10" />
       </BaseIdModalClose>
     </div>
-    <div class="x-scroll x-list__item--expand x-padding--08">
+    <div class="x-scroll x-list__item--expand x-padding--08 x-padding--top-00">
       <Sort />
       <CustomFacets v-if="$x.totalResults > 0" />
     </div>
