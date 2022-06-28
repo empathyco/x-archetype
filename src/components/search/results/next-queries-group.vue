@@ -8,9 +8,10 @@
         : 'x-padding--06 x-padding--bottom-07'
     "
   >
-    <div class="x-list x-list--gap-03">
-      <p v-html="$t('nextQueriesGroup.message', { query: $x.query.search })" class="x-text" />
-    </div>
+    <p
+      v-html="$t('nextQueriesGroup.message', { query: $x.query.search })"
+      :class="$x.device === 'mobile' ? 'x-text' : 'x-text x-font-size--05'"
+    />
     <NextQueries
       #suggestion="{ suggestion }"
       :suggestions="nextQueries"
