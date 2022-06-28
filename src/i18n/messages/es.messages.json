@@ -2,7 +2,7 @@
   "base": {
     "searchBox": {
       "clear": "Borrar",
-      "placeholder": "Empieza a buscar"
+      "placeholder": "¿Qué estás buscando?"
     },
     "popularSearches": {
       "title": "Búsquedas populares"
@@ -13,11 +13,11 @@
       "title": "Historial"
     },
     "nextQueries": {
-      "title": "Para ti"
+      "title": "Quizás te interese"
     },
     "nextQueriesGroup": {
-      "title": "Te podría interesar",
-      "message": "Esto es lo que otros compradores han buscado después de <span class=\"x-text x-text--bold\">\"{query}\"</span>"
+      "title": "Quizás te interese",
+      "message": "Los que buscaron <span class=\"x-text x-text--bold\">\"{query}\"</span> también han visto:"
     },
     "recommendations": {
       "title": "Top Clicked"
