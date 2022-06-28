@@ -45,3 +45,8 @@
   })
   export default class SlidingRecommendations extends Vue {}
 </script>
+<style lang="scss">
+  .x-layout__predictive .x-sliding-panel__scroll {
+    pointer-events: all !important;
+  }
+</style>
