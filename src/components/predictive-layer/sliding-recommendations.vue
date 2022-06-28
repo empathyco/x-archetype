@@ -11,7 +11,7 @@
         <ChevronLeftIcon class="x-icon--l" />
       </template>
 
-      <Recommendations class="x-list--gap-04">
+      <Recommendations class="x-list--horizontal x-list--gap-04">
         <template #default="{ recommendation }">
           <Result
             :result="recommendation"
