@@ -2,7 +2,7 @@
   "base": {
     "searchBox": {
       "clear": "Clear",
-      "placeholder": "Start to search"
+      "placeholder": "What are you looking for?"
     },
     "popularSearches": {
       "title": "Popular searches"
@@ -13,14 +13,14 @@
       "title": "History Queries"
     },
     "nextQueries": {
-      "title": "Next Queries"
+      "title": "What's Next"
     },
     "nextQueriesGroup": {
       "title": "You may be interested",
-      "message": "This is what other shoppers searched after <span class=\"x-text x-text--bold\">\"{query}\"</span>"
+      "message": "Those who searched for <span class=\"x-text x-text--bold\">\"{query}\"</span> also viewed:"
     },
     "identifierResults": {
-      "title": "SKU Search"
+      "title": "Identifier Results"
     },
     "recommendations": {
       "title": "Top Clicked"
