@@ -34,7 +34,7 @@
 
     <template #main>
       <LocationProvider location="results">
-        <Main class="x-list--padding-05" />
+        <Main />
       </LocationProvider>
     </template>
 
