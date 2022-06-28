@@ -19,9 +19,6 @@
       "title": "Quizás te interese",
       "message": "Los que buscaron <span class=\"x-text x-text--bold\">\"{query}\"</span> también han visto:"
     },
-    "identifierResults": {
-      "title": "Resultados por referencia"
-    },
     "recommendations": {
       "title": "Top Clicked"
     },

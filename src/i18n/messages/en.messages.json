@@ -19,9 +19,6 @@
       "title": "You may be interested",
       "message": "Those who searched for <span class=\"x-text x-text--bold\">\"{query}\"</span> also viewed:"
     },
-    "identifierResults": {
-      "title": "Identifier Results"
-    },
     "recommendations": {
       "title": "Top Clicked"
     },
