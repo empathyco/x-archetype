@@ -16,7 +16,7 @@
       #suggestion="{ suggestion }"
       :suggestions="nextQueries"
       class="x-list--horizontal x-list--wrap x-list--gap-03"
-      :max-items-to-render="4"
+      :max-items-to-render="$x.device === 'mobile' ? 6 : 12"
     >
       <NextQuery
         #default="{ suggestion: nextQuery }"
@@ -63,9 +63,13 @@
 </script>
 <style lang="scss">
   .x-base-grid__next-queries-group {
-    margin-left: calc(-1 * var(--x-size-base-04));
-    margin-right: calc(-1 * var(--x-size-base-04));
     grid-column-start: 1;
     grid-column-end: -1;
+  }
+  .x-mobile {
+    .x-base-grid__next-queries-group {
+      margin-left: calc(-1 * var(--x-size-base-04));
+      margin-right: calc(-1 * var(--x-size-base-04));
+    }
   }
 </style>
