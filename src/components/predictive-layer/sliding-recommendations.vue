@@ -1,6 +1,6 @@
 <template>
   <div v-if="$x.recommendations.length > 0" class="x-list x-list--gap-04">
-    <h1 class="x-title3 x-text--bold">{{ $t('recommendations.title') }}</h1>
+    <h1 class="x-small x-text--bold x-text--secondary">{{ $t('recommendations.title') }}</h1>
     <SlidingPanel
       class="x-sliding-panel--show-buttons-on-hover"
       :showButtons="true"
@@ -11,7 +11,7 @@
         <ChevronLeftIcon class="x-icon--l" />
       </template>
 
-      <Recommendations class="x-list--gap-04">
+      <Recommendations class="x-list--horizontal x-list--gap-04">
         <template #default="{ recommendation }">
           <Result
             :result="recommendation"
@@ -45,3 +45,8 @@
   })
   export default class SlidingRecommendations extends Vue {}
 </script>
+<style lang="scss">
+  .x-layout__predictive .x-sliding-panel__scroll {
+    pointer-events: all !important;
+  }
+</style>

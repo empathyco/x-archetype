@@ -5,21 +5,21 @@
       "placeholder": "¿Qué estás buscando?"
     },
     "popularSearches": {
-      "title": "Búsquedas populares"
+      "title": "BÚSQUEDAS POPULARES"
     },
     "historyQueries": {
       "clear": "Limpiar historial",
       "removeLabel": "Borrar {suggestion} del historial",
-      "title": "Historial"
+      "title": "HISTORIAL"
     },
     "nextQueries": {
-      "title": "Quizás te interese"
+      "title": "QUIZÁS TE INTERESE"
     },
     "nextQueriesGroup": {
       "message": "Los que buscaron <span class=\"x-text x-text--bold x-font-size--05\">\"{query}\"</span> también han visto:"
     },
     "recommendations": {
-      "title": "Top Clicked"
+      "title": "TOP CLICKED"
     },
     "facets": {
       "gender": "Género",

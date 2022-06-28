@@ -5,15 +5,15 @@
       "placeholder": "What are you looking for?"
     },
     "popularSearches": {
-      "title": "Popular searches"
+      "title": "POPULAR SEARCHES"
     },
     "historyQueries": {
       "clear": "Clear all",
       "removeLabel": "Remove {suggestion} from history queries",
-      "title": "History Queries"
+      "title": "HISTORY QUERIES"
     },
     "nextQueries": {
-      "title": "What's Next"
+      "title": "WHAT'S NEXT"
     },
     "nextQueriesGroup": {
       "title": "You may be interested",
@@ -23,7 +23,7 @@
       "title": "SKU Search"
     },
     "recommendations": {
-      "title": "Top Clicked"
+      "title": "TOP CLICKED"
     },
     "facets": {
       "gender": "Gender",

@@ -8,6 +8,9 @@
   --x-color-base-neutral-70: #bbc3c6;
   --x-color-base-neutral-95: #f5f6f7;
 
+  // Icons
+  --x-size-stroke-width-icon-default: 0.8px;
+
   // Typography
   --x-color-text-secondary: var(--x-color-base-neutral-35);
 
@@ -79,6 +82,10 @@
   --x-color-text-button-tertiary: var(--x-color-base-lead);
   --x-size-border-width-button-tertiary: 0;
 
+  // Suggestions
+  --x-number-font-weight-suggestion-default-matching: var(--x-number-font-weight-base-bold);
+  --x-number-font-weight-suggestion-matching-part-default: var(--x-number-font-weight-tag-default);
+
   .x-mobile {
     // Grid
     --x-size-gap-grid: var(--x-size-base-03);
@@ -86,5 +93,19 @@
 
     // Result
     --x-size-gap-result-default: var(--x-size-base-01);
+
+    // Suggestions
+    --x-size-font-suggestion-default: var(--x-size-base-05);
+    --x-size-font-suggestion-default-matching:var(--x-size-base-05);
+    --x-size-font-suggestion-matching-part-default: var(--x-size-base-05);
+    --x-size-gap-suggestion-default: var(--x-size-base-06);
+    --x-size-padding-left-suggestion-default: 1px;
+
+    .x-suggestion-group .x-button {
+      --x-size-padding-right-button-default: var(--x-size-base-03);
+    }
+    .x-suggestion .x-text {
+      font-size: var(--x-size-base-05);
+    }
   }
 }
