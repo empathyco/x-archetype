@@ -3,6 +3,7 @@
     <BaseKeyboardNavigation
       class="x-row x-row--gap-06 x-row--align-start x-row--padding-05"
       :class="{ 'x-row--padding--top-00': $x.device === 'mobile' }"
+      :navigationHijacker="navigationHijacker"
     >
       <IdentifierResults
         v-if="$x.identifierResults.length > 0"
@@ -191,10 +192,17 @@
   export default class PredictiveLayer extends Vue {
     public empathizeAnimation = animateScale();
     public suggestionsAnimation = StaggeredFadeAndSlide;
+    public navigationHijacker = [
+      { xEvent: 'UserPressedArrowKey', moduleName: 'scroll', direction: 'ArrowDown' },
+      { xEvent: 'UserPressedArrowKey', moduleName: 'searchBox', direction: 'ArrowDown' }
+    ];
   }
 </script>
 <style lang="scss" scoped>
   .x-clear-history-queries {
     --x-size-height-button-default: 0;
+  }
+  .x-result-link:focus > * {
+    outline: -webkit-focus-ring-color auto 1px;
   }
 </style>
