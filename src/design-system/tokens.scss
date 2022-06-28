@@ -94,10 +94,17 @@
     --x-size-gap-result-default: var(--x-size-base-01);
 
     // Suggestions
+    --x-size-font-suggestion-default: var(--x-size-base-05);
+    --x-size-font-suggestion-default-matching:var(--x-size-base-05);
+    --x-size-font-suggestion-matching-part-default: var(--x-size-base-05);
     --x-size-gap-suggestion-default: var(--x-size-base-06);
+    --x-size-padding-left-suggestion-default: 1px;
 
     .x-suggestion-group .x-button {
       --x-size-padding-right-button-default: var(--x-size-base-03);
+    }
+    .x-suggestion .x-text {
+      font-size: var(--x-size-base-05);
     }
   }
 }

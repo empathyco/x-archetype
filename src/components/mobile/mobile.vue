@@ -4,7 +4,10 @@
       <div
         class="x-list x-list--horizontal x-list__item--expand x-padding--05 x-list--align-center"
       >
-        <Close class="x-button--ghost x-padding--left-00">
+        <Close
+          class="x-button--ghost x-padding--left-00"
+          :class="{ 'x-padding--right-03': $x.device === 'mobile' }"
+        >
           <ArrowLeftIcon class="x-icon--l" />
         </Close>
         <SearchBox class="x-list__item--expand" />
