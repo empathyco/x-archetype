@@ -2,7 +2,7 @@
   "base": {
     "searchBox": {
       "clear": "Clear",
-      "placeholder": "Start to search"
+      "placeholder": "What are you looking for?"
     },
     "popularSearches": {
       "title": "Popular searches"
@@ -13,9 +13,10 @@
       "title": "History Queries"
     },
     "nextQueries": {
-      "title": "Next Queries"
+      "title": "What's Next"
     },
     "nextQueriesGroup": {
+      "title": "You may be interested",
       "message": "Those who searched for <span class=\"x-text x-text--bold x-font-size--05\">\"{query}\"</span> also viewed:"
     },
     "identifierResults": {
