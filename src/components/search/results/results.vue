@@ -2,7 +2,7 @@
   <ResultsList v-if="$x.totalResults" v-infinite-scroll:main-scroll>
     <BannersList>
       <PromotedsList>
-        <NextQueriesList>
+        <NextQueriesList :offset="25" :frequency="25">
           <BaseVariableColumnGrid class="x-grid" :animation="staggeredFadeAndSlide">
             <template #result="{ item: result }">
               <Result :result="result" data-test="search-grid-result" />

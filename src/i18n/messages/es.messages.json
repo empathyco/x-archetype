@@ -16,8 +16,7 @@
       "title": "Quizás te interese"
     },
     "nextQueriesGroup": {
-      "title": "Quizás te interese",
-      "message": "Los que buscaron <span class=\"x-text x-text--bold\">\"{query}\"</span> también han visto:"
+      "message": "Los que buscaron <span class=\"x-text x-text--bold x-font-size--05\">\"{query}\"</span> también han visto:"
     },
     "recommendations": {
       "title": "Top Clicked"
@@ -70,11 +69,14 @@
     }
   },
   "mobile": {
-    "totalResults": {
-      "message": "{totalResults} resultados"
+    "nextQueriesGroup": {
+      "message": "Los que buscaron <span class=\"x-text x-text--bold\">\"{query}\"</span> también han visto:"
     },
     "noResults": {
       "message": "<span>No se han encontrado resultados para <span class=\"x-text x-font-color--neutral-10 x-text--bold\">\"{query}\"</span></span>Quizás te interesen estos productos"
+    },
+    "totalResults": {
+      "message": "{totalResults} resultados"
     }
   }
 }
