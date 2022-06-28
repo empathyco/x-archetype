@@ -2,7 +2,7 @@
   "base": {
     "searchBox": {
       "clear": "Borrar",
-      "placeholder": "Empieza a buscar"
+      "placeholder": "¿Qué estás buscando?"
     },
     "popularSearches": {
       "title": "BÚSQUEDAS POPULARES"
@@ -12,18 +12,11 @@
       "removeLabel": "Borrar {suggestion} del historial",
       "title": "HISTORIAL"
     },
-    "querySuggestions": {
-      "title": "Sugerencias"
-    },
     "nextQueries": {
-      "title": "PARA TI"
+      "title": "QUIZÁS TE INTERESE"
     },
     "nextQueriesGroup": {
-      "title": "Te podría interesar",
-      "message": "Esto es lo que otros compradores han buscado después de <span class=\"x-text x-text--bold\">\"{query}\"</span>"
-    },
-    "identifierResults": {
-      "title": "Búsqueda SKU"
+      "message": "Los que buscaron <span class=\"x-text x-text--bold x-font-size--05\">\"{query}\"</span> también han visto:"
     },
     "recommendations": {
       "title": "TOP CLICKED"
@@ -42,16 +35,16 @@
       "showMore": "Mostrar más",
       "showLess": "Mostrar menos"
     },
+    "partialResults": {
+      "message": "Ver todos los resultados ({totalResults})"
+    },
     "priceFilter": {
       "lessThan": "hasta {max}",
       "fromTo": "{min} - {max}",
       "from": "desde {min}"
     },
-    "filtersSearch": {
-      "placeholder": "Buscar"
-    },
     "toggleAside": {
-      "showAside": "Ordenar & filtrar"
+      "showAside": "Ordenar y Filtrar"
     },
     "totalResults": {
       "message": "{totalResults} resultados para <span class=\"x-text x-text--bold\">{query}</span>"
@@ -69,13 +62,19 @@
       "message": "No se han encontrado resultados para <span class=\"x-text--accent\">'{query}'</span>. Aquí tienes resultados para"
     },
     "noResults": {
-      "message": "No se han encontrado resultados para '{query}'. Prueba con otra búsqueda."
+      "message": "<span>No se han encontrado resultados para <span class=\"x-text x-font-color--neutral-10 x-text--bold x-font-size--05\">\"{query}\"</span></span>Quizás te interesen estos productos"
     },
     "columnPicker": {
       "message": "Ver"
     }
   },
   "mobile": {
+    "nextQueriesGroup": {
+      "message": "Los que buscaron <span class=\"x-text x-text--bold\">\"{query}\"</span> también han visto:"
+    },
+    "noResults": {
+      "message": "<span>No se han encontrado resultados para <span class=\"x-text x-font-color--neutral-10 x-text--bold\">\"{query}\"</span></span>Quizás te interesen estos productos"
+    },
     "totalResults": {
       "message": "{totalResults} resultados"
     }

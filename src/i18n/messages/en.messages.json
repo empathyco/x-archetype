@@ -2,7 +2,7 @@
   "base": {
     "searchBox": {
       "clear": "Clear",
-      "placeholder": "Start to search"
+      "placeholder": "What are you looking for?"
     },
     "popularSearches": {
       "title": "POPULAR SEARCHES"
@@ -12,15 +12,12 @@
       "removeLabel": "Remove {suggestion} from history queries",
       "title": "HISTORY QUERIES"
     },
-    "querySuggestions": {
-      "title": "Suggestions"
-    },
     "nextQueries": {
-      "title": "NEXT QUERIES"
+      "title": "WHAT'S NEXT"
     },
     "nextQueriesGroup": {
       "title": "You may be interested",
-      "message": "This is what other shoppers searched after <span class=\"x-text x-text--bold\">\"{query}\"</span>"
+      "message": "Those who searched for <span class=\"x-text x-text--bold x-font-size--05\">\"{query}\"</span> also viewed:"
     },
     "identifierResults": {
       "title": "SKU Search"
@@ -42,13 +39,13 @@
       "showMore": "Show more",
       "showLess": "Show less"
     },
+    "partialResults": {
+      "message": "View all results ({totalResults})"
+    },
     "priceFilter": {
       "lessThan": "less than {max}",
       "fromTo": "{min} - {max}",
       "from": "from {min}"
-    },
-    "filtersSearch": {
-      "placeholder": "Search"
     },
     "toggleAside": {
       "showAside": "Sort & Filter"
@@ -69,13 +66,19 @@
       "message": "No results found for <span class=\"x-text x-text--accent x-text--bold\">'{query}'</span>. We show you results for"
     },
     "noResults": {
-      "message": "No results found for <span class=\"x-text x-text--accent x-text--bold\">'{query}'</span>. Try with another query."
+      "message": "<span>Sorry but there are no results for <span class=\"x-text x-font-color--neutral-10 x-text--bold x-font-size--05\">\"{query}\"</span></span>You may be interested in these products"
     },
     "columnPicker": {
       "message": "View"
     }
   },
   "mobile": {
+    "nextQueriesGroup": {
+      "message": "Those who searched for <span class=\"x-text x-text--bold\">\"{query}\"</span> also viewed:"
+    },
+    "noResults": {
+      "message": "<span>Sorry but there are no results for <span class=\"x-text x-font-color--neutral-10 x-text--bold\">\"{query}\"</span></span>You may be interested in these products"
+    },
     "totalResults": {
       "message": "{totalResults} results"
     }
