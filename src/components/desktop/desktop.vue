@@ -73,7 +73,6 @@
 <script lang="ts">
   import {
     BaseEventsModalClose,
-    BaseScroll,
     BaseVariableColumnGrid,
     CartIcon,
     CrossIcon,
@@ -96,7 +95,6 @@
 
   @Component({
     components: {
-      BaseScroll,
       BaseVariableColumnGrid,
       CartIcon,
       Close: BaseEventsModalClose,
