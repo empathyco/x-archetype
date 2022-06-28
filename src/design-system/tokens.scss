@@ -11,6 +11,9 @@
   // Icons
   --x-size-stroke-width-icon-default: 0.8px;
 
+  // Typography
+  --x-color-text-secondary: var(--x-color-base-neutral-35);
+
   // Tag
   --x-color-border-tag-default: var(--x-color-base-neutral-70);
   --x-color-background-tag-default-selected: var(--x-color-base-accent);
@@ -33,6 +36,10 @@
 
   // Grid
   --x-size-min-width-grid-item: var(--x-size-base-20);
+  --x-size-gap-grid: var(--x-size-base-07) var(--x-size-base-05);
+
+  // Result
+  --x-size-gap-result-default: var(--x-size-base-02);
 
   // Message
   --x-color-background-message-default: var(--x-color-base-neutral-95);
@@ -70,11 +77,23 @@
   // Modal overlay
   --x-color-background-modal-overlay-default: var(--x-color-base-lead);
 
+  // Button
+  --x-color-background-button-tertiary: rgba(255, 255, 255, 0.85);
+  --x-color-text-button-tertiary: var(--x-color-base-lead);
+  --x-size-border-width-button-tertiary: 0;
+
   // Suggestions
   --x-number-font-weight-suggestion-default-matching: var(--x-number-font-weight-base-bold);
   --x-number-font-weight-suggestion-matching-part-default: var(--x-number-font-weight-tag-default);
 
   .x-mobile {
+    // Grid
+    --x-size-gap-grid: var(--x-size-base-03);
+
+    // Result
+    --x-size-gap-result-default: var(--x-size-base-01);
+
+    // Suggestions
     --x-size-gap-suggestion-default: var(--x-size-base-06);
 
     .x-suggestion-group .x-button {

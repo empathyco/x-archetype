@@ -10,11 +10,17 @@
       <template #sliding-panel-left-button>
         <ChevronLeftIcon class="x-icon--l" />
       </template>
-      <Recommendations>
+
+      <Recommendations class="x-list--gap-04">
         <template #default="{ recommendation }">
-          <Result :result="recommendation" data-test="recommendation-item" />
+          <Result
+            :result="recommendation"
+            data-test="recommendation-item"
+            :show-description="false"
+          />
         </template>
       </Recommendations>
+
       <template #sliding-panel-right-button>
         <ChevronRightIcon class="x-icon--l" />
       </template>
