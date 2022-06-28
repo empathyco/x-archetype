@@ -20,7 +20,6 @@ export interface Messages {
     title: string;
   };
   nextQueriesGroup: {
-    title: string;
     message: string;
   };
   identifierResults: {
