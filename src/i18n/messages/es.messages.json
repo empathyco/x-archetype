@@ -19,7 +19,7 @@
       "message": "Los que buscaron <span class=\"x-text x-text--bold x-font-size--05\">\"{query}\"</span> también han visto:"
     },
     "recommendations": {
-      "title": "TOP CLICKED"
+      "title": "Top Clicked"
     },
     "facets": {
       "gender": "Género",

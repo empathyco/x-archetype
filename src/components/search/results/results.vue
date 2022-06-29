@@ -3,7 +3,10 @@
     <BannersList>
       <PromotedsList>
         <NextQueriesList :offset="25" :frequency="25">
-          <BaseVariableColumnGrid class="x-grid" :animation="staggeredFadeAndSlide">
+          <BaseVariableColumnGrid
+            class="x-grid x-padding--top-00"
+            :animation="staggeredFadeAndSlide"
+          >
             <template #result="{ item: result }">
               <Result :result="result" data-test="search-grid-result" />
             </template>

@@ -6,7 +6,7 @@
       <template v-if="!$x.redirections.length">
         <div
           v-if="$x.totalResults === 0 || $x.spellcheckedQuery"
-          class="x-padding--03 x-padding--bottom-07"
+          class="x-padding--top-03 x-padding--bottom-07"
         >
           <template>
             <SpellcheckMessage />

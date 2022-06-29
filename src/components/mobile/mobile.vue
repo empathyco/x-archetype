@@ -1,8 +1,16 @@
 <template>
-  <SingleColumnLayout :asideAnimation="animation">
+  <SingleColumnLayout
+    :asideAnimation="animation"
+    :class="{ 'x-background--neutral-100': !!$x.query.searchBox }"
+  >
     <template #header>
       <div
-        class="x-list x-list--horizontal x-list__item--expand x-padding--05 x-list--align-center"
+        class="
+          x-list x-list--horizontal x-list__item--expand
+          x-padding--05
+          x-list--align-center
+          x-background--neutral-100
+        "
       >
         <Close
           class="x-button--ghost x-padding--left-00"
@@ -17,7 +25,7 @@
     <template #sub-header>
       <div
         v-if="$x.relatedTags.length > 0"
-        class="x-list__item--expand x-list x-padding--05 x-padding--top-00"
+        class="x-list__item--expand x-list x-padding--00 x-padding--bottom-05"
       >
         <LocationProvider location="predictive_layer">
           <RelatedTags />
@@ -25,7 +33,7 @@
       </div>
     </template>
 
-    <template #toolbar>
+    <template #toolbar v-if="$x.query.search">
       <MobileToolbar class="x-padding--05 x-padding--top-00" />
     </template>
 
@@ -104,5 +112,15 @@
     public animation = animateTranslate('bottom');
   }
 </script>
-
-<style lang="scss"></style>
+<style lang="scss">
+  .x-mobile {
+    .x-modal__content {
+      background-color: var(--x-color-base-transparent) !important;
+    }
+    .x-layout__aside {
+      .x-modal__content {
+        background-color: var(--x-color-base-neutral-100) !important;
+      }
+    }
+  }
+</style>

@@ -4,11 +4,11 @@
       <Sort />
       <CustomFacets />
     </BaseScroll>
-    <SelectedFilters
-      v-if="$x.selectedFilters.length"
-      class="x-list x-list--gap-05 x-padding--05 x-border-width--top-01"
-    />
-    <div class="x-list">
+    <div class="x-list x-border-width--top-01">
+      <SelectedFilters
+        v-if="$x.selectedFilters.length"
+        class="x-list x-list--gap-05 x-padding--top-05 x-padding--bottom-05"
+      />
       <MobileCloseAside />
     </div>
   </div>
@@ -35,13 +35,15 @@
 </script>
 
 <style lang="scss">
-  .x-modal.x-layout__aside {
-    .x-modal__content {
-      height: calc(100vh - 64px) !important;
-      top: 64px;
-      position: fixed;
-      border-top-right-radius: 16px;
-      border-top-left-radius: 16px;
+  .x-mobile {
+    .x-modal.x-layout__aside {
+      .x-modal__content {
+        height: calc(100% - 64px) !important;
+        top: 64px;
+        position: fixed;
+        border-top-right-radius: 16px;
+        border-top-left-radius: 16px;
+      }
     }
   }
 </style>

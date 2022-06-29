@@ -1,7 +1,7 @@
 <template>
   <Empathize :animation="empathizeAnimation" class="x-list">
     <BaseKeyboardNavigation
-      class="x-row x-row--gap-06 x-row--align-start x-row--padding-05"
+      class="x-row x-row--gap-06 x-row--align-start"
       :class="{ 'x-row--padding--top-00': $x.device === 'mobile' }"
       :navigationHijacker="navigationHijacker"
     >
@@ -10,7 +10,7 @@
         v-slot="{ identifierResult }"
         :maxItemsToRender="5"
         :animation="suggestionsAnimation"
-        class="x-row__item x-row__item--span-12 x-list x-list--gap-03"
+        class="x-row__item x-row__item--span-12 x-list x-list--gap-03 x-padding--05"
       >
         <BaseResultLink v-slot="{ result }" :result="identifierResult" class="x-suggestion">
           <BarCodeIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
@@ -22,23 +22,26 @@
       </IdentifierResults>
 
       <div
-        v-else
-        class="x-row__item x-list"
+        v-else-if="
+          $x.historyQueries.length ||
+          $x.identifierResults.length ||
+          $x.nextQueries.length ||
+          $x.popularSearches.length
+        "
+        class="x-row__item x-list x-padding--05"
         :class="[
           $x.query.searchBox ? 'x-list--gap-03' : 'x-list--gap-06',
-          $x.device === 'mobile' ? 'x-row__item--span-12' : 'x-row__item--span-5'
+          $x.device === 'mobile'
+            ? 'x-row__item--span-12 x-padding--bottom-00'
+            : 'x-row__item--span-5 x-padding--right-00'
         ]"
       >
         <div v-if="$x.historyQueries.length > 0" class="x-list x-list--gap-04">
-          <div class="x-list x-list--horizontal x-list--align-center">
-            <h1
-              v-if="!$x.query.searchBox"
-              class="x-small x-text--bold x-text--secondary x-list__item--expand"
-            >
+          <div v-if="!$x.query.searchBox" class="x-list x-list--horizontal x-list--align-center">
+            <h1 class="x-small x-text--bold x-text--secondary x-list__item--expand">
               {{ $t('historyQueries.title') }}
             </h1>
             <ClearHistoryQueries
-              v-if="!$x.query.searchBox"
               class="
                 x-button--ghost
                 x-small
@@ -87,7 +90,7 @@
         <div
           v-if="$x.nextQueries.length > 0 && $x.identifierResults.length === 0"
           class="x-list x-list--gap-04"
-          :class="{ ' x-list--padding-06 x-list--padding-top': $x.query.searchBox }"
+          :class="{ 'x-padding--top-06': $x.query.searchBox }"
         >
           <h1 class="x-small x-text--bold x-text--secondary">
             {{ $t('nextQueries.title') }}

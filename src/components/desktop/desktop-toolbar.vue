@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="$x.totalResults"
-    class="x-list x-list--horizontal x-list--gap-08 x-list--justify-end x-list--align-center"
+    class="x-list x-list--horizontal x-list--gap-07 x-list--justify-end x-list--align-center"
     data-test="total-results"
   >
     <span
@@ -15,7 +15,7 @@
 
     <BaseIdModalOpen
       modalId="right-aside"
-      class="x-button x-button--ghost x-button--ghost-start"
+      class="x-button x-button--ghost x-button--ghost-end x-padding--left-00"
       data-test="toggle-facets-button"
     >
       <FiltersIcon />

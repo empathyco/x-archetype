@@ -1,11 +1,11 @@
 <template>
-  <FixedHeaderAndAsidesLayout>
+  <FixedHeaderAndAsidesLayout :class="{ 'x-background--neutral-100': !!$x.query.searchBox }">
     <template #header>
       <div
         class="
           x-list__item--expand
-          x-row x-row--align-start x-row--gap-04
-          x-padding--top-06 x-padding--bottom-07
+          x-bac x-row x-row--align-start x-row--gap-04
+          x-padding--top-06 x-padding--bottom-05
         "
       >
         <div class="x-row__item x-row__item--span-2 x-list x-padding--top-04">
@@ -46,15 +46,11 @@
     <template #toolbar>
       <SelectedFilters
         v-if="$x.totalResults > 0"
-        class="
-          x-border-width--top-01
-          x-border-color--neutral-95
-          x-padding--05 x-padding--right-00 x-padding--left-00
-        "
+        class="x-padding--05 x-padding--right-00 x-padding--left-00"
       />
     </template>
 
-    <template #main>
+    <template #main v-if="$x.query.searchBox">
       <LocationProvider location="results">
         <Main />
       </LocationProvider>
@@ -119,3 +115,10 @@
   })
   export default class Desktop extends HasSearchedMixin {}
 </script>
+<style lang="scss">
+  .x-desktop {
+    .x-modal__content {
+      background-color: var(--x-color-base-transparent) !important;
+    }
+  }
+</style>
