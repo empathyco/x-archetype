@@ -37,6 +37,7 @@
   // Grid
   --x-size-min-width-grid-item: var(--x-size-base-20);
   --x-size-gap-grid: var(--x-size-base-07) var(--x-size-base-05);
+  --x-size-padding-grid: var(--x-size-base-06) 0;
 
   // Result
   --x-size-gap-result-default: var(--x-size-base-02);
@@ -116,6 +117,9 @@
 
     // Sliding Panel
     --x-size-width-sliding-panel-gradient: var(--x-size-base-00);
+
+    // Typography
+    --x-size-font-title1: var(--x-size-font-base-l);
 
     .x-suggestion-group .x-button {
       --x-size-padding-right-button-default: var(--x-size-base-03);
