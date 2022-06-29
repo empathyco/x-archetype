@@ -8,7 +8,7 @@
       v-html="
         $t('totalResults.message', { totalResults: $x.totalResults, query: $x.query.searchBox })
       "
-      class="x-list__item--expand"
+      class="x-list__item--expand x-font-size--05"
     />
 
     <ColumnPicker />
