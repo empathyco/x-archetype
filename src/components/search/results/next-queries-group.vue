@@ -12,11 +12,10 @@
       v-html="$t('nextQueriesGroup.message', { query: $x.query.search })"
       :class="$x.device === 'mobile' ? 'x-text' : 'x-text x-font-size--05'"
     />
-    <NextQueries
-      #suggestion="{ suggestion }"
+    <BaseSuggestions
+      #default="{ suggestion }"
       :suggestions="nextQueries"
       class="x-list--horizontal x-list--wrap x-list--gap-03"
-      :max-items-to-render="$x.device === 'mobile' ? 6 : 12"
     >
       <NextQuery
         #default="{ suggestion: nextQuery }"
@@ -36,14 +35,19 @@
         </span>
         <ArrowRightIcon class="x-icon--m x-font-color--accent" />
       </NextQuery>
-    </NextQueries>
+    </BaseSuggestions>
   </div>
 </template>
 
 <script lang="ts">
-  import { ArrowRightIcon, LightBulbOn, CuratedCheckIcon } from '@empathyco/x-components';
+  import {
+    ArrowRightIcon,
+    LightBulbOn,
+    CuratedCheckIcon,
+    BaseSuggestions
+  } from '@empathyco/x-components';
   import { Component, Prop, Vue } from 'vue-property-decorator';
-  import { NextQueries, NextQueriesList, NextQuery } from '@empathyco/x-components/next-queries';
+  import { NextQueriesList, NextQuery } from '@empathyco/x-components/next-queries';
   import { NextQuery as NextQueryModel } from '@empathyco/x-types';
 
   @Component({
@@ -52,7 +56,7 @@
       CuratedCheckIcon,
       LightBulbOn,
       NextQuery,
-      NextQueries,
+      BaseSuggestions,
       NextQueriesList
     }
   })

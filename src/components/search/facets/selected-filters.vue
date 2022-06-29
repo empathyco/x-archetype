@@ -2,14 +2,14 @@
   <div class="x-list x-list--horizontal x-list--align-center">
     <SlidingPanel
       class="x-sliding-panel--show-buttons-on-hover"
-      :showButtons="true"
+      :showButtons="$x.device === 'mobile' ? false : true"
       :buttonClass="'x-button--ghost x-padding--00'"
       :resetOnContentChange="false"
     >
       <template #sliding-panel-left-button>
         <ChevronLeftIcon class="x-icon--l" />
       </template>
-      <SelectedFiltersList class="x-list x-list--wrap x-list--gap-03">
+      <SelectedFiltersList class="x-list x-list--wrap x-list--gap-03 x-padding--left-05">
         <template #default="{ filter }">
           <SimpleFilter
             class="

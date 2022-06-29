@@ -2,8 +2,15 @@
   <ResultsList v-if="$x.totalResults" v-infinite-scroll:main-scroll>
     <BannersList>
       <PromotedsList>
-        <NextQueriesList :offset="25" :frequency="25">
-          <BaseVariableColumnGrid class="x-grid" :animation="staggeredFadeAndSlide">
+        <NextQueriesList
+          :offset="24"
+          :frequency="48"
+          :maxNextQueriesPerGroup="$x.device === 'mobile' ? 6 : 12"
+        >
+          <BaseVariableColumnGrid
+            class="x-grid x-padding--top-00"
+            :animation="staggeredFadeAndSlide"
+          >
             <template #result="{ item: result }">
               <Result :result="result" data-test="search-grid-result" />
             </template>

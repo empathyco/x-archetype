@@ -11,7 +11,10 @@
       </BaseResultImage>
     </BaseResultLink>
 
-    <div v-if="$x.device === 'desktop'" class="x-result__overlay x-list x-list--horizontal">
+    <div
+      v-if="$x.device === 'desktop' && showAddToCart"
+      class="x-result__overlay x-list x-list--horizontal"
+    >
       <BaseAddToCart
         :result="result"
         class="x-list__item--expand x-button--pill x-button--tertiary x-margin--05"
@@ -74,5 +77,8 @@
 
     @Prop({ default: true })
     public showDescription!: boolean;
+
+    @Prop({ default: true })
+    public showAddToCart!: boolean;
   }
 </script>

@@ -3,7 +3,7 @@
     v-if="$x.recommendations.length > 0"
     class="x-list x-list--align-center x-list--padding-07 x-list--gap-07 x-list--padding-bottom"
   >
-    <h1 class="x-title1 x-text--bold">{{ $t('recommendations.title') }}</h1>
+    <h1 class="x-title1">{{ $t('recommendations.title') }}</h1>
     <Recommendations v-if="!$x.totalResults">
       <template #layout="{ recommendations }">
         <BaseGrid

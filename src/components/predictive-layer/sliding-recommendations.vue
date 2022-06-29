@@ -1,6 +1,15 @@
 <template>
-  <div v-if="$x.recommendations.length > 0" class="x-list x-list--gap-04">
-    <h1 class="x-small x-text--bold x-text--secondary">{{ $t('recommendations.title') }}</h1>
+  <div
+    v-if="$x.recommendations.length > 0"
+    class="x-list x-list--gap-04"
+    :class="{ 'x-padding--top-05': $x.device === 'desktop' }"
+  >
+    <h1
+      class="x-small x-text--bold x-text--secondary x-uppercase"
+      :class="{ 'x-padding--left-05': $x.device === 'mobile' }"
+    >
+      {{ $t('recommendations.title') }}
+    </h1>
     <SlidingPanel
       class="x-sliding-panel--show-buttons-on-hover"
       :showButtons="true"
@@ -11,12 +20,16 @@
         <ChevronLeftIcon class="x-icon--l" />
       </template>
 
-      <Recommendations class="x-list--horizontal x-list--gap-04">
+      <Recommendations
+        class="x-list--horizontal x-list--gap-04"
+        :class="{ 'x-padding--left-05': $x.device === 'mobile' }"
+      >
         <template #default="{ recommendation }">
           <Result
             :result="recommendation"
             data-test="recommendation-item"
-            :show-description="false"
+            :showDescription="false"
+            :showAddToCart="false"
           />
         </template>
       </Recommendations>

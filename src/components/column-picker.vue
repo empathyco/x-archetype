@@ -1,13 +1,9 @@
 <template>
-  <div class="x-list x-list--horizontal x-list--align-center">
+  <div class="x-list x-list--horizontal x-list--align-center x-list--gap-03">
     <span class="x-uppercase">{{ $t('columnPicker.message') }}</span>
 
     <BaseColumnPickerList v-slot="{ column }" :columns="values">
-      <component
-        :is="icon(column)"
-        class="x-icon--l x-padding--left-05"
-        :class="{ 'x-padding--right-05': icon(column) === 'Grid2ColIcon' }"
-      />
+      <component :is="icon(column)" class="x-icon--l" />
     </BaseColumnPickerList>
   </div>
 </template>

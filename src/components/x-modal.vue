@@ -1,7 +1,11 @@
 <template>
-  <BaseEventsModal :eventsToOpenModal="openEvents" :animation="animation">
-    <Mobile v-if="$x.device === 'mobile'" class="x-mobile" />
-    <Desktop v-else class="x-desktop" />
+  <BaseEventsModal
+    :eventsToOpenModal="openEvents"
+    :animation="animation"
+    :class="$x.device === 'mobile' ? 'x-mobile' : 'x-desktop'"
+  >
+    <Mobile v-if="$x.device === 'mobile'" />
+    <Desktop v-else />
   </BaseEventsModal>
 </template>
 

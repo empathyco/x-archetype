@@ -34,7 +34,6 @@
   export default class Layer extends Vue {
     protected breakpoints: Dictionary<number> = {
       mobile: 640,
-      tablet: 900,
       desktop: Number.POSITIVE_INFINITY
     };
     protected isOpen = false;

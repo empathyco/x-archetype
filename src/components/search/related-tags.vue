@@ -8,7 +8,7 @@
       <ChevronLeftIcon class="x-icon--l" />
     </template>
     <RelatedTags
-      class="x-list--gap-03 x-tag--pill"
+      class="x-list--gap-03 x-tag--pill x-padding--left-05"
       :highlightCurated="true"
       :animation="relatedTagsAnimation"
     >
