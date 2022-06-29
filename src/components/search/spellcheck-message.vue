@@ -1,5 +1,5 @@
 <template>
-  <Spellcheck v-if="$x.totalResults > 0" #default="{ query }" class="x-message">
+  <Spellcheck v-if="$x.totalResults > 0" #default="{ query }" class="x-message x-border-radius--00">
     <p>
       <span v-html="$t('spellcheck.message', { query })" class="x-text" />
       <SpellcheckButton class="x-button x-button--ghost x-padding--01" />

@@ -10,13 +10,19 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { BaseColumnPickerList, Grid1ColIcon, Grid2ColIcon } from '@empathyco/x-components';
+  import {
+    BaseColumnPickerList,
+    Grid1ColIcon,
+    Grid2ColIcon,
+    Grid4ColIcon
+  } from '@empathyco/x-components';
 
   @Component({
     components: {
       BaseColumnPickerList,
       Grid1ColIcon,
-      Grid2ColIcon
+      Grid2ColIcon,
+      Grid4ColIcon
     }
   })
   export default class ColumnPicker extends Vue {
@@ -28,7 +34,7 @@
       if (this.$x.device === 'mobile') {
         return column === 2 ? 'Grid2ColIcon' : 'Grid1ColIcon';
       } else {
-        return column === 4 ? 'Grid2ColIcon' : 'Grid1ColIcon';
+        return column === 4 ? 'Grid4ColIcon' : 'Grid2ColIcon';
       }
     }
   }

@@ -9,6 +9,7 @@
         <BaseGrid
           #default="{ item: result }"
           :animation="staggeredFadeAndSlide"
+          :columns="$x.device === 'mobile' ? 2 : 4"
           :items="recommendations"
         >
           <Result :result="result" data-test="recommendation-item" />

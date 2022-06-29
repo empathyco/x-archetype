@@ -4,7 +4,7 @@
       {{ $t('totalResults.message', { totalResults: $x.totalResults }) }}
     </span>
 
-    <ColumnPicker />
+    <ColumnPicker v-if="$x.totalResults" />
 
     <EnvSelector />
   </div>
