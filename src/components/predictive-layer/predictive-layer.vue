@@ -26,7 +26,8 @@
           $x.historyQueries.length ||
           $x.identifierResults.length ||
           $x.nextQueries.length ||
-          $x.popularSearches.length
+          $x.popularSearches.length ||
+          $x.querySuggestions.length
         "
         class="x-row__item x-list x-padding--05"
         :class="[
