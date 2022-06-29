@@ -5,7 +5,7 @@
         x-list x-list--horizontal x-list--align-center
         x-border-width--bottom-01
         x-border-color--neutral-10
-        x-padding--08 x-padding--top-06 x-padding--bottom-06
+        x-padding--06 x-padding--right-10 x-padding--left-08
       "
     >
       <span class="x-title2 x-font-color--neutral-10 x-font-weight--bold x-margin--right-auto">

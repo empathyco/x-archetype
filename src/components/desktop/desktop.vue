@@ -4,7 +4,7 @@
       <div
         class="
           x-list__item--expand
-          x-bac x-row x-row--align-start x-row--gap-04
+          x-row x-row--align-start x-row--gap-04
           x-padding--top-06 x-padding--bottom-05
         "
       >
