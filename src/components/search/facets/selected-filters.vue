@@ -9,7 +9,10 @@
       <template #sliding-panel-left-button>
         <ChevronLeftIcon class="x-icon--l" />
       </template>
-      <SelectedFiltersList class="x-list x-list--wrap x-list--gap-03 x-padding--left-05">
+      <SelectedFiltersList
+        class="x-list x-list--wrap x-list--gap-03"
+        :class="{ 'x-padding--left-05': $x.device === 'mobile' }"
+      >
         <template #default="{ filter }">
           <SimpleFilter
             class="
