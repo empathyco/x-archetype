@@ -1,5 +1,15 @@
 <template>
-  <Empathize :animation="empathizeAnimation" class="x-list">
+  <Empathize
+    v-if="
+      $x.historyQueries.length ||
+      $x.identifierResults.length ||
+      $x.nextQueries.length ||
+      $x.popularSearches.length ||
+      $x.querySuggestions.length
+    "
+    :animation="empathizeAnimation"
+    class="x-list"
+  >
     <BaseKeyboardNavigation
       class="x-row x-row--gap-06 x-row--align-start"
       :class="{ 'x-row--padding--top-00': $x.device === 'mobile' }"
@@ -22,13 +32,7 @@
       </IdentifierResults>
 
       <div
-        v-else-if="
-          $x.historyQueries.length ||
-          $x.identifierResults.length ||
-          $x.nextQueries.length ||
-          $x.popularSearches.length ||
-          $x.querySuggestions.length
-        "
+        v-else
         class="x-row__item x-list x-padding--05"
         :class="[
           $x.query.searchBox ? 'x-list--gap-03' : 'x-list--gap-06',

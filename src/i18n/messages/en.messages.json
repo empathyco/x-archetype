@@ -54,7 +54,12 @@
       "message": "{totalResults} results for <span class=\"x-text x-text--bold\">{query}</span>"
     },
     "sort": {
-      "label": "Sort by"
+      "label": "Sort by",
+      "values": {
+        "price asc": "Price: Low to high",
+        "price desc": "Price: High to Low",
+        "default": "Relevancy"
+      }
     },
     "selectedFilters": {
       "clear": "CLEAR {selectedFiltersNumber} FILTERS"
