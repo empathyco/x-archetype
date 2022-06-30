@@ -1,22 +1,12 @@
 <template>
-  <Empathize
-    v-if="
-      $x.historyQueries.length ||
-      $x.identifierResults.length ||
-      $x.nextQueries.length ||
-      $x.popularSearches.length ||
-      $x.querySuggestions.length
-    "
-    :animation="empathizeAnimation"
-    class="x-list"
-  >
+  <Empathize v-if="showEmpathize" :animation="empathizeAnimation" class="x-list">
     <BaseKeyboardNavigation
       class="x-row x-row--gap-06 x-row--align-start"
       :class="{ 'x-row--padding--top-00': $x.device === 'mobile' }"
       :navigationHijacker="navigationHijacker"
     >
       <IdentifierResults
-        v-if="$x.identifierResults.length > 0"
+        v-if="showIdentifierResults"
         v-slot="{ identifierResult }"
         :maxItemsToRender="5"
         :animation="suggestionsAnimation"
@@ -41,7 +31,7 @@
             : 'x-row__item--span-5 x-padding--right-00'
         ]"
       >
-        <div v-if="$x.historyQueries.length > 0" class="x-list x-list--gap-04">
+        <div v-if="showHistoryQueries" class="x-list x-list--gap-04">
           <div v-if="!$x.query.searchBox" class="x-list x-list--horizontal x-list--align-center">
             <h1 class="x-small x-text--bold x-text--secondary x-list__item--expand">
               {{ $t('historyQueries.title') }}
@@ -82,7 +72,7 @@
         </div>
 
         <QuerySuggestions
-          v-if="$x.query.searchBox && $x.identifierResults.length === 0"
+          v-if="showQuerySuggestions"
           #suggestion-content="{ queryHTML }"
           :animation="suggestionsAnimation"
           :max-items-to-render="5"
@@ -93,7 +83,7 @@
         </QuerySuggestions>
 
         <div
-          v-if="$x.nextQueries.length > 0 && $x.identifierResults.length === 0"
+          v-if="showNextQueries"
           class="x-list x-list--gap-04"
           :class="{ 'x-padding--top-06': $x.query.searchBox }"
         >
@@ -120,10 +110,7 @@
           </NextQueries>
         </div>
 
-        <div
-          v-if="$x.popularSearches.length > 0 && !$x.query.searchBox"
-          class="x-list x-list--gap-04"
-        >
+        <div v-if="showPopularSearches" class="x-list x-list--gap-04">
           <h1 class="x-small x-text--bold x-text--secondary">
             {{ $t('popularSearches.title') }}
           </h1>
@@ -208,6 +195,40 @@
       { xEvent: 'UserPressedArrowKey', moduleName: 'scroll', direction: 'ArrowDown' },
       { xEvent: 'UserPressedArrowKey', moduleName: 'searchBox', direction: 'ArrowDown' }
     ];
+
+    public get showIdentifierResults(): boolean {
+      return this.$x.identifierResults.length > 0;
+    }
+
+    public get showHistoryQueries(): boolean {
+      return this.$x.historyQueries.length > 0;
+    }
+
+    public get showQuerySuggestions(): boolean {
+      return (
+        !!this.$x.query.searchBox &&
+        this.$x.identifierResults.length === 0 &&
+        this.$x.querySuggestions.length > 0
+      );
+    }
+
+    public get showNextQueries(): boolean {
+      return this.$x.nextQueries.length > 0 && this.$x.identifierResults.length === 0;
+    }
+
+    public get showPopularSearches(): boolean {
+      return this.$x.popularSearches.length > 0 && !this.$x.query.searchBox;
+    }
+
+    public get showEmpathize(): boolean {
+      return (
+        this.showIdentifierResults ||
+        this.showHistoryQueries ||
+        this.showQuerySuggestions ||
+        this.showNextQueries ||
+        this.showPopularSearches
+      );
+    }
   }
 </script>
 <style lang="scss" scoped>
