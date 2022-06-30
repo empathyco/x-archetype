@@ -17,10 +17,10 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import { BaseScroll } from '@empathyco/x-components';
-  import CustomFacets from '../search/facets/custom-facets.vue';
-  import SelectedFilters from '../search/facets/selected-filters.vue';
-  import Sort from '../search/sort.vue';
-  import MobileCloseAside from './mobile-close-aside.vue';
+  import MobileCloseAside from '../mobile/mobile-close-aside.vue';
+  import CustomFacets from './facets/custom-facets.vue';
+  import SelectedFilters from './facets/selected-filters.vue';
+  import Sort from './sort.vue';
 
   @Component({
     components: {

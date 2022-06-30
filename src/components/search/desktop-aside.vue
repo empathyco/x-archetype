@@ -57,8 +57,8 @@
   import { BaseIdModalClose, CrossTinyIcon } from '@empathyco/x-components';
   import { Component, Vue } from 'vue-property-decorator';
   import { ClearFilters } from '@empathyco/x-components/facets';
-  import CustomFacets from '../search/facets/custom-facets.vue';
-  import Sort from '../search/sort.vue';
+  import CustomFacets from './facets/custom-facets.vue';
+  import Sort from './sort.vue';
 
   @Component({
     components: {

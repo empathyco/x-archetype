@@ -45,7 +45,7 @@
 
     <template #toolbar>
       <SelectedFilters
-        v-if="$x.totalResults > 0"
+        v-if="$x.totalResults > 0 && hasSearched"
         class="x-padding--05 x-padding--right-00 x-padding--left-00"
       />
     </template>
@@ -56,8 +56,8 @@
       </LocationProvider>
     </template>
 
-    <template v-if="hasSearched" #right-aside>
-      <DesktopAside />
+    <template #right-aside>
+      <DesktopAside v-if="hasSearched" />
     </template>
 
     <template #scroll-to-top>
@@ -110,7 +110,7 @@
       SlidingPanel,
       RelatedTags: () => import('../search').then(m => m.RelatedTags),
       SelectedFilters: () => import('../search').then(m => m.SelectedFilters),
-      DesktopAside: () => import('./desktop-aside.vue')
+      DesktopAside: () => import('../search').then(m => m.DesktopAside)
     }
   })
   export default class Desktop extends HasSearchedMixin {}
