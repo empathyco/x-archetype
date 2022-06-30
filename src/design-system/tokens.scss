@@ -125,6 +125,9 @@
     // Typography
     --x-size-font-title1: var(--x-size-font-base-l);
 
+    // Options list
+    --x-font-decoration-option-list-button-default-hover: none;
+
     .x-suggestion-group .x-button {
       --x-size-padding-right-button-default: var(--x-size-base-03);
     }
