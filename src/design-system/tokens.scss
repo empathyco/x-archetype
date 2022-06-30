@@ -8,6 +8,11 @@
   --x-color-base-neutral-70: #bbc3c6;
   --x-color-base-neutral-95: #f5f6f7;
 
+  // Icons
+  .x-icon--light-bulb-on {
+    --x-size-stroke-width-icon-default: 0.8px;
+  }
+
   // Typography
   --x-color-text-secondary: var(--x-color-base-neutral-35);
 
