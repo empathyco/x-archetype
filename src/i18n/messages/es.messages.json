@@ -47,7 +47,7 @@
       "showAside": "Ordenar y Filtrar"
     },
     "totalResults": {
-      "message": "{totalResults} resultados para <span class=\"x-text x-text--bold\">{query}</span>"
+      "message": "{totalResults} resultados para <span class=\"x-text x-text--bold x-font-size--05\">{query}</span>"
     },
     "sort": {
       "label": "Ordenar por",

@@ -2,7 +2,6 @@
   <Empathize v-if="showEmpathize" :animation="empathizeAnimation" class="x-list">
     <BaseKeyboardNavigation
       class="x-row x-row--gap-06 x-row--align-start"
-      :class="{ 'x-row--padding--top-00': $x.device === 'mobile' }"
       :navigationHijacker="navigationHijacker"
     >
       <IdentifierResults
@@ -10,7 +9,8 @@
         v-slot="{ identifierResult }"
         :maxItemsToRender="5"
         :animation="suggestionsAnimation"
-        class="x-row__item x-row__item--span-12 x-list x-list--gap-03 x-padding--05"
+        class="x-row__item x-row__item--span-12 x-list x-padding--05"
+        :class="$x.device === 'mobile' ? 'x-list--gap-03 x-padding--top-00' : 'x-list--gap-02'"
       >
         <BaseResultLink v-slot="{ result }" :result="identifierResult" class="x-suggestion">
           <BarCodeIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
@@ -25,13 +25,17 @@
         v-else
         class="x-row__item x-list x-padding--05"
         :class="[
-          $x.query.searchBox ? 'x-list--gap-03' : 'x-list--gap-06',
+          $x.query.searchBox
+            ? $x.device === 'mobile'
+              ? 'x-list--gap-03'
+              : 'x-list--gap-02'
+            : 'x-list--gap-05',
           $x.device === 'mobile'
-            ? 'x-row__item--span-12 x-padding--bottom-00'
+            ? 'x-row__item--span-12 x-padding--top-00 x-padding--bottom-00'
             : 'x-row__item--span-5 x-padding--right-00'
         ]"
       >
-        <div v-if="showHistoryQueries" class="x-list x-list--gap-04">
+        <div v-if="showHistoryQueries" class="x-list x-list--gap-02">
           <div v-if="!$x.query.searchBox" class="x-list x-list--horizontal x-list--align-center">
             <h1 class="x-small x-text--bold x-text--secondary x-list__item--expand">
               {{ $t('historyQueries.title') }}
@@ -53,8 +57,10 @@
           <HistoryQueries
             :animation="suggestionsAnimation"
             :max-items-to-render="$x.query.searchBox ? 2 : 4"
-            class="x-list x-list--gap-03"
-            :class="{ 'x-list--align-start': $x.device === 'desktop' }"
+            class="x-list"
+            :class="
+              $x.device === 'mobile' ? 'x-list--gap-03' : 'x-list--gap-02 x-list--align-start'
+            "
           >
             <template #suggestion-content="{ queryHTML }">
               <HistoryIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
@@ -63,6 +69,7 @@
 
             <template #suggestion-remove-content="{ suggestion }">
               <span
+                class="x-list"
                 :aria-label="$t('historyQueries.removeLabel', { suggestion: suggestion.query })"
               >
                 <CrossTinyIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
@@ -76,7 +83,8 @@
           #suggestion-content="{ queryHTML }"
           :animation="suggestionsAnimation"
           :max-items-to-render="5"
-          class="x-row__item x-row__item--span-4 x-list x-list--gap-03"
+          class="x-row__item x-row__item--span-4 x-list"
+          :class="$x.device === 'mobile' ? 'x-list--gap-03' : 'x-list--gap-02'"
         >
           <SearchIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
           <span v-html="queryHTML" />
@@ -84,16 +92,20 @@
 
         <div
           v-if="showNextQueries"
-          class="x-list x-list--gap-04"
-          :class="{ 'x-padding--top-06': $x.query.searchBox }"
+          class="x-list x-list--gap-02"
+          :class="{ 'x-padding--top-05': $x.query.searchBox && $x.device === 'desktop' }"
         >
-          <h1 class="x-small x-text--bold x-text--secondary">
+          <h1
+            class="x-small x-text--bold x-text--secondary"
+            :class="{ 'x-padding--top-03 x-padding--bottom-03': $x.device === 'mobile' }"
+          >
             {{ $t('nextQueries.title') }}
           </h1>
           <NextQueries
             :animation="suggestionsAnimation"
             :max-items-to-render="3"
-            class="x-list x-list--gap-03"
+            class="x-list"
+            :class="$x.device === 'mobile' ? 'x-list--gap-03' : 'x-list--gap-02'"
           >
             <template #suggestion-content="{ suggestion }">
               <CuratedCheckIcon
@@ -110,14 +122,14 @@
           </NextQueries>
         </div>
 
-        <div v-if="showPopularSearches" class="x-list x-list--gap-04">
+        <div v-if="showPopularSearches" class="x-list x-list--gap-02">
           <h1 class="x-small x-text--bold x-text--secondary">
             {{ $t('popularSearches.title') }}
           </h1>
           <PopularSearches
             :animation="suggestionsAnimation"
             :max-items-to-render="4"
-            class="x-list x-list--gap-03"
+            class="x-list x-list--gap-02"
           >
             <template #suggestion-content="{ suggestion }">
               <TrendingIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
@@ -231,7 +243,7 @@
     }
   }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
   .x-clear-history-queries {
     --x-size-height-button-default: 0;
   }
