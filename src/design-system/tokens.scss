@@ -58,7 +58,6 @@
   }
 
   // Input
-  --x-color-background-button-default: var(--x-color-base-neutral-10);
   --x-number-font-weight-input-group-default-button: var(--x-number-font-weight-base-regular);
   --x-size-font-input-group-default: var(--x-size-font-base-m);
   --x-size-gap-input-group-default: var(--x-size-base-05);
@@ -103,6 +102,7 @@
   --x-color-background-button-tertiary: rgba(255, 255, 255, 0.85);
   --x-color-text-button-tertiary: var(--x-color-base-lead);
   --x-size-border-width-button-tertiary: 0;
+  --x-color-background-button-default: var(--x-color-base-lead);
 
   // Suggestions
   --x-number-font-weight-suggestion-default-matching: var(--x-number-font-weight-base-bold);
@@ -110,7 +110,8 @@
   --x-size-padding-top-suggestion-default: var(--x-size-base-03);
   --x-size-padding-bottom-suggestion-default: var(--x-size-base-03);
 
-  .x-history-query__suggestion, .x-history-query__remove {
+  .x-history-query__suggestion,
+  .x-history-query__remove {
     padding: 0;
   }
 
