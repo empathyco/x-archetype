@@ -1,14 +1,18 @@
 <template>
   <div
     v-if="$x.recommendations.length > 0"
-    class="x-list x-list--align-center x-list--padding-07 x-list--gap-07 x-list--padding-bottom"
+    class="x-list x-list--align-center x-list--padding-07 x-list--padding-bottom"
+    :class="{ 'x-list--align-start': $x.device === 'mobile' }"
   >
-    <h1 class="x-title1">{{ $t('recommendations.title') }}</h1>
+    <h1 class="x-title1" :class="{ 'x-padding--left-05': $x.device === 'mobile' }">
+      {{ $t('recommendations.title') }}
+    </h1>
     <Recommendations v-if="!$x.totalResults">
       <template #layout="{ recommendations }">
         <BaseGrid
           #default="{ item: result }"
           :animation="staggeredFadeAndSlide"
+          :columns="$x.device === 'mobile' ? 2 : 4"
           :items="recommendations"
         >
           <Result :result="result" data-test="recommendation-item" />

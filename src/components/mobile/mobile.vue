@@ -50,12 +50,14 @@
     </template>
 
     <template #floating>
-      <div class="x-row x-row--padding-03 x-row--justify-center x-list__item--expand">
+      <div class="x-row x-row--padding-03 x-list__item--expand x-margin--bottom-06">
         <MobileOpenAside
           v-if="$x.totalResults > 0"
           class="x-row__item x-row__item--start-4 x-row__item--span-6"
         />
-        <ScrollToTop class="x-row__item x-row__item--start-11 x-row__item--span-2" />
+        <div class="x-row__item--start-11 x-row__item--span-2 x-row__item x-padding--00">
+          <ScrollToTop class="x-row__item" />
+        </div>
       </div>
     </template>
 

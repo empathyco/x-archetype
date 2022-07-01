@@ -52,6 +52,11 @@ export interface Messages {
   };
   sort: {
     label: string;
+    values: {
+      'price asc': string;
+      'price desc': string;
+      default: string;
+    };
   };
   selectedFilters: {
     clear: string;

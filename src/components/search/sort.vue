@@ -4,8 +4,10 @@
     class="x-border-width--bottom-01 x-border-width--00 x-border-color--neutral-95"
   >
     <template #header>
-      <span class="x-font-size--05 x-font-weight--bold x-padding--bottom-02">Sort by</span>
-      {{ $x.selectedSort || 'Default' }}
+      <span class="x-font-size--05 x-font-weight--bold x-padding--bottom-02">
+        {{ $t('sort.label') }}
+      </span>
+      {{ $t(`sort.values.${$x.selectedSort || 'default'}`) }}
     </template>
     <template #default>
       <SortList
@@ -17,7 +19,7 @@
           <RadioButtonSelectedIcon v-if="isSelected" class="x-icon--l" />
           <RadioButtonUnselectedIcon v-else class="x-icon--l" />
           <span class="x-font-color--neutral-10" :class="{ 'x-text--bold': isSelected }">
-            {{ item || 'Default' }}
+            {{ $t(`sort.values.${item || 'default'}`) }}
           </span>
         </template>
       </SortList>

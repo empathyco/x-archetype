@@ -72,8 +72,8 @@
   }
   .x-mobile {
     .x-base-grid__next-queries-group {
-      margin-left: calc(-1 * var(--x-size-base-04));
-      margin-right: calc(-1 * var(--x-size-base-04));
+      margin-left: calc(-1 * var(--x-size-padding-grid));
+      margin-right: calc(-1 * var(--x-size-padding-grid));
     }
   }
 </style>

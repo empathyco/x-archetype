@@ -9,7 +9,9 @@
   --x-color-base-neutral-95: #f5f6f7;
 
   // Icons
-  --x-size-stroke-width-icon-default: 0.8px;
+  .x-icon--light-bulb-on {
+    --x-size-stroke-width-icon-default: 0.8px;
+  }
 
   // Typography
   --x-color-text-secondary: var(--x-color-base-neutral-35);
@@ -18,6 +20,7 @@
   --x-color-border-tag-default: var(--x-color-base-neutral-70);
   --x-color-background-tag-default-selected: var(--x-color-base-accent);
   --x-color-text-tag-default-selected: var(--x-color-base-neutral-100);
+  --x-color-text-tag-default: var(--x-color-base-neutral-35);
   --x-color-border-tag-default-selected: var(--x-color-base-accent);
   --x-size-gap-tag-default: var(--x-size-base-03);
   --x-number-font-weight-tag-default-selected: var(--x-number-font-weight-base-bold);
@@ -37,6 +40,7 @@
   // Grid
   --x-size-min-width-grid-item: var(--x-size-base-20);
   --x-size-gap-grid: var(--x-size-base-07) var(--x-size-base-05);
+  --x-size-padding-grid: var(--x-size-base-06) 0;
 
   // Result
   --x-size-gap-result-default: var(--x-size-base-02);
@@ -47,13 +51,23 @@
   --x-color-text-message-default: var(--x-color-text-default);
   --x-size-border-width-message-default: var(--x-size-border-width-base);
   --x-space-padding-message: var(--x-size-base-06);
+  --x-size-border-radius-message-default: 0;
+
+  .x-message {
+    text-align: center;
+  }
 
   // Input
-  --x-color-background-button-default: var(--x-color-base-neutral-10);
   --x-number-font-weight-input-group-default-button: var(--x-number-font-weight-base-regular);
   --x-size-font-input-group-default: var(--x-size-font-base-m);
   --x-size-gap-input-group-default: var(--x-size-base-05);
   --x-size-height-input-group-default: var(--x-size-base-08);
+  --x-size-line-height-input-group-default: var(--x-size-font-base-l);
+
+  .x-input {
+    padding-top: var(--x-size-base-03);
+    padding-bottom: var(--x-size-base-03);
+  }
 
   // Aside
   --x-size-width-layout-aside: 480px;
@@ -82,16 +96,24 @@
   }
 
   // Modal overlay
-  --x-color-background-modal-overlay-default: var(--x-color-base-lead);
+  --x-color-background-modal-overlay-default: var(--x-color-base-neutral-10);
 
   // Button
   --x-color-background-button-tertiary: rgba(255, 255, 255, 0.85);
   --x-color-text-button-tertiary: var(--x-color-base-lead);
   --x-size-border-width-button-tertiary: 0;
+  --x-color-background-button-default: var(--x-color-base-lead);
 
   // Suggestions
   --x-number-font-weight-suggestion-default-matching: var(--x-number-font-weight-base-bold);
   --x-number-font-weight-suggestion-matching-part-default: var(--x-number-font-weight-tag-default);
+  --x-size-padding-top-suggestion-default: var(--x-size-base-03);
+  --x-size-padding-bottom-suggestion-default: var(--x-size-base-03);
+
+  .x-history-query__suggestion,
+  .x-history-query__remove {
+    padding: 0;
+  }
 
   // Scroll
   .x-layout__aside--right {
@@ -111,10 +133,21 @@
     --x-size-font-suggestion-default-matching: var(--x-size-base-05);
     --x-size-font-suggestion-matching-part-default: var(--x-size-base-05);
     --x-size-gap-suggestion-default: var(--x-size-base-06);
+    --x-size-padding-bottom-suggestion-default: var(--x-size-base-04);
+    --x-size-padding-bottom-suggestion-group-default: var(--x-size-base-04);
     --x-size-padding-left-suggestion-default: 1px;
+    --x-size-padding-right-suggestion-group-default: var(--x-size-base-03);
+    --x-size-padding-top-suggestion-default: var(--x-size-base-04);
+    --x-size-padding-top-suggestion-group-default: var(--x-size-base-04);
 
     // Sliding Panel
     --x-size-width-sliding-panel-gradient: var(--x-size-base-00);
+
+    // Typography
+    --x-size-font-title1: var(--x-size-font-base-l);
+
+    // Options list
+    --x-font-decoration-option-list-button-default-hover: none;
 
     .x-suggestion-group .x-button {
       --x-size-padding-right-button-default: var(--x-size-base-03);

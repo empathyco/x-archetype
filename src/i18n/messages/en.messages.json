@@ -51,10 +51,15 @@
       "showAside": "Sort & Filter"
     },
     "totalResults": {
-      "message": "{totalResults} results for <span class=\"x-text x-text--bold\">{query}</span>"
+      "message": "{totalResults} results for <span class=\"x-text x-text--bold x-font-size--05\">{query}</span>"
     },
     "sort": {
-      "label": "Sort by"
+      "label": "Sort by",
+      "values": {
+        "price asc": "Price: Low to high",
+        "price desc": "Price: High to Low",
+        "default": "Relevancy"
+      }
     },
     "selectedFilters": {
       "clear": "CLEAR {selectedFiltersNumber} FILTERS"
