@@ -7,6 +7,7 @@
         <div
           v-if="$x.totalResults === 0 || $x.spellcheckedQuery"
           class="x-padding--top-03 x-padding--bottom-07"
+          :class="{ 'x-margin--left-05 x-margin--right-05': $x.device === 'mobile' }"
         >
           <template>
             <SpellcheckMessage />
