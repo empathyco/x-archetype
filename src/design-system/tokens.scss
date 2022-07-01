@@ -53,6 +53,10 @@
   --x-space-padding-message: var(--x-size-base-06);
   --x-size-border-radius-message-default: 0;
 
+  .x-message {
+    text-align: center;
+  }
+
   // Input
   --x-color-background-button-default: var(--x-color-base-neutral-10);
   --x-number-font-weight-input-group-default-button: var(--x-number-font-weight-base-regular);
@@ -93,7 +97,7 @@
   }
 
   // Modal overlay
-  --x-color-background-modal-overlay-default: var(--x-color-base-lead);
+  --x-color-background-modal-overlay-default: var(--x-color-base-neutral-10);
 
   // Button
   --x-color-background-button-tertiary: rgba(255, 255, 255, 0.85);
@@ -103,6 +107,12 @@
   // Suggestions
   --x-number-font-weight-suggestion-default-matching: var(--x-number-font-weight-base-bold);
   --x-number-font-weight-suggestion-matching-part-default: var(--x-number-font-weight-tag-default);
+  --x-size-padding-top-suggestion-default: var(--x-size-base-03);
+  --x-size-padding-bottom-suggestion-default: var(--x-size-base-03);
+
+  .x-history-query__suggestion, .x-history-query__remove {
+    padding: 0;
+  }
 
   // Scroll
   .x-layout__aside--right {
@@ -122,7 +132,12 @@
     --x-size-font-suggestion-default-matching: var(--x-size-base-05);
     --x-size-font-suggestion-matching-part-default: var(--x-size-base-05);
     --x-size-gap-suggestion-default: var(--x-size-base-06);
+    --x-size-padding-bottom-suggestion-default: var(--x-size-base-04);
+    --x-size-padding-bottom-suggestion-group-default: var(--x-size-base-04);
     --x-size-padding-left-suggestion-default: 1px;
+    --x-size-padding-right-suggestion-group-default: var(--x-size-base-03);
+    --x-size-padding-top-suggestion-default: var(--x-size-base-04);
+    --x-size-padding-top-suggestion-group-default: var(--x-size-base-04);
 
     // Sliding Panel
     --x-size-width-sliding-panel-gradient: var(--x-size-base-00);
