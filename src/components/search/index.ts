@@ -7,6 +7,8 @@ import RelatedTags from './related-tags.vue';
 import SpellcheckMessage from './spellcheck-message.vue';
 import NoResultsMessage from './no-results-message.vue';
 import Redirection from './redirection.vue';
+import DesktopAside from './desktop-aside.vue';
+import MobileAside from './mobile-aside.vue';
 
 export {
   Redirection,
@@ -17,5 +19,7 @@ export {
   NoResultsMessage,
   Results,
   PartialResults,
-  Sort
+  Sort,
+  DesktopAside,
+  MobileAside
 };

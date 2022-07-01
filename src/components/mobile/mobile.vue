@@ -106,7 +106,7 @@
       ScrollToTop,
       SearchBox,
       SingleColumnLayout,
-      MobileAside: () => import('./mobile-aside.vue'),
+      MobileAside: () => import('../search').then(m => m.MobileAside),
       RelatedTags: () => import('../search').then(m => m.RelatedTags)
     }
   })
