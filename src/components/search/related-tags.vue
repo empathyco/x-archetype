@@ -8,7 +8,8 @@
       <ChevronLeftIcon class="x-icon--l" />
     </template>
     <RelatedTags
-      class="x-list--gap-03 x-tag--pill x-padding--left-05"
+      class="x-list--gap-03 x-tag--pill"
+      :class="{ 'x-padding--left-05': $x.device === 'mobile' }"
       :highlightCurated="true"
       :animation="relatedTagsAnimation"
     >
