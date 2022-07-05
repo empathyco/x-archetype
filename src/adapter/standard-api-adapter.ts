@@ -1,7 +1,7 @@
 import {
   FacetsConfig,
   facetsConfig,
-  numberFilterMutableSchema,
+  numberFilterSchema,
   platformAdapter,
   resultSchema
 } from '@empathyco/x-adapter-platform';
@@ -57,11 +57,11 @@ Object.assign<FacetsConfig, FacetsConfig>(facetsConfig, {
   // TODO: Rename to currentPrice
   '__prices.current.value': {
     modelName: 'NumberRangeFacet',
-    schema: numberFilterMutableSchema
+    schema: numberFilterSchema
   },
   // TODO: Rename to previousPrice
   '__prices.original.value': {
     modelName: 'NumberRangeFacet',
-    schema: numberFilterMutableSchema
+    schema: numberFilterSchema
   }
 });

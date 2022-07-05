@@ -2,7 +2,7 @@ import {
   platformAdapter,
   PlatformRecommendationsRequest,
   PlatformResult,
-  recommendationsRequestMutableSchema,
+  recommendationsRequestSchema,
   resultSchema
 } from '@empathyco/x-adapter-platform';
 import { RecommendationsRequest, Result } from '@empathyco/x-types';
@@ -25,7 +25,7 @@ resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
   season: 'season'
 });
 
-recommendationsRequestMutableSchema.$override<
+recommendationsRequestSchema.$override<
   RecommendationsRequest,
   Partial<PlatformRecommendationsRequest>
 >({
