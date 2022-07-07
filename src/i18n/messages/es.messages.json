@@ -12,6 +12,12 @@
       "removeLabel": "Borrar {suggestion} del historial",
       "title": "HISTORIAL"
     },
+    "myHistory": {
+      "title": "Mi historial",
+      "subtitle": "Estos son tus datos de actividad de búsqueda.",
+      "message": "<span>Son guardados localmente, solo en tu navegador, y nunca salen de ahí.</span><span>Puedes desactivar esta característica más abajo.</span><span class=\"x-font-color--neutral-10 x-font-weight--bold\">Tu privacidad bajo tu control.</span>",
+      "noHistory": "No hay historial de actividad para mostrar"
+    },
     "nextQueries": {
       "title": "QUIZÁS TE INTERESE"
     },
