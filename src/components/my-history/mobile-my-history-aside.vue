@@ -8,7 +8,7 @@
             x-button--ghost x-button--ghost-start
             x-padding--top-00 x-padding--bottom-00
           "
-          modalId="aside-modal"
+          modalId="my-history-aside"
         >
           <ArrowLeftIcon class="x-icon--l x-font-color--neutral-100" />
         </BaseIdModalClose>

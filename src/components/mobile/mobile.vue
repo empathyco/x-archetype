@@ -64,6 +64,17 @@
     <template v-if="hasSearched" #aside>
       <MobileAside />
     </template>
+
+    <template #extra-aside>
+      <BaseIdModal
+        key="my-history-aside"
+        :animation="rightAsideAnimation"
+        modalId="my-history-aside"
+        class="x-layout__aside x-layout__aside--extra"
+      >
+        <MobileMyHistoryAside />
+      </BaseIdModal>
+    </template>
   </SingleColumnLayout>
 </template>
 
@@ -77,7 +88,8 @@
     FiltersIcon,
     SingleColumnLayout,
     LocationProvider,
-    animateTranslate
+    animateTranslate,
+    BaseIdModal
   } from '@empathyco/x-components';
   import { Component } from 'vue-property-decorator';
   import Main from '../main.vue';
@@ -85,6 +97,7 @@
   import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
   import SearchBox from '../search-box.vue';
   import HasSearchedMixin from '../has-searched.mixin';
+  import MobileMyHistoryAside from '../my-history/mobile-my-history-aside.vue';
   import MobileCloseAside from './mobile-close-aside.vue';
   import MobileOpenAside from './mobile-open-aside.vue';
   import MobileToolbar from './mobile-toolbar.vue';
@@ -92,6 +105,7 @@
   @Component({
     components: {
       ArrowLeftIcon,
+      BaseIdModal,
       BaseIdModalOpen,
       BaseScroll,
       Close: BaseEventsModalClose,
@@ -101,6 +115,7 @@
       Main,
       MobileCloseAside,
       MobileOpenAside,
+      MobileMyHistoryAside,
       MobileToolbar,
       PredictiveLayer,
       ScrollToTop,
@@ -112,6 +127,7 @@
   })
   export default class Mobile extends HasSearchedMixin {
     public animation = animateTranslate('bottom');
+    public rightAsideAnimation = animateTranslate('right');
   }
 </script>
 <style lang="scss">

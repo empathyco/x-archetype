@@ -35,6 +35,14 @@
             : 'x-row__item--span-5 x-padding--right-00'
         ]"
       >
+        <BaseIdModalOpen
+          v-if="$x.device === 'mobile'"
+          modalId="my-history-aside"
+          class="x-button--ghost x-self-end x-padding--right-03"
+        >
+          <span class="x-small x-text--bold">{{ $t('myHistory.openButton') }}</span>
+          <SettingsIcon class="x-icon--l" />
+        </BaseIdModalOpen>
         <div v-if="showHistoryQueries" class="x-list x-list--gap-02">
           <div v-if="!$x.query.searchBox" class="x-list x-list--horizontal x-list--align-center">
             <h1 class="x-small x-text--bold x-list__item--expand">
