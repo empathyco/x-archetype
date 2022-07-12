@@ -47,7 +47,7 @@
               {{ date }}
             </div>
           </template>
-          <template #suggestion-content="{ suggestion }">
+          <template #suggestion-content="{ suggestion, formatTime }">
             <div
               class="
                 x-list x-list--horizontal x-list--gap-05
@@ -58,7 +58,7 @@
               <div class="x-list x-list--gap-01">
                 <span>{{ suggestion.query }}</span>
                 <span class="x-small x-font-color--neutral-35">
-                  {{ suggestion.timestamp }}
+                  {{ formatTime(suggestion.timestamp) }}
                 </span>
               </div>
             </div>
