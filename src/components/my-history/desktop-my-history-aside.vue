@@ -33,7 +33,14 @@
       CustomMyHistory
     }
   })
-  export default class DesktopMyHistoryAside extends Vue {}
+  export default class DesktopMyHistoryAside extends Vue {
+    mounted(): void {
+      const activeElement = document.activeElement as HTMLElement;
+      if (activeElement.classList.contains('x-search-input')) {
+        activeElement.blur();
+      }
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
