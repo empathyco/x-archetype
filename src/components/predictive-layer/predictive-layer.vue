@@ -137,6 +137,14 @@
             </template>
           </PopularSearches>
         </div>
+        <BaseIdModalOpen
+          v-if="$x.device === 'desktop'"
+          modalId="my-history-aside"
+          class="x-button--ghost x-self-start x-padding--left-00"
+        >
+          <SettingsIcon />
+          <span class="x-small x-text--bold">{{ $t('myHistory.openButton') }}</span>
+        </BaseIdModalOpen>
       </div>
 
       <SlidingRecommendations
@@ -156,6 +164,7 @@
   import {
     animateScale,
     BarCodeIcon,
+    BaseIdModalOpen,
     BaseKeyboardNavigation,
     BaseResultLink,
     CrossTinyIcon,
@@ -163,6 +172,7 @@
     HistoryIcon,
     LightBulbOn,
     SearchIcon,
+    SettingsIcon,
     StaggeredFadeAndSlide,
     TrashIcon,
     TrendingIcon
@@ -180,6 +190,7 @@
   @Component({
     components: {
       BarCodeIcon,
+      BaseIdModalOpen,
       BaseKeyboardNavigation,
       BaseResultLink,
       ClearHistoryQueries,
@@ -196,6 +207,7 @@
       QuerySuggestions,
       SlidingRecommendations,
       SearchIcon,
+      SettingsIcon,
       TrashIcon,
       TrendingIcon
     }

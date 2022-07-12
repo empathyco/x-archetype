@@ -60,6 +60,17 @@
       <DesktopAside v-if="hasSearched" />
     </template>
 
+    <template #extra-aside>
+      <BaseIdModal
+        key="my-history-aside"
+        :animation="rightAsideAnimation"
+        modalId="my-history-aside"
+        class="x-layout__aside x-layout__aside--right"
+      >
+        <DesktopMyHistoryAside />
+      </BaseIdModal>
+    </template>
+
     <template #scroll-to-top>
       <ScrollToTop />
     </template>
@@ -68,7 +79,9 @@
 
 <script lang="ts">
   import {
+    animateTranslate,
     BaseEventsModalClose,
+    BaseIdModal,
     BaseVariableColumnGrid,
     CartIcon,
     CrossIcon,
@@ -87,16 +100,19 @@
   import ScrollToTop from '../scroll-to-top.vue';
   import SearchBox from '../search-box.vue';
   import HasSearchedMixin from '../has-searched.mixin';
+  import DesktopMyHistoryAside from '../my-history/desktop-my-history-aside.vue';
   import DesktopToolbar from './desktop-toolbar.vue';
 
   @Component({
     components: {
       BaseVariableColumnGrid,
+      BaseIdModal,
       CartIcon,
       Close: BaseEventsModalClose,
       CrossIcon,
       CrossTinyIcon,
       DesktopToolbar,
+      DesktopMyHistoryAside,
       EnvSelector,
       Empathize,
       FixedHeaderAndAsidesLayout,
@@ -113,7 +129,9 @@
       DesktopAside: () => import('../search').then(m => m.DesktopAside)
     }
   })
-  export default class Desktop extends HasSearchedMixin {}
+  export default class Desktop extends HasSearchedMixin {
+    protected rightAsideAnimation = animateTranslate('right');
+  }
 </script>
 <style lang="scss">
   .x-desktop {
