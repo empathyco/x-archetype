@@ -34,7 +34,7 @@
         ></div>
       </div>
       <div class="x-list x-list__item--expand x-border-color--neutral-95 x-border-width--top-01">
-        <MyHistory v-if="isMyHistoryEnabled && $x.fullHistoryQueries.length">
+        <MyHistory v-if="isMyHistoryEnabled && $x.fullHistoryQueries.length" :animation="animation">
           <template #date="{ date }">
             <div
               class="
@@ -90,7 +90,7 @@
 </template>
 
 <script lang="ts">
-  import { CrossTinyIcon, HistoryIcon } from '@empathyco/x-components';
+  import { CrossTinyIcon, HistoryIcon, StaggeredFadeAndSlide } from '@empathyco/x-components';
   import { MyHistory } from '@empathyco/x-components/history-queries';
   import { Component, Prop, Vue } from 'vue-property-decorator';
   import MyHistoryIcon from './my-history-icon.vue';
@@ -108,6 +108,8 @@
     }
   })
   export default class CustomMyHistory extends Vue {
+    protected animation = StaggeredFadeAndSlide;
+
     @Prop({ default: true })
     public isMyHistoryEnabled!: boolean;
   }

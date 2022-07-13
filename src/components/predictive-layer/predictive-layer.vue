@@ -38,7 +38,7 @@
         <BaseIdModalOpen
           v-if="$x.device === 'mobile'"
           modalId="my-history-aside"
-          class="x-button--ghost x-self-end x-padding--right-03"
+          class="x-button--ghost x-self-end x-padding--right-03 x-border-width--00"
         >
           <span class="x-small x-text--bold">{{ $t('myHistory.openButton') }}</span>
           <SettingsIcon class="x-icon--l" />
