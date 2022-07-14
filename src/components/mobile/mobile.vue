@@ -74,7 +74,7 @@
       >
         <MobileMyHistoryAside />
       </BaseIdModal>
-      <MyHistoryConfirmDisableModal />
+      <MyHistoryConfirmDisableModal class="x-layout__aside--extra x-background--transparent" />
     </template>
   </SingleColumnLayout>
 </template>
@@ -135,10 +135,22 @@
 </script>
 <style lang="scss">
   .x-mobile {
-    .x-modal__content {
-      background-color: var(--x-color-base-transparent) !important;
+    .x-modal {
+      &__content {
+        background-color: var(--x-color-base-transparent) !important;
+      }
+      &.x-layout__aside:not(.x-layout__aside--extra) {
+        .x-modal__content {
+          height: calc(100% - 64px) !important;
+          top: 64px;
+          position: fixed;
+          border-top-right-radius: 16px;
+          border-top-left-radius: 16px;
+        }
+      }
     }
-    .x-layout__aside {
+
+    .x-layout__aside:not(.x-background--transparent) {
       .x-modal__content {
         background-color: var(--x-color-base-neutral-100) !important;
       }
