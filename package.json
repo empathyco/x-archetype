@@ -15,7 +15,7 @@
     "cy:run": "cypress run --headless --browser chrome",
     "test:e2e": "start-server-and-test build:serve http://localhost:8080 cy:open",
     "test:e2e:ci": "start-server-and-test serve:dist http://localhost:8080 cy:run",
-    "test": "echo everything is on fire, and this is fine",
+    "test": "npm run test:e2e:ci",
     "test:unit": "vue-cli-service test:unit",
     "lint": "eslint src tests build --ext .ts,.tsx,.vue,.js,.jsx",
     "lint:fix": "npm run lint -- --fix",
