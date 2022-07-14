@@ -74,6 +74,7 @@
       >
         <MobileMyHistoryAside />
       </BaseIdModal>
+      <MyHistoryConfirmDisableModal />
     </template>
   </SingleColumnLayout>
 </template>
@@ -98,12 +99,14 @@
   import SearchBox from '../search-box.vue';
   import HasSearchedMixin from '../has-searched.mixin';
   import MobileMyHistoryAside from '../my-history/mobile-my-history-aside.vue';
+  import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
   import MobileCloseAside from './mobile-close-aside.vue';
   import MobileOpenAside from './mobile-open-aside.vue';
   import MobileToolbar from './mobile-toolbar.vue';
 
   @Component({
     components: {
+      MyHistoryConfirmDisableModal,
       ArrowLeftIcon,
       BaseIdModal,
       BaseIdModalOpen,

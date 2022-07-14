@@ -40,9 +40,7 @@
           x-border-color--neutral-95
           x-border-width--top-01
         "
-        :class="
-          $x.device === 'desktop' ? 'x-padding--left-07 x-padding--right-05' : 'x-padding--05'
-        "
+        :class="$x.device === 'desktop' ? 'x-padding--07' : 'x-padding--05'"
       >
         <div class="x-list__item x-list__item--expand x-list x-list--gap-02">
           <span class="x-title3 x-font-weight--bold">HistoryQueries</span>

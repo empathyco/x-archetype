@@ -69,6 +69,7 @@
       >
         <DesktopMyHistoryAside />
       </BaseIdModal>
+      <MyHistoryConfirmDisableModal />
     </template>
 
     <template #scroll-to-top>
@@ -101,10 +102,12 @@
   import SearchBox from '../search-box.vue';
   import HasSearchedMixin from '../has-searched.mixin';
   import DesktopMyHistoryAside from '../my-history/desktop-my-history-aside.vue';
+  import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
   import DesktopToolbar from './desktop-toolbar.vue';
 
   @Component({
     components: {
+      MyHistoryConfirmDisableModal,
       BaseVariableColumnGrid,
       BaseIdModal,
       CartIcon,
