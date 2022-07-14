@@ -74,6 +74,7 @@ When('history query number {int} delete button is clicked', (historyQueryItem: n
     .invoke('text')
     .as('deletedHistoryQuery')
     .then(() => {
+      cy.focusSearchInput();
       cy.getByDataTest('remove-history-query').eq(historyQueryItem).click();
     });
 });

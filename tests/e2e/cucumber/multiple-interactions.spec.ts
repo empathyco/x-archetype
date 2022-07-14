@@ -1,27 +1,4 @@
-import { Then, When } from 'cypress-cucumber-preprocessor/steps';
-
-Then('related results are displayed', () => {
-  cy.getByDataTest('search-grid-result').first().scrollIntoView();
-  cy.getByDataTest('search-grid-result')
-    .should('be.visible')
-    .should('have.length.at.least', 1)
-    .invoke('text')
-    .as('resultsList');
-});
-
-Then('related results have changed', () => {
-  cy.getByDataTest('search-grid-result').first().scrollIntoView();
-  cy.get<string>('@resultsList').then(resultsList => {
-    cy.getByDataTest('search-grid-result')
-      .should('be.visible')
-      .should('have.length.at.least', 1)
-      .should(newResultsList => {
-        expect(newResultsList.text()).to.be.not.equal(resultsList);
-      })
-      .invoke('text')
-      .as('resultsList');
-  });
-});
+import { When } from 'cypress-cucumber-preprocessor/steps';
 
 When('next query number {int} is clicked', (nextQueryItem: number) => {
   cy.getByDataTest('next-query')

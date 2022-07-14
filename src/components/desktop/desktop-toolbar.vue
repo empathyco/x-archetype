@@ -5,11 +5,13 @@
     data-test="total-results"
   >
     <span
-      v-html="$t('totalResults.message', { totalResults: $x.totalResults, query: $x.query.search })"
+      v-html="
+        $t('totalResults.message', { totalResults: $x.totalResults, query: $x.query.searchBox })
+      "
       class="x-list__item--expand x-font-size--05"
     />
 
-    <ColumnPicker />
+    <ColumnPicker data-test="column-picker" />
 
     <BaseIdModalOpen
       modalId="right-aside"

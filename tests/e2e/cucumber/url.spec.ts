@@ -1,4 +1,4 @@
-import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps';
+import { Given, When } from 'cypress-cucumber-preprocessor/steps';
 import ViewportPreset = Cypress.ViewportPreset;
 
 // Scenario 1
@@ -7,16 +7,6 @@ Given(
   (query: string, view: ViewportPreset) => {
     cy.viewport(view);
     cy.visit(`/?query=${query}`);
-  }
-);
-
-Then(
-  'search request contains parameter {string} with value {string}',
-  (key: string, value: string) => {
-    cy.wait('@interceptedResults')
-      .its('request.body')
-      .then(JSON.parse)
-      .should('have.property', key, value);
   }
 );
 

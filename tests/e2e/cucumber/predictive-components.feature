@@ -16,8 +16,8 @@ Feature: Predictive components
     Then  history queries are displayed
     Examples:
       | query | view        |
-      | belt | macbook-13  |
-      | belt | iphone-7    |
+      | belt  | macbook-13  |
+      | belt  | iphone-7    |
 
   Scenario Outline: 2. Related tags interaction
     Given start page with "<view>" size view
@@ -39,7 +39,8 @@ Feature: Predictive components
     Given start page with "<view>" size view
     When  start button is clicked
     Given a "<list>" of queries already searched
-    When  search input is focused
+    When  focus is set on the search input
+    And   history queries are displayed
     And   history query number <historyQueryItem> delete button is clicked
     Then  the deleted history query is removed from history queries
     Examples:
@@ -51,7 +52,7 @@ Feature: Predictive components
     Given start page with "<view>" size view
     When  start button is clicked
     Given a "<list>" of queries already searched
-    When  search input is focused
+    When  focus is set on the search input
     And   clear history queries button is clicked
     Then  no history queries are displayed
     Examples:

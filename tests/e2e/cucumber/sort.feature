@@ -4,13 +4,14 @@ Feature: Sort component
     Given start page with "<view>" size view
     Then  start button is clicked
     When  "<query>" is searched
-    And   facets are shown if hidden on "<view>"
-    Then  results are ordered by "Default"
+    And   sort and filter button is clicked on "<view>"
+    Then  results are ordered by "Relevancy"
     Given an intercepted search response
-    When  "<sortOrder>" order is clicked
+    And   "<sortOrder>" order is clicked in "<sortMenuName>"
+    And   "close-modal-id" is clicked to close the modal
     Then  results are ordered by "<sortOrder>"
-    And   search request contains the selected sort "<sortOrder>"
+    And   search request contains the selected sort "<sortURL>"
     Examples:
-      | query   | sortOrder  | view        |
-      | skirt   | price asc  | macbook-13  |
-      | skirt   | price desc | iphone-7    |
+      | query   | sortOrder          | sortMenuName | sortURL    | view       |
+      | skirt   | Price: High to Low | Sort by      | price desc | macbook-13 |
+      | skirt   | Price: High to Low | Sort by      | price desc | iphone-7   |

@@ -53,6 +53,7 @@
     <ClearFilters
       v-if="$x.device === 'desktop'"
       v-slot="{ selectedFilters }"
+      data-test="clear-filters-toolbar"
       class="
         x-button--secondary x-button--round
         x-padding--05 x-padding--top-03 x-padding--bottom-03

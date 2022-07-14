@@ -10,4 +10,4 @@ Feature: Column picker component
     And   grid shows <columns> results per row
     Examples:
       | query   | columns | view        |
-      | shirt   | 6       | macbook-13  |
+      | shirt   | 2       | macbook-13  |

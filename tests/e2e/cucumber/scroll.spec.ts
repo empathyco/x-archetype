@@ -11,7 +11,5 @@ Then('url is updated with result {string}', (resultId: string) => {
 });
 
 Then('scroll position is at top', () => {
-  cy.get('#main-scroll').should(scrollContainer => {
-    expect(scrollContainer.scrollTop()).to.equal(0);
-  });
+  cy.url().should('not.contain', 'scroll');
 });
