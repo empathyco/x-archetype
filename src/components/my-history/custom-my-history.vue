@@ -33,6 +33,23 @@
           class="x-list x-list--gap-05 x-title3 x-font-color--neutral-35"
         ></div>
       </div>
+      <div
+        class="
+          x-padding--top-06 x-padding--bottom-07
+          x-list x-list--horizontal x-list--align-center
+          x-border-color--neutral-95
+          x-border-width--top-01
+        "
+        :class="
+          $x.device === 'desktop' ? 'x-padding--left-07 x-padding--right-05' : 'x-padding--05'
+        "
+      >
+        <div class="x-list__item x-list__item--expand x-list x-list--gap-02">
+          <span class="x-title3 x-font-weight--bold">HistoryQueries</span>
+          <span class="x-font-color--neutral-35">Disable and clear</span>
+        </div>
+        <HistoryQueriesSwitch />
+      </div>
       <div class="x-list x-list__item--expand x-border-color--neutral-95 x-border-width--top-01">
         <MyHistory v-if="isMyHistoryEnabled && $x.fullHistoryQueries.length" :animation="animation">
           <template #date="{ date }">
@@ -91,7 +108,7 @@
 
 <script lang="ts">
   import { CrossTinyIcon, HistoryIcon, StaggeredFadeAndSlide } from '@empathyco/x-components';
-  import { MyHistory } from '@empathyco/x-components/history-queries';
+  import { MyHistory, HistoryQueriesSwitch } from '@empathyco/x-components/history-queries';
   import { Component, Prop, Vue } from 'vue-property-decorator';
   import MyHistoryIcon from './my-history-icon.vue';
   import MyHistoryIconBw from './my-history-icon-bw.vue';
@@ -104,7 +121,8 @@
       MyHistory,
       MyHistoryIcon,
       MyHistoryIconBw,
-      NoHistoryIcon
+      NoHistoryIcon,
+      HistoryQueriesSwitch
     }
   })
   export default class CustomMyHistory extends Vue {
