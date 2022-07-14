@@ -2,11 +2,8 @@
   <BaseEventsModal
     @focusin.native.stop
     class="x-my-history-confirm-disable-modal x-layout__aside"
-    :eventsToOpenModal="['UserClickedDisableHistoryQueries']"
-    :eventsToCloseModal="[
-      'UserClickedConfirmDisableHistoryQueries',
-      'UserClickedDismissDisableHistoryQueries'
-    ]"
+    :eventsToOpenModal="eventsToOpenModal"
+    :eventsToCloseModal="eventsToCloseModal"
   >
     <div
       class="
@@ -30,14 +27,11 @@
       >
         <BaseEventButton
           class="x-button x-button--ghost x-font-color--neutral-35"
-          :events="{ UserClickedDismissDisableHistoryQueries: undefined }"
+          :events="dismissEvents"
         >
           Cancel
         </BaseEventButton>
-        <BaseEventButton
-          class="x-button x-button--ghost"
-          :events="{ UserClickedConfirmDisableHistoryQueries: undefined }"
-        >
+        <BaseEventButton class="x-button x-button--ghost" :events="confirmEvents">
           Confirm
         </BaseEventButton>
       </div>
@@ -56,7 +50,15 @@
       BaseEventButton
     }
   })
-  export default class MyHistoryConfirmDisableModal extends Vue {}
+  export default class MyHistoryConfirmDisableModal extends Vue {
+    protected eventsToOpenModal = ['UserClickedDisableHistoryQueries'];
+    protected eventsToCloseModal = [
+      'UserClickedConfirmDisableHistoryQueries',
+      'UserClickedDismissDisableHistoryQueries'
+    ];
+    protected dismissEvents = { UserClickedDismissDisableHistoryQueries: undefined };
+    protected confirmEvents = { UserClickedConfirmDisableHistoryQueries: undefined };
+  }
 </script>
 
 <style lang="scss">
