@@ -1,10 +1,11 @@
 <template>
   <BaseEventsModal
+    @focusin.native.stop
     class="x-my-history-confirm-disable-modal x-layout__aside test"
     :eventsToOpenModal="['UserClickedDisableHistoryQueries']"
     :eventsToCloseModal="[
-      'UserClickedDismissDisableHistoryQueries',
-      'UserClickedConfirmDisableHistoryQueries'
+      'UserClickedConfirmDisableHistoryQueries',
+      'UserClickedDismissDisableHistoryQueries'
     ]"
   >
     <div
