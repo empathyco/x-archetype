@@ -4,7 +4,7 @@
       v-if="$x.device === 'desktop'"
       class="x-list x-background--neutral-10 x-list--align-center"
     >
-      <MyHistoryIcon v-if="isMyHistoryEnabled" />
+      <MyHistoryIcon v-if="isMyHistoryEnabled && $x.fullHistoryQueries.length" />
       <MyHistoryIconBw v-else />
     </div>
     <div class="x-list x-list__item--expand" :class="{ 'x-scroll': $x.device === 'desktop' }">
