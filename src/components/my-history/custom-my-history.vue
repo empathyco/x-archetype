@@ -4,7 +4,7 @@
       v-if="$x.device === 'desktop'"
       class="x-list x-background--neutral-10 x-list--align-center"
     >
-      <MyHistoryIcon v-if="isMyHistoryEnabled && $x.fullHistoryQueries.length" />
+      <MyHistoryIcon v-if="areHistoryQueriesEnabled" />
       <MyHistoryIconBw v-else />
     </div>
     <div class="x-list x-list__item--expand" :class="{ 'x-scroll': $x.device === 'desktop' }">
@@ -14,7 +14,7 @@
         :class="$x.device === 'desktop' ? 'x-list--align-center' : 'x-list--align-end'"
       >
         <MyHistoryIcon
-          v-if="isMyHistoryEnabled"
+          v-if="areHistoryQueriesEnabled"
           :class="{ 'x-margin--right-05': $x.device === 'mobile' }"
         />
         <MyHistoryIconBw v-else :class="{ 'x-margin--right-05': $x.device === 'mobile' }" />
@@ -55,7 +55,10 @@
         <HistoryQueriesSwitch />
       </div>
       <div class="x-list x-list__item--expand x-border-color--neutral-95 x-border-width--top-01">
-        <MyHistory v-if="isMyHistoryEnabled && $x.fullHistoryQueries.length" :animation="animation">
+        <MyHistory
+          v-if="areHistoryQueriesEnabled && $x.fullHistoryQueries.length"
+          :animation="animation"
+        >
           <template #date="{ date }">
             <div
               class="
@@ -91,7 +94,7 @@
         <div v-else class="x-list x-list--align-center x-list__item--expand">
           <NoHistoryIcon
             class="x-flex-no-shrink"
-            :class="{ 'x-no-history-icon--bw': !isMyHistoryEnabled }"
+            :class="{ 'x-no-history-icon--bw': !areHistoryQueriesEnabled }"
           />
           <span
             class="
@@ -118,7 +121,7 @@
     State
   } from '@empathyco/x-components';
   import { MyHistory, HistoryQueriesSwitch } from '@empathyco/x-components/history-queries';
-  import { Component, Prop, Vue } from 'vue-property-decorator';
+  import { Component, Vue } from 'vue-property-decorator';
   import MyHistoryIcon from './my-history-icon.vue';
   import MyHistoryIconBw from './my-history-icon-bw.vue';
   import NoHistoryIcon from './no-history-icon.vue';
@@ -136,9 +139,6 @@
   })
   export default class CustomMyHistory extends Vue {
     protected animation = StaggeredFadeAndSlide;
-
-    @Prop({ default: true })
-    public isMyHistoryEnabled!: boolean;
 
     @State('historyQueries', 'isEnabled')
     public areHistoryQueriesEnabled!: boolean;
