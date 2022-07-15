@@ -13,6 +13,13 @@ export interface Messages {
     removeLabel: string;
     title: string;
   };
+  myHistory: {
+    title: string;
+    subtitle: string;
+    message: string;
+    noHistory: string;
+    openButton: string;
+  };
   nextQueries: {
     title: string;
   };

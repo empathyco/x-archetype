@@ -35,6 +35,14 @@
             : 'x-row__item--span-5 x-padding--right-00'
         ]"
       >
+        <BaseIdModalOpen
+          v-if="$x.device === 'mobile'"
+          modalId="my-history-aside"
+          class="x-button--ghost x-self-end x-padding--right-03 x-border-width--00"
+        >
+          <span class="x-small x-text--bold">{{ $t('myHistory.openButton') }}</span>
+          <SettingsIcon class="x-icon--l" />
+        </BaseIdModalOpen>
         <div v-if="showHistoryQueries" class="x-list x-list--gap-02">
           <div v-if="!$x.query.searchBox" class="x-list x-list--horizontal x-list--align-center">
             <h1 class="x-small x-text--bold x-list__item--expand">
@@ -137,6 +145,14 @@
             </template>
           </PopularSearches>
         </div>
+        <BaseIdModalOpen
+          v-if="$x.device === 'desktop'"
+          modalId="my-history-aside"
+          class="x-button--ghost x-self-start x-padding--left-00"
+        >
+          <SettingsIcon />
+          <span class="x-small x-text--bold">{{ $t('myHistory.openButton') }}</span>
+        </BaseIdModalOpen>
       </div>
 
       <SlidingRecommendations
@@ -156,6 +172,7 @@
   import {
     animateScale,
     BarCodeIcon,
+    BaseIdModalOpen,
     BaseKeyboardNavigation,
     BaseResultLink,
     CrossTinyIcon,
@@ -163,6 +180,7 @@
     HistoryIcon,
     LightBulbOn,
     SearchIcon,
+    SettingsIcon,
     StaggeredFadeAndSlide,
     TrashIcon,
     TrendingIcon
@@ -180,6 +198,7 @@
   @Component({
     components: {
       BarCodeIcon,
+      BaseIdModalOpen,
       BaseKeyboardNavigation,
       BaseResultLink,
       ClearHistoryQueries,
@@ -196,6 +215,7 @@
       QuerySuggestions,
       SlidingRecommendations,
       SearchIcon,
+      SettingsIcon,
       TrashIcon,
       TrendingIcon
     }

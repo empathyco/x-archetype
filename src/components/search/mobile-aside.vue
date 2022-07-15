@@ -36,7 +36,7 @@
 
 <style lang="scss">
   .x-mobile {
-    .x-modal.x-layout__aside {
+    .x-modal.x-layout__aside:not(.x-layout__aside--extra) {
       .x-modal__content {
         height: calc(100% - 64px) !important;
         top: 64px;
