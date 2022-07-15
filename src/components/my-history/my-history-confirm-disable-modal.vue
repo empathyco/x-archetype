@@ -17,9 +17,9 @@
           : 'x-padding--10'
       "
     >
-      <h1 class="x-title3 x-text--bold">Disable History Queries</h1>
+      <h1 class="x-title3 x-text--bold">{{ $t('myHistory.confirmDisableModal.title') }}</h1>
       <span class="x-font-color--neutral-35">
-        Disabling History Queries you also clear all the history list
+        {{ $t('myHistory.confirmDisableModal.message') }}
       </span>
       <div
         class="x-list x-list--horizontal"
@@ -29,10 +29,10 @@
           class="x-button x-button--ghost x-font-color--neutral-35"
           :events="dismissEvents"
         >
-          Cancel
+          {{ $t('myHistory.confirmDisableModal.dismiss') }}
         </BaseEventButton>
         <BaseEventButton class="x-button x-button--ghost" :events="confirmEvents">
-          Confirm
+          {{ $t('myHistory.confirmDisableModal.confirm') }}
         </BaseEventButton>
       </div>
     </div>

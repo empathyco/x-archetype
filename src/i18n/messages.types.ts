@@ -19,6 +19,17 @@ export interface Messages {
     message: string;
     noHistory: string;
     openButton: string;
+    switch: {
+      title: string;
+      enable: string;
+      disable: string;
+    };
+    confirmDisableModal: {
+      title: string;
+      message: string;
+      dismiss: string;
+      confirm: string;
+    };
   };
   nextQueries: {
     title: string;

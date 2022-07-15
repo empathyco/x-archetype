@@ -43,8 +43,14 @@
         :class="$x.device === 'desktop' ? 'x-padding--07' : 'x-padding--05'"
       >
         <div class="x-list__item x-list__item--expand x-list x-list--gap-02">
-          <span class="x-title3 x-font-weight--bold">HistoryQueries</span>
-          <span class="x-font-color--neutral-35">Disable and clear</span>
+          <span class="x-title3 x-font-weight--bold">{{ $t('myHistory.switch.title') }}</span>
+          <span class="x-font-color--neutral-35">
+            {{
+              areHistoryQueriesEnabled
+                ? $t('myHistory.switch.disable')
+                : $t('myHistory.switch.enable')
+            }}
+          </span>
         </div>
         <HistoryQueriesSwitch />
       </div>
@@ -105,7 +111,12 @@
 </template>
 
 <script lang="ts">
-  import { CrossTinyIcon, HistoryIcon, StaggeredFadeAndSlide } from '@empathyco/x-components';
+  import {
+    CrossTinyIcon,
+    HistoryIcon,
+    StaggeredFadeAndSlide,
+    State
+  } from '@empathyco/x-components';
   import { MyHistory, HistoryQueriesSwitch } from '@empathyco/x-components/history-queries';
   import { Component, Prop, Vue } from 'vue-property-decorator';
   import MyHistoryIcon from './my-history-icon.vue';
@@ -128,6 +139,9 @@
 
     @Prop({ default: true })
     public isMyHistoryEnabled!: boolean;
+
+    @State('historyQueries', 'isEnabled')
+    public areHistoryQueriesEnabled!: boolean;
   }
 </script>
 
