@@ -9,8 +9,7 @@ When('value {int} from column picker list is clicked', (columns: number) => {
 });
 
 Then('column picker list value {int} is selected', (columns: number) => {
-  cy.getByDataTest('column-picker-list')
-    .children(`.x-column-picker-list__item--${columns}-cols`)
+  cy.get(`.x-column-picker-list__item--${columns}-cols`)
     .children()
     .should('have.attr', 'aria-selected', 'true');
 });
