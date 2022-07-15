@@ -25,9 +25,9 @@ Then('add product to cart tagging request has been triggered', () => {
 });
 
 When('pdp add to cart button is clicked', () => {
-  cy.getByDataTest('result-add-to-cart').eq(0).invoke('show').click();
-});
-
-When('empathize is minimized', () => {
-  cy.getByDataTest('search-input').type('{enter}');
+  cy.getByDataTest('search-grid-result').should('be.visible').first().as('firstVisibleResult');
+  cy.get('@firstVisibleResult')
+    .getByDataTest('result-add-to-cart')
+    .invoke('show')
+    .click({ force: true });
 });

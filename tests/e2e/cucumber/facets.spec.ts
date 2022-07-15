@@ -13,17 +13,17 @@ Then('facets are displayed is {boolean}', (areVisible: boolean) => {
   cy.getByDataTest('facets-facet').should(`${areVisible ? '' : 'not.'}exist`);
 });
 
-When(
-  'hide-show filters button is clicked on {string} after facets being displayed is {boolean}',
-  (view: ViewportPreset, areFacetsVisible: boolean) => {
-    if (view.includes('macbook')) {
-      cy.getByDataTest('toggle-facets-button').click();
-    } else {
-      cy.getByDataTest(`${areFacetsVisible ? 'close' : 'open'}-modal-id`).click();
-    }
+When('sort and filter button is clicked on {string}', (view: ViewportPreset) => {
+  if (view.includes('macbook')) {
+    cy.getByDataTest('toggle-facets-button').click({ force: true });
+  } else {
+    cy.getByDataTest('open-modal-id').click();
   }
-);
+});
 
+When('{string} is clicked to close the modal', (closeMethod: string) => {
+  cy.getByDataTest(closeMethod).eq(0).click('topLeft', { force: true });
+});
 // Scenario 2
 When('filter {int} from facet {string} is clicked', (filterNumber: number, facetName: string) => {
   cy.getByDataTest(facetName)
@@ -51,7 +51,7 @@ When('clear filters button is clicked', () => {
 
 // Scenario 4
 When('facet {string} is unfolded', (facetName: string) => {
-  cy.getByDataTest(facetName).click();
+  cy.getByDataTest(facetName).getByDataTest('toggle-panel-header').click();
 });
 
 // Scenario 5

@@ -5,15 +5,11 @@ Then('grid shows {int} results per row', (columns: number) => {
 });
 
 When('value {int} from column picker list is clicked', (columns: number) => {
-  cy.getByDataTest('column-picker-list')
-    .children(`.x-column-picker-list__item--${columns}-cols`)
-    .should('be.visible')
-    .click();
+  cy.get(`.x-column-picker-list__item--${columns}-cols`).click({ scrollBehavior: false });
 });
 
 Then('column picker list value {int} is selected', (columns: number) => {
-  cy.getByDataTest('column-picker-list')
-    .children(`.x-column-picker-list__item--${columns}-cols`)
+  cy.get(`.x-column-picker-list__item--${columns}-cols`)
     .children()
     .should('have.attr', 'aria-selected', 'true');
 });

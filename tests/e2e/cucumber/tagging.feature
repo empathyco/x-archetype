@@ -16,12 +16,20 @@ Feature: Tagging component
     Then  results page number <pageNumber> is loaded
     And   query tagging request has been triggered
     And   page <pageNumber> query tagging request is triggered
-    And   empathize is minimized
-    When  pdp add to cart button is clicked
-    Then  add product to cart tagging request has been triggered
 
     Examples:
       | query   | view        | pageNumber |
       | shirt   | macbook-13  | 2          |
       | shirt   | iphone-7    | 2          |
+
+  Scenario Outline: 2. Check add to cart tagging.
+    Given start page with "<view>" size view
+    When  start button is clicked
+    And   "<query>" is searched
+    And   pdp add to cart button is clicked
+    Then  add product to cart tagging request has been triggered
+
+    Examples:
+      | query   | view        |
+      | skirt   | macbook-13  |
 

@@ -10,8 +10,8 @@
           :class="{ 'x-margin--left-05 x-margin--right-05': $x.device === 'mobile' }"
         >
           <template>
-            <SpellcheckMessage />
-            <NoResultsMessage />
+            <SpellcheckMessage data-test="spellcheck-message" />
+            <NoResultsMessage data-test="no-results-message" />
           </template>
         </div>
 

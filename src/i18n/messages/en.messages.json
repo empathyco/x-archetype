@@ -63,7 +63,7 @@
     "sort": {
       "label": "Sort by",
       "values": {
-        "price asc": "Price: Low to high",
+        "price asc": "Price: Low to High",
         "price desc": "Price: High to Low",
         "default": "Relevancy"
       }

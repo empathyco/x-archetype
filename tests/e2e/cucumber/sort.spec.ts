@@ -1,16 +1,16 @@
 import { Then, When } from 'cypress-cucumber-preprocessor/steps';
 
 Then('results are ordered by {string}', (sortOrder: string) => {
-  cy.getByDataTest('sort-dropdown').should('contain', sortOrder);
+  cy.getByDataTest('toggle-panel-header').should('contain', sortOrder);
 });
 
-When('{string} order is clicked', (sortOrder: string) => {
-  cy.getByDataTest('sort-dropdown').click();
-  cy.getByDataTest('dropdown-item').contains(sortOrder).click();
+When('{string} order is clicked in {string}', (sortOrder: string, sortMenuName: string) => {
+  cy.getByDataTest('toggle-panel-header').contains(sortMenuName).click();
+  cy.getByDataTest('x-sort-button').contains(sortOrder).click();
 });
 
-Then('search request contains the selected sort {string}', (sortOption: string) => {
+Then('search request contains the selected sort {string}', (sortURL: string) => {
   cy.wait('@interceptedResults')
     .its('request.url')
-    .should('contain', `sort=${sortOption.replace(' ', '+')}`);
+    .should('contain', `sort=${sortURL.replace(' ', '+')}`);
 });
