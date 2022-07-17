@@ -5,12 +5,12 @@
     <DeviceDetector @DeviceProvided="$setLocaleDevice" :breakpoints="breakpoints" />
     <Tagging />
     <UrlHandler env="env" />
-    <XModal v-if="isOpen" :openEvents="openEvents" />
+    <XModal v-if="isOpen" />
   </div>
 </template>
 
 <script lang="ts">
-  import { SnippetCallbacks, SnippetConfig, XEvent, XOn, XProvide } from '@empathyco/x-components';
+  import { SnippetCallbacks, SnippetConfig, XOn, XProvide } from '@empathyco/x-components';
   import { DeviceDetector } from '@empathyco/x-components/device';
   import { Tagging } from '@empathyco/x-components/tagging';
   import { UrlHandler } from '@empathyco/x-components/url';
@@ -28,7 +28,7 @@
       SnippetConfigExtraParams,
       Tagging,
       UrlHandler,
-      XModal: () => import('./components/x-modal.vue').then(m => m.default)
+      XModal: () => import('./components/custom-x-modal.vue').then(m => m.default)
     }
   })
   export default class Layer extends Vue {
@@ -37,13 +37,8 @@
       desktop: Number.POSITIVE_INFINITY
     };
     protected isOpen = false;
-    protected openEvents: XEvent[] = [
-      'UserClickedOpenEventsModal',
-      'UserOpenXProgrammatically',
-      'UserClickedOpenX'
-    ];
 
-    @XOn((component: Vue) => (component as Layer).openEvents)
+    @XOn(['UserOpenXProgrammatically', 'UserClickedOpenX'])
     open(): void {
       this.isOpen = true;
     }
@@ -103,6 +98,7 @@
       width: 100%;
     }
   }
+
   .x-modal__overlay {
     background: var(--x-color-background-modal-overlay-default) !important;
     opacity: 0.3 !important;

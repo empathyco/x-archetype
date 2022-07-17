@@ -80,7 +80,7 @@
 <script lang="ts">
   import {
     animateTranslate,
-    BaseEventsModalClose,
+    CloseXModal,
     BaseIdModal,
     BaseVariableColumnGrid,
     CartIcon,
@@ -108,7 +108,7 @@
       BaseVariableColumnGrid,
       BaseIdModal,
       CartIcon,
-      Close: BaseEventsModalClose,
+      Close: CloseXModal,
       CrossIcon,
       CrossTinyIcon,
       DesktopToolbar,

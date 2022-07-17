@@ -82,7 +82,7 @@
   import {
     ArrowLeftIcon,
     BaseColumnPickerList,
-    BaseEventsModalClose,
+    CloseXModal,
     BaseIdModalOpen,
     BaseScroll,
     FiltersIcon,
@@ -108,7 +108,7 @@
       BaseIdModal,
       BaseIdModalOpen,
       BaseScroll,
-      Close: BaseEventsModalClose,
+      Close: CloseXModal,
       ColumnPicker: BaseColumnPickerList,
       FiltersIcon,
       LocationProvider,
