@@ -13,6 +13,7 @@
         "
       >
         <Close
+          closingEvent="UserClickedCloseX"
           class="x-button--ghost x-padding--left-00"
           :class="{ 'x-padding--right-03': $x.device === 'mobile' }"
         >
@@ -74,6 +75,7 @@
       >
         <MobileMyHistoryAside />
       </BaseIdModal>
+      <MyHistoryConfirmDisableModal class="x-layout__aside--extra x-background--transparent" />
     </template>
   </SingleColumnLayout>
 </template>
@@ -98,12 +100,14 @@
   import SearchBox from '../search-box.vue';
   import HasSearchedMixin from '../has-searched.mixin';
   import MobileMyHistoryAside from '../my-history/mobile-my-history-aside.vue';
+  import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
   import MobileCloseAside from './mobile-close-aside.vue';
   import MobileOpenAside from './mobile-open-aside.vue';
   import MobileToolbar from './mobile-toolbar.vue';
 
   @Component({
     components: {
+      MyHistoryConfirmDisableModal,
       ArrowLeftIcon,
       BaseIdModal,
       BaseIdModalOpen,
@@ -132,10 +136,22 @@
 </script>
 <style lang="scss">
   .x-mobile {
-    .x-modal__content {
-      background-color: var(--x-color-base-transparent) !important;
+    .x-modal {
+      &__content {
+        background-color: var(--x-color-base-transparent) !important;
+      }
+      &.x-layout__aside:not(.x-layout__aside--extra) {
+        .x-modal__content {
+          height: calc(100% - 64px) !important;
+          top: 64px;
+          position: fixed;
+          border-top-right-radius: 16px;
+          border-top-left-radius: 16px;
+        }
+      }
     }
-    .x-layout__aside {
+
+    .x-layout__aside:not(.x-background--transparent) {
       .x-modal__content {
         background-color: var(--x-color-base-neutral-100) !important;
       }

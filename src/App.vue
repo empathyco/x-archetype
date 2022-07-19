@@ -5,7 +5,7 @@
     <DeviceDetector @DeviceProvided="$setLocaleDevice" :breakpoints="breakpoints" />
     <Tagging />
     <UrlHandler env="env" />
-    <XModal v-if="isOpen" :openEvents="openEvents" />
+    <XModal v-if="isOpen" :openEvents="openEvents" :closeEvents="closeEvents" />
   </div>
 </template>
 
@@ -37,11 +37,8 @@
       desktop: Number.POSITIVE_INFINITY
     };
     protected isOpen = false;
-    protected openEvents: XEvent[] = [
-      'UserClickedOpenEventsModal',
-      'UserOpenXProgrammatically',
-      'UserClickedOpenX'
-    ];
+    protected openEvents: XEvent[] = ['UserOpenXProgrammatically', 'UserClickedOpenX'];
+    protected closeEvents: XEvent[] = ['UserClickedCloseX'];
 
     @XOn((component: Vue) => (component as Layer).openEvents)
     open(): void {

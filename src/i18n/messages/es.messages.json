@@ -17,7 +17,18 @@
       "subtitle": "Estos son tus datos de actividad de búsqueda.",
       "message": "<span>Son guardados localmente, solo en tu navegador, y nunca salen de ahí.</span><span>Puedes desactivar esta característica más abajo.</span><span class=\"x-font-color--neutral-10 x-font-weight--bold\">Tu privacidad bajo tu control.</span>",
       "noHistory": "No hay historial de actividad para mostrar",
-      "openButton": "Mi Historial"
+      "openButton": "Mi Historial",
+      "switch": {
+        "title": "History Queries",
+        "enable": "Habilitar",
+        "disable": "Deshabilitar y limpiar"
+      },
+      "confirmDisableModal": {
+        "title":  "Deshabilitar History Queries",
+        "message":  "Al deshabilitar las History Queries se eliminará todo el historial.",
+        "dismiss":  "Cancelar",
+        "confirm":  "Deshabilitar"
+      }
     },
     "nextQueries": {
       "title": "QUIZÁS TE INTERESE"

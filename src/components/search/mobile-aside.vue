@@ -34,16 +34,4 @@
   export default class MobileAside extends Vue {}
 </script>
 
-<style lang="scss">
-  .x-mobile {
-    .x-modal.x-layout__aside:not(.x-layout__aside--extra) {
-      .x-modal__content {
-        height: calc(100% - 64px) !important;
-        top: 64px;
-        position: fixed;
-        border-top-right-radius: 16px;
-        border-top-left-radius: 16px;
-      }
-    }
-  }
-</style>
+<style lang="scss"></style>
