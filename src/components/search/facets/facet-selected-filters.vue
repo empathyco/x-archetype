@@ -1,5 +1,5 @@
 <template>
-  <div v-if="selectedFilters.length" class="x-ellipsis">
+  <div v-if="selectedFilters.length">
     <span
       v-if="selectedFilters.length >= 0"
       class="

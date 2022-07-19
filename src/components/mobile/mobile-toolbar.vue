@@ -6,7 +6,7 @@
 
     <ColumnPicker v-if="$x.totalResults" />
 
-    <EnvSelector />
+    <EnvSelector class="x-padding--right-05" />
   </div>
 </template>
 

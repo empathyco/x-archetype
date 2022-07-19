@@ -32,7 +32,7 @@
         {{ result.name }}
       </h2>
       <span v-if="showDescription" class="x-text">{{ result.season }}</span>
-      <div class="x-list x-list--horizontal x-list--gap-04">
+      <div class="x-list x-list--horizontal x-list--wrap x-list--justify-center x-list--gap-03">
         <BaseResultCurrentPrice :result="result" class="x-text x-text--bold" format="i.iii,dd? €" />
         <BaseResultPreviousPrice
           :result="result"
