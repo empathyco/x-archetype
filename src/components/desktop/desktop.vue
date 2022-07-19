@@ -32,7 +32,7 @@
         >
           <EnvSelector />
 
-          <Close class="x-button--ghost x-padding--right-00">
+          <Close closingEvent="UserClickedCloseX" class="x-button--ghost x-padding--right-00">
             <CrossIcon class="x-icon--l" />
           </Close>
         </div>

@@ -13,6 +13,7 @@
         "
       >
         <Close
+          closingEvent="UserClickedCloseX"
           class="x-button--ghost x-padding--left-00"
           :class="{ 'x-padding--right-03': $x.device === 'mobile' }"
         >
