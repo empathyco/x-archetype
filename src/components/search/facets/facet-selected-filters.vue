@@ -1,18 +1,16 @@
 <template>
-  <div v-if="selectedFilters.length">
-    <span
-      v-if="selectedFilters.length >= 0"
-      class="
-        x-small
-        x-background--accent
-        x-font-color--neutral-100
-        x-border-radius--20
-        x-padding--01 x-padding--right-03 x-padding--left-03
-      "
-    >
-      {{ selectedFilters.length }}
-    </span>
-  </div>
+  <span
+    v-if="selectedFilters.length >= 0"
+    class="
+      x-small
+      x-background--accent
+      x-font-color--neutral-100
+      x-border-radius--20
+      x-padding--01 x-padding--right-03 x-padding--left-03
+    "
+  >
+    {{ selectedFilters.length }}
+  </span>
 </template>
 
 <script lang="ts">

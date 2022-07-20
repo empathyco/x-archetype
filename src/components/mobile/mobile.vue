@@ -34,7 +34,7 @@
     </template>
 
     <template #toolbar v-if="$x.query.search">
-      <MobileToolbar class="x-padding--left-05 x-padding--bottom-05" />
+      <MobileToolbar class="x-padding--left-05 x-padding--bottom-05 x-padding--right-03" />
     </template>
 
     <template #predictive>
