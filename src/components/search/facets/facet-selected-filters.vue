@@ -1,6 +1,6 @@
 <template>
   <span
-    v-if="selectedFilters.length >= 0"
+    v-if="selectedFilters.length > 0"
     class="
       x-small
       x-background--accent
