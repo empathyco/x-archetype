@@ -1,6 +1,7 @@
 <template>
   <BaseEventsModal
     :eventsToOpenModal="openEvents"
+    :eventsToCloseModal="closeEvents"
     :animation="animation"
     :class="$x.device === 'mobile' ? 'x-mobile' : 'x-desktop'"
   >
@@ -32,6 +33,15 @@
      */
     @Prop()
     public openEvents?: XEvent[];
+
+    /**
+     * List of events to close the modal when emitted.
+     *
+     * @public
+     */
+    @Prop()
+    public closeEvents?: XEvent[];
+
     /**
      * Animation to use for opening/closing the modal.
      *

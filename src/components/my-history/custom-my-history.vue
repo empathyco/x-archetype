@@ -4,7 +4,7 @@
       v-if="$x.device === 'desktop'"
       class="x-list x-background--neutral-10 x-list--align-center"
     >
-      <MyHistoryIcon v-if="isMyHistoryEnabled" />
+      <MyHistoryIcon v-if="areHistoryQueriesEnabled" />
       <MyHistoryIconBw v-else />
     </div>
     <div class="x-list x-list__item--expand" :class="{ 'x-scroll': $x.device === 'desktop' }">
@@ -14,7 +14,7 @@
         :class="$x.device === 'desktop' ? 'x-list--align-center' : 'x-list--align-end'"
       >
         <MyHistoryIcon
-          v-if="isMyHistoryEnabled"
+          v-if="areHistoryQueriesEnabled"
           :class="{ 'x-margin--right-05': $x.device === 'mobile' }"
         />
         <MyHistoryIconBw v-else :class="{ 'x-margin--right-05': $x.device === 'mobile' }" />
@@ -33,8 +33,32 @@
           class="x-list x-list--gap-05 x-title3 x-font-color--neutral-35"
         ></div>
       </div>
+      <div
+        class="
+          x-padding--top-06 x-padding--bottom-07
+          x-list x-list--horizontal x-list--align-center
+          x-border-color--neutral-95
+          x-border-width--top-01
+        "
+        :class="$x.device === 'desktop' ? 'x-padding--07' : 'x-padding--05'"
+      >
+        <div class="x-list__item x-list__item--expand x-list x-list--gap-02">
+          <span class="x-title3 x-font-weight--bold">{{ $t('myHistory.switch.title') }}</span>
+          <span class="x-font-color--neutral-35">
+            {{
+              areHistoryQueriesEnabled
+                ? $t('myHistory.switch.disable')
+                : $t('myHistory.switch.enable')
+            }}
+          </span>
+        </div>
+        <HistoryQueriesSwitch />
+      </div>
       <div class="x-list x-list__item--expand x-border-color--neutral-95 x-border-width--top-01">
-        <MyHistory v-if="isMyHistoryEnabled && $x.fullHistoryQueries.length" :animation="animation">
+        <MyHistory
+          v-if="areHistoryQueriesEnabled && $x.fullHistoryQueries.length"
+          :animation="animation"
+        >
           <template #date="{ date }">
             <div
               class="
@@ -70,7 +94,7 @@
         <div v-else class="x-list x-list--align-center x-list__item--expand">
           <NoHistoryIcon
             class="x-flex-no-shrink"
-            :class="{ 'x-no-history-icon--bw': !isMyHistoryEnabled }"
+            :class="{ 'x-no-history-icon--bw': !areHistoryQueriesEnabled }"
           />
           <span
             class="
@@ -90,9 +114,14 @@
 </template>
 
 <script lang="ts">
-  import { CrossTinyIcon, HistoryIcon, StaggeredFadeAndSlide } from '@empathyco/x-components';
-  import { MyHistory } from '@empathyco/x-components/history-queries';
-  import { Component, Prop, Vue } from 'vue-property-decorator';
+  import {
+    CrossTinyIcon,
+    HistoryIcon,
+    StaggeredFadeAndSlide,
+    State
+  } from '@empathyco/x-components';
+  import { MyHistory, HistoryQueriesSwitch } from '@empathyco/x-components/history-queries';
+  import { Component, Vue } from 'vue-property-decorator';
   import MyHistoryIcon from './my-history-icon.vue';
   import MyHistoryIconBw from './my-history-icon-bw.vue';
   import NoHistoryIcon from './no-history-icon.vue';
@@ -104,14 +133,15 @@
       MyHistory,
       MyHistoryIcon,
       MyHistoryIconBw,
-      NoHistoryIcon
+      NoHistoryIcon,
+      HistoryQueriesSwitch
     }
   })
   export default class CustomMyHistory extends Vue {
     protected animation = StaggeredFadeAndSlide;
 
-    @Prop({ default: true })
-    public isMyHistoryEnabled!: boolean;
+    @State('historyQueries', 'isEnabled')
+    public areHistoryQueriesEnabled!: boolean;
   }
 </script>
 
