@@ -22,7 +22,7 @@
         :suggestion="suggestion"
         class="
           x-tag x-tag--pill
-          x-list x-list--gap-03
+          x-list x-list--horizontal x-list--gap-03
           x-padding--bottom-03 x-padding--top-03
           x-border-color--neutral-70
           x-background--neutral-100
