@@ -1,6 +1,6 @@
 <template>
   <SlidingPanel
-    class="x-sliding-panel--buttons-overflow x-sliding-panel--show-buttons-on-hover"
+    class="x-sliding-panel--show-buttons-on-hover"
     :buttonClass="'x-button--ghost x-padding--00'"
     :showButtons="$x.device !== 'mobile'"
   >

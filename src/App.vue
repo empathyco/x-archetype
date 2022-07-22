@@ -5,7 +5,7 @@
     <DeviceDetector @DeviceProvided="$setLocaleDevice" :breakpoints="breakpoints" />
     <Tagging />
     <UrlHandler env="env" />
-    <XModal v-if="isOpen" />
+    <MainModal v-if="isOpen" />
   </div>
 </template>
 
@@ -28,7 +28,7 @@
       SnippetConfigExtraParams,
       Tagging,
       UrlHandler,
-      XModal: () => import('./components/custom-x-modal.vue').then(m => m.default)
+      MainModal: () => import('./components/custom-main-modal.vue').then(m => m.default)
     }
   })
   export default class Layer extends Vue {

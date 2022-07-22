@@ -34,7 +34,7 @@
     </template>
 
     <template #toolbar v-if="$x.query.search">
-      <MobileToolbar class="x-padding--05 x-padding--top-00" />
+      <MobileToolbar class="x-padding--left-05 x-padding--bottom-05 x-padding--right-03" />
     </template>
 
     <template #predictive>
@@ -74,6 +74,7 @@
       >
         <MobileMyHistoryAside />
       </BaseIdModal>
+      <MyHistoryConfirmDisableModal class="x-layout__aside--extra x-background--transparent" />
     </template>
   </SingleColumnLayout>
 </template>
@@ -82,7 +83,7 @@
   import {
     ArrowLeftIcon,
     BaseColumnPickerList,
-    CloseXModal,
+    CloseMainModal,
     BaseIdModalOpen,
     BaseScroll,
     FiltersIcon,
@@ -98,17 +99,19 @@
   import SearchBox from '../search-box.vue';
   import HasSearchedMixin from '../has-searched.mixin';
   import MobileMyHistoryAside from '../my-history/mobile-my-history-aside.vue';
+  import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
   import MobileCloseAside from './mobile-close-aside.vue';
   import MobileOpenAside from './mobile-open-aside.vue';
   import MobileToolbar from './mobile-toolbar.vue';
 
   @Component({
     components: {
+      MyHistoryConfirmDisableModal,
       ArrowLeftIcon,
       BaseIdModal,
       BaseIdModalOpen,
       BaseScroll,
-      Close: CloseXModal,
+      Close: CloseMainModal,
       ColumnPicker: BaseColumnPickerList,
       FiltersIcon,
       LocationProvider,
@@ -132,10 +135,22 @@
 </script>
 <style lang="scss">
   .x-mobile {
-    .x-modal__content {
-      background-color: var(--x-color-base-transparent) !important;
+    .x-modal {
+      &__content {
+        background-color: var(--x-color-base-transparent) !important;
+      }
+      &.x-layout__aside:not(.x-layout__aside--extra) {
+        .x-modal__content {
+          height: calc(100% - 64px) !important;
+          top: 64px;
+          position: fixed;
+          border-top-right-radius: 16px;
+          border-top-left-radius: 16px;
+        }
+      }
     }
-    .x-layout__aside {
+
+    .x-layout__aside:not(.x-background--transparent) {
       .x-modal__content {
         background-color: var(--x-color-base-neutral-100) !important;
       }
