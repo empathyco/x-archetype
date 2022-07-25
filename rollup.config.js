@@ -8,7 +8,7 @@ export default createConfig({
   output: {
     chunkFileNames: chunkInfo => {
       switch (chunkInfo.name) {
-        case 'custom-mamodal':
+        case 'custom-main-modal':
           return 'x-empty-search-[hash].js';
         case 'index':
           return 'x-search-[hash].js';
