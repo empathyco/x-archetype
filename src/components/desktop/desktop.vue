@@ -32,9 +32,9 @@
         >
           <EnvSelector />
 
-          <Close class="x-button--ghost x-padding--right-00">
+          <CloseMainModal class="x-button--ghost x-padding--right-00">
             <CrossIcon class="x-icon--l" />
-          </Close>
+          </CloseMainModal>
         </div>
       </div>
     </template>
@@ -111,7 +111,7 @@
       BaseVariableColumnGrid,
       BaseIdModal,
       CartIcon,
-      Close: CloseMainModal,
+      CloseMainModal,
       CrossIcon,
       CrossTinyIcon,
       DesktopToolbar,

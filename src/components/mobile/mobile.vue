@@ -12,12 +12,12 @@
           x-background--neutral-100
         "
       >
-        <Close
+        <CloseMainModal
           class="x-button--ghost x-padding--left-00"
           :class="{ 'x-padding--right-03': $x.device === 'mobile' }"
         >
           <ArrowLeftIcon class="x-icon--l" />
-        </Close>
+        </CloseMainModal>
         <SearchBox class="x-list__item--expand" />
       </div>
     </template>
@@ -111,7 +111,7 @@
       BaseIdModal,
       BaseIdModalOpen,
       BaseScroll,
-      Close: CloseMainModal,
+      CloseMainModal,
       ColumnPicker: BaseColumnPickerList,
       FiltersIcon,
       LocationProvider,
