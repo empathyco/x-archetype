@@ -32,9 +32,9 @@
         >
           <EnvSelector />
 
-          <Close closingEvent="UserClickedCloseX" class="x-button--ghost x-padding--right-00">
+          <CloseMainModal class="x-button--ghost x-padding--right-00">
             <CrossIcon class="x-icon--l" />
-          </Close>
+          </CloseMainModal>
         </div>
       </div>
     </template>
@@ -81,7 +81,7 @@
 <script lang="ts">
   import {
     animateTranslate,
-    BaseEventsModalClose,
+    CloseMainModal,
     BaseIdModal,
     BaseVariableColumnGrid,
     CartIcon,
@@ -111,7 +111,7 @@
       BaseVariableColumnGrid,
       BaseIdModal,
       CartIcon,
-      Close: BaseEventsModalClose,
+      CloseMainModal,
       CrossIcon,
       CrossTinyIcon,
       DesktopToolbar,
