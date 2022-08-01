@@ -25,7 +25,7 @@
       },
       "confirmDisableModal": {
         "title":  "Disable History Queries",
-        "message":  "Disabling History Queries you also clear all the history list.",
+        "message":  "By disabling the History Queries feature all the history queries list will be cleared.",
         "dismiss":  "Cancel",
         "confirm":  "Disable"
       }
