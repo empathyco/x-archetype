@@ -25,7 +25,7 @@
       },
       "confirmDisableModal": {
         "title":  "Deshabilitar History Queries",
-        "message":  "Al deshabilitar las History Queries se eliminará todo el historial.",
+        "message":  "Si deshabilitas las History Queries, tu historial de búsqueda será eliminado.",
         "dismiss":  "Cancelar",
         "confirm":  "Deshabilitar"
       }
