@@ -36,7 +36,7 @@
         ]"
       >
         <BaseIdModalOpen
-          v-if="$x.device === 'mobile'"
+          v-if="$x.device === 'mobile' && !$x.query.searchBox"
           modalId="my-history-aside"
           class="x-button--ghost x-self-end x-padding--right-03 x-border-width--00"
         >
@@ -146,7 +146,7 @@
           </PopularSearches>
         </div>
         <BaseIdModalOpen
-          v-if="$x.device === 'desktop'"
+          v-if="$x.device === 'desktop' && !$x.query.searchBox"
           modalId="my-history-aside"
           class="x-button--ghost x-self-start x-padding--left-00"
         >
