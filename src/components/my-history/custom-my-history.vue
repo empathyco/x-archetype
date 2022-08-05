@@ -72,20 +72,26 @@
             </div>
           </template>
           <template #suggestion-content="{ suggestion, formatTime }">
-            <div
-              class="
-                x-list x-list--horizontal x-list--gap-05
-                x-padding--bottom-04 x-padding--top-04
-              "
-            >
-              <HistoryIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
-              <div class="x-list x-list--gap-01">
-                <span>{{ suggestion.query }}</span>
-                <span class="x-small x-font-color--neutral-35">
-                  {{ formatTime(suggestion.timestamp) }}
-                </span>
-              </div>
-            </div>
+            <BaseIdModalClose modalId="my-history-aside">
+              <template #closing-element="{ closeModal }">
+                <div
+                  @click="closeModal"
+                  @keyup.enter="closeModal"
+                  class="
+                    x-list x-list--horizontal x-list--gap-05
+                    x-padding--bottom-04 x-padding--top-04
+                  "
+                >
+                  <HistoryIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
+                  <div class="x-list x-list--gap-01">
+                    <span>{{ suggestion.query }}</span>
+                    <span class="x-small x-font-color--neutral-35">
+                      {{ formatTime(suggestion.timestamp) }}
+                    </span>
+                  </div>
+                </div>
+              </template>
+            </BaseIdModalClose>
           </template>
           <template #suggestion-remove-content>
             <CrossTinyIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
@@ -115,6 +121,7 @@
 
 <script lang="ts">
   import {
+    BaseIdModalClose,
     CrossTinyIcon,
     HistoryIcon,
     StaggeredFadeAndSlide,
@@ -128,6 +135,7 @@
 
   @Component({
     components: {
+      BaseIdModalClose,
       CrossTinyIcon,
       HistoryIcon,
       MyHistory,
