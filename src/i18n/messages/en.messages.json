@@ -37,6 +37,12 @@
       "title": "You may be interested",
       "message": "Those who searched for <span class=\"x-text x-text--bold x-font-size--05\">\"{query}\"</span> also viewed:"
     },
+    "nextQueryPreview": {
+      "title": "Next Queries",
+      "query": "{query}",
+      "totalResults": "({totalResults})",
+      "viewResults": "View all results ({totalResults})"
+    },
     "identifierResults": {
       "title": "SKU Search"
     },
@@ -98,6 +104,9 @@
   "mobile": {
     "nextQueriesGroup": {
       "message": "Those who searched for <span class=\"x-text x-text--bold\">\"{query}\"</span> also viewed:"
+    },
+    "nextQueryPreview": {
+      "viewResults": "VIEW ALL"
     },
     "noResults": {
       "message": "<span>Sorry but there are no results for <span class=\"x-text x-font-color--neutral-10 x-text--bold\">\"{query}\"</span></span>You may be interested in these products"
