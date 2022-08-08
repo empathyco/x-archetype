@@ -67,7 +67,7 @@
       SlidingPanel
     }
   })
-  export default class CustomNextQueryPreview extends Vue {
+  export default class MobileNextQueryPreview extends Vue {
     @Prop({ required: true })
     protected nextQuery!: NextQuery;
 

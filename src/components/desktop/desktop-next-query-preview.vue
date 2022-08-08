@@ -62,7 +62,7 @@
       Result
     }
   })
-  export default class CustomNextQueryPreview extends Vue {
+  export default class DesktopNextQueryPreview extends Vue {
     @Prop({ default: 4 })
     protected maxItemsToRender!: number;
 
