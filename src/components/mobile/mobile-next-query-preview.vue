@@ -4,13 +4,15 @@
     class="
       x-list x-list--gap-05
       x-background--neutral-95
-      x-padding--06 x-padding--bottom-06
+      x-padding--top-06 x-padding--bottom-06
       x-margin--top-10 x-margin--bottom-05
     "
     :suggestion="nextQuery"
   >
-    <span class="x-title2 x-font-weight--bold">{{ $t('nextQueryPreview.title') }}</span>
-    <div class="x-list x-list--horizontal x-list--align-center">
+    <span class="x-next-query-preview__title x-title2 x-font-weight--bold">
+      {{ $t('nextQueryPreview.title') }}
+    </span>
+    <div class="x-next-query-preview__header x-list x-list--horizontal x-list--align-center">
       <div class="x-list x-list--horizontal x-list--align-baseline x-list--gap-02">
         <span class="x-title3 x-font-weight--bold">
           {{
@@ -77,12 +79,20 @@
     .x-next-query-preview {
       margin-inline: calc(-1 * var(--x-size-padding-grid));
 
+      &__title {
+        padding-inline: var(--x-size-padding-grid);
+      }
+
+      &__header {
+        padding-inline: var(--x-size-padding-grid);
+      }
+
       &__result {
         width: calc(38vw - var(--x-size-gap-list-05));
       }
 
-      .x-sliding-panel {
-        margin-inline-end: calc(-1 * var(--x-size-padding-grid));
+      .x-sliding-panel__scroll {
+        padding-left: var(--x-size-padding-grid);
       }
     }
   }
