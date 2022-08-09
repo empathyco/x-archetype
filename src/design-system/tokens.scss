@@ -25,11 +25,6 @@
   --x-size-gap-tag-default: var(--x-size-base-03);
   --x-number-font-weight-tag-default-selected: var(--x-number-font-weight-base-bold);
 
-  // List
-  .x-list--justify-space-between.x-list {
-    --x-size-justify-list: space-between;
-  }
-
   // Dropdown
   --x-color-border-dropdown-toggle-default: transparent;
   --x-size-padding-left-dropdown-toggle-default: 0;

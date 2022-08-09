@@ -23,7 +23,6 @@
     </div>
     <BaseGrid
       #default="{ item }"
-      :animation="gridAnimation"
       :columns="maxItemsToRender"
       :items="results.slice(0, maxItemsToRender)"
       class="x-padding--00"
@@ -48,7 +47,7 @@
 
 <script lang="ts">
   import { Component, Prop, Vue } from 'vue-property-decorator';
-  import { BaseGrid, StaggeredFadeAndSlide } from '@empathyco/x-components';
+  import { BaseGrid } from '@empathyco/x-components';
   import { NextQuery, NextQueryPreview } from '@empathyco/x-components/next-queries';
   import { NextQuery as NextQueryModel } from '@empathyco/x-types';
   import Result from '../results/result.vue';
@@ -68,14 +67,5 @@
 
     @Prop({ required: true })
     protected nextQuery!: NextQueryModel;
-
-    protected gridAnimation = StaggeredFadeAndSlide;
   }
 </script>
-
-<style lang="scss">
-  .x-base-grid__next-queries-group {
-    grid-column-start: 1;
-    grid-column-end: -1;
-  }
-</style>

@@ -10,8 +10,8 @@
     :suggestion="nextQuery"
   >
     <span class="x-title2 x-font-weight--bold">{{ $t('nextQueryPreview.title') }}</span>
-    <div class="x-list x-list--horizontal x-list--align-center x-list--justify-space-between">
-      <div class="x-list x-list--horizontal x-list--align-center x-list--gap-02">
+    <div class="x-list x-list--horizontal x-list--align-center">
+      <div class="x-list x-list--horizontal x-list--align-baseline x-list--gap-02">
         <span class="x-title3 x-font-weight--bold">
           {{
             $t('nextQueryPreview.query', {
@@ -29,7 +29,7 @@
       </div>
       <NextQuery
         :suggestion="nextQuery"
-        class="x-button x-button--ghost x-border-width--00 x-padding--00 x-font-weight--bold"
+        class="x-button x-button--ghost x-padding--00 x-margin--left-auto x-font-weight--bold"
       >
         {{ $t('nextQueryPreview.viewResults') }}
       </NextQuery>
@@ -75,15 +75,14 @@
 <style lang="scss">
   .x-mobile {
     .x-next-query-preview {
-      margin-right: calc(-1 * var(--x-size-padding-grid));
-      margin-left: calc(-1 * var(--x-size-padding-grid));
+      margin-inline: calc(-1 * var(--x-size-padding-grid));
 
       &__result {
-        max-width: calc(38vw - var(--x-size-gap-list-05));
+        width: calc(38vw - var(--x-size-gap-list-05));
       }
 
       .x-sliding-panel {
-        margin-right: calc(-1 * var(--x-size-padding-grid));
+        margin-inline-end: calc(-1 * var(--x-size-padding-grid));
       }
     }
   }

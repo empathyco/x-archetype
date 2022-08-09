@@ -74,3 +74,10 @@
     protected staggeredFadeAndSlide = StaggeredFadeAndSlide;
   }
 </script>
+
+<style lang="scss">
+  .x-base-grid__next-queries-group {
+    grid-column-start: 1;
+    grid-column-end: -1;
+  }
+</style>
