@@ -35,7 +35,7 @@
       </NextQuery>
     </div>
     <SlidingPanel
-      class="x-background--neutral-95 x-margin--right-negative"
+      class="x-background--neutral-95"
       :showButtons="false"
       :resetOnContentChange="false"
     >
@@ -82,7 +82,7 @@
         max-width: calc(38vw - var(--x-size-gap-list-05));
       }
 
-      .x-margin--right-negative {
+      .x-sliding-panel {
         margin-right: calc(-1 * var(--x-size-padding-grid));
       }
     }
