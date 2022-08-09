@@ -24,7 +24,7 @@
     <BaseGrid
       #default="{ item }"
       :animation="gridAnimation"
-      :columns="4"
+      :columns="maxItemsToRender"
       :items="results.slice(0, maxItemsToRender)"
       class="x-padding--00"
     >
