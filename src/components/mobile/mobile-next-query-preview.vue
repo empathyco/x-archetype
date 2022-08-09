@@ -81,10 +81,10 @@
       &__result {
         max-width: calc(38vw - var(--x-size-gap-list-05));
       }
-    }
 
-    .x-margin--right-negative {
-      margin-right: calc(-1 * var(--x-size-padding-grid));
+      .x-margin--right-negative {
+        margin-right: calc(-1 * var(--x-size-padding-grid));
+      }
     }
   }
 </style>
