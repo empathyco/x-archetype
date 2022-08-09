@@ -44,7 +44,6 @@ Then('search request contains the origin {string} in the URL', (origin: string) 
 
 // Results
 Then('related results are displayed', () => {
-  cy.getByDataTest('search-grid-result').first().scrollIntoView();
   cy.getByDataTest('search-grid-result')
     .should('be.visible')
     .should('have.length.at.least', 1)
@@ -53,7 +52,6 @@ Then('related results are displayed', () => {
 });
 
 Then('related results have changed', () => {
-  cy.getByDataTest('search-grid-result').first().scrollIntoView();
   cy.get<string>('@resultsList').then(resultsList => {
     cy.getByDataTest('search-grid-result')
       .should('be.visible')
