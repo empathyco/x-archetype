@@ -21,18 +21,17 @@
         }}
       </span>
     </div>
-    <div class="x-list x-list--horizontal x-list--justify-space-between x-list--gap-05">
-      <Result
-        v-for="result in results.slice(0, maxItemsToRender)"
-        :key="result.id"
-        :result="result"
-        :showAddToCart="false"
-        class="x-next-query-preview__result"
-      />
-    </div>
-    <BaseEventButton
-      v-if="$x.device === 'desktop'"
-      :events="clickEvents"
+    <BaseGrid
+      #default="{ item }"
+      :animation="gridAnimation"
+      :columns="4"
+      :items="results.slice(0, maxItemsToRender)"
+      class="x-padding--00"
+    >
+      <Result :result="item" />
+    </BaseGrid>
+    <NextQuery
+      :suggestion="nextQuery"
       class="
         x-tag x-tag--pill
         x-font-weight--bold
@@ -40,38 +39,37 @@
         x-padding--top-04 x-padding--bottom-04 x-padding--right-05 x-padding--left-05
         x-font-color--lead
         x-border-color--lead
-        x-background--neutral-100
       "
     >
       {{ $t('nextQueryPreview.viewResults', { totalResults }) }}
-    </BaseEventButton>
+    </NextQuery>
   </NextQueryPreview>
 </template>
 
 <script lang="ts">
   import { Component, Prop, Vue } from 'vue-property-decorator';
-  import { BaseEventButton, XEventsTypes } from '@empathyco/x-components';
-  import { NextQueryPreview } from '@empathyco/x-components/next-queries';
-  import { NextQuery } from '@empathyco/x-types';
+  import { BaseGrid, StaggeredFadeAndSlide } from '@empathyco/x-components';
+  import { NextQuery, NextQueryPreview } from '@empathyco/x-components/next-queries';
+  import { NextQuery as NextQueryModel } from '@empathyco/x-types';
   import Result from '../results/result.vue';
 
   @Component({
     components: {
-      BaseEventButton,
+      BaseGrid,
+      NextQuery,
       NextQueryPreview,
       Result
     }
   })
   export default class DesktopNextQueryPreview extends Vue {
+    // TODO: Remove this and configure NextQueryPreview after doing EX-6819.
     @Prop({ default: 4 })
     protected maxItemsToRender!: number;
 
     @Prop({ required: true })
-    protected nextQuery!: NextQuery;
+    protected nextQuery!: NextQueryModel;
 
-    protected clickEvents: Partial<XEventsTypes> = {
-      UserAcceptedAQuery: this.nextQuery.query
-    };
+    protected gridAnimation = StaggeredFadeAndSlide;
   }
 </script>
 
@@ -79,11 +77,5 @@
   .x-base-grid__next-queries-group {
     grid-column-start: 1;
     grid-column-end: -1;
-  }
-
-  .x-desktop {
-    .x-next-query-preview__result {
-      max-width: calc(25% - var(--x-size-gap-list-05));
-    }
   }
 </style>

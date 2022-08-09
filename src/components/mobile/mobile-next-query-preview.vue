@@ -27,15 +27,15 @@
           }}
         </span>
       </div>
-      <BaseEventButton
-        :events="clickEvents"
-        class="x-button x-button--ghost x-border-width--00 x-padding--right-00"
+      <NextQuery
+        :suggestion="nextQuery"
+        class="x-button x-button--ghost x-border-width--00 x-padding--00 x-font-weight--bold"
       >
         {{ $t('nextQueryPreview.viewResults') }}
-      </BaseEventButton>
+      </NextQuery>
     </div>
     <SlidingPanel
-      class="x-sliding-panel--no-gradient x-background--neutral-95 x-margin--right-negative"
+      class="x-background--neutral-95 x-margin--right-negative"
       :showButtons="false"
       :resetOnContentChange="false"
     >
@@ -44,7 +44,6 @@
           v-for="result in results"
           :key="result.id"
           :result="result"
-          :showAddToCart="false"
           class="x-next-query-preview__result"
         />
       </div>
@@ -54,14 +53,14 @@
 
 <script lang="ts">
   import { Component, Prop, Vue } from 'vue-property-decorator';
-  import { BaseEventButton, SlidingPanel, XEventsTypes } from '@empathyco/x-components';
-  import { NextQueryPreview } from '@empathyco/x-components/next-queries';
-  import { NextQuery } from '@empathyco/x-types';
+  import { SlidingPanel } from '@empathyco/x-components';
+  import { NextQuery, NextQueryPreview } from '@empathyco/x-components/next-queries';
+  import { NextQuery as NextQueryModel } from '@empathyco/x-types';
   import Result from '../results/result.vue';
 
   @Component({
     components: {
-      BaseEventButton,
+      NextQuery,
       NextQueryPreview,
       Result,
       SlidingPanel
@@ -69,11 +68,7 @@
   })
   export default class MobileNextQueryPreview extends Vue {
     @Prop({ required: true })
-    protected nextQuery!: NextQuery;
-
-    protected clickEvents: Partial<XEventsTypes> = {
-      UserAcceptedAQuery: this.nextQuery.query
-    };
+    protected nextQuery!: NextQueryModel;
   }
 </script>
 
