@@ -57,6 +57,7 @@ Then('related results have changed', () => {
       .should('be.visible')
       .should('have.length.at.least', 1)
       .should(newResultsList => {
+        // Because of animations, here newResultsList can contain both old and new results
         expect(newResultsList.text()).to.be.not.equal(resultsList);
       })
       .invoke('text')
