@@ -37,6 +37,12 @@ export interface Messages {
   nextQueriesGroup: {
     message: string;
   };
+  nextQueryPreview: {
+    title: string;
+    query: string;
+    totalResults: string;
+    viewResults: string;
+  };
   recommendations: {
     title: string;
   };

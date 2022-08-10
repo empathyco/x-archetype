@@ -2,11 +2,7 @@
   <ResultsList v-if="$x.totalResults" v-infinite-scroll:main-scroll>
     <BannersList>
       <PromotedsList>
-        <NextQueriesList
-          :offset="24"
-          :frequency="48"
-          :maxNextQueriesPerGroup="$x.device === 'mobile' ? 6 : 12"
-        >
+        <NextQueriesList :offset="24" :frequency="48" :maxNextQueriesPerGroup="1">
           <BaseVariableColumnGrid
             class="x-grid x-padding--top-00"
             :animation="staggeredFadeAndSlide"
@@ -25,7 +21,8 @@
               </MainScrollItem>
             </template>
             <template #next-queries-group="{ item: { nextQueries } }">
-              <NextQueriesGroup :nextQueries="nextQueries" />
+              <MobileNextQueryPreview v-if="$x.device === 'mobile'" :nextQuery="nextQueries[0]" />
+              <DesktopNextQueryPreview v-else :nextQuery="nextQueries[0]" />
             </template>
           </BaseVariableColumnGrid>
         </NextQueriesList>
@@ -52,15 +49,17 @@
   import { Component } from 'vue-property-decorator';
   import { NextQueriesList } from '@empathyco/x-components/next-queries';
   import Result from '../../results/result.vue';
-  import NextQueriesGroup from './next-queries-group.vue';
+  import DesktopNextQueryPreview from '../../desktop/desktop-next-query-preview.vue';
+  import MobileNextQueryPreview from '../../mobile/mobile-next-query-preview.vue';
 
   @Component({
     components: {
       Banner,
       BannersList,
       BaseVariableColumnGrid,
+      DesktopNextQueryPreview,
       MainScrollItem,
-      NextQueriesGroup,
+      MobileNextQueryPreview,
       NextQueriesList,
       Promoted,
       PromotedsList,
@@ -75,3 +74,10 @@
     protected staggeredFadeAndSlide = StaggeredFadeAndSlide;
   }
 </script>
+
+<style lang="scss">
+  .x-base-grid__next-queries-group {
+    grid-column-start: 1;
+    grid-column-end: -1;
+  }
+</style>
