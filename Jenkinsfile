@@ -133,9 +133,7 @@
                         when { changeRequest() }
                         steps {
                             script {
-                                deployXComponents('test', env.CHANGE_ID)
-                                deployHost = 'https://x.test.empathy.co/preview'
-                                deployUrl = INSTANCE == 'Archetype' ? '${deployHost}/${env.CHANGE_ID}/index.html' : '${deployHost}/${INSTANCE}/${env.CHANGE_ID}/index.html'
+                                deployUrl = deployXComponents('test', env.CHANGE_ID)
                                 pullRequest.comment("PR ${env.CHANGE_ID} preview deployed in ${deployUrl}")
                             }
                         }
@@ -167,12 +165,12 @@ def deployXComponents(String environment, String previewId  = null) {
                       test: "732785771697"] //Empathy Test
     INSTANCE = 'Archetype'
     URLPath = "s3://${BUCKET[environment]}"
-    deployPath = get_base_url(previewId)
+    deployPath = get_base_url(INSTANCE, previewId)
     withAWS(role:'Jenkins', roleAccount: ROLE_ACCOUNT[environment]) {
         if (INSTANCE == 'Archetype') {
             sh "aws s3 sync dist ${URLPath}${deployPath} --delete --cache-control ${CACHE[environment]} --include \"*\" --exclude \"*/*\""
         } else {
-            sh "aws s3 sync dist ${URLPath}/${INSTANCE}${deployPath} --delete --cache-control ${CACHE[environment]}"
+            sh "aws s3 sync dist ${URLPath}${deployPath} --delete --cache-control ${CACHE[environment]}"
         }
         cfInvalidate(distribution: CLOUDFRONT_ID[environment], paths:[deployPath == '' ? "/*": "${deployPath}*"])
     }
@@ -185,16 +183,19 @@ def deployXComponents(String environment, String previewId  = null) {
     notifyDeployment(version: packageJson.version, environment: environment.toUpperCase())
     environmentType = (environment=='test') ? 'testing' : environment
     jiraSendDeploymentInfo environmentId: environment, environmentName: environment, environmentType: environmentType
+    def deployHost = 'https://x.test.empathy.co'
+    return "${deployHost}${deployPath}index.html"
 }
 
 /**
  * Method that returns baseUrl for the deployment
  * @param ID of the current PR, if applicable
  */
-def get_base_url(String previewId) {
+def get_base_url(String instance, String previewId) {
     if (previewId == null) {
         return ''
     }
-    baseUrl = "/preview/${previewId}/"
+
+    baseUrl = INSTANCE == 'Archetype' ? "/preview/${previewId}/" : "/preview/${instance}/${previewId}/"
     return baseUrl
 }
