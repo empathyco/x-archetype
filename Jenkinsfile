@@ -4,27 +4,12 @@
     // body()
 
     def INSTANCE = 'Archetype' //params.instance
-    PRODUCTION_CACHE = params.containsKey('cache') ? params.cache : 'max-age=3600'
     def TESTS = params.containsKey('tests') ? params.tests : true
     def BUILDER = 'cypress/browsers:node14.15.0-chrome86-ff82' // params.containsKey('builder') ? params.builder : 'node:14'
 
-    def BUCKET = [  production: "x.empathy.co",
-                staging: "x.staging.empathy.co",
-                test: "x.test.empathy.co"]
-
-    def CLOUDFRONT_ID = [   production: "E38CXDQ4X62BTH", //Empathy Production
-                        staging: "ESRVBXWWNTLF3", //Empathy Staging
-                        test: "EYLDEFZB36ES0"] //Empathy Test
-
-    def  ROLE_ACCOUNT = [  production: "660159542556", //Empathy Production
-                      staging: "953921081809", //Empathy Staging
-                      test: "732785771697"] //Empathy Test
-
     def PROD_BUILD = true
 
-    def CACHE = [   production: PRODUCTION_CACHE,
-                staging: "no-store",
-                test: "no-store"]
+
 
     //We do this because of https://issues.jenkins-ci.org/browse/JENKINS-53335
     def BRANCH = env.CHANGE_BRANCH ?: env.BRANCH_NAME
@@ -166,6 +151,21 @@
     }
 
 def deployXComponents(String environment, String previewId  = null) {
+    PRODUCTION_CACHE = params.containsKey('cache') ? params.cache : 'max-age=3600'
+    BUCKET = [  production: "x.empathy.co",
+                staging: "x.staging.empathy.co",
+                test: "x.test.empathy.co"]
+    CACHE = [   production: PRODUCTION_CACHE,
+                staging: "no-store",
+                test: "no-store"]
+    CLOUDFRONT_ID = [   production: "E38CXDQ4X62BTH", //Empathy Production
+                        staging: "ESRVBXWWNTLF3", //Empathy Staging
+                        test: "EYLDEFZB36ES0"] //Empathy Test
+
+    ROLE_ACCOUNT = [  production: "660159542556", //Empathy Production
+                      staging: "953921081809", //Empathy Staging
+                      test: "732785771697"] //Empathy Test
+    INSTANCE = 'Archetype'
     URLPath = "s3://${BUCKET[environment]}"
     deployPath = get_base_url(previewId)
     withAWS(role:'Jenkins', roleAccount: ROLE_ACCOUNT[environment]) {
