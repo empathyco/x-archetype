@@ -170,7 +170,7 @@ def deployXComponents(String environment, String previewId  = null) {
     deployPath = get_base_url(previewId)
     withAWS(role:'Jenkins', roleAccount: ROLE_ACCOUNT[environment]) {
         if (INSTANCE == 'Archetype') {
-            sh "aws s3 sync dist ${URLPath} --delete --cache-control ${CACHE[environment]} --include \"*\" --exclude \"*/*\""
+            sh "aws s3 sync dist ${URLPath}${deployPath} --delete --cache-control ${CACHE[environment]} --include \"*\" --exclude \"*/*\""
         } else {
             sh "aws s3 sync dist ${URLPath}/${INSTANCE}${deployPath} --delete --cache-control ${CACHE[environment]}"
         }
