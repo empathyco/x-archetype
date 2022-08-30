@@ -62,14 +62,14 @@
                             sh 'npm run build'
                         }
                     }
-                    stage('Running tests') {
-                        when {
-                            expression { TESTS }
-                        }
-                        steps {
-                            sh 'npm run test'
-                        }
-                    }
+//                     stage('Running tests') {
+//                         when {
+//                             expression { TESTS }
+//                         }
+//                         steps {
+//                             sh 'npm run test'
+//                         }
+//                     }
                     stage('Code Quality') {
                         steps {
                             //dependencyCheckWrapper projectType: 'npm', projectName: packageJson.name, projectVersion: packageJson.version
