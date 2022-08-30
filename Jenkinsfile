@@ -1,7 +1,7 @@
     def params = [:]
-    // body.resolveStrategy = Closure.DELEGATE_FIRST
-    // body.delegate = params
-    // body()
+//     body.resolveStrategy = Closure.DELEGATE_FIRST
+//     body.delegate = params
+//     body()
 
     def INSTANCE = 'Archetype' //params.instance
     def TESTS = params.containsKey('tests') ? params.tests : true
@@ -98,6 +98,15 @@
 
             stage('Deploying') {
                 parallel {
+                    stage('PR preview') {
+                        when { changeRequest() }
+                        steps {
+                            script {
+                                deployUrl = deployXComponents('test', env.CHANGE_ID)
+                                pullRequest.comment("PR #${env.CHANGE_ID} preview deployed in ${deployUrl}")
+                            }
+                        }
+                    }
                     stage('Test') {
                         when {
                             anyOf {
@@ -127,15 +136,6 @@
                         }
                         steps {
                             deployXComponents('production')
-                        }
-                    }
-                    stage('PR preview') {
-                        when { changeRequest() }
-                        steps {
-                            script {
-                                deployUrl = deployXComponents('test', env.CHANGE_ID)
-                                pullRequest.comment("PR #${env.CHANGE_ID} preview deployed in ${deployUrl}")
-                            }
                         }
                     }
                 }
@@ -193,9 +193,9 @@ def deployXComponents(String environment, String previewId  = null) {
  */
 def get_base_url(String instance, String previewId) {
     if (previewId == null) {
-        return ''
+        return instance == 'Archetype' ? '' : "/${instance}/"
     }
 
-    baseUrl = INSTANCE == 'Archetype' ? "/preview/${previewId}/" : "/preview/${instance}/${previewId}/"
+    baseUrl = instance == 'Archetype' ? "/preview/${previewId}/" : "/preview/${instance}/${previewId}/"
     return baseUrl
 }
