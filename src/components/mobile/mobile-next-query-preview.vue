@@ -9,9 +9,10 @@
     "
     :suggestion="nextQuery"
   >
-    <span class="x-next-query-preview__title x-title2 x-font-weight--bold">
-      {{ $t('nextQueryPreview.title') }}
-    </span>
+    <span
+      v-html="$t('nextQueryPreview.message', { query: $x.query.search })"
+      class="x-next-query-preview__title x-title3"
+    />
     <div class="x-next-query-preview__header x-list x-list--horizontal x-list--align-center">
       <div class="x-list x-list--horizontal x-list--align-baseline x-list--gap-02">
         <span class="x-title3 x-font-weight--bold">
@@ -31,9 +32,10 @@
       </div>
       <NextQuery
         :suggestion="nextQuery"
-        class="x-button x-button--ghost x-padding--00 x-margin--left-auto x-font-weight--bold"
+        class="x-margin--left-auto x-list x-list--gap-04 x-font-weight--bold"
       >
         {{ $t('nextQueryPreview.viewResults') }}
+        <ChevronRightIcon />
       </NextQuery>
     </div>
     <SlidingPanel
@@ -55,7 +57,7 @@
 
 <script lang="ts">
   import { Component, Prop, Vue } from 'vue-property-decorator';
-  import { SlidingPanel } from '@empathyco/x-components';
+  import { SlidingPanel, ChevronRightIcon } from '@empathyco/x-components';
   import { NextQuery, NextQueryPreview } from '@empathyco/x-components/next-queries';
   import { NextQuery as NextQueryModel } from '@empathyco/x-types';
   import Result from '../results/result.vue';
@@ -65,6 +67,7 @@
       NextQuery,
       NextQueryPreview,
       Result,
+      ChevronRightIcon,
       SlidingPanel
     }
   })

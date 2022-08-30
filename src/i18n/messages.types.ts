@@ -38,7 +38,7 @@ export interface Messages {
     message: string;
   };
   nextQueryPreview: {
-    title: string;
+    message: string;
     query: string;
     totalResults: string;
     viewResults: string;
