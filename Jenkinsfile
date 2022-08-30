@@ -146,17 +146,6 @@ def call(body) {
                             deployXComponents('production')
                         }
                     }
-                    stage('PR preview') {
-                        when { changeRequest() }
-                        steps {
-                            script {
-                                deployXComponents('test', env.CHANGE_ID)
-                                deployHost = 'https://x.test.empathy.co/preview'
-                                deployUrl = INSTANCE == 'Archetype' ? '${deployHost}/${env.CHANGE_ID}/index.html' : '${deployHost}/${INSTANCE}/${env.CHANGE_ID}/index.html'
-                                pullRequest.comment("PR ${env.CHANGE_ID} preview deployed in ${deployUrl}")
-                            }
-                        }
-                    }
                 }
             }
         }
