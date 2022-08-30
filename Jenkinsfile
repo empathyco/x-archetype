@@ -134,7 +134,7 @@
                         steps {
                             script {
                                 deployUrl = deployXComponents('test', env.CHANGE_ID)
-                                pullRequest.comment("PR ${env.CHANGE_ID} preview deployed in ${deployUrl}")
+                                pullRequest.comment("PR #${env.CHANGE_ID} preview deployed in ${deployUrl}")
                             }
                         }
                     }
