@@ -149,10 +149,12 @@ def call(body) {
                     stage('PR preview') {
                         when { changeRequest() }
                         steps {
-                            deployXComponents('test', env.CHANGE_ID)
-                            deployHost = 'https://x.test.empathy.co/preview'
-                            deployUrl = INSTANCE == 'Archetype' ? '${deployHost}/${env.CHANGE_ID}/index.html' : '${deployHost}/${INSTANCE}/${env.CHANGE_ID}/index.html'
-                            pullRequest.comment("PR ${env.CHANGE_ID} preview deployed in ${deployUrl}")
+                            script {
+                                deployXComponents('test', env.CHANGE_ID)
+                                deployHost = 'https://x.test.empathy.co/preview'
+                                deployUrl = INSTANCE == 'Archetype' ? '${deployHost}/${env.CHANGE_ID}/index.html' : '${deployHost}/${INSTANCE}/${env.CHANGE_ID}/index.html'
+                                pullRequest.comment("PR ${env.CHANGE_ID} preview deployed in ${deployUrl}")
+                            }
                         }
                     }
                 }
