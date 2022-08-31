@@ -1,7 +1,7 @@
 <template>
   <MainScrollItem :item="result" tag="article" class="x-result">
     <BaseResultLink class="x-result__picture" :result="result">
-      <BaseResultImage :result="result" class="x-picture--colored">
+      <BaseResultImage :animation="imageAnimation" :result="result" class="x-picture--colored">
         <template #placeholder>
           <BasePlaceholderImage />
         </template>
@@ -53,7 +53,8 @@
     BaseResultPreviousPrice,
     BasePlaceholderImage,
     BaseFallbackImage,
-    CartIcon
+    CartIcon,
+    CrossFade
   } from '@empathyco/x-components';
   import { MainScrollItem } from '@empathyco/x-components/scroll';
   import { Component, Prop, Vue } from 'vue-property-decorator';
@@ -80,5 +81,7 @@
 
     @Prop({ default: true })
     public showAddToCart!: boolean;
+
+    protected imageAnimation = CrossFade;
   }
 </script>
