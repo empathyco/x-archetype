@@ -38,7 +38,7 @@
       "message": "Those who searched for <span class=\"x-text x-text--bold x-font-size--05\">\"{query}\"</span> also viewed:"
     },
     "nextQueryPreview": {
-      "message": "Those who searched for <span class=\"x-text x-text--bold x-font-size--05\">\"{query}\"</span> also viewed:",
+      "message": "Those who searched for {query} also viewed:",
       "query": "{query}",
       "totalResults": "({totalResults})",
       "viewResults": "View all results"
@@ -103,7 +103,7 @@
   },
   "mobile": {
     "nextQueriesGroup": {
-      "message": "Those who searched for <span class=\"x-text x-text--bold\">\"{query}\"</span> also viewed:"
+      "message": "Those who searched for {query} also viewed:"
     },
     "nextQueryPreview": {
       "viewResults": "View all"

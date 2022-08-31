@@ -9,10 +9,11 @@
     "
     :suggestion="nextQuery"
   >
-    <span
-      v-html="$t('nextQueryPreview.message', { query: $x.query.search })"
-      class="x-next-query-preview__title x-title3"
-    />
+    <i18n class="x-title3 x-next-query-preview__title" tag="span" path="nextQueryPreview.message">
+      <template #query>
+        <span class="x-text x-text--bold x-title3">{{ $x.query.nextQueries }}</span>
+      </template>
+    </i18n>
     <div class="x-next-query-preview__header x-list x-list--horizontal x-list--align-center">
       <div class="x-list x-list--horizontal x-list--align-baseline x-list--gap-02">
         <span class="x-title3 x-font-weight--bold">

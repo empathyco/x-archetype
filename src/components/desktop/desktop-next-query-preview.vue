@@ -4,8 +4,12 @@
     class="x-list x-background--neutral-95 x-list--gap-05 x-padding--06"
     :suggestion="nextQuery"
   >
-    <span v-html="$t('nextQueryPreview.message', { query: $x.query.search })" class="x-title3" />
-    <div class="x-list x-list--horizontal x-list--align-center x-list--gasp-03">
+    <i18n class="x-title3" tag="span" path="nextQueryPreview.message">
+      <template #query>
+        <span class="x-text x-text--bold x-title3">{{ $x.query.nextQueries }}</span>
+      </template>
+    </i18n>
+    <div class="x-list x-list--horizontal x-list--align-center x-list--gap-03">
       <span class="x-title3 x-font-weight--bold">
         {{
           $t('nextQueryPreview.query', {
