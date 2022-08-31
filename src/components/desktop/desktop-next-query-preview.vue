@@ -9,7 +9,7 @@
         <span class="x-text x-text--bold x-title3">{{ $x.query.nextQueries }}</span>
       </template>
     </i18n>
-    <div class="x-list x-list--horizontal x-list--align-center x-list--gap-03">
+    <div class="x-list x-list--horizontal x-list--align-center x-list--gap-02">
       <span class="x-title3 x-font-weight--bold">
         {{
           $t('nextQueryPreview.query', {
