@@ -103,7 +103,7 @@
   },
   "mobile": {
     "nextQueriesGroup": {
-      "message": "Those who searched for {query} also viewed:"
+      "message": "Those who searched for <span class=\"x-text x-text--bold x-font-size--05\">\"{query}\"</span> also viewed:"
     },
     "nextQueryPreview": {
       "viewResults": "View all"
