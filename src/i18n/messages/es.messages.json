@@ -37,10 +37,10 @@
       "message": "Los que buscaron <span class=\"x-text x-text--bold x-font-size--05\">\"{query}\"</span> también han visto:"
     },
     "nextQueryPreview": {
-      "title": "Next Queries",
+      "message": "Los que buscaron {query} también han visto:",
       "query": "{query}",
       "totalResults": "({totalResults})",
-      "viewResults": "Ver todos los resultados ({totalResults})"
+      "viewResults": "Ver todos los resultados"
     },
     "recommendations": {
       "title": "Top Clicked"
@@ -102,7 +102,7 @@
       "message": "Los que buscaron <span class=\"x-text x-text--bold\">\"{query}\"</span> también han visto:"
     },
     "nextQueryPreview": {
-      "viewResults": "VER TODOS"
+      "viewResults": "Ver todos"
     },
     "noResults": {
       "message": "<span>No se han encontrado resultados para <span class=\"x-text x-font-color--neutral-10 x-text--bold\">\"{query}\"</span></span>Quizás te interesen estos productos"
