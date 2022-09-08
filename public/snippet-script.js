@@ -32,5 +32,19 @@ window.initX = {
   searchLang,
   currency,
   consent,
-  documentDirection
+  documentDirection,
+  queriesPreview: [
+    {
+      query: "backpack",
+      title: "Back to School!",
+    },
+    {
+      query: "watch",
+      title: "Get on time!",
+    },
+    {
+      query: "women boots",
+      title: "Get comfy!",
+    },
+  ]
 };

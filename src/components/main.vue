@@ -1,5 +1,6 @@
 <template>
   <div class="x-list x-list--vertical">
+    <CustomQueryPreview />
     <template v-if="hasSearched">
       <Redirection />
 
@@ -35,11 +36,13 @@
   import { Component } from 'vue-property-decorator';
   import Recommendations from './results/recommendations.vue';
   import HasSearchedMixin from './has-searched.mixin';
+  import CustomQueryPreview from './pre-search/custom-query-preview.vue';
 
   @Component({
     components: {
       LocationProvider,
       Recommendations,
+      CustomQueryPreview,
       PartialResults: () => import('./search').then(m => m.PartialResults),
       Results: () => import('./search').then(m => m.Results),
       NoResultsMessage: () => import('./search').then(m => m.NoResultsMessage),
