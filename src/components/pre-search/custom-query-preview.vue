@@ -6,10 +6,16 @@
       :query="queryPreviewInfo.query"
       #default="{ results, totalResults }"
     >
-      <div class="x-list x-list--gap-03 x-margin--bottom-05">
-        <h1>{{ queryPreviewInfo.title }}</h1>
-        <div class="x-list x-list--horizontal">
-          <h3 class="x-list__item--expand">{{ queryPreviewInfo.query }}({{ totalResults }})</h3>
+      <div
+        class="x-list x-margin--bottom-11"
+        :class="$x.device === 'mobile' ? 'x-list--gap-03' : 'x-list--gap-05'"
+      >
+        <h1 class="x-title1">{{ queryPreviewInfo.title }}</h1>
+        <div class="x-list x-list--horizontal x-list--align-center">
+          <span class="x-title3 x-text--bold x-list__item--expand">
+            {{ queryPreviewInfo.query }}
+            <span class="x-text">({{ totalResults }})</span>
+          </span>
           <BaseEventButton
             :events="getEvent(queryPreviewInfo.query)"
             class="x-button x-button--ghost x-button--ghost-end"
