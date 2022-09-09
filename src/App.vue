@@ -4,7 +4,7 @@
     <SnippetCallbacks />
     <DeviceDetector @DeviceProvided="$setLocaleDevice" :breakpoints="breakpoints" />
     <Tagging />
-    <UrlHandler env="env" />
+    <UrlHandler />
     <MainModal v-if="isOpen" />
   </div>
 </template>

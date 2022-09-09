@@ -5,20 +5,16 @@
     </span>
 
     <ColumnPicker v-if="$x.totalResults" />
-
-    <EnvSelector />
   </div>
 </template>
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import EnvSelector from '../env-selector.vue';
   import ColumnPicker from '../column-picker.vue';
 
   @Component({
     components: {
-      ColumnPicker,
-      EnvSelector
+      ColumnPicker
     }
   })
   export default class MobileToolbar extends Vue {}

@@ -10,7 +10,22 @@ function getURLParameter(name) {
 }
 
 function getEnv() {
-  return document.location.host.includes('.test.') ? 'test' : 'staging';
+  const env = getURLParameter('env');
+  const envsDict = {
+    live: undefined,
+    staging: 'staging',
+    test: 'staging'
+  };
+
+  if (env) {
+    return envsDict[env];
+  }
+
+  if (!!document.location.host.match(/\.test\.|\.staging\./)) {
+    return 'staging';
+  }
+
+  return undefined;
 }
 
 var instance = getURLParameter('instance') || 'empathy';
