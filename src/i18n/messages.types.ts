@@ -97,4 +97,7 @@ export interface Messages {
   columnPicker: {
     message: string;
   };
+  queryPreview: {
+    viewResults: string;
+  };
 }

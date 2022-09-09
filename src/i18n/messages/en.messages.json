@@ -24,10 +24,10 @@
         "disable": "Disable and clear"
       },
       "confirmDisableModal": {
-        "title":  "Disable History Queries",
-        "message":  "If you disable the history queries feature, your search history will be deleted.",
-        "dismiss":  "Cancel",
-        "confirm":  "Disable"
+        "title": "Disable History Queries",
+        "message": "If you disable the history queries feature, your search history will be deleted.",
+        "dismiss": "Cancel",
+        "confirm": "Disable"
       }
     },
     "nextQueries": {
@@ -99,6 +99,9 @@
     },
     "columnPicker": {
       "message": "View"
+    },
+    "queryPreview": {
+      "viewResults": "View all results"
     }
   },
   "mobile": {
@@ -113,6 +116,9 @@
     },
     "totalResults": {
       "message": "{totalResults} results"
+    },
+    "queryPreview": {
+      "viewResults": "View all"
     }
   }
 }

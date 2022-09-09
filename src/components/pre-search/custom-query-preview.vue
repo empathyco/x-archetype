@@ -14,10 +14,14 @@
             :events="getEvent(queryPreviewInfo.query)"
             class="x-button x-button--ghost x-button--ghost-end"
           >
-            View all
+            {{ $t('queryPreview.viewResults') }}
+            <ChevronRightIcon />
           </BaseEventButton>
         </div>
         <SlidingPanel :resetOnContentChange="false" :buttonClass="'x-button--ghost x-padding--00'">
+          <template #sliding-panel-left-button>
+            <ChevronLeftIcon class="x-icon--l" />
+          </template>
           <div class="x-list x-list--gap-05">
             <Result
               v-for="result in results"
@@ -26,6 +30,9 @@
               class="x-query-preview__item"
             />
           </div>
+          <template #sliding-panel-right-button>
+            <ChevronRightIcon class="x-icon--l" />
+          </template>
         </SlidingPanel>
       </div>
     </QueryPreview>
@@ -37,6 +44,8 @@
   import { QueryPreview } from '@empathyco/x-components/queries-preview';
   import {
     BaseEventButton,
+    ChevronLeftIcon,
+    ChevronRightIcon,
     QueryPreviewInfo,
     SlidingPanel,
     XInject
@@ -48,7 +57,9 @@
       QueryPreview,
       SlidingPanel,
       Result,
-      BaseEventButton
+      BaseEventButton,
+      ChevronLeftIcon,
+      ChevronRightIcon
     }
   })
   export default class CustomQueryPreview extends Vue {
