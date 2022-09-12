@@ -21,7 +21,7 @@ function getEnv() {
     return envsDict[env];
   }
 
-  if (!!document.location.host.match(/\.test\.|\.staging\./)) {
+  if (!!document.location.host.match(/localhost|\.test\.|\.staging\./)) {
     return 'staging';
   }
 
