@@ -7,8 +7,12 @@
       #default="{ results, totalResults }"
     >
       <div
-        class="x-list x-margin--bottom-11"
-        :class="$x.device === 'mobile' ? 'x-list--gap-03' : 'x-list--gap-05'"
+        class="x-list"
+        :class="
+          $x.device === 'mobile'
+            ? 'x-list--gap-01 x-margin--bottom-08'
+            : 'x-list--gap-05 x-margin--bottom-11'
+        "
       >
         <h1 class="x-title1">{{ queryPreviewInfo.title }}</h1>
         <div class="x-list x-list--horizontal x-list--align-center">
@@ -83,5 +87,10 @@
 <style lang="scss" scoped>
   .x-query-preview__item {
     max-width: 216px;
+  }
+  .x-mobile {
+    .x-query-preview__item {
+      max-width: 142px;
+    }
   }
 </style>
