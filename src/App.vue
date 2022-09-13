@@ -59,7 +59,7 @@
       return currencies[this.snippetConfig.currency!];
     }
 
-    @Watch('snippetConfig.lang')
+    @Watch('snippetConfig.uiLang')
     syncLang(lang: string): void {
       this.$setLocale(lang);
     }
