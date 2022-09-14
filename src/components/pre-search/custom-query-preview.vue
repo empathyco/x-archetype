@@ -22,7 +22,7 @@
               :class="$x.device === 'mobile' ? '' : 'x-title3 '"
             >
               {{ query }}
-              <span class="x-text" :class="{ 'x-font-size--04': $x.device === 'mobile' }">
+              <span class="x-text" :class="{ 'x-small': $x.device === 'mobile' }">
                 ({{ totalResults }})
               </span>
             </span>
