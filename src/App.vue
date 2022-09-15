@@ -4,13 +4,19 @@
     <SnippetCallbacks />
     <DeviceDetector @DeviceProvided="$setLocaleDevice" :breakpoints="breakpoints" />
     <Tagging />
-    <UrlHandler env="env" />
+    <UrlHandler />
     <MainModal v-if="isOpen" />
   </div>
 </template>
 
 <script lang="ts">
-  import { SnippetCallbacks, SnippetConfig, XOn, XProvide } from '@empathyco/x-components';
+  import {
+    QueryPreviewInfo,
+    SnippetCallbacks,
+    SnippetConfig,
+    XOn,
+    XProvide
+  } from '@empathyco/x-components';
   import { DeviceDetector } from '@empathyco/x-components/device';
   import { Tagging } from '@empathyco/x-components/tagging';
   import { UrlHandler } from '@empathyco/x-components/url';
@@ -57,6 +63,11 @@
     @XProvide('currencyFormat')
     public get currencyFormat(): string {
       return currencies[this.snippetConfig.currency!];
+    }
+
+    @XProvide('queriesPreviewInfo')
+    public get queriesPreviewInfo(): QueryPreviewInfo[] | undefined {
+      return this.snippetConfig.queriesPreview;
     }
 
     @Watch('snippetConfig.lang')
