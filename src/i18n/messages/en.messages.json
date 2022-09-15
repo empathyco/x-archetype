@@ -34,7 +34,6 @@
       "title": "WHAT'S NEXT"
     },
     "nextQueriesGroup": {
-      "title": "You may be interested",
       "message": "Those who searched for <span class=\"x-text x-text--bold x-font-size--05\">\"{query}\"</span> also viewed:"
     },
     "nextQueryPreview": {

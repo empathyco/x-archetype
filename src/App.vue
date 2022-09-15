@@ -70,9 +70,9 @@
       return this.snippetConfig.queriesPreview;
     }
 
-    @Watch('snippetConfig.lang')
-    syncLang(lang: string): void {
-      this.$setLocale(lang);
+    @Watch('snippetConfig.uiLang')
+    syncLang(uiLang: string): void {
+      this.$setLocale(uiLang);
     }
   }
 </script>
