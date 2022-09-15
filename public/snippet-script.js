@@ -18,7 +18,7 @@ var env = getEnv();
 var scope = getURLParameter('scope') || 'desktop';
 var lang = getURLParameter('lang') || 'en';
 var device = getURLParameter('device') || 'mobile';
-var searchLang = getURLParameter('searchLang') || lang;
+var uiLang = getURLParameter('uiLang') || lang;
 var currency = getURLParameter('currency') || 'EUR';
 var consent = getURLParameter('consent') !== 'false';
 var documentDirection = getURLParameter('doc-dir') || 'ltr';
@@ -29,7 +29,7 @@ window.initX = {
   scope,
   lang,
   device,
-  searchLang,
+  uiLang,
   currency,
   consent,
   documentDirection

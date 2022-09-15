@@ -24,17 +24,16 @@
         "disable": "Disable and clear"
       },
       "confirmDisableModal": {
-        "title":  "Disable History Queries",
-        "message":  "If you disable the history queries feature, your search history will be deleted.",
-        "dismiss":  "Cancel",
-        "confirm":  "Disable"
+        "title": "Disable History Queries",
+        "message": "If you disable the history queries feature, your search history will be deleted.",
+        "dismiss": "Cancel",
+        "confirm": "Disable"
       }
     },
     "nextQueries": {
       "title": "WHAT'S NEXT"
     },
     "nextQueriesGroup": {
-      "title": "You may be interested",
       "message": "Those who searched for <span class=\"x-text x-text--bold x-font-size--05\">\"{query}\"</span> also viewed:"
     },
     "nextQueryPreview": {

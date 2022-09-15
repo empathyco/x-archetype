@@ -24,10 +24,10 @@
         "disable": "Deshabilitar y limpiar"
       },
       "confirmDisableModal": {
-        "title":  "Deshabilitar History Queries",
-        "message":  "Si deshabilitas las History Queries, tu historial de búsqueda será eliminado.",
-        "dismiss":  "Cancelar",
-        "confirm":  "Deshabilitar"
+        "title": "Deshabilitar History Queries",
+        "message": "Si deshabilitas las History Queries, tu historial de búsqueda será eliminado.",
+        "dismiss": "Cancelar",
+        "confirm": "Deshabilitar"
       }
     },
     "nextQueries": {
