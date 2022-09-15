@@ -71,6 +71,7 @@
     ChevronRightIcon,
     QueryPreviewInfo,
     SlidingPanel,
+    XEventsTypes,
     XInject
   } from '@empathyco/x-components';
   import { default as Result } from '../results/result.vue';
@@ -87,9 +88,9 @@
   })
   export default class CustomQueryPreview extends Vue {
     @XInject('queriesPreviewInfo')
-    public queriesPreviewInfo: QueryPreviewInfo[] | undefined;
+    public queriesPreviewInfo!: QueryPreviewInfo[];
 
-    getEvent(query: string): any {
+    getEvent(query: string): Partial<XEventsTypes> {
       return {
         UserAcceptedAQuery: query
       };
