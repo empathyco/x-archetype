@@ -2,7 +2,12 @@
   <ResultsList v-if="$x.totalResults" v-infinite-scroll:main-scroll>
     <BannersList>
       <PromotedsList>
-        <NextQueriesList :offset="24" :frequency="48" :maxNextQueriesPerGroup="1">
+        <NextQueriesList
+          :offset="24"
+          :frequency="48"
+          :maxNextQueriesPerGroup="1"
+          :showOnlyAfterOffset="$x.partialResults.length > 0"
+        >
           <BaseVariableColumnGrid
             class="x-grid x-padding--top-00"
             :animation="staggeredFadeAndSlide"
