@@ -6,7 +6,7 @@
           :offset="24"
           :frequency="48"
           :maxNextQueriesPerGroup="1"
-          :showOnlyAfterOffset="$x.partialResults.length === 0"
+          :showOnlyAfterOffset="$x.partialResults.length > 0"
         >
           <BaseVariableColumnGrid
             class="x-grid x-padding--top-00"
