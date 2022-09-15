@@ -48,7 +48,7 @@
       />
     </template>
 
-    <template #main v-if="$x.query.searchBox">
+    <template #main>
       <LocationProvider location="results">
         <Main />
       </LocationProvider>
@@ -132,10 +132,3 @@
     protected rightAsideAnimation = animateTranslate('right');
   }
 </script>
-<style lang="scss">
-  .x-desktop {
-    .x-modal__content {
-      background-color: var(--x-color-base-transparent) !important;
-    }
-  }
-</style>
