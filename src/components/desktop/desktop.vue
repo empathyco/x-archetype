@@ -30,8 +30,6 @@
             x-list x-list--horizontal x-list--justify-end x-list--wrap-reverse
           "
         >
-          <EnvSelector />
-
           <CloseMainModal class="x-button--ghost x-padding--right-00">
             <CrossIcon class="x-icon--l" />
           </CloseMainModal>
@@ -94,7 +92,6 @@
   } from '@empathyco/x-components';
   import { Empathize } from '@empathyco/x-components/empathize';
   import { Component } from 'vue-property-decorator';
-  import EnvSelector from '../env-selector.vue';
   import Logo from '../logo.vue';
   import Main from '../main.vue';
   import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
@@ -116,7 +113,6 @@
       CrossTinyIcon,
       DesktopToolbar,
       DesktopMyHistoryAside,
-      EnvSelector,
       Empathize,
       FixedHeaderAndAsidesLayout,
       LocationProvider,
