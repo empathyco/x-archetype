@@ -98,6 +98,9 @@
     },
     "columnPicker": {
       "message": "View"
+    },
+    "queryPreview": {
+      "viewResults": "View all results"
     }
   },
   "mobile": {
@@ -112,6 +115,9 @@
     },
     "totalResults": {
       "message": "{totalResults} results"
+    },
+    "queryPreview": {
+      "viewResults": "View all"
     }
   }
 }
