@@ -19,7 +19,7 @@
           <div class="x-list x-list--horizontal x-list--align-center">
             <span
               class="x-font-weight--bold x-list__item--expand"
-              :class="$x.device === 'mobile' ? '' : 'x-title3 '"
+              :class="{ 'x-title3': $x.device === 'mobile' }"
             >
               {{ query }}
               <span class="x-text" :class="{ 'x-small': $x.device === 'mobile' }">
