@@ -10,7 +10,22 @@ function getURLParameter(name) {
 }
 
 function getEnv() {
-  return document.location.host.includes('.test.') ? 'test' : 'staging';
+  const env = getURLParameter('env');
+  const envsDict = {
+    live: undefined,
+    staging: 'staging',
+    test: 'staging'
+  };
+
+  if (env) {
+    return envsDict[env];
+  }
+
+  if (!!document.location.host.match(/localhost|\.test\.|\.staging\./)) {
+    return 'staging';
+  }
+
+  return undefined;
 }
 
 var instance = getURLParameter('instance') || 'empathy';
@@ -18,7 +33,7 @@ var env = getEnv();
 var scope = getURLParameter('scope') || 'desktop';
 var lang = getURLParameter('lang') || 'en';
 var device = getURLParameter('device') || 'mobile';
-var searchLang = getURLParameter('searchLang') || lang;
+var uiLang = getURLParameter('uiLang') || lang;
 var currency = getURLParameter('currency') || 'EUR';
 var consent = getURLParameter('consent') !== 'false';
 var documentDirection = getURLParameter('doc-dir') || 'ltr';
@@ -29,8 +44,22 @@ window.initX = {
   scope,
   lang,
   device,
-  searchLang,
+  uiLang,
   currency,
   consent,
-  documentDirection
+  documentDirection,
+  queriesPreview: [
+    {
+      query: "backpack",
+      title: "Back to School!",
+    },
+    {
+      query: "watch",
+      title: "Get on time!",
+    },
+    {
+      query: "women boots",
+      title: "Get comfy!",
+    },
+  ]
 };

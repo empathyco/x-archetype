@@ -3,8 +3,8 @@ Feature: Predictive components
   Scenario Outline: 1. Predictive components are displayed as expected
     Given start page with "<view>" size view
     When  start button is clicked
+    And   focus is set on the search input
     Then  recommendations are displayed
-    And   search input is focused
     And   popular searches are displayed
     When  a "<query>" is typed
     Then  query suggestions are displayed

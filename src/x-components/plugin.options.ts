@@ -11,7 +11,7 @@ export const installXOptions: InstallXOptions = {
   app: App,
   async installExtraPlugins({ vue, snippet }) {
     const i18n = await I18n.create({
-      locale: snippet.lang,
+      locale: snippet.uiLang,
       device: (snippet.device as string) ?? 'mobile',
       fallbackLocale: 'en',
       messages
