@@ -1,14 +1,10 @@
 <template>
-  <div
-    v-if="$x.recommendations.length > 0"
-    class="x-list x-list--gap-04"
-    :class="{ 'x-padding--top-05': $x.device === 'desktop' }"
-  >
+  <div class="x-list x-list--gap-04" :class="{ 'x-padding--top-05': $x.device === 'desktop' }">
     <h1
       class="x-small x-text--bold x-uppercase"
       :class="{ 'x-padding--left-05': $x.device === 'mobile' }"
     >
-      {{ $t('recommendations.title') }}
+      <slot name="title" />
     </h1>
     <SlidingPanel
       class="x-sliding-panel--show-buttons-on-hover"
@@ -20,19 +16,7 @@
         <ChevronLeftIcon class="x-icon--l" />
       </template>
 
-      <Recommendations
-        class="x-list--horizontal x-list--gap-04"
-        :class="{ 'x-padding--left-05': $x.device === 'mobile' }"
-      >
-        <template #default="{ recommendation }">
-          <Result
-            :result="recommendation"
-            data-test="recommendation-item"
-            :showDescription="false"
-            :showAddToCart="false"
-          />
-        </template>
-      </Recommendations>
+      <slot />
 
       <template #sliding-panel-right-button>
         <ChevronRightIcon class="x-icon--l" />
@@ -45,21 +29,19 @@
   import { Recommendations } from '@empathyco/x-components/recommendations';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
-  import Result from '../results/result.vue';
 
   @Component({
     components: {
       ChevronLeftIcon,
       ChevronRightIcon,
       Recommendations,
-      Result,
       SlidingPanel
     }
   })
-  export default class SlidingRecommendations extends Vue {}
+  export default class Custom extends Vue {}
 </script>
-<style lang="scss">
-  .x-layout__predictive .x-sliding-panel__scroll {
+<style scoped lang="scss">
+  ::v-deep .x-sliding-panel__scroll {
     pointer-events: all !important;
   }
 </style>

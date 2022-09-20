@@ -96,7 +96,7 @@
       display: none;
     }
   }
-
+  .x-predictive-query-preview__item,
   .x-recommendations__item {
     max-width: 142px;
   }

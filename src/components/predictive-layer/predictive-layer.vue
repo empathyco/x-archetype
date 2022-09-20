@@ -155,8 +155,10 @@
         </BaseIdModalOpen>
       </div>
 
-      <SlidingRecommendations
-        v-if="!$x.query.searchBox"
+      <PredictiveQueryPreview v-if="$x.query.searchBox" />
+
+      <PredictiveRecommendations
+        v-else
         class="x-row__item"
         :class="
           $x.device === 'mobile'
@@ -193,10 +195,12 @@
   import { QuerySuggestions } from '@empathyco/x-components/query-suggestions';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
-  import SlidingRecommendations from './sliding-recommendations.vue';
+  import PredictiveQueryPreview from './predictive-query-preview.vue';
+  import PredictiveRecommendations from './predictive-recommendations.vue';
 
   @Component({
     components: {
+      PredictiveQueryPreview,
       BarCodeIcon,
       BaseIdModalOpen,
       BaseKeyboardNavigation,
@@ -212,8 +216,8 @@
       LightBulbOn,
       NextQueries,
       PopularSearches,
+      PredictiveRecommendations,
       QuerySuggestions,
-      SlidingRecommendations,
       SearchIcon,
       SettingsIcon,
       TrashIcon,
