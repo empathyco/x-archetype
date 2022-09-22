@@ -26,6 +26,7 @@
   import currencies from './i18n/currencies';
   import '@empathyco/x-components/design-system/full-theme.css';
   import './design-system/tokens.scss';
+  import './tailwind/index.css';
 
   @Component({
     components: {

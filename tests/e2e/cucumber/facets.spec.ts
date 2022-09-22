@@ -17,7 +17,7 @@ When('sort and filter button is clicked on {string}', (view: ViewportPreset) => 
   if (view.includes('macbook')) {
     cy.getByDataTest('toggle-facets-button').click({ force: true });
   } else {
-    cy.getByDataTest('open-modal-id').click();
+    cy.getByDataTest('open-modal-id').click({ force: true });
   }
 });
 
