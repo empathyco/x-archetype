@@ -11,6 +11,13 @@ module.exports = defineConfig({
           use: ['source-map-loader']
         }
       ]
+    },
+    output: {
+      devtoolModuleFilenameTemplate: ({ resourcePath, hash, query }) =>
+        resourcePath.match(/\.vue$/) && !query.match(/type=script/)
+          ? `webpack-generated:///${resourcePath}?${hash}`
+          : `sources://${resourcePath}`,
+      devtoolFallbackModuleFilenameTemplate: 'webpack:///[resource-path]?[hash]'
     }
   }
 });
