@@ -1,6 +1,10 @@
 <template>
   <div class="x-list x-list--vertical">
-    <CustomQueryPreview :class="$x.device === 'mobile' ? 'x-margin--top-05' : 'x-margin--top-10'" />
+    <LocationProvider location="no_query">
+      <CustomQueryPreview
+        :class="$x.device === 'mobile' ? 'x-margin--top-05' : 'x-margin--top-10'"
+      />
+    </LocationProvider>
     <template v-if="hasSearched">
       <Redirection />
 
