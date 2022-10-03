@@ -1,6 +1,6 @@
 <template>
   <div class="x-list x-list--vertical">
-    <LocationProvider location="no-query">
+    <LocationProvider location="no_query">
       <CustomQueryPreview
         :class="$x.device === 'mobile' ? 'x-margin--top-05' : 'x-margin--top-10'"
       />
