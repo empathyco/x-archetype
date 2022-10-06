@@ -1,65 +1,67 @@
 <template>
   <div v-if="!$x.query.searchBox && queriesPreviewInfo">
-    <QueryPreview
-      v-for="{ query, title } in queriesPreviewInfo"
-      :key="query"
-      :query="query"
-      :queryFeature="queryFeature"
-      #default="{ results, totalResults }"
-    >
-      <div
-        class="x-list"
-        :class="
-          $x.device === 'mobile'
-            ? 'x-list--gap-01 x-margin--bottom-08'
-            : 'x-list--gap-05 x-margin--bottom-11'
-        "
+    <Fade v-for="{ query, title } in queriesPreviewInfo" :key="query" :appear="true">
+      <QueryPreview
+        :query="query"
+        :queryFeature="queryFeature"
+        #default="{ results, totalResults }"
       >
-        <div :class="{ 'x-padding--left-05 x-padding--right-05': $x.device === 'mobile' }">
-          <h1 class="x-title1">{{ title }}</h1>
-          <div class="x-list x-list--horizontal x-list--align-center">
-            <span
-              class="x-font-weight--bold x-list__item--expand"
-              :class="{ 'x-title3': $x.device === 'mobile' }"
-            >
-              {{ query }}
-              <span class="x-text" :class="{ 'x-small': $x.device === 'mobile' }">
-                ({{ totalResults }})
-              </span>
-            </span>
-            <BaseEventButton
-              :events="getEvent(query)"
-              class="x-button x-button--ghost x-button--ghost-end"
-              :class="{ 'x-uppercase': $x.device === 'mobile' }"
-            >
-              {{ $t('queryPreview.viewResults') }}
-              <ChevronRightIcon />
-            </BaseEventButton>
-          </div>
-        </div>
-        <SlidingPanel
-          :showButtons="$x.device !== 'mobile'"
-          :resetOnContentChange="false"
-          :buttonClass="'x-button--ghost x-padding--00'"
-          class="x-sliding-panel--show-buttons-on-hover"
+        <div
+          class="x-list"
+          :class="
+            $x.device === 'mobile'
+              ? 'x-list--gap-01 x-margin--bottom-08'
+              : 'x-list--gap-05 x-margin--bottom-11'
+          "
         >
-          <template #sliding-panel-left-button>
-            <ChevronLeftIcon class="x-icon--l" />
-          </template>
-          <ul
-            class="x-list x-list--gap-05"
-            :class="{ 'x-padding--left-05 x-padding--right-05': $x.device === 'mobile' }"
+          <div :class="{ 'x-padding--left-05 x-padding--right-05': $x.device === 'mobile' }">
+            <h1 class="x-title1">{{ title }}</h1>
+            <div class="x-list x-list--horizontal x-list--align-center">
+              <span
+                class="x-font-weight--bold x-list__item--expand"
+                :class="{ 'x-title3': $x.device === 'mobile' }"
+              >
+                {{ query }}
+                <span class="x-text" :class="{ 'x-small': $x.device === 'mobile' }">
+                  ({{ totalResults }})
+                </span>
+              </span>
+              <BaseEventButton
+                :events="getEvent(query)"
+                class="x-button x-button--ghost x-button--ghost-end"
+                :class="{ 'x-uppercase': $x.device === 'mobile' }"
+              >
+                {{ $t('queryPreview.viewResults') }}
+                <ChevronRightIcon />
+              </BaseEventButton>
+            </div>
+          </div>
+          <SlidingPanel
+            :showButtons="$x.device !== 'mobile'"
+            :resetOnContentChange="false"
+            :buttonClass="'x-button--ghost x-padding--00'"
+            class="x-sliding-panel--show-buttons-on-hover"
           >
-            <li v-for="result in results" :key="result.id">
-              <Result :result="result" class="x-query-preview__item" />
-            </li>
-          </ul>
-          <template #sliding-panel-right-button>
-            <ChevronRightIcon class="x-icon--l" />
-          </template>
-        </SlidingPanel>
-      </div>
-    </QueryPreview>
+            <template #sliding-panel-left-button>
+              <ChevronLeftIcon class="x-icon--l" />
+            </template>
+            <StaggeredFadeAndSlide
+              :appear="true"
+              tag="ul"
+              class="x-list x-list--gap-05"
+              :class="{ 'x-padding--left-05 x-padding--right-05': $x.device === 'mobile' }"
+            >
+              <li v-for="result in results" :key="result.id">
+                <Result :result="result" class="x-query-preview__item" />
+              </li>
+            </StaggeredFadeAndSlide>
+            <template #sliding-panel-right-button>
+              <ChevronRightIcon class="x-icon--l" />
+            </template>
+          </SlidingPanel>
+        </div>
+      </QueryPreview>
+    </Fade>
   </div>
 </template>
 
@@ -74,7 +76,9 @@
     QueryPreviewInfo,
     SlidingPanel,
     XEventsTypes,
-    XInject
+    XInject,
+    Fade,
+    StaggeredFadeAndSlide
   } from '@empathyco/x-components';
   import { default as Result } from '../results/result.vue';
 
@@ -85,7 +89,9 @@
       Result,
       BaseEventButton,
       ChevronLeftIcon,
-      ChevronRightIcon
+      ChevronRightIcon,
+      Fade,
+      StaggeredFadeAndSlide
     }
   })
   export default class CustomQueryPreview extends Vue {
