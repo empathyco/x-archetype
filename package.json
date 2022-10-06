@@ -20,6 +20,7 @@
     "lint": "eslint src tests build --ext .ts,.tsx,.vue,.js,.jsx",
     "lint:fix": "npm run lint -- --fix",
     "install:local": "npm install file:../x/packages/x-components/empathyco-x-components-3.0.0-alpha.178.tgz --no-save",
+    "install:utils:local": "npm install file:../x/packages/x-archetype-utils/empathyco-x-archetype-utils-0.1.0-alpha.2.tgz --no-save",
     "json:csv": "json-csv ./src/i18n/messages",
     "csv:json": "csv-json ./output ./src/i18n/messages"
   },
