@@ -32,16 +32,14 @@
   --x-size-min-width-grid-item: var(--x-size-base-20);
   --x-size-gap-grid: var(--x-size-base-07) var(--x-size-base-05);
   --x-size-padding-grid: var(--x-size-base-06) 0;
+  .x-partial-result {
+    --x-size-padding-grid: 0;
+  }
 
   // Result
   --x-size-gap-result-default: var(--x-size-base-02);
 
   // Message
-  --x-color-background-message-default: var(--x-color-base-neutral-95);
-  --x-color-border-message-default: var(--x-color-background-message-default);
-  --x-color-text-message-default: var(--x-color-text-default);
-  --x-size-border-width-message-default: var(--x-size-border-width-base);
-  --x-space-padding-message: var(--x-size-base-06);
   --x-size-border-radius-message-default: 0;
 
   .x-message {

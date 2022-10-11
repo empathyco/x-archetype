@@ -61,7 +61,9 @@ export interface Messages {
     showLess: string;
   };
   partialResults: {
-    message: string;
+    query: string;
+    totalResults: string;
+    viewResults: string;
   };
   priceFilter: {
     lessThan: string;
