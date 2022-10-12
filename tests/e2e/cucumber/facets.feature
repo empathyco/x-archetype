@@ -21,7 +21,8 @@ Feature: Facets component
     Given start page with "<view>" size view
     When  start button is clicked
     And   "<query>" is searched
-    And   sort and filter button is clicked on "<view>"
+    Then  related results are displayed
+    When  sort and filter button is clicked on "<view>"
     Then  facets are displayed is true
     When  facet "<facetName>" is unfolded
     And   filter <filterNumber> from facet "<facetName>" is clicked
@@ -40,7 +41,8 @@ Feature: Facets component
     Given start page with "<view>" size view
     When  start button is clicked
     And   "<query>" is searched
-    And   sort and filter button is clicked on "<view>"
+    Then  related results are displayed
+    When  sort and filter button is clicked on "<view>"
     Then  facets are displayed is true
     When  facet "<facetName>" is unfolded
     And   filter <filterNumber> from facet "<facetName>" is clicked
@@ -57,7 +59,8 @@ Feature: Facets component
     Given start page with "<view>" size view
     When  start button is clicked
     And   "<query>" is searched
-    And   sort and filter button is clicked on "<view>"
+    Then  related results are displayed
+    When  sort and filter button is clicked on "<view>"
     Then  facets are displayed is true
     When  facet "<facetName>" is unfolded
     And   filter <filterNumber> from facet "<facetName>" is clicked
@@ -76,7 +79,8 @@ Feature: Facets component
     Given start page with "<view>" size view
     When  start button is clicked
     And   "<query>" is searched
-    And   sort and filter button is clicked on "<view>"
+    Then  related results are displayed
+    When  sort and filter button is clicked on "<view>"
     Then  facets are displayed is true
     When  facet "<facetName>" is unfolded
     And   filter <hierarchicalFilter> from facet "<facetName>" is clicked
