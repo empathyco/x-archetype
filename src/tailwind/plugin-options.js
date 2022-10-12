@@ -2,7 +2,7 @@
 module.exports = {
   components() {
     return {
-      '.button': {}
+      '.button': undefined
     };
   },
   theme: {}
