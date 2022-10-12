@@ -29,7 +29,14 @@
         :buttonClass="'x-button--ghost x-padding--00'"
         class="x-sliding-panel--show-buttons-on-hover"
       >
-        <ResultsList :results="partialResult.results" />
+        <div class="x-list x-list--gap-05 x-padding--left-05">
+          <Result
+            v-for="result in partialResult.results"
+            :key="result.id"
+            :result="result"
+            class="x-partial-results__result"
+          />
+        </div>
       </SlidingPanel>
     </template>
   </PartialResultsList>
