@@ -24,7 +24,7 @@
           <ChevronRightIcon />
         </PartialQueryButton>
       </div>
-      <BaseGrid columns="4" :items="partialResult.results.slice(0, maxItemsToRender)">
+      <BaseGrid columns="4" :items="partialResult.results">
         <template #result="{ item }">
           <Result :result="item" />
         </template>
@@ -35,7 +35,7 @@
 
 <script lang="ts">
   import { BaseGrid, ChevronRightIcon } from '@empathyco/x-components';
-  import { Component, Prop, Vue } from 'vue-property-decorator';
+  import { Component, Vue } from 'vue-property-decorator';
   import { PartialQueryButton, PartialResultsList } from '@empathyco/x-components/search';
   import ResultComponent from '../../results/result.vue';
 
@@ -48,8 +48,5 @@
       PartialQueryButton
     }
   })
-  export default class PartialResults extends Vue {
-    @Prop({ default: 4 })
-    protected maxItemsToRender!: number;
-  }
+  export default class PartialResults extends Vue {}
 </script>

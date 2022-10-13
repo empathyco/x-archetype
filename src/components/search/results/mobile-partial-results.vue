@@ -18,7 +18,7 @@
         </span>
         <PartialQueryButton
           :query="partialResult.query"
-          class="x-title3 x-font-weight--bold x-button--ghost x-margin--left-auto"
+          class="x-text x-font-weight--bold x-button--ghost x-margin--left-auto"
         >
           {{ $t('partialResults.viewResults') }}
           <ChevronRightIcon />
@@ -62,7 +62,7 @@
       SlidingPanel
     }
   })
-  export default class PartialResults extends Vue {}
+  export default class MobilePartialResults extends Vue {}
 </script>
 
 <style lang="scss">
@@ -70,10 +70,6 @@
     .x-partial-results {
       &__result {
         width: calc(38vw - var(--x-size-gap-list-05));
-      }
-
-      .x-sliding-panel__scroll {
-        padding-left: var(--x-size-padding-grid);
       }
     }
   }
