@@ -103,8 +103,13 @@ export function createConfig({
           mode: [
             'inject',
             (varname, id) =>
+              // For this to work on windows systems, the `id` which is a file path has to replace the backslashes with
+              // another symbol like forward slashes.
               // eslint-disable-next-line max-len
-              `import {createInjector} from 'vue-runtime-helpers';const injector=createInjector({});injector('${id}',{source:${varname}})`
+              `import {createInjector} from 'vue-runtime-helpers';const injector=createInjector({});injector('${id.replace(
+                /\\/g,
+                ''
+              )}',{source:${varname}})`
           ]
         })
       ),
