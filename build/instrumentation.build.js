@@ -104,7 +104,10 @@ export function createConfig({
             'inject',
             (varname, id) =>
               // eslint-disable-next-line max-len
-              `import {createInjector} from 'vue-runtime-helpers';const injector=createInjector({});injector('${id}',{source:${varname}})`
+              `import {createInjector} from 'vue-runtime-helpers';const injector=createInjector({});injector('${id.replace(
+                /\\/g,
+                ''
+              )}',{source:${varname}})`
           ]
         })
       ),
