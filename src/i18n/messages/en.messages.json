@@ -63,7 +63,9 @@
       "showLess": "Show less"
     },
     "partialResults": {
-      "message": "View all results ({totalResults})"
+      "query": "{query}",
+      "totalResults": "({totalResults})",
+      "viewResults": "View all"
     },
     "priceFilter": {
       "lessThan": "less than {max}",
