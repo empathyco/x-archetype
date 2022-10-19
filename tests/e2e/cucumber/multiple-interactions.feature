@@ -24,6 +24,6 @@ Feature: Multiple interactions
     Then  related results have changed
 
     Examples:
-      | query   | view        | nextQueryItem | filterNumber | facetName | queryWithRTs | relatedTagItem |
+      | query   | view        | nextQueryItem | filterNumber  | facetName | queryWithRTs | relatedTagItem |
       | watch   | macbook-13  | 1             | 2            | price     | shorts       | 1              |
       | watch   | iphone-7    | 1             | 2            | price     | shorts       | 1              |
