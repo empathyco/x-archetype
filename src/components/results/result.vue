@@ -17,7 +17,7 @@
     >
       <BaseAddToCart
         :result="result"
-        class="x-list__item--expand x-button--pill x-button--tertiary x-margin--05"
+        class="x-list__item--expand x-button--pill x-button--primary x-margin--05"
       >
         {{ $t('result.addToCart') }}
       </BaseAddToCart>
