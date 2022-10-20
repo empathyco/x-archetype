@@ -16,9 +16,5 @@
       ChevronUpIcon
     }
   })
-  export default class ScrollToTopComponent extends Vue {
-    cleanMarkdown(input: string): string {
-      return input.replace(/\r?\n/g, '<br />').replace(/\|/g, '\\|');
-    }
-  }
+  export default class ScrollToTopComponent extends Vue {}
 </script>
