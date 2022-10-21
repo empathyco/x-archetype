@@ -38,6 +38,7 @@ var currency = getURLParameter('currency') || 'EUR';
 var consent = getURLParameter('consent') !== 'false';
 var documentDirection = getURLParameter('doc-dir') || 'ltr';
 
+window.__enableVueDevtools__ = true;
 window.initX = {
   instance,
   env,

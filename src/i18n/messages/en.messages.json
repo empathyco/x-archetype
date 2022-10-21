@@ -14,8 +14,8 @@
     },
     "myHistory": {
       "title": "My History",
-      "subtitle": "This is your search activity data",
-      "message": "<span>It is stored locally, only in your browser, and never travels outside of it.</span><span>You can choose to disable this option below.</span><span class=\"x-font-color--neutral-10 x-font-weight--bold\">Your privacy under your control.</span>",
+      "subtitle": "This is the complete list of history queries",
+      "message": "<span>This data are stored locally. Just in your device and never travel outside of it.</span><span>You can disable the history queries whenever you want.</span><span class=\"x-font-color--neutral-10 x-font-weight--bold\">Your privacy under your control.</span>",
       "noHistory": "No history activity to show",
       "openButton": "My History",
       "switch": {
@@ -24,8 +24,8 @@
         "disable": "Disable and clear"
       },
       "confirmDisableModal": {
-        "title": "Disable History Queries",
-        "message": "If you disable the history queries feature, your search history will be deleted.",
+        "title": "Disable History Queries?",
+        "message": "Disabling History Queries you also clear all the history list.",
         "dismiss": "Cancel",
         "confirm": "Disable"
       }
@@ -63,7 +63,9 @@
       "showLess": "Show less"
     },
     "partialResults": {
-      "message": "View all results ({totalResults})"
+      "query": "{query}",
+      "totalResults": "({totalResults})",
+      "viewResults": "View all"
     },
     "priceFilter": {
       "lessThan": "less than {max}",

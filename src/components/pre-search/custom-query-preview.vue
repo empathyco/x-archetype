@@ -4,6 +4,7 @@
       v-for="{ query, title } in queriesPreviewInfo"
       :key="query"
       :query="query"
+      :queryFeature="queryFeature"
       #default="{ results, totalResults }"
     >
       <div
@@ -63,12 +64,13 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
+  import { Prop, Component, Vue } from 'vue-property-decorator';
   import { QueryPreview } from '@empathyco/x-components/queries-preview';
   import {
     BaseEventButton,
     ChevronLeftIcon,
     ChevronRightIcon,
+    QueryFeature,
     QueryPreviewInfo,
     SlidingPanel,
     XEventsTypes,
@@ -87,6 +89,9 @@
     }
   })
   export default class CustomQueryPreview extends Vue {
+    @Prop({ default: 'customer' })
+    protected queryFeature!: QueryFeature;
+
     @XInject('queriesPreviewInfo')
     public queriesPreviewInfo!: QueryPreviewInfo[];
 

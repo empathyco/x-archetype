@@ -14,20 +14,20 @@
     },
     "myHistory": {
       "title": "Mi Historial",
-      "subtitle": "Estos son tus datos de actividad de búsqueda.",
-      "message": "<span>Son guardados localmente, solo en tu navegador, y nunca salen de ahí.</span><span>Puedes desactivar esta característica más abajo.</span><span class=\"x-font-color--neutral-10 x-font-weight--bold\">Tu privacidad bajo tu control.</span>",
-      "noHistory": "No hay historial de actividad para mostrar",
+      "subtitle": "Este es tu historial de búsqueda",
+      "message": "<span>Los datos se guardan en local. Solo están en tu dispositivo y nunca salen de ahí.</span><span>Puedes desactivar el historial de búsqueda cuando quieras.</span><span class=\"x-font-color--neutral-10 x-font-weight--bold\">Tu privacidad bajo tu control.</span>",
+      "noHistory": "No hay historial de búsqueda para mostrar",
       "openButton": "Mi Historial",
       "switch": {
-        "title": "History Queries",
-        "enable": "Habilitar",
-        "disable": "Deshabilitar y limpiar"
+        "title": "Historial de búsqueda",
+        "enable": "Activar",
+        "disable": "Desactivar y eliminar historial"
       },
       "confirmDisableModal": {
-        "title": "Deshabilitar History Queries",
-        "message": "Si deshabilitas las History Queries, tu historial de búsqueda será eliminado.",
+        "title": "¿Desactivar el historial de búsqueda?",
+        "message": "Si desactivas el historial de búsqueda, las búsquedas de tu historial serán eliminadas.",
         "dismiss": "Cancelar",
-        "confirm": "Deshabilitar"
+        "confirm": "Desactivar"
       }
     },
     "nextQueries": {
@@ -60,7 +60,9 @@
       "showLess": "Mostrar menos"
     },
     "partialResults": {
-      "message": "Ver todos los resultados ({totalResults})"
+      "query": "{query}",
+      "totalResults": "({totalResults})",
+      "viewResults": "Ver todos los resultados"
     },
     "priceFilter": {
       "lessThan": "hasta {max}",
