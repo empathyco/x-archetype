@@ -1,16 +1,4 @@
 const { defineConfig } = require('@vue/cli-service');
+const { webpackConfig } = require('@empathyco/x-archetype-utils');
 
-module.exports = defineConfig({
-  transpileDependencies: ['@empathyco/x-components'],
-  configureWebpack: {
-    module: {
-      rules: [
-        {
-          test: /\.ts|js|vue$/,
-          enforce: 'pre',
-          use: ['source-map-loader']
-        }
-      ]
-    }
-  }
-});
+module.exports = defineConfig(webpackConfig);
