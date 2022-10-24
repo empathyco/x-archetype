@@ -32,7 +32,7 @@
       </CustomHeaderTogglePanel>
     </template>
 
-    <template #category-paths="{ facet, selectedFilters }">
+    <template #hierarchical-facet="{ facet, selectedFilters }">
       <CustomHeaderTogglePanel
         :data-test="facet.label"
         class="x-border-width--bottom-01 x-border-width--00 x-border-color--neutral-95"
@@ -63,7 +63,7 @@
       </CustomHeaderTogglePanel>
     </template>
 
-    <template #price="{ facet, selectedFilters }">
+    <template #number-range-facet="{ facet, selectedFilters }">
       <CustomHeaderTogglePanel
         :data-test="facet.label"
         class="x-border-width--bottom-01 x-border-width--00 x-border-color--neutral-95"
