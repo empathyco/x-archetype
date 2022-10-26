@@ -4,7 +4,8 @@ Feature: Sort component
     Given start page with "<view>" size view
     Then  start button is clicked
     When  "<query>" is searched
-    And   sort and filter button is clicked on "<view>"
+    Then  related results are displayed
+    When  sort and filter button is clicked on "<view>"
     Then  results are ordered by "Relevancy"
     Given an intercepted search response
     And   "<sortOrder>" order is clicked in "<sortMenuName>"
