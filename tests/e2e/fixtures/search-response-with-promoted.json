@@ -825,6 +825,7 @@
     "facets": [
       {
         "facet": "categoryPaths",
+        "type": "hierarchical",
         "values": [
           {
             "id": "e5eef62d8",
@@ -855,6 +856,7 @@
       },
       {
         "facet": "price",
+        "type": "range",
         "values": [
           { "id": "10.0-20.0", "value": "10.0-20.0", "count": 987, "filter": "price:10.0-20.0" },
           { "id": "20.0-30.0", "value": "20.0-30.0", "count": 959, "filter": "price:20.0-30.0" },
@@ -869,6 +871,7 @@
       },
       {
         "facet": "gender",
+        "type": "value",
         "values": [
           { "id": "men", "value": "men", "count": 5796, "filter": "gender:men" },
           { "id": "women", "value": "women", "count": 2684, "filter": "gender:women" },
