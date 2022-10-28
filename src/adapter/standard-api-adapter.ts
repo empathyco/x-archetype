@@ -1,10 +1,4 @@
-import {
-  FacetsConfig,
-  facetsConfig,
-  numberFilterSchema,
-  platformAdapter,
-  resultSchema
-} from '@empathyco/x-adapter-platform';
+import { platformAdapter, resultSchema } from '@empathyco/x-adapter-platform';
 import { Result } from '@empathyco/x-types';
 
 export const adapter = platformAdapter;
@@ -50,18 +44,5 @@ resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
       rawPrices.previous?.value ?? rawPrices.current.value,
     hasDiscount: ({ __prices: rawPrices }) =>
       rawPrices.current.value < (rawPrices.previous?.value ?? rawPrices.current.value)
-  }
-});
-
-Object.assign<FacetsConfig, FacetsConfig>(facetsConfig, {
-  // TODO: Rename to currentPrice
-  '__prices.current.value': {
-    modelName: 'NumberRangeFacet',
-    schema: numberFilterSchema
-  },
-  // TODO: Rename to previousPrice
-  '__prices.original.value': {
-    modelName: 'NumberRangeFacet',
-    schema: numberFilterSchema
   }
 });
