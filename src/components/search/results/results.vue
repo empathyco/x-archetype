@@ -1,7 +1,7 @@
 <template>
   <ResultsList v-if="$x.totalResults" v-infinite-scroll:main-scroll>
-    <BannersList>
-      <PromotedsList>
+    <PromotedsList>
+      <BannersList>
         <NextQueriesList
           :offset="24"
           :frequency="48"
@@ -31,8 +31,8 @@
             </template>
           </BaseVariableColumnGrid>
         </NextQueriesList>
-      </PromotedsList>
-    </BannersList>
+      </BannersList>
+    </PromotedsList>
   </ResultsList>
 </template>
 
