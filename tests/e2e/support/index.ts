@@ -12,18 +12,6 @@ import Timeoutable = Cypress.Timeoutable;
 import Withinable = Cypress.Withinable;
 import Shadow = Cypress.Shadow;
 
-/**
- * When the tests are running, there is a problem with the resize observer. After
- * research some time, the issue can be related with set the viewport in different test.
- * To avoid this error, the solution is to exclude these error messages.
- * To know more about this solution:
- * https://github.com/cypress-io/cypress/issues/8418#issuecomment-992564877.
- */
-Cypress.on(
-  'uncaught:exception',
-  err => !err.message.includes('ResizeObserver loop limit exceeded')
-);
-
 interface CustomCommands {
   /**
    * Searches a query by typing it in the search input and pressing enter.
