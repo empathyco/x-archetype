@@ -12,6 +12,11 @@ import Timeoutable = Cypress.Timeoutable;
 import Withinable = Cypress.Withinable;
 import Shadow = Cypress.Shadow;
 
+Cypress.on(
+  'uncaught:exception',
+  err => !err.message.includes('ResizeObserver loop limit exceeded')
+);
+
 interface CustomCommands {
   /**
    * Searches a query by typing it in the search input and pressing enter.
