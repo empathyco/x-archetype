@@ -53,3 +53,10 @@
     public sortValues: Sort[] = ['', 'price asc', 'price desc'];
   }
 </script>
+
+<style lang="scss">
+  // TODO: Remove when implementing buttonClass prop in the SortList buttons
+  .x-sort-list__button {
+    @apply x-button-ghost;
+  }
+</style>

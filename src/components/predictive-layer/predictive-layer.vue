@@ -269,7 +269,9 @@
     outline: -webkit-focus-ring-color auto 1px;
   }
 
+  // TODO: Remove when implementing XDS suggestions in the archetype
   .x-history-query__remove {
-    @apply x-button x-button-ghost;
+    @apply x-button-ghost;
+    min-height: auto;
   }
 </style>
