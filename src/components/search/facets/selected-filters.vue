@@ -3,7 +3,7 @@
     <SlidingPanel
       class="x-sliding-panel--show-buttons-on-hover"
       :showButtons="$x.device === 'mobile' ? false : true"
-      :buttonClass="'x-button--ghost x-padding--00'"
+      :buttonClass="'x-button-lead x-button-ghost x-padding--00'"
       :resetOnContentChange="false"
     >
       <template #sliding-panel-left-button>
@@ -55,7 +55,8 @@
       v-slot="{ selectedFilters }"
       data-test="clear-filters-toolbar"
       class="
-        x-button--secondary x-button--round
+        x-button-lead x-button-outlined
+        x-border-radius--20
         x-padding--05 x-padding--top-03 x-padding--bottom-03
         x-margin--left-03
         x-list__item--flex-none

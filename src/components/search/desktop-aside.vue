@@ -11,7 +11,10 @@
       <span class="x-title2 x-font-color--neutral-10 x-font-weight--bold x-margin--right-auto">
         {{ $t('facetsPanel.title') }}
       </span>
-      <BaseIdModalClose class="x-button--ghost x-button--ghost-end" modalId="right-aside">
+      <BaseIdModalClose
+        class="x-button-lead x-button-ghost x-padding--right-00"
+        modalId="right-aside"
+      >
         <CrossTinyIcon class="x-icon--l x-font-color--neutral-10" />
       </BaseIdModalClose>
     </div>
@@ -30,7 +33,8 @@
       <ClearFilters
         v-slot="{ selectedFilters }"
         class="
-          x-button--secondary x-button--round
+          x-button-lead x-button-outlined
+          x-border-radius--20
           x-padding--06 x-padding--top-04 x-padding--bottom-04
           x-uppercase
           x-list__item--expand
@@ -41,7 +45,8 @@
       </ClearFilters>
       <BaseIdModalClose
         class="
-          x-button--round
+          x-button-lead
+          x-border-radius--20
           x-padding--06 x-padding--top-04 x-padding--bottom-04
           x-list__item--expand
         "

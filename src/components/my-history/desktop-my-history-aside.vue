@@ -6,11 +6,7 @@
           {{ $t('myHistory.title') }}
         </h1>
         <BaseIdModalClose
-          class="
-            x-border-width--00
-            x-button--ghost x-button--ghost-start
-            x-padding--top-00 x-padding--bottom-00
-          "
+          class="x-button-ghost x-padding--top-00 x-padding--bottom-00 x-border-width--00"
           modalId="my-history-aside"
         >
           <CrossIcon class="x-icon--l x-font-color--neutral-100" />

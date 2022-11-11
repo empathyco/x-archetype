@@ -30,7 +30,7 @@
             x-list x-list--horizontal x-list--justify-end x-list--wrap-reverse
           "
         >
-          <CloseMainModal class="x-button--ghost x-padding--right-00">
+          <CloseMainModal class="x-button-lead x-button-ghost x-padding--right-00">
             <CrossIcon class="x-icon--l" />
           </CloseMainModal>
         </div>

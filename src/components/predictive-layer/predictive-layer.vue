@@ -38,7 +38,7 @@
         <BaseIdModalOpen
           v-if="$x.device === 'mobile' && !$x.query.searchBox"
           modalId="my-history-aside"
-          class="x-button--ghost x-self-end x-padding--right-03 x-border-width--00"
+          class="x-button-ghost x-self-end x-padding--right-03 x-border-width--00"
         >
           <span class="x-small x-text--bold">{{ $t('myHistory.openButton') }}</span>
           <SettingsIcon class="x-icon--l" />
@@ -50,9 +50,7 @@
             </h1>
             <ClearHistoryQueries
               class="
-                x-button--ghost
-                x-small
-                x-text--bold x-text--secondary
+                x-button-xs x-button-lead x-button-ghost
                 x-padding--left-03 x-padding--right-03
                 x-border-width--00
               "
@@ -148,7 +146,7 @@
         <BaseIdModalOpen
           v-if="$x.device === 'desktop' && !$x.query.searchBox"
           modalId="my-history-aside"
-          class="x-button--ghost x-self-start x-padding--left-00"
+          class="x-button-ghost x-self-start x-padding--left-00"
         >
           <SettingsIcon />
           <span class="x-small x-text--bold">{{ $t('myHistory.openButton') }}</span>
@@ -269,5 +267,9 @@
   }
   .x-result-link:focus > * {
     outline: -webkit-focus-ring-color auto 1px;
+  }
+
+  .x-history-query__remove {
+    @apply x-button x-button-ghost;
   }
 </style>

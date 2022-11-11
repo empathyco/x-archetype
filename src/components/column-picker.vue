@@ -2,7 +2,11 @@
   <div class="x-list x-list--horizontal x-list--align-center x-list--gap-03">
     <span class="x-uppercase">{{ $t('columnPicker.message') }}</span>
 
-    <BaseColumnPickerList v-slot="{ column }" :columns="values">
+    <BaseColumnPickerList
+      v-slot="{ column }"
+      :columns="values"
+      :buttonClass="'x-button-lead x-button-ghost'"
+    >
       <component :is="icon(column)" class="x-icon--l" />
     </BaseColumnPickerList>
   </div>

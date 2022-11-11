@@ -15,7 +15,7 @@
 
     <BaseIdModalOpen
       modalId="right-aside"
-      class="x-button x-button--ghost x-button--ghost-end x-padding--left-00"
+      class="x-button-lead x-button-ghost x-padding--left-00 x-padding--right-00"
       data-test="toggle-facets-button"
     >
       <FiltersIcon />
