@@ -12,7 +12,7 @@
 
     <button
       v-if="$x.device === 'desktop' || !$x.query.searchBox"
-      class="x-button x-button-lead x-input-group__action"
+      class="x-button x-button-lead x-button-square x-input-group__action"
     >
       <SearchTinyIcon class="x-icon--l" />
     </button>

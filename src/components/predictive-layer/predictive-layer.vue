@@ -50,7 +50,7 @@
             </h1>
             <ClearHistoryQueries
               class="
-                x-button-xs x-button-lead x-button-ghost
+                x-button-sm x-button-ghost
                 x-padding--left-03 x-padding--right-03
                 x-border-width--00
               "
