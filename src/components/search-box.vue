@@ -1,11 +1,12 @@
 <template>
-  <div class="x-input-group x-input-group--card x-border-color--lead" style="overflow: hidden">
-    <SearchInputPlaceholder :messages="searchInputPlaceholderMessages" />
-    <SearchInput
-      :autofocus="false"
-      :class="$x.device === 'mobile' ? 'x-padding--left-05' : 'x-padding--left-08'"
-    />
-
+  <div class="x-input-group x-input-group--card x-border-color--lead">
+    <div class="x-input">
+      <SearchInputPlaceholder :messages="searchInputPlaceholderMessages" />
+      <SearchInput
+        :autofocus="false"
+        :class="$x.device === 'mobile' ? 'x-padding--left-05' : 'x-padding--left-08'"
+      />
+    </div>
     <ClearSearchInput v-if="$x.device === 'desktop' && $x.query.searchBox" class="x-font-size--04">
       {{ $t('searchBox.clear') }}
     </ClearSearchInput>
