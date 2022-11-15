@@ -1,8 +1,8 @@
 <template>
-  <div class="x-input-group x-input-group--card x-border-color--lead">
+  <div class="x-input-group x-input-group--card x-border-color--lead" style="overflow: hidden">
+    <SearchInputPlaceholder :messages="searchInputPlaceholderMessages" />
     <SearchInput
       :autofocus="false"
-      :placeholder="$t('searchBox.placeholder')"
       :class="$x.device === 'mobile' ? 'x-padding--left-05' : 'x-padding--left-08'"
     />
 
@@ -23,7 +23,12 @@
 </template>
 
 <script lang="ts">
-  import { ClearSearchInput, SearchButton, SearchInput } from '@empathyco/x-components/search-box';
+  import {
+    ClearSearchInput,
+    SearchButton,
+    SearchInput,
+    SearchInputPlaceholder
+  } from '@empathyco/x-components/search-box';
   import { CrossTinyIcon, SearchTinyIcon } from '@empathyco/x-components';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
@@ -34,8 +39,17 @@
       CrossTinyIcon,
       SearchButton,
       SearchInput,
-      SearchTinyIcon
+      SearchTinyIcon,
+      SearchInputPlaceholder
     }
   })
-  export default class SearchBox extends Vue {}
+  export default class SearchBox extends Vue {
+    protected searchInputPlaceholderMessages = [
+      'Find shirts',
+      'Find shoes',
+      'Find watches',
+      'Find handbags',
+      'Find sunglasses'
+    ];
+  }
 </script>
