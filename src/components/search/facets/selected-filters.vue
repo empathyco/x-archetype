@@ -16,10 +16,9 @@
         <template #default="{ filter }">
           <SimpleFilter
             class="
-              x-button x-button-auxiliary x-button-sm
-              x-border-radius--20
-              x-padding--05 x-padding--top-03 x-padding--bottom-03
-              x-border-width--00
+              x-tag x-tag--pill x-tag--ghost
+              x-background--auxiliary
+              x-padding--04 x-padding--top-03 x-padding--bottom-03
             "
             :filter="filter"
           >

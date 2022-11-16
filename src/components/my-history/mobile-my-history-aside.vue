@@ -7,6 +7,7 @@
             x-border-width--00
             x-button-circle x-button-ghost
             x-padding--00 x-padding--right-05
+            hover:x-button-lead
           "
           modalId="my-history-aside"
         >
