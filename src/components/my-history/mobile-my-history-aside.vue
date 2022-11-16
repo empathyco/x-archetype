@@ -3,7 +3,11 @@
     <div class="x-list x-list--align-stretch x-border-color--neutral-10 x-background--neutral-10">
       <div class="x-list x-list--horizontal x-list--align-center x-padding--05">
         <BaseIdModalClose
-          class="x-border-width--00 x-button-ghost x-padding--00 x-padding--right-05"
+          class="
+            x-border-width--00
+            x-button-circle x-button-ghost
+            x-padding--00 x-padding--right-05
+          "
           modalId="my-history-aside"
         >
           <ArrowLeftIcon class="x-icon--l x-font-color--neutral-100" />

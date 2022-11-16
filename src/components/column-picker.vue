@@ -2,10 +2,11 @@
   <div class="x-list x-list--horizontal x-list--align-center x-list--gap-03">
     <span class="x-uppercase">{{ $t('columnPicker.message') }}</span>
 
+    <!-- TODO: Remove the x-max-h and the tailwind important when removing the old DS styles -->
     <BaseColumnPickerList
       v-slot="{ column }"
       :columns="values"
-      :buttonClass="'x-button-lead x-button-ghost'"
+      buttonClass="!x-button-sm x-button-lead x-button-square x-button-ghost x-max-h-32"
     >
       <component :is="icon(column)" class="x-icon--l" />
     </BaseColumnPickerList>

@@ -6,7 +6,11 @@
       :class="$x.device === 'mobile' ? 'x-padding--left-05' : 'x-padding--left-08'"
     />
 
-    <ClearSearchInput v-if="$x.device === 'desktop' && $x.query.searchBox" class="x-font-size--04">
+    <!-- TODO: Remove x-max-h when implementing XDS input-group -->
+    <ClearSearchInput
+      v-if="$x.device === 'desktop' && $x.query.searchBox"
+      class="x-button-lead !x-button-sm x-button-ghost x-max-h-32"
+    >
       {{ $t('searchBox.clear') }}
     </ClearSearchInput>
 

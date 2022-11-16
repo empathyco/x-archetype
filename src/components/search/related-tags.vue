@@ -1,7 +1,7 @@
 <template>
   <SlidingPanel
     class="x-sliding-panel--show-buttons-on-hover"
-    :buttonClass="'x-button-lead x-button-ghost x-padding--00'"
+    buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
     :showButtons="$x.device !== 'mobile'"
   >
     <template #sliding-panel-left-button>
