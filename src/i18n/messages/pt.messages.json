@@ -1,0 +1,122 @@
+{
+  "base": {
+    "searchBox": {
+      "clear": "Limpar",
+      "placeholder": "O que você está procurando?"
+    },
+    "popularSearches": {
+      "title": "BUSCAS POPULARES"
+    },
+    "historyQueries": {
+      "clear": "Limpar histórico",
+      "removeLabel": "Limpar {suggestion} histórico de buscas",
+      "title": "HISTÓRICO DE BUSCAS"
+    },
+    "myHistory": {
+      "title": "Meu histórico",
+      "subtitle": "Esse é seu histórico de buscas",
+      "message": "<span>Seus dados são salvos localmente. Ficam apenas em seu dispositivo e não são compartilhados externamente.</span><span> Você pode desativar o seu histórico de buscas sempre que desejar.</span><span class=\"x-font-color--neutral-10 x-font-weight--bold\">Sua privacidade sob seu controle.</span>",
+      "noHistory": "Não há histórico de buscas para mostrar",
+      "openButton": "Meu histórico",
+      "switch": {
+        "title": "Histórico de buscas",
+        "enable": "Ativo",
+        "disable": "Desativar ou limpar histórico"
+      },
+      "confirmDisableModal": {
+        "title": "Desativar histórico de buscas?",
+        "message": "Desabilitando o histórico de buscas, você também limpará toda a lista de buscas",
+        "dismiss": "Cancelar",
+        "confirm": "Desativar"
+      }
+    },
+    "nextQueries": {
+      "title": "VOCÊ PODE SE INTERESSAR"
+    },
+    "nextQueriesGroup": {
+      "message": "Aqueles que pesquisaram por <span class=\"x-text x-text--bold x-font-size--05\">\"{query}\"</span> também viram:"
+    },
+    "nextQueryPreview": {
+      "message": "Os que buscaram por {query} também viram:",
+      "query": "{query}",
+      "totalResults": "({totalResults})",
+      "viewResults": "Ver todos os resultados"
+    },
+    "recommendations": {
+      "title": "Mais clicados"
+    },
+    "facets": {
+      "gender": "Gênero",
+      "categoryPaths": "Categorias",
+      "price": "Preço"
+    },
+    "facetsPanel": {
+      "title": "ORDENAR & FILTRAR",
+      "viewResults": "VER {totalResults} RESULTADOS"
+    },
+    "filters": {
+      "all": "Todo",
+      "showMore": "Mostrar mais",
+      "showLess": "Mostrar menos"
+    },
+    "partialResults": {
+      "query": "{query}",
+      "totalResults": "({totalResults})",
+      "viewResults": "Ver todos"
+    },
+    "priceFilter": {
+      "lessThan": "Até {max}",
+      "fromTo": "{min} - {max}",
+      "from": "Mais de {min}"
+    },
+    "toggleAside": {
+      "showAside": "Ordenar e Filtrar"
+    },
+    "totalResults": {
+      "message": "{totalResults} resultados para <span class=\"x-text x-text--bold x-font-size--05\">{query}</span>"
+    },
+    "sort": {
+      "label": "Ordenar por",
+      "values": {
+        "price asc": "Preço: De menor ao maior",
+        "price desc": "Preço: De maior ao menor",
+        "default": "Relevância"
+      }
+    },
+    "selectedFilters": {
+      "clear": "LIMPAR {selectedFiltersNumber} FILTROS"
+    },
+    "result": {
+      "addToCart": "ADICIONAR AO CARRINHO"
+    },
+    "spellcheck": {
+      "message": "Sem resultados encontrados para <span class=\"x-text--accent\">'{query}'</span>. Aqui estão os resultados para"
+    },
+    "noResults": {
+      "message": "<span>Não encontramos resultados para<span class=\"x-text x-font-color--neutral-10 x-text--bold x-font-size--05\">\"{query}\"</span></span> Talvez você pode se interessar por esses produtos"
+    },
+    "columnPicker": {
+      "message": "Ver"
+    },
+    "queryPreview": {
+      "viewResults": "Ver todos os resultados"
+    }
+  },
+  "mobile": {
+    "nextQueriesGroup": {
+      "message": "Os que buscaram <span class=\"x-text x-text--bold\">\"{query}\"</span> também viram:"
+    },
+    "nextQueryPreview": {
+      "viewResults": "Ver todos"
+    },
+    "noResults": {
+      "message": "<span>Não encontramos resultados para<span class=\"x-text x-font-color--neutral-10 x-text--bold x-font-size--05\">\"{query}\"</span></span> Talvez você pode se interessar por esses produtos"
+    },
+    "totalResults": {
+      "message": "{totalResults} resultados"
+    },
+    "queryPreview": {
+      "viewResults": "Ver todos"
+    }
+  }
+}
