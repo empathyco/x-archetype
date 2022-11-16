@@ -3,7 +3,7 @@
     <SlidingPanel
       class="x-sliding-panel--show-buttons-on-hover"
       :showButtons="$x.device === 'mobile' ? false : true"
-      :buttonClass="'x-button--ghost x-padding--00'"
+      buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
       :resetOnContentChange="false"
     >
       <template #sliding-panel-left-button>
@@ -23,8 +23,8 @@
             :filter="filter"
           >
             <template #label="{ filter }">
-              <span class="x-text x-text--bold x-font-color--accent">{{ filter.label }}</span>
-              <CrossTinyIcon class="x-font-color--accent" />
+              <span>{{ filter.label }}</span>
+              <CrossTinyIcon />
             </template>
           </SimpleFilter>
         </template>
@@ -32,15 +32,16 @@
         <template #price="{ filter }">
           <NumberRangeFilter
             class="
-              x-tag x-tag--pill x-tag--ghost
-              x-background--auxiliary
-              x-padding--04 x-padding--top-03 x-padding--bottom-03
+              x-button x-button-auxiliary x-button-sm
+              x-border-radius--20
+              x-padding--05 x-padding--top-03 x-padding--bottom-03
+              x-border-width--00
             "
             :filter="filter"
           >
             <template #label="{ filter }">
-              <PriceFilterLabel class="x-text x-text--bold x-font-color--accent" :filter="filter" />
-              <CrossTinyIcon class="x-font-color--accent" />
+              <PriceFilterLabel :filter="filter" />
+              <CrossTinyIcon />
             </template>
           </NumberRangeFilter>
         </template>
@@ -55,7 +56,8 @@
       v-slot="{ selectedFilters }"
       data-test="clear-filters-toolbar"
       class="
-        x-button--secondary x-button--round
+        x-button-sm x-button-lead x-button-outlined
+        x-border-radius--20
         x-padding--05 x-padding--top-03 x-padding--bottom-03
         x-margin--left-03
         x-list__item--flex-none

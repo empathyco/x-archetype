@@ -38,9 +38,9 @@
         <BaseIdModalOpen
           v-if="$x.device === 'mobile' && !$x.query.searchBox"
           modalId="my-history-aside"
-          class="x-button--ghost x-self-end x-padding--right-03 x-border-width--00"
+          class="x-button-sm x-button-ghost x-self-end x-padding--right-03 x-border-width--00"
         >
-          <span class="x-small x-text--bold">{{ $t('myHistory.openButton') }}</span>
+          {{ $t('myHistory.openButton') }}
           <SettingsIcon class="x-icon--l" />
         </BaseIdModalOpen>
         <div v-if="showHistoryQueries" class="x-list x-list--gap-02">
@@ -50,9 +50,7 @@
             </h1>
             <ClearHistoryQueries
               class="
-                x-button--ghost
-                x-small
-                x-text--bold x-text--secondary
+                x-button-sm x-button-ghost
                 x-padding--left-03 x-padding--right-03
                 x-border-width--00
               "
@@ -148,10 +146,10 @@
         <BaseIdModalOpen
           v-if="$x.device === 'desktop' && !$x.query.searchBox"
           modalId="my-history-aside"
-          class="x-button--ghost x-self-start x-padding--left-00"
+          class="x-button-sm x-button-ghost x-self-start"
         >
           <SettingsIcon />
-          <span class="x-small x-text--bold">{{ $t('myHistory.openButton') }}</span>
+          {{ $t('myHistory.openButton') }}
         </BaseIdModalOpen>
       </div>
 
@@ -269,5 +267,11 @@
   }
   .x-result-link:focus > * {
     outline: -webkit-focus-ring-color auto 1px;
+  }
+
+  // TODO: Remove when implementing XDS suggestions in the archetype
+  .x-history-query__remove {
+    @apply x-button-ghost;
+    min-height: auto;
   }
 </style>

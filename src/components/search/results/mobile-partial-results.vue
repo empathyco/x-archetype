@@ -18,7 +18,7 @@
         </span>
         <PartialQueryButton
           :query="partialResult.query"
-          class="x-text x-font-weight--bold x-button--ghost x-margin--left-auto"
+          class="x-button-lead x-button-ghost x-margin--left-auto"
         >
           {{ $t('partialResults.viewResults') }}
           <ChevronRightIcon />
@@ -26,7 +26,7 @@
       </div>
       <SlidingPanel
         :resetOnContentChange="false"
-        :buttonClass="'x-button--ghost x-padding--00'"
+        buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
         class="x-sliding-panel--show-buttons-on-hover"
       >
         <div class="x-list x-list--gap-05 x-padding--left-05">

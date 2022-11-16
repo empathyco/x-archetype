@@ -9,10 +9,8 @@
     </p>
     <a :href="redirection.url">{{ redirection.url }}</a>
     <div class="x-list x-list--horizontal x-list--gap-07 x-margin--top-03">
-      <button @click="abortRedirect" class="x-button x-button--ghost x-font-color--neutral-70">
-        No, I'll stay here
-      </button>
-      <button @click="redirect" class="x-button x-button--ghost x-font-color--neutral-10">
+      <button @click="abortRedirect" class="x-button x-button-ghost">No, I'll stay here</button>
+      <button @click="redirect" class="x-button x-button-lead x-button-ghost">
         Yes, redirect me
       </button>
     </div>

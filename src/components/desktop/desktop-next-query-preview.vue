@@ -40,8 +40,6 @@
         x-font-weight--bold
         x-margin--left-auto x-margin--right-auto x-margin--top-03
         x-padding--top-04 x-padding--bottom-04 x-padding--right-05 x-padding--left-05
-        x-font-color--lead
-        x-border-color--lead
       "
     >
       {{ $t('nextQueryPreview.viewResults') }}

@@ -25,13 +25,10 @@
         class="x-list x-list--horizontal"
         :class="$x.device === 'mobile' ? 'x-list--justify-end' : 'x-list--justify-center'"
       >
-        <BaseEventButton
-          class="x-button x-button--ghost x-font-color--neutral-35"
-          :events="dismissEvents"
-        >
+        <BaseEventButton class="x-button x-button-ghost" :events="dismissEvents">
           {{ $t('myHistory.confirmDisableModal.dismiss') }}
         </BaseEventButton>
-        <BaseEventButton class="x-button x-button--ghost" :events="confirmEvents">
+        <BaseEventButton class="x-button x-button-ghost x-button-lead" :events="confirmEvents">
           {{ $t('myHistory.confirmDisableModal.confirm') }}
         </BaseEventButton>
       </div>

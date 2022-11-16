@@ -13,7 +13,7 @@
         "
       >
         <CloseMainModal
-          class="x-button--ghost x-padding--left-00"
+          class="x-button-lead x-button-circle x-button-ghost x-padding--left-00"
           :class="{ 'x-padding--right-03': $x.device === 'mobile' }"
         >
           <ArrowLeftIcon class="x-icon--l" />

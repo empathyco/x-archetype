@@ -11,8 +11,9 @@
     <ClearFilters
       v-slot="{ selectedFilters }"
       class="
-        x-button--secondary x-button--round
-        x-padding--05 x-padding--top-04 x-padding--bottom-04
+        x-button-lead x-button-outlined
+        x-border-radius--20
+        x-padding--top-04 x-padding--bottom-04
         x-uppercase
         x-list__item--expand
       "
@@ -22,8 +23,9 @@
     </ClearFilters>
     <BaseIdModalClose
       class="
-        x-button--round
-        x-padding--05 x-padding--top-04 x-padding--bottom-04
+        x-button-lead
+        x-border-radius--20
+        x-padding--top-04 x-padding--bottom-04
         x-list__item--expand
       "
       modalId="aside-modal"

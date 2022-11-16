@@ -18,7 +18,7 @@
         </span>
         <PartialQueryButton
           :query="partialResult.query"
-          class="x-title3 x-font-weight--bold x-button--ghost x-margin--left-auto"
+          class="x-title3 x-button-lead x-button-ghost x-margin--left-auto"
         >
           {{ $t('partialResults.viewResults') }}
           <ChevronRightIcon />

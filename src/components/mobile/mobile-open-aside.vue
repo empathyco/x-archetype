@@ -1,7 +1,7 @@
 <template>
   <BaseIdModalOpen
     modalId="aside-modal"
-    class="x-button x-button--pill x-padding--04 x-padding--right-05 x-padding--left-05"
+    class="x-button-lead x-border-radius--20 x-padding--04 x-padding--right-05 x-padding--left-05"
   >
     <FiltersIcon />
     <span>{{ $t('toggleAside.showAside') }}</span>

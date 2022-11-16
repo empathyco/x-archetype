@@ -29,7 +29,7 @@
             </span>
             <BaseEventButton
               :events="getEvent(query)"
-              class="x-button x-button--ghost x-button--ghost-end"
+              class="x-button x-button-lead x-button-ghost"
               :class="{ 'x-uppercase': $x.device === 'mobile' }"
             >
               {{ $t('queryPreview.viewResults') }}
@@ -40,7 +40,7 @@
         <SlidingPanel
           :showButtons="$x.device !== 'mobile'"
           :resetOnContentChange="false"
-          :buttonClass="'x-button--ghost x-padding--00'"
+          buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
           class="x-sliding-panel--show-buttons-on-hover"
         >
           <template #sliding-panel-left-button>
