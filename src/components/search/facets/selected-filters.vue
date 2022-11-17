@@ -54,7 +54,11 @@
       v-if="$x.device === 'desktop'"
       v-slot="{ selectedFilters }"
       data-test="clear-filters-toolbar"
-      class="x-button-sm x-button-lead x-button-outlined x-border-radius--20"
+      class="
+        x-button-sm x-button-lead x-button-outlined
+        x-border-radius--20
+        x-list__item--flex-none
+      "
       :alwaysVisible="false"
     >
       {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
