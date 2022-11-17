@@ -1,7 +1,7 @@
 <template>
-  <div class="x-list x-list--horizontal x-list--align-center">
+  <div class="x-list x-list--horizontal x-list--align-center x-list--gap-03">
     <SlidingPanel
-      class="x-sliding-panel--show-buttons-on-hover"
+      class="x-sliding-panel--show-buttons-on-hover x-list--gap-09"
       :showButtons="$x.device === 'mobile' ? false : true"
       buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
       :resetOnContentChange="false"
@@ -54,7 +54,7 @@
       v-if="$x.device === 'desktop'"
       v-slot="{ selectedFilters }"
       data-test="clear-filters-toolbar"
-      class="x-button-sm x-button-lead x-button-outlined x-border-radius--20 x-margin--left-03"
+      class="x-button-sm x-button-lead x-button-outlined x-border-radius--20"
       :alwaysVisible="false"
     >
       {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
