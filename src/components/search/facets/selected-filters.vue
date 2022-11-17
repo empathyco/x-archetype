@@ -23,8 +23,8 @@
             :filter="filter"
           >
             <template #label="{ filter }">
-              <span>{{ filter.label }}</span>
-              <CrossTinyIcon />
+              <span class="x-text x-text--bold x-font-color--accent">{{ filter.label }}</span>
+              <CrossTinyIcon class="x-font-color--accent" />
             </template>
           </SimpleFilter>
         </template>
@@ -32,16 +32,15 @@
         <template #price="{ filter }">
           <NumberRangeFilter
             class="
-              x-button x-button-auxiliary x-button-sm
-              x-border-radius--20
-              x-padding--05 x-padding--top-03 x-padding--bottom-03
-              x-border-width--00
+              x-tag x-tag--pill x-tag--ghost
+              x-background--auxiliary
+              x-padding--04 x-padding--top-03 x-padding--bottom-03
             "
             :filter="filter"
           >
             <template #label="{ filter }">
-              <PriceFilterLabel :filter="filter" />
-              <CrossTinyIcon />
+              <PriceFilterLabel class="x-text x-text--bold x-font-color--accent" :filter="filter" />
+              <CrossTinyIcon class="x-font-color--accent" />
             </template>
           </NumberRangeFilter>
         </template>
@@ -55,13 +54,7 @@
       v-if="$x.device === 'desktop'"
       v-slot="{ selectedFilters }"
       data-test="clear-filters-toolbar"
-      class="
-        x-button-sm x-button-lead x-button-outlined
-        x-border-radius--20
-        x-padding--05 x-padding--top-03 x-padding--bottom-03
-        x-margin--left-03
-        x-list__item--flex-none
-      "
+      class="x-button-sm x-button-lead x-button-outlined x-border-radius--20 x-margin--left-03"
       :alwaysVisible="false"
     >
       {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
