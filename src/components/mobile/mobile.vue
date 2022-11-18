@@ -33,8 +33,18 @@
       </div>
     </template>
 
-    <template #toolbar v-if="$x.query.search">
-      <MobileToolbar class="x-padding--left-05 x-padding--bottom-05 x-padding--right-03" />
+    <template #toolbar v-if="$x.query.search && !$x.redirections.length">
+      <div>
+        <SpellcheckMessage
+          class="x-margin--bottom-05 x-margin--left-05 x-margin--right-03"
+          data-test="spellcheck-message"
+        />
+        <NoResultsMessage
+          class="x-margin--bottom-05 x-margin--left-05 x-margin--right-03"
+          data-test="no-results-message"
+        />
+        <MobileToolbar class="x-padding--left-05 x-padding--bottom-05 x-padding--right-03" />
+      </div>
     </template>
 
     <template #predictive>
@@ -125,7 +135,9 @@
       SearchBox,
       SingleColumnLayout,
       MobileAside: () => import('../search').then(m => m.MobileAside),
-      RelatedTags: () => import('../search').then(m => m.RelatedTags)
+      NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
+      RelatedTags: () => import('../search').then(m => m.RelatedTags),
+      SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage)
     }
   })
   export default class Mobile extends HasSearchedMixin {
