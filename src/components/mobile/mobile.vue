@@ -34,7 +34,7 @@
     </template>
 
     <template #toolbar v-if="$x.query.search && !$x.redirections.length">
-      <div>
+      <div class="x-flex-1">
         <SpellcheckMessage
           class="x-margin--bottom-05 x-margin--left-05 x-margin--right-03"
           data-test="spellcheck-message"
