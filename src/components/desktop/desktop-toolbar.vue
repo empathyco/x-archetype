@@ -5,9 +5,7 @@
     data-test="total-results"
   >
     <span
-      v-html="
-        $t('totalResults.message', { totalResults: $x.totalResults, query: $x.query.searchBox })
-      "
+      v-html="$t('totalResults.message', { totalResults: $x.totalResults, query })"
       class="x-list__item--expand x-font-size--05"
     />
 
@@ -49,5 +47,9 @@
       ColumnPicker
     }
   })
-  export default class DesktopToolbar extends Vue {}
+  export default class DesktopToolbar extends Vue {
+    protected get query(): string {
+      return this.$x.spellcheckedQuery ? this.$x.spellcheckedQuery : this.$x.query.searchBox;
+    }
+  }
 </script>
