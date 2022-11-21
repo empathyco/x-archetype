@@ -49,10 +49,7 @@
   })
   export default class DesktopToolbar extends Vue {
     protected get query(): string {
-      if (this.$x.spellcheckedQuery) {
-        return this.$x.spellcheckedQuery;
-      }
-      return this.$x.query.searchBox;
+      return this.$x.spellcheckedQuery ? this.$x.spellcheckedQuery : this.$x.query.searchBox;
     }
   }
 </script>
