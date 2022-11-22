@@ -38,10 +38,10 @@
     </template>
 
     <template #sub-header v-if="!$x.redirections.length">
-      <LocationProvider location="no_results">
+      <LocationProvider location="results">
         <SpellcheckMessage class="x-margin--bottom-05" data-test="spellcheck-message" />
-        <NoResultsMessage class="x-margin--bottom-05" data-test="no-results-message" />
       </LocationProvider>
+      <NoResultsMessage class="x-margin--bottom-05" data-test="no-results-message" />
       <DesktopToolbar />
     </template>
 
