@@ -37,7 +37,11 @@
       </div>
     </template>
 
-    <template #sub-header>
+    <template #sub-header v-if="!$x.redirections.length">
+      <LocationProvider location="results">
+        <SpellcheckMessage class="x-margin--bottom-05" data-test="spellcheck-message" />
+      </LocationProvider>
+      <NoResultsMessage class="x-margin--bottom-05" data-test="no-results-message" />
       <DesktopToolbar />
     </template>
 
@@ -125,7 +129,9 @@
       SlidingPanel,
       RelatedTags: () => import('../search').then(m => m.RelatedTags),
       SelectedFilters: () => import('../search').then(m => m.SelectedFilters),
-      DesktopAside: () => import('../search').then(m => m.DesktopAside)
+      DesktopAside: () => import('../search').then(m => m.DesktopAside),
+      NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
+      SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage)
     }
   })
   export default class Desktop extends HasSearchedMixin {
