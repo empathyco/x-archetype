@@ -35,14 +35,16 @@
 
     <template #toolbar v-if="$x.query.search && !$x.redirections.length">
       <div class="x-flex-1">
-        <SpellcheckMessage
-          class="x-margin--bottom-05 x-margin--left-05 x-margin--right-03"
-          data-test="spellcheck-message"
-        />
-        <NoResultsMessage
-          class="x-margin--bottom-05 x-margin--left-05 x-margin--right-03"
-          data-test="no-results-message"
-        />
+        <LocationProvider location="no_results">
+          <SpellcheckMessage
+            class="x-margin--bottom-05 x-margin--left-05 x-margin--right-03"
+            data-test="spellcheck-message"
+          />
+          <NoResultsMessage
+            class="x-margin--bottom-05 x-margin--left-05 x-margin--right-03"
+            data-test="no-results-message"
+          />
+        </LocationProvider>
         <MobileToolbar class="x-padding--left-05 x-padding--bottom-05 x-padding--right-03" />
       </div>
     </template>
