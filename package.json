@@ -74,7 +74,7 @@
     "postcss-nested": "~5.0.6",
     "prettier": "~2.4.1 < 2.5.0",
     "process": "~0.11.10",
-    "rollup": "~2.67.0",
+    "rollup": "~3.4.0",
     "rollup-plugin-copy": "~3.4.0",
     "rollup-plugin-delete": "~2.0.0",
     "rollup-plugin-generate-html-template": "1.6.1",
