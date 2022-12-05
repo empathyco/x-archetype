@@ -1,7 +1,6 @@
 <template>
   <BasePriceFilterLabel
     :filter="filter"
-    format="i €"
     :lessThan="$t('priceFilter.lessThan')"
     :fromTo="$t('priceFilter.fromTo')"
     :from="$t('priceFilter.from')"
