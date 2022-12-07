@@ -9,4 +9,4 @@ Feature: Promoted component
     Examples:
       | query  | view        |
       | sandal | macbook-13  |
-      | sandal | iphone-7    |
+      | sandal | iphone-x    |

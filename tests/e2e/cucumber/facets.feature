@@ -14,8 +14,8 @@ Feature: Facets component
       | query   | view        | closeMethod     |
       | shirt   | macbook-13  | close-modal-id  |
       | shirt   | macbook-13  | modal-overlay   |
-      | shirt   | iphone-7    | close-modal-id  |
-      | shirt   | iphone-7    | modal-overlay   |
+      | shirt   | iphone-x    | close-modal-id  |
+      | shirt   | iphone-x    | modal-overlay   |
 
   Scenario Outline: 2. Filters can be selected and deselected / cleared
     Given start page with "<view>" size view
@@ -35,7 +35,7 @@ Feature: Facets component
     Examples:
       | query | filterNumber | facetName | view        |
       | shirt | 1            | price     | macbook-13  |
-      | shirt | 1            | price     | iphone-7    |
+      | shirt | 1            | price     | iphone-x    |
 
   Scenario Outline: 3. Multiple filters from the same facet can be selected
     Given start page with "<view>" size view
@@ -53,7 +53,7 @@ Feature: Facets component
     Examples:
       | query | filterNumber | facetName | filterNumber2 | view        |
       | shirt | 2            | price     | 1             | macbook-13  |
-      | shirt | 2            | price     | 1             | iphone-7    |
+      | shirt | 2            | price     | 1             | iphone-x    |
 
   Scenario Outline: 4. Multiple filters from different facets can be selected
     Given start page with "<view>" size view
@@ -73,7 +73,7 @@ Feature: Facets component
     Examples:
       | query | filterNumber | facetName | filterNumber2 | facetName2 | view        |
       | shirt | 2            | price     | 1             | gender     | macbook-13  |
-      | shirt | 2            | price     | 1             | gender     | iphone-7    |
+      | shirt | 2            | price     | 1             | gender     | iphone-x    |
 
   Scenario Outline: 5. Hierarchical filters selection
     Given start page with "<view>" size view
@@ -99,4 +99,4 @@ Feature: Facets component
     Examples:
       | query  | hierarchicalFilter | childFilter | facetName     | view        |
       | shirt  | 0                  | 0           | categoryPaths | macbook-13  |
-      | shirt  | 0                  | 0           | categoryPaths | iphone-7    |
+      | shirt  | 0                  | 0           | categoryPaths | iphone-x    |

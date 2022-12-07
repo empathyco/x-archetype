@@ -15,4 +15,4 @@ Feature: Sort component
     Examples:
       | query   | sortOrder          | sortMenuName | sortURL    | view       |
       | skirt   | Price: High to Low | Sort by      | price desc | macbook-13 |
-      | skirt   | Price: High to Low | Sort by      | price desc | iphone-7   |
+      | skirt   | Price: High to Low | Sort by      | price desc | iphone-x   |

@@ -9,4 +9,4 @@ Feature: Banner component
     Examples:
       | query | view        |
       | shirt | macbook-13  |
-      | shirt | iphone-7    |
+      | shirt | iphone-x    |

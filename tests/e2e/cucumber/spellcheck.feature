@@ -8,4 +8,4 @@ Feature: Spellcheck component
     Examples:
       | query  | view        |
       | sirt   | macbook-13  |
-      | sirt   | iphone-7    |
+      | sirt   | iphone-x    |
