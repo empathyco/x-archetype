@@ -11,6 +11,7 @@
           <BaseVariableColumnGrid
             class="x-grid x-padding--top-00"
             :animation="staggeredFadeAndSlide"
+            data-test="base-grid"
           >
             <template #result="{ item: result }">
               <Result :result="result" data-test="search-grid-result" />

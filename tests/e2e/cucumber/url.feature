@@ -13,6 +13,6 @@ Feature: Url component
     Examples:
       | query   | sortOrder          | sortMenuName | view       |
       | shirt   | Price: High to Low | Sort by      | macbook-13 |
-      | shirt   | Price: High to Low | Sort by      | iphone-7   |
+      | shirt   | Price: High to Low | Sort by      | iphone-x   |
 
 

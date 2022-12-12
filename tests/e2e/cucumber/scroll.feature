@@ -25,5 +25,5 @@ Feature: Scroll
     Examples:
       | query | view        | resultId     | sortMenuName | sortOrder          | filterIndex | facetName |
       | shirt | macbook-13  | result-16    | Sort by      | Price: Low to High | 1           | price     |
-      | shirt | iphone-7    | result-16    | Sort by      | Price: Low to High | 1           | price     |
+      | shirt | iphone-x    | result-16    | Sort by      | Price: Low to High | 1           | price     |
 

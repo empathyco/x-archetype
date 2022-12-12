@@ -20,7 +20,7 @@ Feature: Tagging component
     Examples:
       | query   | view        | pageNumber |
       | shirt   | macbook-13  | 2          |
-      | shirt   | iphone-7    | 2          |
+      | shirt   | iphone-x    | 2          |
 
   Scenario Outline: 2. Check add to cart tagging.
     Given start page with "<view>" size view

@@ -9,4 +9,4 @@ Feature: No-results component
     Examples:
       | query    | view        |
       | asdfgh   | macbook-13  |
-      | asdfgh   | iphone-7    |
+      | asdfgh   | iphone-x    |

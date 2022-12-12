@@ -17,7 +17,7 @@ Feature: Predictive components
     Examples:
       | query | view        |
       | belt  | macbook-13  |
-      | belt  | iphone-7    |
+      | belt  | iphone-x    |
 
   Scenario Outline: 2. Related tags interaction
     Given start page with "<view>" size view
@@ -33,7 +33,7 @@ Feature: Predictive components
     Examples:
       | query   | relatedTagIndex | view        |
       | shorts  | 1               | macbook-13  |
-      | shorts  | 1               | iphone-7    |
+      | shorts  | 1               | iphone-x    |
 
   Scenario Outline: 3. Clear a history query
     Given start page with "<view>" size view
@@ -46,7 +46,7 @@ Feature: Predictive components
     Examples:
       | list               | historyQueryItem | view        |
       | shirt, shoe, skirt | 0                | macbook-13  |
-      | shirt, shoe, skirt | 0                | iphone-7    |
+      | shirt, shoe, skirt | 0                | iphone-x    |
 
   Scenario Outline: 4. Clear all history queries
     Given start page with "<view>" size view
@@ -58,4 +58,4 @@ Feature: Predictive components
     Examples:
       | list               | view        |
       | shirt, shoe, skirt | macbook-13  |
-      | shirt, shoe, skirt | iphone-7    |
+      | shirt, shoe, skirt | iphone-x    |

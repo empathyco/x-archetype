@@ -9,6 +9,5 @@
   "screenshotOnRunFailure": false,
   "video": false,
   "testFiles": "**/*.feature",
-  "retries": 1,
-  "ignoreTestFiles": ["**/scroll.feature"]
+  "retries": 1
 }
