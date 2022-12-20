@@ -28,11 +28,11 @@
     </div>
 
     <BaseResultLink
-      class="x-result__description x-list x-list--vertical x-text-neutral-90"
+      class="x-result__description x-list x-list--vertical"
       :class="$x.device === 'mobile' ? 'x-list--gap-01' : 'x-list--gap-02'"
       :result="result"
     >
-      <h2 class="x-title4 x-ellipsis x-uppercase x-m-0" data-test="result-title">
+      <h2 class="x-title4 x-ellipsis x-uppercase" data-test="result-title">
         {{ result.name }}
       </h2>
       <span v-if="showDescription" class="x-text2">{{ result.season }}</span>
