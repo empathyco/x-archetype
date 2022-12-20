@@ -6,7 +6,7 @@
         class="x-border-width--bottom-01 x-border-width--00 x-border-color--neutral-95"
       >
         <template #header>
-          <span class="x-font-size--05 x-font-weight--bold">{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="x-title3">{{ $t(`facets.${facet.label}`) }}</span>
           <FacetSelectedFilters :selectedFilters="selectedFilters" />
         </template>
         <template #default>

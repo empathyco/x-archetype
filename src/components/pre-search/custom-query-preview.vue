@@ -16,16 +16,11 @@
         "
       >
         <div :class="{ 'x-padding--left-05 x-padding--right-05': $x.device === 'mobile' }">
-          <h1 class="x-title1">{{ title }}</h1>
+          <h1 class="x-title1" :class="{ 'x-title1-sm': $x.device === 'mobile' }">{{ title }}</h1>
           <div class="x-list x-list--horizontal x-list--align-center">
-            <span
-              class="x-font-weight--bold x-list__item--expand"
-              :class="{ 'x-title3': $x.device === 'mobile' }"
-            >
+            <span class="x-title3 x-list__item--expand">
               {{ query }}
-              <span class="x-text" :class="{ 'x-small': $x.device === 'mobile' }">
-                ({{ totalResults }})
-              </span>
+              <span class="x-text1">({{ totalResults }})</span>
             </span>
             <BaseEventButton
               :events="getEvent(query)"

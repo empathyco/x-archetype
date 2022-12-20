@@ -5,7 +5,7 @@
     :class="{ 'x-padding--top-05': $x.device === 'desktop' }"
   >
     <h1
-      class="x-small x-text--bold x-uppercase"
+      class="x-title4 x-title4-sm x-uppercase"
       :class="{ 'x-padding--left-05': $x.device === 'mobile' }"
     >
       {{ $t('recommendations.title') }}

@@ -45,7 +45,7 @@
         </BaseIdModalOpen>
         <div v-if="showHistoryQueries" class="x-list x-list--gap-02">
           <div v-if="!$x.query.searchBox" class="x-list x-list--horizontal x-list--align-center">
-            <h1 class="x-small x-text--bold x-list__item--expand">
+            <h1 class="x-title4 x-title4-sm x-uppercase x-list__item--expand">
               {{ $t('historyQueries.title') }}
             </h1>
             <ClearHistoryQueries
@@ -102,7 +102,7 @@
           :class="{ 'x-padding--top-05': $x.query.searchBox && $x.device === 'desktop' }"
         >
           <h1
-            class="x-small x-text--bold"
+            class="x-title4 x-title4-sm x-uppercase"
             :class="{ 'x-padding--top-03 x-padding--bottom-03': $x.device === 'mobile' }"
           >
             {{ $t('nextQueries.title') }}
@@ -129,7 +129,7 @@
         </div>
 
         <div v-if="showPopularSearches" class="x-list x-list--gap-02">
-          <h1 class="x-small x-text--bold">
+          <h1 class="x-title4 x-title4-sm x-uppercase">
             {{ $t('popularSearches.title') }}
           </h1>
           <PopularSearches

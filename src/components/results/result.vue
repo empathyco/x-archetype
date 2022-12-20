@@ -28,19 +28,19 @@
     </div>
 
     <BaseResultLink
-      class="x-result__description x-list x-list--vertical"
+      class="x-result__description x-list x-list--vertical x-text-neutral-90"
       :class="$x.device === 'mobile' ? 'x-list--gap-01' : 'x-list--gap-02'"
       :result="result"
     >
-      <h2 class="x-small x-ellipsis x-uppercase" data-test="result-title">
+      <h2 class="x-title4 x-ellipsis x-uppercase x-m-0" data-test="result-title">
         {{ result.name }}
       </h2>
-      <span v-if="showDescription" class="x-text">{{ result.season }}</span>
+      <span v-if="showDescription" class="x-text2">{{ result.season }}</span>
       <div class="x-list x-list--horizontal x-list--wrap x-list--gap-03">
-        <BaseResultCurrentPrice :result="result" class="x-text x-text--bold" />
+        <BaseResultCurrentPrice :result="result" class="x-text2 x-text2-lg x-font-bold" />
         <BaseResultPreviousPrice
           :result="result"
-          class="x-text x-text--secondary x-text--light x-text--stroke"
+          class="x-text2 x-text-neutral-75 x-line-through"
         />
       </div>
     </BaseResultLink>

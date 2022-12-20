@@ -25,12 +25,12 @@
           $x.device === 'desktop' ? 'x-padding--left-07 x-padding--right-05' : 'x-padding--05'
         "
       >
-        <h2 class="x-title2 x-font-weight--bold x-font-color--neutral-10">
+        <h2 class="x-title3">
           {{ $t('myHistory.subtitle') }}
         </h2>
         <div
           v-html="$t('myHistory.message')"
-          class="x-list x-list--gap-05 x-title3 x-font-color--neutral-35"
+          class="x-list x-list--gap-05 x-text1-lg x-text-neutral-75"
         ></div>
       </div>
       <div
@@ -43,8 +43,8 @@
         :class="$x.device === 'desktop' ? 'x-padding--07' : 'x-padding--05'"
       >
         <div class="x-list__item x-list__item--expand x-list x-list--gap-02">
-          <span class="x-title3 x-font-weight--bold">{{ $t('myHistory.switch.title') }}</span>
-          <span class="x-font-color--neutral-35">
+          <span class="x-title3">{{ $t('myHistory.switch.title') }}</span>
+          <span class="x-text1 x-text1-lg x-text-neutral-75">
             {{
               areHistoryQueriesEnabled
                 ? $t('myHistory.switch.disable')
@@ -61,11 +61,7 @@
         >
           <template #date="{ date }">
             <div
-              class="
-                x-padding--top-05 x-padding--bottom-05
-                x-font-color--neutral-35
-                x-font-weight--bold
-              "
+              class="x-title4 x-title4-sm x-text-neutral-75 x-padding--top-05 x-padding--bottom-05"
               :class="$x.device === 'desktop' ? 'x-padding--07' : 'x-padding--05'"
             >
               {{ date }}
@@ -85,7 +81,7 @@
                   <HistoryIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
                   <div class="x-list x-list--gap-01">
                     <span>{{ suggestion.query }}</span>
-                    <span class="x-small x-font-color--neutral-35">
+                    <span class="x-text1 x-text-sm x-text-neutral-75">
                       {{ formatTime(suggestion.timestamp) }}
                     </span>
                   </div>
@@ -104,10 +100,8 @@
           />
           <span
             class="
-              x-title3
+              x-title3 x-text-neutral-75
               x-padding--05
-              x-font-weight--bold
-              x-font-color--neutral-35
               x-list x-list--justify-center x-list__item--expand
             "
           >

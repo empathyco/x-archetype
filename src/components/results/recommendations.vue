@@ -4,7 +4,7 @@
     class="x-list x-list--align-center x-list--padding-07 x-list--padding-bottom"
     :class="{ 'x-list--align-start': $x.device === 'mobile' }"
   >
-    <h1 class="x-title1" :class="{ 'x-padding--left-05': $x.device === 'mobile' }">
+    <h1 class="x-title1" :class="{ 'x-title1-sm x-padding--left-05': $x.device === 'mobile' }">
       {{ $t('recommendations.title') }}
     </h1>
     <Recommendations v-if="!$x.totalResults">

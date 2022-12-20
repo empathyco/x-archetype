@@ -4,7 +4,7 @@
     class="x-border-width--bottom-01 x-border-width--00 x-border-color--neutral-95"
   >
     <template #header>
-      <span class="x-font-size--05 x-font-weight--bold x-padding--bottom-02">
+      <span class="x-title3 x-padding--bottom-02">
         {{ $t('sort.label') }}
       </span>
       {{ $t(`sort.values.${$x.selectedSort || 'default'}`) }}

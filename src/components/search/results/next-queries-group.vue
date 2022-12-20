@@ -10,7 +10,8 @@
   >
     <p
       v-html="$t('nextQueriesGroup.message', { query: $x.query.search })"
-      :class="$x.device === 'mobile' ? 'x-text' : 'x-text x-font-size--05'"
+      class="x-text1"
+      :class="{ 'x-text1-lg': $x.device === 'desktop' }"
     />
     <BaseSuggestions
       #default="{ suggestion }"
@@ -30,7 +31,7 @@
       >
         <CuratedCheckIcon v-if="nextQuery.isCurated" class="x-font-color--accent" />
         <LightBulbOn v-else class="x-font-color--accent" />
-        <span class="x-text x-ellipsis x-flex-auto x-font-color--neutral-35">
+        <span class="x-text1 x-ellipsis x-flex-auto x-text-neutral-75">
           {{ nextQuery.query }}
         </span>
         <ArrowRightIcon class="x-icon--m x-font-color--accent" />

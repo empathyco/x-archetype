@@ -6,7 +6,8 @@
   >
     <span
       v-html="$t('totalResults.message', { totalResults: $x.totalResults, query })"
-      class="x-list__item--expand x-font-size--05"
+      class="x-text1 x-list__item--expand"
+      :class="{ 'x-text1-lg': $x.device === 'desktop' }"
     />
 
     <ColumnPicker data-test="column-picker" />
