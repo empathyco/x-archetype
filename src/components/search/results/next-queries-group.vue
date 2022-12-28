@@ -10,8 +10,7 @@
   >
     <p
       v-html="$t('nextQueriesGroup.message', { query: $x.query.search })"
-      class="x-text1"
-      :class="{ 'x-text1-lg': $x.device === 'desktop' }"
+      class="x-text1 desktop:x-text1-lg"
     />
     <BaseSuggestions
       #default="{ suggestion }"

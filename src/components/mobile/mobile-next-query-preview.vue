@@ -9,7 +9,11 @@
     "
     :suggestion="nextQuery"
   >
-    <i18n class="x-text1 x-next-query-preview__title" tag="span" path="nextQueryPreview.message">
+    <i18n
+      class="x-text1 x-text1-lg x-next-query-preview__title"
+      tag="span"
+      path="nextQueryPreview.message"
+    >
       <template #query>
         <span class="x-title3">{{ $x.query.nextQueries }}</span>
       </template>

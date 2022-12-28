@@ -1,2 +1,8 @@
 /** @type {import('@empathyco/x-tailwindcss').PluginOptions} */
-module.exports = {};
+module.exports = {
+  components() {
+    return {
+      '.suggestion': undefined
+    };
+  }
+};

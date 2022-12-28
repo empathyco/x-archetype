@@ -2,8 +2,7 @@
   <span
     v-if="$x.noResults"
     v-html="$t('noResults.message', { query: $x.query.search })"
-    class="x-text1 x-no-results-message x-message"
-    :class="{ 'x-text1-lg': $x.device === 'desktop' }"
+    class="x-text1 x-no-results-message x-message desktop:x-text1-lg"
   />
 </template>
 
