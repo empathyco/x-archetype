@@ -87,7 +87,12 @@ export function createConfig({
       vue(
         mergeConfig('vue', {
           css: false,
-          needMap: false
+          needMap: false,
+          template: {
+            compilerOptions: {
+              whitespace: 'condense'
+            }
+          }
         })
       ),
       typescript(
