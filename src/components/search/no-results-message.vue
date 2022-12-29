@@ -17,10 +17,6 @@
   .x-no-results-message {
     > span {
       width: 100%;
-
-      span {
-        word-wrap: break-word;
-      }
     }
   }
 </style>

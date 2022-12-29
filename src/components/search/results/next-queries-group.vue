@@ -28,12 +28,12 @@
           x-background--neutral-100
         "
       >
-        <CuratedCheckIcon v-if="nextQuery.isCurated" class="x-font-color--accent" />
-        <LightBulbOn v-else class="x-font-color--accent" />
+        <CuratedCheckIcon v-if="nextQuery.isCurated" class="x-text-auxiliary-50" />
+        <LightBulbOn v-else class="x-text-auxiliary-50" />
         <span class="x-text1 x-ellipsis x-flex-auto x-text-neutral-75">
           {{ nextQuery.query }}
         </span>
-        <ArrowRightIcon class="x-icon--m x-font-color--accent" />
+        <ArrowRightIcon class="x-icon--m x-text-auxiliary-50" />
       </NextQuery>
     </BaseSuggestions>
   </div>

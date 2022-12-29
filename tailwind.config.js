@@ -11,5 +11,8 @@ module.exports = {
   // You can check that tailwindcss is still working by checking the style of the heading `Test controls`
   // below the `Start` button on the `x-components` internal demo app.
   // See https://github.com/empathyco/x/pull/655#discussion_r948923711
-  corePlugins: ['fontSize', 'fontWeight', 'lineHeight', 'textColor', 'maxHeight', 'margin', "preflight"]
+  safelist: [
+    'x-break-words',
+  ],
+  corePlugins: ['fontSize', 'fontWeight', 'lineHeight', 'textColor', 'maxHeight', 'margin', "preflight", 'wordBreak']
 };

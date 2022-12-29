@@ -37,7 +37,7 @@
       </div>
       <NextQuery
         :suggestion="nextQuery"
-        class="x-margin--left-auto x-list x-list--gap-04 x-font-weight--bold"
+        class="x-margin--left-auto x-list x-list--gap-04 x-font-bold"
       >
         {{ $t('nextQueryPreview.viewResults') }}
         <ChevronRightIcon />

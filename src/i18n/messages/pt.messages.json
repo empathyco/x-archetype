@@ -90,10 +90,10 @@
       "addToCart": "ADICIONAR AO CARRINHO"
     },
     "spellcheck": {
-      "message": "Sem resultados encontrados para <span class=\"x-font-bold  x-text-auxiliary-50\">'{query}'</span>. Aqui estão os resultados para"
+      "message": "Sem resultados encontrados para <span class=\"x-font-bold  x-text-auxiliary-50 x-break-words\">'{query}'</span>. Aqui estão os resultados para"
     },
     "noResults": {
-      "message": "<span>Não encontramos resultados para<span class=\"x-font-bold\">\"{query}\"</span></span> Talvez você pode se interessar por esses produtos"
+      "message": "<span>Não encontramos resultados para<span class=\"x-font-bold x-break-words\">\"{query}\"</span></span> Talvez você pode se interessar por esses produtos"
     },
     "columnPicker": {
       "message": "Ver"

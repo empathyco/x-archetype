@@ -24,9 +24,7 @@
           x-background--accent
           x-border-radius--20
           x-padding--01 x-padding--right-03 x-padding--left-03
-          x-text--light
-          x-font-color--neutral-100
-          x-font-size--04
+          x-text-neutral-0 x-text-xs x-leading-[1.5]
         "
       >
         {{ $x.selectedFilters.length }}

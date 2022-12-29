@@ -11,7 +11,7 @@
           "
           modalId="my-history-aside"
         >
-          <ArrowLeftIcon class="x-icon--l x-font-color--neutral-100" />
+          <ArrowLeftIcon class="x-icon--l x-text-neutral-0" />
         </BaseIdModalClose>
         <h1 class="x-title2 x-title2-sm x-text-neutral-0 x-margin--right-auto">
           {{ $t('myHistory.title') }}

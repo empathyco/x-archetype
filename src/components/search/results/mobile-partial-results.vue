@@ -1,7 +1,9 @@
 <template>
   <PartialResultsList class="x-margin--bottom-06 x-list--gap-09">
     <template #default="{ partialResult }">
-      <div class="x-list x-list--horizontal x-list--align-center x-list--gap-02 x-padding--left-05">
+      <div
+        class="x-list x-list--horizontal x-list--align-baseline x-list--gap-02 x-padding--left-05"
+      >
         <span class="x-title3">
           {{
             $t('partialResults.query', {
