@@ -17,7 +17,7 @@
           <PartialResults v-if="$x.device === 'desktop'" />
           <MobilePartialResults v-else />
         </LocationProvider>
-        <LocationProvider v-if="$x.noResults && !$x.partialResults" location="no_results">
+        <LocationProvider v-if="$x.noResults && !$x.partialResults.length" location="no_results">
           <Recommendations />
         </LocationProvider>
       </template>

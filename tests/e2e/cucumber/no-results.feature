@@ -5,6 +5,7 @@ Feature: No-results component
     When  start button is clicked
     And   "<query>" is searched
     Then  no results message is displayed
+    And   recommendations are displayed
     And   there are no results
     Examples:
       | query    | view        |
