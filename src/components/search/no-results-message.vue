@@ -2,7 +2,7 @@
   <span
     v-if="$x.noResults"
     v-html="$t('noResults.message', { query: $x.query.search })"
-    class="x-text1 x-no-results-message x-message desktop:x-text1-lg"
+    class="x-text1 x-no-results-message x-message x-break-words desktop:x-text1-lg"
   />
 </template>
 

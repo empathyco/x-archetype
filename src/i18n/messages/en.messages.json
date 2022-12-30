@@ -93,10 +93,10 @@
       "addToCart": "ADD TO CART"
     },
     "spellcheck": {
-      "message": "No results found for <span class=\"x-font-bold x-text-auxiliary-50 x-break-words\">'{query}'</span>. We show you results for"
+      "message": "No results found for <span class=\"x-font-bold x-text-auxiliary-50 \">'{query}'</span>. We show you results for"
     },
     "noResults": {
-      "message": "<span>Sorry but there are no results for <span class=\"x-font-bold x-break-words\">\"{query}\"</span></span>You may be interested in these products"
+      "message": "<span>Sorry but there are no results for <span class=\"x-font-bold \">\"{query}\"</span></span>You may be interested in these products"
     },
     "columnPicker": {
       "message": "View"

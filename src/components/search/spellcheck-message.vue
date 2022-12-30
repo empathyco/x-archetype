@@ -1,7 +1,10 @@
 <template>
   <Spellcheck v-if="$x.totalResults > 0" #default="{ query }" class="x-message">
     <p>
-      <span v-html="$t('spellcheck.message', { query })" class="x-text1 desktop:x-text1-lg" />
+      <span
+        v-html="$t('spellcheck.message', { query })"
+        class="x-text1 x-break-words desktop:x-text1-lg"
+      />
       <SpellcheckButton class="x-button x-button-lead x-button-tight" />
     </p>
   </Spellcheck>
