@@ -4,20 +4,20 @@
     class="x-list x-background--neutral-95 x-list--gap-05 x-padding--06"
     :suggestion="nextQuery"
   >
-    <i18n class="x-title3" tag="span" path="nextQueryPreview.message">
+    <i18n class="x-text1 x-text1-lg" tag="span" path="nextQueryPreview.message">
       <template #query>
-        <span class="x-text x-text--bold x-title3">{{ $x.query.nextQueries }}</span>
+        <span class="x-title3">{{ $x.query.nextQueries }}</span>
       </template>
     </i18n>
-    <div class="x-list x-list--horizontal x-list--align-center x-list--gap-02">
-      <span class="x-title3 x-font-weight--bold">
+    <div class="x-list x-list--horizontal x-list--align-baseline x-list--gap-02">
+      <span class="x-title3">
         {{
           $t('nextQueryPreview.query', {
             query: suggestion.query
           })
         }}
       </span>
-      <span class="x-text">
+      <span class="x-text1">
         {{
           $t('nextQueryPreview.totalResults', {
             totalResults: totalResults
@@ -37,7 +37,7 @@
       :suggestion="nextQuery"
       class="
         x-tag x-tag--pill
-        x-font-weight--bold
+        x-font-bold
         x-margin--left-auto x-margin--right-auto x-margin--top-03
         x-padding--top-04 x-padding--bottom-04 x-padding--right-05 x-padding--left-05
       "

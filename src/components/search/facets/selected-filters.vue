@@ -19,12 +19,13 @@
               x-tag x-tag--pill x-tag--ghost
               x-background--auxiliary
               x-padding--04 x-padding--top-03 x-padding--bottom-03
+              x-text-auxiliary-50
             "
             :filter="filter"
           >
             <template #label="{ filter }">
-              <span class="x-text x-text--bold x-font-color--accent">{{ filter.label }}</span>
-              <CrossTinyIcon class="x-font-color--accent" />
+              <span class="x-title4">{{ filter.label }}</span>
+              <CrossTinyIcon />
             </template>
           </SimpleFilter>
         </template>
@@ -35,12 +36,13 @@
               x-tag x-tag--pill x-tag--ghost
               x-background--auxiliary
               x-padding--04 x-padding--top-03 x-padding--bottom-03
+              x-text-auxiliary-50
             "
             :filter="filter"
           >
             <template #label="{ filter }">
-              <PriceFilterLabel class="x-text x-text--bold x-font-color--accent" :filter="filter" />
-              <CrossTinyIcon class="x-font-color--accent" />
+              <PriceFilterLabel class="x-title4" :filter="filter" />
+              <CrossTinyIcon />
             </template>
           </NumberRangeFilter>
         </template>

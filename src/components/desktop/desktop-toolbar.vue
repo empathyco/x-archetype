@@ -6,7 +6,7 @@
   >
     <span
       v-html="$t('totalResults.message', { totalResults: $x.totalResults, query })"
-      class="x-list__item--expand x-font-size--05"
+      class="x-text1 x-text1-lg x-list__item--expand"
     />
 
     <ColumnPicker data-test="column-picker" />
@@ -24,9 +24,7 @@
           x-background--accent
           x-border-radius--20
           x-padding--01 x-padding--right-03 x-padding--left-03
-          x-text--light
-          x-font-color--neutral-100
-          x-font-size--04
+          x-text-neutral-0 x-text-xs x-leading-[1.5]
         "
       >
         {{ $x.selectedFilters.length }}

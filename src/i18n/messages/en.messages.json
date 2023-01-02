@@ -5,17 +5,17 @@
       "placeholder": "What are you looking for?"
     },
     "popularSearches": {
-      "title": "POPULAR SEARCHES"
+      "title": "Popular Searches"
     },
     "historyQueries": {
       "clear": "Clear all",
       "removeLabel": "Remove {suggestion} from history queries",
-      "title": "HISTORY QUERIES"
+      "title": "History Queries"
     },
     "myHistory": {
       "title": "My History",
       "subtitle": "This is the complete list of history queries",
-      "message": "<span>This data are stored locally. Just in your device and never travel outside of it.</span><span>You can disable the history queries whenever you want.</span><span class=\"x-font-color--neutral-10 x-font-weight--bold\">Your privacy under your control.</span>",
+      "message": "<span>This data are stored locally. Just in your device and never travel outside of it.</span><span>You can disable the history queries whenever you want.</span><span class=\"x-title3\">Your privacy under your control.</span>",
       "noHistory": "No history activity to show",
       "openButton": "My History",
       "switch": {
@@ -31,10 +31,10 @@
       }
     },
     "nextQueries": {
-      "title": "WHAT'S NEXT"
+      "title": "What's Next"
     },
     "nextQueriesGroup": {
-      "message": "Those who searched for <span class=\"x-text x-text--bold x-font-size--05\">\"{query}\"</span> also viewed:"
+      "message": "Those who searched for <span class=\"x-title3\">\"{query}\"</span> also viewed:"
     },
     "nextQueryPreview": {
       "message": "Those who searched for {query} also viewed:",
@@ -76,7 +76,7 @@
       "showAside": "Sort & Filter"
     },
     "totalResults": {
-      "message": "{totalResults} results for <span class=\"x-text x-text--bold x-font-size--05\">{query}</span>"
+      "message": "{totalResults} results for <span class=\"x-title3\">{query}</span>"
     },
     "sort": {
       "label": "Sort by",
@@ -93,10 +93,10 @@
       "addToCart": "ADD TO CART"
     },
     "spellcheck": {
-      "message": "No results found for <span class=\"x-text x-text--accent x-text--bold\">'{query}'</span>. We show you results for"
+      "message": "No results found for <span class=\"x-font-bold x-text-auxiliary-50 \">'{query}'</span>. We show you results for"
     },
     "noResults": {
-      "message": "<span>Sorry but there are no results for <span class=\"x-text x-font-color--neutral-10 x-text--bold x-font-size--05\">\"{query}\"</span></span>You may be interested in these products"
+      "message": "<span>Sorry but there are no results for <span class=\"x-font-bold \">\"{query}\"</span></span>You may be interested in these products"
     },
     "columnPicker": {
       "message": "View"
@@ -107,13 +107,10 @@
   },
   "mobile": {
     "nextQueriesGroup": {
-      "message": "Those who searched for <span class=\"x-text x-text--bold\">\"{query}\"</span> also viewed:"
+      "message": "Those who searched for <span class=\"x-title3\">\"{query}\"</span> also viewed:"
     },
     "nextQueryPreview": {
       "viewResults": "View all"
-    },
-    "noResults": {
-      "message": "<span>Sorry but there are no results for <span class=\"x-text x-font-color--neutral-10 x-text--bold\">\"{query}\"</span></span>You may be interested in these products"
     },
     "totalResults": {
       "message": "{totalResults} results"

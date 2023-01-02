@@ -4,7 +4,7 @@
     class="
       x-small
       x-background--accent
-      x-font-color--neutral-100
+      x-text-neutral-0
       x-border-radius--20
       x-padding--01 x-padding--right-03 x-padding--left-03
     "

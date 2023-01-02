@@ -2,8 +2,7 @@
   <span
     v-if="$x.noResults"
     v-html="$t('noResults.message', { query: $x.query.search })"
-    class="x-no-results-message x-message x-text"
-    :class="{ 'x-font-size--05': $x.device === 'desktop' }"
+    class="x-text1 x-no-results-message x-message x-break-words desktop:x-text1-lg"
   />
 </template>
 
@@ -18,10 +17,6 @@
   .x-no-results-message {
     > span {
       width: 100%;
-
-      .x-text {
-        word-wrap: break-word;
-      }
     }
   }
 </style>

@@ -9,7 +9,7 @@
       v-if="$x.selectedFilters.length > 0"
       class="
         x-background--neutral-100
-        x-font-color--lead
+        x-text-lead-50
         x-border-radius--20
         x-padding--01 x-padding--right-03 x-padding--left-03
       "

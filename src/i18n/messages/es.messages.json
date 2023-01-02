@@ -5,17 +5,17 @@
       "placeholder": "¿Qué estás buscando?"
     },
     "popularSearches": {
-      "title": "BÚSQUEDAS POPULARES"
+      "title": "Búsquedas Populares"
     },
     "historyQueries": {
       "clear": "Limpiar historial",
       "removeLabel": "Borrar {suggestion} del historial",
-      "title": "HISTORIAL"
+      "title": "Historial"
     },
     "myHistory": {
       "title": "Mi Historial",
       "subtitle": "Este es tu historial de búsqueda",
-      "message": "<span>Los datos se guardan en local. Solo están en tu dispositivo y nunca salen de ahí.</span><span>Puedes desactivar el historial de búsqueda cuando quieras.</span><span class=\"x-font-color--neutral-10 x-font-weight--bold\">Tu privacidad bajo tu control.</span>",
+      "message": "<span>Los datos se guardan en local. Solo están en tu dispositivo y nunca salen de ahí.</span><span>Puedes desactivar el historial de búsqueda cuando quieras.</span><span class=\"x-title3\">Tu privacidad bajo tu control.</span>",
       "noHistory": "No hay historial de búsqueda para mostrar",
       "openButton": "Mi Historial",
       "switch": {
@@ -31,10 +31,10 @@
       }
     },
     "nextQueries": {
-      "title": "QUIZÁS TE INTERESE"
+      "title": "Quizás te Interese"
     },
     "nextQueriesGroup": {
-      "message": "Los que buscaron <span class=\"x-text x-text--bold x-font-size--05\">\"{query}\"</span> también han visto:"
+      "message": "Los que buscaron <span class=\"x-title3\">\"{query}\"</span> también han visto:"
     },
     "nextQueryPreview": {
       "message": "Los que buscaron {query} también han visto:",
@@ -73,7 +73,7 @@
       "showAside": "Ordenar y Filtrar"
     },
     "totalResults": {
-      "message": "{totalResults} resultados para <span class=\"x-text x-text--bold x-font-size--05\">{query}</span>"
+      "message": "{totalResults} resultados para <span class=\"x-title3\">{query}</span>"
     },
     "sort": {
       "label": "Ordenar por",
@@ -90,10 +90,10 @@
       "addToCart": "AÑADIR AL CARRITO"
     },
     "spellcheck": {
-      "message": "No se han encontrado resultados para <span class=\"x-text--accent\">'{query}'</span>. Aquí tienes resultados para"
+      "message": "No se han encontrado resultados para <span class=\"x-font-bold x-text-auxiliary-50 \">'{query}'</span>. Aquí tienes resultados para"
     },
     "noResults": {
-      "message": "<span>No se han encontrado resultados para <span class=\"x-text x-font-color--neutral-10 x-text--bold x-font-size--05\">\"{query}\"</span></span>Quizás te interesen estos productos"
+      "message": "<span>No se han encontrado resultados para <span class=\"x-font-bold \">\"{query}\"</span></span>Quizás te interesen estos productos"
     },
     "columnPicker": {
       "message": "Ver"
@@ -104,13 +104,10 @@
   },
   "mobile": {
     "nextQueriesGroup": {
-      "message": "Los que buscaron <span class=\"x-text x-text--bold\">\"{query}\"</span> también han visto:"
+      "message": "Los que buscaron <span class=\"x-title3\">\"{query}\"</span> también han visto:"
     },
     "nextQueryPreview": {
       "viewResults": "Ver todos"
-    },
-    "noResults": {
-      "message": "<span>No se han encontrado resultados para <span class=\"x-text x-font-color--neutral-10 x-text--bold\">\"{query}\"</span></span>Quizás te interesen estos productos"
     },
     "totalResults": {
       "message": "{totalResults} resultados"

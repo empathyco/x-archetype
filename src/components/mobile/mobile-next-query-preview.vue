@@ -9,21 +9,25 @@
     "
     :suggestion="nextQuery"
   >
-    <i18n class="x-title3 x-next-query-preview__title" tag="span" path="nextQueryPreview.message">
+    <i18n
+      class="x-text1 x-text1-lg x-next-query-preview__title"
+      tag="span"
+      path="nextQueryPreview.message"
+    >
       <template #query>
-        <span class="x-text x-text--bold x-title3">{{ $x.query.nextQueries }}</span>
+        <span class="x-title3">{{ $x.query.nextQueries }}</span>
       </template>
     </i18n>
     <div class="x-next-query-preview__header x-list x-list--horizontal x-list--align-center">
       <div class="x-list x-list--horizontal x-list--align-baseline x-list--gap-02">
-        <span class="x-title3 x-font-weight--bold">
+        <span class="x-title3">
           {{
             $t('nextQueryPreview.query', {
               query: suggestion.query
             })
           }}
         </span>
-        <span class="x-text x-font-size--04">
+        <span class="x-text1">
           {{
             $t('nextQueryPreview.totalResults', {
               totalResults: totalResults
@@ -33,7 +37,7 @@
       </div>
       <NextQuery
         :suggestion="nextQuery"
-        class="x-margin--left-auto x-list x-list--gap-04 x-font-weight--bold"
+        class="x-margin--left-auto x-list x-list--gap-04 x-font-bold"
       >
         {{ $t('nextQueryPreview.viewResults') }}
         <ChevronRightIcon />

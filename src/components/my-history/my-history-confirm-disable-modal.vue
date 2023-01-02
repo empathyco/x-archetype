@@ -17,8 +17,8 @@
           : 'x-padding--10'
       "
     >
-      <h1 class="x-title3 x-text--bold">{{ $t('myHistory.confirmDisableModal.title') }}</h1>
-      <span class="x-font-color--neutral-35">
+      <h1 class="x-title3">{{ $t('myHistory.confirmDisableModal.title') }}</h1>
+      <span class="x-text1 x-text1-lg x-text-neutral-75">
         {{ $t('myHistory.confirmDisableModal.message') }}
       </span>
       <div

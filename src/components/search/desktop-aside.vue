@@ -8,7 +8,7 @@
         x-padding--06 x-padding--right-09 x-padding--left-08
       "
     >
-      <span class="x-title2 x-font-color--neutral-10 x-font-weight--bold x-margin--right-auto">
+      <span class="x-title2 x-margin--right-auto">
         {{ $t('facetsPanel.title') }}
       </span>
       <BaseIdModalClose class="x-button-lead x-button-circle x-button-ghost" modalId="right-aside">
