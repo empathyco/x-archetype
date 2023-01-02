@@ -81,7 +81,7 @@
                   <HistoryIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
                   <div class="x-list x-list--gap-01">
                     <span>{{ suggestion.query }}</span>
-                    <span class="x-text1 x-text-sm x-text-neutral-75">
+                    <span class="x-text1 x-text1-sm x-text-neutral-75">
                       {{ formatTime(suggestion.timestamp) }}
                     </span>
                   </div>

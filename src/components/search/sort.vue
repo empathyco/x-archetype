@@ -18,7 +18,7 @@
         <template #default="{ item, isSelected }">
           <RadioButtonSelectedIcon v-if="isSelected" class="x-icon--l" />
           <RadioButtonUnselectedIcon v-else class="x-icon--l" />
-          <span class="x-text-neutral-90" :class="{ 'x-text--bold': isSelected }">
+          <span class="x-text-neutral-90" :class="{ 'x-font-bold': isSelected }">
             {{ $t(`sort.values.${item || 'default'}`) }}
           </span>
         </template>

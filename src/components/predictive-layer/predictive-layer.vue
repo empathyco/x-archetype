@@ -14,8 +14,8 @@
       >
         <BaseResultLink v-slot="{ result }" :result="identifierResult" class="x-suggestion">
           <BarCodeIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
-          <IdentifierResult :result="result" class="x-text x-text--bold" />
-          <span class="x-text x-text--bold x-ellipsis">
+          <IdentifierResult :result="result" class="x-text x-font-bold" />
+          <span class="x-text x-font-bold x-ellipsis">
             {{ result.name }}
           </span>
         </BaseResultLink>
