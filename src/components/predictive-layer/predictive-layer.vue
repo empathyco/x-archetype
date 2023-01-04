@@ -70,11 +70,7 @@
           >
             <template #suggestion-content="{ suggestion, query }">
               <HistoryIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
-              <Highlight
-                :text="suggestion.query"
-                :highlight="query"
-                matchingPartClass="x-font-bold"
-              />
+              <Highlight :text="suggestion.query" :highlight="query" />
             </template>
 
             <template #suggestion-remove-content="{ suggestion }">
@@ -97,11 +93,7 @@
         >
           <template #suggestion-content="{ suggestion, query }">
             <SearchIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
-            <Highlight
-              :text="suggestion.query"
-              :highlight="query"
-              matchingPartClass="x-font-bold"
-            />
+            <Highlight :text="suggestion.query" :highlight="query" />
           </template>
         </QuerySuggestions>
 
