@@ -2,7 +2,8 @@
 module.exports = {
   components() {
     return {
-      '.suggestion': undefined
+      '.suggestion': undefined,
+      '.suggestion-group': undefined
     };
   },
   theme: {
