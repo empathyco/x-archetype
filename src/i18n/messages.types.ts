@@ -19,6 +19,7 @@ export interface Messages {
     message: string;
     noHistory: string;
     openButton: string;
+    suggestionResults: string;
     switch: {
       title: string;
       enable: string;
