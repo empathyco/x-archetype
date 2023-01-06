@@ -83,7 +83,7 @@
     "rollup-plugin-terser": "~7.0.2",
     "rollup-plugin-typescript2": "~0.31.2",
     "rollup-plugin-visualizer": "~5.5.4",
-    "rollup-plugin-vue": "~5.1.9",
+    "rollup-plugin-vue": "~6.0.0",
     "sass": "~1.49.7",
     "sass-loader": "~8.0.0",
     "source-map-loader": "~1.1.3",
