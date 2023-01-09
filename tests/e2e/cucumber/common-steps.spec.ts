@@ -37,6 +37,11 @@ When('facets are hidden if shown on {string}', (view: ViewportPreset) => {
   }
 });
 
+// Navigation
+When('navigating back', () => {
+  cy.go('back');
+});
+
 // Requests
 Then('search request contains the origin {string} in the URL', (origin: string) => {
   cy.wait('@interceptedResults').its('request.url').should('contain', `origin=${origin}`);
@@ -44,7 +49,6 @@ Then('search request contains the origin {string} in the URL', (origin: string) 
 
 // Results
 Then('related results are displayed', () => {
-  cy.getByDataTest('search-grid-result').first().scrollIntoView();
   cy.getByDataTest('search-grid-result')
     .should('be.visible')
     .should('have.length.at.least', 1)
