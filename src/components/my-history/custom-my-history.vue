@@ -83,6 +83,14 @@
                     <span>{{ suggestion.query }}</span>
                     <span class="x-text1 x-text1-sm x-text-neutral-75">
                       {{ formatTime(suggestion.timestamp) }}
+                      <template v-if="suggestion.totalResults !== undefined">
+                        -
+                        {{
+                          $t('myHistory.suggestionResults', {
+                            totalResults: suggestion.totalResults
+                          })
+                        }}
+                      </template>
                     </span>
                   </div>
                 </div>

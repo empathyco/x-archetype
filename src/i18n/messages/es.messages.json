@@ -18,6 +18,7 @@
       "message": "<span>Los datos se guardan en local. Solo están en tu dispositivo y nunca salen de ahí.</span><span>Puedes desactivar el historial de búsqueda cuando quieras.</span><span class=\"x-title3\">Tu privacidad bajo tu control.</span>",
       "noHistory": "No hay historial de búsqueda para mostrar",
       "openButton": "Mi Historial",
+      "suggestionResults": "({totalResults} resultados)",
       "switch": {
         "title": "Historial de búsqueda",
         "enable": "Activar",

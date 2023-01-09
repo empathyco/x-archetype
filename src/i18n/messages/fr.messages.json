@@ -18,6 +18,7 @@
       "message": "<span>Ces données sont stockées localement. Juste dans votre appareil et ne voyagez jamais en dehors de celui-ci.</span><span>Vous pouvez désactiver les requêtes d'historique quand vous le souhaitez.</span><span class=\"x-title3\">Votre vie privée sous votre contrôle.</span>",
       "noHistory": "Aucune activité d'historique à afficher",
       "openButton": "Mon histoire",
+      "suggestionResults": "({totalResults} résultats)",
       "switch": {
         "title": "Requêtes d'historique",
         "enable": "Activer",
