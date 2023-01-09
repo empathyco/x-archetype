@@ -18,6 +18,7 @@
       "message": "<span>Seus dados são salvos localmente. Ficam apenas em seu dispositivo e não são compartilhados externamente.</span><span> Você pode desativar o seu histórico de buscas sempre que desejar.</span><span class=\"x-title3\">Sua privacidade sob seu controle.</span>",
       "noHistory": "Não há histórico de buscas para mostrar",
       "openButton": "Meu histórico",
+      "suggestionResults": "({totalResults} resultados)",
       "switch": {
         "title": "Histórico de buscas",
         "enable": "Ativo",

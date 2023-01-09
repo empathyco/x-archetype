@@ -18,6 +18,7 @@
       "message": "<span>This data are stored locally. Just in your device and never travel outside of it.</span><span>You can disable the history queries whenever you want.</span><span class=\"x-title3\">Your privacy under your control.</span>",
       "noHistory": "No history activity to show",
       "openButton": "My History",
+      "suggestionResults": "({totalResults} results)",
       "switch": {
         "title": "History Queries",
         "enable": "Enable",
