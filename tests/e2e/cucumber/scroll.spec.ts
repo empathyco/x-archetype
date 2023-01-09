@@ -23,7 +23,3 @@ When('scroll to top is clicked', () => {
 Then('scroll position is at top', () => {
   cy.url().should('not.contain', 'scroll');
 });
-
-Then('{string} pdp link is clicked', (resultId: string) => {
-  cy.get(`[data-scroll=${resultId}]`).click();
-});

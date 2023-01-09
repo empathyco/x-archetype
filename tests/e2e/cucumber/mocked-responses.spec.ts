@@ -29,11 +29,7 @@ Given('a results API with known results', () => {
     'interceptedResults'
   );
 });
-Given('a results API with known results', () => {
-  cy.intercept(searchEndpoint, { fixture: 'search-response-with-known-results' }).as(
-    'interceptedResults'
-  );
-});
+
 // Tagging
 Given('a query tagging API', () => {
   cy.intercept(`${trackEndpoint}/query*`).as('queryTagging');
