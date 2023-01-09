@@ -3,7 +3,7 @@
     <BaseResultLink class="x-result__picture" :result="result">
       <BaseResultImage
         :result="result"
-        :animation="imageAnimation"
+        :loadAnimation="imageAnimation"
         class="x-picture--fixed-ratio x-picture--zoom"
       >
         <template #placeholder>

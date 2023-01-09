@@ -68,9 +68,9 @@
               $x.device === 'mobile' ? 'x-list--gap-03' : 'x-list--gap-02 x-list--align-start'
             "
           >
-            <template #suggestion-content="{ queryHTML }">
+            <template #suggestion-content="{ suggestion, query }">
               <HistoryIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
-              <span v-html="queryHTML" />
+              <Highlight :text="suggestion.query" :highlight="query" />
             </template>
 
             <template #suggestion-remove-content="{ suggestion }">
@@ -86,14 +86,15 @@
 
         <QuerySuggestions
           v-if="showQuerySuggestions"
-          #suggestion-content="{ queryHTML }"
           :animation="suggestionsAnimation"
           :max-items-to-render="5"
           class="x-row__item x-row__item--span-4 x-list"
           :class="$x.device === 'mobile' ? 'x-list--gap-03' : 'x-list--gap-02'"
         >
-          <SearchIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
-          <span v-html="queryHTML" />
+          <template #suggestion-content="{ suggestion, query }">
+            <SearchIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
+            <Highlight :text="suggestion.query" :highlight="query" />
+          </template>
         </QuerySuggestions>
 
         <div
@@ -175,6 +176,7 @@
     BaseResultLink,
     CrossTinyIcon,
     CuratedCheckIcon,
+    Highlight,
     HistoryIcon,
     LightBulbOn,
     SearchIcon,
@@ -203,6 +205,7 @@
       CrossTinyIcon,
       CuratedCheckIcon,
       Empathize,
+      Highlight,
       HistoryIcon,
       HistoryQueries,
       IdentifierResults,
