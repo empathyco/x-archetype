@@ -37,7 +37,7 @@
       </div>
     </template>
 
-    <template #sub-header v-if="!$x.redirections.length">
+    <template #sub-header v-if="!$x.redirections.length && hasSearched">
       <LocationProvider location="results">
         <SpellcheckMessage class="x-margin--bottom-05" data-test="spellcheck-message" />
       </LocationProvider>
