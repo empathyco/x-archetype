@@ -54,7 +54,10 @@
         </div>
         <HistoryQueriesSwitch />
       </div>
-      <div class="x-list x-list__item--expand x-border-color--neutral-95 x-border-width--top-01">
+      <div
+        class="x-list x-list__item--expand x-border-color--neutral-95 x-border-width--top-01"
+        :class="$x.device === 'desktop' ? 'x-padding--left-07' : 'x-padding--left-05'"
+      >
         <MyHistory
           v-if="areHistoryQueriesEnabled && $x.fullHistoryQueries.length"
           :animation="animation"
@@ -62,7 +65,6 @@
           <template #date="{ date }">
             <div
               class="x-title4 x-title4-sm x-text-neutral-75 x-padding--top-05 x-padding--bottom-05"
-              :class="$x.device === 'desktop' ? 'x-padding--07' : 'x-padding--05'"
             >
               {{ date }}
             </div>
