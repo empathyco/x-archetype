@@ -75,7 +75,6 @@
 
             <template #suggestion-remove-content="{ suggestion }">
               <span
-                class="x-list"
                 :aria-label="$t('historyQueries.removeLabel', { suggestion: suggestion.query })"
               >
                 <CrossTinyIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
@@ -265,16 +264,7 @@
   }
 </script>
 <style lang="scss">
-  .x-clear-history-queries {
-    --x-size-height-button-default: 0;
-  }
   .x-result-link:focus > * {
     outline: -webkit-focus-ring-color auto 1px;
-  }
-
-  // TODO: Remove when implementing XDS suggestions in the archetype
-  .x-history-query__remove {
-    @apply x-button-ghost;
-    min-height: auto;
   }
 </style>
