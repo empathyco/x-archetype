@@ -16,7 +16,11 @@ export interface Messages {
   myHistory: {
     title: string;
     subtitle: string;
-    message: string;
+    message: {
+      header: string;
+      body: string;
+      footer: string;
+    };
     noHistory: string;
     openButton: string;
     suggestionResults: string;

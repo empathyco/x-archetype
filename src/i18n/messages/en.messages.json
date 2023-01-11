@@ -15,7 +15,11 @@
     "myHistory": {
       "title": "My History",
       "subtitle": "This is the complete list of history queries",
-      "message": "<span>This data are stored locally. Just in your device and never travel outside of it.</span><span>You can disable the history queries whenever you want.</span><span class=\"x-title3\">Your privacy under your control.</span>",
+      "message": {
+        "header": "This data is stored locally. Just in your device and never travel outside of it.",
+        "body": "You can disable the history queries whenever you want.",
+        "footer": "Your privacy under your control."
+      },
       "noHistory": "No history activity to show",
       "openButton": "My History",
       "suggestionResults": "({totalResults} results)",
@@ -35,7 +39,7 @@
       "title": "What's Next"
     },
     "nextQueriesGroup": {
-      "message": "Those who searched for <span class=\"x-title3\">\"{query}\"</span> also viewed:"
+      "message": "Those who searched for {query} also viewed:"
     },
     "nextQueryPreview": {
       "message": "Those who searched for {query} also viewed:",
@@ -77,7 +81,7 @@
       "showAside": "Sort & Filter"
     },
     "totalResults": {
-      "message": "{totalResults} results for <span class=\"x-title3\">{query}</span>"
+      "message": "{totalResults} results for {query}"
     },
     "sort": {
       "label": "Sort by",
@@ -97,7 +101,7 @@
       "message": "No results found for <span class=\"x-font-bold x-text-auxiliary-50 \">'{query}'</span>. We show you results for"
     },
     "noResults": {
-      "message": "<span>Sorry but there are no results for <span class=\"x-font-bold \">\"{query}\"</span></span>You may be interested in these products"
+      "message": "Sorry but there are no results for {query}You may be interested in these products"
     },
     "columnPicker": {
       "message": "View"
@@ -108,7 +112,7 @@
   },
   "mobile": {
     "nextQueriesGroup": {
-      "message": "Those who searched for <span class=\"x-title3\">\"{query}\"</span> also viewed:"
+      "message": "Those who searched for {query} also viewed:"
     },
     "nextQueryPreview": {
       "viewResults": "View all"

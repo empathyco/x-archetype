@@ -4,10 +4,16 @@
     class="x-list x-list--horizontal x-list--gap-06 x-list--justify-end x-list--align-center"
     data-test="total-results"
   >
-    <span
-      v-html="$t('totalResults.message', { totalResults: $x.totalResults, query })"
-      class="x-text1 x-text1-lg x-list__item--expand"
-    />
+    <i18n class="x-text1 x-text1-lg x-list__item--expand" path="totalResults.message" tag="span">
+      <template #totalResults>
+        {{ $x.totalResults }}
+      </template>
+      <template #query>
+        <span class="x-title3">
+          {{ query }}
+        </span>
+      </template>
+    </i18n>
 
     <ColumnPicker data-test="column-picker" />
 
