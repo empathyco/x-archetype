@@ -39,6 +39,7 @@ Feature: Predictive components
     Given start page with "<view>" size view
     When  start button is clicked
     Given a "<list>" of queries already searched
+    And   an empty search-box
     When  focus is set on the search input
     And   history queries are displayed
     And   history query number <historyQueryItem> delete button is clicked
@@ -52,6 +53,7 @@ Feature: Predictive components
     Given start page with "<view>" size view
     When  start button is clicked
     Given a "<list>" of queries already searched
+    And   an empty search-box
     When  focus is set on the search input
     And   clear history queries button is clicked
     Then  no history queries are displayed
