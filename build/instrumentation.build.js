@@ -12,6 +12,7 @@ import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 import visualizer from 'rollup-plugin-visualizer';
 import vue from 'rollup-plugin-vue';
+import * as fs from 'fs';
 
 const jsOutputDirectory = path.join(process.cwd(), 'dist');
 
@@ -121,6 +122,11 @@ export function createConfig({
       htmlTemplate(
         mergeConfig('htmlTemplate', {
           template: path.resolve(process.cwd(), 'public/index.html'),
+          replaceVars: {
+            '<%= htmlWebpackPlugin.options.__injectedHome__ %>': fs.readFileSync(
+              'node_modules/@empathyco/x-archetype-utils/dist/home/home-template.html'
+            )
+          },
           attrs: ["type='module'"]
         })
       ),
