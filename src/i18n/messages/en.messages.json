@@ -98,7 +98,7 @@
       "addToCart": "ADD TO CART"
     },
     "spellcheck": {
-      "message": "No results found for <span class=\"x-font-bold x-text-auxiliary-50 \">'{query}'</span>. We show you results for"
+      "message": "No results found for '{query}'. We show you results for"
     },
     "noResults": {
       "message": "Sorry but there are no results for {query}You may be interested in these products"
