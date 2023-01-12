@@ -1,9 +1,15 @@
 <template>
-  <span
+  <i18n
     v-if="$x.noResults"
-    v-html="$t('noResults.message', { query: $x.query.search })"
     class="x-text1 x-no-results-message x-message x-break-words desktop:x-text1-lg"
-  />
+    path="noResults.message"
+  >
+    <template #query>
+      <span class="x-font-bold">
+        {{ $x.query.search }}
+      </span>
+    </template>
+  </i18n>
 </template>
 
 <script lang="ts">
