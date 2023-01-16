@@ -1,5 +1,5 @@
 <template>
-  <Empathize v-if="showEmpathize" :animation="empathizeAnimation" class="x-list">
+  <Empathize :animation="empathizeAnimation" class="x-list">
     <BaseKeyboardNavigation
       class="x-row x-row--gap-06 x-row--align-start"
       :navigationHijacker="navigationHijacker"
@@ -22,7 +22,7 @@
       </IdentifierResults>
 
       <div
-        v-else
+        v-else-if="showEmpathize"
         class="x-row__item x-list x-padding--05"
         :class="[
           $x.query.searchBox
@@ -258,7 +258,6 @@
 
     public get showEmpathize(): boolean {
       return (
-        this.showIdentifierResults ||
         this.showHistoryQueries ||
         this.showQuerySuggestions ||
         this.showNextQueries ||
