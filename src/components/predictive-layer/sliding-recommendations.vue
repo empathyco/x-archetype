@@ -1,15 +1,13 @@
 <template>
-  <div
-    v-if="$x.recommendations.length > 0"
-    class="x-list x-list--gap-04"
-    :class="{ 'x-padding--top-05': $x.device === 'desktop' }"
-  >
-    <h1
-      class="x-title4 x-title4-sm x-uppercase"
-      :class="{ 'x-padding--left-05': $x.device === 'mobile' }"
-    >
-      {{ $t('recommendations.title') }}
-    </h1>
+  <div v-if="$x.recommendations.length > 0" class="x-list x-list--gap-04">
+    <div class="x-pt-16">
+      <h1
+        class="x-title4 x-title4-sm x-uppercase x-flex x-items-center x-h-32"
+        :class="{ 'x-padding--left-05': $x.device === 'mobile' }"
+      >
+        {{ $t('recommendations.title') }}
+      </h1>
+    </div>
     <SlidingPanel
       class="x-sliding-panel--show-buttons-on-hover"
       :showButtons="true"

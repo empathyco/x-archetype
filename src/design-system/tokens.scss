@@ -103,11 +103,6 @@
 
   // My History
   .x-my-history-queries {
-    --x-size-padding-top-suggestion-group-default: 0px;
-    --x-size-padding-bottom-suggestion-group-default: 0px;
-    --x-size-padding-left-suggestion-group-default: var(--x-size-base-07);
-    --x-size-padding-right-suggestion-group-default: var(--x-size-base-07);
-
     .x-button {
       --x-color-text-button-default: var(--x-color-base-neutral-10);
     }
@@ -129,10 +124,5 @@
 
     // Options list
     --x-font-decoration-option-list-button-default-hover: none;
-
-    .x-my-history-queries {
-      --x-size-padding-left-suggestion-group-default: var(--x-size-base-05);
-      --x-size-padding-right-suggestion-group-default: var(--x-size-base-05);
-    }
   }
 }

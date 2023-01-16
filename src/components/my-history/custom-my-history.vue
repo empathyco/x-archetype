@@ -77,7 +77,7 @@
                   @keyup.enter="closeModal"
                   class="
                     x-list x-list--horizontal x-list--gap-05
-                    x-padding--bottom-04 x-padding--top-04
+                    x-padding--bottom-02 x-padding--top-02
                   "
                 >
                   <HistoryIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
