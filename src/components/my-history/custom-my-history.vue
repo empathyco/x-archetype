@@ -28,10 +28,18 @@
         <h2 class="x-title3">
           {{ $t('myHistory.subtitle') }}
         </h2>
-        <div
-          v-html="$t('myHistory.message')"
-          class="x-list x-list--gap-05 x-text1 x-text1-lg x-text-neutral-75"
-        ></div>
+
+        <div class="x-list x-list--gap-05 x-text1 x-text1-lg x-text-neutral-75">
+          <span>
+            {{ $t('myHistory.message.header') }}
+          </span>
+          <span>
+            {{ $t('myHistory.message.body') }}
+          </span>
+          <span class="x-title3">
+            {{ $t('myHistory.message.footer') }}
+          </span>
+        </div>
       </div>
       <div
         class="

@@ -15,7 +15,11 @@
     "myHistory": {
       "title": "Mon histoire",
       "subtitle": "Ceci est la liste complète des requêtes d'historique",
-      "message": "<span>Ces données sont stockées localement. Juste dans votre appareil et ne voyagez jamais en dehors de celui-ci.</span><span>Vous pouvez désactiver les requêtes d'historique quand vous le souhaitez.</span><span class=\"x-title3\">Votre vie privée sous votre contrôle.</span>",
+      "message": {
+        "header": "Ces données sont stockées localement. Juste dans votre appareil et ne voyagez jamais en dehors de celui-ci.",
+        "body": "Vous pouvez désactiver les requêtes d'historique quand vous le souhaitez.",
+        "footer": "Votre vie privée sous votre contrôle."
+      },
       "noHistory": "Aucune activité d'historique à afficher",
       "openButton": "Mon histoire",
       "suggestionResults": "({totalResults} résultats)",
@@ -35,7 +39,7 @@
       "title": "Et Après"
     },
     "nextQueriesGroup": {
-      "message": "Ceux qui cherchaient <span class=\"x-title3\">\"{query}\"</span> également consulté:"
+      "message": "Ceux qui cherchaient {query} également consulté:"
     },
     "nextQueryPreview": {
       "message": "Ceux qui ont recherché {query} ont également consulté:",
@@ -77,7 +81,7 @@
       "showAside": "Trier et filtrer"
     },
     "totalResults": {
-      "message": "{totalResults} résultats pour <span class=\"x-title3\">{query}</span>"
+      "message": "{totalResults} résultats pour {query}"
     },
     "sort": {
       "label": "Trier par",
@@ -94,10 +98,10 @@
       "addToCart": "AJOUTER AU PANIER"
     },
     "spellcheck": {
-      "message": "Aucun résultat trouvé pour <span class=\"x-font-bold  x-text-auxiliary-50 \">'{query}'</span>. Nous vous montrons les résultats pour"
+      "message": "Aucun résultat trouvé pour '{query}'. Nous vous montrons les résultats pour"
     },
     "noResults": {
-      "message": "<span>Désolé mais il n'y a pas de résultats pour <span class=\"x-font-bold \">\"{query}\"</span></span>Vous pourriez être intéressé par ces produits"
+      "message": "Désolé mais il n'y a pas de résultats pour {query}Vous pourriez être intéressé par ces produits"
     },
     "columnPicker": {
       "message": "Voir"
@@ -108,7 +112,7 @@
   },
   "mobile": {
     "nextQueriesGroup": {
-      "message": "Ceux qui cherchaient <span class=\"x-title3\">\"{query}\"</span> également consulté:"
+      "message": "Ceux qui cherchaient {query} également consulté:"
     },
     "nextQueryPreview": {
       "viewResults": "Voir tout"

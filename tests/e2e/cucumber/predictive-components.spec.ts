@@ -1,4 +1,4 @@
-import { And, Then, When } from 'cypress-cucumber-preprocessor/steps';
+import { And, Given, Then, When } from 'cypress-cucumber-preprocessor/steps';
 
 And('recommendations are displayed', () => {
   cy.getByDataTest('recommendation-item').should('have.length.at.least', 1);
@@ -63,9 +63,8 @@ Then('related tag {int} is displayed as not selected', (relatedTagItem: number) 
 });
 
 // Scenario 3
-And('a {string} of queries already searched', (list: string) => {
+Given('a {string} of queries already searched', (list: string) => {
   cy.searchQueries(...list.split(', '));
-  cy.clearSearchInput();
 });
 
 When('history query number {int} delete button is clicked', (historyQueryItem: number) => {
@@ -91,6 +90,10 @@ Then(
 );
 
 // Scenario 4
+And('an empty search-box', () => {
+  cy.clearSearchInput();
+});
+
 When('clear history queries button is clicked', () => {
   cy.getByDataTest('clear-history-queries').click();
 });

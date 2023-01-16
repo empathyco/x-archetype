@@ -2,7 +2,7 @@ Feature: Sort component
 
   Scenario Outline: 1. Sorting orders the results
     Given start page with "<view>" size view
-    Then  start button is clicked
+    Then  search bar is clicked
     When  "<query>" is searched
     Then  related results are displayed
     When  sort and filter button is clicked on "<view>"

@@ -1,11 +1,14 @@
 <template>
   <Spellcheck v-if="$x.totalResults > 0" #default="{ query }" class="x-message">
     <p>
-      <span
-        v-html="$t('spellcheck.message', { query })"
-        class="x-text1 x-break-words desktop:x-text1-lg"
-      />
-      <SpellcheckButton class="x-button x-button-lead x-button-tight" />
+      <i18n class="x-text1 x-break-words desktop:x-text1-lg" path="spellcheck.message" tag="span">
+        <template #query>
+          <span class="x-text x-font-bold x-text-auxiliary-50">
+            {{ query }}
+          </span>
+        </template>
+      </i18n>
+      <SpellcheckButton class="x-button x-button-link x-button-lead x-padding--left-01" />
     </p>
   </Spellcheck>
 </template>

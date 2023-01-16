@@ -2,7 +2,7 @@ Feature: Facets component
 
   Scenario Outline: 1. Facets modal can be shown / hidden
     Given start page with "<view>" size view
-    When  start button is clicked
+    When  search bar is clicked
     And  "<query>" is searched
     Then  related results are displayed
     And   facets are displayed is false
@@ -19,7 +19,7 @@ Feature: Facets component
 
   Scenario Outline: 2. Filters can be selected and deselected / cleared
     Given start page with "<view>" size view
-    When  start button is clicked
+    When  search bar is clicked
     And   "<query>" is searched
     Then  related results are displayed
     When  sort and filter button is clicked on "<view>"
@@ -39,7 +39,7 @@ Feature: Facets component
 
   Scenario Outline: 3. Multiple filters from the same facet can be selected
     Given start page with "<view>" size view
-    When  start button is clicked
+    When  search bar is clicked
     And   "<query>" is searched
     Then  related results are displayed
     When  sort and filter button is clicked on "<view>"
@@ -57,7 +57,7 @@ Feature: Facets component
 
   Scenario Outline: 4. Multiple filters from different facets can be selected
     Given start page with "<view>" size view
-    When  start button is clicked
+    When  search bar is clicked
     And   "<query>" is searched
     Then  related results are displayed
     When  sort and filter button is clicked on "<view>"
@@ -77,7 +77,7 @@ Feature: Facets component
 
   Scenario Outline: 5. Hierarchical filters selection
     Given start page with "<view>" size view
-    When  start button is clicked
+    When  search bar is clicked
     And   "<query>" is searched
     Then  related results are displayed
     When  sort and filter button is clicked on "<view>"
