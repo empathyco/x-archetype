@@ -237,7 +237,7 @@
     }
 
     public get showHistoryQueries(): boolean {
-      return this.$x.historyQueries.length > 0;
+      return this.$x.historyQueriesWithResults.length > 0;
     }
 
     public get showQuerySuggestions(): boolean {
