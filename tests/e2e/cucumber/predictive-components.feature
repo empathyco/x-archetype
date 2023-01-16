@@ -46,7 +46,7 @@ Feature: Predictive components
     Then  the deleted history query is removed from history queries
     Examples:
       | list               | historyQueryItem | view        |
-      | shirt              | 0                | macbook-13  |
+      | shirt, shoe, skirt | 0                | macbook-13  |
       | shirt, shoe, skirt | 0                | iphone-x    |
 
   Scenario Outline: 4. Clear all history queries
