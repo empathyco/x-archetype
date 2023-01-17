@@ -132,7 +132,7 @@
 
   .x-mobile {
     // Grid
-    --x-size-gap-grid: var(--x-size-base-03);
+    --x-size-gap-grid: var(--x-size-base-05) var(--x-size-base-03);
     --x-size-padding-grid: var(--x-size-base-05);
 
     // Result

@@ -4,11 +4,15 @@
 
     <!-- TODO: Remove the x-max-h and the tailwind important when removing the old DS styles -->
     <BaseColumnPickerList
-      v-slot="{ column }"
+      v-slot="{ column, isSelected }"
       :columns="values"
       buttonClass="!x-button-sm x-button-lead x-button-square x-button-ghost x-max-h-32"
     >
-      <component :is="icon(column)" class="x-icon--l" />
+      <component
+        :is="icon(column)"
+        class="x-icon--l"
+        :class="{ 'x-text-neutral-90': isSelected }"
+      />
     </BaseColumnPickerList>
   </div>
 </template>
