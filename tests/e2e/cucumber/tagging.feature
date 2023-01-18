@@ -6,7 +6,7 @@ Feature: Tagging component
 
   Scenario Outline: 1. Check some actions trigger the query tagging.
     Given start page with "<view>" size view
-    When  start button is clicked
+    When  search bar is clicked
     And   "<query>" is searched
     Then  query tagging request should be triggered
     Given a URL with query parameter "<query>" and "<view>" size view
@@ -24,7 +24,7 @@ Feature: Tagging component
 
   Scenario Outline: 2. Check add to cart tagging.
     Given start page with "<view>" size view
-    When  start button is clicked
+    When  search bar is clicked
     And   "<query>" is searched
     And   pdp add to cart button is clicked
     Then  add product to cart tagging request has been triggered

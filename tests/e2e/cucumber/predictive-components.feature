@@ -2,7 +2,7 @@ Feature: Predictive components
 
   Scenario Outline: 1. Predictive components are displayed as expected
     Given start page with "<view>" size view
-    When  start button is clicked
+    When  search bar is clicked
     And   focus is set on the search input
     Then  recommendations are displayed
     And   popular searches are displayed
@@ -21,7 +21,7 @@ Feature: Predictive components
 
   Scenario Outline: 2. Related tags interaction
     Given start page with "<view>" size view
-    When  start button is clicked
+    When  search bar is clicked
     And   "<query>" is searched
     Then  related tags are displayed
     Given an intercepted search response
@@ -37,8 +37,9 @@ Feature: Predictive components
 
   Scenario Outline: 3. Clear a history query
     Given start page with "<view>" size view
-    When  start button is clicked
+    When  search bar is clicked
     Given a "<list>" of queries already searched
+    And   an empty search-box
     When  focus is set on the search input
     And   history queries are displayed
     And   history query number <historyQueryItem> delete button is clicked
@@ -50,8 +51,9 @@ Feature: Predictive components
 
   Scenario Outline: 4. Clear all history queries
     Given start page with "<view>" size view
-    When  start button is clicked
+    When  search bar is clicked
     Given a "<list>" of queries already searched
+    And   an empty search-box
     When  focus is set on the search input
     And   clear history queries button is clicked
     Then  no history queries are displayed

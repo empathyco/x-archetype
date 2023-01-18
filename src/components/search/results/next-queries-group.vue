@@ -8,10 +8,13 @@
         : 'x-padding--06 x-padding--bottom-07'
     "
   >
-    <p
-      v-html="$t('nextQueriesGroup.message', { query: $x.query.search })"
-      class="x-text1 desktop:x-text1-lg"
-    />
+    <i18n class="x-text1 desktop:x-text1-lg" path="nextQueriesGroup.message" tag="p">
+      <template #query>
+        <span class="x-title3">
+          {{ $x.query.search }}
+        </span>
+      </template>
+    </i18n>
     <BaseSuggestions
       #default="{ suggestion }"
       :suggestions="nextQueries"
