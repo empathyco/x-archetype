@@ -9,7 +9,7 @@
           :showOnlyAfterOffset="$x.partialResults.length > 0"
         >
           <BaseVariableColumnGrid
-            class="x-grid x-padding--top-00"
+            class="x-grid-list x-padding--top-00"
             :animation="staggeredFadeAndSlide"
             data-test="base-grid"
           >
