@@ -28,5 +28,6 @@ module.exports = {
     'padding',
     'preflight',
     'wordBreak',
+    'width'
   ]
 };

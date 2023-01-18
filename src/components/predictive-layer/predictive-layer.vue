@@ -63,6 +63,7 @@
           <HistoryQueries
             :animation="suggestionsAnimation"
             :max-items-to-render="$x.query.searchBox ? 2 : 4"
+            suggestionItemClass="x-w-full"
             class="x-list"
             :class="
               $x.device === 'mobile' ? 'x-list--gap-03' : 'x-list--gap-02 x-list--align-start'
@@ -72,6 +73,7 @@
               <HistoryQuery
                 class="x-suggestion-group-lg desktop:x-suggestion-group-md"
                 :suggestion="suggestion"
+                suggestionClass="x-suggestion-lg desktop:x-suggestion-md"
               >
                 <template #default="{ query }">
                   <HistoryIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
