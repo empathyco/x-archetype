@@ -1,5 +1,5 @@
 <template>
-  <Empathize v-if="showEmpathize" :animation="empathizeAnimation" class="x-list">
+  <Empathize :animation="empathizeAnimation" class="x-list">
     <BaseKeyboardNavigation
       class="x-row x-row--gap-06 x-row--align-start"
       :navigationHijacker="navigationHijacker"
@@ -22,7 +22,7 @@
       </IdentifierResults>
 
       <div
-        v-else
+        v-else-if="showEmpathize"
         class="x-row__item x-list x-padding--05"
         :class="[
           $x.query.searchBox
@@ -44,7 +44,10 @@
           <SettingsIcon class="x-icon--l" />
         </BaseIdModalOpen>
         <div v-if="showHistoryQueries" class="x-list x-list--gap-02">
-          <div v-if="!$x.query.searchBox" class="x-list x-list--horizontal x-list--align-center">
+          <div
+            v-if="!$x.query.searchBox && $x.historyQueriesWithResults.length"
+            class="x-list x-list--horizontal x-list--align-center"
+          >
             <h1 class="x-title4 x-title4-sm x-uppercase x-list__item--expand">
               {{ $t('historyQueries.title') }}
             </h1>
@@ -234,7 +237,7 @@
     }
 
     public get showHistoryQueries(): boolean {
-      return this.$x.historyQueries.length > 0;
+      return this.$x.historyQueriesWithResults.length > 0;
     }
 
     public get showQuerySuggestions(): boolean {
@@ -255,7 +258,6 @@
 
     public get showEmpathize(): boolean {
       return (
-        this.showIdentifierResults ||
         this.showHistoryQueries ||
         this.showQuerySuggestions ||
         this.showNextQueries ||
