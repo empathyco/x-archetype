@@ -73,7 +73,7 @@
   --x-size-font-facet-default: 14px;
 
   // Filters
-  --x-size-padding-top-filter-default: var(--x-size-base-0);
+  --x-size-padding-top-filter-default: 0px;
   --x-size-padding-bottom-filter-default: var(--x-size-base-06);
   --x-size-padding-left-filter-default: var(--x-size-base-02);
 
@@ -159,7 +159,7 @@
     --x-size-padding-top-suggestion-group-default: var(--x-size-base-04);
 
     // Sliding Panel
-    --x-size-width-sliding-panel-gradient: var(--x-size-base-00);
+    --x-size-width-sliding-panel-gradient: 0px;
 
     // Typography
     --x-size-font-title1: var(--x-size-font-base-l);
