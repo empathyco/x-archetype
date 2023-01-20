@@ -114,7 +114,7 @@
               <template #default="{ query }">
                 <SearchIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
                 <Highlight :text="suggestion.query" :highlight="query" />
-              </template>uia
+              </template>
             </QuerySuggestion>
           </template>
         </QuerySuggestions>
