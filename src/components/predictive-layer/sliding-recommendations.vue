@@ -3,7 +3,7 @@
     <div class="x-pt-16">
       <h1
         class="x-title4 x-title4-sm x-uppercase x-flex x-items-center x-h-32"
-        :class="{ 'x-padding--left-05': $x.device === 'mobile' }"
+        :class="{ 'x-pl-16': $x.device === 'mobile' }"
       >
         {{ $t('recommendations.title') }}
       </h1>

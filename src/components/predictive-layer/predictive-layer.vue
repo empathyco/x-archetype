@@ -9,13 +9,17 @@
         v-slot="{ identifierResult }"
         :maxItemsToRender="5"
         :animation="suggestionsAnimation"
-        class="x-row__item x-row__item--span-12 x-list x-padding--05"
+        class="x-row__item x-row__item--span-12 x-list x-list-horizontal x-padding--05"
         :class="$x.device === 'mobile' ? 'x-list--gap-03 x-padding--top-00' : 'x-list--gap-02'"
       >
-        <BaseResultLink v-slot="{ result }" :result="identifierResult" class="x-suggestion">
-          <BarCodeIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
-          <IdentifierResult :result="result" class="x-text x-font-bold" />
-          <span class="x-text x-font-bold x-ellipsis">
+        <BaseResultLink
+          v-slot="{ result }"
+          :result="identifierResult"
+          class="x-suggestion x-suggestion-lg desktop:x-suggestion-md"
+        >
+          <BarCodeIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
+          <IdentifierResult :result="result" />
+          <span>
             {{ result.name }}
           </span>
         </BaseResultLink>
@@ -102,7 +106,7 @@
           <template #suggestion="{ suggestion, query }">
             <QuerySuggestion
               :suggestion="suggestion"
-              class="x-suggestion-group-lg desktop:x-suggestion-group-md"
+              class="x-suggestion-lg desktop:x-suggestion-md"
             >
               <SearchIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
               <Highlight :text="suggestion.query" :highlight="query" />
@@ -128,10 +132,7 @@
             :class="$x.device === 'mobile' ? 'x-list--gap-03' : 'x-list--gap-02'"
           >
             <template #suggestion="{ suggestion }">
-              <NextQuery
-                class="x-suggestion-group-lg desktop:x-suggestion-group-md"
-                :suggestion="suggestion"
-              >
+              <NextQuery class="x-suggestion-lg desktop:x-suggestion-md" :suggestion="suggestion">
                 <CuratedCheckIcon
                   v-if="suggestion.isCurated"
                   :class="{ 'x-icon-lg': $x.device === 'mobile' }"
@@ -158,7 +159,7 @@
           >
             <template #suggestion="{ suggestion }">
               <PopularSearch
-                class="x-suggestion-group-lg desktop:x-suggestion-group-md"
+                class="x-suggestion-lg desktop:x-suggestion-md"
                 :suggestion="suggestion"
               >
                 <TrendingIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
