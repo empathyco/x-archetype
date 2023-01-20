@@ -106,13 +106,15 @@
           class="x-row__item x-row__item--span-4 x-list"
           :class="$x.device === 'mobile' ? 'x-list--gap-03' : 'x-list--gap-02'"
         >
-          <template #suggestion="{ suggestion, query }">
+          <template #suggestion="{ suggestion }">
             <QuerySuggestion
               :suggestion="suggestion"
               class="x-suggestion-lg desktop:x-suggestion-md"
             >
-              <SearchIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
-              <Highlight :text="suggestion.query" :highlight="query" />
+              <template #default="{ query }">
+                <SearchIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
+                <Highlight :text="suggestion.query" :highlight="query" />
+              </template>uia
             </QuerySuggestion>
           </template>
         </QuerySuggestions>
