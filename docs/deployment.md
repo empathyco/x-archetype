@@ -9,8 +9,8 @@ To deploy the project in the different environments you should take this into ac
 | staging     | main       |           |
 | production  | main       | release-* |
 
-So everytime that a commit is made in main (merge PR, commit directly on main...etc), the changes are going to be
-deployed in `staging` and a tag should be needed to deploy on `test` or `production`.
+Every time a commit is made to `main`, the changes are going to be deployed to `staging`.
+To deploy to `test` or `production` the correspondent tag must be created.
 
 Every PR created will be deployed as a [PR Preview](./pr-preview.md)
 
