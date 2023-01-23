@@ -47,6 +47,9 @@
       "totalResults": "({totalResults})",
       "viewResults": "Ver todos os resultados"
     },
+    "identifierResults": {
+      "title": "Pesquisa de SKU"
+    },
     "recommendations": {
       "title": "Mais clicados"
     },

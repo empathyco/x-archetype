@@ -4,15 +4,16 @@
     class="x-border-width--bottom-01 x-border-width--00 x-border-color--neutral-95"
   >
     <template #header>
-      <span class="x-title3 x-padding--bottom-02">
+      <span class="x-title3">
         {{ $t('sort.label') }}
       </span>
-      {{ $t(`sort.values.${$x.selectedSort || 'default'}`) }}
+      <span>{{ $t(`sort.values.${$x.selectedSort || 'default'}`) }}</span>
     </template>
     <template #default>
       <SortList
         v-if="$x.totalResults"
-        class="x-list x-list--vertical x-list--align-start x-list--gap-06 x-padding--bottom-05"
+        class="x-list x-list--vertical x-list--align-start x-padding--bottom-07"
+        :class="$x.device === 'mobile' ? 'x-list--gap-07' : 'x-list--gap-06'"
         :items="sortValues"
       >
         <template #default="{ item, isSelected }">

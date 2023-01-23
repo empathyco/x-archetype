@@ -1,6 +1,6 @@
 <template>
   <div v-if="$x.totalResults > 0" class="x-list x-list--vertical x-list__item--expand">
-    <BaseScroll class="x-list__item--expand x-padding--05">
+    <BaseScroll class="x-list__item--expand x-padding--05 x-padding--top-00" :resetOnChange="false">
       <Sort />
       <CustomFacets />
     </BaseScroll>

@@ -73,18 +73,26 @@
   --x-size-font-facet-default: 14px;
 
   // Filters
-  --x-size-padding-top-filter-default: var(--x-size-base-05);
-  --x-size-padding-bottom-filter-default: var(--x-size-base-05);
+  --x-size-padding-top-filter-default: 0px;
+  --x-size-padding-bottom-filter-default: var(--x-size-base-06);
   --x-size-padding-left-filter-default: var(--x-size-base-02);
 
-  // Options list
+  .x-filter {
+    align-items: center;
+  }
 
+  // Options list
   --x-size-padding-right-option-list-button-default: var(--x-size-base-05);
   --x-size-padding-left-option-list-button-default: var(--x-size-base-05);
   .x-facet {
     .x-option-list__item {
       --x-size-border-width-right-option-list-item-default: 0px;
+      --x-size-padding-left-option-list-button-default: 0px;
     }
+  }
+
+  .x-header-toggle-panel__header {
+    align-items: center;
   }
 
   // Modal overlay
@@ -132,7 +140,7 @@
 
   .x-mobile {
     // Grid
-    --x-size-gap-grid: var(--x-size-base-03);
+    --x-size-gap-grid: var(--x-size-base-05) var(--x-size-base-03);
     --x-size-padding-grid: var(--x-size-base-05);
 
     // Result
@@ -151,7 +159,7 @@
     --x-size-padding-top-suggestion-group-default: var(--x-size-base-04);
 
     // Sliding Panel
-    --x-size-width-sliding-panel-gradient: var(--x-size-base-00);
+    --x-size-width-sliding-panel-gradient: 0px;
 
     // Typography
     --x-size-font-title1: var(--x-size-font-base-l);
@@ -170,5 +178,9 @@
       --x-size-padding-left-suggestion-group-default: var(--x-size-base-05);
       --x-size-padding-right-suggestion-group-default: var(--x-size-base-05);
     }
+
+    // Filters
+    --x-size-padding-top-filter-default: var(--x-size-base-02);
+    --x-size-padding-bottom-filter-default: var(--x-size-base-07);
   }
 }

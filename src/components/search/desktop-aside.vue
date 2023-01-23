@@ -5,7 +5,7 @@
         x-list x-list--horizontal x-list--align-center
         x-border-width--bottom-01
         x-border-color--neutral-10
-        x-padding--06 x-padding--right-09 x-padding--left-08
+        x-padding--06 x-padding--right-07 x-padding--left-08
       "
     >
       <span class="x-title2 x-margin--right-auto">
@@ -15,7 +15,7 @@
         <CrossTinyIcon class="x-icon--l" />
       </BaseIdModalClose>
     </div>
-    <div class="x-scroll x-list__item--expand x-padding--08 x-padding--top-00">
+    <div class="x-scroll x-list__item--expand x-padding--08 x-padding--top-00 x-padding--right-06">
       <Sort />
       <CustomFacets v-if="$x.totalResults > 0" />
     </div>
