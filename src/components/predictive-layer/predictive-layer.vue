@@ -9,13 +9,17 @@
         v-slot="{ identifierResult }"
         :maxItemsToRender="5"
         :animation="suggestionsAnimation"
-        class="x-row__item x-row__item--span-12 x-list x-padding--05"
+        class="x-row__item x-row__item--span-12 x-list x-list-horizontal x-padding--05"
         :class="$x.device === 'mobile' ? 'x-list--gap-03 x-padding--top-00' : 'x-list--gap-02'"
       >
-        <BaseResultLink v-slot="{ result }" :result="identifierResult" class="x-suggestion">
-          <BarCodeIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
-          <IdentifierResult :result="result" class="x-text x-font-bold" />
-          <span class="x-text x-font-bold x-ellipsis">
+        <BaseResultLink
+          v-slot="{ result }"
+          :result="identifierResult"
+          class="x-suggestion x-suggestion-lg desktop:x-suggestion-md"
+        >
+          <BarCodeIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
+          <IdentifierResult :result="result" />
+          <span>
             {{ result.name }}
           </span>
         </BaseResultLink>
@@ -38,7 +42,7 @@
         <BaseIdModalOpen
           v-if="$x.device === 'mobile' && !$x.query.searchBox"
           modalId="my-history-aside"
-          class="x-button-sm x-button-ghost x-self-end x-padding--right-03 x-border-width--00"
+          class="x-button-sm x-button-tight x-self-end x-padding--right-03 x-border-width--00"
         >
           {{ $t('myHistory.openButton') }}
           <SettingsIcon class="x-icon--l" />
@@ -53,7 +57,7 @@
             </h1>
             <ClearHistoryQueries
               class="
-                x-button-sm x-button-ghost
+                x-button-tight x-button-sm
                 x-padding--left-03 x-padding--right-03
                 x-border-width--00
               "
@@ -66,23 +70,31 @@
           <HistoryQueries
             :animation="suggestionsAnimation"
             :max-items-to-render="$x.query.searchBox ? 2 : 4"
+            suggestionItemClass="x-w-full"
             class="x-list"
             :class="
               $x.device === 'mobile' ? 'x-list--gap-03' : 'x-list--gap-02 x-list--align-start'
             "
           >
-            <template #suggestion-content="{ suggestion, query }">
-              <HistoryIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
-              <Highlight :text="suggestion.query" :highlight="query" />
-            </template>
-
-            <template #suggestion-remove-content="{ suggestion }">
-              <span
-                class="x-list"
-                :aria-label="$t('historyQueries.removeLabel', { suggestion: suggestion.query })"
+            <template #suggestion="{ suggestion }">
+              <HistoryQuery
+                class="x-suggestion-group-lg desktop:x-suggestion-group-md"
+                :suggestion="suggestion"
+                suggestionClass="x-suggestion-lg desktop:x-suggestion-md"
               >
-                <CrossTinyIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
-              </span>
+                <template #default="{ query }">
+                  <HistoryIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
+                  <Highlight :text="suggestion.query" :highlight="query" />
+                </template>
+
+                <template #remove-button-content>
+                  <span
+                    :aria-label="$t('historyQueries.removeLabel', { suggestion: suggestion.query })"
+                  >
+                    <CrossTinyIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
+                  </span>
+                </template>
+              </HistoryQuery>
             </template>
           </HistoryQueries>
         </div>
@@ -94,9 +106,16 @@
           class="x-row__item x-row__item--span-4 x-list"
           :class="$x.device === 'mobile' ? 'x-list--gap-03' : 'x-list--gap-02'"
         >
-          <template #suggestion-content="{ suggestion, query }">
-            <SearchIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
-            <Highlight :text="suggestion.query" :highlight="query" />
+          <template #suggestion="{ suggestion }">
+            <QuerySuggestion
+              :suggestion="suggestion"
+              class="x-suggestion-lg desktop:x-suggestion-md"
+            >
+              <template #default="{ query }">
+                <SearchIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
+                <Highlight :text="suggestion.query" :highlight="query" />
+              </template>
+            </QuerySuggestion>
           </template>
         </QuerySuggestions>
 
@@ -117,17 +136,19 @@
             class="x-list"
             :class="$x.device === 'mobile' ? 'x-list--gap-03' : 'x-list--gap-02'"
           >
-            <template #suggestion-content="{ suggestion }">
-              <CuratedCheckIcon
-                v-if="suggestion.isCurated"
-                :class="{ 'x-icon--l': $x.device === 'mobile' }"
-              />
-              <LightBulbOn
-                v-else
-                class="x-icon--light-bulb-on"
-                :class="{ 'x-icon--l': $x.device === 'mobile' }"
-              />
-              <span>{{ suggestion.query }}</span>
+            <template #suggestion="{ suggestion }">
+              <NextQuery class="x-suggestion-lg desktop:x-suggestion-md" :suggestion="suggestion">
+                <CuratedCheckIcon
+                  v-if="suggestion.isCurated"
+                  :class="{ 'x-icon-lg': $x.device === 'mobile' }"
+                />
+                <LightBulbOn
+                  v-else
+                  class="x-icon--light-bulb-on"
+                  :class="{ 'x-icon-lg': $x.device === 'mobile' }"
+                />
+                <span>{{ suggestion.query }}</span>
+              </NextQuery>
             </template>
           </NextQueries>
         </div>
@@ -141,16 +162,21 @@
             :max-items-to-render="4"
             class="x-list x-list--gap-02"
           >
-            <template #suggestion-content="{ suggestion }">
-              <TrendingIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
-              <span>{{ suggestion.query }}</span>
+            <template #suggestion="{ suggestion }">
+              <PopularSearch
+                class="x-suggestion-lg desktop:x-suggestion-md"
+                :suggestion="suggestion"
+              >
+                <TrendingIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
+                <span>{{ suggestion.query }}</span>
+              </PopularSearch>
             </template>
           </PopularSearches>
         </div>
         <BaseIdModalOpen
           v-if="$x.device === 'desktop' && !$x.query.searchBox"
           modalId="my-history-aside"
-          class="x-button-sm x-button-ghost x-self-start"
+          class="x-button-sm x-button-tight x-self-start"
         >
           <SettingsIcon />
           {{ $t('myHistory.openButton') }}
@@ -189,11 +215,15 @@
     TrendingIcon
   } from '@empathyco/x-components';
   import { Empathize } from '@empathyco/x-components/empathize';
-  import { ClearHistoryQueries, HistoryQueries } from '@empathyco/x-components/history-queries';
+  import {
+    ClearHistoryQueries,
+    HistoryQueries,
+    HistoryQuery
+  } from '@empathyco/x-components/history-queries';
   import { IdentifierResult, IdentifierResults } from '@empathyco/x-components/identifier-results';
-  import { NextQueries } from '@empathyco/x-components/next-queries';
-  import { PopularSearches } from '@empathyco/x-components/popular-searches';
-  import { QuerySuggestions } from '@empathyco/x-components/query-suggestions';
+  import { NextQueries, NextQuery } from '@empathyco/x-components/next-queries';
+  import { PopularSearches, PopularSearch } from '@empathyco/x-components/popular-searches';
+  import { QuerySuggestions, QuerySuggestion } from '@empathyco/x-components/query-suggestions';
   import Vue from 'vue';
   import { Component } from 'vue-property-decorator';
   import SlidingRecommendations from './sliding-recommendations.vue';
@@ -209,13 +239,17 @@
       CuratedCheckIcon,
       Empathize,
       Highlight,
+      HistoryQuery,
       HistoryIcon,
       HistoryQueries,
       IdentifierResults,
       IdentifierResult,
       LightBulbOn,
+      NextQuery,
       NextQueries,
+      PopularSearch,
       PopularSearches,
+      QuerySuggestion,
       QuerySuggestions,
       SlidingRecommendations,
       SearchIcon,
@@ -267,16 +301,7 @@
   }
 </script>
 <style lang="scss">
-  .x-clear-history-queries {
-    --x-size-height-button-default: 0;
-  }
   .x-result-link:focus > * {
     outline: -webkit-focus-ring-color auto 1px;
-  }
-
-  // TODO: Remove when implementing XDS suggestions in the archetype
-  .x-history-query__remove {
-    @apply x-button-ghost;
-    min-height: auto;
   }
 </style>

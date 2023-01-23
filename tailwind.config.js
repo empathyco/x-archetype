@@ -16,13 +16,18 @@ module.exports = {
   // below the `Start` button on the `x-components` internal demo app.
   // See https://github.com/empathyco/x/pull/655#discussion_r948923711
   corePlugins: [
+    'alignItems',
+    'display',
     'fontSize',
     'fontWeight',
+    'height',
     'lineHeight',
     'textColor',
     'maxHeight',
     'margin',
+    'padding',
     'preflight',
-    'wordBreak'
+    'wordBreak',
+    'width'
   ]
 };

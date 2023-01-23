@@ -7,16 +7,13 @@
       <div
         class="
           x-list x-list--horizontal x-list__item--expand
-          x-padding--05
+          x-p-16 x-pl-8
           x-list--align-center
           x-background--neutral-100
         "
       >
-        <CloseMainModal
-          class="x-button-lead x-button-circle x-button-ghost x-padding--left-00"
-          :class="{ 'x-padding--right-03': $x.device === 'mobile' }"
-        >
-          <ArrowLeftIcon class="x-icon--l" />
+        <CloseMainModal class="x-button-lead x-button-circle x-button-ghost">
+          <ArrowLeftIcon class="x-icon-lg" />
         </CloseMainModal>
         <SearchBox class="x-list__item--expand" />
       </div>

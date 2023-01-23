@@ -104,17 +104,6 @@
   --x-size-border-width-button-tertiary: 0;
   --x-color-background-button-default: var(--x-color-base-lead);
 
-  // Suggestions
-  --x-number-font-weight-suggestion-default-matching: var(--x-number-font-weight-base-bold);
-  --x-number-font-weight-suggestion-matching-part-default: var(--x-number-font-weight-tag-default);
-  --x-size-padding-top-suggestion-default: var(--x-size-base-03);
-  --x-size-padding-bottom-suggestion-default: var(--x-size-base-03);
-
-  .x-history-query__suggestion,
-  .x-history-query__remove {
-    padding: 0;
-  }
-
   // Scroll
   .x-layout__aside--right {
     --x-string-overflow-scroll: scroll;
@@ -122,19 +111,8 @@
 
   // My History
   .x-my-history-queries {
-    --x-size-padding-top-suggestion-group-default: 0px;
-    --x-size-padding-bottom-suggestion-group-default: 0px;
-    --x-size-padding-left-suggestion-group-default: var(--x-size-base-07);
-    --x-size-padding-right-suggestion-group-default: var(--x-size-base-07);
-
     .x-button {
       --x-color-text-button-default: var(--x-color-base-neutral-10);
-    }
-    .x-suggestion {
-      --x-color-text-suggestion-default: var(--x-color-base-neutral-10);
-    }
-    .x-suggestion--matching {
-      font-weight: var(--x-number-font-weight-base-regular);
     }
   }
 
@@ -146,18 +124,6 @@
     // Result
     --x-size-gap-result-default: var(--x-size-base-01);
 
-    // Suggestions
-    --x-size-font-suggestion-default: var(--x-size-base-05);
-    --x-size-font-suggestion-default-matching: var(--x-size-base-05);
-    --x-size-font-suggestion-matching-part-default: var(--x-size-base-05);
-    --x-size-gap-suggestion-default: var(--x-size-base-06);
-    --x-size-padding-bottom-suggestion-default: var(--x-size-base-04);
-    --x-size-padding-bottom-suggestion-group-default: var(--x-size-base-04);
-    --x-size-padding-left-suggestion-default: 1px;
-    --x-size-padding-right-suggestion-group-default: var(--x-size-base-03);
-    --x-size-padding-top-suggestion-default: var(--x-size-base-04);
-    --x-size-padding-top-suggestion-group-default: var(--x-size-base-04);
-
     // Sliding Panel
     --x-size-width-sliding-panel-gradient: 0px;
 
@@ -166,21 +132,5 @@
 
     // Options list
     --x-font-decoration-option-list-button-default-hover: none;
-
-    .x-suggestion-group .x-button {
-      --x-size-padding-right-button-default: var(--x-size-base-03);
-    }
-    .x-suggestion .x-text {
-      font-size: var(--x-size-base-05);
-    }
-
-    .x-my-history-queries {
-      --x-size-padding-left-suggestion-group-default: var(--x-size-base-05);
-      --x-size-padding-right-suggestion-group-default: var(--x-size-base-05);
-    }
-
-    // Filters
-    --x-size-padding-top-filter-default: var(--x-size-base-02);
-    --x-size-padding-bottom-filter-default: var(--x-size-base-07);
   }
 }
