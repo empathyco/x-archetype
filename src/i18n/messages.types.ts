@@ -48,6 +48,9 @@ export interface Messages {
     totalResults: string;
     viewResults: string;
   };
+  identifierResults: {
+    title: string;
+  };
   recommendations: {
     title: string;
   };
