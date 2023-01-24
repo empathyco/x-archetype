@@ -36,13 +36,14 @@
           :showButtons="$x.device !== 'mobile'"
           :resetOnContentChange="false"
           buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
-          class="x-sliding-panel--show-buttons-on-hover"
+          scrollContainerClass="desktop:x-sliding-panel-fade-sm"
+          class="x-sliding-panel-show-buttons-on-hover"
         >
           <template #sliding-panel-left-button>
             <ChevronLeftIcon class="x-icon--l" />
           </template>
           <ul
-            class="x-list x-list--gap-05"
+            class="x-list x-list--horizontal x-list--gap-05"
             :class="{ 'x-padding--left-05 x-padding--right-05': $x.device === 'mobile' }"
           >
             <li v-for="result in results" :key="result.id">
