@@ -1,11 +1,7 @@
 <template>
   <MainScrollItem :item="result" tag="article" class="x-result">
     <BaseResultLink class="x-result__picture" :result="result">
-      <BaseResultImage
-        :result="result"
-        :loadAnimation="imageAnimation"
-        class="x-picture--fixed-ratio x-picture--zoom"
-      >
+      <BaseResultImage :result="result" :loadAnimation="imageAnimation" class="x-picture-zoom">
         <template #placeholder>
           <BasePlaceholderImage />
         </template>
