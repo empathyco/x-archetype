@@ -43,7 +43,7 @@
             <ChevronLeftIcon class="x-icon--l" />
           </template>
           <ul
-            class="x-flex x-gap-16"
+            class="x-list x-list--horizontal x-list--gap-05"
             :class="{ 'x-padding--left-05 x-padding--right-05': $x.device === 'mobile' }"
           >
             <li v-for="result in results" :key="result.id">

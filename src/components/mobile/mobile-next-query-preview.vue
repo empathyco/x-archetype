@@ -48,7 +48,7 @@
       :showButtons="false"
       :resetOnContentChange="false"
     >
-      <div class="x-flex x-flex-row x-gap-16">
+      <div class="x-list x-list--horizontal x-list--gap-05">
         <Result
           v-for="result in results"
           :key="result.id"
