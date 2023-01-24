@@ -1,16 +1,17 @@
 <template>
   <div class="x-list x-list--horizontal x-list--align-center x-list--gap-03">
     <SlidingPanel
-      class="x-sliding-panel--show-buttons-on-hover"
+      class="x-sliding-panel-show-buttons-on-hover"
       :showButtons="$x.device === 'mobile' ? false : true"
       buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
+      scrollContainerClass="desktop:x-sliding-panel-fade"
       :resetOnContentChange="false"
     >
       <template #sliding-panel-left-button>
         <ChevronLeftIcon class="x-icon--l" />
       </template>
       <SelectedFiltersList
-        class="x-list x-list--wrap x-list--gap-03"
+        class="x-list x-flex-no-shrink x-list--wrap x-list--gap-03"
         :class="{ 'x-padding--left-05': $x.device === 'mobile' }"
       >
         <template #default="{ filter }">

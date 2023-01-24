@@ -9,9 +9,10 @@
       </h1>
     </div>
     <SlidingPanel
-      class="x-sliding-panel--show-buttons-on-hover"
+      class="x-sliding-panel-show-buttons-on-hover"
       :showButtons="true"
       buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
+      scrollContainerClass="desktop:x-sliding-panel-fade"
       :resetOnContentChange="false"
     >
       <template #sliding-panel-left-button>
@@ -56,8 +57,3 @@
   })
   export default class SlidingRecommendations extends Vue {}
 </script>
-<style lang="scss">
-  .x-layout__predictive .x-sliding-panel__scroll {
-    pointer-events: all !important;
-  }
-</style>
