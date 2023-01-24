@@ -1,7 +1,7 @@
 <template>
   <div class="x-list x-list--horizontal x-list--align-center x-list--gap-03">
     <SlidingPanel
-      class="x-sliding-panel--show-buttons-on-hover"
+      class="x-sliding-panel-show-buttons-on-hover"
       :showButtons="$x.device === 'mobile' ? false : true"
       buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
       :resetOnContentChange="false"

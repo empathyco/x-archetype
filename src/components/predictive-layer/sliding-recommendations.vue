@@ -9,9 +9,10 @@
       </h1>
     </div>
     <SlidingPanel
-      class="x-sliding-panel--show-buttons-on-hover"
+      class="x-sliding-panel-show-buttons-on-hover"
       :showButtons="true"
       buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
+      scrollContainerClass="x-sliding-panel-fade-sm"
       :resetOnContentChange="false"
     >
       <template #sliding-panel-left-button>
