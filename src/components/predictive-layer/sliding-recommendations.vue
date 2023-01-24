@@ -12,7 +12,7 @@
       class="x-sliding-panel-show-buttons-on-hover"
       :showButtons="true"
       buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
-      :scrollContainerClass="scrollContainerClasses"
+      scrollContainerClass="desktop:x-sliding-panel-fade"
       :resetOnContentChange="false"
     >
       <template #sliding-panel-left-button>
@@ -55,9 +55,5 @@
       SlidingPanel
     }
   })
-  export default class SlidingRecommendations extends Vue {
-    protected get scrollContainerClasses(): string {
-      return this.$x.device !== 'mobile' ? 'x-sliding-panel-fade' : '';
-    }
-  }
+  export default class SlidingRecommendations extends Vue {}
 </script>

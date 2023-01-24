@@ -36,7 +36,7 @@
           :showButtons="$x.device !== 'mobile'"
           :resetOnContentChange="false"
           buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
-          :scrollContainerClass="scrollContainerClasses"
+          scrollContainerClass="desktop:x-sliding-panel-fade-sm"
           class="x-sliding-panel-show-buttons-on-hover"
         >
           <template #sliding-panel-left-button>
@@ -95,10 +95,6 @@
       return {
         UserAcceptedAQuery: query
       };
-    }
-
-    protected get scrollContainerClasses(): string {
-      return this.$x.device !== 'mobile' ? 'x-sliding-panel-fade' : '';
     }
   }
 </script>
