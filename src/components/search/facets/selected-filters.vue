@@ -11,7 +11,7 @@
         <ChevronLeftIcon class="x-icon--l" />
       </template>
       <SelectedFiltersList
-        class="x-list x-list--wrap x-list--gap-03"
+        class="x-list x-flex-no-shrink x-list--wrap x-list--gap-03"
         :class="{ 'x-padding--left-05': $x.device === 'mobile' }"
       >
         <template #default="{ filter }">
