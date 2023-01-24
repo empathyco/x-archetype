@@ -2,7 +2,7 @@
   <SlidingPanel
     class="x-sliding-panel-show-buttons-on-hover"
     buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
-    scrollContainerClass="x-sliding-panel-fade"
+    :scrollContainerClass="scrollContainerClasses"
     :showButtons="$x.device !== 'mobile'"
   >
     <template #sliding-panel-left-button>
@@ -54,5 +54,8 @@
   })
   export default class RelatedTagsComponent extends Vue {
     protected relatedTagsAnimation = StaggeredFadeAndSlide;
+    protected get scrollContainerClasses(): string {
+      return this.$x.device !== 'mobile' ? 'x-sliding-panel-fade' : '';
+    }
   }
 </script>

@@ -4,6 +4,7 @@
       class="x-sliding-panel-show-buttons-on-hover"
       :showButtons="$x.device === 'mobile' ? false : true"
       buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
+      :scrollContainerClass="scrollContainerClasses"
       :resetOnContentChange="false"
     >
       <template #sliding-panel-left-button>
@@ -98,7 +99,11 @@
       SimpleFilter
     }
   })
-  export default class SelectedFiltersComponent extends Vue {}
+  export default class SelectedFiltersComponent extends Vue {
+    protected get scrollContainerClasses(): string {
+      return this.$x.device !== 'mobile' ? 'x-sliding-panel-fade' : '';
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
