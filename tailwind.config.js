@@ -17,7 +17,7 @@ module.exports = {
   // See https://github.com/empathyco/x/pull/655#discussion_r948923711
   corePlugins: [
     'alignItems',
-    'backgroundImage',
+    'backgroundColor',
     'display',
     'fontSize',
     'fontWeight',
