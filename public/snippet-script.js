@@ -37,7 +37,7 @@ var uiLang = getURLParameter('uiLang') || lang;
 var currency = getURLParameter('currency') || 'EUR';
 var consent = getURLParameter('consent') !== 'false';
 var documentDirection = getURLParameter('doc-dir') || 'ltr';
-var equalizeId = getURLParameter('equalizeId') || '';
+var equalizeId = getURLParameter('equalizeId') || undefined;
 
 window.__enableVueDevtools__ = true;
 window.initX = {
