@@ -42,12 +42,7 @@
         </div>
       </div>
       <div
-        class="
-          x-padding--top-06 x-padding--bottom-07
-          x-list x-list--horizontal x-list--align-center
-          x-border-color--neutral-95
-          x-border-width--top-01
-        "
+        class="x-padding--top-06 x-padding--bottom-07 x-list x-list--horizontal x-list--align-center x-border-color--neutral-95 x-border-width--top-01"
         :class="$x.device === 'desktop' ? 'x-padding--07' : 'x-padding--05'"
       >
         <div class="x-list__item x-list__item--expand x-list x-list--gap-02">
@@ -72,7 +67,7 @@
         >
           <template #date="{ date }">
             <div
-              class="x-title4 x-title4-sm x-text-neutral-75 x-padding--top-05 x-padding--bottom-05"
+              class="x-padding--top-05 x-padding--bottom-05 x-title4 x-title4-sm x-text-neutral-75"
             >
               {{ date }}
             </div>
@@ -83,10 +78,7 @@
                 <div
                   @click="closeModal"
                   @keyup.enter="closeModal"
-                  class="
-                    x-list x-list--horizontal x-list--gap-05
-                    x-padding--bottom-02 x-padding--top-02
-                  "
+                  class="x-list x-list--horizontal x-list--gap-05 x-padding--bottom-02 x-padding--top-02"
                 >
                   <HistoryIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
                   <div class="x-list x-list--gap-01">
@@ -117,11 +109,7 @@
             :class="{ 'x-no-history-icon--bw': !areHistoryQueriesEnabled }"
           />
           <span
-            class="
-              x-title3 x-text-neutral-75
-              x-padding--05
-              x-list x-list--justify-center x-list__item--expand
-            "
+            class="x-padding--05 x-list x-list--justify-center x-list__item--expand x-title3 x-text-neutral-75"
           >
             {{ $t('myHistory.noHistory') }}
           </span>

@@ -15,7 +15,7 @@
         <BaseResultLink
           v-slot="{ result }"
           :result="identifierResult"
-          class="x-suggestion x-suggestion-lg desktop:x-suggestion-md"
+          class="x-suggestion-lg x-suggestion desktop:x-suggestion-md"
         >
           <BarCodeIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
           <IdentifierResult :result="result" />
@@ -42,7 +42,7 @@
         <BaseIdModalOpen
           v-if="$x.device === 'mobile' && !$x.query.searchBox"
           modalId="my-history-aside"
-          class="x-button-sm x-button-tight x-self-end x-padding--right-03 x-border-width--00"
+          class="x-self-end x-padding--right-03 x-border-width--00 x-button-sm x-button-tight"
         >
           {{ $t('myHistory.openButton') }}
           <SettingsIcon class="x-icon--l" />
@@ -52,15 +52,11 @@
             v-if="!$x.query.searchBox && $x.historyQueriesWithResults.length"
             class="x-list x-list--horizontal x-list--align-center"
           >
-            <h1 class="x-title4 x-title4-sm x-uppercase x-list__item--expand">
+            <h1 class="x-uppercase x-list__item--expand x-title4 x-title4-sm">
               {{ $t('historyQueries.title') }}
             </h1>
             <ClearHistoryQueries
-              class="
-                x-button-tight x-button-sm
-                x-padding--left-03 x-padding--right-03
-                x-border-width--00
-              "
+              class="x-padding--left-03 x-padding--right-03 x-border-width--00 x-button-sm x-button-tight"
             >
               <TrashIcon v-if="$x.device === 'mobile'" class="x-icon--l" />
               <span v-else>{{ $t('historyQueries.clear') }}</span>
@@ -125,7 +121,7 @@
           :class="{ 'x-padding--top-05': $x.query.searchBox && $x.device === 'desktop' }"
         >
           <h1
-            class="x-title4 x-title4-sm x-uppercase"
+            class="x-uppercase x-title4 x-title4-sm"
             :class="{ 'x-padding--top-03 x-padding--bottom-03': $x.device === 'mobile' }"
           >
             {{ $t('nextQueries.title') }}
@@ -154,7 +150,7 @@
         </div>
 
         <div v-if="showPopularSearches" class="x-list x-list--gap-02">
-          <h1 class="x-title4 x-title4-sm x-uppercase">
+          <h1 class="x-uppercase x-title4 x-title4-sm">
             {{ $t('popularSearches.title') }}
           </h1>
           <PopularSearches
@@ -176,7 +172,7 @@
         <BaseIdModalOpen
           v-if="$x.device === 'desktop' && !$x.query.searchBox"
           modalId="my-history-aside"
-          class="x-button-sm x-button-tight x-self-start"
+          class="x-self-start x-button-sm x-button-tight"
         >
           <SettingsIcon />
           {{ $t('myHistory.openButton') }}

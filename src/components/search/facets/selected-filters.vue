@@ -16,12 +16,7 @@
       >
         <template #default="{ filter }">
           <SimpleFilter
-            class="
-              x-tag x-tag--pill x-tag--ghost
-              x-background--auxiliary
-              x-padding--04 x-padding--top-03 x-padding--bottom-03
-              x-text-auxiliary-50
-            "
+            class="x-tag x-tag--pill x-tag--ghost x-background--auxiliary x-padding--04 x-padding--top-03 x-padding--bottom-03 x-text-auxiliary-50"
             :filter="filter"
           >
             <template #label="{ filter }">
@@ -33,12 +28,7 @@
 
         <template #price="{ filter }">
           <NumberRangeFilter
-            class="
-              x-tag x-tag--pill x-tag--ghost
-              x-background--auxiliary
-              x-padding--04 x-padding--top-03 x-padding--bottom-03
-              x-text-auxiliary-50
-            "
+            class="x-tag x-tag--pill x-tag--ghost x-background--auxiliary x-padding--04 x-padding--top-03 x-padding--bottom-03 x-text-auxiliary-50"
             :filter="filter"
           >
             <template #label="{ filter }">
@@ -57,11 +47,7 @@
       v-if="$x.device === 'desktop'"
       v-slot="{ selectedFilters }"
       data-test="clear-filters-toolbar"
-      class="
-        x-button-sm x-button-lead x-button-outlined
-        x-border-radius--20
-        x-list__item--flex-none
-      "
+      class="x-border-radius--20 x-list__item--flex-none x-button-lead x-button-sm x-button-outlined"
       :alwaysVisible="false"
     >
       {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}

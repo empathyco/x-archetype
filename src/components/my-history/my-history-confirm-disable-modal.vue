@@ -6,11 +6,7 @@
     :eventsToCloseModal="eventsToCloseModal"
   >
     <div
-      class="
-        x-my-history-confirm-disable-modal-content
-        x-background--neutral-100
-        x-list x-list--gap-05
-      "
+      class="x-my-history-confirm-disable-modal-content x-background--neutral-100 x-list x-list--gap-05"
       :class="
         $x.device === 'mobile'
           ? 'x-padding--06 x-padding--bottom-03 x-border-radius--03'
@@ -28,7 +24,7 @@
         <BaseEventButton class="x-button x-button-ghost" :events="dismissEvents">
           {{ $t('myHistory.confirmDisableModal.dismiss') }}
         </BaseEventButton>
-        <BaseEventButton class="x-button x-button-ghost x-button-lead" :events="confirmEvents">
+        <BaseEventButton class="x-button x-button-lead x-button-ghost" :events="confirmEvents">
           {{ $t('myHistory.confirmDisableModal.confirm') }}
         </BaseEventButton>
       </div>

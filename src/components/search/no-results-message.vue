@@ -1,7 +1,7 @@
 <template>
   <i18n
     v-if="$x.noResults"
-    class="x-text1 x-no-results-message x-message x-break-words desktop:x-text1-lg"
+    class="x-no-results-message x-message x-text1 x-break-words desktop:x-text1-lg"
     path="noResults.message"
   >
     <template #query>

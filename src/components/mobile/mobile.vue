@@ -5,12 +5,7 @@
   >
     <template #header>
       <div
-        class="
-          x-list x-list--horizontal x-list__item--expand
-          x-p-16 x-pl-8
-          x-list--align-center
-          x-background--neutral-100
-        "
+        class="x-list x-list--horizontal x-list__item--expand x-list--align-center x-background--neutral-100 x-p-16 x-pl-8"
       >
         <CloseMainModal class="x-button-lead x-button-circle x-button-ghost">
           <ArrowLeftIcon class="x-icon-lg" />

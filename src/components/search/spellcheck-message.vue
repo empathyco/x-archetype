@@ -8,7 +8,7 @@
           </span>
         </template>
       </i18n>
-      <SpellcheckButton class="x-button x-button-link x-button-lead x-padding--left-01" />
+      <SpellcheckButton class="x-padding--left-01 x-button x-button-lead x-button-link" />
     </p>
   </Spellcheck>
 </template>
