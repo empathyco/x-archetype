@@ -17,7 +17,7 @@
     >
       <BaseAddToCart
         :result="result"
-        class="x-list__item--expand x-button-lead x-border-radius--20 x-margin--05"
+        class="x-list__item--expand x-border-radius--20 x-margin--05 x-button-lead"
       >
         {{ $t('result.addToCart') }}
       </BaseAddToCart>
@@ -28,7 +28,7 @@
       :class="$x.device === 'mobile' ? 'x-list--gap-01' : 'x-list--gap-02'"
       :result="result"
     >
-      <h2 class="x-title4 x-ellipsis x-uppercase" data-test="result-title">
+      <h2 class="x-ellipsis x-uppercase x-title4" data-test="result-title">
         {{ result.name }}
       </h2>
       <span v-if="showDescription" class="x-text2">{{ result.season }}</span>
@@ -36,7 +36,7 @@
         <BaseResultCurrentPrice :result="result" class="x-text2 x-text2-lg x-font-bold" />
         <BaseResultPreviousPrice
           :result="result"
-          class="x-text2 x-text-neutral-75 x-line-through"
+          class="x-line-through x-text2 x-text-neutral-75"
         />
       </div>
     </BaseResultLink>

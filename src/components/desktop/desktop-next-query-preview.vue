@@ -35,12 +35,7 @@
     </BaseGrid>
     <NextQuery
       :suggestion="nextQuery"
-      class="
-        x-tag x-tag--pill
-        x-font-bold
-        x-margin--left-auto x-margin--right-auto x-margin--top-03
-        x-padding--top-04 x-padding--bottom-04 x-padding--right-05 x-padding--left-05
-      "
+      class="x-tag x-tag--pill x-margin--left-auto x-margin--right-auto x-margin--top-03 x-padding--top-04 x-padding--bottom-04 x-padding--right-05 x-padding--left-05 x-font-bold"
     >
       {{ $t('nextQueryPreview.viewResults') }}
     </NextQuery>

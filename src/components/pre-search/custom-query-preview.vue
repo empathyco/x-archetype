@@ -18,7 +18,7 @@
         <div :class="{ 'x-padding--left-05 x-padding--right-05': $x.device === 'mobile' }">
           <h1 class="x-title1" :class="{ 'x-title1-sm': $x.device === 'mobile' }">{{ title }}</h1>
           <div class="x-list x-list--horizontal x-list--align-center">
-            <span class="x-title3 x-list__item--expand">
+            <span class="x-list__item--expand x-title3">
               {{ query }}
               <span class="x-text1">({{ totalResults }})</span>
             </span>

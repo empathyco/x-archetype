@@ -2,17 +2,12 @@
   <div class="x-background--neutral-100 x-list__item--expand x-list x-list--vertical">
     <div class="x-list x-list--align-stretch x-border-color--neutral-10 x-background--neutral-10">
       <div class="x-list x-list--horizontal x-list--align-center x-padding--07">
-        <h1 class="x-title2 x-text-neutral-0 x-margin--right-auto">
+        <h1 class="x-margin--right-auto x-title2 x-text-neutral-0">
           {{ $t('myHistory.title') }}
         </h1>
         <!-- TODO: Adapt hover color for ghost button when available -->
         <BaseIdModalClose
-          class="
-            x-button-circle x-button-ghost
-            x-padding--top-00 x-padding--bottom-00
-            x-border-width--00
-            hover:x-button-lead
-          "
+          class="x-padding--top-00 x-padding--bottom-00 x-border-width--00 x-button-circle x-button-ghost hover:x-button-lead"
           modalId="my-history-aside"
         >
           <CrossIcon class="x-icon--l x-text-neutral-0" />

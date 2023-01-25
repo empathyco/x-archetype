@@ -1,16 +1,11 @@
 <template>
   <NextQueryPreview
     #default="{ results, totalResults, suggestion }"
-    class="
-      x-list x-list--gap-05
-      x-background--neutral-95
-      x-padding--top-06 x-padding--bottom-06
-      x-margin--top-10 x-margin--bottom-05
-    "
+    class="x-list x-list--gap-05 x-background--neutral-95 x-padding--top-06 x-padding--bottom-06 x-margin--top-10 x-margin--bottom-05"
     :suggestion="nextQuery"
   >
     <i18n
-      class="x-text1 x-text1-lg x-next-query-preview__title"
+      class="x-next-query-preview__title x-text1 x-text1-lg"
       tag="span"
       path="nextQueryPreview.message"
     >

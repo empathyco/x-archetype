@@ -4,7 +4,7 @@
     class="x-list x-list--horizontal x-list--gap-06 x-list--justify-end x-list--align-center"
     data-test="total-results"
   >
-    <i18n class="x-text1 x-text1-lg x-list__item--expand" path="totalResults.message" tag="span">
+    <i18n class="x-list__item--expand x-text1 x-text1-lg" path="totalResults.message" tag="span">
       <template #totalResults>
         {{ $x.totalResults }}
       </template>
@@ -26,12 +26,7 @@
       <span>{{ $t('toggleAside.showAside') }}</span>
       <span
         v-if="$x.selectedFilters.length"
-        class="
-          x-background--accent
-          x-border-radius--20
-          x-padding--01 x-padding--right-03 x-padding--left-03
-          x-text-neutral-0 x-text-xs x-leading-[1.5]
-        "
+        class="x-background--accent x-border-radius--20 x-padding--01 x-padding--right-03 x-padding--left-03 x-text-xs x-leading-[1.5] x-text-neutral-0"
       >
         {{ $x.selectedFilters.length }}
       </span>

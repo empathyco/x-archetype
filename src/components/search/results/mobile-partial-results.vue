@@ -20,7 +20,7 @@
         </span>
         <PartialQueryButton
           :query="partialResult.query"
-          class="x-button-lead x-button-ghost x-margin--left-auto"
+          class="x-margin--left-auto x-button-lead x-button-ghost"
         >
           {{ $t('partialResults.viewResults') }}
           <ChevronRightIcon />

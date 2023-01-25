@@ -1,6 +1,6 @@
 <template>
   <div class="x-list x-list--horizontal x-list--align-center x-list--gap-03">
-    <span class="x-title4 x-uppercase">{{ $t('columnPicker.message') }}</span>
+    <span class="x-uppercase x-title4">{{ $t('columnPicker.message') }}</span>
 
     <!-- TODO: Remove the x-max-h and the tailwind important when removing the old DS styles -->
     <BaseColumnPickerList

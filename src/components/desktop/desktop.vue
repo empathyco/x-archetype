@@ -2,11 +2,7 @@
   <FixedHeaderAndAsidesLayout :class="{ 'x-background--neutral-100': !!$x.query.searchBox }">
     <template #header>
       <div
-        class="
-          x-list__item--expand
-          x-row x-row--align-start x-row--gap-04
-          x-padding--top-06 x-padding--bottom-05
-        "
+        class="x-list__item--expand x-row x-row--align-start x-row--gap-04 x-padding--top-06 x-padding--bottom-05"
       >
         <div class="x-row__item x-row__item--span-2 x-list x-padding--top-04">
           <Logo />
@@ -25,10 +21,7 @@
         </div>
 
         <div
-          class="
-            x-row__item x-row__item--span-2
-            x-list x-list--horizontal x-list--justify-end x-list--wrap-reverse
-          "
+          class="x-row__item x-row__item--span-2 x-list x-list--horizontal x-list--justify-end x-list--wrap-reverse"
         >
           <CloseMainModal class="x-button-lead x-button-circle x-button-ghost">
             <CrossIcon class="x-icon--l" />

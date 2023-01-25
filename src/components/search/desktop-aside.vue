@@ -1,14 +1,9 @@
 <template>
   <div class="x-background--neutral-100 x-list__item--expand x-list x-list--vertical">
     <div
-      class="
-        x-list x-list--horizontal x-list--align-center
-        x-border-width--bottom-01
-        x-border-color--neutral-10
-        x-padding--06 x-padding--right-07 x-padding--left-08
-      "
+      class="x-list x-list--horizontal x-list--align-center x-border-width--bottom-01 x-border-color--neutral-10 x-padding--06 x-padding--right-07 x-padding--left-08"
     >
-      <span class="x-title2 x-margin--right-auto">
+      <span class="x-margin--right-auto x-title2">
         {{ $t('facetsPanel.title') }}
       </span>
       <BaseIdModalClose class="x-button-lead x-button-circle x-button-ghost" modalId="right-aside">
@@ -20,33 +15,17 @@
       <CustomFacets v-if="$x.totalResults > 0" />
     </div>
     <div
-      class="
-        x-list x-list--horizontal x-list--gap-05
-        x-border-width--top-01
-        x-border-color--neutral-10
-        x-padding--08 x-padding--top-06 x-padding--bottom-05
-      "
+      class="x-list x-list--horizontal x-list--gap-05 x-border-width--top-01 x-border-color--neutral-10 x-padding--08 x-padding--top-06 x-padding--bottom-05"
     >
       <ClearFilters
         v-slot="{ selectedFilters }"
-        class="
-          x-button-lead x-button-outlined
-          x-border-radius--20
-          x-padding--06 x-padding--top-04 x-padding--bottom-04
-          x-uppercase
-          x-list__item--expand
-        "
+        class="x-border-radius--20 x-padding--06 x-padding--top-04 x-padding--bottom-04 x-uppercase x-list__item--expand x-button-lead x-button-outlined"
         :alwaysVisible="false"
       >
         {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
       </ClearFilters>
       <BaseIdModalClose
-        class="
-          x-button-lead
-          x-border-radius--20
-          x-padding--06 x-padding--top-04 x-padding--bottom-04
-          x-list__item--expand
-        "
+        class="x-border-radius--20 x-padding--06 x-padding--top-04 x-padding--bottom-04 x-list__item--expand x-button-lead"
         modalId="right-aside"
       >
         {{ $t('facetsPanel.viewResults', { totalResults: $x.totalResults }) }}
