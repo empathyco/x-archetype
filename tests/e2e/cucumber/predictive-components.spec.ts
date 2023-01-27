@@ -1,4 +1,4 @@
-import { And, Given, Then, When } from 'cypress-cucumber-preprocessor/steps';
+import { And, Then, When } from 'cypress-cucumber-preprocessor/steps';
 
 And('recommendations are displayed', () => {
   cy.getByDataTest('recommendation-item').should('have.length.at.least', 1);
@@ -22,10 +22,6 @@ When('focus is set on the search input', () => {
 
 Then('next queries are displayed', () => {
   cy.getByDataTest('next-query').should('have.length.at.least', 1);
-});
-
-When('search input is cleared', () => {
-  cy.clearSearchInput();
 });
 
 Then('history queries are displayed', () => {
@@ -63,9 +59,6 @@ Then('related tag {int} is displayed as not selected', (relatedTagItem: number) 
 });
 
 // Scenario 3
-Given('a {string} of queries already searched', (list: string) => {
-  cy.searchQueries(...list.split(', '));
-});
 
 When('history query number {int} delete button is clicked', (historyQueryItem: number) => {
   cy.getByDataTest('history-query')
