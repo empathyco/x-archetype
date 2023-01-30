@@ -72,7 +72,7 @@
               {{ date }}
             </div>
           </template>
-          <template #suggestion="{ suggestion }">
+          <template #suggestion="{ suggestion, formatTime }">
             <BaseIdModalClose modalId="my-history-aside">
               <template #closing-element="{ closeModal }">
                 <HistoryQuery
@@ -87,7 +87,7 @@
                     <div class="x-list x-list--gap-01">
                       <span>{{ suggestion.query }}</span>
                       <span class="x-text1 x-text1-sm x-text-neutral-75">
-                        {{ suggestion.timestamp }}
+                        {{ formatTime(suggestion.timestamp) }}
                         <template v-if="suggestion.totalResults !== undefined">
                           -
                           {{

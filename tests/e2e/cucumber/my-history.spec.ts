@@ -9,7 +9,7 @@ And('my history queries are displayed', () => {
 });
 
 And('my history query number {int} is clicked', (position: number) => {
-  cy.getByDataTest('my-history-query').eq(position).click();
+  cy.getByDataTest('my-history-query').eq(position).getByDataTest('history-query').click();
 });
 
 And('my history query number {int} delete button is clicked', (position: number) => {
