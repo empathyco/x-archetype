@@ -24,6 +24,14 @@ When('{string} is searched', (query: string) => {
   });
 });
 
+Given('a {string} of queries already searched', (list: string) => {
+  cy.searchQueries(...list.split(', '));
+});
+
+When('search input is cleared', () => {
+  cy.clearSearchInput();
+});
+
 // Facets
 When('facets are shown if hidden on {string}', (view: ViewportPreset) => {
   if (!view.includes('macbook')) {

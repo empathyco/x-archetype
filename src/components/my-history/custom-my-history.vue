@@ -72,35 +72,40 @@
               {{ date }}
             </div>
           </template>
-          <template #suggestion-content="{ suggestion, formatTime }">
+          <template #suggestion="{ suggestion, formatTime }">
             <BaseIdModalClose modalId="my-history-aside">
               <template #closing-element="{ closeModal }">
-                <div
+                <HistoryQuery
                   @click="closeModal"
-                  @keyup.enter="closeModal"
-                  class="x-list x-list--horizontal x-list--gap-05 x-padding--bottom-02 x-padding--top-02"
+                  data-test="my-history-query"
+                  :suggestion="suggestion"
                 >
-                  <HistoryIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
-                  <div class="x-list x-list--gap-01">
-                    <span>{{ suggestion.query }}</span>
-                    <span class="x-text1 x-text1-sm x-text-neutral-75">
-                      {{ formatTime(suggestion.timestamp) }}
-                      <template v-if="suggestion.totalResults !== undefined">
-                        -
-                        {{
-                          $t('myHistory.suggestionResults', {
-                            totalResults: suggestion.totalResults
-                          })
-                        }}
-                      </template>
-                    </span>
+                  <div
+                    class="x-list x-list--horizontal x-list--gap-05 x-padding--bottom-02 x-padding--top-02"
+                  >
+                    <HistoryIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
+                    <div class="x-list x-list--gap-01">
+                      <span>{{ suggestion.query }}</span>
+                      <span class="x-text1 x-text1-sm x-text-neutral-75">
+                        {{ formatTime(suggestion.timestamp) }}
+                        <template v-if="suggestion.totalResults !== undefined">
+                          -
+                          {{
+                            $t('myHistory.suggestionResults', {
+                              totalResults: suggestion.totalResults
+                            })
+                          }}
+                        </template>
+                      </span>
+                    </div>
                   </div>
-                </div>
+
+                  <template #remove-button-content>
+                    <CrossTinyIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
+                  </template>
+                </HistoryQuery>
               </template>
             </BaseIdModalClose>
-          </template>
-          <template #suggestion-remove-content>
-            <CrossTinyIcon :class="{ 'x-icon--l': $x.device === 'mobile' }" />
           </template>
         </MyHistory>
         <div v-else class="x-list x-list--align-center x-list__item--expand">
@@ -127,7 +132,11 @@
     StaggeredFadeAndSlide,
     State
   } from '@empathyco/x-components';
-  import { MyHistory, HistoryQueriesSwitch } from '@empathyco/x-components/history-queries';
+  import {
+    MyHistory,
+    HistoryQueriesSwitch,
+    HistoryQuery
+  } from '@empathyco/x-components/history-queries';
   import { Component, Vue } from 'vue-property-decorator';
   import MyHistoryIcon from './my-history-icon.vue';
   import MyHistoryIconBw from './my-history-icon-bw.vue';
@@ -142,7 +151,8 @@
       MyHistoryIcon,
       MyHistoryIconBw,
       NoHistoryIcon,
-      HistoryQueriesSwitch
+      HistoryQueriesSwitch,
+      HistoryQuery
     }
   })
   export default class CustomMyHistory extends Vue {

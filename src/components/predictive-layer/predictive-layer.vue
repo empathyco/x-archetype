@@ -173,6 +173,7 @@
           v-if="$x.device === 'desktop' && !$x.query.searchBox"
           modalId="my-history-aside"
           class="x-self-start x-button-sm x-button-tight"
+          data-test="my-history-button"
         >
           <SettingsIcon />
           {{ $t('myHistory.openButton') }}
