@@ -1,6 +1,6 @@
 :root {
   // Icons
-  .x-icon--light-bulb-on {
+  .x-icon-light-bulb-on {
     --x-size-stroke-width-icon-default: 0.8px;
   }
 
@@ -35,9 +35,6 @@
   .x-partial-result {
     --x-size-padding-grid: 0;
   }
-
-  // Image
-  --x-number-aspect-ratio-picture: 3/4;
 
   // Result
   --x-size-gap-result-default: var(--x-size-base-02);

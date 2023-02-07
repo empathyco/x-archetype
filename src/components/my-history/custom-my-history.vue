@@ -111,7 +111,7 @@
         <div v-else class="x-list x-list--align-center x-list__item--expand">
           <NoHistoryIcon
             class="x-flex-no-shrink"
-            :class="{ 'x-no-history-icon--bw': !areHistoryQueriesEnabled }"
+            :class="{ 'x-icon-no-history-bw': !areHistoryQueriesEnabled }"
           />
           <span
             class="x-padding--05 x-list x-list--justify-center x-list__item--expand x-title3 x-text-neutral-75"
@@ -164,16 +164,16 @@
 </script>
 
 <style lang="scss" scoped>
-  .x-my-history-icon,
-  .x-my-history-icon-bw {
+  .x-icon-my-history,
+  .x-icon-my-history-bw {
     width: 251px;
     height: 137px;
   }
-  .x-no-history-icon {
+  .x-icon-no-history {
     width: 100%;
     height: auto;
 
-    &--bw {
+    &-bw {
       filter: grayscale(1);
     }
   }
@@ -181,8 +181,8 @@
     overflow-y: auto;
   }
   .x-mobile {
-    .x-my-history-icon,
-    .x-my-history-icon-bw {
+    .x-icon-my-history,
+    .x-icon-my-history-bw {
       width: 182px;
       height: 112px;
     }
