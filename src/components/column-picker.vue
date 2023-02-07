@@ -10,8 +10,8 @@
     >
       <component
         :is="icon(column)"
-        class="x-icon-lg"
-        :class="{ 'x-text-neutral-90': isSelected }"
+        class="x-icon-lg x-icon-stroke-width-lg"
+        :class="isSelected ? 'x-text-neutral-90' : 'x-text-neutral-25'"
       />
     </BaseColumnPickerList>
   </div>

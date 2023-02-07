@@ -20,7 +20,7 @@
     >
       <SearchIcon class="x-icon-lg" />
     </button>
-    <ClearSearchInput v-else class="x-input-group__action x-button-lead">
+    <ClearSearchInput v-else class="x-input-group__action x-button-lead x-button-square">
       <CrossTinyIcon class="x-icon-lg" />
     </ClearSearchInput>
   </div>
