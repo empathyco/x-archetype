@@ -6,7 +6,7 @@
     :showButtons="$x.device !== 'mobile'"
   >
     <template #sliding-panel-left-button>
-      <ChevronLeftIcon class="x-icon--l" />
+      <ChevronLeftIcon class="x-icon-lg" />
     </template>
     <RelatedTags
       class="x-list--gap-03 x-tag--pill"
@@ -22,7 +22,7 @@
       </template>
     </RelatedTags>
     <template #sliding-panel-right-button>
-      <ChevronRightIcon class="x-icon--l" />
+      <ChevronRightIcon class="x-icon-lg" />
     </template>
   </SlidingPanel>
 </template>

@@ -2,8 +2,8 @@
   <BaseHeaderTogglePanel class="x-facet x-list" :startCollapsed="true" :animation="animation">
     <template #header-content="{ open }">
       <slot name="header" />
-      <ChevronUpIcon v-if="open" class="x-icon--l" />
-      <ChevronDownIcon v-else class="x-icon--l" />
+      <ChevronUpIcon v-if="open" class="x-icon-lg" />
+      <ChevronDownIcon v-else class="x-icon-lg" />
     </template>
     <slot />
   </BaseHeaderTogglePanel>

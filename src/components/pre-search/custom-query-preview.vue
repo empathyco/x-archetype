@@ -40,7 +40,7 @@
           class="x-sliding-panel-show-buttons-on-hover"
         >
           <template #sliding-panel-left-button>
-            <ChevronLeftIcon class="x-icon--l" />
+            <ChevronLeftIcon class="x-icon-lg" />
           </template>
           <ul
             class="x-list x-list--horizontal x-list--gap-05"
@@ -51,7 +51,7 @@
             </li>
           </ul>
           <template #sliding-panel-right-button>
-            <ChevronRightIcon class="x-icon--l" />
+            <ChevronRightIcon class="x-icon-lg" />
           </template>
         </SlidingPanel>
       </div>

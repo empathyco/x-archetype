@@ -2,13 +2,13 @@
   <SlicedFilters v-bind="$attrs">
     <template #show-more>
       <div class="x-list x-list--horizontal x-list--align-center x-list--gap-03">
-        <PlusIcon class="x-icon--l" />
+        <PlusIcon class="x-icon-lg" />
         {{ $t('filters.showMore') }}
       </div>
     </template>
     <template #show-less>
       <div class="x-list x-list--horizontal x-list--align-center x-list--gap-03">
-        <MinusIcon class="x-icon--l" />
+        <MinusIcon class="x-icon-lg" />
         {{ $t('filters.showLess') }}
       </div>
     </template>

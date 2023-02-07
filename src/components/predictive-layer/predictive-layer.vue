@@ -45,7 +45,7 @@
           class="x-self-end x-padding--right-03 x-border-width--00 x-button-sm x-button-tight"
         >
           {{ $t('myHistory.openButton') }}
-          <SettingsIcon class="x-icon--l" />
+          <SettingsIcon class="x-icon-lg" />
         </BaseIdModalOpen>
         <div v-if="showHistoryQueries" class="x-list x-list--gap-02">
           <div
@@ -58,7 +58,7 @@
             <ClearHistoryQueries
               class="x-padding--left-03 x-padding--right-03 x-border-width--00 x-button-sm x-button-tight"
             >
-              <TrashIcon v-if="$x.device === 'mobile'" class="x-icon--l" />
+              <TrashIcon v-if="$x.device === 'mobile'" class="x-icon-lg" />
               <span v-else>{{ $t('historyQueries.clear') }}</span>
             </ClearHistoryQueries>
           </div>

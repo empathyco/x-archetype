@@ -30,7 +30,7 @@
         <span class="x-ellipsis x-flex-auto x-text1 x-text-neutral-75">
           {{ nextQuery.query }}
         </span>
-        <ArrowRightIcon class="x-icon--m x-text-auxiliary-50" />
+        <ArrowRightIcon class="x-icon-md x-text-auxiliary-50" />
       </NextQuery>
     </BaseSuggestions>
   </div>
