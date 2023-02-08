@@ -84,7 +84,7 @@
                     class="x-list x-list--horizontal x-list--gap-05 x-padding--bottom-02 x-padding--top-02"
                   >
                     <HistoryIcon
-                      :class="{ 'x-icon-lg x-icon-stroke-width-lg': $x.device === 'mobile' }"
+                      :class="{ 'x-icon-lg': $x.device === 'mobile' }"
                     />
                     <div class="x-list x-list--gap-01">
                       <span>{{ suggestion.query }}</span>
