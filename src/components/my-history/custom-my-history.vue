@@ -103,7 +103,7 @@
                   </div>
 
                   <template #remove-button-content>
-                    <CrossTinyIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
+                    <CrossTinyIcon class="x-icon-lg" />
                   </template>
                 </HistoryQuery>
               </template>
