@@ -21,6 +21,7 @@ module.exports = {
     'display',
     'fontSize',
     'fontWeight',
+    'justifySelf',
     'height',
     'lineHeight',
     'textColor',

@@ -1,5 +1,9 @@
 <template>
-  <ScrollToTop class="x-button-lead x-button-circle" scrollId="main-scroll" :thresholdPx="100">
+  <ScrollToTop
+    class="x-button-lead x-button-circle x-layout-on-margin-right x-justify-self-end desktop:x-mb-16 desktop:x-mr-16"
+    scrollId="main-scroll"
+    :thresholdPx="100"
+  >
     <ChevronUpIcon />
   </ScrollToTop>
 </template>

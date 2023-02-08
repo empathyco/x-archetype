@@ -1,59 +1,64 @@
 <template>
-  <SingleColumnLayout
-    :asideAnimation="animation"
-    :class="{ 'x-background--neutral-100': !!$x.query.searchBox }"
-  >
-    <template #header>
+  <div class="x-layout-container x-layout-max-width-md x-layout-min-margin-16">
+    <div class="x-layout-item">
       <div
-        class="x-list x-list--horizontal x-list__item--expand x-list--align-center x-background--neutral-100 x-p-16 x-pl-8"
+        class="x-list x-list--horizontal x-list__item--expand x-list--align-center x-background--neutral-100 x-py-16"
       >
         <CloseMainModal class="x-button-lead x-button-circle x-button-ghost">
           <ArrowLeftIcon class="x-icon-lg" />
         </CloseMainModal>
         <SearchBox class="x-list__item--expand" />
       </div>
-    </template>
+    </div>
 
-    <template #sub-header>
-      <div
-        v-if="$x.relatedTags.length > 0"
-        class="x-list__item--expand x-list x-padding--00 x-padding--bottom-05"
-      >
+    <div class="x-stack">
+      <BaseScroll>
         <LocationProvider location="predictive_layer">
-          <RelatedTags />
+          <PredictiveLayer class="x-background--neutral-100 x-layout-item" />
         </LocationProvider>
+      </BaseScroll>
+
+      <div>
+        <div v-if="$x.relatedTags.length > 0" class="x-layout-no-margin x-layout-item">
+          <div class="x-list__item--expand x-list x-padding--00 x-padding--bottom-05">
+            <LocationProvider location="predictive_layer">
+              <RelatedTags />
+            </LocationProvider>
+          </div>
+        </div>
+
+        <div
+          v-if="$x.query.search && !$x.redirections.length"
+          class="x-layout-no-margin x-layout-item"
+        >
+          <div class="x-flex-1">
+            <LocationProvider location="results">
+              <SpellcheckMessage
+                class="x-margin--bottom-05 x-margin--left-05 x-margin--right-03"
+                data-test="spellcheck-message"
+              />
+            </LocationProvider>
+            <NoResultsMessage
+              class="x-margin--bottom-05 x-margin--left-05 x-margin--right-03"
+              data-test="no-results-message"
+            />
+            <MobileToolbar class="x-padding--left-05 x-padding--bottom-05 x-padding--right-03" />
+          </div>
+        </div>
+
+        <MainScroll>
+          <Scroll id="main-scroll" class="x-layout__main-scroll x-list x-list--vertical">
+            <div class="x-layout-item">
+              <LocationProvider location="results">
+                <Main />
+              </LocationProvider>
+            </div>
+          </Scroll>
+        </MainScroll>
       </div>
-    </template>
+    </div>
 
-    <template #toolbar v-if="$x.query.search && !$x.redirections.length">
-      <div class="x-flex-1">
-        <LocationProvider location="results">
-          <SpellcheckMessage
-            class="x-margin--bottom-05 x-margin--left-05 x-margin--right-03"
-            data-test="spellcheck-message"
-          />
-        </LocationProvider>
-        <NoResultsMessage
-          class="x-margin--bottom-05 x-margin--left-05 x-margin--right-03"
-          data-test="no-results-message"
-        />
-        <MobileToolbar class="x-padding--left-05 x-padding--bottom-05 x-padding--right-03" />
-      </div>
-    </template>
-
-    <template #predictive>
-      <LocationProvider location="predictive_layer">
-        <PredictiveLayer class="x-list x-list__item--expand x-background--neutral-100 x-scroll" />
-      </LocationProvider>
-    </template>
-
-    <template #main>
-      <LocationProvider location="results">
-        <Main />
-      </LocationProvider>
-    </template>
-
-    <template #floating>
+    <div class="x-layout-overlap x-layout-item">
       <div class="x-row x-row--padding-03 x-list__item--expand x-margin--bottom-06">
         <MobileOpenAside
           v-if="$x.totalResults > 0"
@@ -63,24 +68,21 @@
           <ScrollToTop class="x-row__item" />
         </div>
       </div>
-    </template>
-
-    <template v-if="hasSearched" #aside>
+    </div>
+    <BaseIdModal :animation="rightAsideAnimation" modalId="aside-modal" class="x-layout__aside">
       <MobileAside />
-    </template>
+    </BaseIdModal>
 
-    <template #extra-aside>
-      <BaseIdModal
-        key="my-history-aside"
-        :animation="rightAsideAnimation"
-        modalId="my-history-aside"
-        class="x-layout__aside x-layout__aside--extra"
-      >
-        <MobileMyHistoryAside />
-      </BaseIdModal>
-      <MyHistoryConfirmDisableModal class="x-layout__aside--extra x-background--transparent" />
-    </template>
-  </SingleColumnLayout>
+    <BaseIdModal
+      key="my-history-aside"
+      :animation="rightAsideAnimation"
+      modalId="my-history-aside"
+      class="x-layout__aside x-layout__aside--extra"
+    >
+      <MobileMyHistoryAside />
+    </BaseIdModal>
+    <MyHistoryConfirmDisableModal class="x-layout__aside--extra x-background--transparent" />
+  </div>
 </template>
 
 <script lang="ts">
@@ -97,6 +99,7 @@
     BaseIdModal
   } from '@empathyco/x-components';
   import { Component } from 'vue-property-decorator';
+  import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
   import Main from '../main.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
@@ -120,11 +123,13 @@
       FiltersIcon,
       LocationProvider,
       Main,
+      MainScroll,
       MobileCloseAside,
       MobileOpenAside,
       MobileMyHistoryAside,
       MobileToolbar,
       PredictiveLayer,
+      Scroll,
       ScrollToTop,
       SearchBox,
       SingleColumnLayout,
@@ -140,6 +145,16 @@
   }
 </script>
 <style lang="scss">
+  .x-stack {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+    & > * {
+      grid-row: 1;
+      grid-column: 1;
+    }
+  }
   .x-mobile {
     .x-modal {
       &.x-layout__aside:not(.x-layout__aside--extra) {
