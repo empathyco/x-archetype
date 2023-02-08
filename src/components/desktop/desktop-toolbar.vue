@@ -22,7 +22,7 @@
       class="x-button-lead x-button-ghost"
       data-test="toggle-facets-button"
     >
-      <FiltersIcon />
+      <FiltersIcon class="x-icon-lg" />
       <span>{{ $t('toggleAside.showAside') }}</span>
       <span
         v-if="$x.selectedFilters.length"

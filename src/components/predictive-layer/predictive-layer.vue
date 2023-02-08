@@ -138,11 +138,7 @@
                   v-if="suggestion.isCurated"
                   :class="{ 'x-icon-lg': $x.device === 'mobile' }"
                 />
-                <LightBulbOn
-                  v-else
-                  class="x-icon-light-bulb-on"
-                  :class="{ 'x-icon-lg': $x.device === 'mobile' }"
-                />
+                <LightBulbOn v-else :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
                 <span>{{ suggestion.query }}</span>
               </NextQuery>
             </template>

@@ -77,8 +77,8 @@
             <FiltersList v-slot="{ filter }" :animation="staggeredFadeAndSlide">
               <NumberRangeFilter :filter="filter">
                 <template #label>
-                  <CheckboxCardSelectedIcon v-if="filter.selected" class="x-icon-lg" />
-                  <CheckboxCardUnselectedIcon v-else class="x-icon-lg" />
+                  <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
+                  <CheckboxUnselectedIcon v-else class="x-icon-lg" />
                   <PriceFilterLabel :filter="filter" />
                 </template>
               </NumberRangeFilter>
@@ -94,8 +94,8 @@
   import {
     BaseHeaderTogglePanel,
     StaggeredFadeAndSlide,
-    CheckboxCardUnselectedIcon,
-    CheckboxCardSelectedIcon
+    CheckboxUnselectedIcon,
+    CheckboxSelectedIcon
   } from '@empathyco/x-components';
   import {
     SimpleFilter,
@@ -118,8 +118,8 @@
     components: {
       AllFilter,
       BaseHeaderTogglePanel,
-      CheckboxCardUnselectedIcon,
-      CheckboxCardSelectedIcon,
+      CheckboxUnselectedIcon,
+      CheckboxSelectedIcon,
       CustomHeaderTogglePanel,
       CustomSlicedFilters,
       Facets,
