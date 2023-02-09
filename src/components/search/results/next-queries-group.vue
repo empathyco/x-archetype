@@ -27,7 +27,7 @@
       >
         <CuratedCheckIcon v-if="nextQuery.isCurated" class="x-text-auxiliary-50" />
         <LightBulbOn v-else class="x-text-auxiliary-50" />
-        <span class="x-ellipsis x-flex-auto x-text1 x-text-neutral-75">
+        <span class="x-ellipsis x-text1 x-flex-auto x-text-neutral-75">
           {{ nextQuery.query }}
         </span>
         <ArrowRightIcon class="x-icon--m x-text-auxiliary-50" />

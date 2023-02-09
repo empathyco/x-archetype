@@ -12,13 +12,8 @@
     </div>
 
     <div class="x-stack">
-      <BaseScroll>
-        <LocationProvider location="predictive_layer">
-          <PredictiveLayer class="x-background--neutral-100 x-layout-item" />
-        </LocationProvider>
-      </BaseScroll>
-
-      <div>
+      <!--      Results-->
+      <div v-if="!$x.isEmpathizeOpen" class="x-flex x-min-h-0 x-flex-col">
         <div v-if="$x.relatedTags.length > 0" class="x-layout-no-margin x-layout-item">
           <div class="x-list__item--expand x-list x-padding--00 x-padding--bottom-05">
             <LocationProvider location="predictive_layer">
@@ -47,28 +42,33 @@
         </div>
 
         <MainScroll>
-          <Scroll id="main-scroll" class="x-layout__main-scroll x-list x-list--vertical">
-            <div class="x-layout-item">
-              <LocationProvider location="results">
+          <Scroll id="main-scroll">
+            <LocationProvider location="results">
+              <div class="x-layout-item">
                 <Main />
-              </LocationProvider>
-            </div>
+              </div>
+            </LocationProvider>
           </Scroll>
         </MainScroll>
-      </div>
-    </div>
 
-    <div class="x-layout-overlap x-layout-item">
-      <div class="x-row x-row--padding-03 x-list__item--expand x-margin--bottom-06">
-        <MobileOpenAside
-          v-if="$x.totalResults > 0"
-          class="x-row__item x-row__item--start-4 x-row__item--span-6"
-        />
-        <div class="x-row__item--start-11 x-row__item--span-2 x-row__item x-padding--00">
-          <ScrollToTop class="x-row__item" />
+        <div class="x-layout-overlap x-layout-item">
+          <div class="x-row x-row--padding-03 x-list__item--expand x-margin--bottom-06">
+            <MobileOpenAside
+              v-if="$x.totalResults > 0"
+              class="x-row__item x-row__item--start-4 x-row__item--span-6"
+            />
+            <div class="x-row__item--start-11 x-row__item--span-2 x-row__item x-padding--00">
+              <ScrollToTop class="x-row__item" />
+            </div>
+          </div>
         </div>
       </div>
+
+      <LocationProvider location="predictive_layer">
+        <PredictiveLayer class="x-background--neutral-100 x-layout-item" />
+      </LocationProvider>
     </div>
+
     <BaseIdModal :animation="rightAsideAnimation" modalId="aside-modal" class="x-layout__aside">
       <MobileAside />
     </BaseIdModal>
