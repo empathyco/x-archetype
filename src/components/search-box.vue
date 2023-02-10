@@ -1,26 +1,27 @@
 <template>
-  <div class="x-input-group x-input-group--card x-border-color--lead">
+  <div class="x-input-group x-input-group-lead x-rounded-sm">
     <SearchInput
       :autofocus="false"
       :placeholder="$t('searchBox.placeholder')"
-      :class="$x.device === 'mobile' ? 'x-padding--left-05' : 'x-padding--left-08'"
+      :instant="false"
+      class="desktop:x-pl-40"
     />
 
-    <!-- TODO: Remove x-max-h when implementing XDS input-group -->
     <ClearSearchInput
       v-if="$x.device === 'desktop' && $x.query.searchBox"
-      class="x-button-lead !x-button-sm x-button-ghost x-max-h-32"
+      class="x-input-group-button"
     >
       {{ $t('searchBox.clear') }}
     </ClearSearchInput>
 
-    <button
+    <SearchButton
       v-if="$x.device === 'desktop' || !$x.query.searchBox"
-      class="x-input-group__action x-button x-button-lead x-button-square"
+      class="x-input-group-button-primary"
     >
       <SearchIcon class="x-icon-lg" />
-    </button>
-    <ClearSearchInput v-else class="x-input-group__action x-button-lead x-button-square">
+    </SearchButton>
+
+    <ClearSearchInput v-else class="x-input-group-button-primary">
       <CrossTinyIcon class="x-icon-lg" />
     </ClearSearchInput>
   </div>
