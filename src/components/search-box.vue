@@ -18,10 +18,10 @@
       v-if="$x.device === 'desktop' || !$x.query.searchBox"
       class="x-input-group__action x-button x-button-lead x-button-square"
     >
-      <SearchIcon class="x-icon--l" />
+      <SearchIcon class="x-icon-lg" />
     </button>
-    <ClearSearchInput v-else class="x-input-group__action x-button-lead">
-      <CrossTinyIcon class="x-icon--l" />
+    <ClearSearchInput v-else class="x-input-group__action x-button-lead x-button-square">
+      <CrossTinyIcon class="x-icon-lg" />
     </ClearSearchInput>
   </div>
 </template>

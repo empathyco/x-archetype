@@ -24,7 +24,7 @@
           class="x-row__item x-row__item--span-2 x-list x-list--horizontal x-list--justify-end x-list--wrap-reverse"
         >
           <CloseMainModal class="x-button-lead x-button-circle x-button-ghost">
-            <CrossIcon class="x-icon--l" />
+            <CrossIcon class="x-icon-lg" />
           </CloseMainModal>
         </div>
       </div>

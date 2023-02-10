@@ -1,7 +1,7 @@
 <template functional>
   <!-- eslint-disable max-len -->
   <svg
-    :class="['x-no-history-icon'].concat(data.staticClass, data.class)"
+    :class="['x-icon-no-history'].concat(data.staticClass, data.class)"
     fill="none"
     viewBox="0 0 504 279"
     xmlns="http://www.w3.org/2000/svg"
