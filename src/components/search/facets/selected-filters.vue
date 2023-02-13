@@ -8,7 +8,7 @@
       :resetOnContentChange="false"
     >
       <template #sliding-panel-left-button>
-        <ChevronLeftIcon class="x-icon--l" />
+        <ChevronLeftIcon class="x-icon-lg" />
       </template>
       <SelectedFiltersList
         class="x-list x-flex-no-shrink x-list--wrap x-list--gap-03"
@@ -39,7 +39,7 @@
         </template>
       </SelectedFiltersList>
       <template #sliding-panel-right-button>
-        <ChevronRightIcon class="x-icon--l" />
+        <ChevronRightIcon class="x-icon-lg" />
       </template>
     </SlidingPanel>
 

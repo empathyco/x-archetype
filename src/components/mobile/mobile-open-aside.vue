@@ -3,7 +3,7 @@
     modalId="aside-modal"
     class="x-border-radius--20 x-padding--04 x-padding--right-05 x-padding--left-05 x-button-lead"
   >
-    <FiltersIcon />
+    <FiltersIcon class="x-icon-lg" />
     <span>{{ $t('toggleAside.showAside') }}</span>
     <span
       v-if="$x.selectedFilters.length > 0"

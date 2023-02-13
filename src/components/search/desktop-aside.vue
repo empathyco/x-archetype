@@ -7,10 +7,10 @@
         {{ $t('facetsPanel.title') }}
       </span>
       <BaseIdModalClose class="x-button-lead x-button-circle x-button-ghost" modalId="right-aside">
-        <CrossTinyIcon class="x-icon--l" />
+        <CrossIcon class="x-icon-lg" />
       </BaseIdModalClose>
     </div>
-    <div class="x-scroll x-list__item--expand x-padding--08 x-padding--top-00 x-padding--right-06">
+    <div class="x-list__item--expand x-padding--08 x-padding--top-00 x-padding--right-06 x-scroll">
       <Sort />
       <CustomFacets v-if="$x.totalResults > 0" />
     </div>
@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts">
-  import { BaseIdModalClose, CrossTinyIcon } from '@empathyco/x-components';
+  import { BaseIdModalClose, CrossIcon } from '@empathyco/x-components';
   import { Component, Vue } from 'vue-property-decorator';
   import { ClearFilters } from '@empathyco/x-components/facets';
   import CustomFacets from './facets/custom-facets.vue';
@@ -46,7 +46,7 @@
       CustomFacets,
       Sort,
       BaseIdModalClose,
-      CrossTinyIcon,
+      CrossIcon,
       ClearFilters
     }
   })

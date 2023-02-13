@@ -5,12 +5,11 @@
         <h1 class="x-margin--right-auto x-title2 x-text-neutral-0">
           {{ $t('myHistory.title') }}
         </h1>
-        <!-- TODO: Adapt hover color for ghost button when available -->
         <BaseIdModalClose
           class="x-padding--top-00 x-padding--bottom-00 x-border-width--00 x-button-circle x-button-ghost hover:x-button-lead"
           modalId="my-history-aside"
         >
-          <CrossIcon class="x-icon--l x-text-neutral-0" />
+          <CrossIcon class="x-icon-lg x-text-neutral-0" />
         </BaseIdModalClose>
       </div>
     </div>

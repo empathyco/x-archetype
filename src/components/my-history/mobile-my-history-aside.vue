@@ -6,14 +6,14 @@
           class="x-border-width--00 x-padding--00 x-padding--right-05 x-button-circle x-button-ghost hover:x-button-lead"
           modalId="my-history-aside"
         >
-          <ArrowLeftIcon class="x-icon--l x-text-neutral-0" />
+          <ArrowLeftIcon class="x-icon-lg x-text-neutral-0" />
         </BaseIdModalClose>
         <h1 class="x-margin--right-auto x-title2 x-title2-sm x-text-neutral-0">
           {{ $t('myHistory.title') }}
         </h1>
       </div>
     </div>
-    <CustomMyHistory class="x-scroll x-list x-list__item--expand" />
+    <CustomMyHistory class="x-list x-list__item--expand x-scroll" />
   </div>
 </template>
 

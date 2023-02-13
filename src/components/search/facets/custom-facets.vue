@@ -11,8 +11,8 @@
         </template>
         <template #default>
           <AllFilter v-slot="{ isSelected }" :facet="facet">
-            <CheckboxCardSelectedIcon v-if="isSelected" class="x-icon--l" />
-            <CheckboxCardUnselectedIcon v-else class="x-icon--l" />
+            <CheckboxSelectedIcon v-if="isSelected" class="x-icon-lg" />
+            <CheckboxUnselectedIcon v-else class="x-icon-lg" />
             <span>{{ $t('filters.all') }}</span>
           </AllFilter>
 
@@ -20,8 +20,8 @@
             <FiltersList v-slot="{ filter }" :animation="staggeredFadeAndSlide">
               <SimpleFilter :filter="filter">
                 <template #label>
-                  <CheckboxCardSelectedIcon v-if="filter.selected" class="x-icon--l" />
-                  <CheckboxCardUnselectedIcon v-else class="x-icon--l" />
+                  <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
+                  <CheckboxUnselectedIcon v-else class="x-icon-lg" />
                   <span class="x-filter__label">{{ filter.label }}</span>
                   <span class="x-filter__count">({{ filter.totalResults }})</span>
                 </template>
@@ -43,16 +43,16 @@
         </template>
         <template #default>
           <AllFilter v-slot="{ isSelected }" :facet="facet">
-            <CheckboxCardSelectedIcon v-if="isSelected" class="x-icon--l" />
-            <CheckboxCardUnselectedIcon v-else class="x-icon--l" />
+            <CheckboxSelectedIcon v-if="isSelected" class="x-icon-lg" />
+            <CheckboxUnselectedIcon v-else class="x-icon-lg" />
             <span>{{ $t('filters.all') }}</span>
           </AllFilter>
           <CustomSlicedFilters :max="6" :filters="facet.filters">
             <FiltersList v-slot="{ filter }" :animation="staggeredFadeAndSlide">
               <HierarchicalFilter :filter="filter">
                 <template #label="{ filter }">
-                  <CheckboxCardSelectedIcon v-if="filter.selected" class="x-icon--l" />
-                  <CheckboxCardUnselectedIcon v-else class="x-icon--l" />
+                  <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
+                  <CheckboxUnselectedIcon v-else class="x-icon-lg" />
                   <span class="x-filter__label">{{ filter.label }}</span>
                   <span class="x-filter__count">({{ filter.totalResults }})</span>
                 </template>
@@ -77,8 +77,8 @@
             <FiltersList v-slot="{ filter }" :animation="staggeredFadeAndSlide">
               <NumberRangeFilter :filter="filter">
                 <template #label>
-                  <CheckboxCardSelectedIcon v-if="filter.selected" class="x-icon--l" />
-                  <CheckboxCardUnselectedIcon v-else class="x-icon--l" />
+                  <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
+                  <CheckboxUnselectedIcon v-else class="x-icon-lg" />
                   <PriceFilterLabel :filter="filter" />
                 </template>
               </NumberRangeFilter>
@@ -94,8 +94,8 @@
   import {
     BaseHeaderTogglePanel,
     StaggeredFadeAndSlide,
-    CheckboxCardUnselectedIcon,
-    CheckboxCardSelectedIcon
+    CheckboxUnselectedIcon,
+    CheckboxSelectedIcon
   } from '@empathyco/x-components';
   import {
     SimpleFilter,
@@ -118,8 +118,8 @@
     components: {
       AllFilter,
       BaseHeaderTogglePanel,
-      CheckboxCardUnselectedIcon,
-      CheckboxCardSelectedIcon,
+      CheckboxUnselectedIcon,
+      CheckboxSelectedIcon,
       CustomHeaderTogglePanel,
       CustomSlicedFilters,
       Facets,
