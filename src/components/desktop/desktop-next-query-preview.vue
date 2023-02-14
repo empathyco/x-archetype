@@ -9,29 +9,31 @@
         <span class="x-title3">{{ $x.query.nextQueries }}</span>
       </template>
     </i18n>
-    <NextQuery :suggestion="nextQuery" class="x-suggestion-lead-50 x-font-bold">
-      <span>
-        {{
-          $t('nextQueryPreview.query', {
-            query: suggestion.query
-          })
-        }}
-        {{
-          $t('nextQueryPreview.totalResults', {
-            totalResults: totalResults
-          })
-        }}
-      </span>
-      <ArrowRightIcon class="x-icon-lg" />
-    </NextQuery>
-    <BaseGrid
-      #default="{ item }"
-      :columns="maxItemsToRender"
-      :items="results.slice(0, maxItemsToRender)"
-      class="x-padding--00"
-    >
-      <Result :result="item" />
-    </BaseGrid>
+    <div>
+      <NextQuery :suggestion="nextQuery" class="x-button x-button-tight x-font-bold">
+        <span>
+          {{
+            $t('nextQueryPreview.query', {
+              query: suggestion.query
+            })
+          }}
+          {{
+            $t('nextQueryPreview.totalResults', {
+              totalResults: totalResults
+            })
+          }}
+        </span>
+        <ArrowRightIcon class="x-icon-lg" />
+      </NextQuery>
+    </div>
+    <CustomSlidingPanel>
+      <Result
+        v-for="item in results.slice(0, maxItemsToRender)"
+        :key="item.id"
+        :result="item"
+        class="x-w-[262px]"
+      />
+    </CustomSlidingPanel>
   </NextQueryPreview>
 </template>
 
@@ -41,9 +43,11 @@
   import { NextQuery, NextQueryPreview } from '@empathyco/x-components/next-queries';
   import { NextQuery as NextQueryModel } from '@empathyco/x-types';
   import Result from '../results/result.vue';
+  import CustomSlidingPanel from '../custom-sliding-panel.vue';
 
   @Component({
     components: {
+      CustomSlidingPanel,
       BaseGrid,
       NextQuery,
       NextQueryPreview,
