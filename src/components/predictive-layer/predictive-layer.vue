@@ -1,191 +1,176 @@
 <template>
-  <Empathize :animation="empathizeAnimation" class="x-list">
-    <BaseKeyboardNavigation
-      class="x-row x-row--gap-06 x-row--align-start"
-      :navigationHijacker="navigationHijacker"
-    >
-      <IdentifierResults
-        v-if="showIdentifierResults"
-        v-slot="{ identifierResult }"
-        :maxItemsToRender="5"
-        :animation="suggestionsAnimation"
-        class="x-row__item x-row__item--span-12 x-list x-list-horizontal x-padding--05"
-        :class="$x.device === 'mobile' ? 'x-list--gap-03 x-padding--top-00' : 'x-list--gap-02'"
-      >
-        <BaseResultLink
-          v-slot="{ result }"
-          :result="identifierResult"
-          class="x-suggestion-lg x-suggestion desktop:x-suggestion-md"
+  <Empathize :animation="empathizeAnimation" class="x-bg-neutral-0 desktop:x-p-16 desktop:x-pr-0">
+    <BaseScroll class="x-h-full">
+      <div class="x-layout-item desktop:x-block">
+        <BaseKeyboardNavigation
+          class="x-flex x-flex-col desktop:x-grid desktop:x-grid-cols-12 desktop:x-items-start desktop:x-gap-24"
+          :navigationHijacker="navigationHijacker"
         >
-          <BarCodeIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
-          <IdentifierResult :result="result" />
-          <span>
-            {{ result.name }}
-          </span>
-        </BaseResultLink>
-      </IdentifierResults>
-
-      <div
-        v-else-if="showEmpathize"
-        class="x-row__item x-list x-padding--05"
-        :class="[
-          $x.query.searchBox
-            ? $x.device === 'mobile'
-              ? 'x-list--gap-03'
-              : 'x-list--gap-02'
-            : 'x-list--gap-05',
-          $x.device === 'mobile'
-            ? 'x-row__item--span-12 x-padding--top-00 x-padding--bottom-00'
-            : 'x-row__item--span-5 x-padding--right-00'
-        ]"
-      >
-        <BaseIdModalOpen
-          v-if="$x.device === 'mobile' && !$x.query.searchBox"
-          modalId="my-history-aside"
-          class="x-self-end x-padding--right-03 x-border-width--00 x-button-sm x-button-tight"
-        >
-          {{ $t('myHistory.openButton') }}
-          <SettingsIcon class="x-icon-lg" />
-        </BaseIdModalOpen>
-        <div v-if="showHistoryQueries" class="x-list x-list--gap-02">
-          <div
-            v-if="!$x.query.searchBox && $x.historyQueriesWithResults.length"
-            class="x-list x-list--horizontal x-list--align-center"
+          <IdentifierResults
+            v-if="showIdentifierResults"
+            v-slot="{ identifierResult }"
+            :maxItemsToRender="5"
+            :animation="suggestionsAnimation"
+            class="x-flex x-flex-col x-gap-8 x-pl-0 x-pl-8 desktop:x-col-span-12 desktop:x-gap-4"
           >
-            <h1 class="x-uppercase x-list__item--expand x-title4 x-title4-sm">
-              {{ $t('historyQueries.title') }}
-            </h1>
-            <ClearHistoryQueries
-              class="x-padding--left-03 x-padding--right-03 x-border-width--00 x-button-sm x-button-tight"
+            <BaseResultLink
+              v-slot="{ result }"
+              :result="identifierResult"
+              class="x-suggestion-lg x-suggestion desktop:x-suggestion-md"
             >
-              <TrashIcon v-if="$x.device === 'mobile'" class="x-icon-lg" />
-              <span v-else>{{ $t('historyQueries.clear') }}</span>
-            </ClearHistoryQueries>
+              <BarCodeIcon class="x-icon-lg desktop:x-icon-md" />
+              <IdentifierResult :result="result" />
+              <span>
+                {{ result.name }}
+              </span>
+            </BaseResultLink>
+          </IdentifierResults>
+
+          <div
+            v-else-if="showEmpathize"
+            class="x-flex x-flex-col x-gap-8 x-pl-8 desktop:x-col-span-5 desktop:x-pl-0"
+            :class="$x.query.searchBox ? 'desktop:x-gap-4' : 'desktop:x-gap-16'"
+          >
+            <BaseIdModalOpen
+              v-if="$x.device === 'mobile' && !$x.query.searchBox"
+              modalId="my-history-aside"
+              class="x-self-end x-button-sm x-button-tight x-pr-8"
+            >
+              {{ $t('myHistory.openButton') }}
+              <SettingsIcon class="x-icon-lg" />
+            </BaseIdModalOpen>
+            <div v-if="showHistoryQueries" class="x-flex x-flex-col x-gap-4">
+              <div v-if="!$x.query.searchBox" class="x-flex x-items-center">
+                <h1 class="x-uppercase x-title4 x-title4-sm x-flex-1">
+                  {{ $t('historyQueries.title') }}
+                </h1>
+                <ClearHistoryQueries class="x-button-sm x-button-tight x-px-8">
+                  <TrashIcon v-if="$x.device === 'mobile'" class="x-icon--l" />
+                  <span v-else>{{ $t('historyQueries.clear') }}</span>
+                </ClearHistoryQueries>
+              </div>
+
+              <HistoryQueries
+                :animation="suggestionsAnimation"
+                :max-items-to-render="$x.query.searchBox ? 2 : 4"
+                suggestionItemClass="x-w-full"
+                class="x-flex x-flex-col x-gap-8 desktop:x-gap-4"
+              >
+                <template #suggestion="{ suggestion }">
+                  <HistoryQuery
+                    class="x-suggestion-group-lg desktop:x-suggestion-group-md"
+                    :suggestion="suggestion"
+                    suggestionClass="x-suggestion-lg desktop:x-suggestion-md"
+                  >
+                    <template #default="{ query }">
+                      <HistoryIcon class="x-icon-lg desktop:x-icon-md" />
+                      <Highlight :text="suggestion.query" :highlight="query" />
+                    </template>
+
+                    <template #remove-button-content>
+                      <span
+                        :aria-label="
+                          $t('historyQueries.removeLabel', { suggestion: suggestion.query })
+                        "
+                      >
+                        <CrossTinyIcon class="x-icon-lg desktop:x-icon-md" />
+                      </span>
+                    </template>
+                  </HistoryQuery>
+                </template>
+              </HistoryQueries>
+            </div>
+
+            <QuerySuggestions
+              v-if="showQuerySuggestions"
+              :animation="suggestionsAnimation"
+              :max-items-to-render="5"
+              class="x-flex x-flex-col x-gap-8 desktop:x-gap-4"
+            >
+              <template #suggestion="{ suggestion }">
+                <QuerySuggestion
+                  :suggestion="suggestion"
+                  class="x-suggestion-lg desktop:x-suggestion-md"
+                >
+                  <template #default="{ query }">
+                    <SearchIcon class="x-icon-lg desktop:x-icon-md" />
+                    <Highlight :text="suggestion.query" :highlight="query" />
+                  </template>
+                </QuerySuggestion>
+              </template>
+            </QuerySuggestions>
+
+            <div
+              v-if="showNextQueries"
+              class="x-flex x-flex-col x-gap-4"
+              :class="{ 'x-pt-16': $x.query.searchBox && $x.device === 'desktop' }"
+            >
+              <h1 class="x-uppercase x-title4 x-title4-sm x-py-8 desktop:x-p-0">
+                {{ $t('nextQueries.title') }}
+              </h1>
+              <NextQueries
+                :animation="suggestionsAnimation"
+                :max-items-to-render="3"
+                class="x-flex x-flex-col x-gap-8 desktop:x-gap-4"
+              >
+                <template #suggestion="{ suggestion }">
+                  <NextQuery
+                    class="x-suggestion-lg desktop:x-suggestion-md"
+                    :suggestion="suggestion"
+                  >
+                    <CuratedCheckIcon
+                      v-if="suggestion.isCurated"
+                      class="x-icon-lg desktop:x-icon-md"
+                    />
+                    <LightBulbOn v-else class="x-icon-lg desktop:x-icon-md" />
+                    <span>{{ suggestion.query }}</span>
+                  </NextQuery>
+                </template>
+              </NextQueries>
+            </div>
+
+            <div v-if="showPopularSearches" class="x-flex x-flex-col x-gap-4">
+              <h1 class="x-uppercase x-title4 x-title4-sm">
+                {{ $t('popularSearches.title') }}
+              </h1>
+              <PopularSearches
+                :animation="suggestionsAnimation"
+                :max-items-to-render="4"
+                class="x-flex x-flex-col x-gap-8 desktop:x-gap-4"
+              >
+                <template #suggestion="{ suggestion }">
+                  <PopularSearch
+                    class="x-suggestion-lg desktop:x-suggestion-md"
+                    :suggestion="suggestion"
+                  >
+                    <TrendingIcon class="x-icon-lg desktop:x-icon-md" />
+                    <span>{{ suggestion.query }}</span>
+                  </PopularSearch>
+                </template>
+              </PopularSearches>
+            </div>
+            <BaseIdModalOpen
+              v-if="$x.device === 'desktop' && !$x.query.searchBox"
+              modalId="my-history-aside"
+              class="x-self-start x-button-sm x-button-tight"
+              data-test="my-history-button"
+            >
+              <SettingsIcon />
+              {{ $t('myHistory.openButton') }}
+            </BaseIdModalOpen>
           </div>
 
-          <HistoryQueries
-            :animation="suggestionsAnimation"
-            :max-items-to-render="$x.query.searchBox ? 2 : 4"
-            suggestionItemClass="x-w-full"
-            class="x-list"
-            :class="
-              $x.device === 'mobile' ? 'x-list--gap-03' : 'x-list--gap-02 x-list--align-start'
-            "
-          >
-            <template #suggestion="{ suggestion }">
-              <HistoryQuery
-                class="x-suggestion-group-lg desktop:x-suggestion-group-md"
-                :suggestion="suggestion"
-                suggestionClass="x-suggestion-lg desktop:x-suggestion-md"
-              >
-                <template #default="{ query }">
-                  <HistoryIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
-                  <Highlight :text="suggestion.query" :highlight="query" />
-                </template>
-
-                <template #remove-button-content>
-                  <span
-                    :aria-label="$t('historyQueries.removeLabel', { suggestion: suggestion.query })"
-                  >
-                    <CrossTinyIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
-                  </span>
-                </template>
-              </HistoryQuery>
-            </template>
-          </HistoryQueries>
-        </div>
-
-        <QuerySuggestions
-          v-if="showQuerySuggestions"
-          :animation="suggestionsAnimation"
-          :max-items-to-render="5"
-          class="x-row__item x-row__item--span-4 x-list"
-          :class="$x.device === 'mobile' ? 'x-list--gap-03' : 'x-list--gap-02'"
-        >
-          <template #suggestion="{ suggestion }">
-            <QuerySuggestion
-              :suggestion="suggestion"
-              class="x-suggestion-lg desktop:x-suggestion-md"
-            >
-              <template #default="{ query }">
-                <SearchIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
-                <Highlight :text="suggestion.query" :highlight="query" />
-              </template>
-            </QuerySuggestion>
-          </template>
-        </QuerySuggestions>
-
-        <div
-          v-if="showNextQueries"
-          class="x-list x-list--gap-02"
-          :class="{ 'x-padding--top-05': $x.query.searchBox && $x.device === 'desktop' }"
-        >
-          <h1
-            class="x-uppercase x-title4 x-title4-sm"
-            :class="{ 'x-padding--top-03 x-padding--bottom-03': $x.device === 'mobile' }"
-          >
-            {{ $t('nextQueries.title') }}
-          </h1>
-          <NextQueries
-            :animation="suggestionsAnimation"
-            :max-items-to-render="3"
-            class="x-list"
-            :class="$x.device === 'mobile' ? 'x-list--gap-03' : 'x-list--gap-02'"
-          >
-            <template #suggestion="{ suggestion }">
-              <NextQuery class="x-suggestion-lg desktop:x-suggestion-md" :suggestion="suggestion">
-                <CuratedCheckIcon
-                  v-if="suggestion.isCurated"
-                  :class="{ 'x-icon-lg': $x.device === 'mobile' }"
-                />
-                <LightBulbOn v-else :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
-                <span>{{ suggestion.query }}</span>
-              </NextQuery>
-            </template>
-          </NextQueries>
-        </div>
-
-        <div v-if="showPopularSearches" class="x-list x-list--gap-02">
-          <h1 class="x-uppercase x-title4 x-title4-sm">
-            {{ $t('popularSearches.title') }}
-          </h1>
-          <PopularSearches
-            :animation="suggestionsAnimation"
-            :max-items-to-render="4"
-            class="x-list x-list--gap-02"
-          >
-            <template #suggestion="{ suggestion }">
-              <PopularSearch
-                class="x-suggestion-lg desktop:x-suggestion-md"
-                :suggestion="suggestion"
-              >
-                <TrendingIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
-                <span>{{ suggestion.query }}</span>
-              </PopularSearch>
-            </template>
-          </PopularSearches>
-        </div>
-        <BaseIdModalOpen
-          v-if="$x.device === 'desktop' && !$x.query.searchBox"
-          modalId="my-history-aside"
-          class="x-self-start x-button-sm x-button-tight"
-          data-test="my-history-button"
-        >
-          <SettingsIcon />
-          {{ $t('myHistory.openButton') }}
-        </BaseIdModalOpen>
+          <SlidingRecommendations
+            v-if="$x.device === 'desktop' && !$x.query.searchBox"
+            class="desktop:x-col-span-7"
+          />
+        </BaseKeyboardNavigation>
       </div>
-
       <SlidingRecommendations
-        v-if="!$x.query.searchBox"
-        class="x-row__item"
-        :class="
-          $x.device === 'mobile'
-            ? 'x-row__item--span-12'
-            : 'x-row__item--start-6 x-row__item--span-7'
-        "
+        v-if="$x.device === 'mobile' && !$x.query.searchBox"
+        class="desktop:x-col-span-7"
       />
-    </BaseKeyboardNavigation>
+    </BaseScroll>
   </Empathize>
 </template>
 
@@ -193,6 +178,7 @@
   import {
     animateScale,
     BarCodeIcon,
+    BaseScroll,
     BaseIdModalOpen,
     BaseKeyboardNavigation,
     BaseResultLink,
@@ -224,6 +210,7 @@
   @Component({
     components: {
       BarCodeIcon,
+      BaseScroll,
       BaseIdModalOpen,
       BaseKeyboardNavigation,
       BaseResultLink,

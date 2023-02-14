@@ -9,6 +9,7 @@ module.exports = {
     'node_modules/@empathyco/x-components/**/components/**/*.js'
   ],
   prefix: 'x-',
+  important: true,
   plugins: [xTailwindPlugin(options), oldDsPlugin],
   // In order to avoid conflicting class names with the old design system while the new XDS is being developed
   // we are disabling all corePlugins from tailwindcss but `fontSize`, `fontWeight`, `lineHeight` and `textColor`.
@@ -18,6 +19,7 @@ module.exports = {
   corePlugins: [
     'alignItems',
     'backgroundColor',
+    'borderRadius',
     'display',
     'flex',
     'flexDirection',
@@ -26,19 +28,34 @@ module.exports = {
     'flexWrap',
     'fontSize',
     'fontWeight',
+    'gap',
+    'gridAutoColumns',
+    'gridAutoFlow',
+    'gridAutoRows',
+    'gridColumn',
+    'gridColumnEnd',
+    'gridColumnStart',
+    'gridRow',
+    'gridRowEnd',
+    'gridRowStart',
     'gridTemplateColumns',
     'gridTemplateRows',
-    'justifySelf',
     'height',
+    'justifyContent',
+    'justifyItems',
+    'justifySelf',
     'lineHeight',
-    'textColor',
+    'margin',
     'maxHeight',
     'minHeight',
-    'margin',
     'overflow',
     'padding',
     'preflight',
+    'textAlign',
+    'textColor',
+    'verticalAlign',
+    'width',
     'wordBreak',
-    'width'
+    'zIndex'
   ]
 };
