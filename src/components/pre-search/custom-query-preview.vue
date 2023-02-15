@@ -29,13 +29,14 @@
                   ? 'x-button x-button-tight'
                   : 'x-text1-md x-py-8 x-font-bold'
               "
+              class="max-desktop:x-px-16"
             >
               {{ query }}
               ({{ totalResults }})
               <ArrowRightIcon v-if="results.length < totalResults" class="x-icon-lg" />
             </component>
           </template>
-          <ItemsList :items="results" class="x-flex x-gap-16 x-pt-16">
+          <ItemsList :items="results" class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
             <template #result="{ item: result }">
               <Result :result="result" class="x-w-[142px] desktop:x-w-[216px]" />
             </template>
