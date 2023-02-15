@@ -9,30 +9,25 @@
         <span class="x-title3">{{ $x.query.nextQueries }}</span>
       </template>
     </i18n>
-    <div>
-      <NextQuery :suggestion="nextQuery" class="x-button x-button-tight x-font-bold">
-        <span>
-          {{
-            $t('nextQueryPreview.query', {
-              query: suggestion.query
-            })
-          }}
-          {{
-            $t('nextQueryPreview.totalResults', {
-              totalResults: totalResults
-            })
-          }}
-        </span>
-        <ArrowRightIcon class="x-icon-lg" />
-      </NextQuery>
-    </div>
-    <CustomSlidingPanel>
-      <Result
-        v-for="item in results.slice(0, maxItemsToRender)"
-        :key="item.id"
-        :result="item"
-        class="x-w-[262px]"
-      />
+    <CustomSlidingPanel
+      :queryComponent="nextQueryComponent"
+      :suggestion="nextQuery"
+      :results="results.slice(0, maxItemsToRender)"
+      resultClass="x-w-[262px]"
+      :totalResults="totalResults"
+    >
+      <template #header>
+        {{
+          $t('nextQueryPreview.query', {
+            query: suggestion.query
+          })
+        }}
+        {{
+          $t('nextQueryPreview.totalResults', {
+            totalResults: totalResults
+          })
+        }}
+      </template>
     </CustomSlidingPanel>
   </NextQueryPreview>
 </template>
@@ -56,6 +51,8 @@
     }
   })
   export default class DesktopNextQueryPreview extends Vue {
+    public nextQueryComponent = NextQuery;
+
     // TODO: Remove this and configure NextQueryPreview after doing EX-6819.
     @Prop({ default: 5 })
     protected maxItemsToRender!: number;
