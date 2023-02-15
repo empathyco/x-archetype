@@ -13,10 +13,13 @@
     <CustomSlidingPanel>
       <template #header>
         <component
-          :is="results.length < totalResults ? nextQueryComponent : 'div'"
+          :is="results.length < totalResults ? slidingPanelHeaderComponent : 'div'"
           :suggestion="nextQuery"
-          :class="{ 'x-button': results.length < totalResults }"
-          class="x-button x-button-tight x-font-bold"
+          :class="
+            results.length < totalResults
+              ? 'x-button x-button-tight'
+              : 'x-text1-md x-py-8 x-font-bold'
+          "
         >
           {{ $t('nextQueryPreview.query', { query: suggestion.query }) }}
           {{ $t('nextQueryPreview.totalResults', { totalResults }) }}
@@ -52,7 +55,7 @@
     }
   })
   export default class DesktopNextQueryPreview extends Vue {
-    public nextQueryComponent = NextQuery;
+    public slidingPanelHeaderComponent = NextQuery;
 
     @Prop({ required: true })
     protected nextQuery!: NextQueryModel;
