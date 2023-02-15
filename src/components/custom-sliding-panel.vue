@@ -1,17 +1,12 @@
 <template>
   <div>
-    <component
-      :is="enableQueryButton ? queryComponent : 'div'"
-      v-bind="$attrs"
-      :class="enableQueryButton ? 'x-button x-button-tight x-font-bold' : 'x-font-bold'"
-    >
-      <slot name="header" />
-      <ArrowRightIcon v-if="enableQueryButton" class="x-icon-lg" />
-    </component>
+    <div v-if="$slots.header">
+      <slot name="header"></slot>
+    </div>
     <SlidingPanel
       :showButtons="$x.device !== 'mobile'"
       :resetOnContentChange="false"
-      buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
+      buttonClass="x-button-lead x-button-circle x-button-ghost x-p-0"
       scrollContainerClass="desktop:x-sliding-panel-fade desktop:x-sliding-panel-fade-sm"
       class="x-sliding-panel-show-buttons-on-hover"
     >
@@ -21,54 +16,22 @@
       <template #sliding-panel-right-button>
         <ChevronRightIcon class="x-icon-lg" />
       </template>
-      <ul class="x-list x-list--horizontal x-list--gap-05">
-        <slot>
-          <Result v-for="item in results" :key="item.id" :result="item" :class="resultClass" />
-        </slot>
-      </ul>
+      <slot />
     </SlidingPanel>
   </div>
 </template>
 
 <script lang="ts">
-  import { Component, Prop } from 'vue-property-decorator';
+  import { Component } from 'vue-property-decorator';
   import Vue from 'vue';
-  import {
-    SlidingPanel,
-    ChevronLeftIcon,
-    ChevronRightIcon,
-    ArrowRightIcon
-  } from '@empathyco/x-components';
-  import { Result as ResultModel } from '@empathyco/x-types';
-  import Result from './results/result.vue';
+  import { SlidingPanel, ChevronLeftIcon, ChevronRightIcon } from '@empathyco/x-components';
 
   @Component({
     components: {
       SlidingPanel,
       ChevronLeftIcon,
-      ChevronRightIcon,
-      ArrowRightIcon,
-      Result
-    },
-    inheritAttrs: false
-  })
-  export default class CustomSlidingPanel extends Vue {
-    @Prop({
-      default: 'div'
-    })
-    public queryComponent!: Vue;
-
-    @Prop()
-    public results!: ResultModel[];
-
-    @Prop()
-    public resultClass!: string;
-
-    @Prop()
-    public totalResults!: number;
-
-    public get enableQueryButton(): boolean {
-      return this.totalResults > this.results.length;
+      ChevronRightIcon
     }
-  }
+  })
+  export default class CustomSlidingPanel extends Vue {}
 </script>
