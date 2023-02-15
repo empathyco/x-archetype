@@ -1,61 +1,41 @@
 <template>
   <PartialResultsList class="x-margin--bottom-06 x-list--gap-08">
     <template #default="{ partialResult }">
-      <CustomSlidingPanel
-        :results="partialResult.results"
-        :queryComponent="queryComponent"
-        resultClass="x-w-[256px]"
-        :query="partialResult.query"
-        :maxItemsToRender="6"
-        :totalResults="partialResult.totalResults"
-      >
+      <CustomSlidingPanel>
         <template #header>
-          {{
-            $t('partialResults.query', {
-              query: partialResult.query
-            })
-          }}
-          {{
-            $t('partialResults.totalResults', {
-              totalResults: partialResult.totalResults
-            })
-          }}
+          <component
+            :is="
+              partialResult.results.length < partialResult.totalResults
+                ? slidingPanelHeaderComponent
+                : 'div'
+            "
+            :query="partialResult.query"
+            :class="
+              partialResult.results.length < partialResult.totalResults
+                ? 'x-button x-button-tight'
+                : 'x-text1-md x-py-8 x-font-bold'
+            "
+          >
+            {{ $t('partialResults.query', { query: partialResult.query }) }}
+            {{ $t('partialResults.totalResults', { totalResults: partialResult.totalResults }) }}
+            <ArrowRightIcon
+              v-if="partialResult.results.length < partialResult.totalResults"
+              class="x-icon-lg"
+            />
+          </component>
         </template>
+        <ItemsList :items="partialResult.results" class="x-flex x-gap-16 x-pt-16">
+          <template #result="{ item: result }">
+            <Result :result="result" class="x-w-[224px]" />
+          </template>
+        </ItemsList>
       </CustomSlidingPanel>
-      <!--      <div class="x-list x-list&#45;&#45;horizontal x-list&#45;&#45;align-baseline x-list&#45;&#45;gap-02">-->
-      <!--        <span class="x-title3">-->
-      <!--          {{-->
-      <!--            $t('partialResults.query', {-->
-      <!--              query: partialResult.query-->
-      <!--            })-->
-      <!--          }}-->
-      <!--        </span>-->
-      <!--        <span class="x-text1">-->
-      <!--          {{-->
-      <!--            $t('partialResults.totalResults', {-->
-      <!--              totalResults: partialResult.totalResults-->
-      <!--            })-->
-      <!--          }}-->
-      <!--        </span>-->
-      <!--        <PartialQueryButton-->
-      <!--          :query="partialResult.query"-->
-      <!--          class="x-margin&#45;&#45;left-auto x-button-lead x-button-ghost"-->
-      <!--        >-->
-      <!--          {{ $t('partialResults.viewResults') }}-->
-      <!--          <ChevronRightIcon />-->
-      <!--        </PartialQueryButton>-->
-      <!--      </div>-->
-      <!--      <BaseGrid columns="4" :items="partialResult.results">-->
-      <!--        <template #result="{ item }">-->
-      <!--          <Result :result="item" />-->
-      <!--        </template>-->
-      <!--      </BaseGrid>-->
     </template>
   </PartialResultsList>
 </template>
 
 <script lang="ts">
-  import { BaseGrid, ChevronRightIcon } from '@empathyco/x-components';
+  import { ArrowRightIcon, ChevronRightIcon, ItemsList } from '@empathyco/x-components';
   import { Component, Vue } from 'vue-property-decorator';
   import { PartialQueryButton, PartialResultsList } from '@empathyco/x-components/search';
   import ResultComponent from '../../results/result.vue';
@@ -63,15 +43,15 @@
 
   @Component({
     components: {
+      ArrowRightIcon,
       CustomSlidingPanel,
-      BaseGrid,
       ChevronRightIcon,
+      ItemsList,
       Result: ResultComponent,
-      PartialResultsList,
-      PartialQueryButton
+      PartialResultsList
     }
   })
   export default class PartialResults extends Vue {
-    public queryComponent = PartialQueryButton;
+    public slidingPanelHeaderComponent = PartialQueryButton;
   }
 </script>
