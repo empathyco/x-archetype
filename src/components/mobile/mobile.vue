@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <div class="x-stack x-layout-expand">
+    <div class="x-layout-stack x-layout-expand">
       <LocationProvider location="predictive_layer" class="x-z-10">
         <PredictiveLayer />
       </LocationProvider>
