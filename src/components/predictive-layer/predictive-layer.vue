@@ -76,7 +76,7 @@
               <HistoryQuery
                 class="x-suggestion-group-lg desktop:x-suggestion-group-md"
                 :suggestion="suggestion"
-                suggestionClass="x-suggestion-lg desktop:x-suggestion-md"
+                suggestionClass="x-suggestion x-suggestion-lg desktop:x-suggestion-md"
               >
                 <template #default="{ query }">
                   <HistoryIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
@@ -105,7 +105,7 @@
           <template #suggestion="{ suggestion }">
             <QuerySuggestion
               :suggestion="suggestion"
-              class="x-suggestion-lg desktop:x-suggestion-md"
+              class="x-suggestion-lg x-suggestion desktop:x-suggestion-md"
             >
               <template #default="{ query }">
                 <SearchIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
@@ -133,7 +133,10 @@
             :class="$x.device === 'mobile' ? 'x-list--gap-03' : 'x-list--gap-02'"
           >
             <template #suggestion="{ suggestion }">
-              <NextQuery class="x-suggestion-lg desktop:x-suggestion-md" :suggestion="suggestion">
+              <NextQuery
+                class="x-suggestion-lg x-suggestion desktop:x-suggestion-md"
+                :suggestion="suggestion"
+              >
                 <CuratedCheckIcon
                   v-if="suggestion.isCurated"
                   :class="{ 'x-icon-lg': $x.device === 'mobile' }"
@@ -156,7 +159,7 @@
           >
             <template #suggestion="{ suggestion }">
               <PopularSearch
-                class="x-suggestion-lg desktop:x-suggestion-md"
+                class="x-suggestion-lg x-suggestion desktop:x-suggestion-md"
                 :suggestion="suggestion"
               >
                 <TrendingIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
