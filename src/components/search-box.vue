@@ -4,7 +4,7 @@
       :autofocus="false"
       :placeholder="$t('searchBox.placeholder')"
       :instant="false"
-      class="desktop:x-pl-40"
+      class="desktop:x-pl-24"
     />
 
     <ClearSearchInput
