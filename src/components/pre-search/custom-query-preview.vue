@@ -27,7 +27,7 @@
           </template>
           <ItemsList :items="results" class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
             <template #result="{ item: result }">
-              <Result :result="result" class="x-w-[142px] desktop:x-w-[216px]" />
+              <Result :result="result" class="x-w-[calc(38vw-16px)] desktop:x-w-[216px]" />
             </template>
           </ItemsList>
         </CustomSlidingPanel>
