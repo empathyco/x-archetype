@@ -21,20 +21,14 @@
 
         <CustomSlidingPanel>
           <template #header>
-            <component
-              :is="results.length < totalResults ? slidingPanelHeaderComponent : 'div'"
+            <BaseEventButton
               :events="getEvent(query)"
-              :class="
-                results.length < totalResults
-                  ? 'x-button x-button-tight'
-                  : 'x-text1-md x-py-8 x-font-bold'
-              "
-              class="max-desktop:x-px-16"
+              class="x-button x-button-tight max-desktop:x-px-16"
             >
               {{ query }}
               ({{ totalResults }})
-              <ArrowRightIcon v-if="results.length < totalResults" class="x-icon-lg" />
-            </component>
+              <ArrowRightIcon class="x-icon-lg" />
+            </BaseEventButton>
           </template>
           <ItemsList :items="results" class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
             <template #result="{ item: result }">
@@ -79,8 +73,6 @@
     }
   })
   export default class CustomQueryPreview extends Vue {
-    public slidingPanelHeaderComponent = BaseEventButton;
-
     @Prop({ default: 'customer' })
     protected queryFeature!: QueryFeature;
 

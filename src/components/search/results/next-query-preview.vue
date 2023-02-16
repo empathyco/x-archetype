@@ -12,20 +12,11 @@
     </i18n>
     <CustomSlidingPanel>
       <template #header>
-        <component
-          :is="results.length < totalResults ? slidingPanelHeaderComponent : 'div'"
-          :suggestion="nextQuery"
-          :class="
-            results.length < totalResults
-              ? 'x-button x-button-tight'
-              : 'x-text1-md x-py-8 x-font-bold'
-          "
-          class="max-desktop:x-px-16"
-        >
+        <NextQuery :suggestion="nextQuery" class="x-button x-button-tight max-desktop:x-px-16">
           {{ $t('nextQueryPreview.query', { query: suggestion.query }) }}
           {{ $t('nextQueryPreview.totalResults', { totalResults }) }}
-          <ArrowRightIcon v-if="results.length < totalResults" class="x-icon-lg" />
-        </component>
+          <ArrowRightIcon class="x-icon-lg" />
+        </NextQuery>
       </template>
       <ItemsList :items="results" class="x-flex x-gap-16 x-pt-4 max-desktop:x-px-16">
         <template #result="{ item: result }">
@@ -59,8 +50,6 @@
     }
   })
   export default class NextQueryPreview extends Vue {
-    public slidingPanelHeaderComponent = NextQuery;
-
     @Prop({ required: true })
     protected nextQuery!: NextQueryModel;
   }

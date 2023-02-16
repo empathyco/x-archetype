@@ -3,27 +3,14 @@
     <template #default="{ partialResult }">
       <CustomSlidingPanel>
         <template #header>
-          <component
-            :is="
-              partialResult.results.length < partialResult.totalResults
-                ? slidingPanelHeaderComponent
-                : 'div'
-            "
+          <PartialQueryButton
             :query="partialResult.query"
-            :class="
-              partialResult.results.length < partialResult.totalResults
-                ? 'x-button x-button-tight'
-                : 'x-text1-md x-py-8 x-font-bold'
-            "
-            class="max-desktop:x-px-16"
+            class="x-button x-button-tight max-desktop:x-px-16"
           >
             {{ $t('partialResults.query', { query: partialResult.query }) }}
             {{ $t('partialResults.totalResults', { totalResults: partialResult.totalResults }) }}
-            <ArrowRightIcon
-              v-if="partialResult.results.length < partialResult.totalResults"
-              class="x-icon-lg"
-            />
-          </component>
+            <ArrowRightIcon class="x-icon-lg" />
+          </PartialQueryButton>
         </template>
         <ItemsList
           :items="partialResult.results"
@@ -52,10 +39,9 @@
       ChevronRightIcon,
       ItemsList,
       Result: ResultComponent,
-      PartialResultsList
+      PartialResultsList,
+      PartialQueryButton
     }
   })
-  export default class PartialResults extends Vue {
-    public slidingPanelHeaderComponent = PartialQueryButton;
-  }
+  export default class PartialResults extends Vue {}
 </script>
