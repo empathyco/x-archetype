@@ -7,16 +7,11 @@
       :queryFeature="queryFeature"
       #default="{ results, totalResults }"
     >
-      <div
-        class="x-list"
-        :class="
-          $x.device === 'mobile'
-            ? 'x-list--gap-01 x-margin--bottom-08'
-            : 'x-list--gap-05 x-margin--bottom-11'
-        "
-      >
-        <div :class="{ 'x-padding--left-05 x-padding--right-05': $x.device === 'mobile' }">
-          <h1 class="x-title1" :class="{ 'x-title1-sm': $x.device === 'mobile' }">{{ title }}</h1>
+      <div class="x-mb-40 x-flex x-flex-col x-gap-2 desktop:x-mb-64 desktop:x-gap-16">
+        <div class="max-desktop:x-px-16">
+          <h1 class="max-desktop:x-title1-sm desktop:x-title1">
+            {{ title }}
+          </h1>
         </div>
 
         <CustomSlidingPanel>
