@@ -27,8 +27,7 @@
               </MainScrollItem>
             </template>
             <template #next-queries-group="{ item: { nextQueries } }">
-              <MobileNextQueryPreview v-if="$x.device === 'mobile'" :nextQuery="nextQueries[0]" />
-              <DesktopNextQueryPreview v-else :nextQuery="nextQueries[0]" />
+              <NextQueryPreview :nextQuery="nextQueries[0]" />
             </template>
           </BaseVariableColumnGrid>
         </NextQueriesList>
@@ -55,17 +54,15 @@
   import { Component } from 'vue-property-decorator';
   import { NextQueriesList } from '@empathyco/x-components/next-queries';
   import Result from '../../results/result.vue';
-  import DesktopNextQueryPreview from '../../desktop/desktop-next-query-preview.vue';
-  import MobileNextQueryPreview from '../../mobile/mobile-next-query-preview.vue';
+  import NextQueryPreview from './next-query-preview.vue';
 
   @Component({
     components: {
       Banner,
       BannersList,
       BaseVariableColumnGrid,
-      DesktopNextQueryPreview,
       MainScrollItem,
-      MobileNextQueryPreview,
+      NextQueryPreview,
       NextQueriesList,
       Promoted,
       PromotedsList,
