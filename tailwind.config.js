@@ -9,6 +9,7 @@ module.exports = {
     'node_modules/@empathyco/x-components/**/components/**/*.js'
   ],
   prefix: 'x-',
+  important: true,
   plugins: [xTailwindPlugin(options), oldDsPlugin],
   // In order to avoid conflicting class names with the old design system while the new XDS is being developed
   // we are disabling all corePlugins from tailwindcss but `fontSize`, `fontWeight`, `lineHeight` and `textColor`.
@@ -29,6 +30,7 @@ module.exports = {
     'padding',
     'preflight',
     'wordBreak',
-    'width'
+    'width',
+    'borderRadius'
   ]
 };
