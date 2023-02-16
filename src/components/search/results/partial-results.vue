@@ -1,5 +1,5 @@
 <template>
-  <PartialResultsList class="x-margin--bottom-06 x-list--gap-08">
+  <PartialResultsList class="x-margin--bottom-06 x-gap-40 desktop:x-gap-80">
     <template #default="{ partialResult }">
       <CustomSlidingPanel>
         <template #header>
@@ -15,6 +15,7 @@
                 ? 'x-button x-button-tight'
                 : 'x-text1-md x-py-8 x-font-bold'
             "
+            class="max-desktop:x-px-16"
           >
             {{ $t('partialResults.query', { query: partialResult.query }) }}
             {{ $t('partialResults.totalResults', { totalResults: partialResult.totalResults }) }}
@@ -24,9 +25,12 @@
             />
           </component>
         </template>
-        <ItemsList :items="partialResult.results" class="x-flex x-gap-16 x-pt-16">
+        <ItemsList
+          :items="partialResult.results"
+          class="x-flex x-gap-16 x-pt-4 max-desktop:x-px-16"
+        >
           <template #result="{ item: result }">
-            <Result :result="result" class="x-w-[224px]" />
+            <Result :result="result" class="x-w-[142px] desktop:x-w-[224px]" />
           </template>
         </ItemsList>
       </CustomSlidingPanel>
