@@ -1,5 +1,5 @@
 <template>
-  <PartialResultsList class="x-margin--bottom-06 x-gap-40 desktop:x-gap-80">
+  <PartialResultsList class="x-mb-24 x-gap-40 desktop:x-gap-80">
     <template #default="{ partialResult }">
       <CustomSlidingPanel>
         <template #header>
