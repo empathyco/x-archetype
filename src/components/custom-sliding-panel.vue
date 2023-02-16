@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="$slots.header">
-      <slot name="header"></slot>
+      <slot name="header" />
     </div>
     <SlidingPanel
       :showButtons="$x.device !== 'mobile'"
