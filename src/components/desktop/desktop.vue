@@ -1,10 +1,10 @@
 <template>
   <div
-    class="x-layout-container x-layout-max-width-md x-layout-min-margin-16 tablet:x-layout-min-margin-24 desktop:x-layout-min-margin-32 large:x-layout-max-width-lg large:x-layout-min-margin-48"
+    class="x-layout-container x-layout-max-width-md x-layout-min-margin-16 tablet:x-layout-min-margin-24 desktop:x-layout-min-margin-32 large:x-layout-min-margin-48"
   >
     <div class="x-layout-item">
       <header class="x-align-start x-grid x-grid-cols-6 x-gap-12 x-pt-24 x-pb-16">
-        <div class="x-list x-pt-12">
+        <div class="x-pt-12">
           <Logo />
         </div>
 
