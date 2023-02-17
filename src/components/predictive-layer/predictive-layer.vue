@@ -1,5 +1,5 @@
 <template>
-  <Empathize :animation="empathizeAnimation" class="x-bg-neutral-0 desktop:x-p-16 desktop:x-pr-0">
+  <Empathize :animation="empathizeAnimation" class="x-bg-neutral-0 desktop:x-py-16 desktop:x-pl-16">
     <BaseScroll class="x-h-full">
       <div class="x-layout-item desktop:x-block">
         <BaseKeyboardNavigation
@@ -11,7 +11,7 @@
             v-slot="{ identifierResult }"
             :maxItemsToRender="5"
             :animation="suggestionsAnimation"
-            class="x-flex x-flex-col x-gap-8 x-pl-0 x-pl-8 desktop:x-col-span-12 desktop:x-gap-4"
+            class="x-flex x-flex-col x-gap-8 desktop:x-col-span-12 desktop:x-gap-4"
           >
             <BaseResultLink
               v-slot="{ result }"

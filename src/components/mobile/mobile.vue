@@ -1,5 +1,7 @@
 <template>
-  <div class="x-layout-container x-layout-max-width-md x-layout-min-margin-16">
+  <div
+    class="x-layout-container x-layout-max-width-md x-layout-min-margin-16 tablet:x-layout-min-margin-24"
+  >
     <div class="x-layout-item">
       <div class="x-flex x-gap-8 x-py-16">
         <CloseMainModal class="x-button-lead x-button-circle x-button-ghost">

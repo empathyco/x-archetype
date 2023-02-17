@@ -1,6 +1,6 @@
 <template>
-  <MainModal :animation="animation" :class="$x.device === 'mobile' ? 'x-mobile' : 'x-desktop'">
-    <Mobile v-if="$x.device === 'mobile'" />
+  <MainModal :animation="animation" :class="`x-${$x.device}`">
+    <Mobile v-if="$x.device === 'mobile' || $x.device === 'tablet'" />
     <Desktop v-else />
   </MainModal>
 </template>
