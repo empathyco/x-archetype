@@ -3,7 +3,7 @@
     class="x-layout-container x-layout-max-width-md desktop:x-layout-min-margin-32 large:x-layout-max-width-lg large:x-layout-min-margin-48"
   >
     <div class="x-layout-item">
-      <header class="x-align-start x-grid x-grid-cols-6 x-gap-12 x-pt-24 x-pb-16">
+      <header class="x-grid x-grid-cols-6 x-items-start x-gap-12 x-pt-24 x-pb-16">
         <div class="x-pt-12">
           <Logo />
         </div>
@@ -20,11 +20,9 @@
           </LocationProvider>
         </div>
 
-        <div class="x-flex x-flex-row x-justify-end">
-          <CloseMainModal class="x-button-lead x-button-circle x-button-ghost">
-            <CrossIcon class="x-icon-lg" />
-          </CloseMainModal>
-        </div>
+        <CloseMainModal class="x-button-lead x-button-circle x-button-ghost x-justify-self-end">
+          <CrossIcon class="x-icon-lg" />
+        </CloseMainModal>
       </header>
     </div>
 
@@ -40,6 +38,12 @@
 
         <div v-if="$x.totalResults > 0 && hasSearched" class="x-layout-item">
           <SelectedFilters class="x-py-16" />
+        </div>
+
+        <div class="x-layout-item">
+          <LocationProvider location="no_query">
+            <CustomQueryPreview class="x-mt-56" />
+          </LocationProvider>
         </div>
 
         <div class="x-layout-item">
@@ -80,13 +84,13 @@
     CloseMainModal,
     BaseIdModal,
     CrossIcon,
-    FixedHeaderAndAsidesLayout,
     LocationProvider
   } from '@empathyco/x-components';
   import { Component } from 'vue-property-decorator';
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
   import Logo from '../logo.vue';
   import Main from '../main.vue';
+  import CustomQueryPreview from '../pre-search/custom-query-preview.vue';
   import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import SearchBox from '../search-box.vue';
@@ -97,12 +101,12 @@
 
   @Component({
     components: {
+      CustomQueryPreview,
       BaseIdModal,
       CloseMainModal,
       CrossIcon,
       DesktopMyHistoryAside,
       DesktopToolbar,
-      FixedHeaderAndAsidesLayout,
       LocationProvider,
       Logo,
       Main,

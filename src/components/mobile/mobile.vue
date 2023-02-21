@@ -32,6 +32,10 @@
 
         <MainScroll>
           <Scroll id="main-scroll">
+            <LocationProvider location="no_query">
+              <CustomQueryPreview class="x-mt-16" />
+            </LocationProvider>
+
             <LocationProvider location="results">
               <div class="x-layout-item">
                 <Main />
@@ -83,6 +87,7 @@
   import { Component } from 'vue-property-decorator';
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
   import Main from '../main.vue';
+  import CustomQueryPreview from '../pre-search/custom-query-preview.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
   import SearchBox from '../search-box.vue';
@@ -97,6 +102,7 @@
       ArrowLeftIcon,
       BaseIdModal,
       CloseMainModal,
+      CustomQueryPreview,
       LocationProvider,
       Main,
       MainScroll,

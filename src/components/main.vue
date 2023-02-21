@@ -1,26 +1,19 @@
 <template>
-  <div class="x-list x-list--vertical">
-    <LocationProvider location="no_query">
-      <CustomQueryPreview
-        :class="$x.device === 'mobile' ? 'x-margin--top-05' : 'x-margin--top-10'"
-      />
-    </LocationProvider>
-    <template v-if="hasSearched">
-      <Redirection />
+  <div v-if="hasSearched" class="x-list x-list--vertical">
+    <Redirection />
 
-      <template v-if="!$x.redirections.length">
-        <LocationProvider location="results">
-          <Results />
-        </LocationProvider>
+    <template v-if="!$x.redirections.length">
+      <LocationProvider location="results">
+        <Results />
+      </LocationProvider>
 
-        <LocationProvider location="results">
-          <PartialResults v-if="$x.device === 'desktop'" />
-          <MobilePartialResults v-else />
-        </LocationProvider>
-        <LocationProvider v-if="$x.noResults && !$x.partialResults.length" location="no_results">
-          <Recommendations />
-        </LocationProvider>
-      </template>
+      <LocationProvider location="results">
+        <PartialResults v-if="$x.device === 'desktop'" />
+        <MobilePartialResults v-else />
+      </LocationProvider>
+      <LocationProvider v-if="$x.noResults && !$x.partialResults.length" location="no_results">
+        <Recommendations />
+      </LocationProvider>
     </template>
   </div>
 </template>

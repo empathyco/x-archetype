@@ -1,6 +1,6 @@
 <template>
   <Empathize :animation="empathizeAnimation" class="x-bg-neutral-0 desktop:x-py-16 desktop:x-pl-16">
-    <BaseScroll class="x-h-full">
+    <component :is="$x.device === 'desktop' ? 'div' : 'BaseScroll'" class="x-h-full">
       <div class="x-layout-item desktop:x-block">
         <BaseKeyboardNavigation
           class="x-flex x-flex-col desktop:x-grid desktop:x-grid-cols-12 desktop:x-items-start desktop:x-gap-24"
@@ -45,7 +45,7 @@
                   {{ $t('historyQueries.title') }}
                 </h1>
                 <ClearHistoryQueries class="x-button-sm x-button-tight x-px-8">
-                  <TrashIcon v-if="$x.device === 'mobile'" class="x-icon--l" />
+                  <TrashIcon v-if="$x.device === 'mobile'" class="x-icon-lg" />
                   <span v-else>{{ $t('historyQueries.clear') }}</span>
                 </ClearHistoryQueries>
               </div>
@@ -54,13 +54,13 @@
                 :animation="suggestionsAnimation"
                 :max-items-to-render="$x.query.searchBox ? 2 : 4"
                 suggestionItemClass="x-w-full"
-                class="x-flex x-flex-col x-gap-8 desktop:x-gap-4"
+                class="-x-mr-2 x-flex x-flex-col x-gap-8 desktop:x-gap-4"
               >
                 <template #suggestion="{ suggestion }">
                   <HistoryQuery
                     class="x-suggestion-group-lg desktop:x-suggestion-group-md"
                     :suggestion="suggestion"
-                    suggestionClass="x-suggestion-lg desktop:x-suggestion-md"
+                    suggestionClass="x-suggestion x-suggestion-lg desktop:x-suggestion-md"
                   >
                     <template #default="{ query }">
                       <HistoryIcon class="x-icon-lg desktop:x-icon-md" />
@@ -90,7 +90,7 @@
               <template #suggestion="{ suggestion }">
                 <QuerySuggestion
                   :suggestion="suggestion"
-                  class="x-suggestion-lg desktop:x-suggestion-md"
+                  class="x-suggestion-lg x-suggestion desktop:x-suggestion-md"
                 >
                   <template #default="{ query }">
                     <SearchIcon class="x-icon-lg desktop:x-icon-md" />
@@ -115,7 +115,7 @@
               >
                 <template #suggestion="{ suggestion }">
                   <NextQuery
-                    class="x-suggestion-lg desktop:x-suggestion-md"
+                    class="x-suggestion-lg x-suggestion desktop:x-suggestion-md"
                     :suggestion="suggestion"
                   >
                     <CuratedCheckIcon
@@ -140,7 +140,7 @@
               >
                 <template #suggestion="{ suggestion }">
                   <PopularSearch
-                    class="x-suggestion-lg desktop:x-suggestion-md"
+                    class="x-suggestion-lg x-suggestion desktop:x-suggestion-md"
                     :suggestion="suggestion"
                   >
                     <TrendingIcon class="x-icon-lg desktop:x-icon-md" />
@@ -170,7 +170,7 @@
         v-if="$x.device === 'mobile' && !$x.query.searchBox"
         class="desktop:x-col-span-7"
       />
-    </BaseScroll>
+    </component>
   </Empathize>
 </template>
 
