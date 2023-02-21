@@ -8,7 +8,7 @@ Given('start page with {string} size view', (view: ViewportPreset) => {
 
 Then('search bar is clicked', () => {
   cy.getByDataTest('x').should('exist');
-  cy.getByDataTest('search-input').click();
+  cy.getByDataTest('start-searchbar').click();
 });
 
 // Search
