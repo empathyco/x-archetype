@@ -69,6 +69,7 @@
       :animation="rightAsideAnimation"
       modalId="my-history-aside"
       contentClass="x-bg-neutral-0"
+      class="x-z-10"
     >
       <MobileMyHistoryAside />
     </BaseIdModal>
