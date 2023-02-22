@@ -71,9 +71,9 @@ Feature: Facets component
     Then  filter <filterNumber> from facet "<facetName>" is selected is true
     And   filter <filterNumber2> from facet "<facetName2>" is selected is true
     Examples:
-      | query | filterNumber | facetName | filterNumber2 | facetName2 | view        |
-      | shirt | 2            | price     | 1             | gender     | macbook-13  |
-      | shirt | 2            | price     | 1             | gender     | iphone-x    |
+      | query | filterNumber | facetName  | filterNumber2 | facetName2 | view        |
+      | shirt | 1            | gender     | 2             | price      | macbook-13  |
+      | shirt | 1            | gender     | 2             | price      | iphone-x    |
 
   Scenario Outline: 5. Hierarchical filters selection
     Given start page with "<view>" size view
