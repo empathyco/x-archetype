@@ -65,15 +65,17 @@ Feature: Facets component
     When  facet "<facetName>" is unfolded
     And   filter <filterNumber> from facet "<facetName>" is clicked
     Then  filter <filterNumber> from facet "<facetName>" is selected is true
+    When  facet "<facetName>" is unfolded
     When  facet "<facetName2>" is unfolded
     And   filter <filterNumber2> from facet "<facetName2>" is clicked
+    When  facet "<facetName2>" is unfolded
     And   facet "<facetName>" is unfolded
     Then  filter <filterNumber> from facet "<facetName>" is selected is true
     And   filter <filterNumber2> from facet "<facetName2>" is selected is true
     Examples:
-      | query | filterNumber | facetName  | filterNumber2 | facetName2 | view        |
-      | shirt | 1            | gender     | 2             | price      | macbook-13  |
-      | shirt | 1            | gender     | 2             | price      | iphone-x    |
+      | query | filterNumber | facetName | filterNumber2 | facetName2 | view        |
+      | shirt | 2            | price     | 1             | gender     | macbook-13  |
+      | shirt | 2            | price     | 1             | gender     | iphone-x    |
 
   Scenario Outline: 5. Hierarchical filters selection
     Given start page with "<view>" size view
