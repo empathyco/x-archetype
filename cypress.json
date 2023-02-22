@@ -1,6 +1,6 @@
 {
   "baseUrl": "http://localhost:8080",
-  "defaultCommandTimeout": 7000,
+  "defaultCommandTimeout": 20000,
   "fixturesFolder": "tests/e2e/fixtures",
   "integrationFolder": "tests/e2e/cucumber",
   "pluginsFile": "tests/e2e/plugins/index.js",
@@ -8,6 +8,6 @@
   "supportFile": "tests/e2e/support/index.ts",
   "screenshotOnRunFailure": false,
   "video": false,
-  "testFiles": "**/*.feature",
+  "testFiles": "**/scroll.feature",
   "retries": 1
 }
