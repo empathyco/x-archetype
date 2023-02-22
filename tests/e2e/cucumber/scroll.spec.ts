@@ -13,6 +13,7 @@ When('the page is reloaded', () => {
 });
 
 Then('result {string} is visible', (resultId: string) => {
+  cy.getByDataTest('toggle-facts-button').should('be.visible');
   cy.get(`[data-scroll=${resultId}]`).getByDataTest('result-link').should('be.visible');
 });
 
