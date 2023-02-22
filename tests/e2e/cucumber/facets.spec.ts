@@ -46,7 +46,7 @@ When('clear filters button is clicked', () => {
 
 // Scenario 4
 When('facet {string} is unfolded', (facetName: string) => {
-  cy.getByDataTest(facetName).getByDataTest('toggle-panel-header').click();
+  cy.getByDataTest(facetName).getByDataTest('toggle-panel-header').scrollIntoView().click();
 });
 
 // Scenario 5
