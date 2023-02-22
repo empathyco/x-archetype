@@ -12,8 +12,8 @@ Feature: Scroll
     Then  url is updated with result "<resultId>"
     And   result "<resultId>" is visible
     When  the page is reloaded
-    Then  url is updated with result "<resultId>"
     And   result "<resultId>" is visible
+    Then  url is updated with result "<resultId>"
     When  scroll to top is clicked
     Then  result "result-0" is visible
     And   scroll position is at top
