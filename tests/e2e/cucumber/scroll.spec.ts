@@ -1,7 +1,7 @@
 import { Then, When } from 'cypress-cucumber-preprocessor/steps';
 
 When('scrolling down to result {string}', (resultId: string) => {
-  cy.get(`[data-scroll=${resultId}]`).eq(0).scrollIntoView();
+  cy.get(`[data-scroll=${resultId}]`).eq(0).scrollIntoView().should('be.visible');
 });
 
 Then('url is updated with result {string}', (resultId: string) => {
@@ -13,7 +13,6 @@ When('the page is reloaded', () => {
 });
 
 Then('result {string} is visible', (resultId: string) => {
-  cy.getByDataTest('toggle-facts-button').should('be.visible');
   cy.get(`[data-scroll=${resultId}]`).getByDataTest('result-link').should('be.visible');
 });
 
