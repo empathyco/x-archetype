@@ -9,8 +9,8 @@ Feature: Scroll
     And   "<query>" is searched
     Then  related results are displayed
     When  scrolling down to result "<resultId>"
-    Then  url is updated with result "<resultId>"
     And   result "<resultId>" is visible
+    Then  url is updated with result "<resultId>"
     When  the page is reloaded
     And   result "<resultId>" is visible
     Then  url is updated with result "<resultId>"
