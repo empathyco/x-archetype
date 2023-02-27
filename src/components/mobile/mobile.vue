@@ -31,7 +31,7 @@
         </div>
 
         <MainScroll>
-          <Scroll id="main-scroll">
+          <Scroll id="main-scroll" class="x-flex-1">
             <LocationProvider location="no_query">
               <CustomQueryPreview class="x-mt-16" />
             </LocationProvider>
