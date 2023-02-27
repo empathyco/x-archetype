@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts">
-  import { ArrowRightIcon, ChevronRightIcon, ItemsList } from '@empathyco/x-components';
+  import { ArrowRightIcon, ItemsList } from '@empathyco/x-components';
   import { Component, Vue } from 'vue-property-decorator';
   import { PartialQueryButton, PartialResultsList } from '@empathyco/x-components/search';
   import ResultComponent from '../../results/result.vue';
@@ -36,7 +36,6 @@
     components: {
       ArrowRightIcon,
       CustomSlidingPanel,
-      ChevronRightIcon,
       ItemsList,
       Result: ResultComponent,
       PartialResultsList,

@@ -8,11 +8,9 @@
       #default="{ results, totalResults }"
     >
       <div class="x-mb-40 x-flex x-flex-col x-gap-2 desktop:x-mb-64 desktop:x-gap-16">
-        <div class="max-desktop:x-px-16">
-          <h1 class="max-desktop:x-title1-sm desktop:x-title1">
-            {{ title }}
-          </h1>
-        </div>
+        <h1 class="x-title1 max-desktop:x-px-16 max-desktop:x-title1-sm">
+          {{ title }}
+        </h1>
 
         <CustomSlidingPanel>
           <template #header>
@@ -41,11 +39,8 @@
   import { QueryPreview } from '@empathyco/x-components/queries-preview';
   import {
     BaseEventButton,
-    ChevronLeftIcon,
-    ChevronRightIcon,
     QueryFeature,
     QueryPreviewInfo,
-    SlidingPanel,
     XEventsTypes,
     XInject,
     ItemsList,
@@ -58,11 +53,8 @@
     components: {
       CustomSlidingPanel,
       QueryPreview,
-      SlidingPanel,
       Result,
       BaseEventButton,
-      ChevronLeftIcon,
-      ChevronRightIcon,
       ItemsList,
       ArrowRightIcon
     }

@@ -84,7 +84,7 @@
                   <div
                     class="x-list x-list--horizontal x-list--gap-05 x-padding--bottom-02 x-padding--top-02"
                   >
-                    <HistoryIcon :class="{ 'x-icon-lg': $x.device === 'mobile' }" />
+                    <HistoryIcon class="max-desktop:x-icon-lg" />
                     <div class="x-list x-list--gap-01">
                       <span>{{ suggestion.query }}</span>
                       <span class="x-text1 x-text1-sm x-text-neutral-75">

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-if="$slots.header">
+    <template v-if="$slots.header">
       <slot name="header" />
-    </div>
+    </template>
     <SlidingPanel
       :showButtons="$x.device !== 'mobile'"
       :resetOnContentChange="false"
