@@ -8,7 +8,8 @@ Given('start page with {string} size view', (view: ViewportPreset) => {
 
 Then('search bar is clicked', () => {
   cy.getByDataTest('x').should('exist');
-  cy.getByDataTest('start-searchbar').click();
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+  cy.window().then(window => (window as any).InterfaceX.search());
 });
 
 // Search
