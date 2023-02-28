@@ -31,6 +31,9 @@ module.exports = {
     'preflight',
     'wordBreak',
     'width',
-    'borderRadius'
+    'borderRadius',
+    'gap',
+    'flex',
+    'flexDirection',
   ]
 };

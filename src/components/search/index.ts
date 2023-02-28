@@ -1,6 +1,5 @@
 import Results from './results/results.vue';
 import PartialResults from './results/partial-results.vue';
-import MobilePartialResults from './results/mobile-partial-results.vue';
 import Sort from './sort.vue';
 import CustomFacets from './facets/custom-facets.vue';
 import SelectedFilters from './facets/selected-filters.vue';
@@ -20,7 +19,6 @@ export {
   NoResultsMessage,
   Results,
   PartialResults,
-  MobilePartialResults,
   Sort,
   DesktopAside,
   MobileAside

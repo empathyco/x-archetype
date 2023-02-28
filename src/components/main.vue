@@ -14,8 +14,7 @@
         </LocationProvider>
 
         <LocationProvider location="results">
-          <PartialResults v-if="$x.device === 'desktop'" />
-          <MobilePartialResults v-else />
+          <PartialResults />
         </LocationProvider>
         <LocationProvider v-if="$x.noResults && !$x.partialResults.length" location="no_results">
           <Recommendations />
@@ -39,7 +38,6 @@
       CustomQueryPreview,
       PartialResults: () => import('./search').then(m => m.PartialResults),
       Results: () => import('./search').then(m => m.Results),
-      MobilePartialResults: () => import('./search').then(m => m.MobilePartialResults),
       Redirection: () => import('./search').then(m => m.Redirection)
     }
   })
