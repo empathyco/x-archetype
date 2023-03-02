@@ -56,7 +56,7 @@
           key="right-aside"
           :animation="rightAsideAnimation"
           modalId="right-aside"
-          contentClass="x-w-344 x-ml-auto"
+          contentClass="x-w-512 x-ml-auto"
         >
           <DesktopAside />
         </BaseIdModal>
@@ -65,7 +65,7 @@
           key="my-history-aside"
           :animation="rightAsideAnimation"
           modalId="my-history-aside"
-          contentClass="x-w-344 x-ml-auto"
+          contentClass="x-w-512 x-ml-auto"
         >
           <DesktopMyHistoryAside />
         </BaseIdModal>
