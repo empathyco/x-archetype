@@ -1,5 +1,5 @@
 <template>
-  <MainModal :animation="animation" :class="`x-${$x.device}`">
+  <MainModal :animation="animation" :class="`x-${$x.device}`" :focusOnOpen="$x.device === 'mobile'">
     <Mobile v-if="$x.device === 'mobile' || $x.device === 'tablet'" />
     <Desktop v-else />
   </MainModal>
