@@ -1,6 +1,10 @@
 <template>
   <Empathize :animation="empathizeAnimation" class="x-bg-neutral-0 desktop:x-py-16 desktop:x-pl-16">
-    <component :is="$x.device === 'desktop' ? 'div' : 'BaseScroll'" class="x-h-full">
+    <component
+      :is="$x.device === 'desktop' ? 'div' : 'BaseScroll'"
+      v-if="showEmpathize || showIdentifierResults"
+      class="x-h-full"
+    >
       <div class="x-layout-item desktop:x-block">
         <BaseKeyboardNavigation
           class="x-flex x-flex-col desktop:x-grid desktop:x-grid-cols-12 desktop:x-items-start desktop:x-gap-24"
@@ -162,14 +166,11 @@
 
           <SlidingRecommendations
             v-if="$x.device === 'desktop' && !$x.query.searchBox"
-            class="desktop:x-col-span-7"
+            class="x-col-span-7"
           />
         </BaseKeyboardNavigation>
       </div>
-      <SlidingRecommendations
-        v-if="$x.device === 'mobile' && !$x.query.searchBox"
-        class="desktop:x-col-span-7"
-      />
+      <SlidingRecommendations v-if="$x.device === 'mobile' && !$x.query.searchBox" />
     </component>
   </Empathize>
 </template>
