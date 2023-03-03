@@ -65,8 +65,10 @@ Feature: Facets component
     When  facet "<facetName>" is unfolded
     And   filter <filterNumber> from facet "<facetName>" is clicked
     Then  filter <filterNumber> from facet "<facetName>" is selected is true
+    When  facet "<facetName>" is unfolded
     When  facet "<facetName2>" is unfolded
     And   filter <filterNumber2> from facet "<facetName2>" is clicked
+    When  facet "<facetName2>" is unfolded
     And   facet "<facetName>" is unfolded
     Then  filter <filterNumber> from facet "<facetName>" is selected is true
     And   filter <filterNumber2> from facet "<facetName2>" is selected is true

@@ -38,9 +38,9 @@
       MainModal: () => import('./components/custom-main-modal.vue').then(m => m.default)
     }
   })
-  export default class Layer extends Vue {
+  export default class App extends Vue {
     protected breakpoints: Dictionary<number> = {
-      mobile: 743,
+      mobile: 1279,
       desktop: Number.POSITIVE_INFINITY
     };
     protected isOpen = false;

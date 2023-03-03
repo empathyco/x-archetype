@@ -59,7 +59,7 @@
   .x-mobile {
     .x-next-query-preview {
       // TODO: Change this when we migrate the grid component to the new XDS
-      margin-inline: calc(-1 * var(--x-size-padding-grid));
+      margin-left: calc(-1 * var(--x-size-padding-grid));
     }
   }
 </style>

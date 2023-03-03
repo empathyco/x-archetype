@@ -13,7 +13,7 @@
         </h1>
       </div>
     </div>
-    <CustomMyHistory class="x-scroll x-list x-list__item--expand" />
+    <CustomMyHistory class="x-list x-list__item--expand x-scroll" />
   </div>
 </template>
 

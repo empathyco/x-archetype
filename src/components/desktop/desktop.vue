@@ -1,18 +1,18 @@
 <template>
-  <FixedHeaderAndAsidesLayout :class="{ 'x-background--neutral-100': !!$x.query.searchBox }">
-    <template #header>
-      <div
-        class="x-list__item--expand x-row x-row--align-start x-row--gap-04 x-padding--top-06 x-padding--bottom-05"
-      >
-        <div class="x-row__item x-row__item--span-2 x-list x-padding--top-04">
+  <div
+    class="x-layout-container x-layout-max-width-md desktop:x-layout-min-margin-32 large:x-layout-max-width-lg large:x-layout-min-margin-48"
+  >
+    <div class="x-layout-item">
+      <header class="x-grid x-grid-cols-6 x-items-start x-gap-12 x-pt-24 x-pb-16">
+        <div class="x-pt-12">
           <Logo />
         </div>
 
-        <div class="x-row__item x-row__item--span-8 x-list x-list--vertical x-list--gap-05">
+        <div class="x-col-span-4 x-flex x-flex-col x-gap-16">
           <div class="x-relative">
             <SearchBox />
             <LocationProvider location="predictive_layer">
-              <PredictiveLayer class="x-absolute x-background--neutral-100 x-shadow--04" />
+              <PredictiveLayer class="x-absolute x-shadow--04" />
             </LocationProvider>
           </div>
           <LocationProvider location="predictive_layer">
@@ -20,57 +20,62 @@
           </LocationProvider>
         </div>
 
-        <div
-          class="x-row__item x-row__item--span-2 x-list x-list--horizontal x-list--justify-end x-list--wrap-reverse"
-        >
-          <CloseMainModal class="x-button-lead x-button-circle x-button-ghost">
-            <CrossIcon class="x-icon-lg" />
-          </CloseMainModal>
+        <CloseMainModal class="x-button-lead x-button-circle x-button-ghost x-justify-self-end">
+          <CrossIcon class="x-icon-lg" />
+        </CloseMainModal>
+      </header>
+    </div>
+
+    <MainScroll>
+      <Scroll id="main-scroll">
+        <div v-if="!$x.redirections.length && hasSearched" class="x-layout-item">
+          <LocationProvider location="results">
+            <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
+          </LocationProvider>
+          <NoResultsMessage class="x-mb-16" data-test="no-results-message" />
+          <DesktopToolbar />
         </div>
-      </div>
-    </template>
 
-    <template #sub-header v-if="!$x.redirections.length && hasSearched">
-      <LocationProvider location="results">
-        <SpellcheckMessage class="x-margin--bottom-05" data-test="spellcheck-message" />
-      </LocationProvider>
-      <NoResultsMessage class="x-margin--bottom-05" data-test="no-results-message" />
-      <DesktopToolbar />
-    </template>
+        <div v-if="$x.totalResults > 0 && hasSearched" class="x-layout-item">
+          <SelectedFilters class="x-py-16" />
+        </div>
 
-    <template #toolbar>
-      <SelectedFilters
-        v-if="$x.totalResults > 0 && hasSearched"
-        class="x-padding--05 x-padding--right-00 x-padding--left-00"
-      />
-    </template>
+        <div class="x-layout-item">
+          <LocationProvider location="no_query">
+            <CustomQueryPreview class="x-mt-56" />
+          </LocationProvider>
+        </div>
 
-    <template #main>
-      <LocationProvider location="results">
-        <Main />
-      </LocationProvider>
-    </template>
+        <div class="x-layout-item">
+          <LocationProvider location="results">
+            <Main />
+          </LocationProvider>
+        </div>
 
-    <template #right-aside>
-      <DesktopAside v-if="hasSearched" />
-    </template>
+        <BaseIdModal
+          key="right-aside"
+          :animation="rightAsideAnimation"
+          modalId="right-aside"
+          contentClass="x-w-512 x-ml-auto"
+        >
+          <DesktopAside />
+        </BaseIdModal>
 
-    <template #extra-aside>
-      <BaseIdModal
-        key="my-history-aside"
-        :animation="rightAsideAnimation"
-        modalId="my-history-aside"
-        class="x-layout__aside x-layout__aside--right"
-      >
-        <DesktopMyHistoryAside />
-      </BaseIdModal>
-      <MyHistoryConfirmDisableModal />
-    </template>
-
-    <template #scroll-to-top>
+        <BaseIdModal
+          key="my-history-aside"
+          :animation="rightAsideAnimation"
+          modalId="my-history-aside"
+          contentClass="x-w-512 x-ml-auto"
+        >
+          <DesktopMyHistoryAside />
+        </BaseIdModal>
+        <MyHistoryConfirmDisableModal />
+      </Scroll>
+    </MainScroll>
+    <div class="x-layout-on-margin-right x-layout-overlap x-layout-item">
       <ScrollToTop />
-    </template>
-  </FixedHeaderAndAsidesLayout>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -78,19 +83,14 @@
     animateTranslate,
     CloseMainModal,
     BaseIdModal,
-    BaseVariableColumnGrid,
-    CartIcon,
     CrossIcon,
-    CrossTinyIcon,
-    FixedHeaderAndAsidesLayout,
-    LocationProvider,
-    PlusIcon,
-    SlidingPanel
+    LocationProvider
   } from '@empathyco/x-components';
-  import { Empathize } from '@empathyco/x-components/empathize';
   import { Component } from 'vue-property-decorator';
+  import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
   import Logo from '../logo.vue';
   import Main from '../main.vue';
+  import CustomQueryPreview from '../pre-search/custom-query-preview.vue';
   import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import SearchBox from '../search-box.vue';
@@ -101,29 +101,25 @@
 
   @Component({
     components: {
-      MyHistoryConfirmDisableModal,
-      BaseVariableColumnGrid,
+      CustomQueryPreview,
       BaseIdModal,
-      CartIcon,
       CloseMainModal,
       CrossIcon,
-      CrossTinyIcon,
-      DesktopToolbar,
       DesktopMyHistoryAside,
-      Empathize,
-      FixedHeaderAndAsidesLayout,
+      DesktopToolbar,
       LocationProvider,
       Logo,
       Main,
-      PlusIcon,
+      MainScroll,
+      MyHistoryConfirmDisableModal,
       PredictiveLayer,
+      Scroll,
       ScrollToTop,
       SearchBox,
-      SlidingPanel,
-      RelatedTags: () => import('../search').then(m => m.RelatedTags),
-      SelectedFilters: () => import('../search').then(m => m.SelectedFilters),
       DesktopAside: () => import('../search').then(m => m.DesktopAside),
       NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
+      RelatedTags: () => import('../search').then(m => m.RelatedTags),
+      SelectedFilters: () => import('../search').then(m => m.SelectedFilters),
       SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage)
     }
   })
@@ -131,3 +127,9 @@
     protected rightAsideAnimation = animateTranslate('right');
   }
 </script>
+
+<style>
+  .x-layout-item > * {
+    min-width: 0;
+  }
+</style>

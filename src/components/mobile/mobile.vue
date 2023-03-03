@@ -1,133 +1,120 @@
 <template>
-  <SingleColumnLayout
-    :asideAnimation="animation"
-    :class="{ 'x-background--neutral-100': !!$x.query.searchBox }"
+  <div
+    class="x-layout-container x-layout-max-width-md x-layout-min-margin-16 tablet:x-layout-min-margin-24"
   >
-    <template #header>
-      <div
-        class="x-list x-list--horizontal x-list__item--expand x-list--align-center x-background--neutral-100 x-p-16 x-pl-8"
-      >
+    <div class="x-layout-item">
+      <div class="x-flex x-gap-8 x-py-16">
         <CloseMainModal class="x-button-lead x-button-circle x-button-ghost">
           <ArrowLeftIcon class="x-icon-lg" />
         </CloseMainModal>
-        <SearchBox class="x-list__item--expand" />
+        <SearchBox class="x-flex-1" />
       </div>
-    </template>
+    </div>
 
-    <template #sub-header>
-      <div
-        v-if="$x.relatedTags.length > 0"
-        class="x-list__item--expand x-list x-padding--00 x-padding--bottom-05"
-      >
+    <div class="x-layout-stack x-layout-expand">
+      <LocationProvider location="predictive_layer" class="x-z-10">
+        <PredictiveLayer />
+      </LocationProvider>
+
+      <!-- Results -->
+      <div class="x-flex x-flex-col">
         <LocationProvider location="predictive_layer">
-          <RelatedTags />
+          <RelatedTags class="x-pb-16" />
         </LocationProvider>
-      </div>
-    </template>
 
-    <template #toolbar v-if="$x.query.search && !$x.redirections.length">
-      <div class="x-flex-1">
-        <LocationProvider location="results">
-          <SpellcheckMessage
-            class="x-margin--bottom-05 x-margin--left-05 x-margin--right-03"
-            data-test="spellcheck-message"
-          />
-        </LocationProvider>
-        <NoResultsMessage
-          class="x-margin--bottom-05 x-margin--left-05 x-margin--right-03"
-          data-test="no-results-message"
-        />
-        <MobileToolbar class="x-padding--left-05 x-padding--bottom-05 x-padding--right-03" />
-      </div>
-    </template>
+        <div v-if="$x.query.search && !$x.redirections.length" class="x-layout-item">
+          <LocationProvider location="results">
+            <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
+          </LocationProvider>
+          <NoResultsMessage class="x-mb-16" data-test="no-results-message" />
+          <MobileToolbar class="x-mb-16" />
+        </div>
 
-    <template #predictive>
-      <LocationProvider location="predictive_layer">
-        <PredictiveLayer class="x-list x-list__item--expand x-background--neutral-100 x-scroll" />
-      </LocationProvider>
-    </template>
+        <MainScroll>
+          <Scroll id="main-scroll" class="x-flex-1">
+            <LocationProvider location="no_query">
+              <CustomQueryPreview class="x-mt-16" />
+            </LocationProvider>
 
-    <template #main>
-      <LocationProvider location="results">
-        <Main />
-      </LocationProvider>
-    </template>
+            <LocationProvider location="results">
+              <div class="x-layout-item">
+                <Main />
+              </div>
+            </LocationProvider>
+          </Scroll>
+        </MainScroll>
 
-    <template #floating>
-      <div class="x-row x-row--padding-03 x-list__item--expand x-margin--bottom-06">
-        <MobileOpenAside
-          v-if="$x.totalResults > 0"
-          class="x-row__item x-row__item--start-4 x-row__item--span-6"
-        />
-        <div class="x-row__item--start-11 x-row__item--span-2 x-row__item x-padding--00">
-          <ScrollToTop class="x-row__item" />
+        <div class="x-layout-overlap x-layout-item">
+          <div class="x-mb-32 x-grid x-grid-cols-12">
+            <MobileOpenAside v-if="$x.totalResults > 0" class="x-col-span-6 x-col-start-4" />
+            <div class="x-col-start-11">
+              <ScrollToTop class="x-button-lg" />
+            </div>
+          </div>
         </div>
       </div>
-    </template>
+    </div>
 
-    <template v-if="hasSearched" #aside>
+    <!-- eslint-disable max-len-->
+    <BaseIdModal
+      :animation="filtersAsideAnimation"
+      modalId="aside-modal"
+      contentClass="x-mt-64 x-h-[calc(100%-64px)] x-fixed x-flex-1 x-rounded-t-lg x-bg-neutral-0 desktop:x-rounded-none desktop:x-m-0"
+    >
       <MobileAside />
-    </template>
+    </BaseIdModal>
 
-    <template #extra-aside>
-      <BaseIdModal
-        key="my-history-aside"
-        :animation="rightAsideAnimation"
-        modalId="my-history-aside"
-        class="x-layout__aside x-layout__aside--extra"
-      >
-        <MobileMyHistoryAside />
-      </BaseIdModal>
-      <MyHistoryConfirmDisableModal class="x-layout__aside--extra x-background--transparent" />
-    </template>
-  </SingleColumnLayout>
+    <BaseIdModal
+      key="my-history-aside"
+      :animation="rightAsideAnimation"
+      modalId="my-history-aside"
+      contentClass="x-bg-neutral-0"
+      class="x-z-10"
+    >
+      <MobileMyHistoryAside />
+    </BaseIdModal>
+    <MyHistoryConfirmDisableModal />
+  </div>
 </template>
 
 <script lang="ts">
   import {
     ArrowLeftIcon,
-    BaseColumnPickerList,
     CloseMainModal,
-    BaseIdModalOpen,
-    BaseScroll,
-    FiltersIcon,
-    SingleColumnLayout,
     LocationProvider,
     animateTranslate,
     BaseIdModal
   } from '@empathyco/x-components';
   import { Component } from 'vue-property-decorator';
+  import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
   import Main from '../main.vue';
+  import CustomQueryPreview from '../pre-search/custom-query-preview.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
   import SearchBox from '../search-box.vue';
   import HasSearchedMixin from '../has-searched.mixin';
   import MobileMyHistoryAside from '../my-history/mobile-my-history-aside.vue';
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
-  import MobileCloseAside from './mobile-close-aside.vue';
   import MobileOpenAside from './mobile-open-aside.vue';
   import MobileToolbar from './mobile-toolbar.vue';
 
   @Component({
     components: {
-      MyHistoryConfirmDisableModal,
       ArrowLeftIcon,
       BaseIdModal,
-      BaseIdModalOpen,
-      BaseScroll,
       CloseMainModal,
-      ColumnPicker: BaseColumnPickerList,
-      FiltersIcon,
+      CustomQueryPreview,
       LocationProvider,
       Main,
-      MobileCloseAside,
-      MobileOpenAside,
+      MainScroll,
       MobileMyHistoryAside,
+      MobileOpenAside,
       MobileToolbar,
+      MyHistoryConfirmDisableModal,
       PredictiveLayer,
+      Scroll,
       ScrollToTop,
       SearchBox,
-      SingleColumnLayout,
       MobileAside: () => import('../search').then(m => m.MobileAside),
       NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
       RelatedTags: () => import('../search').then(m => m.RelatedTags),
@@ -135,28 +122,7 @@
     }
   })
   export default class Mobile extends HasSearchedMixin {
-    public animation = animateTranslate('bottom');
+    public filtersAsideAnimation = animateTranslate('bottom');
     public rightAsideAnimation = animateTranslate('right');
   }
 </script>
-<style lang="scss">
-  .x-mobile {
-    .x-modal {
-      &.x-layout__aside:not(.x-layout__aside--extra) {
-        .x-modal__content {
-          height: calc(100% - 64px) !important;
-          top: 64px;
-          position: fixed;
-          border-top-right-radius: 16px;
-          border-top-left-radius: 16px;
-        }
-      }
-    }
-
-    .x-layout__aside:not(.x-background--transparent) {
-      .x-modal__content {
-        background-color: var(--x-color-base-neutral-100) !important;
-      }
-    }
-  }
-</style>

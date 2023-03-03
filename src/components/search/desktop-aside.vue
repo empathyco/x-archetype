@@ -10,7 +10,7 @@
         <CrossIcon class="x-icon-lg" />
       </BaseIdModalClose>
     </div>
-    <div class="x-scroll x-list__item--expand x-padding--08 x-padding--top-00 x-padding--right-06">
+    <div class="x-list__item--expand x-padding--08 x-padding--top-00 x-padding--right-06 x-scroll">
       <Sort />
       <CustomFacets v-if="$x.totalResults > 0" />
     </div>

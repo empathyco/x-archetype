@@ -1,6 +1,5 @@
 import { Then, When } from 'cypress-cucumber-preprocessor/steps';
 import '../cucumber/global-definitions';
-import ViewportPreset = Cypress.ViewportPreset;
 
 /**
  * TODO https://searchbroker.atlassian.net/browse/EX-5266 .
@@ -13,12 +12,8 @@ Then('facets are displayed is {boolean}', (areVisible: boolean) => {
   cy.getByDataTest('facets-facet').should(`${areVisible ? '' : 'not.'}exist`);
 });
 
-When('sort and filter button is clicked on {string}', (view: ViewportPreset) => {
-  if (view.includes('macbook')) {
-    cy.getByDataTest('toggle-facets-button').click({ force: true });
-  } else {
-    cy.getByDataTest('open-modal-id').click({ force: true });
-  }
+When('sort and filter button is clicked on {string}', () => {
+  cy.getByDataTest('toggle-facets-button').click({ force: true });
 });
 
 When('{string} is clicked to close the modal', (closeMethod: string) => {
