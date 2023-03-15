@@ -1,8 +1,5 @@
 <template>
-  <span
-    v-if="selectedFilters.length > 0"
-    class="x-small x-background--accent x-border-radius--20 x-padding--01 x-padding--right-03 x-padding--left-03 x-text-neutral-0"
-  >
+  <span v-if="selectedFilters.length > 0" class="x-badge x-badge-auxiliary">
     {{ selectedFilters.length }}
   </span>
 </template>

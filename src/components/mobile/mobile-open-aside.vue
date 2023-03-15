@@ -6,10 +6,7 @@
   >
     <FiltersIcon class="x-icon-lg" />
     <span>{{ $t('toggleAside.showAside') }}</span>
-    <span
-      v-if="$x.selectedFilters.length > 0"
-      class="x-background--neutral-100 x-border-radius--20 x-padding--01 x-padding--right-03 x-padding--left-03 x-text-lead-50"
-    >
+    <span v-if="$x.selectedFilters.length > 0" class="x-badge x-badge-lead">
       {{ $x.selectedFilters.length }}
     </span>
   </BaseIdModalOpen>
