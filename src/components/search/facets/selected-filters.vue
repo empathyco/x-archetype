@@ -16,11 +16,11 @@
       >
         <template #default="{ filter }">
           <SimpleFilter
-            class="x-tag x-tag--pill x-tag--ghost x-background--auxiliary x-padding--04 x-padding--top-03 x-padding--bottom-03 x-text-auxiliary-50"
+            class="x-padding--04 x-padding--top-03 x-padding--bottom-03 x-tag x-tag-auxiliary x-tag-outlined x-selected x-rounded-full"
             :filter="filter"
           >
             <template #label="{ filter }">
-              <span class="x-title4">{{ filter.label }}</span>
+              {{ filter.label }}
               <CrossTinyIcon />
             </template>
           </SimpleFilter>
@@ -28,11 +28,11 @@
 
         <template #price="{ filter }">
           <NumberRangeFilter
-            class="x-tag x-tag--pill x-tag--ghost x-background--auxiliary x-padding--04 x-padding--top-03 x-padding--bottom-03 x-text-auxiliary-50"
+            class="x-padding--04 x-padding--top-03 x-padding--bottom-03 x-tag x-tag-auxiliary x-tag-outlined x-selected x-rounded-full"
             :filter="filter"
           >
             <template #label="{ filter }">
-              <PriceFilterLabel class="x-title4" :filter="filter" />
+              <PriceFilterLabel :filter="filter" />
               <CrossTinyIcon />
             </template>
           </NumberRangeFilter>

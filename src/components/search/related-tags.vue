@@ -2,7 +2,7 @@
   <SlidingPanel
     v-if="$x.relatedTags.length"
     class="x-sliding-panel-show-buttons-on-hover"
-    buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
+    buttonClass="x-tag x-tag-ghost x-padding--00"
     scrollContainerClass="desktop:x-sliding-panel-fade"
     :showButtons="$x.device !== 'mobile'"
   >
@@ -10,10 +10,11 @@
       <ChevronLeftIcon class="x-icon-lg" />
     </template>
     <RelatedTags
-      class="x-list--gap-03 x-tag--pill"
+      class="x-list--gap-03"
       :class="{ 'x-padding--left-05': $x.device === 'mobile' }"
       :highlightCurated="true"
       :animation="relatedTagsAnimation"
+      itemClass="x-tag-outlined x-rounded-full"
     >
       <template #related-tag-content="{ relatedTag, isSelected, shouldHighlightCurated }">
         <CuratedCheckIcon v-if="shouldHighlightCurated" />
