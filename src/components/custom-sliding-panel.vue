@@ -4,7 +4,7 @@
       <slot name="header" />
     </template>
     <SlidingPanel
-      :showButtons="$x.device !== 'mobile'"
+      :showButtons="!isTouchable"
       :resetOnContentChange="false"
       buttonClass="x-button-lead x-button-circle x-button-ghost x-p-0"
       scrollContainerClass="desktop:x-sliding-panel-fade desktop:x-sliding-panel-fade-sm"
@@ -22,16 +22,19 @@
 </template>
 
 <script lang="ts">
-  import { Component } from 'vue-property-decorator';
-  import Vue from 'vue';
+  import { defineComponent } from 'vue';
   import { SlidingPanel, ChevronLeftIcon, ChevronRightIcon } from '@empathyco/x-components';
+  import { useDevice } from '../composables/use-device.composable';
 
-  @Component({
+  export default defineComponent({
     components: {
       SlidingPanel,
       ChevronLeftIcon,
       ChevronRightIcon
+    },
+    setup() {
+      const { isTouchable } = useDevice();
+      return { isTouchable };
     }
-  })
-  export default class CustomSlidingPanel extends Vue {}
+  });
 </script>

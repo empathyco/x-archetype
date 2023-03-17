@@ -67,7 +67,7 @@
           modalId="my-history-aside"
           contentClass="x-w-512 x-ml-auto"
         >
-          <DesktopMyHistoryAside />
+          <MyHistoryAside />
         </BaseIdModal>
         <MyHistoryConfirmDisableModal />
       </Scroll>
@@ -95,7 +95,7 @@
   import ScrollToTop from '../scroll-to-top.vue';
   import SearchBox from '../search-box.vue';
   import HasSearchedMixin from '../has-searched.mixin';
-  import DesktopMyHistoryAside from '../my-history/desktop-my-history-aside.vue';
+  import MyHistoryAside from '../my-history/my-history-aside.vue';
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
   import DesktopToolbar from './desktop-toolbar.vue';
 
@@ -105,7 +105,7 @@
       BaseIdModal,
       CloseMainModal,
       CrossIcon,
-      DesktopMyHistoryAside,
+      MyHistoryAside,
       DesktopToolbar,
       LocationProvider,
       Logo,

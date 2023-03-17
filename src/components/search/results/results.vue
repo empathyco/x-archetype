@@ -54,7 +54,7 @@
   import { Component } from 'vue-property-decorator';
   import { NextQueriesList } from '@empathyco/x-components/next-queries';
   import Result from '../../results/result.vue';
-  import NextQueryPreview from './next-query-preview.vue';
+  import NextQueryPreview from './custom-next-query-preview.vue';
 
   @Component({
     components: {

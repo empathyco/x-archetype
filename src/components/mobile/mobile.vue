@@ -71,7 +71,7 @@
       contentClass="x-bg-neutral-0"
       class="x-z-10"
     >
-      <MobileMyHistoryAside />
+      <MyHistoryAside />
     </BaseIdModal>
     <MyHistoryConfirmDisableModal />
   </div>
@@ -93,7 +93,7 @@
   import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
   import SearchBox from '../search-box.vue';
   import HasSearchedMixin from '../has-searched.mixin';
-  import MobileMyHistoryAside from '../my-history/mobile-my-history-aside.vue';
+  import MyHistoryAside from '../my-history/my-history-aside.vue';
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
   import MobileOpenAside from './mobile-open-aside.vue';
   import MobileToolbar from './mobile-toolbar.vue';
@@ -107,7 +107,7 @@
       LocationProvider,
       Main,
       MainScroll,
-      MobileMyHistoryAside,
+      MyHistoryAside,
       MobileOpenAside,
       MobileToolbar,
       MyHistoryConfirmDisableModal,

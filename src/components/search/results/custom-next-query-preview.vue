@@ -1,9 +1,9 @@
 <template>
-  <XNextQueryPreview
+  <NextQueryPreview
     #default="{ results, totalResults, suggestion }"
     class="x-flex x-flex-col x-gap-4 x-bg-neutral-10 x-py-24 desktop:x-px-24"
     :suggestion="nextQuery"
-    :maxItemsToRender="$x.device === 'mobile' ? undefined : 5"
+    :maxItemsToRender="maxItemsToRender"
   >
     <i18n class="x-text1 x-text1-lg max-desktop:x-px-16" tag="span" path="nextQueryPreview.message">
       <template #query>
@@ -18,41 +18,51 @@
           <ArrowRightIcon class="x-icon-lg" />
         </NextQuery>
       </template>
-      <ItemsList :items="results" class="x-flex x-gap-16 x-pt-4 max-desktop:x-px-16">
+      <ItemsList
+        :items="results"
+        class="x-flex x-gap-16 x-pt-4 max-desktop:x-px-16 desktop:x-w-full"
+        itemClass="x-flex-1"
+      >
         <template #result="{ item: result }">
-          <Result :result="result" class="x-w-[calc(38vw-16px)] desktop:x-w-[262px]" />
+          <Result
+            :result="result"
+            class="desktop:x-min-w-0 x-w-[calc(38vw-16px)] desktop:x-w-auto"
+          />
         </template>
       </ItemsList>
     </CustomSlidingPanel>
-  </XNextQueryPreview>
+  </NextQueryPreview>
 </template>
 
 <script lang="ts">
-  import { Component, Prop, Vue } from 'vue-property-decorator';
-  import { BaseGrid, ArrowRightIcon, ItemsList } from '@empathyco/x-components';
-  import {
-    NextQuery,
-    NextQueryPreview as XNextQueryPreview
-  } from '@empathyco/x-components/next-queries';
+  import { computed, defineComponent, PropType, toRefs } from 'vue';
+  import { ArrowRightIcon, ItemsList } from '@empathyco/x-components';
+  import { NextQuery, NextQueryPreview } from '@empathyco/x-components/next-queries';
   import { NextQuery as NextQueryModel } from '@empathyco/x-types';
+  import { useDevice } from '../../../composables/use-device.composable';
   import Result from '../../results/result.vue';
   import CustomSlidingPanel from '../../custom-sliding-panel.vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       CustomSlidingPanel,
-      BaseGrid,
       NextQuery,
       Result,
       ArrowRightIcon,
       ItemsList,
-      XNextQueryPreview
+      NextQueryPreview
+    },
+    props: {
+      nextQuery: { type: Object as PropType<NextQueryModel>, required: true }
+    },
+    setup(props) {
+      const { isTabletOrLess } = useDevice();
+      return {
+        ...toRefs(props),
+        maxItemsToRender: computed(() => (isTabletOrLess.value ? undefined : 5))
+      };
     }
-  })
-  export default class NextQueryPreview extends Vue {
-    @Prop({ required: true })
-    protected nextQuery!: NextQueryModel;
-  }
+  });
 </script>
 
 <style lang="scss">

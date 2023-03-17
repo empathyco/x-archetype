@@ -5,11 +5,11 @@
     <!-- TODO: Remove the x-max-h and the tailwind important when removing the old DS styles -->
     <BaseColumnPickerList
       v-slot="{ column, isSelected }"
-      :columns="values"
+      :columns="valuesAndIcons.values"
       buttonClass="!x-button-sm x-button-lead x-button-square x-button-ghost x-max-h-32"
     >
       <component
-        :is="icon(column)"
+        :is="valuesAndIcons.icons[column]"
         class="x-icon-lg"
         :class="isSelected ? 'x-text-neutral-90' : 'x-text-neutral-25'"
       />
@@ -18,33 +18,33 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
+  import { computed, defineComponent } from 'vue';
   import {
     BaseColumnPickerList,
     Grid1ColIcon,
     Grid2ColIcon,
     Grid4ColIcon
   } from '@empathyco/x-components';
+  import { useDevice } from '../composables/use-device.composable';
 
-  @Component({
+  export default defineComponent({
     components: {
       BaseColumnPickerList,
       Grid1ColIcon,
       Grid2ColIcon,
       Grid4ColIcon
-    }
-  })
-  export default class ColumnPicker extends Vue {
-    protected get values(): number[] {
-      return this.$x.device === 'mobile' ? [2, 1] : [4, 2];
-    }
+    },
+    setup() {
+      const { isMobile } = useDevice();
+      const valuesAndIcons = computed(() =>
+        isMobile.value
+          ? { values: [2, 1], icons: { 2: 'Grid2ColIcon', 1: 'Grid1ColIcon' } }
+          : { values: [4, 2], icons: { 4: 'Grid4ColIcon', 2: 'Grid2ColIcon' } }
+      );
 
-    protected icon(column: number): string {
-      if (this.$x.device === 'mobile') {
-        return column === 2 ? 'Grid2ColIcon' : 'Grid1ColIcon';
-      } else {
-        return column === 4 ? 'Grid4ColIcon' : 'Grid2ColIcon';
-      }
+      return {
+        valuesAndIcons
+      };
     }
-  }
+  });
 </script>

@@ -16,10 +16,7 @@
         <ChevronLeftIcon class="x-icon-lg" />
       </template>
 
-      <Recommendations
-        class="x-list--horizontal x-list--gap-04"
-        :class="{ 'x-padding--left-05': $x.device === 'mobile' }"
-      >
+      <Recommendations class="x-flex x-flex-row x-gap-12 x-pl-16 desktop:x-pl-0">
         <template #default="{ recommendation }">
           <Result
             :result="recommendation"
@@ -39,11 +36,10 @@
 <script lang="ts">
   import { SlidingPanel, ChevronLeftIcon, ChevronRightIcon } from '@empathyco/x-components';
   import { Recommendations } from '@empathyco/x-components/recommendations';
-  import Vue from 'vue';
-  import { Component } from 'vue-property-decorator';
+  import { defineComponent } from 'vue';
   import Result from '../results/result.vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       ChevronLeftIcon,
       ChevronRightIcon,
@@ -51,6 +47,5 @@
       Result,
       SlidingPanel
     }
-  })
-  export default class SlidingRecommendations extends Vue {}
+  });
 </script>

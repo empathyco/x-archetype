@@ -11,7 +11,7 @@
         <PartialResults />
       </LocationProvider>
       <LocationProvider v-if="$x.noResults && !$x.partialResults.length" location="no_results">
-        <Recommendations />
+        <CustomRecommendations />
       </LocationProvider>
     </template>
   </div>
@@ -20,13 +20,13 @@
 <script lang="ts">
   import { LocationProvider } from '@empathyco/x-components';
   import { Component } from 'vue-property-decorator';
-  import Recommendations from './results/recommendations.vue';
+  import CustomRecommendations from './results/custom-recommendations.vue';
   import HasSearchedMixin from './has-searched.mixin';
 
   @Component({
     components: {
       LocationProvider,
-      Recommendations,
+      CustomRecommendations,
       PartialResults: () => import('./search').then(m => m.PartialResults),
       Results: () => import('./search').then(m => m.Results),
       Redirection: () => import('./search').then(m => m.Redirection)

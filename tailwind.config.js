@@ -17,11 +17,15 @@ module.exports = {
   // below the `Start` button on the `x-components` internal demo app.
   // See https://github.com/empathyco/x/pull/655#discussion_r948923711
   corePlugins: [
-    'alignItems',
     'alignContent',
+    'alignItems',
     'backgroundColor',
     'borderRadius',
     'display',
+    'divideColor',
+    'divideOpacity',
+    'divideStyle',
+    'divideWidth',
     'flex',
     'flexDirection',
     'flexGrow',
@@ -42,6 +46,7 @@ module.exports = {
     'gridTemplateColumns',
     'gridTemplateRows',
     'height',
+    'inset',
     'justifyContent',
     'justifyItems',
     'justifySelf',
@@ -49,6 +54,7 @@ module.exports = {
     'margin',
     'maxHeight',
     'minHeight',
+    'order',
     'overflow',
     'padding',
     'preflight',
