@@ -3,19 +3,16 @@
     <SearchInput
       :autofocus="false"
       :placeholder="$t('searchBox.placeholder')"
-      :instant="false"
+      :instant="true"
       class="desktop:x-pl-24"
     />
 
-    <ClearSearchInput
-      v-if="$x.device === 'desktop' && $x.query.searchBox"
-      class="x-input-group-button"
-    >
+    <ClearSearchInput v-if="isDesktopOrGreater && $x.query.searchBox" class="x-input-group-button">
       {{ $t('searchBox.clear') }}
     </ClearSearchInput>
 
     <SearchButton
-      v-if="$x.device === 'desktop' || !$x.query.searchBox"
+      v-if="isDesktopOrGreater || !$x.query.searchBox"
       class="x-input-group-button-primary"
     >
       <SearchIcon class="x-icon-lg" />
@@ -30,17 +27,22 @@
 <script lang="ts">
   import { ClearSearchInput, SearchButton, SearchInput } from '@empathyco/x-components/search-box';
   import { CrossTinyIcon, SearchIcon } from '@empathyco/x-components';
-  import Vue from 'vue';
-  import { Component } from 'vue-property-decorator';
+  import { defineComponent } from 'vue';
+  import { useDevice } from '../composables/use-device.composable';
 
-  @Component({
+  export default defineComponent({
     components: {
       ClearSearchInput,
       CrossTinyIcon,
       SearchButton,
       SearchInput,
       SearchIcon
+    },
+    setup() {
+      const { isDesktopOrGreater } = useDevice();
+      return {
+        isDesktopOrGreater
+      };
     }
-  })
-  export default class SearchBox extends Vue {}
+  });
 </script>

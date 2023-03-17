@@ -10,40 +10,35 @@
         <span class="x-button-group-divider x-text-neutral-25" />
       </template>
       <template #default="{ column }">
-        <component :is="icon(column)" class="x-icon-lg" />
+        <component :is="icons[column]" class="x-icon-lg" />
       </template>
     </BaseColumnPickerList>
   </div>
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
+  import { computed, defineComponent } from 'vue';
   import {
     BaseColumnPickerList,
     Grid1ColIcon,
     Grid2ColIcon,
     Grid4ColIcon
   } from '@empathyco/x-components';
+  import { useDevice } from '../composables/use-device.composable';
 
-  @Component({
+  export default defineComponent({
     components: {
       BaseColumnPickerList,
       Grid1ColIcon,
       Grid2ColIcon,
       Grid4ColIcon
+    },
+    setup() {
+      const { isMobile } = useDevice();
+      return {
+        values: computed(() => (isMobile.value ? [2, 1] : [4, 2])),
+        icons: { 1: 'Grid1ColIcon', 2: 'Grid2ColIcon', 4: 'Grid4ColIcon' }
+      };
     }
-  })
-  export default class ColumnPicker extends Vue {
-    protected get values(): number[] {
-      return this.$x.device === 'mobile' ? [2, 1] : [4, 2];
-    }
-
-    protected icon(column: number): string {
-      if (this.$x.device === 'mobile') {
-        return column === 2 ? 'Grid2ColIcon' : 'Grid1ColIcon';
-      } else {
-        return column === 4 ? 'Grid4ColIcon' : 'Grid2ColIcon';
-      }
-    }
-  }
+  });
 </script>

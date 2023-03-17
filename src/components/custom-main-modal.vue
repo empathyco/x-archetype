@@ -1,30 +1,30 @@
 <template>
-  <MainModal :animation="animation" :class="`x-${$x.device}`" :focusOnOpen="$x.device === 'mobile'">
-    <Mobile v-if="$x.device === 'mobile' || $x.device === 'tablet'" />
+  <MainModal :animation="animation" :class="`x-${deviceName}`" :focusOnOpen="isTabletOrLess">
+    <Mobile v-if="isTabletOrLess" />
     <Desktop v-else />
   </MainModal>
 </template>
 
 <script lang="ts">
-  import Component from 'vue-class-component';
-  import Vue from 'vue';
+  import { defineComponent } from 'vue';
   import { animateClipPath, MainModal } from '@empathyco/x-components';
+  import { useDevice } from '../composables/use-device.composable';
   import Mobile from './mobile/mobile.vue';
   import Desktop from './desktop/desktop.vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       MainModal,
       Mobile,
       Desktop
+    },
+    setup() {
+      const { isTabletOrLess, deviceName } = useDevice();
+      return {
+        animation: animateClipPath(),
+        deviceName,
+        isTabletOrLess
+      };
     }
-  })
-  export default class CustomMainModal extends Vue {
-    /**
-     * Animation to use for opening/closing the modal.
-     *
-     * @internal
-     */
-    protected animation = animateClipPath();
-  }
+  });
 </script>

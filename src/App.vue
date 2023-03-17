@@ -2,7 +2,6 @@
   <div class="x" data-test="x" :dir="documentDirection">
     <SnippetConfigExtraParams />
     <SnippetCallbacks />
-    <DeviceDetector @DeviceProvided="$setLocaleDevice" :breakpoints="breakpoints" />
     <Tagging />
     <UrlHandler />
     <MainModal v-if="isOpen" />
@@ -17,12 +16,11 @@
     XOn,
     XProvide
   } from '@empathyco/x-components';
-  import { DeviceDetector } from '@empathyco/x-components/device';
   import { Tagging } from '@empathyco/x-components/tagging';
   import { UrlHandler } from '@empathyco/x-components/url';
   import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params';
-  import { Dictionary } from '@empathyco/x-utils';
   import { Component, Inject, Vue, Watch } from 'vue-property-decorator';
+  import { useDevice } from './composables/use-device.composable';
   import currencies from './i18n/currencies';
   import '@empathyco/x-components/design-system/full-theme.css';
   import './design-system/tokens.scss';
@@ -30,7 +28,6 @@
 
   @Component({
     components: {
-      DeviceDetector,
       SnippetCallbacks,
       SnippetConfigExtraParams,
       Tagging,
@@ -39,10 +36,6 @@
     }
   })
   export default class App extends Vue {
-    protected breakpoints: Dictionary<number> = {
-      mobile: 1279,
-      desktop: Number.POSITIVE_INFINITY
-    };
     protected isOpen = false;
 
     @XOn(['UserOpenXProgrammatically', 'UserClickedOpenX'])
@@ -52,6 +45,7 @@
 
     @Inject('snippetConfig')
     protected snippetConfig!: SnippetConfig;
+    protected device = useDevice();
 
     protected get documentDirection(): string {
       return (
@@ -74,6 +68,11 @@
     @Watch('snippetConfig.uiLang')
     syncLang(uiLang: string): void {
       this.$setLocale(uiLang);
+    }
+
+    @Watch('device.deviceName')
+    syncDevice(devieceName: string): void {
+      this.$setLocaleDevice(devieceName);
     }
   }
 </script>

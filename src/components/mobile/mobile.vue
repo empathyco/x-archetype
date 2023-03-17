@@ -46,7 +46,10 @@
 
         <div class="x-layout-overlap x-layout-item">
           <div class="x-mb-32 x-grid x-grid-cols-12 x-gap-24">
-            <MobileOpenAside v-if="$x.totalResults > 0" class="x-col-span-8 x-col-start-3" />
+            <MobileOpenAside
+              v-if="$x.totalResults > 0"
+              class="x-col-span-8 x-col-start-3 tablet:x-col-span-4 tablet:x-col-start-5"
+            />
             <ScrollToTop class="x-button-lg x-col-start-11" />
           </div>
         </div>
@@ -69,7 +72,7 @@
       contentClass="x-bg-neutral-0"
       class="x-z-10"
     >
-      <MobileMyHistoryAside />
+      <MyHistoryAside />
     </BaseIdModal>
     <MyHistoryConfirmDisableModal />
   </div>
@@ -91,7 +94,7 @@
   import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
   import SearchBox from '../search-box.vue';
   import HasSearchedMixin from '../has-searched.mixin';
-  import MobileMyHistoryAside from '../my-history/mobile-my-history-aside.vue';
+  import MyHistoryAside from '../my-history/my-history-aside.vue';
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
   import MobileOpenAside from './mobile-open-aside.vue';
   import MobileToolbar from './mobile-toolbar.vue';
@@ -105,7 +108,7 @@
       LocationProvider,
       Main,
       MainScroll,
-      MobileMyHistoryAside,
+      MyHistoryAside,
       MobileOpenAside,
       MobileToolbar,
       MyHistoryConfirmDisableModal,

@@ -4,14 +4,13 @@
     class="x-sliding-panel-show-buttons-on-hover"
     buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
     scrollContainerClass="desktop:x-sliding-panel-fade"
-    :showButtons="$x.device !== 'mobile'"
+    :showButtons="isTouchable"
   >
     <template #sliding-panel-left-button>
       <ChevronLeftIcon class="x-icon-lg" />
     </template>
     <RelatedTags
-      class="x-list--gap-03"
-      :class="{ 'x-padding--left-05': $x.device === 'mobile' }"
+      class="x-list--gap-03 x-pl-16 tablet:x-pl-24 desktop:x-pl-0"
       :highlightCurated="true"
       :animation="relatedTagsAnimation"
       itemClass="x-tag-outlined x-rounded-full"
@@ -40,10 +39,10 @@
     CuratedCheckIcon
   } from '@empathyco/x-components';
   import { RelatedTags } from '@empathyco/x-components/related-tags';
-  import Vue from 'vue';
-  import { Component } from 'vue-property-decorator';
+  import { defineComponent } from 'vue';
+  import { useDevice } from '../../composables/use-device.composable';
 
-  @Component({
+  export default defineComponent({
     components: {
       ChevronLeftIcon,
       ChevronRightIcon,
@@ -52,9 +51,15 @@
       RelatedTags,
       SlidingPanel,
       CuratedCheckIcon
+    },
+
+    setup() {
+      const relatedTagsAnimation = StaggeredFadeAndSlide;
+      const { isTouchable } = useDevice();
+      return {
+        relatedTagsAnimation,
+        isTouchable
+      };
     }
-  })
-  export default class RelatedTagsComponent extends Vue {
-    protected relatedTagsAnimation = StaggeredFadeAndSlide;
-  }
+  });
 </script>
