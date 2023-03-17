@@ -45,10 +45,12 @@
         </MainScroll>
 
         <div class="x-layout-overlap x-layout-item">
-          <div class="x-mb-32 x-grid x-grid-cols-5">
-            <MobileOpenAside v-if="$x.totalResults > 0" class="x-col-span-3 x-col-start-2" />
+          <div class="x-mb-32 x-grid x-grid-cols-12">
+            <MobileOpenAside v-if="$x.totalResults > 0" class="x-col-span-6 x-col-start-4" />
+            <div class="x-col-start-11">
+              <ScrollToTop class="x-button-lg" />
+            </div>
           </div>
-          <ScrollToTop class="x-button-lg x-mr-24" />
         </div>
       </div>
     </div>
