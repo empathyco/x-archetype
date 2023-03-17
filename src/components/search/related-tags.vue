@@ -2,7 +2,7 @@
   <SlidingPanel
     v-if="$x.relatedTags.length"
     class="x-sliding-panel-show-buttons-on-hover"
-    buttonClass="x-button-ghost x-padding--00"
+    buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
     scrollContainerClass="desktop:x-sliding-panel-fade"
     :showButtons="$x.device !== 'mobile'"
   >
