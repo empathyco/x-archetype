@@ -23,7 +23,7 @@
       <NextQuery
         #default="{ suggestion: nextQuery }"
         :suggestion="suggestion"
-        class="x-list x-list--horizontal x-list--gap-03 x-padding--bottom-03 x-padding--top-03 x-border-color--neutral-70 x-background--neutral-100 x-tag x-tag-outlined x-rounded-full"
+        class="x-tag x-tag-auxiliary x-tag-outlined x-rounded-full"
       >
         <CuratedCheckIcon v-if="nextQuery.isCurated" class="x-text-auxiliary-50" />
         <LightBulbOn v-else class="x-text-auxiliary-50" />
