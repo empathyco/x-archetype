@@ -15,9 +15,9 @@ Feature: Predictive components
     When  search input is cleared
     Then  history queries are displayed
     Examples:
-      | query | view        |
-      | belt  | macbook-13  |
-      | belt  | iphone-x    |
+      | query  | view        |
+      | dress  | macbook-13  |
+      | dress  | iphone-x    |
 
   Scenario Outline: 2. Related tags interaction
     Given start page with "<view>" size view
@@ -29,11 +29,12 @@ Feature: Predictive components
     Then  search request contains the origin "related_tag" in the URL
     And   clicked related tag is shown in position 0 as selected
     When  related tag 0 is clicked
-    Then  related tag <relatedTagIndex> is displayed as not selected
+    Then  related results are displayed
+    And  related tag <relatedTagIndex> is displayed as not selected
     Examples:
       | query   | relatedTagIndex | view        |
-      | shorts  | 1               | macbook-13  |
-      | shorts  | 1               | iphone-x    |
+      | dress   | 1               | macbook-13  |
+      | dress   | 1               | iphone-x    |
 
   Scenario Outline: 3. Clear a history query
     Given start page with "<view>" size view
