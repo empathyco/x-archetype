@@ -16,7 +16,7 @@
       >
         <template #default="{ filter }">
           <SimpleFilter
-            class="x-padding--04 x-padding--top-03 x-padding--bottom-03 x-tag x-tag-auxiliary x-tag-outlined x-selected x-rounded-full"
+            class="x-tag x-tag-auxiliary x-tag-outlined x-selected x-rounded-full"
             :filter="filter"
           >
             <template #label="{ filter }">
@@ -28,7 +28,7 @@
 
         <template #price="{ filter }">
           <NumberRangeFilter
-            class="x-padding--04 x-padding--top-03 x-padding--bottom-03 x-tag x-tag-auxiliary x-tag-outlined x-selected x-rounded-full"
+            class="x-tag x-tag-auxiliary x-tag-outlined x-selected x-rounded-full"
             :filter="filter"
           >
             <template #label="{ filter }">

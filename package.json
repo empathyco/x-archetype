@@ -45,7 +45,7 @@
   "devDependencies": {
     "@cypress/webpack-preprocessor": "~5.11.1",
     "@empathyco/eslint-plugin-x": "^2.0.0-alpha.27",
-    "@empathyco/x-tailwindcss": "^1.0.0-alpha.15",
+    "@empathyco/x-tailwindcss": "^1.0.0-alpha.16",
     "@empathyco/x-translations": "^1.1.0-alpha.33",
     "@rollup/plugin-commonjs": "~21.0.1",
     "@rollup/plugin-json": "~4.1.0",
