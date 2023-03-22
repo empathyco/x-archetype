@@ -1,16 +1,37 @@
-function getURLParameter(name) {
+function getAllURLParameters() {
+  var parameterRegex = /[?&]+([^=&;$]+)=([^&#;$]*)/gi;
+  var parameters = {};
+
+  while((regexMatch = parameterRegex.exec(window.location.href)) != null) {
+    parameters[regexMatch[1]] = decodeParameterValue(regexMatch[2]);
+  }
+
+  return parameters;
+}
+
+function decodeParameterValue(parameterValue) {
   return (
     decodeURIComponent(
-      (new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(window.location.href) || [
-        ,
-        ''
-      ])[1].replace(/\+/g, '%20')
+      parameterValue.replace(/\+/g, '%20')
     ) || null
   );
 }
 
+function popURLParameter(parametersDictionary, parameterKey) {
+  if(parametersDictionary[parameterKey]) {
+    const parameterValue = parametersDictionary[parameterKey];
+    delete parametersDictionary[parameterKey];
+    return parameterValue;
+  }
+
+  return undefined;
+}
+
+var URLParameters = getAllURLParameters();
+var popFromURLParameters = popURLParameter.bind(this, URLParameters);
+
 function getEnv() {
-  const env = getURLParameter('env');
+  const env = popFromURLParameters('env');
   const envsDict = {
     live: undefined,
     staging: 'staging',
@@ -28,15 +49,16 @@ function getEnv() {
   return undefined;
 }
 
-var instance = getURLParameter('instance') || 'empathy';
+var instance = popFromURLParameters('instance') || 'empathy';
 var env = getEnv();
-var scope = getURLParameter('scope') || 'desktop';
-var lang = getURLParameter('lang') || 'en';
-var device = getURLParameter('device') || 'mobile';
-var uiLang = getURLParameter('uiLang') || lang;
-var currency = getURLParameter('currency') || 'EUR';
-var consent = getURLParameter('consent') !== 'false';
-var documentDirection = getURLParameter('doc-dir') || 'ltr';
+var scope = popFromURLParameters('scope') || 'desktop';
+var lang = popFromURLParameters('lang') || 'en';
+var device = popFromURLParameters('device') || 'mobile';
+var uiLang = popFromURLParameters('uiLang') || lang;
+var currency = popFromURLParameters('currency') || 'EUR';
+var consent = popFromURLParameters('consent') !== 'false';
+var documentDirection = popFromURLParameters('doc-dir') || 'ltr';
+var store = popFromURLParameters('store') || undefined;
 
 window.__enableVueDevtools__ = true;
 window.initX = {
@@ -49,6 +71,8 @@ window.initX = {
   currency,
   consent,
   documentDirection,
+  store,
+  ...URLParameters,
   queriesPreview: [
     {
       query: "backpack",
