@@ -26,6 +26,7 @@ Feature: Predictive components
     Then  related tags are displayed
     Given an intercepted search response
     When  related tag <relatedTagIndex> is clicked
+    Then  search request contains the origin "next_query" in the URL
     Then  search request contains the origin "related_tag" in the URL
     And   clicked related tag is shown in position 0 as selected
     When  related tag 0 is clicked
