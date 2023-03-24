@@ -24,13 +24,12 @@ Feature: Predictive components
     When  search bar is clicked
     And   "<query>" is searched
     Then  related tags are displayed
-    Given an intercepted search response
+    Given an intercepted search response from "related_tag"
     When  related tag <relatedTagIndex> is clicked
-    Then  search request contains the origin "next_query" in the URL
-    Then  search request contains the origin "related_tag" in the URL
+    Then  intercepted search request "@interceptedResultsFrom:related_tag" contains the origin "related_tag" in the URL
     And   clicked related tag is shown in position 0 as selected
     When  related tag 0 is clicked
-    Then  related results are displayed
+    Then  intercepted search request "@interceptedResultsFrom:related_tag" contains the origin "related_tag" in the URL
     And  related tag <relatedTagIndex> is displayed as not selected
     Examples:
       | query   | relatedTagIndex | view        |

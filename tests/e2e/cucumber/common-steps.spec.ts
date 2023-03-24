@@ -52,9 +52,12 @@ When('navigating back', () => {
 });
 
 // Requests
-Then('search request contains the origin {string} in the URL', (origin: string) => {
-  cy.wait('@interceptedResults').its('request.url').should('contain', `origin=${origin}`);
-});
+Then(
+  'intercepted search request {string} contains the origin {string} in the URL',
+  (interceptedResults: string, origin: string) => {
+    cy.wait(interceptedResults).its('request.url').should('contain', `origin=${origin}`);
+  }
+);
 
 // Results
 Then('related results are displayed', () => {
