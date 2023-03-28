@@ -1,8 +1,8 @@
 function getAllURLParameters() {
-  var parameterRegex = /[?&]+([^=&;$]+)=([^&#;$]*)/gi;
-  var parameters = {};
+  const parameterRegex = /[?&]+([^=&;$]+)=([^&#;$]*)/gi;
+  const parameters = {};
 
-  while((regexMatch = parameterRegex.exec(window.location.href)) != null) {
+  while ((regexMatch = parameterRegex.exec(window.location.href)) !== null) {
     parameters[regexMatch[1]] = decodeParameterValue(regexMatch[2]);
   }
 
@@ -10,25 +10,20 @@ function getAllURLParameters() {
 }
 
 function decodeParameterValue(parameterValue) {
-  return (
-    decodeURIComponent(
-      parameterValue.replace(/\+/g, '%20')
-    ) || null
-  );
+  return decodeURIComponent(parameterValue.replace(/\+/g, '%20')) || null;
 }
 
 function popURLParameter(parametersDictionary, parameterKey) {
-  if(parametersDictionary[parameterKey]) {
-    const parameterValue = parametersDictionary[parameterKey];
+  const parameterValue = parametersDictionary[parameterKey];
+  
+  if (parameterValue) {
     delete parametersDictionary[parameterKey];
     return parameterValue;
   }
-
-  return undefined;
 }
 
-var URLParameters = getAllURLParameters();
-var popFromURLParameters = popURLParameter.bind(this, URLParameters);
+const URLParameters = getAllURLParameters();
+const popFromURLParameters = popURLParameter.bind(this, URLParameters);
 
 function getEnv() {
   const env = popFromURLParameters('env');
@@ -49,16 +44,16 @@ function getEnv() {
   return undefined;
 }
 
-var instance = popFromURLParameters('instance') || 'empathy';
-var env = getEnv();
-var scope = popFromURLParameters('scope') || 'desktop';
-var lang = popFromURLParameters('lang') || 'en';
-var device = popFromURLParameters('device') || 'mobile';
-var uiLang = popFromURLParameters('uiLang') || lang;
-var currency = popFromURLParameters('currency') || 'EUR';
-var consent = popFromURLParameters('consent') !== 'false';
-var documentDirection = popFromURLParameters('doc-dir') || 'ltr';
-var store = popFromURLParameters('store') || undefined;
+const instance = popFromURLParameters('instance') || 'empathy';
+const env = getEnv();
+const scope = popFromURLParameters('scope') || 'desktop';
+const lang = popFromURLParameters('lang') || 'en';
+const device = popFromURLParameters('device') || 'mobile';
+const uiLang = popFromURLParameters('uiLang') || lang;
+const currency = popFromURLParameters('currency') || 'EUR';
+const consent = popFromURLParameters('consent') !== 'false';
+const documentDirection = popFromURLParameters('doc-dir') || 'ltr';
+const store = popFromURLParameters('store') || undefined;
 
 window.__enableVueDevtools__ = true;
 window.initX = {
@@ -75,16 +70,16 @@ window.initX = {
   ...URLParameters,
   queriesPreview: [
     {
-      query: "backpack",
-      title: "Back to School!",
+      query: 'backpack',
+      title: 'Back to School!'
     },
     {
-      query: "watch",
-      title: "Get on time!",
+      query: 'watch',
+      title: 'Get on time!'
     },
     {
-      query: "women boots",
-      title: "Get comfy!",
-    },
+      query: 'women boots',
+      title: 'Get comfy!'
+    }
   ]
 };
