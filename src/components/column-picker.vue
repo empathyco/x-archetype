@@ -1,7 +1,6 @@
 <template>
   <div class="x-list x-list--horizontal x-list--align-center x-list--gap-03">
     <span class="x-uppercase x-title4">{{ $t('columnPicker.message') }}</span>
-    <!-- eslint-disable max-len-->
     <BaseColumnPickerList
       :columns="values"
       buttonClass="x-button-sm x-button-square x-button-tight x-text-neutral-25
