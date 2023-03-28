@@ -3,12 +3,15 @@ Feature: Url component
   Scenario Outline: 1. Navigating to a URL from the outside sets the url origin
     Given a results API with query "<query>"
     And   a URL with query parameter "<query>" and "<view>" size view
-    Then  intercepted search request "@interceptedResults" contains the origin "url%3Aexternal" in the URL
+    And   an intercepted search response from "url:external"
+    Then  a search request from "url:external" is done
     When  sort and filter button is clicked on "<view>"
     And   "<sortOrder>" order is clicked in "<sortMenuName>"
-    Then  intercepted search request "@interceptedResults" contains the origin "url%3Aexternal" in the URL
+    And   an intercepted search response from "url:external"
+    Then  a search request from "url:external" is done
+    And   an intercepted search response from "url:url_history"
     When  navigating back
-    Then  intercepted search request "@interceptedResults" contains the origin "url%3Aurl_history" in the URL
+    Then  a search request from "url:url_history" is done
 
     Examples:
       | query   | sortOrder          | sortMenuName | view       |

@@ -9,11 +9,9 @@ Given('an intercepted search response', () => {
 });
 
 Given('an intercepted search response from {string}', (origin: string) => {
-  cy.intercept(searchEndpoint, req => {
-    if (req.url.includes(origin)) {
-      req.alias = `interceptedResultsFrom:${origin}`;
-    }
-  });
+  cy.intercept({ url: searchEndpoint, query: { origin: `*${origin}*` } }).as(
+    `interceptedResultsFrom:${origin}`
+  );
 });
 
 Given('a results API with query {string}', (query: string) => {

@@ -26,10 +26,10 @@ Feature: Predictive components
     Then  related tags are displayed
     Given an intercepted search response from "related_tag"
     When  related tag <relatedTagIndex> is clicked
-    Then  intercepted search request "@interceptedResultsFrom:related_tag" contains the origin "related_tag" in the URL
+    Then  a search request from "related_tag" is done
     And   clicked related tag is shown in position 0 as selected
     When  related tag 0 is clicked
-    Then  intercepted search request "@interceptedResultsFrom:related_tag" contains the origin "related_tag" in the URL
+    Then  a search request from "related_tag" is done
     And  related tag <relatedTagIndex> is displayed as not selected
     Examples:
       | query   | relatedTagIndex | view        |
