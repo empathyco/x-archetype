@@ -4,12 +4,11 @@ Feature: Url component
     Given a results API with query "<query>"
     And   a URL with query parameter "<query>" and "<view>" size view
     And   an intercepted search response from "url:external"
+    And   an intercepted search response from "url:url_history"
     Then  a search request from "url:external" is done
     When  sort and filter button is clicked on "<view>"
     And   "<sortOrder>" order is clicked in "<sortMenuName>"
-    And   an intercepted search response from "url:external"
     Then  a search request from "url:external" is done
-    And   an intercepted search response from "url:url_history"
     When  navigating back
     Then  a search request from "url:url_history" is done
 
