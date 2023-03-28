@@ -1,18 +1,18 @@
 <template>
   <div class="x-list x-list--horizontal x-list--align-center x-list--gap-03">
     <span class="x-uppercase x-title4">{{ $t('columnPicker.message') }}</span>
-
-    <!-- TODO: Remove the x-max-h and the tailwind important when removing the old DS styles -->
+    <!-- eslint-disable max-len-->
     <BaseColumnPickerList
-      v-slot="{ column, isSelected }"
       :columns="values"
-      buttonClass="!x-button-sm x-button-lead x-button-square x-button-ghost x-max-h-32"
+      buttonClass="x-button-sm x-button-square x-button-tight x-text-neutral-25
+      selected:x-text-neutral-90"
     >
-      <component
-        :is="icon(column)"
-        class="x-icon-lg"
-        :class="isSelected ? 'x-text-neutral-90' : 'x-text-neutral-25'"
-      />
+      <template #divider>
+        <span class="x-button-group-divider" />
+      </template>
+      <template #default="{ column }">
+        <component :is="icon(column)" class="x-icon-lg" />
+      </template>
     </BaseColumnPickerList>
   </div>
 </template>
