@@ -52,8 +52,8 @@ When('navigating back', () => {
 });
 
 // Requests
-Then('search request contains the origin {string} in the URL', (origin: string) => {
-  cy.wait('@interceptedResults').its('request.url').should('contain', `origin=${origin}`);
+Then('a search request from {string} is done', (origin: string) => {
+  cy.wait(`@interceptedResultsFrom:${origin}`);
 });
 
 // Results
