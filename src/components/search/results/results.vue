@@ -11,6 +11,7 @@
           <BaseVariableColumnGrid
             class="x-grid-list x-padding--00"
             :animation="staggeredFadeAndSlide"
+            :columns="$x.device === 'mobile' ? 2 : 4"
             data-test="base-grid"
           >
             <template #result="{ item: result }">
