@@ -7,7 +7,7 @@
       selected:x-text-neutral-90"
     >
       <template #divider>
-        <span class="x-button-group-divider" />
+        <span class="x-button-group-divider x-text-neutral-25" />
       </template>
       <template #default="{ column }">
         <component :is="icon(column)" class="x-icon-lg" />
