@@ -1,16 +1,32 @@
-function getURLParameter(name) {
-  return (
-    decodeURIComponent(
-      (new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(window.location.href) || [
-        ,
-        ''
-      ])[1].replace(/\+/g, '%20')
-    ) || null
-  );
+function getAllURLParameters() {
+  const parameterRegex = /[?&]+([^=&;$]+)=([^&#;$]*)/gi;
+  const parameters = {};
+
+  while ((regexMatch = parameterRegex.exec(window.location.href)) !== null) {
+    parameters[regexMatch[1]] = decodeParameterValue(regexMatch[2]);
+  }
+
+  return parameters;
 }
 
+function decodeParameterValue(parameterValue) {
+  return decodeURIComponent(parameterValue.replace(/\+/g, '%20')) || null;
+}
+
+function popURLParameter(parametersDictionary, parameterKey) {
+  const parameterValue = parametersDictionary[parameterKey];
+  
+  if (parameterValue) {
+    delete parametersDictionary[parameterKey];
+    return parameterValue;
+  }
+}
+
+const URLParameters = getAllURLParameters();
+const popFromURLParameters = popURLParameter.bind(this, URLParameters);
+
 function getEnv() {
-  const env = getURLParameter('env');
+  const env = popFromURLParameters('env');
   const envsDict = {
     live: undefined,
     staging: 'staging',
@@ -28,15 +44,16 @@ function getEnv() {
   return undefined;
 }
 
-var instance = getURLParameter('instance') || 'empathy';
-var env = getEnv();
-var scope = getURLParameter('scope') || 'desktop';
-var lang = getURLParameter('lang') || 'en';
-var device = getURLParameter('device') || 'mobile';
-var uiLang = getURLParameter('uiLang') || lang;
-var currency = getURLParameter('currency') || 'EUR';
-var consent = getURLParameter('consent') !== 'false';
-var documentDirection = getURLParameter('doc-dir') || 'ltr';
+const instance = popFromURLParameters('instance') || 'empathy';
+const env = getEnv();
+const scope = popFromURLParameters('scope') || 'desktop';
+const lang = popFromURLParameters('lang') || 'en';
+const device = popFromURLParameters('device') || 'mobile';
+const uiLang = popFromURLParameters('uiLang') || lang;
+const currency = popFromURLParameters('currency') || 'EUR';
+const consent = popFromURLParameters('consent') !== 'false';
+const documentDirection = popFromURLParameters('doc-dir') || 'ltr';
+const store = popFromURLParameters('store') || undefined;
 
 window.__enableVueDevtools__ = true;
 window.initX = {
@@ -49,18 +66,20 @@ window.initX = {
   currency,
   consent,
   documentDirection,
+  store,
+  ...URLParameters,
   queriesPreview: [
     {
-      query: "backpack",
-      title: "Back to School!",
+      query: 'backpack',
+      title: 'Back to School!'
     },
     {
-      query: "watch",
-      title: "Get on time!",
+      query: 'watch',
+      title: 'Get on time!'
     },
     {
-      query: "women boots",
-      title: "Get comfy!",
-    },
+      query: 'women boots',
+      title: 'Get comfy!'
+    }
   ]
 };
