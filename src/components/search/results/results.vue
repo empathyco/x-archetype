@@ -11,7 +11,6 @@
           <BaseVariableColumnGrid
             class="x-grid-list x-padding--00"
             :animation="staggeredFadeAndSlide"
-            :columns="$x.device === 'mobile' ? 2 : 4"
             data-test="base-grid"
           >
             <template #result="{ item: result }">
@@ -51,13 +50,12 @@
     PromotedsList,
     ResultsList
   } from '@empathyco/x-components/search';
-  import Vue from 'vue';
-  import { Component } from 'vue-property-decorator';
+  import { defineComponent } from 'vue';
   import { NextQueriesList } from '@empathyco/x-components/next-queries';
   import Result from '../../results/result.vue';
   import NextQueryPreview from './custom-next-query-preview.vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       Banner,
       BannersList,
@@ -72,11 +70,11 @@
     },
     directives: {
       'infinite-scroll': infiniteScroll
+    },
+    setup() {
+      return { staggeredFadeAndSlide: StaggeredFadeAndSlide };
     }
-  })
-  export default class Results extends Vue {
-    protected staggeredFadeAndSlide = StaggeredFadeAndSlide;
-  }
+  });
 </script>
 
 <style lang="scss">

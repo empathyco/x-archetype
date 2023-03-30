@@ -23,7 +23,7 @@
     </div>
 
     <div
-      class="x-flex x-flex-col x-divide-y-1 x-divide-neutral-10 desktop:x-overflow-auto desktop:x-scroll"
+      class="x-flex x-flex-col x-divide-y-1 x-divide-neutral-10 desktop:x-flex-1 desktop:x-overflow-auto desktop:x-scroll"
     >
       <section class="x-flex x-flex-col x-gap-16 x-px-16 x-pt-24 x-pb-32 desktop:x-pl-32">
         <h2 class="x-title3 x-mb-8">{{ $t('myHistory.subtitle') }}</h2>
