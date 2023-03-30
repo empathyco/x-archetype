@@ -4,7 +4,7 @@
     class="x-sliding-panel-show-buttons-on-hover"
     buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
     scrollContainerClass="desktop:x-sliding-panel-fade"
-    :showButtons="isTouchable"
+    :showButtons="!isTouchable"
   >
     <template #sliding-panel-left-button>
       <ChevronLeftIcon class="x-icon-lg" />
