@@ -11,6 +11,7 @@
           <BaseVariableColumnGrid
             class="x-grid-list x-padding--00"
             :animation="staggeredFadeAndSlide"
+            :columns="columns"
             data-test="base-grid"
           >
             <template #result="{ item: result }">
@@ -52,6 +53,7 @@
   } from '@empathyco/x-components/search';
   import { defineComponent } from 'vue';
   import { NextQueriesList } from '@empathyco/x-components/next-queries';
+  import { useDevice } from '../../../composables/use-device.composable';
   import Result from '../../results/result.vue';
   import NextQueryPreview from './custom-next-query-preview.vue';
 
@@ -72,7 +74,8 @@
       'infinite-scroll': infiniteScroll
     },
     setup() {
-      return { staggeredFadeAndSlide: StaggeredFadeAndSlide };
+      const { isMobile } = useDevice();
+      return { staggeredFadeAndSlide: StaggeredFadeAndSlide, columns: isMobile.value ? 2 : 4 };
     }
   });
 </script>
