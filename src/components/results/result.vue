@@ -55,7 +55,7 @@
   } from '@empathyco/x-components';
   import { MainScrollItem } from '@empathyco/x-components/scroll';
   import { Result } from '@empathyco/x-types';
-  import { defineComponent, PropType, toRefs } from 'vue';
+  import { defineComponent, PropType } from 'vue';
   import { useDevice } from '../../composables/use-device.composable';
 
   export default defineComponent({
@@ -74,12 +74,11 @@
       showDescription: { type: Boolean, default: true },
       showAddToCart: { type: Boolean, default: true }
     },
-    setup(props) {
+    setup() {
       const { isDesktopOrGreater } = useDevice();
       return {
         isDesktopOrGreater,
-        imageAnimation: CrossFade,
-        ...toRefs(props)
+        imageAnimation: CrossFade
       };
     }
   });

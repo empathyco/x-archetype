@@ -1,42 +1,38 @@
 <template>
-  <div v-if="!$x.query.searchBox && queriesPreviewInfo">
-    <QueryPreview
-      v-for="{ query, title } in queriesPreviewInfo"
-      :key="query"
-      :query="query"
-      :queryFeature="queryFeature"
-      #default="{ results, totalResults }"
-    >
-      <div class="x-mb-40 x-flex x-flex-col x-gap-2 desktop:x-mb-64 desktop:x-gap-16">
-        <h1 class="x-title1 max-desktop:x-px-16 max-desktop:x-title1-sm">
-          {{ title }}
-        </h1>
-
-        <CustomSlidingPanel>
-          <template #header>
-            <BaseEventButton
-              :events="getEvent(query)"
-              class="x-button x-button-tight max-desktop:x-px-16"
-            >
-              {{ query }}
-              ({{ totalResults }})
-              <ArrowRightIcon class="x-icon-lg" />
-            </BaseEventButton>
+  <QueryPreviewList
+    v-if="!$x.query.searchBox && queriesPreviewInfo"
+    :debounceTimeMs="250"
+    :queries="queries"
+    #default="{ query, totalResults, results }"
+  >
+    <div class="x-mb-40 x-flex x-flex-col x-gap-2 desktop:x-mb-64 desktop:x-gap-16">
+      <h1 class="x-title1 max-desktop:x-px-16 max-desktop:x-title1-sm">
+        {{ getTitle(query) }}
+      </h1>
+      <CustomSlidingPanel>
+        <template #header>
+          <BaseEventButton
+            :events="getEvent(query)"
+            class="x-button-tight x-button max-desktop:x-px-16"
+          >
+            {{ query }}
+            ({{ totalResults }})
+            <ArrowRightIcon class="x-icon-lg" />
+          </BaseEventButton>
+        </template>
+        <ItemsList :items="results" class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
+          <template #result="{ item: result }">
+            <Result :result="result" class="x-w-[calc(38vw-16px)] desktop:x-w-[216px]" />
           </template>
-          <ItemsList :items="results" class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
-            <template #result="{ item: result }">
-              <Result :result="result" class="x-w-[calc(38vw-16px)] desktop:x-w-[216px]" />
-            </template>
-          </ItemsList>
-        </CustomSlidingPanel>
-      </div>
-    </QueryPreview>
-  </div>
+        </ItemsList>
+      </CustomSlidingPanel>
+    </div>
+  </QueryPreviewList>
 </template>
 
 <script lang="ts">
   import { Prop, Component, Vue } from 'vue-property-decorator';
-  import { QueryPreview } from '@empathyco/x-components/queries-preview';
+  import { QueryPreview, QueryPreviewList } from '@empathyco/x-components/queries-preview';
   import {
     BaseEventButton,
     QueryFeature,
@@ -56,7 +52,8 @@
       Result,
       BaseEventButton,
       ItemsList,
-      ArrowRightIcon
+      ArrowRightIcon,
+      QueryPreviewList
     }
   })
   export default class CustomQueryPreview extends Vue {
@@ -66,7 +63,15 @@
     @XInject('queriesPreviewInfo')
     public queriesPreviewInfo!: QueryPreviewInfo[];
 
-    getEvent(query: string): Partial<XEventsTypes> {
+    protected get queries(): string[] {
+      return this.queriesPreviewInfo.map(item => item.query);
+    }
+
+    protected getTitle(query: string): string {
+      return this.queriesPreviewInfo.find(item => item.query === query)?.title ?? '';
+    }
+
+    protected getEvent(query: string): Partial<XEventsTypes> {
       return {
         UserAcceptedAQuery: query
       };

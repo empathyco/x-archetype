@@ -1,5 +1,7 @@
 <template>
-  <div class="x-scroll x-flex x-min-h-0 x-flex-1 x-flex-col x-bg-neutral-0">
+  <div
+    class="x-scroll x-flex x-min-h-0 x-flex-1 x-flex-col x-bg-neutral-0 desktop:x-overflow-hidden"
+  >
     <div
       class="x-sticky x-top-0 x-z-10 x-flex x-flex-row x-items-center x-gap-16 x-bg-neutral-90 x-p-16 desktop:x-p-32"
     >
@@ -20,7 +22,9 @@
       <MyHistoryIconBw v-else class="x-w-256" />
     </div>
 
-    <div class="x-flex x-flex-col x-divide-y-1 x-divide-neutral-10">
+    <div
+      class="x-flex x-flex-col x-divide-y-1 x-divide-neutral-10 desktop:x-flex-1 desktop:x-overflow-auto desktop:x-scroll"
+    >
       <section class="x-flex x-flex-col x-gap-16 x-px-16 x-pt-24 x-pb-32 desktop:x-pl-32">
         <h2 class="x-title3 x-mb-8">{{ $t('myHistory.subtitle') }}</h2>
         <p class="x-text1 x-text1-lg x-text-neutral-75">{{ $t('myHistory.message.header') }}</p>
@@ -44,7 +48,7 @@
         <HistoryQueriesSwitch />
       </section>
 
-      <CustomMyHistory class="x-flex-1 x-px-16 x-pb-32 desktop:x-pl-32" />
+      <CustomMyHistory />
     </div>
   </div>
 </template>

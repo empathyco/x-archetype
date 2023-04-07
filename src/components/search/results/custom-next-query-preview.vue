@@ -12,7 +12,7 @@
     </i18n>
     <CustomSlidingPanel>
       <template #header>
-        <NextQuery :suggestion="nextQuery" class="x-button x-button-tight max-desktop:x-px-16">
+        <NextQuery :suggestion="nextQuery" class="x-button-tight x-button max-desktop:x-px-16">
           {{ $t('nextQueryPreview.query', { query: suggestion.query }) }}
           {{ $t('nextQueryPreview.totalResults', { totalResults }) }}
           <ArrowRightIcon class="x-icon-lg" />
@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts">
-  import { computed, defineComponent, PropType, toRefs } from 'vue';
+  import { computed, defineComponent, PropType } from 'vue';
   import { ArrowRightIcon, ItemsList } from '@empathyco/x-components';
   import { NextQuery, NextQueryPreview } from '@empathyco/x-components/next-queries';
   import { NextQuery as NextQueryModel } from '@empathyco/x-types';
@@ -55,11 +55,11 @@
     props: {
       nextQuery: { type: Object as PropType<NextQueryModel>, required: true }
     },
-    setup(props) {
+    setup() {
       const { isTabletOrLess } = useDevice();
+      const maxItemsToRender = computed(() => (isTabletOrLess.value ? undefined : 5));
       return {
-        ...toRefs(props),
-        maxItemsToRender: computed(() => (isTabletOrLess.value ? undefined : 5))
+        maxItemsToRender
       };
     }
   });

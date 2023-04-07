@@ -4,16 +4,16 @@
     class="x-sliding-panel-show-buttons-on-hover"
     buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
     scrollContainerClass="desktop:x-sliding-panel-fade"
-    :showButtons="isTouchable"
+    :showButtons="!isTouchable"
   >
     <template #sliding-panel-left-button>
       <ChevronLeftIcon class="x-icon-lg" />
     </template>
     <RelatedTags
-      class="x-list--gap-03 x-tag--pill"
-      :class="{ 'x-padding--left-05': isTabletOrLess }"
+      class="x-list--gap-03 x-pl-16 tablet:x-pl-24 desktop:x-pl-0"
       :highlightCurated="true"
       :animation="relatedTagsAnimation"
+      itemClass="x-tag-outlined x-rounded-full"
     >
       <template #related-tag-content="{ relatedTag, isSelected, shouldHighlightCurated }">
         <CuratedCheckIcon v-if="shouldHighlightCurated" />
@@ -55,11 +55,10 @@
 
     setup() {
       const relatedTagsAnimation = StaggeredFadeAndSlide;
-      const { isTouchable, isTabletOrLess } = useDevice();
+      const { isTouchable } = useDevice();
       return {
         relatedTagsAnimation,
-        isTouchable,
-        isTabletOrLess
+        isTouchable
       };
     }
   });

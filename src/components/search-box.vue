@@ -3,7 +3,7 @@
     <SearchInput
       :autofocus="false"
       :placeholder="$t('searchBox.placeholder')"
-      :instant="false"
+      :instant="true"
       class="desktop:x-pl-24"
     />
 

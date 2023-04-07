@@ -10,7 +10,7 @@
       </template>
       <template #query>
         <span class="x-title3">
-          {{ query }}
+          {{ $x.spellcheckedQuery || $x.query.search }}
         </span>
       </template>
     </i18n>
@@ -26,7 +26,8 @@
       <span>{{ $t('toggleAside.showAside') }}</span>
       <span
         v-if="$x.selectedFilters.length"
-        class="x-background--accent x-border-radius--20 x-padding--01 x-padding--right-03 x-padding--left-03 x-text-xs x-leading-[1.5] x-text-neutral-0"
+        :class="{ 'x-badge-circle': $x.selectedFilters.length <= 9 }"
+        class="x-badge x-badge-auxiliary"
       >
         {{ $x.selectedFilters.length }}
       </span>
@@ -36,19 +37,14 @@
 
 <script lang="ts">
   import { BaseIdModalOpen, FiltersIcon } from '@empathyco/x-components';
-  import { Component, Vue } from 'vue-property-decorator';
+  import { defineComponent } from 'vue';
   import ColumnPicker from '../column-picker.vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       BaseIdModalOpen,
       FiltersIcon,
       ColumnPicker
     }
-  })
-  export default class DesktopToolbar extends Vue {
-    protected get query(): string {
-      return this.$x.spellcheckedQuery ? this.$x.spellcheckedQuery : this.$x.query.searchBox;
-    }
-  }
+  });
 </script>
