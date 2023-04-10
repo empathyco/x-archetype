@@ -12,7 +12,7 @@
     </BaseResultLink>
 
     <div
-      v-if="$x.device === 'desktop' && showAddToCart"
+      v-if="isDesktopOrGreater && showAddToCart"
       class="x-result__overlay x-list x-list--horizontal"
     >
       <BaseAddToCart
@@ -24,8 +24,7 @@
     </div>
 
     <BaseResultLink
-      class="x-result__description x-list x-list--vertical"
-      :class="$x.device === 'mobile' ? 'x-list--gap-01' : 'x-list--gap-02'"
+      class="x-result__description x-flex x-flex-col x-gap-2 desktop:x-gap-4"
       :result="result"
     >
       <h2 class="x-ellipsis x-uppercase x-title4" data-test="result-title">
@@ -44,22 +43,22 @@
 </template>
 
 <script lang="ts">
-  import { Result } from '@empathyco/x-types';
   import {
     BaseAddToCart,
-    BaseResultLink,
-    BaseResultImage,
-    BaseResultCurrentPrice,
-    BaseResultPreviousPrice,
-    BasePlaceholderImage,
     BaseFallbackImage,
-    CartIcon,
+    BasePlaceholderImage,
+    BaseResultCurrentPrice,
+    BaseResultImage,
+    BaseResultLink,
+    BaseResultPreviousPrice,
     CrossFade
   } from '@empathyco/x-components';
   import { MainScrollItem } from '@empathyco/x-components/scroll';
-  import { Component, Prop, Vue } from 'vue-property-decorator';
+  import { Result } from '@empathyco/x-types';
+  import { defineComponent, PropType } from 'vue';
+  import { useDevice } from '../../composables/use-device.composable';
 
-  @Component({
+  export default defineComponent({
     components: {
       BaseAddToCart,
       BaseFallbackImage,
@@ -68,20 +67,19 @@
       BaseResultPreviousPrice,
       BaseResultImage,
       BaseResultLink,
-      CartIcon,
       MainScrollItem
+    },
+    props: {
+      result: { type: Object as PropType<Result>, required: true },
+      showDescription: { type: Boolean, default: true },
+      showAddToCart: { type: Boolean, default: true }
+    },
+    setup() {
+      const { isDesktopOrGreater } = useDevice();
+      return {
+        isDesktopOrGreater,
+        imageAnimation: CrossFade
+      };
     }
-  })
-  export default class ResultComponent extends Vue {
-    @Prop()
-    public result!: Result;
-
-    @Prop({ default: true })
-    public showDescription!: boolean;
-
-    @Prop({ default: true })
-    public showAddToCart!: boolean;
-
-    protected imageAnimation = CrossFade;
-  }
+  });
 </script>

@@ -10,7 +10,7 @@
       </template>
       <template #query>
         <span class="x-title3">
-          {{ query }}
+          {{ $x.spellcheckedQuery || $x.query.search }}
         </span>
       </template>
     </i18n>
@@ -37,19 +37,14 @@
 
 <script lang="ts">
   import { BaseIdModalOpen, FiltersIcon } from '@empathyco/x-components';
-  import { Component, Vue } from 'vue-property-decorator';
+  import { defineComponent } from 'vue';
   import ColumnPicker from '../column-picker.vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       BaseIdModalOpen,
       FiltersIcon,
       ColumnPicker
     }
-  })
-  export default class DesktopToolbar extends Vue {
-    protected get query(): string {
-      return this.$x.spellcheckedQuery ? this.$x.spellcheckedQuery : this.$x.query.searchBox;
-    }
-  }
+  });
 </script>

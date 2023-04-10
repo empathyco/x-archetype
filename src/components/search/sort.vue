@@ -12,8 +12,7 @@
     <template #default>
       <SortList
         v-if="$x.totalResults"
-        class="x-list x-list--vertical x-list--align-start x-padding--bottom-07"
-        :class="$x.device === 'mobile' ? 'x-list--gap-07' : 'x-list--gap-06'"
+        class="x-flex x-flex-col x-items-start x-gap-32 x-pb-32 desktop:x-gap-24"
         :items="sortValues"
       >
         <template #default="{ item, isSelected }">
@@ -29,30 +28,32 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
-  import { Component } from 'vue-property-decorator';
   import { Sort } from '@empathyco/x-types';
   import { SortList } from '@empathyco/x-components/search';
   import {
-    CheckTinyIcon,
     RadioButtonSelectedIcon,
     RadioButtonUnselectedIcon,
     animateScale
   } from '@empathyco/x-components';
+  import { defineComponent } from 'vue';
   import CustomHeaderTogglePanel from '../custom-header-toggle-panel.vue';
-  @Component({
+
+  export default defineComponent({
     components: {
       SortList,
-      CheckTinyIcon,
       CustomHeaderTogglePanel,
       RadioButtonSelectedIcon,
       RadioButtonUnselectedIcon
+    },
+    setup() {
+      const animation = animateScale();
+      const sortValues: Sort[] = ['', 'price asc', 'price desc'];
+      return {
+        animation,
+        sortValues
+      };
     }
-  })
-  export default class extends Vue {
-    protected animation = animateScale();
-    public sortValues: Sort[] = ['', 'price asc', 'price desc'];
-  }
+  });
 </script>
 
 <style lang="scss">

@@ -2,7 +2,7 @@
   <div class="x-list x-list--horizontal x-list--align-center x-list--gap-03">
     <SlidingPanel
       class="x-sliding-panel-show-buttons-on-hover"
-      :showButtons="$x.device === 'mobile' ? false : true"
+      :showButtons="!isTouchable"
       buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
       scrollContainerClass="desktop:x-sliding-panel-fade"
       :resetOnContentChange="false"
@@ -11,8 +11,7 @@
         <ChevronLeftIcon class="x-icon-lg" />
       </template>
       <SelectedFiltersList
-        class="x-list x-flex-no-shrink x-list--wrap x-list--gap-03"
-        :class="{ 'x-padding--left-05': $x.device === 'mobile' }"
+        class="x-list x-flex-no-shrink x-list--wrap x-list--gap-03 max-desktop:x-pl-16"
       >
         <template #default="{ filter }">
           <SimpleFilter
@@ -44,7 +43,7 @@
     </SlidingPanel>
 
     <ClearFilters
-      v-if="$x.device === 'desktop'"
+      v-if="isDesktopOrGreater"
       v-slot="{ selectedFilters }"
       data-test="clear-filters-toolbar"
       class="x-border-radius--20 x-list__item--flex-none x-button-lead x-button-sm x-button-outlined"
@@ -62,17 +61,17 @@
     SelectedFiltersList,
     SimpleFilter
   } from '@empathyco/x-components/facets';
-  import Vue from 'vue';
-  import { Component } from 'vue-property-decorator';
+  import { defineComponent } from 'vue';
   import {
     ChevronLeftIcon,
     ChevronRightIcon,
     CrossTinyIcon,
     SlidingPanel
   } from '@empathyco/x-components';
+  import { useDevice } from '../../../composables/use-device.composable';
   import PriceFilterLabel from './price-filter-label.vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       ChevronLeftIcon,
       ChevronRightIcon,
@@ -83,9 +82,16 @@
       SelectedFiltersList,
       SlidingPanel,
       SimpleFilter
+    },
+    setup() {
+      const { isTabletOrLess, isDesktopOrGreater, isTouchable } = useDevice();
+      return {
+        isTabletOrLess,
+        isDesktopOrGreater,
+        isTouchable
+      };
     }
-  })
-  export default class SelectedFiltersComponent extends Vue {}
+  });
 </script>
 
 <style lang="scss" scoped>

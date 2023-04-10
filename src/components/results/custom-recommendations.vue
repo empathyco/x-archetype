@@ -1,10 +1,9 @@
 <template>
   <div
     v-if="$x.recommendations.length > 0"
-    class="x-list x-list--align-center x-list--padding-07 x-list--padding-bottom"
-    :class="{ 'x-list--align-start': $x.device === 'mobile' }"
+    class="x-flex x-flex-col x-items-start x-pb-32 desktop:x-items-center"
   >
-    <h1 class="x-title1" :class="{ 'x-padding--left-05 x-title1-sm': $x.device === 'mobile' }">
+    <h1 class="x-title1 x-title1-sm desktop:x-title1-md">
       {{ $t('recommendations.title') }}
     </h1>
     <Recommendations v-if="!$x.totalResults">
@@ -12,7 +11,7 @@
         <BaseGrid
           #default="{ item: result }"
           :animation="staggeredFadeAndSlide"
-          :columns="$x.device === 'mobile' ? 2 : 4"
+          :columns="columns"
           :items="recommendations"
         >
           <Result :result="result" data-test="recommendation-item" />
@@ -25,18 +24,22 @@
 <script lang="ts">
   import { BaseGrid, StaggeredFadeAndSlide } from '@empathyco/x-components';
   import { Recommendations } from '@empathyco/x-components/recommendations';
-  import Vue from 'vue';
-  import { Component } from 'vue-property-decorator';
+  import { computed, defineComponent } from 'vue';
+  import { useDevice } from '../../composables/use-device.composable';
   import Result from './result.vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       BaseGrid,
       Recommendations,
       Result
+    },
+    setup() {
+      const { isMobile } = useDevice();
+      return {
+        staggeredFadeAndSlide: StaggeredFadeAndSlide,
+        columns: computed(() => (isMobile.value ? 2 : 4))
+      };
     }
-  })
-  export default class Results extends Vue {
-    protected staggeredFadeAndSlide = StaggeredFadeAndSlide;
-  }
+  });
 </script>

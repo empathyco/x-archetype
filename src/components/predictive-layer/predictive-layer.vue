@@ -1,7 +1,7 @@
 <template>
   <Empathize :animation="empathizeAnimation" class="x-bg-neutral-0 desktop:x-py-16 desktop:x-pl-16">
     <component
-      :is="$x.device === 'desktop' ? 'div' : 'BaseScroll'"
+      :is="isDesktopOrGreater ? 'div' : 'BaseScroll'"
       v-if="showEmpathize || showIdentifierResults"
       class="x-h-full"
     >
@@ -36,7 +36,7 @@
             :class="$x.query.searchBox ? 'desktop:x-gap-4' : 'desktop:x-gap-16'"
           >
             <BaseIdModalOpen
-              v-if="$x.device === 'mobile' && !$x.query.searchBox"
+              v-if="isTabletOrLess && !$x.query.searchBox"
               modalId="my-history-aside"
               class="x-self-end x-button-sm x-button-tight x-pr-8"
             >
@@ -49,7 +49,7 @@
                   {{ $t('historyQueries.title') }}
                 </h1>
                 <ClearHistoryQueries class="x-button-sm x-button-tight x-px-8">
-                  <TrashIcon v-if="$x.device === 'mobile'" class="x-icon-lg" />
+                  <TrashIcon v-if="isTabletOrLess" class="x-icon-lg" />
                   <span v-else>{{ $t('historyQueries.clear') }}</span>
                 </ClearHistoryQueries>
               </div>
@@ -107,7 +107,7 @@
             <div
               v-if="showNextQueries"
               class="x-flex x-flex-col x-gap-4"
-              :class="{ 'x-pt-16': $x.query.searchBox && $x.device === 'desktop' }"
+              :class="{ 'x-pt-16': $x.query.searchBox && isDesktopOrGreater }"
             >
               <h1 class="x-uppercase x-title4 x-title4-sm x-py-8 desktop:x-p-0">
                 {{ $t('nextQueries.title') }}
@@ -154,7 +154,7 @@
               </PopularSearches>
             </div>
             <BaseIdModalOpen
-              v-if="$x.device === 'desktop' && !$x.query.searchBox"
+              v-if="isDesktopOrGreater && !$x.query.searchBox"
               modalId="my-history-aside"
               class="x-self-start x-button-sm x-button-tight"
               data-test="my-history-button"
@@ -165,24 +165,23 @@
           </div>
 
           <SlidingRecommendations
-            v-if="$x.device === 'desktop' && !$x.query.searchBox"
+            v-if="isDesktopOrGreater && !$x.query.searchBox"
             class="x-col-span-7"
           />
         </BaseKeyboardNavigation>
       </div>
-      <SlidingRecommendations v-if="$x.device === 'mobile' && !$x.query.searchBox" />
+      <SlidingRecommendations v-if="isTabletOrLess && !$x.query.searchBox" />
     </component>
   </Empathize>
 </template>
 
 <script lang="ts">
   import {
-    animateScale,
     BarCodeIcon,
-    BaseScroll,
     BaseIdModalOpen,
     BaseKeyboardNavigation,
     BaseResultLink,
+    BaseScroll,
     CrossTinyIcon,
     CuratedCheckIcon,
     Highlight,
@@ -192,7 +191,9 @@
     SettingsIcon,
     StaggeredFadeAndSlide,
     TrashIcon,
-    TrendingIcon
+    TrendingIcon,
+    animateScale,
+    use$x
   } from '@empathyco/x-components';
   import { Empathize } from '@empathyco/x-components/empathize';
   import {
@@ -204,11 +205,11 @@
   import { NextQueries, NextQuery } from '@empathyco/x-components/next-queries';
   import { PopularSearches, PopularSearch } from '@empathyco/x-components/popular-searches';
   import { QuerySuggestions, QuerySuggestion } from '@empathyco/x-components/query-suggestions';
-  import Vue from 'vue';
-  import { Component } from 'vue-property-decorator';
+  import { defineComponent, computed } from 'vue';
+  import { useDevice } from '../../composables/use-device.composable';
   import SlidingRecommendations from './sliding-recommendations.vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       BarCodeIcon,
       BaseScroll,
@@ -237,49 +238,61 @@
       SettingsIcon,
       TrashIcon,
       TrendingIcon
-    }
-  })
-  export default class PredictiveLayer extends Vue {
-    public empathizeAnimation = animateScale();
-    public suggestionsAnimation = StaggeredFadeAndSlide;
-    public navigationHijacker = [
-      { xEvent: 'UserPressedArrowKey', moduleName: 'scroll', direction: 'ArrowDown' },
-      { xEvent: 'UserPressedArrowKey', moduleName: 'searchBox', direction: 'ArrowDown' }
-    ];
+    },
+    setup() {
+      const empathizeAnimation = animateScale();
+      const suggestionsAnimation = StaggeredFadeAndSlide;
+      const navigationHijacker = [
+        { xEvent: 'UserPressedArrowKey', moduleName: 'scroll', direction: 'ArrowDown' },
+        { xEvent: 'UserPressedArrowKey', moduleName: 'searchBox', direction: 'ArrowDown' }
+      ];
 
-    public get showIdentifierResults(): boolean {
-      return this.$x.identifierResults.length > 0;
-    }
+      const $x = use$x();
+      const { isDesktopOrGreater, isTabletOrLess } = useDevice();
 
-    public get showHistoryQueries(): boolean {
-      return this.$x.historyQueriesWithResults.length > 0;
-    }
+      const showIdentifierResults = computed(() => {
+        return $x.identifierResults.length > 0;
+      });
 
-    public get showQuerySuggestions(): boolean {
-      return (
-        !!this.$x.query.searchBox &&
-        this.$x.identifierResults.length === 0 &&
-        this.$x.querySuggestions.length > 0
-      );
-    }
+      const showHistoryQueries = computed(() => {
+        return $x.historyQueriesWithResults.length > 0;
+      });
 
-    public get showNextQueries(): boolean {
-      return this.$x.nextQueries.length > 0 && this.$x.identifierResults.length === 0;
-    }
+      const showQuerySuggestions = computed(() => {
+        return (
+          !!$x.query.searchBox &&
+          $x.identifierResults.length === 0 &&
+          $x.querySuggestions.length > 0
+        );
+      });
 
-    public get showPopularSearches(): boolean {
-      return this.$x.popularSearches.length > 0 && !this.$x.query.searchBox;
-    }
+      const showNextQueries = computed(() => {
+        return $x.nextQueries.length > 0 && $x.identifierResults.length === 0;
+      });
 
-    public get showEmpathize(): boolean {
-      return (
-        this.showHistoryQueries ||
-        this.showQuerySuggestions ||
-        this.showNextQueries ||
-        this.showPopularSearches
-      );
+      const showPopularSearches = computed(() => {
+        return $x.popularSearches.length > 0 && !$x.query.searchBox;
+      });
+
+      const showEmpathize = computed(() => {
+        return showHistoryQueries || showQuerySuggestions || showNextQueries || showPopularSearches;
+      });
+
+      return {
+        isDesktopOrGreater,
+        isTabletOrLess,
+        empathizeAnimation,
+        suggestionsAnimation,
+        navigationHijacker,
+        showIdentifierResults,
+        showHistoryQueries,
+        showQuerySuggestions,
+        showNextQueries,
+        showPopularSearches,
+        showEmpathize
+      };
     }
-  }
+  });
 </script>
 <style lang="scss">
   .x-result-link:focus > * {
