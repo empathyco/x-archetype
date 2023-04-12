@@ -9,6 +9,13 @@ export const installXOptions: InstallXOptions = {
   adapter,
   store,
   app: App,
+  xModules: {
+    facets: {
+      config: {
+        filtersStrategyForRequest: 'leaves-only'
+      }
+    }
+  },
   async installExtraPlugins({ vue, snippet }) {
     const i18n = await I18n.create({
       locale: snippet.uiLang,
