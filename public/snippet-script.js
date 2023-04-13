@@ -54,6 +54,7 @@ const currency = popFromURLParameters('currency') || 'EUR';
 const consent = popFromURLParameters('consent') !== 'false';
 const documentDirection = popFromURLParameters('doc-dir') || 'ltr';
 const store = popFromURLParameters('store') || undefined;
+popFromURLParameters('query'); // prevent the query from be included as extra param
 popFromURLParameters('filter'); // Prevent the filters to be included as extra param
 
 window.__enableVueDevtools__ = true;
