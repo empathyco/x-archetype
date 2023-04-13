@@ -21,7 +21,7 @@
     "lint:fix": "npm run lint -- --fix",
     "install:local": "npm install file:../x/packages/x-components/empathyco-x-components-3.0.0-alpha.346.tgz --no-save",
     "install:utils:local": "npm install file:../x/packages/x-archetype-utils/empathyco-x-archetype-utils-0.1.0-alpha.2.tgz --no-save",
-    "install:xds:local": "npm install file:../x/packages/x-tailwindcss/empathyco-x-tailwindcss-1.0.0-alpha.9.tgz --no-save",
+    "install:xds:local": "npm install file:../x/packages/x-tailwindcss/empathyco-x-tailwindcss-1.0.0-alpha.24.tgz --no-save",
     "json:csv": "json-csv ./src/i18n/messages",
     "csv:json": "csv-json ./output ./src/i18n/messages",
     "prepare": "husky install"
@@ -46,7 +46,7 @@
   "devDependencies": {
     "@cypress/webpack-preprocessor": "~5.11.1",
     "@empathyco/eslint-plugin-x": "^2.0.0-alpha.27",
-    "@empathyco/x-tailwindcss": "^1.0.0-alpha.20",
+    "@empathyco/x-tailwindcss": "^1.0.0-alpha.25",
     "@empathyco/x-translations": "^1.1.0-alpha.33",
     "@rollup/plugin-commonjs": "~21.0.1",
     "@rollup/plugin-json": "~4.1.0",
