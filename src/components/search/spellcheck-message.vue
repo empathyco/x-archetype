@@ -3,12 +3,12 @@
     <p>
       <i18n class="x-text1 x-break-words desktop:x-text1-lg" path="spellcheck.message" tag="span">
         <template #query>
-          <span class="x-text x-font-bold x-text-auxiliary-50">
+          <span class="x-font-bold x-text-auxiliary-50">
             {{ query }}
           </span>
         </template>
       </i18n>
-      <SpellcheckButton class="x-padding--left-01 x-button x-button-lead x-button-link" />
+      <SpellcheckButton class="x-padding--left-01 x-button-lead x-button-link x-button" />
     </p>
   </Spellcheck>
 </template>

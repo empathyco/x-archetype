@@ -27,7 +27,7 @@
       class="x-result__description x-flex x-flex-col x-gap-2 desktop:x-gap-4"
       :result="result"
     >
-      <h2 class="x-ellipsis x-uppercase x-title4" data-test="result-title">
+      <h2 class="x-title4 x-truncate x-uppercase" data-test="result-title">
         {{ result.name }}
       </h2>
       <span v-if="showDescription" class="x-text2">{{ result.season }}</span>
@@ -35,7 +35,7 @@
         <BaseResultCurrentPrice :result="result" class="x-text2 x-text2-lg x-font-bold" />
         <BaseResultPreviousPrice
           :result="result"
-          class="x-line-through x-text2 x-text-neutral-75"
+          class="x-text2 x-text-neutral-75 x-line-through"
         />
       </div>
     </BaseResultLink>
