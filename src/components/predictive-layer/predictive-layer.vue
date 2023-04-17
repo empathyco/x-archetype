@@ -38,17 +38,17 @@
             <BaseIdModalOpen
               v-if="isTabletOrLess && !$x.query.searchBox"
               modalId="my-history-aside"
-              class="x-self-end x-button-sm x-button-tight x-pr-8"
+              class="x-self-end x-button-neutral x-button-sm x-button-tight x-pr-8"
             >
               {{ $t('myHistory.openButton') }}
               <SettingsIcon class="x-icon-lg" />
             </BaseIdModalOpen>
             <div v-if="showHistoryQueries" class="x-flex x-flex-col x-gap-4">
               <div v-if="!$x.query.searchBox" class="x-flex x-items-center">
-                <h1 class="x-uppercase x-title4 x-title4-sm x-flex-1">
+                <h1 class="x-title4 x-title4-sm x-flex-1 x-uppercase">
                   {{ $t('historyQueries.title') }}
                 </h1>
-                <ClearHistoryQueries class="x-button-sm x-button-tight x-px-8">
+                <ClearHistoryQueries class="x-button-neutral x-button-sm x-button-tight x-px-8">
                   <TrashIcon v-if="isTabletOrLess" class="x-icon-lg" />
                   <span v-else>{{ $t('historyQueries.clear') }}</span>
                 </ClearHistoryQueries>
@@ -109,7 +109,7 @@
               class="x-flex x-flex-col x-gap-4"
               :class="{ 'x-pt-16': $x.query.searchBox && isDesktopOrGreater }"
             >
-              <h1 class="x-uppercase x-title4 x-title4-sm x-py-8 desktop:x-p-0">
+              <h1 class="x-title4 x-title4-sm x-py-8 x-uppercase desktop:x-p-0">
                 {{ $t('nextQueries.title') }}
               </h1>
               <NextQueries
@@ -134,7 +134,7 @@
             </div>
 
             <div v-if="showPopularSearches" class="x-flex x-flex-col x-gap-4">
-              <h1 class="x-uppercase x-title4 x-title4-sm">
+              <h1 class="x-title4 x-title4-sm x-uppercase">
                 {{ $t('popularSearches.title') }}
               </h1>
               <PopularSearches
@@ -156,7 +156,7 @@
             <BaseIdModalOpen
               v-if="isDesktopOrGreater && !$x.query.searchBox"
               modalId="my-history-aside"
-              class="x-self-start x-button-sm x-button-tight"
+              class="x-self-start x-button-neutral x-button-sm x-button-tight"
               data-test="my-history-button"
             >
               <SettingsIcon />
