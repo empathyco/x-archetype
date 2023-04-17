@@ -35,7 +35,7 @@ Then(
     cy.getByDataTest(facetName)
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       .contains(this[`clickedFilter${filterNumber}`].trim())
-      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-filter--is-selected')
+      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-selected')
       .should('have.attr', 'aria-checked');
   }
 );
@@ -82,7 +82,7 @@ Then(
       .eq(childFilterIndex)
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       .should('contain', this[`clickedChildFilter${childFilterIndex}`].replace(/[^a-z]/gi, ''))
-      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-filter--is-selected')
+      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-selected')
       .should('have.attr', 'aria-checked');
   }
 );
@@ -94,6 +94,6 @@ Then(
       .getByDataTest('base-filters-item')
       .eq(hierarchicalFilterIndex)
       .getByDataTest('filter')
-      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-filter--is-selected');
+      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-selected');
   }
 );
