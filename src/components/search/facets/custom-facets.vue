@@ -10,7 +10,7 @@
           <FacetSelectedFilters :selectedFilters="selectedFilters" />
         </template>
         <template #default>
-          <AllFilter v-slot="{ isSelected }" :facet="facet" class="x-pb-24 x-pl-4">
+          <AllFilter v-slot="{ isSelected }" :facet="facet" class="x-pb-24">
             <CheckboxSelectedIcon v-if="isSelected" class="x-icon-lg" />
             <CheckboxUnselectedIcon v-else class="x-icon-lg" />
             <span>{{ $t('filters.all') }}</span>
@@ -18,7 +18,7 @@
 
           <CustomSlicedFilters :max="6" :filters="facet.filters">
             <FiltersList v-slot="{ filter }" :animation="staggeredFadeAndSlide">
-              <SimpleFilter :filter="filter" class="x-pb-24 x-pl-4">
+              <SimpleFilter :filter="filter" class="x-h-48 x-pb-24">
                 <template #label>
                   <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
                   <CheckboxUnselectedIcon v-else class="x-icon-lg" />
@@ -52,7 +52,7 @@
               <HierarchicalFilter
                 :filter="filter"
                 childrenFiltersClass="x-ml-16"
-                filterItemClass="x-pb-24"
+                filterItemClass="x-pb-24 x-h-48"
               >
                 <template #label="{ filter }">
                   <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
@@ -79,7 +79,7 @@
         <template #default>
           <CustomSlicedFilters :max="6" :filters="facet.filters">
             <FiltersList v-slot="{ filter }" :animation="staggeredFadeAndSlide">
-              <NumberRangeFilter :filter="filter" class="x-pb-24 x-pl-4">
+              <NumberRangeFilter :filter="filter" class="x-h-48 x-pb-24">
                 <template #label>
                   <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
                   <CheckboxUnselectedIcon v-else class="x-icon-lg" />
