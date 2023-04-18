@@ -10,7 +10,11 @@
           <FacetSelectedFilters :selectedFilters="selectedFilters" />
         </template>
         <template #default>
-          <AllFilter v-slot="{ isSelected }" :facet="facet" class="x-w-full x-pb-24">
+          <AllFilter
+            v-slot="{ isSelected }"
+            :facet="facet"
+            class="x-facet-filter-lg x-w-full x-pb-24"
+          >
             <CheckboxSelectedIcon v-if="isSelected" class="x-icon-lg" />
             <CheckboxUnselectedIcon v-else class="x-icon-lg" />
             <span>{{ $t('filters.all') }}</span>
@@ -18,7 +22,7 @@
 
           <CustomSlicedFilters :max="6" :filters="facet.filters">
             <FiltersList v-slot="{ filter }" :animation="staggeredFadeAndSlide">
-              <SimpleFilter :filter="filter" class="x-h-48 x-w-full x-pb-24">
+              <SimpleFilter :filter="filter" class="x-facet-filter-lg x-w-full x-pb-24">
                 <template #label>
                   <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
                   <CheckboxUnselectedIcon v-else class="x-icon-lg" />
@@ -42,7 +46,11 @@
           <FacetSelectedFilters :selectedFilters="selectedFilters" />
         </template>
         <template #default>
-          <AllFilter v-slot="{ isSelected }" :facet="facet" class="x-w-full x-pb-24">
+          <AllFilter
+            v-slot="{ isSelected }"
+            :facet="facet"
+            class="x-facet-filter-lg x-w-full x-pb-24"
+          >
             <CheckboxSelectedIcon v-if="isSelected" class="x-icon-lg" />
             <CheckboxUnselectedIcon v-else class="x-icon-lg" />
             <span>{{ $t('filters.all') }}</span>
@@ -52,7 +60,7 @@
               <HierarchicalFilter
                 :filter="filter"
                 childrenFiltersClass="x-ml-16"
-                filterItemClass="x-w-full x-pb-24 x-h-48"
+                filterItemClass="x-w-full x-pb-24 x-facet-filter-lg"
               >
                 <template #label="{ filter }">
                   <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
@@ -79,7 +87,7 @@
         <template #default>
           <CustomSlicedFilters :max="6" :filters="facet.filters">
             <FiltersList v-slot="{ filter }" :animation="staggeredFadeAndSlide">
-              <NumberRangeFilter :filter="filter" class="x-h-48 x-w-full x-pb-24">
+              <NumberRangeFilter :filter="filter" class="x-facet-filter-lg x-w-full x-pb-24">
                 <template #label>
                   <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
                   <CheckboxUnselectedIcon v-else class="x-icon-lg" />
