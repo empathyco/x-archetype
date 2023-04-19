@@ -59,7 +59,7 @@
             <FiltersList v-slot="{ filter }" :animation="staggeredFadeAndSlide" class="x-gap-8">
               <HierarchicalFilter
                 :filter="filter"
-                childrenFiltersClass="x-ml-16 x-gap-8"
+                childrenFiltersClass="x-ml-16 x-mt-8 x-gap-8"
                 filterItemClass="x-w-full x-facet-filter-lg"
               >
                 <template #label="{ filter }">
