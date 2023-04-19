@@ -1,5 +1,5 @@
 <template>
-  <SlicedFilters v-bind="$attrs">
+  <SlicedFilters v-bind="$attrs" buttonClass="x-facet-filter-lg">
     <template #show-more>
       <PlusIcon class="x-icon-lg" />
       {{ $t('filters.showMore') }}
