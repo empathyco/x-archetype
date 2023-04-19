@@ -12,7 +12,7 @@
     <template #default>
       <SortList
         v-if="$x.totalResults"
-        class="x-flex x-flex-col x-items-start x-gap-32 x-pb-32 desktop:x-gap-24"
+        class="x-flex x-flex-col x-items-start x-gap-32 x-pb-24 desktop:x-gap-24"
         :items="sortValues"
       >
         <template #default="{ item, isSelected }">

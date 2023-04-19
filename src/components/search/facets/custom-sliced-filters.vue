@@ -1,16 +1,12 @@
 <template>
-  <SlicedFilters v-bind="$attrs">
+  <SlicedFilters v-bind="$attrs" buttonClass="x-facet-filter-lg x-mt-8 x-w-full">
     <template #show-more>
-      <div class="x-list x-list--horizontal x-list--align-center x-list--gap-03">
-        <PlusIcon class="x-icon-lg" />
-        {{ $t('filters.showMore') }}
-      </div>
+      <PlusIcon class="x-icon-lg" />
+      {{ $t('filters.showMore') }}
     </template>
     <template #show-less>
-      <div class="x-list x-list--horizontal x-list--align-center x-list--gap-03">
-        <MinusIcon class="x-icon-lg" />
-        {{ $t('filters.showLess') }}
-      </div>
+      <MinusIcon class="x-icon-lg" />
+      {{ $t('filters.showLess') }}
     </template>
     <slot />
   </SlicedFilters>
