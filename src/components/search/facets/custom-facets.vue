@@ -3,7 +3,7 @@
     <template #default="{ facet, selectedFilters }">
       <CustomHeaderTogglePanel
         :data-test="facet.label"
-        class="x-border-width--bottom-01 x-border-width--00 x-border-color--neutral-95"
+        class="x-border-0 x-border-b x-border-neutral-10"
       >
         <template #header>
           <span class="x-title3">{{ $t(`facets.${facet.label}`) }}</span>
@@ -39,7 +39,7 @@
     <template #hierarchical-facet="{ facet, selectedFilters }">
       <CustomHeaderTogglePanel
         :data-test="facet.label"
-        class="x-border-width--bottom-01 x-border-width--00 x-border-color--neutral-95"
+        class="x-border-0 x-border-b x-border-neutral-10"
       >
         <template #header>
           <span class="x-title3">{{ $t(`facets.${facet.label}`) }}</span>
@@ -78,7 +78,7 @@
     <template #number-range-facet="{ facet, selectedFilters }">
       <CustomHeaderTogglePanel
         :data-test="facet.label"
-        class="x-border-width--bottom-01 x-border-width--00 x-border-color--neutral-95"
+        class="x-border-0 x-border-b x-border-neutral-10"
       >
         <template #header>
           <span class="x-title3">{{ $t(`facets.${facet.label}`) }}</span>

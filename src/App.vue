@@ -22,8 +22,6 @@
   import { Component, Inject, Vue, Watch } from 'vue-property-decorator';
   import { useDevice } from './composables/use-device.composable';
   import currencies from './i18n/currencies';
-  import '@empathyco/x-components/design-system/full-theme.css';
-  import './design-system/tokens.scss';
   import './tailwind/index.css';
 
   @Component({
@@ -108,10 +106,5 @@
       z-index: 1;
       width: 100%;
     }
-  }
-
-  .x-modal__overlay {
-    background: var(--x-color-background-modal-overlay-default) !important;
-    opacity: 0.3 !important;
   }
 </style>

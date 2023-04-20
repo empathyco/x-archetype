@@ -1,5 +1,5 @@
 <template>
-  <div v-if="hasSearched" class="x-list x-list--vertical">
+  <div v-if="hasSearched" class="x-flex x-flex-col">
     <Redirection />
 
     <template v-if="!$x.redirections.length">

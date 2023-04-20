@@ -1,8 +1,5 @@
 <template>
-  <CustomHeaderTogglePanel
-    :data-test="'sort'"
-    class="x-border-width--bottom-01 x-border-width--00 x-border-color--neutral-95"
-  >
+  <CustomHeaderTogglePanel :data-test="'sort'" class="x-border-0 x-border-b x-border-neutral-10">
     <template #header>
       <span class="x-title3">
         {{ $t('sort.label') }}
@@ -14,6 +11,7 @@
         v-if="$x.totalResults"
         class="x-flex x-flex-col x-items-start x-gap-32 x-pb-24 desktop:x-gap-24"
         :items="sortValues"
+        buttonClass="x-button-tight"
       >
         <template #default="{ item, isSelected }">
           <RadioButtonSelectedIcon v-if="isSelected" class="x-icon-lg" />

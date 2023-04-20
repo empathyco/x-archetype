@@ -1,16 +1,14 @@
 <template>
-  <div
-    class="x-list x-list--horizontal x-list--gap-05 x-border-width--top-01 x-border-color--neutral-95 x-padding--top-06 x-padding--bottom-06 x-margin--right-05 x-margin--left-05"
-  >
+  <div class="x-mx-16 x-flex x-gap-16 x-border-t x-border-neutral-10 x-py-24">
     <ClearFilters
       v-slot="{ selectedFilters }"
-      class="x-border-radius--20 x-padding--top-04 x-padding--bottom-04 x-uppercase x-list__item--expand x-button-lead x-button-outlined"
+      class="x-button-lead x-button-outlined x-flex-auto x-rounded-full x-py-12 x-uppercase"
       :alwaysVisible="false"
     >
       {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
     </ClearFilters>
     <BaseIdModalClose
-      class="x-border-radius--20 x-padding--top-04 x-padding--bottom-04 x-list__item--expand x-button-lead"
+      class="x-button-lead x-flex-auto x-rounded-full x-py-12"
       modalId="aside-modal"
     >
       {{ $t('facetsPanel.viewResults', { totalResults: $x.totalResults }) }}

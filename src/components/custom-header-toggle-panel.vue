@@ -1,9 +1,13 @@
 <template>
-  <BaseHeaderTogglePanel class="x-facet x-list" :startCollapsed="true" :animation="animation">
+  <BaseHeaderTogglePanel
+    headerClass="x-flex x-w-full x-gap-8 x-py-24"
+    :startCollapsed="true"
+    :animation="animation"
+  >
     <template #header-content="{ open }">
       <slot name="header" />
-      <ChevronUpIcon v-if="open" class="x-icon-lg" />
-      <ChevronDownIcon v-else class="x-icon-lg" />
+      <ChevronUpIcon v-if="open" class="x-icon-lg x-ml-auto" />
+      <ChevronDownIcon v-else class="x-icon-lg x-ml-auto" />
     </template>
     <slot />
   </BaseHeaderTogglePanel>

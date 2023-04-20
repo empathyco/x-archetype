@@ -1,5 +1,9 @@
 <template>
-  <Spellcheck v-if="$x.totalResults > 0" #default="{ query }" class="x-message">
+  <Spellcheck
+    v-if="$x.totalResults > 0"
+    #default="{ query }"
+    class="x-flex x-flex-col x-items-center x-gap-8 x-bg-neutral-10 x-p-24 x-text-center"
+  >
     <p>
       <i18n class="x-text1 x-break-words desktop:x-text1-lg" path="spellcheck.message" tag="span">
         <template #query>
@@ -8,7 +12,7 @@
           </span>
         </template>
       </i18n>
-      <SpellcheckButton class="x-padding--left-01 x-button-lead x-button-link x-button" />
+      <SpellcheckButton class="x-button-lead x-button-link x-button x-pl-2" />
     </p>
   </Spellcheck>
 </template>

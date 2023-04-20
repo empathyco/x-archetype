@@ -1,6 +1,6 @@
 <template>
-  <div class="x-list x-list--horizontal x-list--align-center x-list__item--expand">
-    <i18n class="x-list__item--expand x-text1" path="totalResults.message" tag="span">
+  <div class="x-flex x-flex-auto x-items-center">
+    <i18n class="x-text1 x-flex-auto" path="totalResults.message" tag="span">
       <template #totalResults>
         {{ $x.totalResults }}
       </template>

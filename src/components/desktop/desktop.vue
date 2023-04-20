@@ -12,7 +12,7 @@
           <div class="x-relative">
             <SearchBox />
             <LocationProvider location="predictive_layer">
-              <PredictiveLayer class="x-absolute x-shadow--04" />
+              <PredictiveLayer class="x-absolute x-shadow-md" />
             </LocationProvider>
           </div>
           <LocationProvider location="predictive_layer">

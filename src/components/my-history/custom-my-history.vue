@@ -5,6 +5,7 @@
         v-if="$x.isHistoryQueriesEnabled && $x.fullHistoryQueries.length"
         :animation="animation"
         class="x-px-16 x-pb-32 desktop:x-pl-32"
+        queriesListClass="x-gap-16"
       >
         <template #date="{ date }">
           <div class="x-title4 x-title4-sm x-py-16 x-text-neutral-75">{{ date }}</div>
@@ -17,21 +18,17 @@
             :suggestion="suggestion"
             suggestionClass="x-suggestion"
           >
-            <div class="x-flex x-flex-nowrap x-gap-16 x-py-4">
-              <HistoryIcon class="max-desktop:x-icon-lg" />
+            <HistoryIcon class="max-desktop:x-icon-lg" />
 
-              <div class="x-flex x-flex-col x-gap-2">
-                <p>{{ suggestion.query }}</p>
-                <p class="x-text1 x-text1-sm x-text-neutral-75">
-                  {{ formatTime(suggestion.timestamp) }}
-                  <template v-if="suggestion.totalResults !== undefined">
-                    -
-                    {{
-                      $t('myHistory.suggestionResults', { totalResults: suggestion.totalResults })
-                    }}
-                  </template>
-                </p>
-              </div>
+            <div class="x-flex x-flex-col x-gap-2">
+              <p>{{ suggestion.query }}</p>
+              <p class="x-text1 x-text1-sm x-text-neutral-75">
+                {{ formatTime(suggestion.timestamp) }}
+                <template v-if="suggestion.totalResults !== undefined">
+                  -
+                  {{ $t('myHistory.suggestionResults', { totalResults: suggestion.totalResults }) }}
+                </template>
+              </p>
             </div>
 
             <template #remove-button-content>
