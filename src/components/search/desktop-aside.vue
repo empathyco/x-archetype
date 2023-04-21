@@ -48,5 +48,3 @@
   })
   export default class DesktopAside extends Vue {}
 </script>
-
-<style scoped></style>

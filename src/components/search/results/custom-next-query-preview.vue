@@ -26,7 +26,7 @@
         <template #result="{ item: result }">
           <Result
             :result="result"
-            class="desktop:x-min-w-0 x-w-[calc(38vw-16px)] desktop:x-w-auto"
+            class="x-w-[calc(38vw-16px)] desktop:x-w-auto desktop:x-min-w-0"
           />
         </template>
       </ItemsList>
@@ -64,12 +64,3 @@
     }
   });
 </script>
-
-<style lang="scss">
-  .x-mobile {
-    .x-next-query-preview {
-      // TODO: Change this when we migrate the grid component to the new XDS
-      margin-left: calc(-1 * var(--x-size-padding-grid));
-    }
-  }
-</style>

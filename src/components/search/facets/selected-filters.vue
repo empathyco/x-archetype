@@ -93,9 +93,3 @@
     }
   });
 </script>
-
-<style lang="scss" scoped>
-  .x-clear-filters {
-    --x-size-height-button-default: auto;
-  }
-</style>

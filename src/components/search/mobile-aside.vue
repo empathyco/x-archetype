@@ -33,5 +33,3 @@
   })
   export default class MobileAside extends Vue {}
 </script>
-
-<style lang="scss"></style>
