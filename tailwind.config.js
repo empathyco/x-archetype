@@ -1,4 +1,4 @@
-const { xTailwindPlugin, oldDsPlugin } = require('@empathyco/x-tailwindcss');
+const { xTailwindPlugin } = require('@empathyco/x-tailwindcss');
 const options = require('./src/tailwind/plugin-options');
 
 /** @type {import('tailwindcss').Config} */
@@ -10,5 +10,5 @@ module.exports = {
   ],
   prefix: 'x-',
   important: true,
-  plugins: [xTailwindPlugin(options), oldDsPlugin]
+  plugins: [xTailwindPlugin(options)]
 };

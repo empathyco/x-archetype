@@ -21,12 +21,12 @@
       <ItemsList
         :items="results"
         class="x-flex x-gap-16 x-pt-4 max-desktop:x-px-16 desktop:x-w-full"
-        itemClass="x-flex-1"
+        itemClass="x-flex-shrink-0"
       >
         <template #result="{ item: result }">
           <Result
             :result="result"
-            class="x-w-[calc(38vw-16px)] desktop:x-w-auto desktop:x-min-w-0"
+            class="x-w-[calc(38vw-16px)] desktop:x-w-auto desktop:x-max-w-[265px]"
           />
         </template>
       </ItemsList>
