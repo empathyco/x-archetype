@@ -7,11 +7,11 @@
       <span>{{ $t(`sort.values.${$x.selectedSort || 'default'}`) }}</span>
     </template>
     <template #default>
-      <SortList
+      <SortPickerList
         v-if="$x.totalResults"
-        class="x-flex x-flex-col x-items-start x-gap-32 x-pb-24 desktop:x-gap-24"
+        class="x-flex x-flex-col x-items-start x-gap-8 x-pb-24"
         :items="sortValues"
-        buttonClass="x-button-tight"
+        buttonClass="x-facet-filter x-facet-filter-lg"
       >
         <template #default="{ item, isSelected }">
           <RadioButtonSelectedIcon v-if="isSelected" class="x-icon-lg" />
@@ -20,14 +20,14 @@
             {{ $t(`sort.values.${item || 'default'}`) }}
           </span>
         </template>
-      </SortList>
+      </SortPickerList>
     </template>
   </CustomHeaderTogglePanel>
 </template>
 
 <script lang="ts">
   import { Sort } from '@empathyco/x-types';
-  import { SortList } from '@empathyco/x-components/search';
+  import { SortPickerList } from '@empathyco/x-components/search';
   import {
     RadioButtonSelectedIcon,
     RadioButtonUnselectedIcon,
@@ -38,7 +38,7 @@
 
   export default defineComponent({
     components: {
-      SortList,
+      SortPickerList,
       CustomHeaderTogglePanel,
       RadioButtonSelectedIcon,
       RadioButtonUnselectedIcon

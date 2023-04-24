@@ -21,7 +21,11 @@
           </AllFilter>
 
           <CustomSlicedFilters :max="6" :filters="facet.filters" class="x-pb-24">
-            <FiltersList v-slot="{ filter }" :animation="staggeredFadeAndSlide" class="x-gap-8">
+            <FiltersList
+              v-slot="{ filter }"
+              :animation="staggeredFadeAndSlide"
+              class="x-flex x-flex-col x-gap-8"
+            >
               <SimpleFilter :filter="filter" class="x-facet-filter-lg x-w-full">
                 <template #label>
                   <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
@@ -56,10 +60,14 @@
             <span>{{ $t('filters.all') }}</span>
           </AllFilter>
           <CustomSlicedFilters :max="6" :filters="facet.filters" class="x-pb-24">
-            <FiltersList v-slot="{ filter }" :animation="staggeredFadeAndSlide" class="x-gap-8">
+            <FiltersList
+              v-slot="{ filter }"
+              :animation="staggeredFadeAndSlide"
+              class="x-flex x-flex-col x-gap-8"
+            >
               <HierarchicalFilter
                 :filter="filter"
-                childrenFiltersClass="x-ml-16 x-mt-8 x-gap-8"
+                childrenFiltersClass="x-ml-16 x-mt-8 x-flex x-flex-col x-gap-8"
                 filterItemClass="x-w-full x-facet-filter-lg"
               >
                 <template #label="{ filter }">
@@ -86,7 +94,11 @@
         </template>
         <template #default>
           <CustomSlicedFilters :max="6" :filters="facet.filters" class="x-pb-24">
-            <FiltersList v-slot="{ filter }" :animation="staggeredFadeAndSlide" class="x-gap-8">
+            <FiltersList
+              v-slot="{ filter }"
+              :animation="staggeredFadeAndSlide"
+              class="x-flex x-flex-col x-gap-8"
+            >
               <NumberRangeFilter :filter="filter" class="x-facet-filter-lg x-w-full">
                 <template #label>
                   <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
