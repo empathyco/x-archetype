@@ -9,7 +9,7 @@
           :showOnlyAfterOffset="$x.partialResults.length > 0"
         >
           <BaseVariableColumnGrid
-            class="x-gap-y-32 x-gap-x-16 x-p-0"
+            class="x-gap-y-32 x-gap-x-16"
             :animation="staggeredFadeAndSlide"
             :columns="columns"
             data-test="base-grid"

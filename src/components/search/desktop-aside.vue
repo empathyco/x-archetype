@@ -1,5 +1,5 @@
 <template>
-  <div class="x-flex x-flex-auto x-flex-col x-bg-neutral-0">
+  <div class="x-flex x-min-h-0 x-flex-auto x-flex-col x-bg-neutral-0">
     <div class="x-flex x-items-center x-border-b x-border-neutral-90 x-p-24 x-pr-32 x-pl-40">
       <span class="x-title2 x-mr-auto">
         {{ $t('facetsPanel.title') }}

@@ -13,6 +13,7 @@
           :animation="staggeredFadeAndSlide"
           :columns="columns"
           :items="recommendations"
+          class="x-gap-y-32 x-gap-x-16"
         >
           <Result :result="result" data-test="recommendation-item" />
         </BaseGrid>

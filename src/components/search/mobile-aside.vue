@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$x.totalResults > 0" class="x-flex x-flex-auto x-flex-col">
+  <div v-if="$x.totalResults > 0" class="x-flex x-min-h-0 x-flex-auto x-flex-col">
     <BaseScroll class="x-flex-auto x-p-16 x-pt-0" :resetOnChange="false">
       <Sort />
       <CustomFacets />
