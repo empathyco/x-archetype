@@ -64,3 +64,11 @@
     }
   });
 </script>
+
+<style lang="scss">
+  .x-mobile {
+    .x-next-query-preview {
+      margin-left: calc(-1 * var(--x-margin-left));
+    }
+  }
+</style>
