@@ -1,10 +1,10 @@
 <template>
   <div
     v-if="$x.totalResults"
-    class="x-list x-list--horizontal x-list--gap-06 x-list--justify-end x-list--align-center"
+    class="x-flex x-items-center x-justify-end x-gap-24"
     data-test="total-results"
   >
-    <i18n class="x-list__item--expand x-text1 x-text1-lg" path="totalResults.message" tag="span">
+    <i18n class="x-text1 x-text1-lg x-flex-auto" path="totalResults.message" tag="span">
       <template #totalResults>
         {{ $x.totalResults }}
       </template>

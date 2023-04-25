@@ -1,26 +1,25 @@
 <template>
-  <MainScrollItem :item="result" tag="article" class="x-result">
-    <BaseResultLink class="x-result__picture" :result="result">
-      <BaseResultImage :result="result" :loadAnimation="imageAnimation" class="x-picture-zoom">
-        <template #placeholder>
-          <BasePlaceholderImage />
-        </template>
-        <template #fallback>
-          <BaseFallbackImage />
-        </template>
-      </BaseResultImage>
-    </BaseResultLink>
+  <MainScrollItem :item="result" tag="article" class="x-result x-group/result x-gap-4">
+    <div class="x-relative">
+      <BaseResultLink class="x-result__picture" :result="result">
+        <BaseResultImage :result="result" :loadAnimation="imageAnimation" class="x-picture-zoom">
+          <template #placeholder>
+            <BasePlaceholderImage />
+          </template>
+          <template #fallback>
+            <BaseFallbackImage />
+          </template>
+        </BaseResultImage>
+      </BaseResultLink>
 
-    <div
-      v-if="isDesktopOrGreater && showAddToCart"
-      class="x-result__overlay x-list x-list--horizontal"
-    >
-      <BaseAddToCart
-        :result="result"
-        class="x-list__item--expand x-border-radius--20 x-margin--05 x-button-lead"
+      <div
+        v-if="isDesktopOrGreater && showAddToCart"
+        class="x-result__overlay x-invisible x-absolute x-bottom-0 x-flex x-w-full group-hover/result:x-visible"
       >
-        {{ $t('result.addToCart') }}
-      </BaseAddToCart>
+        <BaseAddToCart :result="result" class="x-button-lead x-m-16 x-flex-auto x-rounded-full">
+          {{ $t('result.addToCart') }}
+        </BaseAddToCart>
+      </div>
     </div>
 
     <BaseResultLink
@@ -31,7 +30,7 @@
         {{ result.name }}
       </h2>
       <span v-if="showDescription" class="x-text2">{{ result.season }}</span>
-      <div class="x-list x-list--horizontal x-list--wrap x-list--gap-03">
+      <div class="x-flex x-flex-wrap x-gap-8">
         <BaseResultCurrentPrice :result="result" class="x-text2 x-text2-lg x-font-bold" />
         <BaseResultPreviousPrice
           :result="result"

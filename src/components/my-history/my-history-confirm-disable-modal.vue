@@ -6,10 +6,8 @@
     :eventsToCloseModal="eventsToCloseModal"
   >
     <div
-      class="x-my-history-confirm-disable-modal-content x-background--neutral-100 x-list x-list--gap-05 x-max-w-[322px]"
-      :class="
-        isTabletOrLess ? 'x-padding--06 x-padding--bottom-03 x-border-radius--03' : 'x-padding--10'
-      "
+      class="x-my-history-confirm-disable-modal-content x-flex x-max-w-[322px] x-flex-col x-gap-16 x-bg-neutral-0"
+      :class="isTabletOrLess ? 'x-rounded-lg x-p-24 x-pb-8' : 'x-p-56'"
     >
       <h1 class="x-title3">{{ $t('myHistory.confirmDisableModal.title') }}</h1>
       <span class="x-text1 x-text1-lg x-text-neutral-75">

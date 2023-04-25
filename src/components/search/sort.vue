@@ -1,8 +1,5 @@
 <template>
-  <CustomHeaderTogglePanel
-    :data-test="'sort'"
-    class="x-border-width--bottom-01 x-border-width--00 x-border-color--neutral-95"
-  >
+  <CustomHeaderTogglePanel :data-test="'sort'" class="x-border-0 x-border-b x-border-neutral-10">
     <template #header>
       <span class="x-title3">
         {{ $t('sort.label') }}
@@ -10,26 +7,25 @@
       <span>{{ $t(`sort.values.${$x.selectedSort || 'default'}`) }}</span>
     </template>
     <template #default>
-      <SortList
+      <SortPickerList
         v-if="$x.totalResults"
-        class="x-flex x-flex-col x-items-start x-gap-32 x-pb-24 desktop:x-gap-24"
+        class="x-flex x-flex-col x-gap-8 x-pb-24"
         :items="sortValues"
+        buttonClass="x-facet-filter x-facet-filter-lg"
       >
         <template #default="{ item, isSelected }">
           <RadioButtonSelectedIcon v-if="isSelected" class="x-icon-lg" />
           <RadioButtonUnselectedIcon v-else class="x-icon-lg" />
-          <span class="x-text-neutral-90" :class="{ 'x-font-bold': isSelected }">
-            {{ $t(`sort.values.${item || 'default'}`) }}
-          </span>
+          {{ $t(`sort.values.${item || 'default'}`) }}
         </template>
-      </SortList>
+      </SortPickerList>
     </template>
   </CustomHeaderTogglePanel>
 </template>
 
 <script lang="ts">
   import { Sort } from '@empathyco/x-types';
-  import { SortList } from '@empathyco/x-components/search';
+  import { SortPickerList } from '@empathyco/x-components/search';
   import {
     RadioButtonSelectedIcon,
     RadioButtonUnselectedIcon,
@@ -40,7 +36,7 @@
 
   export default defineComponent({
     components: {
-      SortList,
+      SortPickerList,
       CustomHeaderTogglePanel,
       RadioButtonSelectedIcon,
       RadioButtonUnselectedIcon
