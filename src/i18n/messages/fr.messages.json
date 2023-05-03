@@ -56,7 +56,9 @@
     "facets": {
       "gender": "Le genre",
       "categoryPaths": "Catégories",
-      "price": "Prix"
+      "price": "Prix",
+      "brand": "Marque",
+      "fit": "Fit"
     },
     "facetsPanel": {
       "title": "TRIER ET FILTRER",

@@ -56,7 +56,9 @@
     "facets": {
       "gender": "Género",
       "categoryPaths": "Categorías",
-      "price": "Precio"
+      "price": "Precio",
+      "brand": "Marca",
+      "fit": "Fit"
     },
     "facetsPanel": {
       "title": "ORDENAR & FILTRAR",

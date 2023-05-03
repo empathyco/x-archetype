@@ -12,17 +12,21 @@ export const adapter = platformAdapter;
 /* Code sample about how to extend the result mapper with more fields. */
 
 interface EmpathyDemoPlatformResult extends PlatformResult {
-  season: string;
+  description: string;
+  collection: string;
 }
 
 declare module '@empathyco/x-types' {
   export interface Result {
-    season: string;
+    collection: string;
+    description: string;
   }
 }
 
 resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
-  season: 'season'
+  description: 'description',
+  collection: 'collection',
+  images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images])
 });
 
 recommendationsRequestSchema.$override<
