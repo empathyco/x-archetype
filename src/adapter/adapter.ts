@@ -14,18 +14,21 @@ export const adapter = platformAdapter;
 interface EmpathyDemoPlatformResult extends PlatformResult {
   description: string;
   collection: string;
+  brand: string;
 }
 
 declare module '@empathyco/x-types' {
   export interface Result {
     collection: string;
     description: string;
+    brand: string;
   }
 }
 
 resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
   description: 'description',
   collection: 'collection',
+  brand: 'brand',
   images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images])
 });
 

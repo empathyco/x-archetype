@@ -30,6 +30,7 @@
         {{ result.description }}
       </h2>
       <span v-if="showDescription" class="x-text2">{{ result.collection }}</span>
+      <span v-if="showDescription" class="x-text2 x-text-lead-50">{{ result.brand }}</span>
       <div class="x-flex x-flex-wrap x-gap-8">
         <BaseResultCurrentPrice :result="result" class="x-text2 x-text2-lg x-font-bold" />
         <BaseResultPreviousPrice
