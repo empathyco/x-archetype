@@ -23,18 +23,6 @@ declare module '@empathyco/x-types' {
   }
 }
 
-platformAdapter.search = platformAdapter.search.extends({
-  endpoint: `https://search.internal.test.empathy.co/query/empathy/search`
-});
-
-platformAdapter.recommendations = platformAdapter.recommendations.extends({
-  endpoint: `https://search.internal.test.empathy.co/query/empathy/topclicked`
-});
-
-platformAdapter.identifierResults = platformAdapter.identifierResults.extends({
-  endpoint: `https://search.internal.test.empathy.co/query/empathy/skusearch`
-});
-
 resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
   description: 'description',
   collection: 'collection',
