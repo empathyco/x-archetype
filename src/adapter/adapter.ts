@@ -12,17 +12,32 @@ export const adapter = platformAdapter;
 /* Code sample about how to extend the result mapper with more fields. */
 
 interface EmpathyDemoPlatformResult extends PlatformResult {
-  season: string;
+  description: string;
+  collection: string;
 }
 
 declare module '@empathyco/x-types' {
   export interface Result {
-    season: string;
+    collection: string;
+    description: string;
   }
 }
 
+platformAdapter.search = platformAdapter.search.extends({
+  endpoint: `https://search.internal.test.empathy.co/query/empathy/search`
+});
+
+platformAdapter.recommendations = platformAdapter.recommendations.extends({
+  endpoint: `https://search.internal.test.empathy.co/query/empathy/topclicked`
+});
+
+platformAdapter.identifierResults = platformAdapter.identifierResults.extends({
+  endpoint: `https://search.internal.test.empathy.co/query/empathy/skusearch`
+});
+
 resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
-  season: 'season'
+  description: 'description',
+  collection: 'collection'
 });
 
 recommendationsRequestSchema.$override<

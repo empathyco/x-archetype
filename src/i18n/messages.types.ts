@@ -58,6 +58,8 @@ export interface Messages {
     gender: string;
     categoryPaths: string;
     price: string;
+    brand: string;
+    fit: string;
   };
   facetsPanel: {
     title: string;
