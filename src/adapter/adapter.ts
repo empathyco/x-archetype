@@ -37,7 +37,8 @@ platformAdapter.identifierResults = platformAdapter.identifierResults.extends({
 
 resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
   description: 'description',
-  collection: 'collection'
+  collection: 'collection',
+  images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images])
 });
 
 recommendationsRequestSchema.$override<
