@@ -6,7 +6,7 @@
     #default="{ query, totalResults, results }"
   >
     <div class="x-mb-40 x-flex x-flex-col x-gap-2 desktop:x-mb-64 desktop:x-gap-16">
-      <h1 class="x-title1 max-desktop:x-px-16 max-desktop:x-title1-sm">
+      <h1 class="x-title1 max-desktop:x-title1-sm max-desktop:x-px-16">
         {{ getTitle(query) }}
       </h1>
       <CustomSlidingPanel>
@@ -20,11 +20,14 @@
             <ArrowRightIcon class="x-icon-lg" />
           </BaseEventButton>
         </template>
-        <ItemsList :items="results" class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
-          <template #result="{ item: result }">
-            <Result :result="result" class="x-w-[calc(38vw-16px)] desktop:x-w-[216px]" />
-          </template>
-        </ItemsList>
+        <div class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
+          <Result
+            v-for="result in results"
+            :key="result.id"
+            :result="result"
+            class="x-w-[calc(38vw-16px)] desktop:x-w-[216px]"
+          />
+        </div>
       </CustomSlidingPanel>
     </div>
   </QueryPreviewList>

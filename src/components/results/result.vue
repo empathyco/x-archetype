@@ -2,7 +2,7 @@
   <MainScrollItem :item="result" tag="article" class="x-result x-group/result x-gap-4">
     <div class="x-relative">
       <BaseResultLink class="x-result__picture" :result="result">
-        <BaseResultImage :result="result" :loadAnimation="imageAnimation" class="x-picture-zoom">
+        <BaseResultImage :result="result" :loadAnimation="imageAnimation" showNextImageOnHover>
           <template #placeholder>
             <BasePlaceholderImage />
           </template>
