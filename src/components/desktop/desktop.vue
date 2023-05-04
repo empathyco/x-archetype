@@ -2,11 +2,9 @@
   <div
     class="x-layout-container x-layout-max-width-md desktop:x-layout-min-margin-32 large:x-layout-max-width-lg large:x-layout-min-margin-48"
   >
-    <div class="x-layout-item">
-      <header class="x-grid x-grid-cols-6 x-items-start x-gap-12 x-pt-24 x-pb-16">
-        <div class="x-pt-12">
-          <Logo />
-        </div>
+    <div class="x-layout-item x-pb-24">
+      <header class="x-grid x-grid-cols-6 x-items-center x-gap-12 x-pt-24">
+        <Logo />
 
         <div class="x-col-span-4 x-flex x-flex-col x-gap-16">
           <div class="x-relative">
@@ -15,15 +13,17 @@
               <PredictiveLayer class="x-absolute x-shadow-lg" />
             </LocationProvider>
           </div>
-          <LocationProvider location="predictive_layer">
-            <RelatedTags v-if="$x.relatedTags.length > 0" />
-          </LocationProvider>
         </div>
-
         <CloseMainModal class="x-button-lead x-button-circle x-button-ghost x-justify-self-end">
           <CrossIcon class="x-icon-lg" />
         </CloseMainModal>
       </header>
+
+      <div class="x-grid x-grid-cols-6">
+        <LocationProvider location="predictive_layer" class="x-col-span-4 x-col-start-2">
+          <RelatedTags v-if="$x.relatedTags.length > 0" class="x-pt-8" />
+        </LocationProvider>
+      </div>
     </div>
 
     <MainScroll>

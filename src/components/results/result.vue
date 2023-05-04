@@ -1,5 +1,9 @@
 <template>
-  <MainScrollItem :item="result" tag="article" class="x-result x-group/result x-gap-4">
+  <MainScrollItem
+    :item="result"
+    tag="article"
+    class="x-result x-group/result x-flex x-flex-col x-gap-4"
+  >
     <div class="x-relative">
       <BaseResultLink class="x-result__picture" :result="result">
         <BaseResultImage :result="result" :loadAnimation="imageAnimation" showNextImageOnHover>
@@ -34,7 +38,7 @@
         <BaseResultCurrentPrice :result="result" class="x-text2 x-text2-lg x-font-bold" />
         <BaseResultPreviousPrice
           :result="result"
-          class="x-text2 x-text-neutral-75 x-line-through"
+          class="x-text2 x-leading-[1.7] x-text-neutral-75 x-line-through"
         />
       </div>
     </BaseResultLink>

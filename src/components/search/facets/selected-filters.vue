@@ -1,5 +1,5 @@
 <template>
-  <div class="x-flex x-items-center x-gap-8">
+  <div v-if="$x.selectedFilters.length" class="x-flex x-items-center x-gap-8">
     <SlidingPanel
       class="x-sliding-panel-show-buttons-on-hover"
       :showButtons="!isTouchable"

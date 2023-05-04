@@ -1,5 +1,8 @@
 <template>
-  <Empathize :animation="empathizeAnimation" class="x-bg-neutral-0 desktop:x-py-16 desktop:x-pl-16">
+  <Empathize
+    :animation="empathizeAnimation"
+    class="x-bg-neutral-0 desktop:x-z-[1] desktop:x-w-full desktop:x-py-16 desktop:x-pl-16"
+  >
     <component
       :is="isDesktopOrGreater ? 'div' : 'BaseScroll'"
       v-if="showEmpathize || showIdentifierResults"
@@ -38,7 +41,7 @@
             <BaseIdModalOpen
               v-if="isTabletOrLess && !$x.query.searchBox"
               modalId="my-history-aside"
-              class="x-self-end x-button-neutral x-button-sm x-button-tight x-pr-8"
+              class="x-button-neutral x-button-sm x-button-tight x-self-end x-pr-8"
             >
               {{ $t('myHistory.openButton') }}
               <SettingsIcon class="x-icon-lg" />
@@ -156,7 +159,7 @@
             <BaseIdModalOpen
               v-if="isDesktopOrGreater && !$x.query.searchBox"
               modalId="my-history-aside"
-              class="x-self-start x-button-neutral x-button-sm x-button-tight"
+              class="x-button-neutral x-button-sm x-button-tight x-self-start"
               data-test="my-history-button"
             >
               <SettingsIcon />

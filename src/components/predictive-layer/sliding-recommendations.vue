@@ -23,6 +23,7 @@
             data-test="recommendation-item"
             :showDescription="false"
             :showAddToCart="false"
+            class="x-w-[200px]"
           />
         </template>
       </Recommendations>
