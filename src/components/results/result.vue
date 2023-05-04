@@ -29,7 +29,10 @@
       <h2 class="x-title4 x-truncate x-uppercase" data-test="result-title">
         {{ result.description }}
       </h2>
-      <span v-if="showDescription" class="x-text2">{{ result.collection }}</span>
+      <template v-if="showDescription">
+        <span class="x-text2">{{ result.collection }}</span>
+        <span class="x-text2 x-text-lead-50">{{ result.brand }}</span>
+      </template>
       <div class="x-flex x-flex-wrap x-gap-8">
         <BaseResultCurrentPrice :result="result" class="x-text2 x-text2-lg x-font-bold" />
         <BaseResultPreviousPrice

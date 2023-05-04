@@ -72,16 +72,16 @@ window.initX = {
   ...URLParameters,
   queriesPreview: [
     {
-      query: 'backpack',
-      title: 'Back to School!'
+      query: 'sunglasses',
+      title: 'Sunshine ready'
     },
     {
-      query: 'watch',
-      title: 'Get on time!'
+      query: 'marni summer dress',
+      title: 'Summer dresses by Marni'
     },
     {
-      query: 'women boots',
-      title: 'Get comfy!'
+      query: 'woven hat',
+      title: 'Elegant Sunshield'
     }
   ]
 };
