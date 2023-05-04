@@ -2,6 +2,7 @@
   <div
     v-if="$x.totalResults"
     class="x-flex x-items-center x-justify-end x-gap-24"
+    :class="{ 'x-mb-8': !$x.selectedFilters.length }"
     data-test="total-results"
   >
     <i18n class="x-text1 x-text1-lg x-flex-auto" path="totalResults.message" tag="span">

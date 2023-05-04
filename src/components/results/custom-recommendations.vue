@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="$x.recommendations.length > 0"
-    class="x-flex x-flex-col x-items-start x-pb-32 desktop:x-items-center"
+    class="x-flex x-flex-col x-items-start x-gap-24 x-pb-32 desktop:x-items-center"
   >
     <h1 class="x-title1 x-title1-sm desktop:x-title1-md">
       {{ $t('recommendations.title') }}

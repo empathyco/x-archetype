@@ -4,7 +4,9 @@ import App from '../App.vue';
 import * as messages from '../i18n/messages';
 import store from '../store';
 import { adapter } from '../adapter/adapter';
+import { useDevice } from '../composables/use-device.composable';
 
+const device = useDevice();
 export const installXOptions: InstallXOptions = {
   adapter,
   store,
@@ -19,7 +21,7 @@ export const installXOptions: InstallXOptions = {
   async installExtraPlugins({ vue, snippet }) {
     const i18n = await I18n.create({
       locale: snippet.uiLang,
-      device: (snippet.device as string) ?? 'mobile',
+      device: (snippet.device as string) ?? device.deviceName.value,
       fallbackLocale: 'en',
       messages
     });

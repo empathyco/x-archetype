@@ -1,5 +1,5 @@
 <template>
-  <div class="x-flex x-flex-auto x-items-center">
+  <div v-if="$x.totalResults" class="x-flex x-flex-auto x-items-center">
     <i18n class="x-text1 x-flex-auto" path="totalResults.message" tag="span">
       <template #totalResults>
         {{ $x.totalResults }}
