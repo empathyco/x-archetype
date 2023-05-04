@@ -91,7 +91,6 @@
   } from '@empathyco/x-components';
   import { Component } from 'vue-property-decorator';
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
-  import { QueryPreviewList } from '@empathyco/x-components/queries-preview';
   import Logo from '../logo.vue';
   import Main from '../main.vue';
   import CustomQueryPreview from '../pre-search/custom-query-preview.vue';
@@ -105,7 +104,6 @@
 
   @Component({
     components: {
-      QueryPreviewList,
       CustomQueryPreview,
       BaseIdModal,
       CloseMainModal,
