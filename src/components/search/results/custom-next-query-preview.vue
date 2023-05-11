@@ -24,10 +24,7 @@
         itemClass="x-flex-shrink-0"
       >
         <template #result="{ item: result }">
-          <Result
-            :result="result"
-            class="x-w-[calc(38vw-16px)] desktop:x-w-auto desktop:x-max-w-[265px]"
-          />
+          <Result :result="result" class="x-w-[calc(38vw-16px)] desktop:x-max-w-[265px]" />
         </template>
       </ItemsList>
     </CustomSlidingPanel>
