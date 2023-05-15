@@ -36,7 +36,8 @@
     PlusIcon,
     SlidingPanel,
     StaggeredFadeAndSlide,
-    CuratedCheckIcon
+    CuratedCheckIcon,
+    use$x
   } from '@empathyco/x-components';
   import { RelatedTags } from '@empathyco/x-components/related-tags';
   import { defineComponent } from 'vue';
@@ -54,8 +55,14 @@
     },
 
     setup() {
+      const $x = use$x();
       const relatedTagsAnimation = StaggeredFadeAndSlide;
       const { isTouchable } = useDevice();
+
+      $x.on('UserDeselectedARelatedTag').subscribe(() => {
+        (document.activeElement as HTMLElement).blur();
+      });
+
       return {
         relatedTagsAnimation,
         isTouchable
