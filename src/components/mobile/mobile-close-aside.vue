@@ -2,7 +2,7 @@
   <div class="x-mx-16 x-flex x-gap-16 x-border-t x-border-neutral-10 x-py-24">
     <ClearFilters
       v-slot="{ selectedFilters }"
-      class="x-button-lead x-button-outlined x-flex-auto x-rounded-full x-py-12 x-uppercase"
+      class="x-button-lead x-button-outlined x-flex-auto x-rounded-full x-py-12"
       :alwaysVisible="false"
     >
       {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}

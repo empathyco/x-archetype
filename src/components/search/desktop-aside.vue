@@ -1,7 +1,7 @@
 <template>
   <div class="x-flex x-min-h-0 x-flex-auto x-flex-col x-bg-neutral-0">
     <div class="x-flex x-items-center x-border-b x-border-neutral-90 x-p-24 x-pr-32 x-pl-40">
-      <span class="x-title2 x-mr-auto">
+      <span class="x-title2 x-mr-auto x-text-neutral-90">
         {{ $t('facetsPanel.title') }}
       </span>
       <BaseIdModalClose class="x-button-lead x-button-circle x-button-ghost" modalId="right-aside">
@@ -15,7 +15,7 @@
     <div class="x-flex x-gap-16 x-border-t x-border-neutral-90 x-p-40 x-pt-24 x-pb-16">
       <ClearFilters
         v-slot="{ selectedFilters }"
-        class="x-button-lead x-button-outlined x-flex-auto x-rounded-full x-p-24 x-py-12 x-uppercase"
+        class="x-button-lead x-button-outlined x-flex-auto x-rounded-full x-p-24 x-py-12"
         :alwaysVisible="false"
       >
         {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}

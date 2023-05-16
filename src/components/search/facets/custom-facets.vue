@@ -6,7 +6,7 @@
         class="x-border-0 x-border-b x-border-neutral-10"
       >
         <template #header>
-          <span class="x-title3">{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="x-title3 x-text-neutral-90">{{ $t(`facets.${facet.label}`) }}</span>
           <FacetSelectedFilters :selectedFilters="selectedFilters" />
         </template>
         <template #default>
@@ -46,7 +46,7 @@
         class="x-border-0 x-border-b x-border-neutral-10"
       >
         <template #header>
-          <span class="x-title3">{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="x-title3 x-text-neutral-90">{{ $t(`facets.${facet.label}`) }}</span>
           <FacetSelectedFilters :selectedFilters="selectedFilters" />
         </template>
         <template #default>
@@ -89,7 +89,7 @@
         class="x-border-0 x-border-b x-border-neutral-10"
       >
         <template #header>
-          <span class="x-title3">{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="x-title3 x-text-neutral-90">{{ $t(`facets.${facet.label}`) }}</span>
           <FacetSelectedFilters :selectedFilters="selectedFilters" />
         </template>
         <template #default>

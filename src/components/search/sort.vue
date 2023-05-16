@@ -1,10 +1,12 @@
 <template>
   <CustomHeaderTogglePanel :data-test="'sort'" class="x-border-0 x-border-b x-border-neutral-10">
     <template #header>
-      <span class="x-title3">
+      <span class="x-title3 x-text-neutral-90">
         {{ $t('sort.label') }}
       </span>
-      <span>{{ $t(`sort.values.${$x.selectedSort || 'default'}`) }}</span>
+      <span class="x-facet-filter x-facet-filter-sm">
+        {{ $t(`sort.values.${$x.selectedSort || 'default'}`) }}
+      </span>
     </template>
     <template #default>
       <SortPickerList

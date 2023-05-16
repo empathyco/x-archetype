@@ -62,7 +62,7 @@
     },
     "facetsPanel": {
       "title": "SORT & FILTER",
-      "viewResults": "VIEW {totalResults} RESULTS"
+      "viewResults": "View {totalResults} results"
     },
     "filters": {
       "all": "All",
@@ -94,10 +94,10 @@
       }
     },
     "selectedFilters": {
-      "clear": "CLEAR {selectedFiltersNumber} FILTERS"
+      "clear": "Clear {selectedFiltersNumber} filters"
     },
     "result": {
-      "addToCart": "ADD TO CART"
+      "addToCart": "Add to cart"
     },
     "spellcheck": {
       "message": "No results found for '{query}'. We show you results for"

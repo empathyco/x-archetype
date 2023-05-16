@@ -15,7 +15,7 @@
       >
         <template #default="{ filter }">
           <SimpleFilter
-            class="x-tag x-tag-auxiliary x-tag-outlined x-selected x-rounded-full"
+            class="x-tag x-tag-auxiliary x-tag-outlined x-selected x-rounded-full x-text-auxiliary-75 selected:x-font-regular"
             :filter="filter"
           >
             <template #label="{ filter }">

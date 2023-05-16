@@ -6,11 +6,7 @@
   >
     <FiltersIcon class="x-icon-lg" />
     <span>{{ $t('toggleAside.showAside') }}</span>
-    <span
-      v-if="$x.selectedFilters.length > 0"
-      :class="{ 'x-badge-circle': $x.selectedFilters.length <= 9 }"
-      class="x-badge x-badge-lead"
-    >
+    <span v-if="$x.selectedFilters.length > 0" class="x-badge x-badge-lead">
       {{ $x.selectedFilters.length }}
     </span>
   </BaseIdModalOpen>

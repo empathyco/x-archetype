@@ -62,7 +62,7 @@
     },
     "facetsPanel": {
       "title": "TRIER ET FILTRER",
-      "viewResults": "VOIR {totalResults} RÉSULTATS"
+      "viewResults": "Voir {totalResults} résultats"
     },
     "filters": {
       "all": "Tout",
@@ -94,10 +94,10 @@
       }
     },
     "selectedFilters": {
-      "clear": "EFFACER {selectedFiltersNumber} FILTRES"
+      "clear": "Effacer {selectedFiltersNumber} filtres"
     },
     "result": {
-      "addToCart": "AJOUTER AU PANIER"
+      "addToCart": "Ajouter au panier"
     },
     "spellcheck": {
       "message": "Aucun résultat trouvé pour '{query}'. Nous vous montrons les résultats pour"
