@@ -22,7 +22,7 @@
 
     <div class="desktop-width-container">
       <div
-        class="x-layout-container x-layout-container-ml-[calc(142px+48px)] x-layout-container-mr-[calc(40px+48px)]"
+        class="x-layout-container-ml-[calc(142px+48px)] x-layout-container-mr-[calc(40px+48px)] x-layout-container"
       >
         <div class="x-layout-item">
           <LocationProvider location="predictive_layer">
