@@ -13,25 +13,10 @@
           class="x-flex x-flex-col desktop:x-grid desktop:x-grid-cols-12 desktop:x-items-start desktop:x-gap-24"
           :navigationHijacker="navigationHijacker"
         >
-          <IdentifierResults
+          <PredictiveIdentifierResults
             v-if="showIdentifierResults"
-            v-slot="{ identifierResult }"
-            :maxItemsToRender="5"
             :animation="suggestionsAnimation"
-            class="x-flex x-flex-col x-gap-8 desktop:x-col-span-12 desktop:x-gap-4"
-          >
-            <BaseResultLink
-              v-slot="{ result }"
-              :result="identifierResult"
-              class="x-suggestion-lg x-suggestion desktop:x-suggestion-md"
-            >
-              <BarCodeIcon class="x-icon-lg desktop:x-icon-md" />
-              <IdentifierResult :result="result" />
-              <span>
-                {{ result.name }}
-              </span>
-            </BaseResultLink>
-          </IdentifierResults>
+          />
 
           <div
             v-else-if="showEmpathize"
@@ -88,74 +73,18 @@
               </HistoryQueries>
             </div>
 
-            <QuerySuggestions
+            <PredictiveQuerySuggestions
               v-if="showQuerySuggestions"
               :animation="suggestionsAnimation"
-              :max-items-to-render="5"
-              class="x-flex x-flex-col x-gap-8 desktop:x-gap-4"
-            >
-              <template #suggestion="{ suggestion }">
-                <QuerySuggestion
-                  :suggestion="suggestion"
-                  class="x-suggestion-lg x-suggestion desktop:x-suggestion-md"
-                >
-                  <template #default="{ query }">
-                    <SearchIcon class="x-icon-lg desktop:x-icon-md" />
-                    <Highlight :text="suggestion.query" :highlight="query" />
-                  </template>
-                </QuerySuggestion>
-              </template>
-            </QuerySuggestions>
+            />
 
-            <div
-              v-if="showNextQueries"
-              class="x-flex x-flex-col x-gap-4"
-              :class="{ 'x-pt-16': $x.query.searchBox && isDesktopOrGreater }"
-            >
-              <h1 class="x-title4 x-title4-sm x-py-8 x-uppercase desktop:x-p-0">
-                {{ $t('nextQueries.title') }}
-              </h1>
-              <NextQueries
-                :animation="suggestionsAnimation"
-                :max-items-to-render="3"
-                class="x-flex x-flex-col x-gap-8 desktop:x-gap-4"
-              >
-                <template #suggestion="{ suggestion }">
-                  <NextQuery
-                    class="x-suggestion-lg x-suggestion desktop:x-suggestion-md"
-                    :suggestion="suggestion"
-                  >
-                    <CuratedCheckIcon
-                      v-if="suggestion.isCurated"
-                      class="x-icon-lg desktop:x-icon-md"
-                    />
-                    <LightBulbOn v-else class="x-icon-lg desktop:x-icon-md" />
-                    <span>{{ suggestion.query }}</span>
-                  </NextQuery>
-                </template>
-              </NextQueries>
-            </div>
+            <PredictiveNextQueries v-if="showNextQueries" :animation="suggestionsAnimation" />
 
-            <div v-if="showPopularSearches" class="x-flex x-flex-col x-gap-4">
-              <h1 class="x-title4 x-title4-sm x-uppercase">
-                {{ $t('popularSearches.title') }}
-              </h1>
-              <PopularSearches
-                :animation="suggestionsAnimation"
-                :max-items-to-render="4"
-                class="x-flex x-flex-col x-gap-8 desktop:x-gap-4"
-              >
-                <template #suggestion="{ suggestion }">
-                  <PopularSearch
-                    class="x-suggestion-lg x-suggestion desktop:x-suggestion-md"
-                    :suggestion="suggestion"
-                  >
-                    <TrendingIcon class="x-icon-lg desktop:x-icon-md" />
-                    <span>{{ suggestion.query }}</span>
-                  </PopularSearch>
-                </template>
-              </PopularSearches>
-            </div>
+            <PredictivePopularSearches
+              v-if="showPopularSearches"
+              :animation="suggestionsAnimation"
+            />
+
             <BaseIdModalOpen
               v-if="isDesktopOrGreater && !$x.query.searchBox"
               modalId="my-history-aside"
@@ -180,23 +109,15 @@
 
 <script lang="ts">
   import {
-    BarCodeIcon,
     BaseIdModalOpen,
     BaseKeyboardNavigation,
-    BaseResultLink,
-    BaseScroll,
     CrossTinyIcon,
-    CuratedCheckIcon,
     Highlight,
     HistoryIcon,
-    LightBulbOn,
-    SearchIcon,
     SettingsIcon,
     StaggeredFadeAndSlide,
     TrashIcon,
-    TrendingIcon,
-    animateScale,
-    use$x
+    animateScale
   } from '@empathyco/x-components';
   import { Empathize } from '@empathyco/x-components/empathize';
   import {
@@ -204,95 +125,45 @@
     HistoryQueries,
     HistoryQuery
   } from '@empathyco/x-components/history-queries';
-  import { IdentifierResult, IdentifierResults } from '@empathyco/x-components/identifier-results';
-  import { NextQueries, NextQuery } from '@empathyco/x-components/next-queries';
-  import { PopularSearches, PopularSearch } from '@empathyco/x-components/popular-searches';
-  import { QuerySuggestions, QuerySuggestion } from '@empathyco/x-components/query-suggestions';
-  import { defineComponent, computed } from 'vue';
+  import { defineComponent } from 'vue';
   import { useDevice } from '../../composables/use-device.composable';
   import SlidingRecommendations from './sliding-recommendations.vue';
+  import PredictiveIdentifierResults from './predictive-identifier-results.vue';
+  import PredictiveQuerySuggestions from './predictive-query-suggestions.vue';
+  import PredictiveNextQueries from './predictive-next-queries.vue';
+  import PredictivePopularSearches from './predictive-popular-searches.vue';
+  import { predictiveHelpers } from './predictive-helpers';
 
   export default defineComponent({
     components: {
-      BarCodeIcon,
-      BaseScroll,
+      PredictivePopularSearches,
+      PredictiveNextQueries,
+      PredictiveQuerySuggestions,
+      PredictiveIdentifierResults,
       BaseIdModalOpen,
       BaseKeyboardNavigation,
-      BaseResultLink,
       ClearHistoryQueries,
       CrossTinyIcon,
-      CuratedCheckIcon,
       Empathize,
       Highlight,
       HistoryQuery,
       HistoryIcon,
       HistoryQueries,
-      IdentifierResults,
-      IdentifierResult,
-      LightBulbOn,
-      NextQuery,
-      NextQueries,
-      PopularSearch,
-      PopularSearches,
-      QuerySuggestion,
-      QuerySuggestions,
       SlidingRecommendations,
-      SearchIcon,
       SettingsIcon,
-      TrashIcon,
-      TrendingIcon
+      TrashIcon
     },
     setup() {
       const empathizeAnimation = animateScale();
       const suggestionsAnimation = StaggeredFadeAndSlide;
-      const navigationHijacker = [
-        { xEvent: 'UserPressedArrowKey', moduleName: 'scroll', direction: 'ArrowDown' },
-        { xEvent: 'UserPressedArrowKey', moduleName: 'searchBox', direction: 'ArrowDown' }
-      ];
-
-      const $x = use$x();
       const { isDesktopOrGreater, isTabletOrLess } = useDevice();
-
-      const showIdentifierResults = computed(() => {
-        return $x.identifierResults.length > 0;
-      });
-
-      const showHistoryQueries = computed(() => {
-        return $x.historyQueriesWithResults.length > 0;
-      });
-
-      const showQuerySuggestions = computed(() => {
-        return (
-          !!$x.query.searchBox &&
-          $x.identifierResults.length === 0 &&
-          $x.querySuggestions.length > 0
-        );
-      });
-
-      const showNextQueries = computed(() => {
-        return $x.nextQueries.length > 0 && $x.identifierResults.length === 0;
-      });
-
-      const showPopularSearches = computed(() => {
-        return $x.popularSearches.length > 0 && !$x.query.searchBox;
-      });
-
-      const showEmpathize = computed(() => {
-        return showHistoryQueries || showQuerySuggestions || showNextQueries || showPopularSearches;
-      });
 
       return {
         isDesktopOrGreater,
         isTabletOrLess,
         empathizeAnimation,
         suggestionsAnimation,
-        navigationHijacker,
-        showIdentifierResults,
-        showHistoryQueries,
-        showQuerySuggestions,
-        showNextQueries,
-        showPopularSearches,
-        showEmpathize
+        ...predictiveHelpers()
       };
     }
   });

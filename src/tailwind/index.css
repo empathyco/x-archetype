@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .desktop-width-container {
+        @apply x-layout-max-width-md x-layout-item desktop:x-layout-min-margin-32 large:x-layout-max-width-lg large:x-layout-min-margin-48
+    }
+}
