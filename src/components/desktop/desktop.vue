@@ -2,33 +2,35 @@
   <div class="x-layout-container">
     <DesktopHeaderFloatingPredictive />
 
-    <MainScroll class="desktop-width-container x-flex x-flex-col">
+    <MainScroll class="x-flex x-flex-col">
       <Scroll id="main-scroll">
-        <div v-if="!$x.redirections.length && hasSearched" class="x-layout-item">
-          <LocationProvider location="results">
-            <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
-          </LocationProvider>
-          <NoResultsMessage class="x-mb-16" data-test="no-results-message" />
-          <DesktopToolbar />
-        </div>
+        <div class="desktop-width-container">
+          <div v-if="!$x.redirections.length && hasSearched" class="x-layout-item">
+            <LocationProvider location="results">
+              <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
+            </LocationProvider>
+            <NoResultsMessage class="x-mb-16" data-test="no-results-message" />
+            <DesktopToolbar />
+          </div>
 
-        <div
-          v-if="$x.totalResults > 0 && hasSearched && $x.selectedFilters.length"
-          class="x-layout-item"
-        >
-          <SelectedFilters class="x-py-16" />
-        </div>
+          <div
+            v-if="$x.totalResults > 0 && hasSearched && $x.selectedFilters.length"
+            class="x-layout-item"
+          >
+            <SelectedFilters class="x-py-16" />
+          </div>
 
-        <div class="x-layout-item">
-          <LocationProvider location="no_query">
-            <CustomQueryPreview class="x-mt-56" />
-          </LocationProvider>
-        </div>
+          <div class="x-layout-item">
+            <LocationProvider location="no_query">
+              <CustomQueryPreview class="x-mt-56" />
+            </LocationProvider>
+          </div>
 
-        <div class="x-layout-item">
-          <LocationProvider location="results">
-            <Main />
-          </LocationProvider>
+          <div class="x-layout-item">
+            <LocationProvider location="results">
+              <Main />
+            </LocationProvider>
+          </div>
         </div>
       </Scroll>
     </MainScroll>
