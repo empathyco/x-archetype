@@ -6,7 +6,7 @@
       :animation="empathizeAnimation"
       class="x-layout-item x-absolute x-z-[1] x-w-full x-bg-neutral-0 x-py-16"
     >
-      <div class="desktop-width-container">
+      <div class="desktop-width-item">
         <div
           class="x-layout-container-ml-[calc(142px+48px+17px)] x-layout-container-mr-[calc(40px+48px)]"
         >

@@ -1,6 +1,6 @@
 <template>
-  <div class="x-relative">
-    <div class="desktop-width-container">
+  <div class="x-relative x-pb-24">
+    <div class="desktop-width-item">
       <header class="x-flex x-items-center x-gap-48 x-pt-24">
         <Logo />
 
@@ -20,9 +20,9 @@
       <FullWidthPredictive />
     </LocationProvider>
 
-    <div class="desktop-width-container">
+    <div class="desktop-width-item">
       <div
-        class="x-layout-container-ml-[calc(142px+48px)] x-layout-container-mr-[calc(40px+48px)] x-layout-container"
+        class="x-layout-container x-layout-container-ml-[calc(142px+48px)] x-layout-container-mr-[calc(40px+48px)]"
       >
         <div class="x-layout-item">
           <LocationProvider location="predictive_layer">

@@ -1,11 +1,11 @@
 <template>
   <div class="x-layout-container">
-    <DesktopHeaderFloatingPredictive />
+    <DesktopHeaderFullPredictive />
 
     <MainScroll class="x-flex x-flex-col">
       <Scroll id="main-scroll">
-        <div class="desktop-width-container">
-          <div v-if="!$x.redirections.length && hasSearched" class="x-layout-item">
+        <div class="desktop-width-item">
+          <div v-if="!$x.redirections.length && hasSearched">
             <LocationProvider location="results">
               <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
             </LocationProvider>
@@ -13,28 +13,22 @@
             <DesktopToolbar />
           </div>
 
-          <div
+          <SelectedFilters
             v-if="$x.totalResults > 0 && hasSearched && $x.selectedFilters.length"
-            class="x-layout-item"
-          >
-            <SelectedFilters class="x-py-16" />
-          </div>
+            class="x-py-16"
+          />
 
-          <div class="x-layout-item">
-            <LocationProvider location="no_query">
-              <CustomQueryPreview class="x-mt-56" />
-            </LocationProvider>
-          </div>
+          <LocationProvider location="no_query">
+            <CustomQueryPreview class="x-mt-56" />
+          </LocationProvider>
 
-          <div class="x-layout-item">
-            <LocationProvider location="results">
-              <Main />
-            </LocationProvider>
-          </div>
+          <LocationProvider location="results">
+            <Main />
+          </LocationProvider>
         </div>
       </Scroll>
     </MainScroll>
-    <div class="desktop-width-container x-layout-on-margin-right x-layout-overlap x-layout-item">
+    <div class="desktop-width-item x-layout-on-margin-right x-layout-overlap">
       <ScrollToTop />
     </div>
 
@@ -75,9 +69,11 @@
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
   import DesktopToolbar from './desktop-toolbar.vue';
   import DesktopHeaderFloatingPredictive from './desktop-header-floating-predictive.vue';
+  import DesktopHeaderFullPredictive from './desktop-header-full-predictive.vue';
 
   @Component({
     components: {
+      DesktopHeaderFullPredictive,
       DesktopHeaderFloatingPredictive,
       CustomQueryPreview,
       BaseIdModal,

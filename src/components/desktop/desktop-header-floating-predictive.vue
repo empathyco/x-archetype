@@ -1,16 +1,11 @@
 <template>
-  <div
-    class="x-layout-max-width-md x-layout-item x-pb-24 desktop:x-layout-min-margin-32 large:x-layout-max-width-lg large:x-layout-min-margin-48"
-  >
+  <div class="desktop-width-item x-pb-24">
     <header class="x-grid x-grid-cols-6 x-items-center x-gap-12 x-pt-24">
       <Logo />
 
       <div class="x-col-span-4 x-flex x-flex-col x-gap-16">
         <div class="x-relative">
           <SearchBox />
-          <LocationProvider location="predictive_layer" class="x-col-span-4 x-col-start-2">
-            <RelatedTags v-if="$x.relatedTags.length > 0" class="x-pt-8" />
-          </LocationProvider>
           <LocationProvider location="predictive_layer">
             <PredictiveLayer class="x-absolute x-shadow-lg desktop:x-py-16 desktop:x-pl-16" />
           </LocationProvider>
@@ -22,7 +17,11 @@
       </CloseMainModal>
     </header>
 
-    <div class="x-grid x-grid-cols-6"></div>
+    <div class="x-grid x-grid-cols-6">
+      <LocationProvider location="predictive_layer" class="x-col-span-4 x-col-start-2">
+        <RelatedTags v-if="$x.relatedTags.length > 0" class="x-pt-8" />
+      </LocationProvider>
+    </div>
   </div>
 </template>
 
