@@ -66,6 +66,7 @@
                         </HistoryQueries>
 
                         <ClearHistoryQueries
+                          v-if="!$x.query.searchBox"
                           class="x-button-neutral x-button-sm x-button-tight x-w-fit"
                         >
                           <TrashIcon v-if="isTabletOrLess" class="x-icon-lg" />
