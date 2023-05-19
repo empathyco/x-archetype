@@ -80,7 +80,7 @@
 
                       <PredictiveNextQueries
                         v-if="showNextQueries"
-                        :class="{ 'x-pt-16': $x.query.searchBox && isDesktopOrGreater }"
+                        :class="{ 'x-pt-8': $x.query.searchBox && isDesktopOrGreater }"
                         :animation="suggestionsAnimation"
                       />
 
