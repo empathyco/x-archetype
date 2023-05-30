@@ -4,7 +4,7 @@
 
     <MainScroll class="x-flex x-flex-col">
       <Scroll id="main-scroll">
-        <div class="desktop-width-item">
+        <MaxDesktopWidthItem>
           <div v-if="!$x.redirections.length && hasSearched">
             <LocationProvider location="results">
               <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
@@ -25,12 +25,12 @@
           <LocationProvider location="results">
             <Main />
           </LocationProvider>
-        </div>
+        </MaxDesktopWidthItem>
       </Scroll>
     </MainScroll>
-    <div class="desktop-width-item x-layout-on-margin-right x-layout-overlap">
+    <MaxDesktopWidthItem class="x-layout-on-margin-right x-layout-overlap">
       <ScrollToTop />
-    </div>
+    </MaxDesktopWidthItem>
 
     <div class="x-z-20">
       <BaseIdModal
@@ -67,14 +67,14 @@
   import HasSearchedMixin from '../has-searched.mixin';
   import MyHistoryAside from '../my-history/my-history-aside.vue';
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
+  import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
   import DesktopToolbar from './desktop-toolbar.vue';
-  import DesktopHeaderFloatingPredictive from './desktop-header-floating-predictive.vue';
   import DesktopHeaderFullPredictive from './desktop-header-full-predictive.vue';
 
   @Component({
     components: {
+      MaxDesktopWidthItem,
       DesktopHeaderFullPredictive,
-      DesktopHeaderFloatingPredictive,
       CustomQueryPreview,
       BaseIdModal,
       MyHistoryAside,

@@ -16,7 +16,7 @@ type PredictiveHelpers = {
  *
  * @returns The predictive utils.
  */
-export const predictiveHelpers = (): PredictiveHelpers => {
+export const usePredictiveHelpers = (): PredictiveHelpers => {
   const navigationHijacker = [
     { xEvent: 'UserPressedArrowKey', moduleName: 'scroll', direction: 'ArrowDown' },
     { xEvent: 'UserPressedArrowKey', moduleName: 'searchBox', direction: 'ArrowDown' }

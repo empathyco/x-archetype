@@ -127,12 +127,12 @@
   } from '@empathyco/x-components/history-queries';
   import { defineComponent } from 'vue';
   import { useDevice } from '../../composables/use-device.composable';
+  import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composables';
   import SlidingRecommendations from './sliding-recommendations.vue';
   import PredictiveIdentifierResults from './predictive-identifier-results.vue';
   import PredictiveQuerySuggestions from './predictive-query-suggestions.vue';
   import PredictiveNextQueries from './predictive-next-queries.vue';
   import PredictivePopularSearches from './predictive-popular-searches.vue';
-  import { predictiveHelpers } from './predictive-helpers';
 
   export default defineComponent({
     components: {
@@ -158,12 +158,28 @@
       const suggestionsAnimation = StaggeredFadeAndSlide;
       const { isDesktopOrGreater, isTabletOrLess } = useDevice();
 
+      const {
+        navigationHijacker,
+        showIdentifierResults,
+        showHistoryQueries,
+        showQuerySuggestions,
+        showNextQueries,
+        showPopularSearches,
+        showEmpathize
+      } = usePredictiveHelpers();
+
       return {
         isDesktopOrGreater,
         isTabletOrLess,
         empathizeAnimation,
         suggestionsAnimation,
-        ...predictiveHelpers()
+        navigationHijacker,
+        showIdentifierResults,
+        showHistoryQueries,
+        showQuerySuggestions,
+        showNextQueries,
+        showPopularSearches,
+        showEmpathize
       };
     }
   });

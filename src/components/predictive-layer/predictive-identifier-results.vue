@@ -27,9 +27,7 @@
   export default defineComponent({
     components: {
       BarCodeIcon,
-
       BaseResultLink,
-
       IdentifierResults,
       IdentifierResult
     },

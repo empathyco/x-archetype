@@ -1,5 +1,5 @@
 <template>
-  <div class="desktop-width-item x-pb-24">
+  <MaxDesktopWidthItem class="x-pb-24">
     <header class="x-grid x-grid-cols-6 x-items-center x-gap-12 x-pt-24">
       <Logo />
 
@@ -22,7 +22,7 @@
         <RelatedTags v-if="$x.relatedTags.length > 0" class="x-pt-8" />
       </LocationProvider>
     </div>
-  </div>
+  </MaxDesktopWidthItem>
 </template>
 
 <script lang="ts">
@@ -31,9 +31,11 @@
   import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
   import SearchBox from '../search-box.vue';
   import Logo from '../logo.vue';
+  import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
 
   export default defineComponent({
     components: {
+      MaxDesktopWidthItem,
       CloseMainModal,
       CrossIcon,
       Logo,

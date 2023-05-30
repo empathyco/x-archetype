@@ -6,7 +6,7 @@
       :animation="empathizeAnimation"
       class="x-layout-item x-absolute x-z-[1] x-w-full x-bg-neutral-0 x-py-16"
     >
-      <div class="desktop-width-item">
+      <MaxDesktopWidthItem>
         <div
           class="x-layout-container-ml-[calc(142px+48px+17px)] x-layout-container-mr-[calc(40px+48px)]"
         >
@@ -24,7 +24,7 @@
 
                   <div
                     v-else-if="showEmpathize"
-                    class="x-grid x-grid-cols-4 x-flex-row x-gap-4 x-pl-8 x-pl-0"
+                    class="x-grid x-grid-cols-4 x-flex-row x-gap-4 x-pl-0 x-pl-8"
                     :class="$x.query.searchBox ? 'x-gap-4' : 'x-gap-16'"
                   >
                     <div class="x-col-span-4 x-grid x-grid-cols-4 x-gap-32">
@@ -79,14 +79,14 @@
                         :animation="suggestionsAnimation"
                       />
 
-                      <PredictiveNextQueries
-                        v-if="showNextQueries"
-                        :class="{ 'x-pt-8': $x.query.searchBox && isDesktopOrGreater }"
+                      <PredictivePopularSearches
+                        v-if="showPopularSearches"
                         :animation="suggestionsAnimation"
                       />
 
-                      <PredictivePopularSearches
-                        v-if="showPopularSearches"
+                      <PredictiveNextQueries
+                        v-if="showNextQueries"
+                        :class="{ 'x-pt-8': $x.query.searchBox && isDesktopOrGreater }"
                         :animation="suggestionsAnimation"
                       />
 
@@ -112,7 +112,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </MaxDesktopWidthItem>
     </Empathize>
 
     <div class="x-opacity-30">
@@ -147,15 +147,17 @@
   } from '@empathyco/x-components/history-queries';
   import { defineComponent, ref } from 'vue';
   import { useDevice } from '../../composables/use-device.composable';
+  import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
+  import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composables';
   import SlidingRecommendations from './sliding-recommendations.vue';
   import PredictiveIdentifierResults from './predictive-identifier-results.vue';
   import PredictiveNextQueries from './predictive-next-queries.vue';
   import PredictivePopularSearches from './predictive-popular-searches.vue';
   import PredictiveQuerySuggestions from './predictive-query-suggestions.vue';
-  import { predictiveHelpers } from './predictive-helpers';
 
   export default defineComponent({
     components: {
+      MaxDesktopWidthItem,
       PredictiveQuerySuggestions,
       PredictivePopularSearches,
       PredictiveNextQueries,
@@ -206,6 +208,16 @@
         }
       };
 
+      const {
+        navigationHijacker,
+        showIdentifierResults,
+        showHistoryQueries,
+        showQuerySuggestions,
+        showNextQueries,
+        showPopularSearches,
+        showEmpathize
+      } = usePredictiveHelpers();
+
       return {
         isDesktopOrGreater,
         isTabletOrLess,
@@ -213,7 +225,13 @@
         suggestionsAnimation,
         showOverlay,
         handleEmpathizeEvent,
-        ...predictiveHelpers()
+        navigationHijacker,
+        showIdentifierResults,
+        showHistoryQueries,
+        showQuerySuggestions,
+        showNextQueries,
+        showPopularSearches,
+        showEmpathize
       };
     }
   });
