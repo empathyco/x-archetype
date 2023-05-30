@@ -3,7 +3,8 @@ import {
   PlatformRecommendationsRequest,
   PlatformResult,
   recommendationsRequestSchema,
-  resultSchema
+  resultSchema,
+  semanticQueriesEndpointAdapter
 } from '@empathyco/x-adapter-platform';
 import { RecommendationsRequest, Result } from '@empathyco/x-types';
 
@@ -38,4 +39,10 @@ recommendationsRequestSchema.$override<
 >({
   // TODO Top clicked demo endpoint breaks if it receives the scope parameter
   extraParams: ({ extraParams: { scope, ...extraParams } = {} }) => extraParams
+});
+
+// Provisional endpoint
+// TODO: Remove this once the endpoint is deployed to the Empathy API.
+platformAdapter.semanticQueries = semanticQueriesEndpointAdapter.extends({
+  endpoint: 'https://semantics-api.internal.staging.empathy.co/search_single/{extraParams.instance}'
 });
