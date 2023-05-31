@@ -44,5 +44,5 @@ recommendationsRequestSchema.$override<
 // Provisional endpoint
 // TODO: Remove this once the endpoint is deployed to the Empathy API.
 platformAdapter.semanticQueries = semanticQueriesEndpointAdapter.extends({
-  endpoint: 'https://semantics-api.internal.staging.empathy.co/search_single/{extraParams.instance}'
+  endpoint: 'https://semantics-api.internal.test.empathy.co/search_single/oysho'
 });
