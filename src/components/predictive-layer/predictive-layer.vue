@@ -128,7 +128,7 @@
   } from '@empathyco/x-components/history-queries';
   import { defineComponent } from 'vue';
   import { useDevice } from '../../composables/use-device.composable';
-  import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composables';
+  import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composable';
   import SlidingRecommendations from './sliding-recommendations.vue';
   import PredictiveIdentifierResults from './predictive-identifier-results.vue';
   import PredictiveQuerySuggestions from './predictive-query-suggestions.vue';

@@ -7,9 +7,7 @@
       class="x-layout-item x-absolute x-z-[1] x-w-full x-bg-neutral-0 x-py-16"
     >
       <MaxDesktopWidthItem>
-        <div
-          class="x-layout-container-ml-[calc(142px+48px+17px)] x-layout-container-mr-[calc(40px+48px)]"
-        >
+        <DesktopSearchboxAlign class="x-pl-[17px]">
           <div class="x-layout-item">
             <div v-if="showEmpathize || showIdentifierResults" class="x-h-full">
               <div class="x-block">
@@ -41,7 +39,7 @@
                         >
                           <template #suggestion="{ suggestion }">
                             <HistoryQuery
-                              class="x-suggestion-group-md x-w-max"
+                              class="x-suggestion-group-md"
                               :suggestion="suggestion"
                               suggestionClass="x-suggestion x-suggestion-md"
                             >
@@ -111,7 +109,7 @@
               <SlidingRecommendations v-if="isTabletOrLess && !$x.query.searchBox" />
             </div>
           </div>
-        </div>
+        </DesktopSearchboxAlign>
       </MaxDesktopWidthItem>
     </Empathize>
 
@@ -148,7 +146,8 @@
   import { defineComponent, ref } from 'vue';
   import { useDevice } from '../../composables/use-device.composable';
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
-  import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composables';
+  import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composable';
+  import DesktopSearchboxAlign from '../desktop/desktop-searchbox-align.vue';
   import SlidingRecommendations from './sliding-recommendations.vue';
   import PredictiveIdentifierResults from './predictive-identifier-results.vue';
   import PredictiveNextQueries from './predictive-next-queries.vue';
@@ -157,6 +156,7 @@
 
   export default defineComponent({
     components: {
+      DesktopSearchboxAlign,
       MaxDesktopWidthItem,
       PredictiveQuerySuggestions,
       PredictivePopularSearches,

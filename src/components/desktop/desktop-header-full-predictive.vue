@@ -21,15 +21,13 @@
     </LocationProvider>
 
     <MaxDesktopWidthItem>
-      <div
-        class="x-layout-container x-layout-container-ml-[calc(142px+48px)] x-layout-container-mr-[calc(40px+48px)]"
-      >
+      <DesktopSearchboxAlign class="x-layout-container">
         <div class="x-layout-item">
           <LocationProvider location="predictive_layer">
             <RelatedTags v-if="$x.relatedTags.length > 0" class="x-pt-8" />
           </LocationProvider>
         </div>
-      </div>
+      </DesktopSearchboxAlign>
     </MaxDesktopWidthItem>
   </div>
 </template>
@@ -41,9 +39,11 @@
   import Logo from '../logo.vue';
   import FullWidthPredictive from '../predictive-layer/full-width-predictive.vue';
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
+  import DesktopSearchboxAlign from './desktop-searchbox-align.vue';
 
   export default defineComponent({
     components: {
+      DesktopSearchboxAlign,
       MaxDesktopWidthItem,
       FullWidthPredictive,
       CloseMainModal,
