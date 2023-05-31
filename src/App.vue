@@ -19,7 +19,7 @@
   import { Tagging } from '@empathyco/x-components/tagging';
   import { UrlHandler } from '@empathyco/x-components/url';
   import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params';
-  import { Component, Inject, Vue, Watch } from 'vue-property-decorator';
+  import { Component, Inject, Provide, Vue, Watch } from 'vue-property-decorator';
   import { useDevice } from './composables/use-device.composable';
   import currencies from './i18n/currencies';
   import './tailwind/index.css';
@@ -53,7 +53,7 @@
       );
     }
 
-    @XProvide('currencyFormat')
+    @Provide('currencyFormat')
     public get currencyFormat(): string {
       return currencies[this.snippetConfig.currency!];
     }

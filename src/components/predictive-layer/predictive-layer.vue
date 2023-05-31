@@ -110,6 +110,7 @@
 <script lang="ts">
   import {
     BaseIdModalOpen,
+    BaseScroll,
     BaseKeyboardNavigation,
     CrossTinyIcon,
     Highlight,
@@ -136,6 +137,7 @@
 
   export default defineComponent({
     components: {
+      BaseScroll,
       PredictivePopularSearches,
       PredictiveNextQueries,
       PredictiveQuerySuggestions,
