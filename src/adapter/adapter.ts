@@ -44,5 +44,7 @@ recommendationsRequestSchema.$override<
 // Provisional endpoint
 // TODO: Remove this once the endpoint is deployed to the Empathy API.
 platformAdapter.semanticQueries = semanticQueriesEndpointAdapter.extends({
-  endpoint: 'https://semantics-api.internal.test.empathy.co/search_single/oysho'
+  endpoint:
+    // eslint-disable-next-line max-len
+    'https://semantics-api.internal.test.empathy.co/search_single/oysho?filter_ids=NOT_PARTIAL%2CNOT_ALL_WORDS'
 });
