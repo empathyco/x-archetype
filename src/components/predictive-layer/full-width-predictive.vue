@@ -24,7 +24,7 @@
 
                   <div
                     v-else-if="showEmpathize"
-                    class="x-grid x-grid-cols-4 x-flex-row x-gap-4 x-pl-0 x-pl-8"
+                    class="x-grid x-grid-cols-4 x-flex-row x-gap-4"
                     :class="$x.query.searchBox ? 'x-gap-4' : 'x-gap-16'"
                   >
                     <div class="x-col-span-4 x-grid x-grid-cols-4 x-gap-32">
