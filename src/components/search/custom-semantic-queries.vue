@@ -1,7 +1,14 @@
 <template>
   <SemanticQueries #default="{ queries }">
     <section>
-      <QueryPreviewList :queries="queries" #default="{ query, results, totalResults }">
+      <h1 class="x-title x-title1-md x-my-64 x-text-center">
+        {{ $t('semanticQueries.title') }}
+      </h1>
+      <QueryPreviewList
+        :queries="queries"
+        #default="{ query, results, totalResults }"
+        class="x-flex x-flex-col x-gap-64"
+      >
         <CustomSlidingPanel>
           <template #header>
             <BaseEventButton

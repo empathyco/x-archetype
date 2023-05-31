@@ -86,6 +86,9 @@ export interface Messages {
   totalResults: {
     message: string;
   };
+  semanticQueries: {
+    title: string;
+  };
   sort: {
     label: string;
     values: {
