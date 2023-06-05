@@ -70,10 +70,15 @@
                           <TrashIcon v-if="isTabletOrLess" class="x-icon-lg" />
                           <span v-else>{{ $t('historyQueries.clear') }}</span>
                         </ClearHistoryQueries>
+
+                        <PredictiveQuerySuggestions
+                          v-if="$x.query.searchBox && showQuerySuggestions"
+                          :animation="suggestionsAnimation"
+                        />
                       </div>
 
                       <PredictiveQuerySuggestions
-                        v-if="showQuerySuggestions"
+                        v-if="(!$x.query.searchBox || !showHistoryQueries) && showQuerySuggestions"
                         :animation="suggestionsAnimation"
                       />
 
