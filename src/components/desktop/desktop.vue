@@ -2,10 +2,9 @@
   <div
     class="x-layout-container x-layout-max-width-md desktop:x-layout-min-margin-32 large:x-layout-max-width-lg large:x-layout-min-margin-48"
   >
-    <div class="x-layout-item x-pb-24">
+    <div class="header x-layout-item x-pb-8">
       <header class="x-grid x-grid-cols-6 x-items-center x-gap-12 x-pt-24">
         <Logo />
-
         <div class="x-col-span-4 x-flex x-flex-col x-gap-16">
           <div class="x-relative">
             <SearchBox />
@@ -18,11 +17,26 @@
           <CrossIcon class="x-icon-lg" />
         </CloseMainModal>
       </header>
+    </div>
 
+    <div
+      class="x-layout__sub-header x-layout-item"
+      :class="{
+        'x-layout__sub-header--is-scrolling-down': hasScrolled
+      }"
+    >
       <div class="x-grid x-grid-cols-6">
         <LocationProvider location="predictive_layer" class="x-col-span-4 x-col-start-2">
-          <RelatedTags v-if="$x.relatedTags.length > 0" class="x-pt-8" />
+          <RelatedTags v-if="$x.relatedTags.length > 0" class="x-pb-24" />
         </LocationProvider>
+      </div>
+
+      <div v-if="!$x.redirections.length && hasSearched">
+        <DesktopToolbar />
+      </div>
+
+      <div v-if="$x.totalResults > 0 && hasSearched && $x.selectedFilters.length">
+        <SelectedFilters class="x-py-16" />
       </div>
     </div>
 
@@ -33,16 +47,7 @@
             <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
           </LocationProvider>
           <NoResultsMessage class="x-mb-16" data-test="no-results-message" />
-          <DesktopToolbar />
         </div>
-
-        <div
-          v-if="$x.totalResults > 0 && hasSearched && $x.selectedFilters.length"
-          class="x-layout-item"
-        >
-          <SelectedFilters class="x-py-16" />
-        </div>
-
         <div class="x-layout-item">
           <LocationProvider location="no_query">
             <CustomQueryPreview class="x-mt-56" />
@@ -87,7 +92,10 @@
     CloseMainModal,
     BaseIdModal,
     CrossIcon,
-    LocationProvider
+    LocationProvider,
+    XOn,
+    ScrollDirection,
+    Fade
   } from '@empathyco/x-components';
   import { Component } from 'vue-property-decorator';
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
@@ -112,6 +120,7 @@
       DesktopToolbar,
       LocationProvider,
       Logo,
+      Fade,
       Main,
       MainScroll,
       MyHistoryConfirmDisableModal,
@@ -128,11 +137,41 @@
   })
   export default class Desktop extends HasSearchedMixin {
     protected rightAsideAnimation = animateTranslate('right');
+
+    protected stopScrollDown = true;
+
+    protected hasScrolled = true;
+
+    protected scrollOffset = 200;
+
+    @XOn('UserChangedScrollDirection')
+    scrollDirectionChanged(direction: ScrollDirection): void {
+      this.stopScrollDown = direction === 'UP';
+    }
+
+    @XOn(['UserScrolled'])
+    scrollLength(position: number): void {
+      if (this.stopScrollDown || position < this.scrollOffset) {
+        this.hasScrolled = true;
+      } else if (!this.stopScrollDown && position > this.scrollOffset) {
+        this.hasScrolled = false;
+      }
+    }
   }
 </script>
 
-<style>
+<style lang="scss">
   .x-layout-item > * {
     min-width: 0;
+  }
+  .header {
+    z-index: 1;
+  }
+  .x-layout__sub-header {
+    transition: transform 0.25s ease-out;
+    transform: translateY(-150%) !important;
+  }
+  .x-layout__sub-header--is-scrolling-down {
+    transform: translateY(0%) !important;
   }
 </style>
