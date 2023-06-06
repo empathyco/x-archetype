@@ -9,11 +9,12 @@
 <script>
   import { LocationProvider } from '@empathyco/x-components';
   import { defineComponent } from 'vue';
+  import { RelatedTags } from '../search';
 
   export default defineComponent({
     components: {
       LocationProvider,
-      RelatedTags: () => import('../search').then(m => m.RelatedTags)
+      RelatedTags
     }
   });
 </script>

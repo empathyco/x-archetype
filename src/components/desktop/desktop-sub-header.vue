@@ -4,7 +4,7 @@
   >
     <div class="x-layout__sub-header-content">
       <DesktopSearchboxAlign class="x-layout-container">
-        <RelatedTagsFloatedPredictive />
+        <RelatedTagsFullPredictive />
       </DesktopSearchboxAlign>
 
       <div v-if="!$x.redirections.length && hasSearched">
@@ -19,16 +19,16 @@
 
 <script lang="ts">
   import { defineComponent } from 'vue';
-  import RelatedTagsFloatedPredictive from './related-tags-floated-predictive.vue';
-  //import RelatedTagsFullPredictive from './related-tags-full-predictive.vue';
+  //import RelatedTagsFloatedPredictive from './related-tags-floated-predictive.vue';
+  import RelatedTagsFullPredictive from './related-tags-full-predictive.vue';
   import DesktopSearchboxAlign from './desktop-searchbox-align.vue';
   import DesktopToolbar from './desktop-toolbar.vue';
 
   export default defineComponent({
     components: {
       DesktopToolbar,
-      RelatedTagsFloatedPredictive,
-      //RelatedTagsFullPredictive,
+      //RelatedTagsFloatedPredictive,
+      RelatedTagsFullPredictive,
       DesktopSearchboxAlign,
       SelectedFilters: () => import('../search').then(m => m.SelectedFilters)
     },

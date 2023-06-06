@@ -5,7 +5,7 @@
       'x-layout--is-scrolling-up': hasScrolled
     }"
   >
-    <DesktopHeaderFloatingPredictive />
+    <DesktopHeaderFullPredictive />
 
     <DesktopSubHeader
       :has-scrolled="hasScrolled"
