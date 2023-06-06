@@ -1,6 +1,17 @@
 <template>
-  <div class="x-layout-container">
+  <div
+    class="x-layout-container"
+    :class="{
+      'x-layout--is-scrolling-up': hasScrolled
+    }"
+  >
     <DesktopHeaderFullPredictive />
+
+    <DesktopSubHeader
+      :has-scrolled="hasScrolled"
+      :has-searched="hasSearched"
+      class="x-layout-item"
+    />
 
     <MainScroll class="x-flex x-flex-col">
       <Scroll id="main-scroll">
@@ -10,13 +21,7 @@
               <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
             </LocationProvider>
             <NoResultsMessage class="x-mb-16" data-test="no-results-message" />
-            <DesktopToolbar />
           </div>
-
-          <SelectedFilters
-            v-if="$x.totalResults > 0 && hasSearched && $x.selectedFilters.length"
-            class="x-py-16"
-          />
 
           <LocationProvider location="no_query">
             <CustomQueryPreview class="x-mt-56" />
@@ -57,7 +62,13 @@
 </template>
 
 <script lang="ts">
-  import { animateTranslate, BaseIdModal, LocationProvider } from '@empathyco/x-components';
+  import {
+    animateTranslate,
+    BaseIdModal,
+    LocationProvider,
+    ScrollDirection,
+    XOn
+  } from '@empathyco/x-components';
   import { Component } from 'vue-property-decorator';
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
   import Main from '../main.vue';
@@ -70,9 +81,13 @@
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
   import DesktopToolbar from './desktop-toolbar.vue';
   import DesktopHeaderFullPredictive from './desktop-header-full-predictive.vue';
+  import DesktopSubHeader from './desktop-sub-header.vue';
+  import DesktopHeaderFloatingPredictive from './desktop-header-floating-predictive.vue';
 
   @Component({
     components: {
+      DesktopHeaderFloatingPredictive,
+      DesktopSubHeader,
       MaxDesktopWidthItem,
       DesktopHeaderFullPredictive,
       CustomQueryPreview,
@@ -94,6 +109,24 @@
   })
   export default class Desktop extends HasSearchedMixin {
     protected rightAsideAnimation = animateTranslate('right');
+
+    protected stopScrollDown = true;
+    protected hasScrolled = true;
+    protected scrollOffset = 200;
+
+    @XOn('UserChangedScrollDirection')
+    scrollDirectionChanged(direction: ScrollDirection): void {
+      this.stopScrollDown = direction === 'UP';
+    }
+
+    @XOn(['UserScrolled'])
+    scrollLength(position: number): void {
+      if (this.stopScrollDown || position < this.scrollOffset) {
+        this.hasScrolled = true;
+      } else if (!this.stopScrollDown && position > this.scrollOffset) {
+        this.hasScrolled = false;
+      }
+    }
   }
 </script>
 
