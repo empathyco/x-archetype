@@ -32,6 +32,7 @@
   import SearchBox from '../search-box.vue';
   import Logo from '../logo.vue';
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
+  import { RelatedTags } from '../search';
 
   export default defineComponent({
     components: {
@@ -41,7 +42,7 @@
       Logo,
       SearchBox,
       PredictiveLayer,
-      RelatedTags: () => import('../search').then(m => m.RelatedTags),
+      RelatedTags,
       LocationProvider
     }
   });

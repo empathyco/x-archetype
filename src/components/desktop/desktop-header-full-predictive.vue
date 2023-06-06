@@ -39,6 +39,7 @@
   import Logo from '../logo.vue';
   import FullWidthPredictive from '../predictive-layer/full-width-predictive.vue';
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
+  import { RelatedTags } from '../search';
   import DesktopSearchboxAlign from './desktop-searchbox-align.vue';
 
   export default defineComponent({
@@ -50,7 +51,7 @@
       CrossIcon,
       Logo,
       SearchBox,
-      RelatedTags: () => import('../search').then(m => m.RelatedTags),
+      RelatedTags,
       LocationProvider
     }
   });
