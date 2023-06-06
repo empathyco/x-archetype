@@ -1,6 +1,9 @@
 <template>
   <div
     class="x-layout-container x-layout-max-width-md x-layout-min-margin-16 tablet:x-layout-min-margin-24"
+    :class="{
+      'x-layout--is-scrolling-up': hasScrolled
+    }"
   >
     <div class="x-layout-item">
       <div class="x-flex x-gap-8 x-py-16">
@@ -18,16 +21,13 @@
 
       <!-- Results -->
       <div class="x-flex x-flex-col">
-        <LocationProvider location="predictive_layer">
-          <RelatedTags class="x-pb-16" />
-        </LocationProvider>
+        <MobileSubHeader :has-searched="hasSearched" :has-scrolled="hasScrolled" />
 
         <div v-if="$x.query.search && !$x.redirections.length" class="x-layout-item">
           <LocationProvider location="results">
             <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
           </LocationProvider>
           <NoResultsMessage class="x-mb-16" data-test="no-results-message" />
-          <MobileToolbar class="x-mb-16" />
         </div>
 
         <MainScroll>
@@ -84,7 +84,9 @@
     CloseMainModal,
     LocationProvider,
     animateTranslate,
-    BaseIdModal
+    BaseIdModal,
+    XOn,
+    ScrollDirection
   } from '@empathyco/x-components';
   import { Component } from 'vue-property-decorator';
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
@@ -98,6 +100,7 @@
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
   import MobileOpenAside from './mobile-open-aside.vue';
   import MobileToolbar from './mobile-toolbar.vue';
+  import MobileSubHeader from './mobile-sub-header.vue';
 
   @Component({
     components: {
@@ -106,6 +109,7 @@
       CloseMainModal,
       CustomQueryPreview,
       LocationProvider,
+      MobileSubHeader,
       Main,
       MainScroll,
       MyHistoryAside,
@@ -125,5 +129,23 @@
   export default class Mobile extends HasSearchedMixin {
     public filtersAsideAnimation = animateTranslate('bottom');
     public rightAsideAnimation = animateTranslate('right');
+
+    protected stopScrollDown = true;
+    protected hasScrolled = true;
+    protected scrollOffset = 75;
+
+    @XOn('UserChangedScrollDirection')
+    scrollDirectionChanged(direction: ScrollDirection): void {
+      this.stopScrollDown = direction === 'UP';
+    }
+
+    @XOn(['UserScrolled'])
+    scrollLength(position: number): void {
+      if (this.stopScrollDown || position < this.scrollOffset) {
+        this.hasScrolled = true;
+      } else if (!this.stopScrollDown && position > this.scrollOffset) {
+        this.hasScrolled = false;
+      }
+    }
   }
 </script>
