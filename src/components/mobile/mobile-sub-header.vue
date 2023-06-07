@@ -35,26 +35,5 @@
 </script>
 
 <style lang="scss">
-  .x-layout__sub-header {
-    display: grid;
-    grid-template-rows: 0fr;
-    overflow: hidden;
-    transition: grid-template-rows 0.35s;
-  }
-  .x-layout__sub-header-content {
-    min-height: 0;
-    transition: visibility 0.35s;
-    visibility: hidden;
-  }
-
-  .x-layout--is-scrolling-up {
-    .x-layout__sub-header {
-      grid-template-rows: 1fr;
-    }
-  }
-  .x-layout--is-scrolling-up {
-    .x-layout__sub-header .x-layout__sub-header-content {
-      visibility: visible;
-    }
-  }
+  @import '../collapse-heigth-animation.scss';
 </style>

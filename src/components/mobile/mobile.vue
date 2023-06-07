@@ -84,9 +84,7 @@
     CloseMainModal,
     LocationProvider,
     animateTranslate,
-    BaseIdModal,
-    XOn,
-    ScrollDirection
+    BaseIdModal
   } from '@empathyco/x-components';
   import { Component } from 'vue-property-decorator';
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
@@ -98,8 +96,8 @@
   import HasSearchedMixin from '../has-searched.mixin';
   import MyHistoryAside from '../my-history/my-history-aside.vue';
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
+  import IsScrollingUp from '../is-scrolling-up.mixin';
   import MobileOpenAside from './mobile-open-aside.vue';
-  import MobileToolbar from './mobile-toolbar.vue';
   import MobileSubHeader from './mobile-sub-header.vue';
 
   @Component({
@@ -114,7 +112,6 @@
       MainScroll,
       MyHistoryAside,
       MobileOpenAside,
-      MobileToolbar,
       MyHistoryConfirmDisableModal,
       PredictiveLayer,
       Scroll,
@@ -122,30 +119,13 @@
       SearchBox,
       MobileAside: () => import('../search').then(m => m.MobileAside),
       NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
-      RelatedTags: () => import('../search').then(m => m.RelatedTags),
       SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage)
-    }
+    },
+
+    mixins: [IsScrollingUp]
   })
   export default class Mobile extends HasSearchedMixin {
     public filtersAsideAnimation = animateTranslate('bottom');
     public rightAsideAnimation = animateTranslate('right');
-
-    protected stopScrollDown = true;
-    protected hasScrolled = true;
-    protected scrollOffset = 75;
-
-    @XOn('UserChangedScrollDirection')
-    scrollDirectionChanged(direction: ScrollDirection): void {
-      this.stopScrollDown = direction === 'UP';
-    }
-
-    @XOn(['UserScrolled'])
-    scrollLength(position: number): void {
-      if (this.stopScrollDown || position < this.scrollOffset) {
-        this.hasScrolled = true;
-      } else if (!this.stopScrollDown && position > this.scrollOffset) {
-        this.hasScrolled = false;
-      }
-    }
   }
 </script>
