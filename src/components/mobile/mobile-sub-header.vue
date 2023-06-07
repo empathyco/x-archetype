@@ -1,10 +1,10 @@
 <template>
-  <div class="x-layout__sub-header">
+  <div class="x-layout__sub-header x-layout-item">
     <div class="x-layout__sub-header-content">
       <LocationProvider location="predictive_layer">
         <RelatedTags class="x-pb-16" />
       </LocationProvider>
-      <div v-if="$x.query.search && !$x.redirections.length" class="x-layout-item">
+      <div v-if="$x.query.search && !$x.redirections.length">
         <MobileToolbar class="x-mb-16" />
       </div>
     </div>
