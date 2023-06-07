@@ -62,13 +62,7 @@
 </template>
 
 <script lang="ts">
-  import {
-    animateTranslate,
-    BaseIdModal,
-    LocationProvider,
-    ScrollDirection,
-    XOn
-  } from '@empathyco/x-components';
+  import { animateTranslate, BaseIdModal, LocationProvider } from '@empathyco/x-components';
   import { Component } from 'vue-property-decorator';
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
   import Main from '../main.vue';
@@ -79,6 +73,7 @@
   import MyHistoryAside from '../my-history/my-history-aside.vue';
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
+  import IsScrollingUp from '../is-scrolling-up.mixin';
   import DesktopToolbar from './desktop-toolbar.vue';
   import DesktopHeaderFullPredictive from './desktop-header-full-predictive.vue';
   import DesktopSubHeader from './desktop-sub-header.vue';
@@ -105,28 +100,12 @@
       NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
       SelectedFilters: () => import('../search').then(m => m.SelectedFilters),
       SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage)
-    }
+    },
+
+    mixins: [IsScrollingUp]
   })
   export default class Desktop extends HasSearchedMixin {
     protected rightAsideAnimation = animateTranslate('right');
-
-    protected stopScrollDown = true;
-    protected hasScrolled = true;
-    protected scrollOffset = 200;
-
-    @XOn('UserChangedScrollDirection')
-    scrollDirectionChanged(direction: ScrollDirection): void {
-      this.stopScrollDown = direction === 'UP';
-    }
-
-    @XOn(['UserScrolled'])
-    scrollLength(position: number): void {
-      if (this.stopScrollDown || position < this.scrollOffset) {
-        this.hasScrolled = true;
-      } else if (!this.stopScrollDown && position > this.scrollOffset) {
-        this.hasScrolled = false;
-      }
-    }
   }
 </script>
 
