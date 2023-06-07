@@ -58,30 +58,34 @@ popFromURLParameters('query'); // prevent the query from be included as extra pa
 popFromURLParameters('filter'); // Prevent the filters to be included as extra param
 
 window.__enableVueDevtools__ = true;
-window.initX = {
-  instance,
-  env,
-  scope,
-  lang,
-  device,
-  uiLang,
-  currency,
-  consent,
-  documentDirection,
-  store,
-  ...URLParameters,
-  queriesPreview: [
-    {
-      query: 'sunglasses',
-      title: 'Sunshine ready'
-    },
-    {
-      query: 'marni summer dress',
-      title: 'Summer dresses by Marni'
-    },
-    {
-      query: 'woven hat',
-      title: 'Elegant Sunshield'
-    }
-  ]
-};
+
+(async function () {
+  await window.InterfaceX.init({
+    instance,
+    env,
+    scope,
+    lang,
+    device,
+    uiLang,
+    currency,
+    consent,
+    documentDirection,
+    store,
+    ...URLParameters,
+    queriesPreview: [
+      {
+        query: 'sunglasses',
+        title: 'Sunshine ready'
+      },
+      {
+        query: 'marni summer dress',
+        title: 'Summer dresses by Marni'
+      },
+      {
+        query: 'woven hat',
+        title: 'Elegant Sunshield'
+      }
+    ]
+  });
+  window.InterfaceX.search();
+})();
