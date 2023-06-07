@@ -9,8 +9,7 @@
 <script>
   import { LocationProvider } from '@empathyco/x-components';
   import { defineComponent } from 'vue';
-  import { RelatedTags } from '../search';
-
+  import RelatedTags from '../search/related-tags.vue';
   export default defineComponent({
     components: {
       LocationProvider,
