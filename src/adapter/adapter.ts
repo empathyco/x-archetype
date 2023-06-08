@@ -1,12 +1,13 @@
 import {
   platformAdapter,
   PlatformRecommendationsRequest,
+  PlatformSemanticQueriesRequest,
   PlatformResult,
   recommendationsRequestSchema,
   resultSchema,
-  semanticQueriesEndpointAdapter
+  semanticQueriesRequestSchema
 } from '@empathyco/x-adapter-platform';
-import { RecommendationsRequest, Result } from '@empathyco/x-types';
+import { RecommendationsRequest, Result, SemanticQueriesRequest } from '@empathyco/x-types';
 
 export const adapter = platformAdapter;
 
@@ -41,10 +42,14 @@ recommendationsRequestSchema.$override<
   extraParams: ({ extraParams: { scope, ...extraParams } = {} }) => extraParams
 });
 
-// Provisional endpoint
-// TODO: Remove this once the endpoint is deployed to the Empathy API.
-platformAdapter.semanticQueries = semanticQueriesEndpointAdapter.extends({
-  endpoint:
-    // eslint-disable-next-line max-len
-    'https://semantics-api.internal.test.empathy.co/search_single/oysho?filter_ids=NOT_PARTIAL%2CNOT_ALL_WORDS'
+semanticQueriesRequestSchema.$override<
+  SemanticQueriesRequest,
+  Partial<PlatformSemanticQueriesRequest>
+>({
+  extraParams: ({ extraParams }) => {
+    return {
+      extraParams,
+      filter_ids: 'NOT_PARTIAL%2CNOT_ANY_WORDS'
+    };
+  }
 });
