@@ -1,9 +1,6 @@
 <template>
   <div
     class="x-layout-container x-layout-max-width-md x-layout-min-margin-16 tablet:x-layout-min-margin-24"
-    :class="{
-      'x-layout--is-scrolling-up': hasScrolled
-    }"
   >
     <div class="x-layout-item">
       <div class="x-flex x-gap-8 x-py-16">
@@ -21,7 +18,7 @@
 
       <!-- Results -->
       <div class="x-flex x-flex-col">
-        <MobileSubHeader :has-searched="hasSearched" :has-scrolled="hasScrolled" />
+        <MobileSubHeader :has-searched="hasSearched" />
 
         <div v-if="$x.query.search && !$x.redirections.length" class="x-layout-item">
           <LocationProvider location="results">
@@ -96,7 +93,6 @@
   import HasSearchedMixin from '../has-searched.mixin';
   import MyHistoryAside from '../my-history/my-history-aside.vue';
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
-  import IsScrollingUp from '../is-scrolling-up.mixin';
   import MobileOpenAside from './mobile-open-aside.vue';
   import MobileSubHeader from './mobile-sub-header.vue';
 
@@ -120,9 +116,7 @@
       MobileAside: () => import('../search').then(m => m.MobileAside),
       NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
       SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage)
-    },
-
-    mixins: [IsScrollingUp]
+    }
   })
   export default class Mobile extends HasSearchedMixin {
     public filtersAsideAnimation = animateTranslate('bottom');

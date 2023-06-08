@@ -5,7 +5,7 @@ import Component from 'vue-class-component';
 export default class IsScrollingUp extends Vue {
   protected stopScrollDown = true;
   protected scroll = true;
-  protected scrollOffset = 200;
+  protected scrollOffset = 100;
 
   @XOn('UserChangedScrollDirection')
   scrollDirectionChanged(direction: ScrollDirection): void {
