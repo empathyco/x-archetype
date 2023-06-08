@@ -15,7 +15,7 @@
 
 <script>
   import { defineComponent } from 'vue';
-  import HasSearchedMixin from '../has-searched.mixin';
+  import HasSearchedMixin from '../has-searched.mixin.ts';
   import DesktopHeaderFullPredictive from './desktop-header-full-predictive.vue';
   import DesktopSubHeader from './desktop-sub-header.vue';
   import DesktopHeaderFloatingPredictive from './desktop-header-floating-predictive.vue';
