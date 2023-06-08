@@ -1,17 +1,6 @@
 <template>
-  <div
-    class="x-layout-container"
-    :class="{
-      'x-layout--is-scrolling-up': hasScrolled
-    }"
-  >
-    <DesktopHeaderFullPredictive />
-
-    <DesktopSubHeader
-      :has-scrolled="hasScrolled"
-      :has-searched="hasSearched"
-      class="x-layout-item"
-    />
+  <div class="x-layout-container">
+    <DesktopTopSection />
 
     <MainScroll class="x-flex x-flex-col">
       <Scroll id="main-scroll">
@@ -73,16 +62,17 @@
   import MyHistoryAside from '../my-history/my-history-aside.vue';
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
-  import IsScrollingUp from '../is-scrolling-up.mixin';
   import DesktopToolbar from './desktop-toolbar.vue';
   import DesktopHeaderFullPredictive from './desktop-header-full-predictive.vue';
   import DesktopSubHeader from './desktop-sub-header.vue';
+  import DesktopTopSection from './desktop-top-section.vue';
   import DesktopHeaderFloatingPredictive from './desktop-header-floating-predictive.vue';
 
   @Component({
     components: {
       DesktopHeaderFloatingPredictive,
       DesktopSubHeader,
+      DesktopTopSection,
       MaxDesktopWidthItem,
       DesktopHeaderFullPredictive,
       CustomQueryPreview,
@@ -100,9 +90,7 @@
       NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
       SelectedFilters: () => import('../search').then(m => m.SelectedFilters),
       SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage)
-    },
-
-    mixins: [IsScrollingUp]
+    }
   })
   export default class Desktop extends HasSearchedMixin {
     protected rightAsideAnimation = animateTranslate('right');
