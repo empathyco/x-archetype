@@ -6,8 +6,8 @@
     </div>
 
     <DesktopSubHeader
-      :has-searched="hasSearched"
-      :full-predictive="fullPredictive"
+      :hasSearched="hasSearched"
+      :fullPredictive="fullPredictive"
       class="x-layout-item"
     />
   </div>
