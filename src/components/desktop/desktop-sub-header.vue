@@ -4,9 +4,12 @@
     :isExtended="hasScrolled"
   >
     <div class="x-layout__sub-header-content">
-      <DesktopSearchboxAlign class="x-layout-container">
-        <RelatedTagsFullPredictive v-if="fullPredictive" />
-        <RelatedTagsFloatedPredictive v-else />
+      <DesktopSearchboxAlign>
+        <div class="x-layout-item" :class="{ 'x-grid x-grid-cols-6': !isFullPredictive }">
+          <LocationProvider location="predictive_layer">
+            <RelatedTags v-if="$x.relatedTags.length > 0" class="x-pb-24" />
+          </LocationProvider>
+        </div>
       </DesktopSearchboxAlign>
 
       <div v-if="!$x.redirections.length && hasSearched">
@@ -21,19 +24,19 @@
 
 <script lang="ts">
   import { defineComponent } from 'vue';
+  import { LocationProvider } from '@empathyco/x-components';
+  import RelatedTags from '../search/related-tags.vue';
   import CollapseHeigthAnimation from '../collapse-heigth-animation.vue';
   import IsScrollingUp from '../is-scrolling-up.mixin';
-  import RelatedTagsFullPredictive from './related-tags-full-predictive.vue';
   import DesktopSearchboxAlign from './desktop-searchbox-align.vue';
   import DesktopToolbar from './desktop-toolbar.vue';
-  import RelatedTagsFloatedPredictive from './related-tags-floated-predictive.vue';
 
   export default defineComponent({
     components: {
+      LocationProvider,
+      RelatedTags,
       CollapseHeigthAnimation,
-      RelatedTagsFloatedPredictive,
       DesktopToolbar,
-      RelatedTagsFullPredictive,
       DesktopSearchboxAlign,
       SelectedFilters: () => import('../search').then(m => m.SelectedFilters)
     },
@@ -45,7 +48,7 @@
       hasSearched: {
         type: Boolean
       },
-      fullPredictive: {
+      isFullPredictive: {
         type: Boolean
       }
     }
