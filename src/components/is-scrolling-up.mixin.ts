@@ -3,21 +3,26 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 @Component
 export default class IsScrollingUp extends Vue {
-  protected stopScrollDown = true;
-  protected scroll = true;
+  protected stopsScrollDown = true;
+  protected isScrollingUp = true;
   protected scrollOffset = 200;
 
   @XOn('UserChangedScrollDirection')
   scrollDirectionChanged(direction: ScrollDirection): void {
-    this.stopScrollDown = direction === 'UP';
+    this.stopsScrollDown = direction === 'UP';
   }
 
   @XOn(['UserScrolled'])
   scrollLength(position: number): void {
-    if (this.stopScrollDown || position < this.scrollOffset) {
-      this.scroll = true;
-    } else if (!this.stopScrollDown && position > this.scrollOffset) {
-      this.scroll = false;
+    // TODO change this implementation when the scroll module is fixed
+    if (this.$x.scroll['main-scroll']?.hasAlmostReachedEnd) {
+      this.isScrollingUp = false;
+      return;
+    }
+    if (this.stopsScrollDown || position < this.scrollOffset) {
+      this.isScrollingUp = true;
+    } else if (!this.stopsScrollDown && position > this.scrollOffset) {
+      this.isScrollingUp = false;
     }
   }
 
@@ -28,6 +33,6 @@ export default class IsScrollingUp extends Vue {
    * the defined scrollOffset.
    */
   protected get hasScrolled(): boolean {
-    return this.scroll;
+    return this.isScrollingUp;
   }
 }
