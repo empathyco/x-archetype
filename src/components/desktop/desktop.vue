@@ -1,6 +1,6 @@
 <template>
   <div class="x-layout-container">
-    <DesktopHeaderFullPredictive />
+    <DesktopTopSection />
 
     <MainScroll class="x-flex x-flex-col">
       <Scroll id="main-scroll">
@@ -10,13 +10,7 @@
               <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
             </LocationProvider>
             <NoResultsMessage class="x-mb-16" data-test="no-results-message" />
-            <DesktopToolbar />
           </div>
-
-          <SelectedFilters
-            v-if="$x.totalResults > 0 && hasSearched && $x.selectedFilters.length"
-            class="x-py-16"
-          />
 
           <LocationProvider location="no_query">
             <CustomQueryPreview class="x-mt-56" />
@@ -62,33 +56,28 @@
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
   import Main from '../main.vue';
   import CustomQueryPreview from '../pre-search/custom-query-preview.vue';
-  import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import HasSearchedMixin from '../has-searched.mixin';
   import MyHistoryAside from '../my-history/my-history-aside.vue';
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
-  import DesktopToolbar from './desktop-toolbar.vue';
-  import DesktopHeaderFullPredictive from './desktop-header-full-predictive.vue';
+  import DesktopTopSection from './desktop-top-section.vue';
 
   @Component({
     components: {
+      DesktopTopSection,
       MaxDesktopWidthItem,
-      DesktopHeaderFullPredictive,
       CustomQueryPreview,
       BaseIdModal,
       MyHistoryAside,
-      DesktopToolbar,
       LocationProvider,
       Main,
       MainScroll,
       MyHistoryConfirmDisableModal,
-      PredictiveLayer,
       Scroll,
       ScrollToTop,
       DesktopAside: () => import('../search').then(m => m.DesktopAside),
       NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
-      SelectedFilters: () => import('../search').then(m => m.SelectedFilters),
       SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage)
     }
   })
