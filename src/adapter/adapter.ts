@@ -49,7 +49,7 @@ semanticQueriesRequestSchema.$override<
   extraParams: ({ extraParams }) => {
     return {
       extraParams,
-      filter_ids: 'NOT_PARTIAL%2CNOT_ALL_WORDS'
+      filter_ids: 'NOT_ALL_WORDS,NOT_PARTIAL'
     };
   }
 });

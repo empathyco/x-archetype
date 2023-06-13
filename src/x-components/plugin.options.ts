@@ -20,7 +20,7 @@ export const installXOptions: InstallXOptions = {
     semanticQueries: {
       config: {
         threshold: 50,
-        maxItemsToRequest: 4
+        maxItemsToRequest: 10
       }
     }
   },
