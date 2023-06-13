@@ -6,7 +6,6 @@ import { ScrollComponentState } from '@empathyco/x-components/scroll';
 import { Watch } from 'vue-property-decorator';
 @Component
 export default class IsScrollingUp extends Vue {
-  protected stopsScrollDown = true;
   protected hasScrolledPastThreshold = true;
   protected scrollOffset = 200;
 
