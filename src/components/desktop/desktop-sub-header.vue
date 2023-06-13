@@ -1,6 +1,6 @@
 <template>
   <CollapseHeigthAnimation :isExtended="hasScrolled">
-    <MaxDesktopWidthItem class="x-layout__sub-header-content">
+    <MaxDesktopWidthItem>
       <DesktopSearchboxAlign>
         <div class="x-layout-item" :class="{ 'x-grid x-grid-cols-6': !isFullPredictive }">
           <LocationProvider location="predictive_layer">
