@@ -6,7 +6,7 @@ import { ScrollComponentState } from '@empathyco/x-components/scroll';
 import { Watch } from 'vue-property-decorator';
 @Component
 export default class IsScrollingUp extends Vue {
-  protected hasScrolledPastThreshold = true;
+  protected hasScrolledPastThresholdFlag = false;
   protected scrollOffset = 200;
 
   @State('scroll', 'data')
@@ -18,15 +18,23 @@ export default class IsScrollingUp extends Vue {
   @Watch('mainScrollPosition', { deep: true })
   updateHasScrolledPastThreshold(): void {
     // TODO change this implementation when the scroll module is fixed. Task EMP-1049
-    if (this.$x.scroll['main-scroll']?.hasAlmostReachedEnd) {
-      this.hasScrolledPastThreshold = false;
+    const mainScrollData = this.scrollPositionsMap['main-scroll'];
+
+    if (mainScrollData?.hasReachedStart) {
+      this.hasScrolledPastThresholdFlag = false;
       return;
     }
-    const isScrollingUp = this.scrollPositionsMap['main-scroll']?.direction === 'UP';
+
+    if (mainScrollData?.hasAlmostReachedEnd) {
+      this.hasScrolledPastThresholdFlag = true;
+      return;
+    }
+
+    const isScrollingUp = mainScrollData?.direction === 'UP';
     if (isScrollingUp || this.mainScrollPosition < this.scrollOffset) {
-      this.hasScrolledPastThreshold = true;
+      this.hasScrolledPastThresholdFlag = false;
     } else if (!isScrollingUp && this.mainScrollPosition > this.scrollOffset) {
-      this.hasScrolledPastThreshold = false;
+      this.hasScrolledPastThresholdFlag = true;
     }
   }
 
@@ -36,7 +44,7 @@ export default class IsScrollingUp extends Vue {
    * @returns True if the user is scrolling up and has scrolled more than
    * the defined scrollOffset.
    */
-  protected get hasScrolled(): boolean {
-    return this.hasScrolledPastThreshold;
+  protected get hasScrolledPastThreshold(): boolean {
+    return this.hasScrolledPastThresholdFlag;
   }
 }

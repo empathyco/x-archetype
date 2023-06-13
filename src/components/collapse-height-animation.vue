@@ -2,7 +2,7 @@
   <div
     class="x-collapse-height"
     :class="{
-      'x-collapse-height--is-extended': isExtended
+      'x-collapse-height--is-collapsed': isCollapsed
     }"
   >
     <slot />
@@ -14,7 +14,7 @@
 
   export default defineComponent({
     props: {
-      isExtended: {
+      isCollapsed: {
         type: Boolean
       }
     }
@@ -24,20 +24,20 @@
 <style lang="scss" scoped>
   .x-collapse-height {
     display: grid;
-    grid-template-rows: 0fr;
+    grid-template-rows: 1fr;
     overflow: hidden;
     transition: grid-template-rows 0.35s;
 
     & > * {
       min-height: 0;
       transition: visibility 0.35s;
-      visibility: hidden;
+      visibility: visible;
     }
 
-    &--is-extended {
-      grid-template-rows: 1fr;
+    &--is-collapsed {
+      grid-template-rows: 0fr;
       & > * {
-        visibility: visible;
+        visibility: hidden;
       }
     }
   }

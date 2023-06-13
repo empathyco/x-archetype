@@ -1,5 +1,5 @@
 <template>
-  <CollapseHeigthAnimation :isExtended="hasScrolled">
+  <CollapseHeightAnimation :isCollapsed="hasScrolledPastThreshold">
     <MaxDesktopWidthItem>
       <DesktopSearchboxAlign>
         <div class="x-layout-item" :class="{ 'x-grid x-grid-cols-6': !isFullPredictive }">
@@ -16,14 +16,14 @@
         <SelectedFilters class="x-py-16" />
       </div>
     </MaxDesktopWidthItem>
-  </CollapseHeigthAnimation>
+  </CollapseHeightAnimation>
 </template>
 
 <script lang="ts">
   import { defineComponent } from 'vue';
   import { LocationProvider } from '@empathyco/x-components';
   import RelatedTags from '../search/related-tags.vue';
-  import CollapseHeigthAnimation from '../collapse-height-animation.vue';
+  import CollapseHeightAnimation from '../collapse-height-animation.vue';
   import IsScrollingUp from '../has-scroll-past-threshold.mixin';
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
   import DesktopSearchboxAlign from './desktop-searchbox-align.vue';
@@ -34,7 +34,7 @@
       MaxDesktopWidthItem,
       LocationProvider,
       RelatedTags,
-      CollapseHeigthAnimation,
+      CollapseHeightAnimation,
       DesktopToolbar,
       DesktopSearchboxAlign,
       SelectedFilters: () => import('../search').then(m => m.SelectedFilters)
