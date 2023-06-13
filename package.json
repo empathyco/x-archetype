@@ -14,7 +14,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run --env TAGS=\"not @skip\" --headless --browser chrome",
     "test:e2e": "start-server-and-test build:serve http://localhost:8080 cy:open",
-    "test:e2e:ci": "echo no test",
+    "test:e2e:ci": "start-server-and-test serve:dist http://localhost:8080 cy:run",
     "test": "npm run test:e2e:ci",
     "test:unit": "vue-cli-service test:unit",
     "lint": "eslint src tests --ext .ts,.tsx,.vue",
