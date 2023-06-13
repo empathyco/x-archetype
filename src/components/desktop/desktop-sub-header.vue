@@ -1,9 +1,6 @@
 <template>
-  <CollapseHeigthAnimation
-    class="x-layout-max-width-md desktop:x-layout-min-margin-32 large:x-layout-max-width-lg large:x-layout-min-margin-48"
-    :isExtended="hasScrolled"
-  >
-    <div class="x-layout__sub-header-content">
+  <CollapseHeigthAnimation :isExtended="hasScrolled">
+    <MaxDesktopWidthItem class="x-layout__sub-header-content">
       <DesktopSearchboxAlign>
         <div class="x-layout-item" :class="{ 'x-grid x-grid-cols-6': !isFullPredictive }">
           <LocationProvider location="predictive_layer">
@@ -18,7 +15,7 @@
       <div v-if="$x.totalResults > 0 && hasSearched && $x.selectedFilters.length">
         <SelectedFilters class="x-py-16" />
       </div>
-    </div>
+    </MaxDesktopWidthItem>
   </CollapseHeigthAnimation>
 </template>
 
@@ -26,13 +23,15 @@
   import { defineComponent } from 'vue';
   import { LocationProvider } from '@empathyco/x-components';
   import RelatedTags from '../search/related-tags.vue';
-  import CollapseHeigthAnimation from '../collapse-heigth-animation.vue';
-  import IsScrollingUp from '../is-scrolling-up.mixin';
+  import CollapseHeigthAnimation from '../collapse-height-animation.vue';
+  import IsScrollingUp from '../has-scroll-past-threshold.mixin';
+  import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
   import DesktopSearchboxAlign from './desktop-searchbox-align.vue';
   import DesktopToolbar from './desktop-toolbar.vue';
 
   export default defineComponent({
     components: {
+      MaxDesktopWidthItem,
       LocationProvider,
       RelatedTags,
       CollapseHeigthAnimation,

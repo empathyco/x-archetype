@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div>
-      <DesktopHeaderFullPredictive />
-    </div>
+    <DesktopHeaderFullPredictive />
 
     <DesktopSubHeader :hasSearched="hasSearched" :isFullPredictive="true" class="x-layout-item" />
   </div>

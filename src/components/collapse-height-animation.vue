@@ -1,8 +1,8 @@
 <template>
   <div
-    class="x-collapse"
+    class="x-collapse-height"
     :class="{
-      'x-collapse--is-extended': isExtended
+      'x-collapse-height--is-extended': isExtended
     }"
   >
     <slot />
@@ -22,7 +22,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .x-collapse {
+  .x-collapse-height {
     display: grid;
     grid-template-rows: 0fr;
     overflow: hidden;
