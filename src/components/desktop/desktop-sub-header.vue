@@ -41,9 +41,6 @@
     },
     mixins: [IsScrollingUp],
     props: {
-      hasScrolled: {
-        type: Boolean
-      },
       hasSearched: {
         type: Boolean
       },
