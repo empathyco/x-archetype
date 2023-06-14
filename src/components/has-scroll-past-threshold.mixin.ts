@@ -9,7 +9,6 @@ export default class IsScrollingUp extends Vue {
   protected hasScrolledPastThresholdFlag = false;
   protected scrollOffset = 100;
 
-
   @State('scroll', 'data')
   public scrollPositionsMap!: Dictionary<ScrollComponentState>;
   protected get mainScrollPosition(): number {
