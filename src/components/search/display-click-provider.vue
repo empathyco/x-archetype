@@ -16,6 +16,10 @@
       feature: {
         type: String as PropType<ResultFeature>,
         required: true
+      },
+      ignoreResultClickEvent: {
+        type: Boolean,
+        default: true
       }
     },
     setup(props) {
@@ -28,10 +32,12 @@
 
       provide('resultClickExtraEvents', ['UserClickedADisplayResult']);
       provide('resultLinkMetadataPerEvent', {
-        UserClickedAResult: {
-          ignoreInModules: ['tagging']
-        },
-        UserClickedADisplayResult: displayClickMetadata.value
+        UserClickedADisplayResult: displayClickMetadata.value,
+        ...(props.ignoreResultClickEvent && {
+          UserClickedAResult: {
+            ignoreInModules: ['tagging']
+          }
+        })
       });
     }
   });
