@@ -7,7 +7,7 @@ import { Watch } from 'vue-property-decorator';
 @Component
 export default class IsScrollingUp extends Vue {
   protected hasScrolledPastThresholdFlag = false;
-  protected scrollOffset = 200;
+  protected scrollOffset = 100;
 
   @State('scroll', 'data')
   public scrollPositionsMap!: Dictionary<ScrollComponentState>;

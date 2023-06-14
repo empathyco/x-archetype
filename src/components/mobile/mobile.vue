@@ -18,16 +18,13 @@
 
       <!-- Results -->
       <div class="x-flex x-flex-col">
-        <LocationProvider location="predictive_layer">
-          <RelatedTags class="x-pb-16" />
-        </LocationProvider>
+        <MobileSubHeader :has-searched="hasSearched" />
 
         <div v-if="$x.query.search && !$x.redirections.length" class="x-layout-item">
           <LocationProvider location="results">
             <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
           </LocationProvider>
           <NoResultsMessage class="x-mb-16" data-test="no-results-message" />
-          <MobileToolbar class="x-mb-16" />
         </div>
 
         <MainScroll>
@@ -97,7 +94,7 @@
   import MyHistoryAside from '../my-history/my-history-aside.vue';
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
   import MobileOpenAside from './mobile-open-aside.vue';
-  import MobileToolbar from './mobile-toolbar.vue';
+  import MobileSubHeader from './mobile-sub-header.vue';
 
   @Component({
     components: {
@@ -106,11 +103,11 @@
       CloseMainModal,
       CustomQueryPreview,
       LocationProvider,
+      MobileSubHeader,
       Main,
       MainScroll,
       MyHistoryAside,
       MobileOpenAside,
-      MobileToolbar,
       MyHistoryConfirmDisableModal,
       PredictiveLayer,
       Scroll,
@@ -118,7 +115,6 @@
       SearchBox,
       MobileAside: () => import('../search').then(m => m.MobileAside),
       NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
-      RelatedTags: () => import('../search').then(m => m.RelatedTags),
       SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage)
     }
   })
