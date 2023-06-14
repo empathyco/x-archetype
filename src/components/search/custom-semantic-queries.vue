@@ -20,7 +20,7 @@
               <ArrowRightIcon class="x-icon-lg" />
             </BaseEventButton>
           </template>
-          <DisplayClickProvider feature="semantics">
+          <DisplayClickProvider resultFeature="semantics">
             <div class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
               <Result
                 v-for="result in results"
