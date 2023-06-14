@@ -20,14 +20,16 @@
               <ArrowRightIcon class="x-icon-lg" />
             </SemanticQuery>
           </template>
-          <div class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
-            <Result
-              v-for="result in results"
-              :key="result.id"
-              :result="result"
-              class="x-w-[calc(38vw-16px)] desktop:x-w-[216px]"
-            />
-          </div>
+          <DisplayClickProvider resultFeature="semantics">
+            <div class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
+              <Result
+                v-for="result in results"
+                :key="result.id"
+                :result="result"
+                class="x-w-[calc(38vw-16px)] desktop:x-w-[216px]"
+              />
+            </div>
+          </DisplayClickProvider>
         </CustomSlidingPanel>
       </QueryPreviewList>
     </section>
@@ -41,11 +43,13 @@
   import { QueryPreviewList } from '@empathyco/x-components/queries-preview';
   import CustomSlidingPanel from '../custom-sliding-panel.vue';
   import Result from '../results/result.vue';
+  import DisplayClickProvider from './display-click-provider.vue';
 
   export default defineComponent({
     components: {
       ArrowRightIcon,
       CustomSlidingPanel,
+      DisplayClickProvider,
       QueryPreviewList,
       Result,
       SemanticQueries,
