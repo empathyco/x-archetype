@@ -85,6 +85,9 @@
     "totalResults": {
       "message": "{totalResults} results for {query}"
     },
+    "semanticQueries": {
+      "title": "Other similar products"
+    },
     "sort": {
       "label": "Sort by",
       "values": {

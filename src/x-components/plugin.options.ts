@@ -16,6 +16,12 @@ export const installXOptions: InstallXOptions = {
       config: {
         filtersStrategyForRequest: 'leaves-only'
       }
+    },
+    semanticQueries: {
+      config: {
+        threshold: 50,
+        maxItemsToRequest: 10
+      }
     }
   },
   async installExtraPlugins({ vue, snippet }) {
