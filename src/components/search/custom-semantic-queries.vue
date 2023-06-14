@@ -1,7 +1,10 @@
 <template>
   <SemanticQueries #default="{ queries, findSemanticQuery }">
     <section>
-      <h1 class="x-title x-title1-md x-my-64 x-text-center">
+      <h1
+        v-if="isAnyQueryLoadedInPreview(queries)"
+        class="x-title x-title1-md x-my-64 x-text-center"
+      >
         {{ $t('semanticQueries.title') }}
       </h1>
       <QueryPreviewList
@@ -40,7 +43,7 @@
   import { ArrowRightIcon } from '@empathyco/x-components';
   import { defineComponent } from 'vue';
   import { SemanticQueries, SemanticQuery } from '@empathyco/x-components/semantic-queries';
-  import { QueryPreviewList } from '@empathyco/x-components/queries-preview';
+  import { QueryPreviewList, useQueriesPreview } from '@empathyco/x-components/queries-preview';
   import CustomSlidingPanel from '../custom-sliding-panel.vue';
   import Result from '../results/result.vue';
   import DisplayClickProvider from './display-click-provider.vue';
@@ -54,6 +57,13 @@
       Result,
       SemanticQueries,
       SemanticQuery
+    },
+    setup() {
+      const { isAnyQueryLoadedInPreview } = useQueriesPreview();
+
+      return {
+        isAnyQueryLoadedInPreview
+      };
     }
   });
 </script>
