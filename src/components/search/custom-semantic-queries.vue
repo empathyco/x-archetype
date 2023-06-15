@@ -1,7 +1,10 @@
 <template>
-  <SemanticQueries #default="{ queries }">
+  <SemanticQueries #default="{ queries, findSemanticQuery }">
     <section>
-      <h1 class="x-title x-title1-md x-my-64 x-text-center">
+      <h1
+        v-if="isAnyQueryLoadedInPreview(queries)"
+        class="x-title x-title1-md x-my-64 x-text-center"
+      >
         {{ $t('semanticQueries.title') }}
       </h1>
       <QueryPreviewList
@@ -11,14 +14,14 @@
       >
         <CustomSlidingPanel>
           <template #header>
-            <BaseEventButton
-              :events="getEvent(query)"
+            <SemanticQuery
+              :suggestion="findSemanticQuery(query)"
               class="x-button-neutral x-button-tight x-button max-desktop:x-px-16"
             >
               {{ query }}
               ({{ totalResults }})
               <ArrowRightIcon class="x-icon-lg" />
-            </BaseEventButton>
+            </SemanticQuery>
           </template>
           <DisplayClickProvider resultFeature="semantics">
             <div class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
@@ -37,33 +40,29 @@
 </template>
 
 <script lang="ts">
-  import { ArrowRightIcon, BaseEventButton, XEventsTypes } from '@empathyco/x-components';
+  import { ArrowRightIcon } from '@empathyco/x-components';
   import { defineComponent } from 'vue';
-  import { SemanticQueries } from '@empathyco/x-components/semantic-queries';
-  import { QueryPreviewList } from '@empathyco/x-components/queries-preview';
+  import { SemanticQueries, SemanticQuery } from '@empathyco/x-components/semantic-queries';
+  import { QueryPreviewList, useQueriesPreview } from '@empathyco/x-components/queries-preview';
   import CustomSlidingPanel from '../custom-sliding-panel.vue';
   import Result from '../results/result.vue';
   import DisplayClickProvider from './display-click-provider.vue';
 
   export default defineComponent({
     components: {
-      DisplayClickProvider,
-      BaseEventButton,
       ArrowRightIcon,
       CustomSlidingPanel,
+      DisplayClickProvider,
       QueryPreviewList,
       Result,
-      SemanticQueries
+      SemanticQueries,
+      SemanticQuery
     },
     setup() {
-      const getEvent = (query: string): Partial<XEventsTypes> => {
-        return {
-          UserAcceptedAQuery: query
-        };
-      };
+      const { isAnyQueryLoadedInPreview } = useQueriesPreview();
 
       return {
-        getEvent
+        isAnyQueryLoadedInPreview
       };
     }
   });
