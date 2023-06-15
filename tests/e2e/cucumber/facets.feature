@@ -74,7 +74,6 @@ Feature: Facets component
       | shirt | 2            | brand     | 1             | fit     | macbook-13  |
       | shirt | 2            | brand     | 1             | fit     | iphone-x    |
 
-  @skip
   Scenario Outline: 5. Hierarchical filters selection
     Given start page with "<view>" size view
     When  search bar is clicked
