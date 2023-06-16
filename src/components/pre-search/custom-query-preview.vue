@@ -20,14 +20,16 @@
             <ArrowRightIcon class="x-icon-lg" />
           </BaseEventButton>
         </template>
-        <div class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
-          <Result
-            v-for="result in results"
-            :key="result.id"
-            :result="result"
-            class="x-w-[calc(38vw-16px)] desktop:x-w-[216px]"
-          />
-        </div>
+        <DisplayClickProvider resultFeature="brand_recommendations">
+          <div class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
+            <Result
+              v-for="result in results"
+              :key="result.id"
+              :result="result"
+              class="x-w-[calc(38vw-16px)] desktop:x-w-[216px]"
+            />
+          </div>
+        </DisplayClickProvider>
       </CustomSlidingPanel>
     </div>
   </QueryPreviewList>
@@ -47,10 +49,12 @@
   } from '@empathyco/x-components';
   import { default as Result } from '../results/result.vue';
   import CustomSlidingPanel from '../custom-sliding-panel.vue';
+  import DisplayClickProvider from '../search/display-click-provider.vue';
 
   @Component({
     components: {
       CustomSlidingPanel,
+      DisplayClickProvider,
       QueryPreview,
       Result,
       BaseEventButton,
