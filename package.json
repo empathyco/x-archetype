@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@empathyco/x-adapter": "^8.0.0-alpha.22",
-    "@empathyco/x-adapter-platform": "^1.0.0-alpha.77",
+    "@empathyco/x-adapter-platform": "^1.0.0-alpha.79",
     "@empathyco/x-archetype-utils": "^0.1.0-alpha.15",
     "@empathyco/x-components": "^3.0.0-alpha.388",
     "@empathyco/x-deep-merge": "^1.3.0-alpha.29",

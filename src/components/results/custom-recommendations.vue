@@ -8,15 +8,17 @@
     </h1>
     <Recommendations v-if="!$x.totalResults">
       <template #layout="{ recommendations }">
-        <BaseGrid
-          #default="{ item: result }"
-          :animation="staggeredFadeAndSlide"
-          :columns="columns"
-          :items="recommendations"
-          class="x-gap-y-32 x-gap-x-16"
-        >
-          <Result :result="result" data-test="recommendation-item" />
-        </BaseGrid>
+        <DisplayClickProvider resultFeature="recommendations">
+          <BaseGrid
+            #default="{ item: result }"
+            :animation="staggeredFadeAndSlide"
+            :columns="columns"
+            :items="recommendations"
+            class="x-gap-y-32 x-gap-x-16"
+          >
+            <Result :result="result" data-test="recommendation-item" />
+          </BaseGrid>
+        </DisplayClickProvider>
       </template>
     </Recommendations>
   </div>
@@ -27,11 +29,13 @@
   import { Recommendations } from '@empathyco/x-components/recommendations';
   import { computed, defineComponent } from 'vue';
   import { useDevice } from '../../composables/use-device.composable';
+  import DisplayClickProvider from '../search/display-click-provider.vue';
   import Result from './result.vue';
 
   export default defineComponent({
     components: {
       BaseGrid,
+      DisplayClickProvider,
       Recommendations,
       Result
     },

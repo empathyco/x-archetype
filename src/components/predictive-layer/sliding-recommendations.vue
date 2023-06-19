@@ -18,13 +18,15 @@
 
       <Recommendations class="x-flex x-flex-row x-gap-12 x-pl-16 desktop:x-pl-0">
         <template #default="{ recommendation }">
-          <Result
-            :result="recommendation"
-            data-test="recommendation-item"
-            :showDescription="false"
-            :showAddToCart="false"
-            class="x-w-[200px]"
-          />
+          <DisplayClickProvider resultFeature="recommendations">
+            <Result
+              :result="recommendation"
+              data-test="recommendation-item"
+              :showDescription="false"
+              :showAddToCart="false"
+              class="x-w-[200px]"
+            />
+          </DisplayClickProvider>
         </template>
       </Recommendations>
 
@@ -39,11 +41,13 @@
   import { Recommendations } from '@empathyco/x-components/recommendations';
   import { defineComponent } from 'vue';
   import Result from '../results/result.vue';
+  import DisplayClickProvider from '../search/display-click-provider.vue';
 
   export default defineComponent({
     components: {
       ChevronLeftIcon,
       ChevronRightIcon,
+      DisplayClickProvider,
       Recommendations,
       Result,
       SlidingPanel
