@@ -58,6 +58,7 @@ Then('a search request from {string} is done', (origin: string) => {
 
 // Results
 Then('related results are displayed', () => {
+  cy.getByDataTest('search-grid-result').eq(0).scrollIntoView();
   cy.getByDataTest('search-grid-result')
     .should('be.visible')
     .should('have.length.at.least', 1)
