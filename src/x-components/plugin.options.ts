@@ -6,11 +6,31 @@ import store from '../store';
 import { adapter } from '../adapter/adapter';
 import { useDevice } from '../composables/use-device.composable';
 
+console.log(process.env.NODE_ENV);
+
 const device = useDevice();
+
+function getDomElement(): Element {
+  const domElement = document.createElement('div');
+  if (process.env.NODE_ENV === 'production') {
+    const container = document.createElement('div');
+    const shadowRoot = container.attachShadow({ mode: 'open' });
+    shadowRoot.appendChild(domElement);
+    document.body.appendChild(container);
+    window.xCSSInjector.setHost(shadowRoot);
+  } else {
+    document.body.appendChild(domElement);
+    window.xCSSInjector.setHost(document.head);
+  }
+
+  return domElement;
+}
+
 export const installXOptions: InstallXOptions = {
   adapter,
   store,
   app: App,
+  domElement: getDomElement,
   xModules: {
     facets: {
       config: {
