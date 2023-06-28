@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face {
+    font-family: 'DUTTI';
+    src: url('../../public/fonts/DuttiW-Regular.woff2')
+}
