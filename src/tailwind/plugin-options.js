@@ -1,4 +1,10 @@
 /** @type {import('@empathyco/x-tailwindcss').PluginOptions} */
 module.exports = {
-  theme: {}
+  theme: {
+    extend: {
+      fontFamily: {
+        main: ['DUTTI']
+      }
+    }
+  }
 };
