@@ -14,23 +14,23 @@
     },
     "myHistory": {
       "title": "La mia cronologia",
-      "subtitle": "Questa e' la tua cronologia delle ricerche",
+      "subtitle": "Questa e' la tua cronologia ricerche",
       "message": {
         "header": "I dati vengono salvati localmente solo sul tuo dispositivo.",
-        "body": "Puoi disattivare la cronologia delle ricerche in qualsiasi momento.",
+        "body": "Puoi disattivare la cronologia ricerche in qualsiasi momento.",
         "footer": "La tua privacy sotto il tuo controllo."
       },
       "noHistory": "La cronologia e' vuota",
       "openButton": "Cronologia",
       "suggestionResults": "({totalResults} risultati)",
       "switch": {
-        "title": "Cronologia delle ricerche",
+        "title": "Cronologia ricerche",
         "enable": "Attiva",
         "disable": "Disattiva ed elimina"
       },
       "confirmDisableModal": {
-        "title": "Disattiva cronologia delle ricerche?",
-        "message": "Se disattivi la cronologia delle ricerche, le ricerche nella cronologia verranno eliminate.",
+        "title": "Disattiva cronologia ricerche?",
+        "message": "Se disattivi la cronologia ricerche, le ricerche nella cronologia verranno eliminate.",
         "dismiss": "Cancella",
         "confirm": "Disattiva"
       }
