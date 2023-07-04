@@ -80,7 +80,7 @@
       "from": "da {min}"
     },
     "toggleAside": {
-      "showAside": "Ordina & FIltra"
+      "showAside": "Ordina & Filtra"
     },
     "totalResults": {
       "message": "{totalResults} risultati per {query}"
