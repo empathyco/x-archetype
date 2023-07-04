@@ -9,7 +9,7 @@
 
     <ClearSearchInput
       v-if="isDesktopOrGreater && $x.query.searchBox"
-      class="x-button x-input-group-button x-input-group-button-rectangle"
+      class="x-input-group-button x-input-group-button-rectangle"
     >
       {{ $t('searchBox.clear') }}
     </ClearSearchInput>
