@@ -1,0 +1,132 @@
+{
+  "base": {
+    "searchBox": {
+      "clear": "Cancella",
+      "placeholder": "Cosa stai cercando?"
+    },
+    "popularSearches": {
+      "title": "Ricerche popolari"
+    },
+    "historyQueries": {
+      "clear": "Cancella tutto",
+      "removeLabel": "Elimina {suggestion} della cronologia",
+      "title": "Cronologia"
+    },
+    "myHistory": {
+      "title": "La mia cronologia",
+      "subtitle": "Questa e' la tua cronologia ricerche",
+      "message": {
+        "header": "I dati vengono salvati localmente solo sul tuo dispositivo.",
+        "body": "Puoi disattivare la cronologia ricerche in qualsiasi momento.",
+        "footer": "La tua privacy sotto il tuo controllo."
+      },
+      "noHistory": "La cronologia e' vuota",
+      "openButton": "Cronologia",
+      "suggestionResults": "({totalResults} risultati)",
+      "switch": {
+        "title": "Cronologia ricerche",
+        "enable": "Attiva",
+        "disable": "Disattiva ed elimina"
+      },
+      "confirmDisableModal": {
+        "title": "Disattiva cronologia ricerche?",
+        "message": "Se disattivi la cronologia ricerche, le ricerche nella cronologia verranno eliminate.",
+        "dismiss": "Cancella",
+        "confirm": "Disattiva"
+      }
+    },
+    "nextQueries": {
+      "title": "Potrebbe interessarti"
+    },
+    "nextQueriesGroup": {
+      "message": "Coloro che hanno cercato {query} hanno visto anche:"
+    },
+    "nextQueryPreview": {
+      "message": "Coloro che hanno cercato {query} hanno visto anche:",
+      "query": "{query}",
+      "totalResults": "({totalResults})",
+      "viewResults": "Mostra tutti i risultati"
+    },
+    "identifierResults": {
+      "title": "Ricerca SKU"
+    },
+    "recommendations": {
+      "title": "Top Cliccati"
+    },
+    "facets": {
+      "gender": "Genere",
+      "categoryPaths": "Categorie",
+      "price": "Prezzo",
+      "brand": "Marca",
+      "fit": "Fit"
+    },
+    "facetsPanel": {
+      "title": "ORDINA & FILTRA",
+      "viewResults": "MOSTRA {totalResults} RISULTATI"
+    },
+    "filters": {
+      "all": "Tutto",
+      "showMore": "Mostra di più",
+      "showLess": "Mostra di meno"
+    },
+    "partialResults": {
+      "query": "{query}",
+      "totalResults": "({totalResults})",
+      "viewResults": "Mostra tutti i risultati"
+    },
+    "priceFilter": {
+      "lessThan": "meno di {max}",
+      "fromTo": "{min} - {max}",
+      "from": "da {min}"
+    },
+    "toggleAside": {
+      "showAside": "Ordina & Filtra"
+    },
+    "totalResults": {
+      "message": "{totalResults} risultati per {query}"
+    },
+    "semanticQueries": {
+      "title": "Altri prodotti simili"
+    },
+    "sort": {
+      "label": "Ordina per",
+      "values": {
+        "price asc": "Prezzo: dal più basso al più alto",
+        "price desc": "Prezzo: dal più alto al più basso",
+        "default": "Rilevanza"
+      }
+    },
+    "selectedFilters": {
+      "clear": "RIMUOVI {selectedFiltersNumber} FILTRI"
+    },
+    "result": {
+      "addToCart": "AGGIUNGI AL CARRELLO"
+    },
+    "spellcheck": {
+      "message": "Nessun risultato trovato per '{query}'. Ecco i risultati per"
+    },
+    "noResults": {
+      "message": "Ci dispiace ma non abbiamo trovato alcun risultato per {query}Potresti essere interessato in questi prodotti"
+    },
+    "columnPicker": {
+      "message": "Visualizza"
+    },
+    "queryPreview": {
+      "viewResults": "Mostra tutti i risultati"
+    }
+  },
+  "mobile": {
+    "nextQueriesGroup": {
+      "message": "Coloro che hanno cercato {query} hanno visto anche:"
+    },
+    "nextQueryPreview": {
+      "viewResults": "Mostra tutti"
+    },
+    "totalResults": {
+      "message": "{totalResults} risultati"
+    },
+    "queryPreview": {
+      "viewResults": "Mostra tutti"
+    }
+  }
+}

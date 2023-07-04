@@ -7,7 +7,10 @@
       class="desktop:x-pl-24"
     />
 
-    <ClearSearchInput v-if="isDesktopOrGreater && $x.query.searchBox" class="x-input-group-button">
+    <ClearSearchInput
+      v-if="isDesktopOrGreater && $x.query.searchBox"
+      class="x-input-group-button x-input-group-button-rectangle"
+    >
       {{ $t('searchBox.clear') }}
     </ClearSearchInput>
 

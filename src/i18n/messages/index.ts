@@ -19,4 +19,5 @@ export const es = () => import('./es.messages.json');
 export const en = () => import('./en.messages.json');
 export const fr = () => import('./fr.messages.json');
 export const pt = () => import('./pt.messages.json');
+export const it = () => import('./it.messages.json');
 /* eslint-enable @typescript-eslint/explicit-function-return-type */
