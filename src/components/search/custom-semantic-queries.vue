@@ -3,7 +3,7 @@
     <section>
       <h1
         v-if="isAnyQueryLoadedInPreview(queries)"
-        class="x-title x-title1-md x-my-64 x-text-center"
+        class="x-title1 x-title1-md x-my-64 x-text-center"
       >
         {{ $t('semanticQueries.title') }}
       </h1>
