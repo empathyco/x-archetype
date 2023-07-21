@@ -4,12 +4,12 @@
       @EmpathizeOpened="handleEmpathizeEvent('EmpathizeOpened')"
       @EmpathizeClosed="handleEmpathizeEvent('EmpathizeClosed')"
       :animation="empathizeAnimation"
-      class="x-layout-item x-absolute x-z-[1] x-w-full x-bg-neutral-0 x-py-16"
+      class="x-layout-item x-absolute x-z-[1] x-w-full x-bg-neutral-0 x-py-4"
     >
       <MaxDesktopWidthItem>
-        <DesktopSearchboxAlign class="x-pl-[17px]">
+        <DesktopSearchboxAlign class="">
           <div class="x-layout-item">
-            <div v-if="showEmpathize || showIdentifierResults" class="x-h-full">
+            <div v-if="showEmpathize || showIdentifierResults" class="x-h-full x-py-12 x-pl-[17px]">
               <div class="x-block">
                 <BaseKeyboardNavigation
                   class="x-flex x-items-start x-gap-24"
