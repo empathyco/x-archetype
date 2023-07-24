@@ -1,12 +1,12 @@
 <template>
   <Empathize
     :animation="empathizeAnimation"
-    class="x-bg-neutral-0 desktop:x-z-[1] desktop:x-w-full desktop:x-py-16 desktop:x-pl-16"
+    class="x-bg-neutral-0 desktop:x-z-[1] desktop:x-w-full"
   >
     <component
       :is="isDesktopOrGreater ? 'div' : 'BaseScroll'"
       v-if="showEmpathize || showIdentifierResults"
-      class="x-h-full"
+      class="x-h-full desktop:x-my-16 desktop:x-ml-16"
     >
       <div class="x-layout-item desktop:x-block">
         <BaseKeyboardNavigation
