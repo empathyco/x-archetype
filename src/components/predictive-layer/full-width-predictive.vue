@@ -7,7 +7,7 @@
       class="x-layout-item x-absolute x-z-[1] x-w-full x-bg-neutral-0 x-py-4"
     >
       <MaxDesktopWidthItem>
-        <DesktopSearchboxAlign class="">
+        <DesktopSearchboxAlign>
           <div class="x-layout-item">
             <div v-if="showEmpathize || showIdentifierResults" class="x-h-full x-py-12 x-pl-[17px]">
               <div class="x-block">
