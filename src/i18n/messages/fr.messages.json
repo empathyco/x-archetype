@@ -113,6 +113,11 @@
     },
     "queryPreview": {
       "viewResults": "Voir tous les résultats"
+    },
+    "redirections": {
+      "title": "Votre recherche correspond à un endroit spécial de notre site, pour le visiter, vous êtes redirigé",
+      "accept": "Oui, redirigez-moi",
+      "reject": "Non, je reste ici"
     }
   },
   "mobile": {
