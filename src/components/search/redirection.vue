@@ -5,13 +5,15 @@
     delayInSeconds="5"
   >
     <p>
-      Your search matches a special place in our website, to visit it, your are being redirected
+      {{ $t('redirections.title') }}
     </p>
     <a :href="redirection.url">{{ redirection.url }}</a>
     <div class="x-mt-8 x-flex x-gap-32">
-      <button @click="abortRedirect" class="x-button-ghost x-button">No, I'll stay here</button>
+      <button @click="abortRedirect" class="x-button-ghost x-button">
+        {{ $t('redirections.reject') }}
+      </button>
       <button @click="redirect" class="x-button-lead x-button-ghost x-button">
-        Yes, redirect me
+        {{ $t('redirections.accept') }}
       </button>
     </div>
     <AutoProgressBar

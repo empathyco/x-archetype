@@ -115,4 +115,9 @@ export interface Messages {
   queryPreview: {
     viewResults: string;
   };
+  redirections: {
+    title: string;
+    accept: string;
+    reject: string;
+  };
 }
