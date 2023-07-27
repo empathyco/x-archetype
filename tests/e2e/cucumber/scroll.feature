@@ -1,4 +1,4 @@
-Feature: Scroll
+Feature: Scrolla
 
   Background:
     Given a results API with known results
