@@ -5,7 +5,7 @@
     <MainScroll class="x-flex x-flex-col">
       <Scroll id="main-scroll">
         <MaxDesktopWidthItem>
-          <div v-if="!$x.redirections.length && hasSearched">
+          <div v-if="hasSearched">
             <LocationProvider location="results">
               <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
             </LocationProvider>

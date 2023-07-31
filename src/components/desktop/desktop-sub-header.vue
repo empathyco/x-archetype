@@ -9,7 +9,7 @@
         </div>
       </DesktopSearchboxAlign>
 
-      <div v-if="!$x.redirections.length && hasSearched">
+      <div v-if="hasSearched">
         <DesktopToolbar />
       </div>
       <div v-if="$x.totalResults > 0 && hasSearched && $x.selectedFilters.length">
