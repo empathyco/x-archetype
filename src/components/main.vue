@@ -2,7 +2,7 @@
   <div v-if="hasSearched" class="x-flex x-flex-col">
     <Redirection />
 
-    <template v-if="!$x.redirections.length">
+    <template>
       <LocationProvider location="results">
         <Results />
       </LocationProvider>
