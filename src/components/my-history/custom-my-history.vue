@@ -38,15 +38,7 @@
         </template>
       </MyHistory>
 
-      <div v-else class="x-flex x-flex-1 x-flex-col x-items-center">
-        <NoHistoryIcon
-          class="x-flex-no-shrink"
-          :class="{ 'x-grayscale': !$x.isHistoryQueriesEnabled }"
-        />
-        <p class="x-title3 x-py-16 x-text-neutral-75">
-          {{ $t('myHistory.noHistory') }}
-        </p>
-      </div>
+      <div v-else />
     </BaseIdModalClose>
   </div>
 </template>
@@ -60,7 +52,6 @@
   } from '@empathyco/x-components';
   import { MyHistory, HistoryQuery } from '@empathyco/x-components/history-queries';
   import { defineComponent } from 'vue';
-  import NoHistoryIcon from './no-history-icon.vue';
 
   export default defineComponent({
     components: {
@@ -68,7 +59,6 @@
       CrossTinyIcon,
       HistoryIcon,
       MyHistory,
-      NoHistoryIcon,
       HistoryQuery
     },
     setup() {

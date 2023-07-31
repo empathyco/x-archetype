@@ -103,7 +103,7 @@
       "addToCart": "AJOUTER AU PANIER"
     },
     "spellcheck": {
-      "message": "Aucun résultat trouvé pour '{query}'. Nous vous montrons les résultats pour"
+      "message": "Aucun résultat trouvé pour {query} Nous vous montrons les résultats pour"
     },
     "noResults": {
       "message": "Désolé mais il n'y a pas de résultats pour {query}Vous pourriez être intéressé par ces produits"

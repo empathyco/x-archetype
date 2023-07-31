@@ -48,7 +48,6 @@ const instance = popFromURLParameters('instance') || 'empathy';
 const env = getEnv();
 const scope = popFromURLParameters('scope') || 'desktop';
 const lang = popFromURLParameters('lang') || 'en';
-const device = popFromURLParameters('device') || 'mobile';
 const uiLang = popFromURLParameters('uiLang') || lang;
 const currency = popFromURLParameters('currency') || 'EUR';
 const consent = popFromURLParameters('consent') !== 'false';
@@ -63,7 +62,6 @@ window.initX = {
   env,
   scope,
   lang,
-  device,
   uiLang,
   currency,
   consent,

@@ -103,7 +103,7 @@
       "addToCart": "ADICIONAR AO CARRINHO"
     },
     "spellcheck": {
-      "message": "Sem resultados encontrados para '{query}'. Aqui estão os resultados para"
+      "message": "Sem resultados encontrados para {query} Aqui estão os resultados para"
     },
     "noResults": {
       "message": "Não encontramos resultados para{query} Talvez você pode se interessar por esses produtos"

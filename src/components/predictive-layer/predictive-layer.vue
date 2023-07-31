@@ -33,7 +33,7 @@
             </BaseIdModalOpen>
             <div v-if="showHistoryQueries" class="x-flex x-flex-col x-gap-4">
               <div v-if="!$x.query.searchBox" class="x-flex x-items-center">
-                <h1 class="x-title4 x-title4-sm x-flex-1 x-uppercase">
+                <h1 class="x-title4 x-title4-sm x-flex-1 x-uppercase x-text-neutral-90">
                   {{ $t('historyQueries.title') }}
                 </h1>
                 <ClearHistoryQueries class="x-button-neutral x-button-sm x-button-tight x-px-8">
