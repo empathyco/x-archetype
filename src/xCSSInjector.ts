@@ -22,4 +22,4 @@ class CssInjector implements XCSSInjector {
   }
 }
 
-window.xCSSInjector = new CssInjector();
+(window as typeof window & { xCSSInjector: XCSSInjector }).xCSSInjector = new CssInjector();

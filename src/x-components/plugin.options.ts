@@ -5,6 +5,7 @@ import * as messages from '../i18n/messages';
 import store from '../store';
 import { adapter } from '../adapter/adapter';
 import { useDevice } from '../composables/use-device.composable';
+import { XCSSInjector } from '../shims-tsx';
 
 const device = useDevice();
 export const installXOptions: InstallXOptions = {
@@ -42,17 +43,24 @@ export const installXOptions: InstallXOptions = {
   }
 };
 
+/**
+ * Creates a DOM element to mount the X Components app.
+ *
+ * @returns The DOM element.
+ */
 function getDomElement(): Element {
   const domElement = document.createElement('div');
+  // eslint-disable-next-line no-constant-condition
   if (process.env.NODE_ENV === 'production' || true) {
     const container = document.createElement('div');
     const shadowRoot = container.attachShadow({ mode: 'open' });
     shadowRoot.appendChild(domElement);
     document.body.appendChild(container);
-    window.xCSSInjector.setHost(shadowRoot);
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    (window as typeof window & { xCSSInjector: XCSSInjector }).xCSSInjector.setHost(shadowRoot);
   } else {
     document.body.appendChild(domElement);
-    window.xCSSInjector.setHost(document.head);
+    (window as typeof window & { xCSSInjector: XCSSInjector }).xCSSInjector.setHost(document.head);
   }
 
   return domElement;
