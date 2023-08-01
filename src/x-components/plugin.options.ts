@@ -11,6 +11,7 @@ export const installXOptions: InstallXOptions = {
   adapter,
   store,
   app: App,
+  domElement: getDomElement,
   xModules: {
     facets: {
       config: {
@@ -40,3 +41,19 @@ export const installXOptions: InstallXOptions = {
     };
   }
 };
+
+function getDomElement(): Element {
+  const domElement = document.createElement('div');
+  if (process.env.NODE_ENV === 'production' || true) {
+    const container = document.createElement('div');
+    const shadowRoot = container.attachShadow({ mode: 'open' });
+    shadowRoot.appendChild(domElement);
+    document.body.appendChild(container);
+    window.xCSSInjector.setHost(shadowRoot);
+  } else {
+    document.body.appendChild(domElement);
+    window.xCSSInjector.setHost(document.head);
+  }
+
+  return domElement;
+}
