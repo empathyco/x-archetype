@@ -76,7 +76,7 @@
       return this.queriesPreviewInfo.map(item => item.query);
     }
 
-    protected get injectedParams(): Dictionary[] {
+    protected get injectedParams(): Dictionary<unknown>[] {
       return this.queriesPreviewInfo.map(item => item.extraParams ?? {});
     }
 
@@ -85,8 +85,10 @@
     }
 
     protected getEvent(query: string): Partial<XEventsTypes> {
+      const queryIndex = this.queries.indexOf(query);
       return {
-        UserAcceptedAQuery: query
+        UserAcceptedAQuery: query,
+        UserChangedExtraParams: this.injectedParams[queryIndex]
       };
     }
   }
