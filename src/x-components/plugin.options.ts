@@ -12,7 +12,7 @@ const device = useDevice();
 
 function getDomElement(): Element {
   const domElement = document.createElement('div');
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production' || true) {
     const container = document.createElement('div');
     const shadowRoot = container.attachShadow({ mode: 'open' });
     shadowRoot.appendChild(domElement);
