@@ -3,6 +3,7 @@
     v-if="!$x.query.searchBox && queriesPreviewInfo"
     :debounceTimeMs="250"
     :queries="queries"
+    :injectedParams="injectedParams"
     #default="{ query, totalResults, results }"
   >
     <div class="x-mb-40 x-flex x-flex-col x-gap-2 desktop:x-mb-64 desktop:x-gap-16">
@@ -47,6 +48,7 @@
     ItemsList,
     ArrowRightIcon
   } from '@empathyco/x-components';
+  import { Dictionary } from '@empathyco/x-utils';
   import { default as Result } from '../results/result.vue';
   import CustomSlidingPanel from '../custom-sliding-panel.vue';
   import DisplayClickProvider from '../search/display-click-provider.vue';
@@ -72,6 +74,10 @@
 
     protected get queries(): string[] {
       return this.queriesPreviewInfo.map(item => item.query);
+    }
+
+    protected get injectedParams(): Dictionary[] {
+      return this.queriesPreviewInfo.map(item => item.extraParams ?? {});
     }
 
     protected getTitle(query: string): string {

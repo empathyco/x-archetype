@@ -73,11 +73,13 @@ window.initX = {
   queriesPreview: [
     {
       query: 'sunglasses',
-      title: 'Sunshine ready'
+      title: 'Sunshine ready',
+      extraParams: {store:'gijón'}
     },
     {
       query: 'marni summer dress',
-      title: 'Summer dresses by Marni'
+      title: 'Summer dresses by Marni',
+      extraParams: {store:'barcelona'}
     },
     {
       query: 'woven hat',
