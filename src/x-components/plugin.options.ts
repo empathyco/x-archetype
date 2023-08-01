@@ -51,7 +51,7 @@ export const installXOptions: InstallXOptions = {
 function getDomElement(): Element {
   const domElement = document.createElement('div');
   // eslint-disable-next-line no-constant-condition
-  if (process.env.NODE_ENV === 'production' || true) {
+  if (process.env.NODE_ENV === 'production') {
     const container = document.createElement('div');
     const shadowRoot = container.attachShadow({ mode: 'open' });
     shadowRoot.appendChild(domElement);
