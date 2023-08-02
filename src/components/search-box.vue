@@ -58,7 +58,7 @@
       const { isDesktopOrGreater } = useDevice();
       const $x = use$x();
       const snippetConfig: SnippetConfig = inject('snippetConfig') as SnippetConfig;
-      const extraParamsToInclude = ['device', 'env', 'instance', 'lang', 'en', 'scope', 'scroll'];
+      const extraParamsToInclude = ['device', 'env', 'instance', 'lang', 'en', 'scope', 'store'];
       let initialParams: Dictionary = {};
 
       const resetExtraParams = (): XEventsTypes | void => {
