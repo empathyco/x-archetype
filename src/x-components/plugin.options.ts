@@ -1,11 +1,10 @@
-import { InstallXOptions } from '@empathyco/x-components';
-import { I18n } from '@empathyco/x-archetype-utils';
+import { InstallXOptions, SnippetConfig } from '@empathyco/x-components';
+import { I18n, cssInjector } from '@empathyco/x-archetype-utils';
 import App from '../App.vue';
 import * as messages from '../i18n/messages';
 import store from '../store';
 import { adapter } from '../adapter/adapter';
 import { useDevice } from '../composables/use-device.composable';
-import { XCSSInjector } from '../shims-tsx';
 
 const device = useDevice();
 export const installXOptions: InstallXOptions = {
@@ -46,21 +45,21 @@ export const installXOptions: InstallXOptions = {
 /**
  * Creates a DOM element to mount the X Components app.
  *
+ * @param root0
  * @returns The DOM element.
  */
-function getDomElement(): Element {
+function getDomElement({ isolate }: SnippetConfig): Element {
   const domElement = document.createElement('div');
   // eslint-disable-next-line no-constant-condition
-  if (process.env.NODE_ENV === 'production') {
+  if (isolate || process.env.NODE_ENV === 'production') {
     const container = document.createElement('div');
     const shadowRoot = container.attachShadow({ mode: 'open' });
     shadowRoot.appendChild(domElement);
     document.body.appendChild(container);
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    (window as typeof window & { xCSSInjector: XCSSInjector }).xCSSInjector.setHost(shadowRoot);
+    cssInjector.setHost(shadowRoot);
   } else {
     document.body.appendChild(domElement);
-    (window as typeof window & { xCSSInjector: XCSSInjector }).xCSSInjector.setHost(document.head);
+    cssInjector.setHost(document.head);
   }
 
   return domElement;
