@@ -72,18 +72,19 @@ window.initX = {
   ...URLParameters,
   queriesPreview: [
     {
-      query: 'sunglasses',
+      query: 'cortina',
       title: 'Sunshine ready',
-      extraParams: {store:'gijón'}
+      extraParams: { store: 'gijón', instance: 'lolahome', lang: 'es' }
     },
     {
       query: 'marni summer dress',
       title: 'Summer dresses by Marni',
-      extraParams: {store:'barcelona'}
+      extraParams: { store: 'barcelona' }
     },
     {
       query: 'woven hat',
-      title: 'Elegant Sunshield'
+      title: 'Elegant Sunshield',
+      extraParams: { instance: 'electrocosto', lang: 'es' }
     }
   ]
 };
