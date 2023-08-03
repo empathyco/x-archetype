@@ -1,6 +1,6 @@
 <template>
   <div class="x-flex x-flex-col x-gap-4">
-    <h1 class="x-title4 x-title4-sm x-py-8 x-uppercase x-text-neutral-90 desktop:x-p-0">
+    <h1 class="x-title4 x-title4-sm x-py-8 x-uppercase desktop:x-p-0">
       {{ $t('nextQueries.title') }}
     </h1>
     <NextQueries

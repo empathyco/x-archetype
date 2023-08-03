@@ -1,6 +1,6 @@
 <template>
   <div class="x-flex x-flex-col x-gap-4">
-    <h1 class="x-title4 x-title4-sm x-uppercase x-text-neutral-90">
+    <h1 class="x-title4 x-title4-sm x-uppercase">
       {{ $t('popularSearches.title') }}
     </h1>
     <PopularSearches

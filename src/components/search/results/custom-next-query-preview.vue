@@ -5,11 +5,7 @@
     :suggestion="nextQuery"
     :maxItemsToRender="maxItemsToRender"
   >
-    <i18n
-      class="x-text1 x-text1-lg x-text-neutral-90 max-desktop:x-px-16"
-      tag="span"
-      path="nextQueryPreview.message"
-    >
+    <i18n class="x-text1 x-text1-lg max-desktop:x-px-16" tag="span" path="nextQueryPreview.message">
       <template #query>
         <span class="x-title3">{{ $x.query.nextQueries }}</span>
       </template>

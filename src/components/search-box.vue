@@ -16,7 +16,7 @@
 
     <SearchButton
       v-if="isDesktopOrGreater || !$x.query.searchBox"
-      class="x-input-group-button-primary x-bg-neutral-90"
+      class="x-input-group-button-primary"
     >
       <SearchIcon class="x-icon-md" />
     </SearchButton>

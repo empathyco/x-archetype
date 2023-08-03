@@ -1,6 +1,6 @@
 <template>
   <div class="x-flex x-items-center x-gap-8">
-    <span class="x-title4 x-text-neutral-90">{{ $t('columnPicker.message') }}</span>
+    <span class="x-title4">{{ $t('columnPicker.message') }}</span>
     <BaseColumnPickerList
       :columns="values"
       buttonClass="x-button-sm x-button-circle x-button-ghost x-text-neutral-90"
