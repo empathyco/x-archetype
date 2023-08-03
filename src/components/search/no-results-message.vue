@@ -1,7 +1,7 @@
 <template>
   <i18n
     v-if="$x.noResults"
-    class="x-no-results-message x-text1 x-mt-24 x-flex x-items-center x-break-words x-bg-neutral-10 x-py-8 x-text-center desktop:x-flex-wrap desktop:x-justify-center desktop:x-gap-8 desktop:x-text1-lg desktop:x-py-24"
+    class="x-no-results-message x-text1 x-mt-24 x-flex x-items-center x-break-words x-bg-neutral-10 x-py-8 x-text-center x-text-neutral-90 desktop:x-flex-wrap desktop:x-justify-center desktop:x-gap-8 desktop:x-text1-lg desktop:x-py-24"
     path="noResults.message"
     :class="{ 'x-flex-col': isTabletOrLess }"
   >
