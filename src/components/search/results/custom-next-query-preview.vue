@@ -18,7 +18,7 @@
       <template #header>
         <NextQuery
           :suggestion="nextQuery"
-          class="x-button-tight x-button x-text-lead-50 max-desktop:x-px-16"
+          class="x-button-lead x-button-tight x-button max-desktop:x-px-16"
         >
           {{ $t('nextQueryPreview.query', { query: suggestion.query }) }}
           {{ $t('nextQueryPreview.totalResults', { totalResults }) }}
