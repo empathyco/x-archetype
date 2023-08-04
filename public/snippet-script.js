@@ -28,7 +28,7 @@ const popFromURLParameters = popURLParameter.bind(this, URLParameters);
 function getEnv() {
   const env = popFromURLParameters('env');
   const envsDict = {
-    live: undefined,
+    live: '',
     staging: 'staging',
     test: 'staging'
   };
