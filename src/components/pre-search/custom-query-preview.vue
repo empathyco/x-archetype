@@ -87,11 +87,7 @@
     protected getEvent(query: string): Partial<XEventsTypes> {
       const queryIndex = this.queries.indexOf(query);
       return {
-        UserAcceptedAQueryPreview: {
-          query: query,
-          page: 1,
-          extraParams: this.injectedParams[queryIndex]
-        }
+        UserAcceptedAQueryPreview: { query, extraParams: this.injectedParams[queryIndex] }
       };
     }
   }

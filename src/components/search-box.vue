@@ -35,13 +35,7 @@
 
 <script lang="ts">
   import { ClearSearchInput, SearchButton, SearchInput } from '@empathyco/x-components/search-box';
-  import {
-    CrossTinyIcon,
-    SearchIcon,
-    SnippetConfig,
-    use$x,
-    XEventsTypes
-  } from '@empathyco/x-components';
+  import { CrossTinyIcon, SearchIcon, SnippetConfig, use$x } from '@empathyco/x-components';
   import { defineComponent, inject } from 'vue';
   import { Dictionary } from '@empathyco/x-utils';
   import { useDevice } from '../composables/use-device.composable';
@@ -55,13 +49,14 @@
       SearchIcon
     },
     setup() {
+      /** TODO: Rethink this, try to not need to inject Snippet here. */
       const { isDesktopOrGreater } = useDevice();
       const $x = use$x();
       const snippetConfig: SnippetConfig = inject('snippetConfig') as SnippetConfig;
       const extraParamsToInclude = ['device', 'env', 'instance', 'lang', 'scope', 'store'];
       let initialParams: Dictionary = {};
 
-      const resetExtraParams = (): XEventsTypes | void => {
+      const resetExtraParams = (): void => {
         console.log('delete');
         console.log(snippetConfig);
 
@@ -71,7 +66,7 @@
           }
         }
         console.log(initialParams);
-        return $x.emit('UserChangedExtraParams', { ...initialParams });
+        $x.emit('UserChangedExtraParams', { ...initialParams });
       };
 
       return {

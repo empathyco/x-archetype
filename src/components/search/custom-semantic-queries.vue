@@ -7,8 +7,10 @@
       >
         {{ $t('semanticQueries.title') }}
       </h1>
+      <!-- TODO: we should not need to pass injectedParams here -->
       <QueryPreviewList
         :queries="queries"
+        :injectedParams="false"
         #default="{ query, results, totalResults }"
         class="x-flex x-flex-col x-gap-64"
       >
