@@ -46,7 +46,8 @@
     XEventsTypes,
     XInject,
     ItemsList,
-    ArrowRightIcon
+    ArrowRightIcon,
+    State
   } from '@empathyco/x-components';
   import { Dictionary } from '@empathyco/x-utils';
   import { default as Result } from '../results/result.vue';
@@ -80,6 +81,9 @@
       return this.queriesPreviewInfo.map(item => item.extraParams ?? {});
     }
 
+    @State('search', 'params')
+    public params!: Dictionary<unknown>;
+
     protected getTitle(query: string): string {
       return this.queriesPreviewInfo.find(item => item.query === query)?.title ?? '';
     }
@@ -87,7 +91,10 @@
     protected getEvent(query: string): Partial<XEventsTypes> {
       const queryIndex = this.queries.indexOf(query);
       return {
-        UserAcceptedAQueryPreview: { query, extraParams: this.injectedParams[queryIndex] }
+        UserAcceptedAQueryPreview: {
+          query: query,
+          extraParams: { ...this.params, ...this.injectedParams[queryIndex] }
+        }
       };
     }
   }
