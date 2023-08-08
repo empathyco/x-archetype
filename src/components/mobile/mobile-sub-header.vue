@@ -4,7 +4,7 @@
       <LocationProvider location="predictive_layer">
         <RelatedTags class="x-pb-16" />
       </LocationProvider>
-      <div v-if="$x.query.search && !$x.redirections.length">
+      <div v-if="($x.query.search || hasSearched) && !$x.redirections.length">
         <MobileToolbar class="x-mb-16" />
       </div>
     </div>
