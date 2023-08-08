@@ -48,7 +48,7 @@ const instance = popFromURLParameters('instance') || 'empathy';
 const env = getEnv();
 const scope = popFromURLParameters('scope') || 'desktop';
 const lang = popFromURLParameters('lang') || 'en';
-const device = popFromURLParameters('device') || 'mobile';
+const device = popFromURLParameters('device') || undefined;
 const uiLang = popFromURLParameters('uiLang') || lang;
 const currency = popFromURLParameters('currency') || 'EUR';
 const consent = popFromURLParameters('consent') !== 'false';

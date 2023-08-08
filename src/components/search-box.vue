@@ -18,7 +18,7 @@
       v-if="isDesktopOrGreater || !$x.query.searchBox"
       class="x-input-group-button-primary"
     >
-      <SearchIcon class="x-icon-lg" />
+      <SearchIcon class="x-icon-md" />
     </SearchButton>
 
     <ClearSearchInput v-else class="x-input-group-button-primary">
