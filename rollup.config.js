@@ -19,5 +19,13 @@ export default createConfig({
   },
   plugins: {
     // Modify plugins options here.
+    replace: {
+      // Replace X CSS injector by our custom one.
+      'addStyle(id, style);': 'window.xCSSInjector.addStyle(style);',
+      delimiters: ['', '']
+    },
+    styles: {
+      mode: ['inject', varname => `window.xCSSInjector.addStyle({ source: ${varname} });`]
+    }
   }
 });
