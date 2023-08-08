@@ -20,7 +20,7 @@
       <div class="x-flex x-flex-col">
         <MobileSubHeader :has-searched="hasSearched" />
 
-        <div v-if="$x.query.search && !$x.redirections.length" class="x-layout-item">
+        <div v-if="!$x.redirections.length && hasSearched" class="x-layout-item">
           <LocationProvider location="results">
             <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
           </LocationProvider>
