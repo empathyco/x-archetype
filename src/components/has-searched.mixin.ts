@@ -12,9 +12,4 @@ export default class HasSearchedMixin extends Vue {
       this.hasSearched = true;
     }
   }
-
-  @XOn('UserClearedQuery')
-  close(): void {
-    this.hasSearched = false;
-  }
 }
