@@ -101,11 +101,11 @@ type AddPreviousParam<Functions extends Record<keyof Functions, AnyFunction>> = 
 type CypressCommandOptions = Partial<Loggable & Timeoutable & Withinable & Shadow>;
 
 const customCommands: CustomCommands = {
-  searchQuery: query => cy.typeQuery(query).type('{enter}'),
+  searchQuery: query => cy.typeQuery(query).type('{enter}', { force: true }),
   searchQueries: (...queries) => {
     queries.forEach(query => {
-      cy.getByDataTest('search-input').clear();
-      cy.typeQuery(query).type('{enter}');
+      cy.getByDataTest('search-input').clear({ force: true });
+      cy.typeQuery(query).type('{enter}', { force: true });
     });
   },
   typeQuery: query => cy.getByDataTest('search-input').type(query, { force: true }),
