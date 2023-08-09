@@ -103,7 +103,7 @@
       "addToCart": "ADD TO CART"
     },
     "spellcheck": {
-      "message": "No results found for '{query}'. We show you results for"
+      "message": "No results found for {query} We show you results for"
     },
     "noResults": {
       "message": "Sorry but there are no results for {query}You may be interested in these products"

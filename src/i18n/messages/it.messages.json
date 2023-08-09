@@ -103,7 +103,7 @@
       "addToCart": "AGGIUNGI AL CARRELLO"
     },
     "spellcheck": {
-      "message": "Nessun risultato trovato per '{query}'. Ecco i risultati per"
+      "message": "Nessun risultato trovato per {query} Ecco i risultati per"
     },
     "noResults": {
       "message": "Ci dispiace ma non abbiamo trovato alcun risultato per {query}Potresti essere interessato in questi prodotti"

@@ -13,7 +13,7 @@
         <template #header>
           <BaseEventButton
             :events="getEvent(query)"
-            class="x-button-neutral x-button-tight x-button max-desktop:x-px-16"
+            class="x-button-lead x-button-tight x-button max-desktop:x-px-16"
           >
             {{ query }}
             ({{ totalResults }})

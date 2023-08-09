@@ -12,7 +12,10 @@
     </i18n>
     <CustomSlidingPanel>
       <template #header>
-        <NextQuery :suggestion="nextQuery" class="x-button-tight x-button max-desktop:x-px-16">
+        <NextQuery
+          :suggestion="nextQuery"
+          class="x-button-lead x-button-tight x-button max-desktop:x-px-16"
+        >
           {{ $t('nextQueryPreview.query', { query: suggestion.query }) }}
           {{ $t('nextQueryPreview.totalResults', { totalResults }) }}
           <ArrowRightIcon class="x-icon-lg" />
