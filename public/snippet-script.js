@@ -44,6 +44,12 @@ function getEnv() {
   return undefined;
 }
 
+function getIsolationStrategy() {
+  const isolation = popFromURLParameters('isolation');
+
+  return isolation === undefined ? undefined : isolation === 'true';
+}
+
 const instance = popFromURLParameters('instance') || 'empathy';
 const env = getEnv();
 const scope = popFromURLParameters('scope') || 'desktop';
@@ -54,6 +60,7 @@ const currency = popFromURLParameters('currency') || 'EUR';
 const consent = popFromURLParameters('consent') !== 'false';
 const documentDirection = popFromURLParameters('doc-dir') || 'ltr';
 const store = popFromURLParameters('store') || undefined;
+const isolate = getIsolationStrategy();
 popFromURLParameters('query'); // prevent the query from be included as extra param
 popFromURLParameters('filter'); // Prevent the filters to be included as extra param
 
@@ -69,6 +76,7 @@ window.initX = {
   consent,
   documentDirection,
   store,
+  isolate,
   ...URLParameters,
   queriesPreview: [
     {

@@ -14,12 +14,14 @@ Then('search bar is clicked', () => {
 
 // Search
 When('a {string} is typed', (query: string) => {
+  cy.getByDataTest('search-input').should('exist').click();
   cy.typeQuery(query).then(() => {
     cy.getByDataTest('search-input').invoke('val').as('searchedQuery');
   });
 });
 
 When('{string} is searched', (query: string) => {
+  cy.getByDataTest('search-input').should('exist').click();
   cy.searchQuery(query).then(() => {
     cy.getByDataTest('search-input').invoke('val').as('searchedQuery');
   });
