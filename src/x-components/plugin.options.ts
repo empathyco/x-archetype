@@ -45,12 +45,12 @@ export const installXOptions: InstallXOptions = {
 /**
  * Creates a DOM element to mount the X Components app.
  *
- * @param root0
+ * @param snippetConfig - The snippet configuration.
  * @returns The DOM element.
  */
 function getDomElement({ isolate }: SnippetConfig): Element {
   const domElement = document.createElement('div');
-  // eslint-disable-next-line no-constant-condition
+
   if (isolate || process.env.NODE_ENV === 'production') {
     const container = document.createElement('div');
     const shadowRoot = container.attachShadow({ mode: 'open' });
