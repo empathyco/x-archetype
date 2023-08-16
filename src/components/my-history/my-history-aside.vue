@@ -42,13 +42,15 @@
         <HistoryQueriesSwitch />
       </section>
 
-      <CustomMyHistory />
+      <LocationProvider location="my_history">
+        <CustomMyHistory />
+      </LocationProvider>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-  import { BaseIdModalClose, CrossIcon } from '@empathyco/x-components';
+  import { BaseIdModalClose, CrossIcon, LocationProvider } from '@empathyco/x-components';
   import { HistoryQueriesSwitch } from '@empathyco/x-components/history-queries';
   import { defineComponent, onMounted } from 'vue';
   import { useDevice } from '../../composables/use-device.composable';
@@ -59,7 +61,8 @@
       CrossIcon,
       BaseIdModalClose,
       CustomMyHistory,
-      HistoryQueriesSwitch
+      HistoryQueriesSwitch,
+      LocationProvider
     },
     setup() {
       const { isTabletOrLess } = useDevice();
