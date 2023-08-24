@@ -81,3 +81,7 @@ Then('related results have changed', () => {
       .as('resultsList');
   });
 });
+
+Then('subheader is not visible', () => {
+  cy.getByDataTest('sub-header').should('not.be.visible');
+});

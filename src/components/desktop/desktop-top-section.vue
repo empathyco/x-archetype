@@ -2,7 +2,12 @@
   <div>
     <DesktopHeaderFullPredictive />
 
-    <DesktopSubHeader :hasSearched="hasSearched" :isFullPredictive="true" class="x-layout-item" />
+    <DesktopSubHeader
+      data-test="sub-header"
+      :hasSearched="hasSearched"
+      :isFullPredictive="true"
+      class="x-layout-item"
+    />
   </div>
 </template>
 

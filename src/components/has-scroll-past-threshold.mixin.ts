@@ -23,11 +23,8 @@ export default class IsScrollingUp extends Vue {
     if (mainScrollData?.hasReachedStart) {
       this.hasScrolledPastThresholdFlag = false;
       return;
-    }
-
-    if (mainScrollData?.hasAlmostReachedEnd) {
+    } else {
       this.hasScrolledPastThresholdFlag = true;
-      return;
     }
 
     const isScrollingUp = mainScrollData?.direction === 'UP';

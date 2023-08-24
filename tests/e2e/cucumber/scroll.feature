@@ -25,3 +25,15 @@ Feature: Scroll
       | query | view        | resultId     |
       | shirt | macbook-13  | result-12    |
       | shirt | iphone-x    | result-12    |
+
+  Scenario Outline: 2. Scroll position is at end and toolbar is hidden
+    Given start page with "<view>" size view
+    When  search bar is clicked
+    And   "<query>" is searched
+    Then  related results are displayed
+    When  scrolling down to the bottom
+    Then  subheader is not visible
+
+    Examples:
+      | query | view        |
+      | shirt | macbook-13  |

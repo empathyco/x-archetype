@@ -19,7 +19,7 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "eslint src tests --ext .ts,.tsx,.vue",
     "lint:fix": "npm run lint -- --fix",
-    "install:local": "npm install file:../x/packages/x-components/empathyco-x-components-3.0.0-alpha.378.tgz --no-save",
+    "install:local": "npm install file:../x/packages/x-components/empathyco-x-components-3.0.0-alpha.400.tgz --no-save",
     "install:adapter-platform:local": "npm install file:../x/packages/x-adapter-platform/empathyco-x-adapter-platform-1.0.0-alpha.73.tgz --no-save",
     "install:types:local": "npm install file:../x/packages/x-types/empathyco-x-types-10.0.0-alpha.68.tgz",
     "install:utils:local": "npm install file:../x/packages/x-archetype-utils/empathyco-x-archetype-utils-0.1.0-alpha.20.tgz --no-save",
