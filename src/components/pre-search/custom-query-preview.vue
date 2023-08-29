@@ -1,6 +1,6 @@
 <template>
   <QueryPreviewList
-    v-if="!$x.query.searchBox && queriesPreviewInfo"
+    v-show="!$x.query.searchBox && queriesPreviewInfo"
     :debounceTimeMs="250"
     :queries="queries"
     #default="{ query, totalResults, results }"
