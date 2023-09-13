@@ -68,7 +68,7 @@ export function createConfig({
         })
       ),
       copy({
-        targets: [{ src: ['public/**', '!public/index.html'], dest: 'dist/' }]
+        targets: [{ src: ['public/**', '!public/index.html'], dest: '${output.dir}' }]
       }),
       // Resolving plugins
       replace(
