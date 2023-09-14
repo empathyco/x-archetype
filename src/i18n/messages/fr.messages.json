@@ -58,7 +58,8 @@
       "categoryPaths": "Catégories",
       "price": "Prix",
       "brand": "Marque",
-      "fit": "Fit"
+      "fit": "Fit",
+      "collection": "Collection"
     },
     "facetsPanel": {
       "title": "TRIER ET FILTRER",

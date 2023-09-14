@@ -58,7 +58,8 @@
       "categoryPaths": "Categories",
       "price": "Price",
       "brand": "Brand",
-      "fit": "Fit"
+      "fit": "Fit",
+      "collection": "Collection"
     },
     "facetsPanel": {
       "title": "SORT & FILTER",
