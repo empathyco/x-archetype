@@ -60,6 +60,7 @@ export interface Messages {
     price: string;
     brand: string;
     fit: string;
+    collection: string;
   };
   facetsPanel: {
     title: string;
