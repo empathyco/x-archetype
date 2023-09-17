@@ -2,7 +2,7 @@
   <QueryPreviewList
     v-if="!$x.query.searchBox && queriesPreviewInfo"
     :debounceTimeMs="250"
-    :queriesPreviewInfo="queriesPreviewInfo"
+    :queries="queries"
     #default="{ query, totalResults, results }"
   >
     <div class="x-mb-40 x-flex x-flex-col x-gap-2 desktop:x-mb-64 desktop:x-gap-16">
@@ -41,13 +41,12 @@
   import {
     BaseEventButton,
     QueryFeature,
+    QueryPreviewInfo,
     XEventsTypes,
     XInject,
     ItemsList,
     ArrowRightIcon
   } from '@empathyco/x-components';
-  // eslint-disable-next-line no-duplicate-imports
-  import { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
   import { default as Result } from '../results/result.vue';
   import CustomSlidingPanel from '../custom-sliding-panel.vue';
   import DisplayClickProvider from '../search/display-click-provider.vue';
