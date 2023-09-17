@@ -9,13 +9,8 @@
 </template>
 
 <script lang="ts">
-  import {
-    QueryPreviewInfo,
-    SnippetCallbacks,
-    SnippetConfig,
-    XOn,
-    XProvide
-  } from '@empathyco/x-components';
+  import { SnippetCallbacks, SnippetConfig, XOn, XProvide } from '@empathyco/x-components';
+  import { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
   import { Tagging } from '@empathyco/x-components/tagging';
   import { UrlHandler } from '@empathyco/x-components/url';
   import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params';
