@@ -2,20 +2,20 @@
   <QueryPreviewList
     v-if="!$x.query.searchBox && queriesPreviewInfo"
     :debounceTimeMs="250"
-    :queries="queries"
-    #default="{ query, totalResults, results }"
+    :queriesPreviewInfo="queriesPreviewInfo"
+    #default="{ queryPreviewInfo, totalResults, results }"
   >
     <div class="x-mb-40 x-flex x-flex-col x-gap-2 desktop:x-mb-64 desktop:x-gap-16">
       <h1 class="x-title1 max-desktop:x-title1-sm max-desktop:x-px-16">
-        {{ getTitle(query) }}
+        {{ getTitle(queryPreviewInfo.query) }}
       </h1>
       <CustomSlidingPanel>
         <template #header>
           <BaseEventButton
-            :events="getEvent(query)"
+            :events="getEvent(queryPreviewInfo.query)"
             class="x-button-lead x-button-tight x-button max-desktop:x-px-16"
           >
-            {{ query }}
+            {{ queryPreviewInfo.query }}
             ({{ totalResults }})
             <ArrowRightIcon class="x-icon-lg" />
           </BaseEventButton>
@@ -37,11 +37,14 @@
 
 <script lang="ts">
   import { Prop, Component, Vue } from 'vue-property-decorator';
-  import { QueryPreview, QueryPreviewList } from '@empathyco/x-components/queries-preview';
+  import {
+    QueryPreview,
+    QueryPreviewList,
+    QueryPreviewInfo
+  } from '@empathyco/x-components/queries-preview';
   import {
     BaseEventButton,
     QueryFeature,
-    QueryPreviewInfo,
     XEventsTypes,
     XInject,
     ItemsList,
