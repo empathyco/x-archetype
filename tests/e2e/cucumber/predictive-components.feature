@@ -62,3 +62,4 @@ Feature: Predictive components
       | list               | view        |
       | shirt, shoe, skirt | macbook-13  |
       | shirt, shoe, skirt | iphone-x    |
+    
