@@ -16,8 +16,8 @@ Feature: Predictive components
     Then  history queries are displayed
     Examples:
       | query  | view        |
-      | dress  | macbook-13  |
-      | dress  | iphone-x    |
+      | gloves  | macbook-13  |
+      | gloves  | iphone-x    |
 
   Scenario Outline: 2. Related tags interaction
     Given start page with "<view>" size view
@@ -33,8 +33,8 @@ Feature: Predictive components
     And  related tag <relatedTagIndex> is displayed as not selected
     Examples:
       | query   | relatedTagIndex | view        |
-      | dress   | 1               | macbook-13  |
-      | dress   | 1               | iphone-x    |
+      | gloves   | 1               | macbook-13  |
+      | gloves   | 1               | iphone-x    |
 
   Scenario Outline: 3. Clear a history query
     Given start page with "<view>" size view
