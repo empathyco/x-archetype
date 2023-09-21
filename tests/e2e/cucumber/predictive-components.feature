@@ -33,8 +33,8 @@ Feature: Predictive components
     And  related tag <relatedTagIndex> is displayed as not selected
     Examples:
       | query   | relatedTagIndex | view        |
-      | dress   | 1               | macbook-13  |
-      | dress   | 1               | iphone-x    |
+      | tshirt   | 1               | macbook-13  |
+      | tshirt   | 1               | iphone-x    |
 
   Scenario Outline: 3. Clear a history query
     Given start page with "<view>" size view
