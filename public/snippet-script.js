@@ -80,24 +80,25 @@ window.initX = {
   ...URLParameters,
   queriesPreview: [
     {
-      query: 'sneaker',
-      filters: ['brand:common projects'],
-      title: 'Fancy and comfortable sneakers'
+      query: 'summer dress',
+      title: 'Summer dresses by Marni',
+      filters: ['brand:marni']
+    },
+    {
+      query: 'belted legging',
+      filters: ['categoryIds:1b5f82125'],
+      title: 'Belted leggings'
     },
     {
       query: 'bags',
       extraParams: {
         sort: 'price desc'
       },
-      title: 'Exclusive bags for you'
+      title: 'Exclusive bags'
     },
     {
       query: 'sunglasses',
       title: 'Sunshine ready'
-    },
-    {
-      query: 'marni summer dress',
-      title: 'Summer dresses by Marni'
     },
     {
       query: 'woven hat',
