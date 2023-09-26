@@ -93,7 +93,7 @@ window.initX = {
     },
     {
       query: 'sunglasses',
-      title: 'Sunshine ready',
+      title: 'Sunshine ready'
     },
     {
       query: 'marni summer dress',
