@@ -94,7 +94,6 @@ window.initX = {
     {
       query: 'sunglasses',
       title: 'Sunshine ready',
-      filters: ['brand:Amarni']
     },
     {
       query: 'marni summer dress',
