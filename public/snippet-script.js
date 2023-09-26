@@ -80,9 +80,9 @@ window.initX = {
   ...URLParameters,
   queriesPreview: [
     {
-      query: 'summer dress',
-      title: 'Summer dresses by Marni',
-      filters: ['brand:marni']
+      query: 'dress',
+      title: 'Autumn dresses by Marni',
+      filters: ['brand:marni', 'collection:autumn - 2022']
     },
     {
       query: 'belted legging',
