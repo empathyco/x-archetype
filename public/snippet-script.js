@@ -80,8 +80,21 @@ window.initX = {
   ...URLParameters,
   queriesPreview: [
     {
+      query: 'sneaker',
+      filters: ['brand:common projects'],
+      title: 'Fancy and comfortable sneakers'
+    },
+    {
+      query: 'bags',
+      extraParams: {
+        sort: 'price desc'
+      },
+      title: 'Exclusive bags for you'
+    },
+    {
       query: 'sunglasses',
-      title: 'Sunshine ready'
+      title: 'Sunshine ready',
+      filters: ['brand:Amarni']
     },
     {
       query: 'marni summer dress',
