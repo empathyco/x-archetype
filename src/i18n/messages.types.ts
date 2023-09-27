@@ -58,6 +58,9 @@ export interface Messages {
     gender: string;
     categoryPaths: string;
     price: string;
+    brand: string;
+    fit: string;
+    collection: string;
   };
   facetsPanel: {
     title: string;
@@ -84,6 +87,9 @@ export interface Messages {
   totalResults: {
     message: string;
   };
+  semanticQueries: {
+    title: string;
+  };
   sort: {
     label: string;
     values: {
@@ -109,5 +115,10 @@ export interface Messages {
   };
   queryPreview: {
     viewResults: string;
+  };
+  redirections: {
+    title: string;
+    accept: string;
+    reject: string;
   };
 }

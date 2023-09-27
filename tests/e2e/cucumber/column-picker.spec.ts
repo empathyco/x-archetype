@@ -1,7 +1,7 @@
 import { Then, When } from 'cypress-cucumber-preprocessor/steps';
 
 Then('grid shows {int} results per row', (columns: number) => {
-  cy.getByDataTest('base-grid').should('have.class', `x-grid-list--cols-${columns || 'auto'}`);
+  cy.getByDataTest('base-grid').should('have.class', `x-base-grid--cols-${columns || 'auto'}`);
 });
 
 When('value {int} from column picker list is clicked', (columns: number) => {

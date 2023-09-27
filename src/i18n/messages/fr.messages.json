@@ -56,7 +56,10 @@
     "facets": {
       "gender": "Le genre",
       "categoryPaths": "Catégories",
-      "price": "Prix"
+      "price": "Prix",
+      "brand": "Marque",
+      "fit": "Fit",
+      "collection": "Collection"
     },
     "facetsPanel": {
       "title": "TRIER ET FILTRER",
@@ -83,6 +86,9 @@
     "totalResults": {
       "message": "{totalResults} résultats pour {query}"
     },
+    "semanticQueries": {
+      "title": "Other similar products"
+    },
     "sort": {
       "label": "Trier par",
       "values": {
@@ -98,7 +104,7 @@
       "addToCart": "AJOUTER AU PANIER"
     },
     "spellcheck": {
-      "message": "Aucun résultat trouvé pour '{query}'. Nous vous montrons les résultats pour"
+      "message": "Aucun résultat trouvé pour {query} Nous vous montrons les résultats pour"
     },
     "noResults": {
       "message": "Désolé mais il n'y a pas de résultats pour {query}Vous pourriez être intéressé par ces produits"
@@ -108,6 +114,11 @@
     },
     "queryPreview": {
       "viewResults": "Voir tous les résultats"
+    },
+    "redirections": {
+      "title": "Votre recherche correspond à un endroit spécial de notre site, pour le visiter, vous êtes redirigé",
+      "accept": "Oui, redirigez-moi",
+      "reject": "Non, je reste ici"
     }
   },
   "mobile": {

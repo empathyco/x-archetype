@@ -34,8 +34,8 @@ Feature: Facets component
     Then  filter <filterNumber> from facet "<facetName>" is selected is false
     Examples:
       | query | filterNumber | facetName | view        |
-      | shirt | 1            | price     | macbook-13  |
-      | shirt | 1            | price     | iphone-x    |
+      | shirt | 1            | brand     | macbook-13  |
+      | shirt | 1            | brand     | iphone-x    |
 
   Scenario Outline: 3. Multiple filters from the same facet can be selected
     Given start page with "<view>" size view
@@ -52,8 +52,8 @@ Feature: Facets component
     And   filter <filterNumber2> from facet "<facetName>" is selected is true
     Examples:
       | query | filterNumber | facetName | filterNumber2 | view        |
-      | shirt | 2            | price     | 1             | macbook-13  |
-      | shirt | 2            | price     | 1             | iphone-x    |
+      | shirt | 2            | brand     | 1             | macbook-13  |
+      | shirt | 2            | brand     | 1             | iphone-x    |
 
   Scenario Outline: 4. Multiple filters from different facets can be selected
     Given start page with "<view>" size view
@@ -65,18 +65,17 @@ Feature: Facets component
     When  facet "<facetName>" is unfolded
     And   filter <filterNumber> from facet "<facetName>" is clicked
     Then  filter <filterNumber> from facet "<facetName>" is selected is true
-    When  facet "<facetName>" is unfolded
     When  facet "<facetName2>" is unfolded
     And   filter <filterNumber2> from facet "<facetName2>" is clicked
-    When  facet "<facetName2>" is unfolded
-    And   facet "<facetName>" is unfolded
     Then  filter <filterNumber> from facet "<facetName>" is selected is true
     And   filter <filterNumber2> from facet "<facetName2>" is selected is true
     Examples:
       | query | filterNumber | facetName | filterNumber2 | facetName2 | view        |
-      | shirt | 2            | price     | 1             | gender     | macbook-13  |
-      | shirt | 2            | price     | 1             | gender     | iphone-x    |
+      | shirt | 2            | brand     | 1             | fit     | macbook-13  |
+      | shirt | 2            | brand     | 1             | fit     | iphone-x    |
 
+    @skip
+  # TODO: Resume once the response returns hierarchical filters
   Scenario Outline: 5. Hierarchical filters selection
     Given start page with "<view>" size view
     When  search bar is clicked

@@ -2,7 +2,7 @@
   <SlidingPanel
     v-if="$x.relatedTags.length"
     class="x-sliding-panel-show-buttons-on-hover"
-    buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
+    buttonClass="x-button-lead x-button-circle x-button-ghost x-p-0"
     scrollContainerClass="desktop:x-sliding-panel-fade"
     :showButtons="!isTouchable"
   >
@@ -10,7 +10,7 @@
       <ChevronLeftIcon class="x-icon-lg" />
     </template>
     <RelatedTags
-      class="x-list--gap-03 x-pl-16 tablet:x-pl-24 desktop:x-pl-0"
+      class="x-gap-8 x-pl-16 tablet:x-pl-24 desktop:x-pl-0"
       :highlightCurated="true"
       :animation="relatedTagsAnimation"
       itemClass="x-tag-outlined x-rounded-full"

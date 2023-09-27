@@ -1,9 +1,9 @@
 <template>
-  <div class="x-list x-list--horizontal x-list--align-center x-list--gap-03">
+  <div class="x-flex x-items-center x-gap-8">
     <SlidingPanel
       class="x-sliding-panel-show-buttons-on-hover"
       :showButtons="!isTouchable"
-      buttonClass="x-button-lead x-button-circle x-button-ghost x-padding--00"
+      buttonClass="x-button-lead x-button-circle x-button-ghost x-p-0"
       scrollContainerClass="desktop:x-sliding-panel-fade"
       :resetOnContentChange="false"
     >
@@ -11,7 +11,7 @@
         <ChevronLeftIcon class="x-icon-lg" />
       </template>
       <SelectedFiltersList
-        class="x-list x-flex-no-shrink x-list--wrap x-list--gap-03 max-desktop:x-pl-16"
+        class="x-flex-no-shrink x-flex x-flex-row x-flex-wrap x-gap-8 max-desktop:x-pl-16"
       >
         <template #default="{ filter }">
           <SimpleFilter
@@ -46,7 +46,7 @@
       v-if="isDesktopOrGreater"
       v-slot="{ selectedFilters }"
       data-test="clear-filters-toolbar"
-      class="x-border-radius--20 x-list__item--flex-none x-button-lead x-button-sm x-button-outlined"
+      class="x-button-lead x-button-sm x-button-outlined x-flex-none x-rounded-full"
       :alwaysVisible="false"
     >
       {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
@@ -93,9 +93,3 @@
     }
   });
 </script>
-
-<style lang="scss" scoped>
-  .x-clear-filters {
-    --x-size-height-button-default: auto;
-  }
-</style>

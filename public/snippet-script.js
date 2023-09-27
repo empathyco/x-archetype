@@ -28,7 +28,7 @@ const popFromURLParameters = popURLParameter.bind(this, URLParameters);
 function getEnv() {
   const env = popFromURLParameters('env');
   const envsDict = {
-    live: undefined,
+    live: '',
     staging: 'staging',
     test: 'staging'
   };
@@ -44,16 +44,23 @@ function getEnv() {
   return undefined;
 }
 
+function getIsolationStrategy() {
+  const isolation = popFromURLParameters('isolation');
+
+  return isolation === undefined ? undefined : isolation === 'true';
+}
+
 const instance = popFromURLParameters('instance') || 'empathy';
 const env = getEnv();
 const scope = popFromURLParameters('scope') || 'desktop';
 const lang = popFromURLParameters('lang') || 'en';
-const device = popFromURLParameters('device') || 'mobile';
+const device = popFromURLParameters('device') || undefined;
 const uiLang = popFromURLParameters('uiLang') || lang;
 const currency = popFromURLParameters('currency') || 'EUR';
 const consent = popFromURLParameters('consent') !== 'false';
 const documentDirection = popFromURLParameters('doc-dir') || 'ltr';
 const store = popFromURLParameters('store') || undefined;
+const isolate = getIsolationStrategy();
 popFromURLParameters('query'); // prevent the query from be included as extra param
 popFromURLParameters('filter'); // Prevent the filters to be included as extra param
 
@@ -69,19 +76,20 @@ window.initX = {
   consent,
   documentDirection,
   store,
+  isolate,
   ...URLParameters,
   queriesPreview: [
     {
-      query: 'backpack',
-      title: 'Back to School!'
+      query: 'sunglasses',
+      title: 'Sunshine ready'
     },
     {
-      query: 'watch',
-      title: 'Get on time!'
+      query: 'marni summer dress',
+      title: 'Summer dresses by Marni'
     },
     {
-      query: 'women boots',
-      title: 'Get comfy!'
+      query: 'woven hat',
+      title: 'Elegant Sunshield'
     }
   ]
 };

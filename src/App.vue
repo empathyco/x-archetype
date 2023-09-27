@@ -19,11 +19,9 @@
   import { Tagging } from '@empathyco/x-components/tagging';
   import { UrlHandler } from '@empathyco/x-components/url';
   import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params';
-  import { Component, Inject, Vue, Watch } from 'vue-property-decorator';
+  import { Component, Inject, Provide, Vue, Watch } from 'vue-property-decorator';
   import { useDevice } from './composables/use-device.composable';
   import currencies from './i18n/currencies';
-  import '@empathyco/x-components/design-system/full-theme.css';
-  import './design-system/tokens.scss';
   import './tailwind/index.css';
 
   @Component({
@@ -55,7 +53,7 @@
       );
     }
 
-    @XProvide('currencyFormat')
+    @Provide('currencyFormat')
     public get currencyFormat(): string {
       return currencies[this.snippetConfig.currency!];
     }
@@ -95,23 +93,5 @@
     &__title {
       display: none;
     }
-  }
-
-  .x-recommendations__item {
-    max-width: 142px;
-  }
-
-  // The width is needed because the empathize has position absolute.
-  // The z-index is to avoid the related tags appearing over the empathize.
-  .x-desktop {
-    .x-empathize {
-      z-index: 1;
-      width: 100%;
-    }
-  }
-
-  .x-modal__overlay {
-    background: var(--x-color-background-modal-overlay-default) !important;
-    opacity: 0.3 !important;
   }
 </style>

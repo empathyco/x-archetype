@@ -33,6 +33,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:48.957Z"
+        },
+        "__id": "result-0",
+        "__images": ["https://picsum.photos/seed/${index}/100/100"],
+        "description": "Indigo Nation Men Plain Shirt Green Shirts",
+        "collection": "Fall",
+        "__externalId": "result-0",
+        "__url": "https://assets.empathy.co/images-demo/8731.jpg",
+        "__name": "Indigo Nation Men Plain Shirt Green Shirts",
+        "__prices": {
+          "current": { "value": 78.75 },
+          "previous": { "value": 78.75 },
+          "future": { "value": 78.75 }
         }
       },
       {
@@ -67,6 +79,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:47.135Z"
+        },
+        "__id": "result-1",
+        "__images": ["https://assets.empathy.co/images-demo/59893.jpg"],
+        "description": "Femella Women Blue Shirt",
+        "collection": "Fall",
+        "__externalId": "result-1",
+        "__url": "https://assets.empathy.co/images-demo/59893.jpg",
+        "__name": "Femella Women Blue Shirt",
+        "__prices": {
+          "current": { "value": 52.95 },
+          "previous": { "value": 52.95 },
+          "future": { "value": 52.95 }
         }
       },
       {
@@ -101,6 +125,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:53.932Z"
+        },
+        "__id": "result-2",
+        "__images": ["https://assets.empathy.co/images-demo/4295.jpg"],
+        "description": "Tantra   T-shirt",
+        "collection": "Summer",
+        "__externalId": "result-2",
+        "__url": "https://assets.empathy.co/images-demo/4295.jpg",
+        "__name": "Tantra   T-shirt",
+        "__prices": {
+          "current": { "value": 93 },
+          "previous": { "value": 93 },
+          "future": { "value": 93 }
         }
       },
       {
@@ -135,6 +171,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:51.899Z"
+        },
+        "__id": "result-3",
+        "__images": ["https://assets.empathy.co/images-demo/27266.jpg"],
+        "description": "Arrow Woman Light Yellow Striped Shirt",
+        "collection": "Summer",
+        "__externalId": "result-3",
+        "__url": "https://assets.empathy.co/images-demo/27266.jpg",
+        "__name": "Arrow Woman Light Yellow Striped Shirt",
+        "__prices": {
+          "current": { "value": 20.75 },
+          "previous": { "value": 20.75 },
+          "future": { "value": 20.75 }
         }
       },
       {
@@ -169,6 +217,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:54.067Z"
+        },
+        "__id": "result-4",
+        "__images": ["https://assets.empathy.co/images-demo/2098.jpg"],
+        "description": "Lee Men Derrick Checks Shirt",
+        "collection": "Winter",
+        "__externalId": "result-4",
+        "__url": "https://assets.empathy.co/images-demo/2098.jpg",
+        "__name": "Lee Men Derrick Checks Shirt",
+        "__prices": {
+          "current": { "value": 79.75 },
+          "previous": { "value": 79.75 },
+          "future": { "value": 79.75 }
         }
       },
       {
@@ -203,6 +263,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:57.405Z"
+        },
+        "__id": "result-5",
+        "__images": ["https://assets.empathy.co/images-demo/12022.jpg"],
+        "description": "Mark Taylor Men Pink Striped Shirts",
+        "collection": "Fall",
+        "__externalId": "result-5",
+        "__url": "https://assets.empathy.co/images-demo/12022.jpg",
+        "__name": "Mark Taylor Men Pink Striped Shirts",
+        "__prices": {
+          "current": { "value": 72.75 },
+          "previous": { "value": 72.75 },
+          "future": { "value": 72.75 }
         }
       },
       {
@@ -237,6 +309,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:54.055Z"
+        },
+        "__id": "result-6",
+        "__images": ["https://assets.empathy.co/images-demo/13872.jpg"],
+        "description": "Scullers Men Solid Purple Shirts",
+        "collection": "Fall",
+        "__externalId": "result-6",
+        "__url": "https://assets.empathy.co/images-demo/13872.jpg",
+        "__name": "Scullers Men Solid Purple Shirts",
+        "__prices": {
+          "current": { "value": 45.95 },
+          "previous": { "value": 45.95 },
+          "future": { "value": 45.95 }
         }
       },
       {
@@ -271,6 +355,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:56.261Z"
+        },
+        "__id": "result-7",
+        "__images": ["https://assets.empathy.co/images-demo/15692.jpg"],
+        "description": "Black coffee Men Micheal White Slim Fit Shirt",
+        "collection": "Fall",
+        "__externalId": "result-7",
+        "__url": "https://assets.empathy.co/images-demo/15692.jpg",
+        "__name": "Black coffee Men Micheal White Slim Fit Shirt",
+        "__prices": {
+          "current": { "value": 63.95 },
+          "previous": { "value": 63.95 },
+          "future": { "value": 63.95 }
         }
       },
       {
@@ -305,6 +401,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:55.308Z"
+        },
+        "__id": "result-8",
+        "__images": ["https://assets.empathy.co/images-demo/2779.jpg"],
+        "description": "Ediots   T-shirt",
+        "collection": "Summer",
+        "__externalId": "result-8",
+        "__url": "https://assets.empathy.co/images-demo/2779.jpg",
+        "__name": "Ediots   T-shirt",
+        "__prices": {
+          "current": { "value": 90.75 },
+          "previous": { "value": 90.75 },
+          "future": { "value": 90.75 }
         }
       },
       {
@@ -339,6 +447,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:52.762Z"
+        },
+        "__id": "result-9",
+        "__images": ["https://assets.empathy.co/images-demo/2170.jpg"],
+        "description": "Probase Mens  Shirts",
+        "collection": "Summer",
+        "__externalId": "result-9",
+        "__url": "https://assets.empathy.co/images-demo/2170.jpg",
+        "__name": "Probase Mens  Shirts",
+        "__prices": {
+          "current": { "value": 55.75 },
+          "previous": { "value": 55.75 },
+          "future": { "value": 55.75 }
         }
       },
       {
@@ -373,6 +493,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:56.115Z"
+        },
+        "__id": "result-10",
+        "__images": ["https://assets.empathy.co/images-demo/18371.jpg"],
+        "description": "Undercolors of Benetton Men T-Shirts Red Innerwear T-shirt",
+        "collection": "Summer",
+        "__externalId": "result-10",
+        "__url": "https://assets.empathy.co/images-demo/18371.jpg",
+        "__name": "Undercolors of Benetton Men T-Shirts Red Innerwear T-shirt",
+        "__prices": {
+          "current": { "value": 33 },
+          "previous": { "value": 33 },
+          "future": { "value": 33 }
         }
       },
       {
@@ -407,6 +539,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:49.552Z"
+        },
+        "__id": "result-11",
+        "__images": ["https://assets.empathy.co/images-demo/39726.jpg"],
+        "description": "Arrow Woman White Shirt",
+        "collection": "Summer",
+        "__externalId": "result-11",
+        "__url": "https://assets.empathy.co/images-demo/39726.jpg",
+        "__name": "Arrow Woman White Shirt",
+        "__prices": {
+          "current": { "value": 79.75 },
+          "previous": { "value": 79.75 },
+          "future": { "value": 79.75 }
         }
       },
       {
@@ -441,6 +585,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:53.841Z"
+        },
+        "__id": "result-12",
+        "__images": ["https://assets.empathy.co/images-demo/41607.jpg"],
+        "description": "Basics Men Grey Shirt",
+        "collection": "Summer",
+        "__externalId": "result-12",
+        "__url": "https://assets.empathy.co/images-demo/41607.jpg",
+        "__name": "Basics Men Grey Shirt",
+        "__prices": {
+          "current": { "value": 70.95 },
+          "previous": { "value": 70.95 },
+          "future": { "value": 70.95 }
         }
       },
       {
@@ -475,6 +631,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:55.907Z"
+        },
+        "__id": "result-13",
+        "__images": ["https://assets.empathy.co/images-demo/53278.jpg"],
+        "description": "Locomotive Men Black Shirt",
+        "collection": "Summer",
+        "__externalId": "result-13",
+        "__url": "https://assets.empathy.co/images-demo/53278.jpg",
+        "__name": "Locomotive Men Black Shirt",
+        "__prices": {
+          "current": { "value": 15 },
+          "previous": { "value": 15 },
+          "future": { "value": 15 }
         }
       },
       {
@@ -509,6 +677,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:56.696Z"
+        },
+        "__id": "result-14",
+        "__images": ["https://assets.empathy.co/images-demo/26812.jpg"],
+        "description": "Arrow Men Yellow Shirt",
+        "collection": "Summer",
+        "__externalId": "result-14",
+        "__url": "https://assets.empathy.co/images-demo/26812.jpg",
+        "__name": "Arrow Men Yellow Shirt",
+        "__prices": {
+          "current": { "value": 13.99 },
+          "previous": { "value": 13.99 },
+          "future": { "value": 13.99 }
         }
       },
       {
@@ -543,6 +723,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:56.932Z"
+        },
+        "__id": "result-15",
+        "__images": ["https://assets.empathy.co/images-demo/51417.jpg"],
+        "description": "Myntra Men Blue Shirt",
+        "collection": "Summer",
+        "__externalId": "result-15",
+        "__url": "https://assets.empathy.co/images-demo/51417.jpg",
+        "__name": "Myntra Men Blue Shirt",
+        "__prices": {
+          "current": { "value": 20.75 },
+          "previous": { "value": 20.75 },
+          "future": { "value": 20.75 }
         }
       },
       {
@@ -577,6 +769,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:48.171Z"
+        },
+        "__id": "result-16",
+        "__images": ["https://assets.empathy.co/images-demo/26788.jpg"],
+        "description": "Arrow Men Brown Shirt",
+        "collection": "Summer",
+        "__externalId": "result-16",
+        "__url": "https://assets.empathy.co/images-demo/26788.jpg",
+        "__name": "Arrow Men Brown Shirt",
+        "__prices": {
+          "current": { "value": 81.95 },
+          "previous": { "value": 81.95 },
+          "future": { "value": 81.95 }
         }
       },
       {
@@ -611,6 +815,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:48.538Z"
+        },
+        "__id": "result-17",
+        "__images": ["https://assets.empathy.co/images-demo/27036.jpg"],
+        "description": "Arrow Men Green Shirt",
+        "collection": "Summer",
+        "__externalId": "result-17",
+        "__url": "https://assets.empathy.co/images-demo/27036.jpg",
+        "__name": "Arrow Men Green Shirt",
+        "__prices": {
+          "current": { "value": 18.75 },
+          "previous": { "value": 18.75 },
+          "future": { "value": 18.75 }
         }
       },
       {
@@ -645,6 +861,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:52.445Z"
+        },
+        "__id": "result-18",
+        "__images": ["https://assets.empathy.co/images-demo/41588.jpg"],
+        "description": "Basics Men Blue Shirt",
+        "collection": "Summer",
+        "__externalId": "result-18",
+        "__url": "https://assets.empathy.co/images-demo/41588.jpg",
+        "__name": "Basics Men Blue Shirt",
+        "__prices": {
+          "current": { "value": 89.75 },
+          "previous": { "value": 89.75 },
+          "future": { "value": 89.75 }
         }
       },
       {
@@ -679,6 +907,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:55.278Z"
+        },
+        "__id": "result-19",
+        "__images": ["https://assets.empathy.co/images-demo/51407.jpg"],
+        "description": "Myntra Men Blue Shirt",
+        "collection": "Summer",
+        "__externalId": "result-19",
+        "__url": "https://assets.empathy.co/images-demo/51407.jpg",
+        "__name": "Myntra Men Blue Shirt",
+        "__prices": {
+          "current": { "value": 26.99 },
+          "previous": { "value": 26.99 },
+          "future": { "value": 26.99 }
         }
       },
       {
@@ -713,6 +953,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:55.443Z"
+        },
+        "__id": "result-20",
+        "__images": ["https://assets.empathy.co/images-demo/32504.jpg"],
+        "description": "Scullers Men Purple Shirt",
+        "collection": "Summer",
+        "__externalId": "result-20",
+        "__url": "https://assets.empathy.co/images-demo/32504.jpg",
+        "__name": "Scullers Men Purple Shirt",
+        "__prices": {
+          "current": { "value": 98.75 },
+          "previous": { "value": 98.75 },
+          "future": { "value": 98.75 }
         }
       },
       {
@@ -747,6 +999,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:56.121Z"
+        },
+        "__id": "result-21",
+        "__images": ["https://assets.empathy.co/images-demo/26798.jpg"],
+        "description": "Arrow Men Blue Shirt",
+        "collection": "Summer",
+        "__externalId": "result-21",
+        "__url": "https://assets.empathy.co/images-demo/26798.jpg",
+        "__name": "Arrow Men Blue Shirt",
+        "__prices": {
+          "current": { "value": 45.95 },
+          "previous": { "value": 45.95 },
+          "future": { "value": 45.95 }
         }
       },
       {
@@ -781,6 +1045,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:56.464Z"
+        },
+        "__id": "result-22",
+        "__images": ["https://assets.empathy.co/images-demo/51422.jpg"],
+        "description": "Myntra Men Teal Shirt",
+        "collection": "Summer",
+        "__externalId": "result-22",
+        "__url": "https://assets.empathy.co/images-demo/51422.jpg",
+        "__name": "Myntra Men Teal Shirt",
+        "__prices": {
+          "current": { "value": 42.99 },
+          "previous": { "value": 42.99 },
+          "future": { "value": 42.99 }
         }
       },
       {
@@ -815,6 +1091,18 @@
           "generatedTime": "2021-11-25T15:08:46.025Z",
           "readTime": "2021-11-25T15:08:46.025Z",
           "transformedTime": "2021-11-25T15:08:56.596Z"
+        },
+        "__id": "result-23",
+        "__images": ["https://assets.empathy.co/images-demo/51420.jpg"],
+        "description": "Myntra Men Blue Shirt",
+        "collection": "Summer",
+        "__externalId": "result-23",
+        "__url": "https://assets.empathy.co/images-demo/51420.jpg",
+        "__name": "Myntra Men Blue Shirt",
+        "__prices": {
+          "current": { "value": 81 },
+          "previous": { "value": 81 },
+          "future": { "value": 81 }
         }
       }
     ],

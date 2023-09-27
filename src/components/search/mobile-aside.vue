@@ -1,13 +1,13 @@
 <template>
-  <div v-if="$x.totalResults > 0" class="x-list x-list--vertical x-list__item--expand">
-    <BaseScroll class="x-list__item--expand x-padding--05 x-padding--top-00" :resetOnChange="false">
+  <div v-if="$x.totalResults > 0" class="x-flex x-min-h-0 x-flex-auto x-flex-col">
+    <BaseScroll class="x-flex-auto x-p-16 x-pt-0" :resetOnChange="false">
       <Sort />
       <CustomFacets />
     </BaseScroll>
-    <div class="x-list x-border-width--top-01">
+    <div class="x-flex x-flex-col x-border-t">
       <SelectedFilters
         v-if="$x.selectedFilters.length"
-        class="x-list x-list--gap-05 x-padding--top-05 x-padding--bottom-05"
+        class="x-flex x-flex-col x-items-stretch x-gap-16 x-py-16"
       />
       <MobileCloseAside />
     </div>
@@ -33,5 +33,3 @@
   })
   export default class MobileAside extends Vue {}
 </script>
-
-<style lang="scss"></style>

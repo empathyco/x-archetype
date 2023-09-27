@@ -14,12 +14,14 @@ Then('search bar is clicked', () => {
 
 // Search
 When('a {string} is typed', (query: string) => {
+  cy.getByDataTest('search-input').should('exist').click();
   cy.typeQuery(query).then(() => {
     cy.getByDataTest('search-input').invoke('val').as('searchedQuery');
   });
 });
 
 When('{string} is searched', (query: string) => {
+  cy.getByDataTest('search-input').should('exist').click();
   cy.searchQuery(query).then(() => {
     cy.getByDataTest('search-input').invoke('val').as('searchedQuery');
   });
@@ -58,6 +60,7 @@ Then('a search request from {string} is done', (origin: string) => {
 
 // Results
 Then('related results are displayed', () => {
+  cy.getByDataTest('search-grid-result').eq(0).scrollIntoView();
   cy.getByDataTest('search-grid-result')
     .should('be.visible')
     .should('have.length.at.least', 1)
@@ -77,4 +80,8 @@ Then('related results have changed', () => {
       .invoke('text')
       .as('resultsList');
   });
+});
+
+Then('subheader is not visible', () => {
+  cy.getByDataTest('sub-header').should('not.be.visible');
 });

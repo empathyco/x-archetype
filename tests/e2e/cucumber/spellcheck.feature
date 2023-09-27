@@ -7,5 +7,5 @@ Feature: Spellcheck component
     Then  spellcheck message is displayed
     Examples:
       | query  | view        |
-      | sirt   | macbook-13  |
-      | sirt   | iphone-x    |
+      | ssirt   | macbook-13  |
+      | ssirt   | iphone-x    |

@@ -14,8 +14,6 @@ import visualizer from 'rollup-plugin-visualizer';
 import vue from 'rollup-plugin-vue';
 import * as fs from 'fs';
 
-const jsOutputDirectory = path.join(process.cwd(), 'dist');
-
 /**
  * Creates a rollup configuration for projects that use X-Components. This configuration can be customized with the options object.
  *
@@ -49,26 +47,28 @@ export function createConfig({
     };
   }
 
+  const mergedOutput = {
+    dir: path.join(process.cwd(), 'dist'),
+    format: 'es',
+    sourcemap: true,
+    assetFileNames: '[name][extname]',
+    entryFileNames: 'app.js',
+    ...output
+  };
+
   return {
     input,
-    output: {
-      dir: jsOutputDirectory,
-      format: 'es',
-      sourcemap: true,
-      assetFileNames: '[name][extname]',
-      entryFileNames: 'app.js',
-      ...output
-    },
+    output: mergedOutput,
     preserveEntrySignatures: false,
     plugins: [
       ...prePlugins,
       del(
         mergeConfig('del', {
-          targets: [`${jsOutputDirectory}/*`]
+          targets: [`${mergedOutput.dir}/*`]
         })
       ),
       copy({
-        targets: [{ src: ['public/**', '!public/index.html'], dest: 'dist/' }]
+        targets: [{ src: ['public/**', '!public/index.html'], dest: `${mergedOutput.dir}` }]
       }),
       // Resolving plugins
       replace(

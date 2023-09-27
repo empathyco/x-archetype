@@ -1,20 +1,26 @@
 <template>
   <RedirectionComponent
     #default="{ redirection, redirect, abortRedirect, isRedirecting, delayInSeconds }"
-    class="x-margin--top-03 x-margin--bottom-03"
+    class="x-my-8 x-flex x-flex-col x-items-center x-gap-8 x-bg-neutral-10 x-p-24 x-text-center"
     delayInSeconds="5"
   >
     <p>
-      Your search matches a special place in our website, to visit it, your are being redirected
+      {{ $t('redirections.title') }}
     </p>
     <a :href="redirection.url">{{ redirection.url }}</a>
-    <div class="x-list x-list--horizontal x-list--gap-07 x-margin--top-03">
-      <button @click="abortRedirect" class="x-button x-button-ghost">No, I'll stay here</button>
-      <button @click="redirect" class="x-button x-button-lead x-button-ghost">
-        Yes, redirect me
+    <div class="x-mt-8 x-flex x-gap-32">
+      <button @click="abortRedirect" class="x-button-ghost x-button">
+        {{ $t('redirections.reject') }}
+      </button>
+      <button @click="redirect" class="x-button-lead x-button-ghost x-button">
+        {{ $t('redirections.accept') }}
       </button>
     </div>
-    <AutoProgressBar :isLoading="isRedirecting" :durationInSeconds="delayInSeconds" />
+    <AutoProgressBar
+      :isLoading="isRedirecting"
+      :durationInSeconds="delayInSeconds"
+      class="x-w-320"
+    />
   </RedirectionComponent>
 </template>
 

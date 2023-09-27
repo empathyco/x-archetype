@@ -1,4 +1,5 @@
 import { createConfig } from './build/instrumentation.build';
+import { rollupCssInjectorConfig } from "@empathyco/x-archetype-utils";
 
 export default createConfig({
   /*
@@ -19,5 +20,6 @@ export default createConfig({
   },
   plugins: {
     // Modify plugins options here.
+    ...rollupCssInjectorConfig
   }
 });

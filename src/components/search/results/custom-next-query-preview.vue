@@ -12,7 +12,10 @@
     </i18n>
     <CustomSlidingPanel>
       <template #header>
-        <NextQuery :suggestion="nextQuery" class="x-button-tight x-button max-desktop:x-px-16">
+        <NextQuery
+          :suggestion="nextQuery"
+          class="x-button-lead x-button-tight x-button max-desktop:x-px-16"
+        >
           {{ $t('nextQueryPreview.query', { query: suggestion.query }) }}
           {{ $t('nextQueryPreview.totalResults', { totalResults }) }}
           <ArrowRightIcon class="x-icon-lg" />
@@ -21,13 +24,10 @@
       <ItemsList
         :items="results"
         class="x-flex x-gap-16 x-pt-4 max-desktop:x-px-16 desktop:x-w-full"
-        itemClass="x-flex-1"
+        itemClass="x-flex-shrink-0"
       >
         <template #result="{ item: result }">
-          <Result
-            :result="result"
-            class="desktop:x-min-w-0 x-w-[calc(38vw-16px)] desktop:x-w-auto"
-          />
+          <Result :result="result" class="x-w-[calc(38vw-16px)] desktop:x-max-w-[265px]" />
         </template>
       </ItemsList>
     </CustomSlidingPanel>
@@ -68,8 +68,7 @@
 <style lang="scss">
   .x-mobile {
     .x-next-query-preview {
-      // TODO: Change this when we migrate the grid component to the new XDS
-      margin-left: calc(-1 * var(--x-size-padding-grid));
+      margin-left: calc(-1 * var(--x-margin-left));
     }
   }
 </style>
