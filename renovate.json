@@ -15,6 +15,14 @@
     {
       "matchPackageNames": ["vue"],
       "allowedVersions": "< 3"
+    },
+    {
+      "matchPackageNames": ["vuex"],
+      "allowedVersions": "< 4"
+    },
+    {
+      "matchPackageNames": ["vue-i18n"],
+      "allowedVersions": "< 9"
     }
   ]
 }
