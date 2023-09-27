@@ -9,14 +9,9 @@
 </template>
 
 <script lang="ts">
-  import {
-    QueryPreviewInfo,
-    SnippetCallbacks,
-    SnippetConfig,
-    XOn,
-    XProvide
-  } from '@empathyco/x-components';
+  import { SnippetCallbacks, SnippetConfig, XOn, XProvide } from '@empathyco/x-components';
   import { Tagging } from '@empathyco/x-components/tagging';
+  import { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
   import { UrlHandler } from '@empathyco/x-components/url';
   import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params';
   import { Component, Inject, Provide, Vue, Watch } from 'vue-property-decorator';

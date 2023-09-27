@@ -8,8 +8,8 @@
         {{ $t('semanticQueries.title') }}
       </h1>
       <QueryPreviewList
-        :queries="queries"
-        #default="{ query, results, totalResults }"
+        :queriesPreviewInfo="queries.map(q => ({ query: q }))"
+        #default="{ queryPreviewInfo: { query }, results, totalResults }"
         class="x-flex x-flex-col x-gap-64"
       >
         <CustomSlidingPanel>
