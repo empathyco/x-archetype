@@ -109,6 +109,9 @@
     "noResults": {
       "message": "Não encontramos resultados para{query} Talvez você pode se interessar por esses produtos"
     },
+    "fallbackDisclaimer": {
+      "message": "Sem resultados encontrados para {query} com os filtros seleccionados. Os filtros foram não seleccionados"
+    },
     "columnPicker": {
       "message": "Ver"
     },

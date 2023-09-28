@@ -25,6 +25,7 @@
             <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
           </LocationProvider>
           <NoResultsMessage class="x-mb-16" data-test="no-results-message" />
+          <FallbackDisclaimerMessage class="x-mb-16" data-test="fallback-message" />
         </div>
 
         <MainScroll>
@@ -115,7 +116,8 @@
       SearchBox,
       MobileAside: () => import('../search').then(m => m.MobileAside),
       NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
-      SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage)
+      SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage),
+      FallbackDisclaimerMessage: () => import('../search').then(m => m.FallbackDisclaimerMessage)
     }
   })
   export default class Mobile extends HasSearchedMixin {

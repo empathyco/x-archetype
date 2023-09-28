@@ -10,6 +10,7 @@
               <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
             </LocationProvider>
             <NoResultsMessage class="x-mb-16" data-test="no-results-message" />
+            <FallbackDisclaimerMessage class="x-mb-16" />
           </div>
 
           <LocationProvider location="no_query">
@@ -78,7 +79,8 @@
       ScrollToTop,
       DesktopAside: () => import('../search').then(m => m.DesktopAside),
       NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
-      SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage)
+      SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage),
+      FallbackDisclaimerMessage: () => import('../search').then(m => m.FallbackDisclaimerMessage)
     }
   })
   export default class Desktop extends HasSearchedMixin {
