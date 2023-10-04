@@ -10,7 +10,7 @@ env:
   GH_TOKEN: ${{ secrets.SUPPORT_TOKEN }}
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: [edocs, big]
     # These permissions are needed to interact with GitHub's OIDC Token endpoint.
     permissions:
       id-token: write
