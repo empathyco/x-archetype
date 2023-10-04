@@ -27,10 +27,10 @@ jobs:
       - name: Running e2e tests
         run: npm test
       - name: Configure AWS credentials from Websites account
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: ${{ secrets.AWS_ROLE }}
-          aws-region: us-east-1
+          aws-region: eu-west-1
       - name: Sync files to the bucket
         run: |
           aws s3 sync dist ${{ secrets.TEST_BUCKET }}/preview/${{ github.event.number }} --delete --cache-control --include \"*\" --exclude \"*/*\" max-age=3600 --no-progress
