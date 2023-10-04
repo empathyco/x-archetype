@@ -27,7 +27,7 @@ jobs:
       - name: Running e2e tests
         run: npm test
       - name: Configure AWS credentials from Websites account
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: ${{ secrets.AWS_ROLE }}
           aws-region: eu-west-1
