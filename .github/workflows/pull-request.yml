@@ -45,5 +45,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `[Check **PR ${{ github.event.number }}** preview](https://x.test.empathy.co/preview/${{ github.event.number }}/index.html)`
+              body: `👀 Check **PR ${{ github.event.number }}** preview <br> [https://x.test.empathy.co/preview/${{ github.event.number }}/index.html](https://x.test.empathy.co/preview/${{ github.event.number }}/index.html) `
             })
