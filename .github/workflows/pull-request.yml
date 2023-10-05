@@ -29,7 +29,7 @@ jobs:
       - name: Configure AWS credentials from Websites account
         uses: aws-actions/configure-aws-credentials@v3
         with:
-          role-to-assume: arn:aws:iam::732785771697:role/x-archetype20231004105928694200000001
+          role-to-assume: arn:aws:iam::732785771697:role/github/x-archetype20231004105928694200000001
           aws-region: eu-west-1
       - name: Sync files to the bucket
         run: |
