@@ -6,6 +6,7 @@ import SelectedFilters from './facets/selected-filters.vue';
 import RelatedTags from './related-tags.vue';
 import SpellcheckMessage from './spellcheck-message.vue';
 import NoResultsMessage from './no-results-message.vue';
+import FallbackDisclaimerMessage from './fallback-disclaimer-message.vue';
 import Redirection from './redirection.vue';
 import DesktopAside from './desktop-aside.vue';
 import MobileAside from './mobile-aside.vue';
@@ -17,6 +18,7 @@ export {
   RelatedTags,
   SpellcheckMessage,
   NoResultsMessage,
+  FallbackDisclaimerMessage,
   Results,
   PartialResults,
   Sort,

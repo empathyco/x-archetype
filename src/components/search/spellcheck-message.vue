@@ -1,11 +1,7 @@
 <template>
-  <Spellcheck
-    v-if="$x.totalResults > 0"
-    #default="{ query }"
-    class="x-flex x-flex-wrap x-items-center x-justify-center x-gap-8 x-bg-neutral-10 x-p-24 x-text-center desktop:x-flex-col"
-  >
+  <Spellcheck v-if="$x.totalResults > 0" #default="{ query }" class="x-message desktop:x-flex-col">
     <p>
-      <i18n class="x-text1 x-break-words desktop:x-text1-lg" path="spellcheck.message" tag="span">
+      <i18n class="x-text1 desktop:x-text1-lg" path="spellcheck.message">
         <template #query>
           <span class="x-w-auto x-font-bold">"{{ query }}".</span>
           <div v-if="isTabletOrLess" class="x-basis-full"></div>

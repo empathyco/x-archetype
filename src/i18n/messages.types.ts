@@ -110,6 +110,9 @@ export interface Messages {
   noResults: {
     message: string;
   };
+  fallbackDisclaimer: {
+    message: string;
+  };
   columnPicker: {
     message: string;
   };
