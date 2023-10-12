@@ -4,12 +4,14 @@
     <SnippetCallbacks />
     <Tagging />
     <UrlHandler />
+    <ExperienceControls />
     <MainModal v-if="isOpen" />
   </div>
 </template>
 
 <script lang="ts">
   import { SnippetCallbacks, SnippetConfig, XOn, XProvide } from '@empathyco/x-components';
+  import { ExperienceControls } from '@empathyco/x-components/experience-controls';
   import { Tagging } from '@empathyco/x-components/tagging';
   import { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
   import { UrlHandler } from '@empathyco/x-components/url';
@@ -25,6 +27,7 @@
       SnippetConfigExtraParams,
       Tagging,
       UrlHandler,
+      ExperienceControls,
       MainModal: () => import('./components/custom-main-modal.vue').then(m => m.default)
     }
   })
@@ -56,6 +59,11 @@
     @XProvide('queriesPreviewInfo')
     public get queriesPreviewInfo(): QueryPreviewInfo[] | undefined {
       return this.snippetConfig.queriesPreview;
+    }
+
+    @XProvide('experienceControls')
+    public get experienceControls(): QueryPreviewInfo[] | undefined {
+      return this.$store.state.x.experienceControls.controls;
     }
 
     @Watch('snippetConfig.uiLang')

@@ -26,7 +26,7 @@
           <DisplayClickProvider resultFeature="semantics">
             <div class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
               <Result
-                v-for="result in results"
+                v-for="result in results.slice(0, resultsPerCarousel)"
                 :key="result.id"
                 :result="result"
                 class="x-w-[calc(38vw-16px)] desktop:x-w-[216px]"
@@ -41,9 +41,10 @@
 
 <script lang="ts">
   import { ArrowRightIcon } from '@empathyco/x-components';
-  import { defineComponent } from 'vue';
+  import { computed, defineComponent, inject } from 'vue';
   import { SemanticQueries, SemanticQuery } from '@empathyco/x-components/semantic-queries';
   import { QueryPreviewList, useQueriesPreview } from '@empathyco/x-components/queries-preview';
+  import { Dictionary } from '@empathyco/x-utils';
   import CustomSlidingPanel from '../custom-sliding-panel.vue';
   import Result from '../results/result.vue';
   import DisplayClickProvider from './display-click-provider.vue';
@@ -61,8 +62,18 @@
     setup() {
       const { isAnyQueryLoadedInPreview } = useQueriesPreview();
 
+      const experienceControls = inject<Dictionary>('experienceControls', {});
+
+      const resultsPerCarousel = computed(() => {
+        const resultsPerCarousel: number =
+          experienceControls.value?.controls?.semanticQueries?.resultsPerCarousels;
+
+        return resultsPerCarousel ?? undefined;
+      });
+
       return {
-        isAnyQueryLoadedInPreview
+        isAnyQueryLoadedInPreview,
+        resultsPerCarousel
       };
     }
   });
