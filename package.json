@@ -61,7 +61,7 @@
     "@vue/cli-plugin-unit-jest": "~5.0.4",
     "@vue/cli-plugin-vuex": "~5.0.4",
     "@vue/cli-service": "~5.0.4",
-    "@vue/test-utils": "~1.0.3",
+    "@vue/test-utils": "~2.4.1",
     "autoprefixer": "~9.7.4",
     "colors": "1.4.0",
     "concurrently": "~6.5.1",
