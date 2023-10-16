@@ -22,15 +22,14 @@
 
             <div class="x-flex x-flex-col x-gap-2">
               <p>{{ suggestion.query }}</p>
-              <ul v-if="suggestion.selectedFilters" class="x-flex x-gap-8">
-                <li
-                  v-for="filter in suggestion.selectedFilters"
-                  :key="filter.id"
-                  class="x-text1-sm x-text-auxiliary-50"
-                >
+              <p
+                v-if="suggestion.selectedFilters"
+                class="x-text1-sm x-text-auxiliary-50 x-line-clamp-1"
+              >
+                <span v-for="filter in suggestion.selectedFilters" :key="filter.id" class="x-mr-8">
                   {{ filter.label }}
-                </li>
-              </ul>
+                </span>
+              </p>
 
               <p class="x-text1 x-text1-sm x-text-neutral-75">
                 {{ formatTime(suggestion.timestamp) }}
@@ -78,3 +77,13 @@
     }
   });
 </script>
+
+<!--<style lang='"scss'>-->
+<!--  .x-line-clamp-1 {-->
+<!--    overflow: hidden;-->
+<!--    display: -webkit-box;-->
+<!--    -webkit-box-orient: vertical;-->
+<!--    -webkit-line-clamp: 1;-->
+<!--  }-->
+
+<!--</style>-->
