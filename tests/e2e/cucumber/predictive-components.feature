@@ -28,7 +28,7 @@ Feature: Predictive components
     When  related tag <relatedTagIndex> is clicked
     Then  a search request from "related_tag" is done
     And   clicked related tag is shown in position 0 as selected
-    When  related tag 0 is clicked
+    When  clicked related tag is clicked again
     Then  a search request from "related_tag" is done
     And  related tag <relatedTagIndex> is displayed as not selected
     Examples:
