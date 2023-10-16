@@ -22,6 +22,16 @@
 
             <div class="x-flex x-flex-col x-gap-2">
               <p>{{ suggestion.query }}</p>
+              <ul v-if="suggestion.selectedFilters" class="x-flex x-gap-8">
+                <li
+                  v-for="filter in suggestion.selectedFilters"
+                  :key="filter.id"
+                  class="x-text1-sm x-text-auxiliary-50"
+                >
+                  #{{ filter.label }}
+                </li>
+              </ul>
+
               <p class="x-text1 x-text1-sm x-text-neutral-75">
                 {{ formatTime(suggestion.timestamp) }}
                 <template v-if="suggestion.totalResults !== undefined">
