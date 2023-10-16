@@ -22,9 +22,9 @@ Feature: Scroll
     Then  scroll position is at top
 
     Examples:
-      | query | view        | resultId     |
-      | shirt | macbook-13  | result-12    |
-      | shirt | iphone-x    | result-12    |
+      | query  | view        | resultId     |
+      | tshirt | macbook-13  | result-12    |
+      | tshirt | iphone-x    | result-12    |
 
   Scenario Outline: 2. Scroll position is at end and toolbar is hidden
     Given start page with "<view>" size view
@@ -35,5 +35,5 @@ Feature: Scroll
     Then  subheader is not visible
 
     Examples:
-      | query | view        |
-      | shirt | macbook-13  |
+      | query  | view        |
+      | tshirt | macbook-13  |
