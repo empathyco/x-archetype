@@ -5,9 +5,16 @@ import {
   PlatformResult,
   recommendationsRequestSchema,
   resultSchema,
-  semanticQueriesRequestSchema
+  semanticQueriesRequestSchema,
+  experienceControlsResponseSchema,
+  PlatformExperienceControlsResponse
 } from '@empathyco/x-adapter-platform';
-import { RecommendationsRequest, Result, SemanticQueriesRequest } from '@empathyco/x-types';
+import {
+  ExperienceControlsResponse,
+  RecommendationsRequest,
+  Result,
+  SemanticQueriesRequest
+} from '@empathyco/x-types';
 
 export const adapter = platformAdapter;
 
@@ -51,5 +58,25 @@ semanticQueriesRequestSchema.$override<
       extraParams,
       filter_ids: 'NOT_ALL_WORDS,NOT_PARTIAL'
     };
+  }
+});
+
+// TODO: Remove when the endpoint is propery created in the platform adapter
+// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+const experienceControlsAdapter = adapter.experienceControls.extends({
+  endpoint: 'https://config-service.internal.test.empathy.co/public/configs'
+});
+platformAdapter.experienceControls = experienceControlsAdapter;
+
+// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+experienceControlsResponseSchema.$override<
+  PlatformExperienceControlsResponse,
+  Partial<ExperienceControlsResponse>
+>({
+  events: {
+    SemanticQueriesConfigProvided: {
+      maxItemsToRequest: 'controls.semanticQueries.numberOfCarousels',
+      resultsPerCarousel: 'controls.semanticQueries.resultsPerCarousels'
+    }
   }
 });
