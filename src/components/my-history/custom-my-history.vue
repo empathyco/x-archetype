@@ -28,7 +28,7 @@
                   :key="filter.id"
                   class="x-text1-sm x-text-auxiliary-50"
                 >
-                  #{{ filter.label }}
+                  {{ filter.label }}
                 </li>
               </ul>
 
