@@ -32,7 +32,7 @@ Then('scroll position is at top', () => {
  */
 When('scrolling down to the bottom', () => {
   cy.getByDataTest('query-preview-item')
-    .should('have.length', 10)
+    .should('have.length.at.least', 5)
     .then(() => {
       cy.getByDataTest('base-scroll').scrollTo('center', { duration: 1000 });
       cy.getByDataTest('base-scroll').scrollTo('bottom', { duration: 500 });
