@@ -33,7 +33,8 @@
         "message": "Se disattivi la cronologia ricerche, le ricerche nella cronologia verranno eliminate.",
         "dismiss": "Cancella",
         "confirm": "Disattiva"
-      }
+      },
+      "filters": "{totalFilters} filtri applicati"
     },
     "nextQueries": {
       "title": "Potrebbe interessarti"
