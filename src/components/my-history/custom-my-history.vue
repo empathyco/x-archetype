@@ -22,14 +22,30 @@
 
             <div class="x-flex x-flex-col x-gap-2">
               <p>{{ suggestion.query }}</p>
-              <p
-                v-if="suggestion.selectedFilters"
-                class="x-text1-sm x-text-auxiliary-50 x-line-clamp-1"
-              >
-                <span v-for="filter in suggestion.selectedFilters" :key="filter.id" class="x-mr-8">
-                  {{ filter.label }}
-                </span>
-              </p>
+              <template v-if="suggestion.selectedFilters.length > 0">
+                <p
+                  v-if="suggestion.selectedFilters.length < 4"
+                  class="x-text1-sm x-text-lead-50 x-line-clamp-1"
+                >
+                  <span
+                    v-for="filter in suggestion.selectedFilters"
+                    :key="filter.id"
+                    class="x-history-filters x-pr-[4px]"
+                  >
+                    {{ filter.label }}
+                  </span>
+                </p>
+                <i18n
+                  v-else-if="suggestion.selectedFilters.length >= 4"
+                  tag="p"
+                  path="myHistory.filters"
+                  class="x-text1-sm x-text-lead-50"
+                >
+                  <template #totalFilters>{{ suggestion.selectedFilters.length - 1 }}</template>
+                </i18n>
+              </template>
+
+              <MyHistoryFilters :suggestion="suggestion" />
 
               <p class="x-text1 x-text1-sm x-text-neutral-75">
                 {{ formatTime(suggestion.timestamp) }}
@@ -61,6 +77,7 @@
   } from '@empathyco/x-components';
   import { MyHistory, HistoryQuery } from '@empathyco/x-components/history-queries';
   import { defineComponent } from 'vue';
+  import MyHistoryFilters from './my-history-filters.vue';
 
   export default defineComponent({
     components: {
@@ -68,7 +85,8 @@
       CrossTinyIcon,
       HistoryIcon,
       MyHistory,
-      HistoryQuery
+      HistoryQuery,
+      MyHistoryFilters
     },
     setup() {
       return {
@@ -78,12 +96,16 @@
   });
 </script>
 
-<!--<style lang='"scss'>-->
-<!--  .x-line-clamp-1 {-->
-<!--    overflow: hidden;-->
-<!--    display: -webkit-box;-->
-<!--    -webkit-box-orient: vertical;-->
-<!--    -webkit-line-clamp: 1;-->
-<!--  }-->
-
-<!--</style>-->
+<style lang="scss">
+  .x-history-filters {
+    &:after {
+      content: '·';
+      padding-left: 4px;
+    }
+    &:last-child {
+      &:after {
+        content: '';
+      }
+    }
+  }
+</style>
