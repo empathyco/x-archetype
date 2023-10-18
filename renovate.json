@@ -23,6 +23,10 @@
     {
       "matchPackageNames": ["vue-i18n"],
       "allowedVersions": "< 9"
+    },
+    {
+      "matchPackageNames": ["^@empathyco/*"],
+      "enabled": false
     }
   ]
 }
