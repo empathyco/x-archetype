@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '18'
       - name: Install deps, build and test project
-        uses: ./github/actions/install
+        uses: ./.github/actions/install
       - name: Configure AWS credentials from Websites account
         uses: aws-actions/configure-aws-credentials@v3
         with:
