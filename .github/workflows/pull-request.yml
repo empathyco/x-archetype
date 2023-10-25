@@ -6,15 +6,9 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}
   cancel-in-progress: true
-env:
-  GH_TOKEN: ${{ secrets.SUPPORT_TOKEN }}
 jobs:
   build:
     runs-on: ubuntu-latest
-    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
-    permissions:
-      id-token: write
-      contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v2
@@ -22,7 +16,7 @@ jobs:
           node-version: '18'
       - name: Install deps, build and test project
         uses: ./.github/actions/install
-      - name: Deploy to AWS
+      - name: Deploy PR Preview
         uses: ./.github/actions/deploy
         with:
           aws_role: ${{ secrets.AWS_ROLE_TEST_ACCOUNT }}
