@@ -22,24 +22,11 @@ jobs:
           node-version: '18'
       - name: Install deps, build and test project
         uses: ./.github/actions/install
-      - name: Configure AWS credentials from Websites account
-        uses: aws-actions/configure-aws-credentials@v3
+      - name: Deploy to AWS
+        uses: ./.github/actions/deploy
         with:
-          role-to-assume: arn:aws:iam::732785771697:role/github/x-archetype20231004105928694200000001
-          aws-region: eu-west-1
-      - name: Sync files to the bucket
-        run: |
-          aws s3 sync dist ${{ secrets.TEST_BUCKET }}/preview/${{ github.event.number }} --delete --cache-control max-age=3600 --include '*' --exclude '*/*'  --no-progress
-      - name: Invalidate CloudFront cache
-        run: AWS_MAX_ATTEMPTS=10 aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_TEST }} --paths '/preview/${{ github.event.number }}/*'
-      - name: Adding comment to PR with preview link and validation results
-        uses: actions/github-script@v5
-        with:
-          github-token: ${{ secrets.SUPPORT_TOKEN }}
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `Check **PR ${{ github.event.number }}** preview 👀 <br> <br> [https://x.test.empathy.co/preview/${{ github.event.number }}/index.html](https://x.test.empathy.co/preview/${{ github.event.number }}/index.html) `
-            })
+          aws_role: arn:aws:iam::732785771697:role/github/x-archetype20231004105928694200000001
+          aws_deploy_path: ${{ secrets.TEST_BUCKET }}/preview/${{ github.event.number }}
+          aws_s3_sync_args: '--include \"*\" --exclude \"*/*\"'
+          cloudfront_distribution_id: ${{ secrets.CLOUDFRONT_ID_TEST }}
+          cloudfront_invalidation_paths: '/preview/${{ github.event.number }}/*'
