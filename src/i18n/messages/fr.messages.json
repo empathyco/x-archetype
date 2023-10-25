@@ -33,8 +33,7 @@
         "message": "En désactivant les requêtes d'historique, vous effacez également toute la liste d'historique.",
         "dismiss": "Annuler",
         "confirm": "Désactiver"
-      },
-      "filters": "{totalFilters} filtres appliqués"
+      }
     },
     "nextQueries": {
       "title": "Et Après"

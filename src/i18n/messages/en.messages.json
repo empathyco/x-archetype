@@ -33,8 +33,7 @@
         "message": "Disabling History Queries you also clear all the history list.",
         "dismiss": "Cancel",
         "confirm": "Disable"
-      },
-      "filters": "{firstFilter} {totalFilters} filters applied"
+      }
     },
     "nextQueries": {
       "title": "What's Next"

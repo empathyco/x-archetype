@@ -33,8 +33,7 @@
         "message": "Si desactivas el historial de búsqueda, las búsquedas de tu historial serán eliminadas.",
         "dismiss": "Cancelar",
         "confirm": "Desactivar"
-      },
-      "filters": "{totalFilters} filtros aplicados"
+      }
     },
     "nextQueries": {
       "title": "Quizás te Interese"

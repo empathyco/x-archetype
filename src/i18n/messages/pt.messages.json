@@ -33,8 +33,7 @@
         "message": "Desabilitando o histórico de buscas, você também limpará toda a lista de buscas",
         "dismiss": "Cancelar",
         "confirm": "Desativar"
-      },
-      "filters": "{totalFilters} filtros aplicados"
+      }
     },
     "nextQueries": {
       "title": "Você Pode se Interessar"

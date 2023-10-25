@@ -35,7 +35,6 @@ export interface Messages {
       dismiss: string;
       confirm: string;
     };
-    filters: string;
   };
   nextQueries: {
     title: string;
