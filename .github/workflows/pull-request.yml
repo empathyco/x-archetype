@@ -25,7 +25,7 @@ jobs:
         with:
           aws_role: ${{ secrets.AWS_ROLE_TEST_ACCOUNT }}
           aws_deploy_path: ${{ secrets.TEST_BUCKET }}/preview/${{ github.event.number }}
-          aws_s3_sync_args: '--include * --exclude */*'
+          aws_s3_sync_args: --include '*' --exclude '*/*'
           cloudfront_distribution_id: ${{ secrets.CLOUDFRONT_ID_TEST }}
           cloudfront_invalidation_paths: '/preview/${{ github.event.number }}/*'
       - name: Adding comment to PR with preview link and validation results
