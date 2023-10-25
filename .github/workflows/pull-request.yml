@@ -25,7 +25,7 @@ jobs:
       - name: Deploy to AWS
         uses: ./.github/actions/deploy
         with:
-          aws_role: arn:aws:iam::732785771697:role/github/x-archetype20231004105928694200000001
+          aws_role: ${{ secrets.AWS_ROLE_TEST_ACCOUNT }}
           aws_deploy_path: ${{ secrets.TEST_BUCKET }}/preview/${{ github.event.number }}
           aws_s3_sync_args: '--include \"*\" --exclude \"*/*\"'
           cloudfront_distribution_id: ${{ secrets.CLOUDFRONT_ID_TEST }}
