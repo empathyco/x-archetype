@@ -1,0 +1,33 @@
+name: Deploy
+description: Deploy project
+inputs:
+  aws_role:
+    description: Role to assume during the deployment
+    required: true
+  aws_deploy_path:
+    description: the path to the s3 folder where to deploy
+    required: true
+  aws_s3_sync_args:
+    description: additional arguments for s3 sync command
+    required: true
+  cloudfront_distribution_id:
+      description: the CloudFront cache id to invalidate
+      required: true
+  cloudfront_invalidation_paths:
+      description: the CloudFront path to invalidate
+      required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Configure AWS credentials from Websites account
+      uses: aws-actions/configure-aws-credentials@v3
+      with:
+        role-to-assume: ${{ inputs.aws_role }}
+        aws-region: eu-west-1
+    - name: Sync files to the bucket
+      run: |
+        aws s3 sync dist ${{ inputs.aws_deploy_path }} --delete --cache-control max-age=3600 ${{ inputs.aws_s3_sync_args }}  --no-progress
+      shell: bash
+    - name: Invalidate CloudFront cache
+      run: AWS_MAX_ATTEMPTS=10 aws cloudfront create-invalidation --distribution-id ${{ inputs.cloudfront_distribution_id }} --paths ${{ inputs.cloudfront_invalidation_paths }}
+      shell: bash
