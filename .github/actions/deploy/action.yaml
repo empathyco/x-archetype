@@ -38,7 +38,7 @@ runs:
         github-token: ${{ github.token }}
         script: |
           github.rest.issues.createComment({
-            issue_number: f.issue.number,
+            issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
             body: `Check **PR ${{ github.event.number }}** preview 👀 <br> <br> [https://x.test.empathy.co/preview/${{ github.event.number }}/index.html](https://x.test.empathy.co/preview/${{ github.event.number }}/index.html) `
