@@ -21,3 +21,11 @@ When('related tag number {int} is clicked', (relatedTagItem: number) => {
     .invoke('text')
     .as('clickedRelatedTag');
 });
+
+When('clicked related tag is clicked again', function (this: { clickedRelatedTag: string }) {
+  cy.getByDataTest('related-tag')
+    .contains(this.clickedRelatedTag)
+    .click()
+    .invoke('text')
+    .as('clickedRelatedTag');
+});

@@ -1,0 +1,28 @@
+name: Build on push
+on: [push]
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+      - name: Install deps, build and test project
+        uses: ./.github/actions/install
+#      - name: Deploy to staging
+#        if:  ${{ github.ref_name == 'main' }}
+#        uses: ./.github/actions/deploy
+#        with:
+#          aws_role: ${{ secrets.AWS_ROLE_STAGING_ACCOUNT }}
+#          aws_deploy_path: ${{ secrets.AWS_STAGING_BUCKET }}
+#          aws_s3_sync_args: '--include \"*\" --exclude \"*/*\"'
+#          cloudfront_distribution_id: ${{ secrets.CLOUDFRONT_ID_STAGING }}
+#          cloudfront_invalidation_paths: '/*'

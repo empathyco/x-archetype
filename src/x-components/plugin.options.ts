@@ -5,8 +5,10 @@ import * as messages from '../i18n/messages';
 import store from '../store';
 import { adapter } from '../adapter/adapter';
 import { useDevice } from '../composables/use-device.composable';
+import { mergeSemanticQueriesConfigWire } from './wiring/semantic-queries.wiring';
 
 const device = useDevice();
+
 export const installXOptions: InstallXOptions = {
   adapter,
   store,
@@ -22,6 +24,11 @@ export const installXOptions: InstallXOptions = {
       config: {
         threshold: 50,
         maxItemsToRequest: 10
+      },
+      wiring: {
+        SemanticQueriesConfigProvided: {
+          mergeSemanticQueriesConfigWire
+        }
       }
     }
   },
