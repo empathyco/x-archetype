@@ -22,10 +22,11 @@
 
             <div class="x-flex x-flex-col x-gap-2">
               <p>{{ suggestion.query }}</p>
-              <MyHistoryFilters
-                v-if="suggestion.selectedFilters.length > 0"
-                :suggestion="suggestion"
-              />
+              <p class="x-text1-sm x-text-lead-50 x-line-clamp-1">
+                <span v-for="filter in suggestion.selectedFilters" :key="filter.id" class="x-pr-8">
+                  {{ filter.label ?? filter.id }}
+                </span>
+              </p>
 
               <p class="x-text1 x-text1-sm x-text-neutral-75">
                 {{ formatTime(suggestion.timestamp) }}
@@ -57,7 +58,6 @@
   } from '@empathyco/x-components';
   import { MyHistory, HistoryQuery } from '@empathyco/x-components/history-queries';
   import { defineComponent } from 'vue';
-  import MyHistoryFilters from './my-history-filters.vue';
 
   export default defineComponent({
     components: {
@@ -65,8 +65,7 @@
       CrossTinyIcon,
       HistoryIcon,
       MyHistory,
-      HistoryQuery,
-      MyHistoryFilters
+      HistoryQuery
     },
     setup() {
       return {
