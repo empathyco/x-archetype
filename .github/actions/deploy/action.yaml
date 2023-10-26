@@ -10,6 +10,9 @@ inputs:
   aws_s3_sync_args:
     description: additional arguments for s3 sync command
     required: true
+  aws_s3_cache:
+    description: cache value for s3 sync command
+    required: true
   cloudfront_distribution_id:
       description: the CloudFront cache id to invalidate
       required: true
