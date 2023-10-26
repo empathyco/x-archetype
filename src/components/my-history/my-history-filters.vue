@@ -1,15 +1,13 @@
 <template v-if="suggestion.selectedFilters.length > 0">
-  <div>
-    <p class="x-text1-sm x-text-lead-50 x-line-clamp-1">
-      <span
-        v-for="filter in suggestion.selectedFilters"
-        :key="filter.id"
-        class="x-history-filters x-pr-8"
-      >
-        {{ filter.label ?? filter.id }}
-      </span>
-    </p>
-  </div>
+  <p class="x-text1-sm x-text-lead-50 x-line-clamp-1">
+    <span
+      v-for="filter in suggestion.selectedFilters"
+      :key="filter.id"
+      class="x-history-filters x-pr-8"
+    >
+      {{ filter.label ?? filter.id }}
+    </span>
+  </p>
 </template>
 
 <script lang="ts">
