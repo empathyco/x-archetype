@@ -27,7 +27,7 @@
                 class="x-text1-sm x-text-lead-50 x-line-clamp-1"
               >
                 <span v-for="filter in suggestion.selectedFilters" :key="filter.id" class="x-pr-8">
-                  {{ filter.label ?? filter.id }}
+                  {{ label(filter) }}
                 </span>
               </p>
 
@@ -71,8 +71,13 @@
       HistoryQuery
     },
     setup() {
+      const label = (filter: Record<string, string>): string => {
+        return filter.label ?? filter.id;
+      };
+
       return {
-        animation: StaggeredFadeAndSlide
+        animation: StaggeredFadeAndSlide,
+        label
       };
     }
   });
