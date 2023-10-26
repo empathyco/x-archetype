@@ -22,7 +22,10 @@
 
             <div class="x-flex x-flex-col x-gap-2">
               <p>{{ suggestion.query }}</p>
-              <p class="x-text1-sm x-text-lead-50 x-line-clamp-1">
+              <p
+                v-if="suggestion.selectedFilters.length > 0"
+                class="x-text1-sm x-text-lead-50 x-line-clamp-1"
+              >
                 <span v-for="filter in suggestion.selectedFilters" :key="filter.id" class="x-pr-8">
                   {{ filter.label ?? filter.id }}
                 </span>
