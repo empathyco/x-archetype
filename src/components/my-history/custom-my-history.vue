@@ -16,20 +16,27 @@
             @click="closeModal"
             data-test="my-history-query"
             :suggestion="suggestion"
-            suggestionClass="x-suggestion"
+            suggestionClass="x-suggestion x-w-[320px]"
           >
             <HistoryIcon class="max-desktop:x-icon-lg" />
 
             <div class="x-flex x-flex-col x-gap-2">
-              <p>{{ suggestion.query }}</p>
-              <p
-                v-if="suggestion.selectedFilters.length > 0"
-                class="x-text1-sm x-text-lead-50 x-line-clamp-1"
+              <p class="hover:x-underline">{{ suggestion.query }}</p>
+              <div
+                v-if="suggestion.selectedFilters && suggestion.selectedFilters.length > 0"
+                class="x-text1-sm x-flex x-text-lead-50"
               >
-                <span v-for="filter in suggestion.selectedFilters" :key="filter.id" class="x-pr-8">
-                  {{ label(filter) }}
-                </span>
-              </p>
+                <p class="x-line-clamp-1">
+                  <span
+                    v-for="filter in suggestion.selectedFilters"
+                    :key="filter.id"
+                    class="x-pr-8"
+                  >
+                    {{ label(filter) }}
+                  </span>
+                </p>
+                <p class="x-pl-8">({{ suggestion.selectedFilters.length }})</p>
+              </div>
 
               <p class="x-text1 x-text1-sm x-text-neutral-75">
                 {{ formatTime(suggestion.timestamp) }}
