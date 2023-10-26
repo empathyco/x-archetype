@@ -6,10 +6,10 @@
       :animation="empathizeAnimation"
       class="x-layout-item x-absolute x-z-[1] x-w-full x-bg-neutral-0 x-py-4"
     >
-      <MaxDesktopWidthItem v-if="showEmpathize">
+      <MaxDesktopWidthItem v-if="showEmpathize || showIdentifierResults">
         <DesktopSearchboxAlign>
           <div class="x-layout-item">
-            <div v-if="showEmpathize || showIdentifierResults" class="x-h-full x-py-12 x-pl-[17px]">
+            <div class="x-h-full x-py-12 x-pl-[17px]">
               <div class="x-block">
                 <BaseKeyboardNavigation
                   class="x-flex x-items-start x-gap-24"
