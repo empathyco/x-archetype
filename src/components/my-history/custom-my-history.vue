@@ -22,7 +22,10 @@
 
             <div class="x-flex x-flex-col x-gap-2">
               <p>{{ suggestion.query }}</p>
-              <MyHistoryFilters :suggestion="suggestion" />
+              <MyHistoryFilters
+                v-if="suggestion.selectedFilters.length > 0"
+                :suggestion="suggestion"
+              />
 
               <p class="x-text1 x-text1-sm x-text-neutral-75">
                 {{ formatTime(suggestion.timestamp) }}
