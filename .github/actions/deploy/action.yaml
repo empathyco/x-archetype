@@ -10,6 +10,9 @@ inputs:
   aws_s3_sync_args:
     description: additional arguments for s3 sync command
     required: true
+  aws_s3_cache:
+    description: cache value for s3 sync command
+    required: true
   cloudfront_distribution_id:
       description: the CloudFront cache id to invalidate
       required: true
@@ -26,7 +29,7 @@ runs:
         aws-region: eu-west-1
     - name: Sync files to the bucket
       run: |
-        aws s3 sync dist ${{ inputs.aws_deploy_path }} --delete --cache-control max-age=3600 ${{ inputs.aws_s3_sync_args }}  --no-progress
+        aws s3 sync dist ${{ inputs.aws_deploy_path }} --delete --cache-control ${{ inputs.aws_s3_cache }} ${{ inputs.aws_s3_sync_args }}  --no-progress
       shell: bash
     - name: Invalidate CloudFront cache
       run: AWS_MAX_ATTEMPTS=10 aws cloudfront create-invalidation --distribution-id ${{ inputs.cloudfront_distribution_id }} --paths ${{ inputs.cloudfront_invalidation_paths }}
