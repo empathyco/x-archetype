@@ -9,7 +9,7 @@
       <MaxDesktopWidthItem v-if="showEmpathize || showIdentifierResults">
         <DesktopSearchboxAlign>
           <div class="x-layout-item">
-            <div class="x-h-full x-py-12 x-pl-[17px]">
+            <div v-if="showEmpathize || showIdentifierResults" class="x-h-full x-py-12 x-pl-[17px]">
               <div class="x-block">
                 <BaseKeyboardNavigation
                   class="x-flex x-items-start x-gap-24"
