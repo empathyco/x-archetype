@@ -17,6 +17,7 @@ jobs:
           node-version: '18'
       - name: Install deps, build and test project
         uses: ./.github/actions/install
+      # Every push to main deploys to staging
       - name: Deploy to staging
         if:  ${{ github.ref_name == 'main' }}
         uses: ./.github/actions/deploy
@@ -26,4 +27,15 @@ jobs:
           aws_s3_sync_args: --include '*' --exclude '*/*'
           aws_s3_cache: no-store
           cloudfront_distribution_id: ${{ secrets.CLOUDFRONT_ID_STAGING }}
+          cloudfront_invalidation_paths: '/*'
+       # Only tags named as release-* will deploy to production
+      - name: Deploy to prod
+        if:  startsWith(github.ref, 'refs/tags/release-')
+        uses: ./.github/actions/deploy
+        with:
+          aws_role: ${{ secrets.AWS_ROLE_PRODUCTION_ACCOUNT }}
+          aws_deploy_path: ${{ secrets.AWS_PRODUCTION_BUCKET }}
+          aws_s3_sync_args: --include '*' --exclude '*/*'
+          aws_s3_cache: max-age=3600
+          cloudfront_distribution_id: ${{ secrets.CLOUDFRONT_ID_PRODUCTION }}
           cloudfront_invalidation_paths: '/*'
