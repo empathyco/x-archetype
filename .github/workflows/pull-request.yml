@@ -24,7 +24,7 @@ jobs:
         uses: ./.github/actions/deploy
         with:
           aws_role: ${{ secrets.AWS_ROLE_TEST_ACCOUNT }}
-          aws_deploy_path: ${{ secrets.TEST_BUCKET }}/preview/${{ github.event.number }}
+          aws_deploy_path: ${{ secrets.AWS_TEST_BUCKET }}/preview/${{ github.event.number }}
           aws_s3_sync_args: --include '*' --exclude '*/*'
           aws_s3_cache: no-store
           cloudfront_distribution_id: ${{ secrets.CLOUDFRONT_ID_TEST }}
