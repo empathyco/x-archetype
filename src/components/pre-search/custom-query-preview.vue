@@ -21,7 +21,7 @@
           </QueryPreviewButton>
         </template>
         <DisplayClickProvider resultFeature="brand_recommendations">
-          <div class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
+          <div class="x-transform-style-3d x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
             <Result
               v-for="result in results"
               :key="result.id"
