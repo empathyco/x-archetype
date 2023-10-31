@@ -45,7 +45,31 @@
                             >
                               <template #default="{ query }">
                                 <HistoryIcon class="x-icon-md" />
-                                <Highlight :text="suggestion.query" :highlight="query" />
+                                <div class="x-group x-flex x-flex-col x-gap-2">
+                                  <Highlight
+                                    :text="suggestion.query"
+                                    :highlight="query"
+                                    class="group-hover:x-underline"
+                                  />
+                                  <div
+                                    v-if="
+                                      suggestion.selectedFilters &&
+                                      suggestion.selectedFilters.length
+                                    "
+                                    class="x-text1-sm x-flex x-text-lead-50"
+                                  >
+                                    <div class="x-line-clamp-1">
+                                      <span
+                                        v-for="filter in suggestion.selectedFilters"
+                                        :key="filter.id"
+                                        class="x-pr-8"
+                                      >
+                                        {{ filter.label }}
+                                      </span>
+                                    </div>
+                                    <span>({{ suggestion.selectedFilters.length }})</span>
+                                  </div>
+                                </div>
                               </template>
 
                               <template #remove-button-content>

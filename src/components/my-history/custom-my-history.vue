@@ -16,26 +16,26 @@
             @click="closeModal"
             data-test="my-history-query"
             :suggestion="suggestion"
-            suggestionClass="x-suggestion x-w-[320px]"
+            suggestionClass="x-suggestion"
           >
             <HistoryIcon class="max-desktop:x-icon-lg" />
 
-            <div class="x-flex x-flex-col x-gap-2">
-              <p class="hover:x-underline">{{ suggestion.query }}</p>
+            <div class="x-group x-flex x-flex-col x-gap-2">
+              <p class="group-hover:x-underline">{{ suggestion.query }}</p>
               <div
-                v-if="suggestion.selectedFilters && suggestion.selectedFilters.length > 0"
-                class="x-text1-sm x-flex x-text-lead-50"
+                v-if="suggestion.selectedFilters && suggestion.selectedFilters.length"
+                class="x-text1-sm x-flex x-gap-8 x-text-lead-50"
               >
-                <p class="x-line-clamp-1">
+                <div class="x-line-clamp-1">
                   <span
                     v-for="filter in suggestion.selectedFilters"
                     :key="filter.id"
                     class="x-pr-8"
                   >
-                    {{ label(filter) }}
+                    {{ filter.label }}
                   </span>
-                </p>
-                <p class="x-pl-8">({{ suggestion.selectedFilters.length }})</p>
+                </div>
+                <span>({{ suggestion.selectedFilters.length }})</span>
               </div>
 
               <p class="x-text1 x-text1-sm x-text-neutral-75">
@@ -78,13 +78,8 @@
       HistoryQuery
     },
     setup() {
-      const label = (filter: Record<string, string>): string => {
-        return filter.label ?? filter.id;
-      };
-
       return {
-        animation: StaggeredFadeAndSlide,
-        label
+        animation: StaggeredFadeAndSlide
       };
     }
   });
