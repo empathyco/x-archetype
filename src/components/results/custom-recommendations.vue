@@ -8,7 +8,7 @@
     </h1>
     <Recommendations v-if="!$x.totalResults">
       <template #layout="{ recommendations }">
-        <DisplayClickProvider resultFeature="recommendations">
+        <DisplayClickProvider resultFeature="topclicked_recommendations">
           <BaseGrid
             #default="{ item: result }"
             :animation="staggeredFadeAndSlide"

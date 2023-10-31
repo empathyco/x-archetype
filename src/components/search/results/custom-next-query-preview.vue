@@ -27,7 +27,7 @@
         itemClass="x-flex-shrink-0"
       >
         <template #result="{ item: result }">
-          <DisplayClickProvider resultFeature="next_query_results">
+          <DisplayClickProvider resultFeature="next_query_recommendations">
             <Result :result="result" class="x-w-[calc(38vw-16px)] desktop:x-max-w-[265px]" />
           </DisplayClickProvider>
         </template>
