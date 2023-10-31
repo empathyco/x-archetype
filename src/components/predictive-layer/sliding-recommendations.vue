@@ -18,7 +18,7 @@
 
       <Recommendations class="x-flex x-flex-row x-gap-12 x-pl-16 desktop:x-pl-0">
         <template #default="{ recommendation }">
-          <DisplayClickProvider resultFeature="recommendations">
+          <DisplayClickProvider resultFeature="topclicked_recommendations">
             <Result
               :result="recommendation"
               data-test="recommendation-item"
