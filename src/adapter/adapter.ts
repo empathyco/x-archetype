@@ -61,13 +61,6 @@ semanticQueriesRequestSchema.$override<
   }
 });
 
-// TODO: Remove when the endpoint is propery created in the platform adapter
-// eslint-disable-next-line @typescript-eslint/no-unsafe-call
-const experienceControlsAdapter = adapter.experienceControls.extends({
-  endpoint: 'https://config-service.internal.test.empathy.co/public/configs'
-});
-platformAdapter.experienceControls = experienceControlsAdapter;
-
 // eslint-disable-next-line @typescript-eslint/no-unsafe-call
 experienceControlsResponseSchema.$override<
   PlatformExperienceControlsResponse,
