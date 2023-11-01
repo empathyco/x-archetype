@@ -80,7 +80,7 @@
 
 <style scoped lang="scss">
   .x-modal::v-deep {
-    z-index: 10000;
+    z-index: 10000 !important;
     .x-modal__content {
       width: 100%;
       height: 100%;
