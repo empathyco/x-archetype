@@ -1,6 +1,13 @@
 /** @type {import('@empathyco/x-tailwindcss').PluginOptions} */
 module.exports = {
-  theme: {},
+  theme: {
+    colors: {
+      lead: {
+        50: '#782157',
+        75: '#782157'
+      }
+    }
+  },
   components: ({ theme }) => ({
     '.message': {
       display: 'flex',

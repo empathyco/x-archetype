@@ -78,12 +78,15 @@
   }
 </script>
 
-<style scoped>
-  .x-modal::v-deep .x-modal__content {
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    overflow: auto;
+<style scoped lang="scss">
+  .x-modal::v-deep {
+    z-index: 10000;
+    .x-modal__content {
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      overflow: auto;
+    }
   }
 </style>
 <style lang="scss">

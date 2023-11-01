@@ -38,7 +38,7 @@ resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
   description: 'description',
   collection: 'collection',
   brand: 'brand',
-  images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images])
+  images: ({ __images }) => (Array.isArray(__images) ? __images : [__images])
 });
 
 recommendationsRequestSchema.$override<

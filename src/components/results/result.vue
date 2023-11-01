@@ -6,7 +6,7 @@
   >
     <div class="x-relative">
       <BaseResultLink class="x-result__picture" :result="result">
-        <BaseResultImage :result="result" :loadAnimation="imageAnimation" showNextImageOnHover>
+        <BaseResultImage :result="result" :loadAnimation="imageAnimation">
           <template #placeholder>
             <BasePlaceholderImage />
           </template>
@@ -20,7 +20,7 @@
         v-if="isDesktopOrGreater && showAddToCart"
         class="x-result__overlay x-invisible x-absolute x-bottom-0 x-flex x-w-full group-hover/result:x-visible"
       >
-        <BaseAddToCart :result="result" class="x-button-lead x-m-16 x-flex-auto x-rounded-full">
+        <BaseAddToCart :result="result" class="x-button-lead x-m-16 x-flex-auto x-rounded-md">
           {{ $t('result.addToCart') }}
         </BaseAddToCart>
       </div>
@@ -31,7 +31,7 @@
       :result="result"
     >
       <h2 class="x-title4 x-truncate x-uppercase" data-test="result-title">
-        {{ result.description }}
+        {{ result.name }}
       </h2>
       <template v-if="showDescription">
         <span class="x-text2">{{ result.collection }}</span>
