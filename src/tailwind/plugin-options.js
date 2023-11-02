@@ -17,6 +17,9 @@ module.exports = {
         paddingTop: theme('spacing.24'),
         paddingBottom: theme('spacing.24')
       }
+    },
+    '.transform-style-3d': {
+      transformStyle: 'preserve-3d'
     }
   })
 };
