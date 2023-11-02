@@ -51,7 +51,10 @@
                                     :highlight="query"
                                     class="group-hover:x-underline"
                                   />
-                                  <HistoryQueryFilters class="x-w-128" :suggestion="suggestion" />
+                                  <HistoryQueryFilters
+                                    class="x-w-128"
+                                    :filtersList="suggestion.selectedFilters"
+                                  />
                                 </div>
                               </template>
 

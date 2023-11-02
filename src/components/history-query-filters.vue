@@ -1,14 +1,11 @@
 <template>
-  <div
-    v-if="suggestion.selectedFilters && suggestion.selectedFilters.length"
-    class="x-text1-sm x-flex x-gap-8 x-text-lead-50"
-  >
+  <div v-if="filtersList && filtersList.length" class="x-text1-sm x-flex x-gap-8 x-text-lead-50">
     <div class="x-truncate">
-      <span v-for="filter in suggestion.selectedFilters" :key="filter.id" class="x-pr-8">
+      <span v-for="filter in filtersList" :key="filter.id" class="x-pr-8">
         {{ filter.label }}
       </span>
     </div>
-    <span>({{ suggestion.selectedFilters.length }})</span>
+    <span>({{ filtersList.length }})</span>
   </div>
 </template>
 
@@ -18,8 +15,8 @@
 
   export default defineComponent({
     props: {
-      suggestion: {
-        type: Object as PropType<HistoryQuery>,
+      filtersList: {
+        type: Array as PropType<HistoryQuery['selectedFilters']>,
         required: true
       }
     }

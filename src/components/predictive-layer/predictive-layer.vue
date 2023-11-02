@@ -60,7 +60,7 @@
                         <Highlight :text="suggestion.query" :highlight="query" />
                         <HistoryQueryFilters
                           class="x-w-192 desktop:x-w-128"
-                          :suggestion="suggestion"
+                          :filtersList="suggestion.selectedFilters"
                         />
                       </div>
                     </template>
