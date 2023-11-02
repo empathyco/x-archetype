@@ -10,5 +10,5 @@ module.exports = {
   ],
   prefix: 'x-',
   important: true,
-  plugins: [xTailwindPlugin(options), require('@tailwindcss/line-clamp')]
+  plugins: [xTailwindPlugin(options)]
 };
