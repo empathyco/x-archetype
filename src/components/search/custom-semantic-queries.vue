@@ -23,7 +23,7 @@
               <ArrowRightIcon class="x-icon-lg" />
             </SemanticQuery>
           </template>
-          <DisplayClickProvider resultFeature="semantics">
+          <DisplayClickProvider resultFeature="semantic_recommendations">
             <div class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
               <Result
                 v-for="result in results.slice(0, resultsPerCarousel)"

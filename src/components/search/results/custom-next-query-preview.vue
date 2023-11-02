@@ -27,7 +27,9 @@
         itemClass="x-flex-shrink-0"
       >
         <template #result="{ item: result }">
-          <Result :result="result" class="x-w-[calc(38vw-16px)] desktop:x-max-w-[265px]" />
+          <DisplayClickProvider resultFeature="next_query_recommendations">
+            <Result :result="result" class="x-w-[calc(38vw-16px)] desktop:x-max-w-[265px]" />
+          </DisplayClickProvider>
         </template>
       </ItemsList>
     </CustomSlidingPanel>
@@ -42,6 +44,7 @@
   import { useDevice } from '../../../composables/use-device.composable';
   import Result from '../../results/result.vue';
   import CustomSlidingPanel from '../../custom-sliding-panel.vue';
+  import DisplayClickProvider from '../display-click-provider.vue';
 
   export default defineComponent({
     components: {
@@ -50,7 +53,8 @@
       Result,
       ArrowRightIcon,
       ItemsList,
-      NextQueryPreview
+      NextQueryPreview,
+      DisplayClickProvider
     },
     props: {
       nextQuery: { type: Object as PropType<NextQueryModel>, required: true }
