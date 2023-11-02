@@ -39,7 +39,7 @@
                         >
                           <template #suggestion="{ suggestion }">
                             <HistoryQuery
-                              class="x-suggestion-group-md"
+                              class="x-suggestion-group-md hover:x-no-underline"
                               :suggestion="suggestion"
                               suggestionClass="x-suggestion x-suggestion-md"
                             >
@@ -51,24 +51,10 @@
                                     :highlight="query"
                                     class="group-hover:x-underline"
                                   />
-                                  <div
-                                    v-if="
-                                      suggestion.selectedFilters &&
-                                      suggestion.selectedFilters.length
-                                    "
-                                    class="x-text1-sm x-flex x-text-lead-50"
-                                  >
-                                    <div class="x-line-clamp-1">
-                                      <span
-                                        v-for="filter in suggestion.selectedFilters"
-                                        :key="filter.id"
-                                        class="x-pr-8"
-                                      >
-                                        {{ filter.label }}
-                                      </span>
-                                    </div>
-                                    <span>({{ suggestion.selectedFilters.length }})</span>
-                                  </div>
+                                  <HistoryQueryFilters
+                                    class="x-w-128"
+                                    :suggestion="suggestion"
+                                  ></HistoryQueryFilters>
                                 </div>
                               </template>
 
@@ -177,6 +163,7 @@
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
   import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composable';
   import DesktopSearchboxAlign from '../desktop/desktop-searchbox-align.vue';
+  import HistoryQueryFilters from '../history-query-filters.vue';
   import SlidingRecommendations from './sliding-recommendations.vue';
   import PredictiveIdentifierResults from './predictive-identifier-results.vue';
   import PredictiveNextQueries from './predictive-next-queries.vue';
@@ -185,6 +172,7 @@
 
   export default defineComponent({
     components: {
+      HistoryQueryFilters,
       DesktopSearchboxAlign,
       MaxDesktopWidthItem,
       PredictiveQuerySuggestions,

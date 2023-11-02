@@ -17,9 +17,6 @@ module.exports = {
         paddingTop: theme('spacing.24'),
         paddingBottom: theme('spacing.24')
       }
-    },
-    '.history-query.suggestion-group:hover': {
-      textDecoration: 'none'
     }
   })
 };
