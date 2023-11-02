@@ -24,7 +24,7 @@
             <div class="x-group x-flex x-flex-col x-gap-2">
               <p class="group-hover:x-underline">{{ suggestion.query }}</p>
 
-              <HistoryQueryFilters class="x-w-192" :suggestion="suggestion"></HistoryQueryFilters>
+              <HistoryQueryFilters class="x-w-224 desktop:x-w-320" :suggestion="suggestion" />
 
               <p class="x-text1 x-text1-sm x-text-neutral-75">
                 {{ formatTime(suggestion.timestamp) }}

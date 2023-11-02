@@ -12,18 +12,16 @@
   </div>
 </template>
 
-<script>
-  import { defineComponent } from 'vue';
-  import { HistoryQuery } from '@empathyco/x-components/history-queries';
+<script lang="ts">
+  import { HistoryQuery } from '@empathyco/x-types';
+  import { defineComponent, PropType } from 'vue';
 
   export default defineComponent({
     props: {
       suggestion: {
-        type: HistoryQuery,
+        type: Object as PropType<HistoryQuery>,
         required: true
       }
     }
   });
 </script>
-
-<style scoped></style>

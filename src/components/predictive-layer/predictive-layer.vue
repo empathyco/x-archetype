@@ -56,7 +56,13 @@
                   >
                     <template #default="{ query }">
                       <HistoryIcon class="x-icon-lg desktop:x-icon-md" />
-                      <Highlight :text="suggestion.query" :highlight="query" />
+                      <div class="x-group x-flex x-flex-col x-gap-2">
+                        <Highlight :text="suggestion.query" :highlight="query" />
+                        <HistoryQueryFilters
+                          class="x-w-192 desktop:x-w-128"
+                          :suggestion="suggestion"
+                        />
+                      </div>
                     </template>
 
                     <template #remove-button-content>
@@ -129,6 +135,7 @@
   import { defineComponent } from 'vue';
   import { useDevice } from '../../composables/use-device.composable';
   import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composable';
+  import HistoryQueryFilters from '../history-query-filters.vue';
   import SlidingRecommendations from './sliding-recommendations.vue';
   import PredictiveIdentifierResults from './predictive-identifier-results.vue';
   import PredictiveQuerySuggestions from './predictive-query-suggestions.vue';
@@ -137,6 +144,7 @@
 
   export default defineComponent({
     components: {
+      HistoryQueryFilters,
       BaseScroll,
       PredictivePopularSearches,
       PredictiveNextQueries,
