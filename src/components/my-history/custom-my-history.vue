@@ -17,11 +17,18 @@
             data-test="my-history-query"
             :suggestion="suggestion"
             suggestionClass="x-suggestion"
+            class="hover:x-no-underline"
           >
             <HistoryIcon class="max-desktop:x-icon-lg" />
 
-            <div class="x-flex x-flex-col x-gap-2">
-              <p>{{ suggestion.query }}</p>
+            <div class="x-group x-flex x-flex-col x-gap-2">
+              <p class="group-hover:x-underline">{{ suggestion.query }}</p>
+
+              <HistoryQueryFilters
+                class="x-w-224 desktop:x-w-320"
+                :filtersList="suggestion.selectedFilters"
+              />
+
               <p class="x-text1 x-text1-sm x-text-neutral-75">
                 {{ formatTime(suggestion.timestamp) }}
                 <template v-if="suggestion.totalResults !== undefined">
@@ -52,6 +59,7 @@
   } from '@empathyco/x-components';
   import { MyHistory, HistoryQuery } from '@empathyco/x-components/history-queries';
   import { defineComponent } from 'vue';
+  import HistoryQueryFilters from '../history-query-filters.vue';
 
   export default defineComponent({
     components: {
@@ -59,7 +67,8 @@
       CrossTinyIcon,
       HistoryIcon,
       MyHistory,
-      HistoryQuery
+      HistoryQuery,
+      HistoryQueryFilters
     },
     setup() {
       return {

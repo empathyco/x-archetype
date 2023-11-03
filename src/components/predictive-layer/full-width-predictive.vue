@@ -39,13 +39,23 @@
                         >
                           <template #suggestion="{ suggestion }">
                             <HistoryQuery
-                              class="x-suggestion-group-md"
+                              class="x-suggestion-group-md hover:x-no-underline"
                               :suggestion="suggestion"
                               suggestionClass="x-suggestion x-suggestion-md"
                             >
                               <template #default="{ query }">
                                 <HistoryIcon class="x-icon-md" />
-                                <Highlight :text="suggestion.query" :highlight="query" />
+                                <div class="x-group x-flex x-flex-col x-gap-2">
+                                  <Highlight
+                                    :text="suggestion.query"
+                                    :highlight="query"
+                                    class="group-hover:x-underline"
+                                  />
+                                  <HistoryQueryFilters
+                                    class="x-w-128"
+                                    :filtersList="suggestion.selectedFilters"
+                                  />
+                                </div>
                               </template>
 
                               <template #remove-button-content>
@@ -153,6 +163,7 @@
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
   import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composable';
   import DesktopSearchboxAlign from '../desktop/desktop-searchbox-align.vue';
+  import HistoryQueryFilters from '../history-query-filters.vue';
   import SlidingRecommendations from './sliding-recommendations.vue';
   import PredictiveIdentifierResults from './predictive-identifier-results.vue';
   import PredictiveNextQueries from './predictive-next-queries.vue';
@@ -161,6 +172,7 @@
 
   export default defineComponent({
     components: {
+      HistoryQueryFilters,
       DesktopSearchboxAlign,
       MaxDesktopWidthItem,
       PredictiveQuerySuggestions,
