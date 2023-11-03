@@ -5,7 +5,7 @@
         {{ filter.label }}
       </span>
     </div>
-    <span>({{ filtersList.length }})</span>
+    <span v-if="showLength">({{ filtersList.length }})</span>
   </div>
 </template>
 
@@ -17,7 +17,13 @@
     props: {
       filtersList: {
         type: Array as PropType<HistoryQuery['selectedFilters']>,
-        required: true
+        required: true,
+        default: () => []
+      },
+      showLength: {
+        type: Boolean,
+        required: false,
+        default: false
       }
     }
   });

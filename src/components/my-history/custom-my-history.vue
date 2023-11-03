@@ -25,6 +25,7 @@
               <p class="group-hover:x-underline">{{ suggestion.query }}</p>
 
               <HistoryQueryFilters
+                :showLength="true"
                 class="x-w-224 desktop:x-w-320"
                 :filtersList="suggestion.selectedFilters"
               />
