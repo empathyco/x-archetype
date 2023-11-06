@@ -41,12 +41,12 @@
 
 <script lang="ts">
   import { ArrowRightIcon } from '@empathyco/x-components';
-  import { computed, defineComponent, inject } from 'vue';
+  import { defineComponent } from 'vue';
   import { SemanticQueries, SemanticQuery } from '@empathyco/x-components/semantic-queries';
   import { QueryPreviewList, useQueriesPreview } from '@empathyco/x-components/queries-preview';
-  import { Dictionary } from '@empathyco/x-utils';
   import CustomSlidingPanel from '../custom-sliding-panel.vue';
   import Result from '../results/result.vue';
+  import { useXControlsHelpers } from '../../composables/use-experience-controls.composable';
   import DisplayClickProvider from './display-click-provider.vue';
 
   export default defineComponent({
@@ -61,19 +61,14 @@
     },
     setup() {
       const { isAnyQueryLoadedInPreview } = useQueriesPreview();
-
-      const experienceControls = inject<Dictionary>('experienceControls', {});
-
-      const resultsPerCarousel = computed(() => {
-        const resultsPerCarousel: number =
-          experienceControls.value?.controls?.semanticQueries?.resultsPerCarousels;
-
-        return resultsPerCarousel ?? undefined;
+      const { maxItems } = useXControlsHelpers({
+        controls: 'semanticQueries',
+        prop: 'resultsPerCarousels'
       });
 
       return {
         isAnyQueryLoadedInPreview,
-        resultsPerCarousel
+        resultsPerCarousel: maxItems
       };
     }
   });
