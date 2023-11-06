@@ -3,33 +3,39 @@ import { Dictionary } from '@empathyco/x-utils';
 
 type ExperienceControlsHelpers = {
   maxItems: ComputedRef<number>;
+  columns: ComputedRef<Array<number>>;
 };
 
 /**
  * Experience controls values per x-modules.
  *
- * @param xmodule - The name of the x-module whose config will be set with xControls.
+ * @param controls - The name of the xControls controls object that will be used.
  * @param prop - The name of the property that will be configured.
  * @param defaultValue - A default value to set if xControls value is unavailable.
  *
  * @returns The experience controls utils.
  */
 export const useExperienceControlsHelpers = ({
-  xmodule,
+  controls,
   prop,
   defaultValue
 }: {
-  xmodule: string;
+  controls: string;
   prop: string;
-  defaultValue?: string | number | boolean;
+  defaultValue?: string | number | boolean | number[];
 }): ExperienceControlsHelpers => {
   const experienceControls = inject<Dictionary>('experienceControls', {});
 
   const maxItems = computed(() => {
-    return experienceControls.value?.controls?.[xmodule]?.[prop] ?? (defaultValue as number);
+    return experienceControls.value?.controls?.[controls]?.[prop] ?? (defaultValue as number);
+  });
+
+  const columns = computed(() => {
+    return experienceControls.value?.controls?.[controls]?.[prop] ?? (defaultValue as number[]);
   });
 
   return {
-    maxItems
+    maxItems,
+    columns
   };
 };
