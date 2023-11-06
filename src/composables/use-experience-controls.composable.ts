@@ -15,7 +15,7 @@ type ExperienceControlsHelpers = {
  *
  * @returns The experience controls utils.
  */
-export const useExperienceControlsHelpers = ({
+export const useXControlsHelpers = ({
   controls,
   prop,
   defaultValue

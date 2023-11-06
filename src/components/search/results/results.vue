@@ -55,8 +55,7 @@
   import { NextQueriesList } from '@empathyco/x-components/next-queries';
   import { useDevice } from '../../../composables/use-device.composable';
   import Result from '../../results/result.vue';
-  // eslint-disable-next-line max-len
-  import { useExperienceControlsHelpers } from '../../../composables/use-experience-controls.composable';
+  import { useXControlsHelpers } from '../../../composables/use-experience-controls.composable';
   import NextQueryPreview from './custom-next-query-preview.vue';
 
   export default defineComponent({
@@ -77,7 +76,7 @@
     },
     setup() {
       const { isMobile } = useDevice();
-      const { maxItems } = useExperienceControlsHelpers({
+      const { maxItems } = useXControlsHelpers({
         controls: 'nextQueries',
         prop: 'maxItems',
         defaultValue: 1
