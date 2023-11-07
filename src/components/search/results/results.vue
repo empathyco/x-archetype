@@ -77,7 +77,7 @@
     setup() {
       const { isMobile } = useDevice();
       const maxItems = useXControlsHelpers({
-        path: 'nextQueries.maxItems',
+        path: 'nextQueries.maxItems' as never,
         defaultValue: 1
       });
 
