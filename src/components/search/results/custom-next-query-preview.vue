@@ -45,7 +45,6 @@
   import Result from '../../results/result.vue';
   import CustomSlidingPanel from '../../custom-sliding-panel.vue';
   import DisplayClickProvider from '../display-click-provider.vue';
-  import { useXControlsHelpers } from '../../../composables/use-experience-controls.composable';
 
   export default defineComponent({
     components: {
@@ -62,12 +61,7 @@
     },
     setup() {
       const { isTabletOrLess } = useDevice();
-      const maxItems = useXControlsHelpers({
-        path: 'nextQueries.maxItems' as never,
-        defaultValue: 5
-      });
-
-      const maxItemsToRender = computed(() => (isTabletOrLess.value ? undefined : maxItems));
+      const maxItemsToRender = computed(() => (isTabletOrLess.value ? undefined : 5));
       return {
         maxItemsToRender
       };
