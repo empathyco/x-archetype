@@ -1,5 +1,5 @@
 import { computed, ComputedRef, inject } from 'vue';
-import { Dictionary } from '@empathyco/x-utils';
+import { Dictionary, getSafePropertyChain } from '@empathyco/x-utils';
 
 /**
  * Given a controls' object property chain, gets the experience controls values from the response.
@@ -18,10 +18,7 @@ export const useXControlsHelpers = ({
 }): ComputedRef => {
   const experienceControls = inject<Dictionary>('experienceControls', {});
 
-  const getByPath = function <T>(this: T, key: string): any {
-    return key.split('.').reduce((obj, prop) => (obj as any)[prop], this);
-  };
   return computed(() => {
-    return getByPath.call(experienceControls.value?.controls, path) ?? defaultValue;
+    return getSafePropertyChain(experienceControls.value.controls, path, defaultValue);
   });
 };
