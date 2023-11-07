@@ -2,26 +2,26 @@ import { computed, ComputedRef, inject } from 'vue';
 import { Dictionary } from '@empathyco/x-utils';
 
 /**
- * Experience controls values per x-modules.
+ * Given a controls' object property chain, gets the experience controls values from the response.
  *
- * @param controls - The name of the xControls object that will be used.
- * @param prop - The name of the property value that will be set.
+ * @param path - The chain of properties in an xControls object.
  * @param defaultValue - A default value to set if xControls one is unavailable.
  *
- * @returns The experience controls utils.
+ * @returns The experience controls property value.
  */
 export const useXControlsHelpers = ({
-  controls,
-  prop,
+  path,
   defaultValue
 }: {
-  controls: string;
-  prop: string;
+  path: string;
   defaultValue?: string | number | boolean | number[];
 }): ComputedRef => {
   const experienceControls = inject<Dictionary>('experienceControls', {});
 
+  const getByPath = function <T>(this: T, key: string): any {
+    return key.split('.').reduce((obj, prop) => (obj as any)[prop], this);
+  };
   return computed(() => {
-    return experienceControls.value?.controls?.[controls]?.[prop] ?? defaultValue;
+    return getByPath.call(experienceControls.value?.controls, path) ?? defaultValue;
   });
 };
