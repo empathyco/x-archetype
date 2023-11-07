@@ -30,7 +30,7 @@ jobs:
           cloudfront_distribution_id: ${{ secrets.CLOUDFRONT_ID_TEST }}
           cloudfront_invalidation_paths: '/preview/${{ github.event.number }}/*'
       - name: Adding comment to PR with preview link and validation results
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.SUPPORT_TOKEN }}
           script: |
