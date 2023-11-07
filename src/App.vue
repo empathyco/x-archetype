@@ -61,11 +61,6 @@
       return this.snippetConfig.queriesPreview;
     }
 
-    @XProvide('experienceControls')
-    public get experienceControls(): QueryPreviewInfo[] | undefined {
-      return this.$store.state.x.experienceControls.controls;
-    }
-
     @Watch('snippetConfig.uiLang')
     syncLang(uiLang: string): void {
       this.$setLocale(uiLang);
