@@ -11,7 +11,7 @@ import { useStore } from './use-store.composable';
  *
  * @returns The experience controls property value.
  */
-export const useXControlsHelpers = ({
+export const useXControls = ({
   path,
   defaultValue
 }: {

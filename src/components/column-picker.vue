@@ -24,7 +24,7 @@
     Grid4ColIcon
   } from '@empathyco/x-components';
   import { useDevice } from '../composables/use-device.composable';
-  import { useXControlsHelpers } from '../composables/use-experience-controls.composable';
+  import { useXControls } from '../composables/use-experience-controls.composable';
 
   export default defineComponent({
     components: {
@@ -35,7 +35,7 @@
     },
     setup() {
       const { isMobile } = useDevice();
-      const columns = useXControlsHelpers({
+      const columns = useXControls({
         path: 'layout.columnSelector' as never,
         defaultValue: [4, 2]
       });
