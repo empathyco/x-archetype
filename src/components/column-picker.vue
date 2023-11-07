@@ -35,7 +35,7 @@
     },
     setup() {
       const { isMobile } = useDevice();
-      const { columns } = useXControlsHelpers({
+      const columns = useXControlsHelpers({
         controls: 'layout',
         prop: 'columnSelector',
         defaultValue: [4, 2]

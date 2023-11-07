@@ -61,7 +61,7 @@
     },
     setup() {
       const { isAnyQueryLoadedInPreview } = useQueriesPreview();
-      const { maxItems } = useXControlsHelpers({
+      const maxItems = useXControlsHelpers({
         controls: 'semanticQueries',
         prop: 'resultsPerCarousels'
       });

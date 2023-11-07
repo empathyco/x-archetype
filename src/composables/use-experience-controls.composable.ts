@@ -1,17 +1,12 @@
 import { computed, ComputedRef, inject } from 'vue';
 import { Dictionary } from '@empathyco/x-utils';
 
-type ExperienceControlsHelpers = {
-  maxItems: ComputedRef<number>;
-  columns: ComputedRef<Array<number>>;
-};
-
 /**
  * Experience controls values per x-modules.
  *
- * @param controls - The name of the xControls controls object that will be used.
- * @param prop - The name of the property that will be configured.
- * @param defaultValue - A default value to set if xControls value is unavailable.
+ * @param controls - The name of the xControls object that will be used.
+ * @param prop - The name of the property value that will be set.
+ * @param defaultValue - A default value to set if xControls one is unavailable.
  *
  * @returns The experience controls utils.
  */
@@ -23,19 +18,10 @@ export const useXControlsHelpers = ({
   controls: string;
   prop: string;
   defaultValue?: string | number | boolean | number[];
-}): ExperienceControlsHelpers => {
+}): ComputedRef => {
   const experienceControls = inject<Dictionary>('experienceControls', {});
 
-  const maxItems = computed(() => {
-    return experienceControls.value?.controls?.[controls]?.[prop] ?? (defaultValue as number);
+  return computed(() => {
+    return experienceControls.value?.controls?.[controls]?.[prop] ?? defaultValue;
   });
-
-  const columns = computed(() => {
-    return experienceControls.value?.controls?.[controls]?.[prop] ?? (defaultValue as number[]);
-  });
-
-  return {
-    maxItems,
-    columns
-  };
 };
