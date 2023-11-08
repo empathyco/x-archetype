@@ -23,7 +23,7 @@ runs:
   using: 'composite'
   steps:
     - name: Configure AWS credentials from Websites account
-      uses: aws-actions/configure-aws-credentials@v3
+      uses: aws-actions/configure-aws-credentials@v4
       with:
         role-to-assume: ${{ inputs.aws_role }}
         aws-region: eu-west-1
