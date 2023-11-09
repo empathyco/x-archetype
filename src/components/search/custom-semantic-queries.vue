@@ -46,7 +46,7 @@
   import { QueryPreviewList, useQueriesPreview } from '@empathyco/x-components/queries-preview';
   import CustomSlidingPanel from '../custom-sliding-panel.vue';
   import Result from '../results/result.vue';
-  import { useXControls } from '../../composables/use-experience-controls.composable';
+  import { useExperienceControls } from '../../composables/use-experience-controls.composable';
   import DisplayClickProvider from './display-click-provider.vue';
 
   export default defineComponent({
@@ -61,9 +61,9 @@
     },
     setup() {
       const { isAnyQueryLoadedInPreview } = useQueriesPreview();
-      const maxItems = useXControls({
-        path: 'semanticQueries.resultsPerCarousels' as never
-      });
+      const maxItems = useExperienceControls().getControlFromPath(
+        'semanticQueries.resultsPerCarousels'
+      );
 
       return {
         isAnyQueryLoadedInPreview,

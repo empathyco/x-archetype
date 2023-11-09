@@ -1,24 +1,21 @@
 import { computed, ComputedRef } from 'vue';
-import { getSafePropertyChain } from '@empathyco/x-utils';
+import { ExtractPath, getSafePropertyChain } from '@empathyco/x-utils';
 import { ExperienceControlsState } from '@empathyco/x-components/experience-controls';
 import { useStore } from './use-store.composable';
 
 /**
  * Given a controls' object property chain, gets the experience controls values from the response.
+ * A defaultValue can be set as a safeguard in case the controls response was empty.
  *
- * @param path - The chain of properties in an xControls object.
- * @param defaultValue - A default value to set if xControls one is unavailable.
- *
- * @returns The experience controls property value.
+ * @returns An object containing the function to search for a configuration
+ * and set the experience controls property value.
  */
-// Rename
 export const useExperienceControls = (): {
   getControlFromPath: <SomeType>(path: string, defaultValue?: SomeType) => ComputedRef<SomeType>;
 } => {
   const experienceControls = (useStore('experienceControls') as ExperienceControlsState).controls
     .controls;
 
-// extracted the current logic to a function. The function can be typed so the return type is known and also it infers the return type from the default value
   const getControlFromPath = <SomeType>(
     path: string,
     defaultValue?: SomeType

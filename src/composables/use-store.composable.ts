@@ -1,3 +1,4 @@
+// TODO: Change when useStore composable is added in x-components
 import { getCurrentInstance } from 'vue';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { RootXStoreState, StatusState, XModuleName, XModulesTree } from '@empathyco/x-components';

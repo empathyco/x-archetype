@@ -55,7 +55,7 @@
   import { NextQueriesList } from '@empathyco/x-components/next-queries';
   import { useDevice } from '../../../composables/use-device.composable';
   import Result from '../../results/result.vue';
-  import { useXControls } from '../../../composables/use-experience-controls.composable';
+  import { useExperienceControls } from '../../../composables/use-experience-controls.composable';
   import NextQueryPreview from './custom-next-query-preview.vue';
 
   export default defineComponent({
@@ -76,10 +76,7 @@
     },
     setup() {
       const { isMobile } = useDevice();
-      const maxItems = useXControls({
-        path: 'nextQueries.maxItems' as never,
-        defaultValue: 1
-      });
+      const maxItems = useExperienceControls().getControlFromPath('nextQueries.maxItems', 1);
 
       return {
         staggeredFadeAndSlide: StaggeredFadeAndSlide,
