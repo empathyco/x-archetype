@@ -11,17 +11,28 @@ import { useStore } from './use-store.composable';
  *
  * @returns The experience controls property value.
  */
-export const useXControls = ({
-  path,
-  defaultValue
-}: {
-  path: never;
-  defaultValue?: string | number | boolean | number[];
-}): ComputedRef => {
-  const experienceControls = (useStore('experienceControls') as unknown as ExperienceControlsState)
-    .controls.controls;
+// Rename
+export const useExperienceControls = (): {
+  getControlFromPath: <SomeType>(path: string, defaultValue?: SomeType) => ComputedRef<SomeType>;
+} => {
+  const experienceControls = (useStore('experienceControls') as ExperienceControlsState).controls
+    .controls;
 
-  return computed(() => {
-    return getSafePropertyChain(experienceControls, path, defaultValue);
-  });
+// extracted the current logic to a function. The function can be typed so the return type is known and also it infers the return type from the default value
+  const getControlFromPath = <SomeType>(
+    path: string,
+    defaultValue?: SomeType
+  ): ComputedRef<SomeType> => {
+    return computed(() => {
+      return getSafePropertyChain(
+        experienceControls,
+        path as ExtractPath<typeof experienceControls>,
+        defaultValue
+      ) as SomeType;
+    });
+  };
+
+  return {
+    getControlFromPath
+  };
 };
