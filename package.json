@@ -55,7 +55,7 @@
     "@rollup/plugin-replace": "~5.0.0",
     "@types/autoprefixer": "~9.6.1",
     "@types/cypress-cucumber-preprocessor": "~4.0.1",
-    "@types/jest": "~27.0.3",
+    "@types/jest": "~29.5.8",
     "@vue/cli-plugin-babel": "~5.0.4",
     "@vue/cli-plugin-typescript": "~5.0.4",
     "@vue/cli-plugin-unit-jest": "~5.0.4",
