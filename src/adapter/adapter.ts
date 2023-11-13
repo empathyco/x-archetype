@@ -15,39 +15,7 @@ import {
   SemanticQueriesRequest
 } from '@empathyco/x-types';
 
-export const adapter = {
-  ...platformAdapter,
-  search: {
-    ...platformAdapter.search,
-    defaultRequestOptions: {
-      ...(platformAdapter.search as any).defaultRequestOptions,
-      properties: {
-        ...(platformAdapter.search as any).defaultRequestOptions.properties,
-        cache: 'force-cache'
-      }
-    }
-  },
-  relatedTags: {
-    ...platformAdapter.relatedTags,
-    defaultRequestOptions: {
-      ...(platformAdapter.relatedTags as any).defaultRequestOptions,
-      properties: {
-        ...(platformAdapter.relatedTags as any).defaultRequestOptions.properties,
-        cache: 'force-cache'
-      }
-    }
-  },
-  nextQueries: {
-    ...platformAdapter.nextQueries,
-    defaultRequestOptions: {
-      ...(platformAdapter.nextQueries as any).defaultRequestOptions,
-      properties: {
-        ...(platformAdapter.nextQueries as any).defaultRequestOptions.properties,
-        cache: 'force-cache'
-      }
-    }
-  }
-};
+export const adapter = platformAdapter;
 
 /* Code sample about how to extend the result mapper with more fields. */
 
@@ -64,6 +32,39 @@ declare module '@empathyco/x-types' {
     brand: string;
   }
 }
+
+adapter.search = platformAdapter.search.extends<any, any>({
+  defaultRequestOptions: {
+    properties: {
+      headers: {
+        'cache-control': 'max-age=100'
+      },
+      cache: 'no-cache'
+    }
+  }
+});
+
+adapter.relatedTags = platformAdapter.relatedTags.extends<any, any>({
+  defaultRequestOptions: {
+    properties: {
+      headers: {
+        'cache-control': 'max-age=100'
+      },
+      cache: 'no-cache'
+    }
+  }
+});
+
+adapter.nextQueries = platformAdapter.nextQueries.extends<any, any>({
+  defaultRequestOptions: {
+    properties: {
+      headers: {
+        'cache-control': 'max-age=100'
+      },
+      cache: 'no-cache'
+    }
+  }
+});
 
 resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
   description: 'description',
