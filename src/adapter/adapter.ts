@@ -16,6 +16,7 @@ import {
 } from '@empathyco/x-types';
 
 export const adapter = {
+  ...platformAdapter,
   search: {
     ...platformAdapter.search,
     defaultRequestOptions: {
