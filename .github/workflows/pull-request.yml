@@ -32,7 +32,7 @@ jobs:
       - name: Adding comment to PR with preview link and validation results
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.SUPPORT_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             github.rest.issues.createComment({
               issue_number: context.issue.number,
