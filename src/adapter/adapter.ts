@@ -15,7 +15,38 @@ import {
   SemanticQueriesRequest
 } from '@empathyco/x-types';
 
-export const adapter = platformAdapter;
+export const adapter = {
+  search: {
+    ...platformAdapter.search,
+    defaultRequestOptions: {
+      ...(platformAdapter.search as any).defaultRequestOptions,
+      properties: {
+        ...(platformAdapter.search as any).defaultRequestOptions.properties,
+        cache: 'force-cache'
+      }
+    }
+  },
+  relatedTags: {
+    ...platformAdapter.relatedTags,
+    defaultRequestOptions: {
+      ...(platformAdapter.relatedTags as any).defaultRequestOptions,
+      properties: {
+        ...(platformAdapter.relatedTags as any).defaultRequestOptions.properties,
+        cache: 'force-cache'
+      }
+    }
+  },
+  nextQueries: {
+    ...platformAdapter.nextQueries,
+    defaultRequestOptions: {
+      ...(platformAdapter.nextQueries as any).defaultRequestOptions,
+      properties: {
+        ...(platformAdapter.nextQueries as any).defaultRequestOptions.properties,
+        cache: 'force-cache'
+      }
+    }
+  }
+};
 
 /* Code sample about how to extend the result mapper with more fields. */
 
