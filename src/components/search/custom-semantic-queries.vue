@@ -61,13 +61,11 @@
     },
     setup() {
       const { isAnyQueryLoadedInPreview } = useQueriesPreview();
-      const maxItems = useExperienceControls().getControlFromPath(
-        'semanticQueries.resultsPerCarousels'
-      );
+      const { getControlFromPath } = useExperienceControls();
 
       return {
         isAnyQueryLoadedInPreview,
-        resultsPerCarousel: maxItems
+        resultsPerCarousel: getControlFromPath('semanticQueries.resultsPerCarousels')
       };
     }
   });

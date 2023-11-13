@@ -1,5 +1,5 @@
 import { computed, ComputedRef } from 'vue';
-import { ExtractPath, getSafePropertyChain } from '@empathyco/x-utils';
+import { getSafePropertyChain } from '@empathyco/x-utils';
 import { ExperienceControlsState } from '@empathyco/x-components/experience-controls';
 import { useStore } from './use-store.composable';
 
@@ -13,19 +13,14 @@ import { useStore } from './use-store.composable';
 export const useExperienceControls = (): {
   getControlFromPath: <SomeType>(path: string, defaultValue?: SomeType) => ComputedRef<SomeType>;
 } => {
-  const experienceControls = (useStore('experienceControls') as ExperienceControlsState).controls
-    .controls;
+  const experienceControls = (useStore('experienceControls') as ExperienceControlsState).controls;
 
   const getControlFromPath = <SomeType>(
     path: string,
     defaultValue?: SomeType
   ): ComputedRef<SomeType> => {
     return computed(() => {
-      return getSafePropertyChain(
-        experienceControls,
-        path as ExtractPath<typeof experienceControls>,
-        defaultValue
-      ) as SomeType;
+      return getSafePropertyChain(experienceControls, path, defaultValue) as SomeType;
     });
   };
 

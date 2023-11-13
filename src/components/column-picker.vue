@@ -35,10 +35,14 @@
     },
     setup() {
       const { isMobile } = useDevice();
-      const columns = useExperienceControls().getControlFromPath('layout.columnSelector', [4, 2]);
+      const { getControlFromPath } = useExperienceControls();
+
+      const columns = computed(() =>
+        isMobile.value ? [2, 1] : getControlFromPath('layout.columnSelector', [4, 2])
+      );
 
       return {
-        values: computed(() => (isMobile.value ? [2, 1] : columns)),
+        values: columns,
         icons: { 1: 'Grid1ColIcon', 2: 'Grid2ColIcon', 4: 'Grid4ColIcon' }
       };
     }

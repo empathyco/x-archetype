@@ -76,12 +76,12 @@
     },
     setup() {
       const { isMobile } = useDevice();
-      const maxItems = useExperienceControls().getControlFromPath('nextQueries.maxItems', 1);
+      const { getControlFromPath } = useExperienceControls();
 
       return {
         staggeredFadeAndSlide: StaggeredFadeAndSlide,
         columns: isMobile.value ? 2 : 4,
-        maxNextQueriesPerGroup: maxItems
+        maxNextQueriesPerGroup: getControlFromPath('nextQueries.maxItems', 1)
       };
     }
   });
