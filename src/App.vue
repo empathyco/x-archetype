@@ -1,5 +1,5 @@
 <template>
-  <Orchestrator />
+  <Orchestrator v-if="start" />
 </template>
 
 <script lang="ts">
@@ -12,7 +12,15 @@
       Orchestrator
     }
   })
-  export default class App extends Vue {}
+  export default class App extends Vue {
+    protected start = false;
+
+    protected mounted(): void {
+      setTimeout(() => {
+        this.start = true;
+      }, 0);
+    }
+  }
 </script>
 
 <style lang="scss">
