@@ -1,24 +1,19 @@
 <template>
-  <Orchestrator v-if="start" />
+  <Orchestrator />
 </template>
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import './tailwind/index.css';
+  import Orchestrator from './components/orchestrator.vue';
 
   @Component({
     components: {
-      Orchestrator: () => import('./components/orchestrator.vue').then(m => m.default)
+      Orchestrator
     }
   })
   export default class App extends Vue {
     protected start = false;
-
-    protected mounted(): void {
-      setTimeout(() => {
-        this.start = true;
-      }, 0);
-    }
   }
 </script>
 
