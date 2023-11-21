@@ -10,7 +10,6 @@
 
 <script lang="ts">
   import { SnippetCallbacks, SnippetConfig, XOn, XProvide } from '@empathyco/x-components';
-  import { ExperienceControls } from '@empathyco/x-components/experience-controls';
   import { Tagging } from '@empathyco/x-components/tagging';
   import { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
   import { UrlHandler } from '@empathyco/x-components/url';
@@ -25,7 +24,6 @@
       SnippetConfigExtraParams,
       Tagging,
       UrlHandler,
-      ExperienceControls,
       MainModal: () => import('./custom-main-modal.vue').then(m => m.default)
     }
   })
