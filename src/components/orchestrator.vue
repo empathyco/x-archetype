@@ -4,7 +4,6 @@
     <SnippetCallbacks />
     <Tagging />
     <UrlHandler />
-    <ExperienceControls />
     <MainModal v-if="isOpen" />
   </div>
 </template>
