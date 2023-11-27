@@ -2,7 +2,6 @@
   <div class="x" data-test="x" :dir="documentDirection">
     <SnippetConfigExtraParams />
     <SnippetCallbacks />
-    <Tagging />
     <UrlHandler />
     <MainModal v-if="isOpen" />
   </div>
@@ -10,7 +9,6 @@
 
 <script lang="ts">
   import { SnippetCallbacks, SnippetConfig, XOn, XProvide } from '@empathyco/x-components';
-  import { Tagging } from '@empathyco/x-components/tagging';
   import { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
   import { UrlHandler } from '@empathyco/x-components/url';
   import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params';
@@ -22,7 +20,6 @@
     components: {
       SnippetCallbacks,
       SnippetConfigExtraParams,
-      Tagging,
       UrlHandler,
       MainModal: () => import('./custom-main-modal.vue').then(m => m.default)
     }
