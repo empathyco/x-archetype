@@ -1,5 +1,10 @@
 <template>
-  <MainModal :animation="animation" :class="`x-${deviceName}`" :focusOnOpen="isTabletOrLess">
+  <MainModal
+    :animation="animation"
+    :class="`x-${deviceName}`"
+    :focusOnOpen="isTabletOrLess"
+    aria-label="Main modal"
+  >
     <Mobile v-if="isTabletOrLess" />
     <Desktop v-else />
   </MainModal>
