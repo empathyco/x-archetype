@@ -77,7 +77,7 @@
     "postcss-import": "~14.1.0",
     "postcss-logical": "~5.0.4",
     "postcss-nested": "~5.0.6",
-    "prettier": "~2.8.3",
+    "prettier": "~3.1.0",
     "process": "~0.11.10",
     "rollup": "~2.79.0",
     "rollup-plugin-copy": "~3.5.0",
