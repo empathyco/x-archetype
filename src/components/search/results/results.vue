@@ -1,5 +1,5 @@
 <template>
-  <ResultsList v-if="$x.totalResults" v-infinite-scroll:main-scroll>
+  <ResultsList v-if="$x.totalResults || $x.noResults" v-infinite-scroll:main-scroll>
     <PromotedsList>
       <BannersList>
         <NextQueriesList
