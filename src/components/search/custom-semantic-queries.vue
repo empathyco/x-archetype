@@ -5,7 +5,7 @@
         v-if="isAnyQueryLoadedInPreview(queries)"
         class="x-title1 x-title1-md x-my-64 x-text-center"
       >
-        {{ $t('semanticQueries.title') }}
+        {{ $t('semanticQueries.title', { query: $x.query.search }) }}
       </h1>
       <QueryPreviewList
         :queriesPreviewInfo="queries.map(q => ({ query: q }))"
@@ -16,7 +16,7 @@
           <template #header>
             <SemanticQuery
               :suggestion="findSemanticQuery(query)"
-              class="x-button-neutral x-button-tight x-button max-desktop:x-px-16"
+              class="x-button x-button-neutral x-button-tight max-desktop:x-px-16"
             >
               {{ query }}
               ({{ totalResults }})
