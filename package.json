@@ -73,7 +73,7 @@
     "husky": "~8.0.3",
     "lint-staged": "~15.2.0",
     "postcss": "~8.4.0",
-    "postcss-dir-pseudo-class": "~6.0.4",
+    "postcss-dir-pseudo-class": "~8.0.0",
     "postcss-import": "~14.1.0",
     "postcss-logical": "~5.0.4",
     "postcss-nested": "~5.0.6",
