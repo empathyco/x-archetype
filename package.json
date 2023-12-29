@@ -89,7 +89,7 @@
     "rollup-plugin-typescript2": "~0.36.0",
     "rollup-plugin-visualizer": "~5.9.0",
     "rollup-plugin-vue": "~5.1.9",
-    "sass": "~1.69.0",
+    "sass": "~1.69.6",
     "sass-loader": "~13.3.0",
     "source-map-loader": "~4.0.0",
     "start-server-and-test": "~1.15.0",
