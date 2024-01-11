@@ -42,7 +42,7 @@
           </Scroll>
         </MainScroll>
 
-        <div class="x-layout-overlap x-layout-item x-pointer-events-none">
+        <div class="x-layout-item x-layout-overlap x-pointer-events-none">
           <div class="x-mb-32 x-grid x-grid-cols-12 x-gap-24">
             <MobileOpenAside
               v-if="$x.totalResults > 0"
@@ -60,7 +60,7 @@
       modalId="aside-modal"
       contentClass="x-mt-64 x-h-[calc(100%-64px)] x-fixed x-flex-1 x-rounded-t-lg x-bg-neutral-0 desktop:x-rounded-none desktop:x-m-0"
     >
-      <MobileAside />
+      <MobileAside v-if="hasSearched" />
     </BaseIdModal>
 
     <BaseIdModal

@@ -1,4 +1,4 @@
-import { createConfig } from './build/instrumentation.build';
+import { createConfig } from './build/instrumentation.build.mjs';
 import { rollupCssInjectorConfig } from "@empathyco/x-archetype-utils";
 
 export default createConfig({

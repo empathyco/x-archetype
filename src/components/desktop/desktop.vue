@@ -34,7 +34,7 @@
         modalId="right-aside"
         contentClass="x-w-512 x-ml-auto"
       >
-        <DesktopAside />
+        <DesktopAside v-if="hasSearched" />
       </BaseIdModal>
 
       <BaseIdModal
