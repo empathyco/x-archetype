@@ -33,6 +33,39 @@ declare module '@empathyco/x-types' {
   }
 }
 
+adapter.search = platformAdapter.search.extends<any, any>({
+  defaultRequestOptions: {
+    properties: {
+      headers: {
+        'cache-control': 'max-age=100'
+      },
+      cache: 'no-cache'
+    }
+  }
+});
+
+adapter.relatedTags = platformAdapter.relatedTags.extends<any, any>({
+  defaultRequestOptions: {
+    properties: {
+      headers: {
+        'cache-control': 'max-age=100'
+      },
+      cache: 'no-cache'
+    }
+  }
+});
+
+adapter.nextQueries = platformAdapter.nextQueries.extends<any, any>({
+  defaultRequestOptions: {
+    properties: {
+      headers: {
+        'cache-control': 'max-age=100'
+      },
+      cache: 'no-cache'
+    }
+  }
+});
+
 resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
   description: 'description',
   collection: 'collection',

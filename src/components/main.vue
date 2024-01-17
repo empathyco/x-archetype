@@ -13,8 +13,6 @@
       <LocationProvider v-if="$x.noResults && !$x.partialResults.length" location="no_results">
         <CustomRecommendations />
       </LocationProvider>
-
-      <CustomSemanticQueries />
     </template>
   </div>
 </template>
