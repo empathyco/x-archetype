@@ -82,7 +82,7 @@ window.initX = {
     {
       query: 'dress',
       title: 'Autumn dresses by Marni',
-      filters: ['brand:marni']
+      filters: ['brand:marni', 'categoryIds:12fad53d7']
     },
     {
       query: 'belted legging',

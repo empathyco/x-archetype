@@ -6,8 +6,7 @@ import {
   recommendationsRequestSchema,
   resultSchema,
   semanticQueriesRequestSchema,
-  experienceControlsResponseSchema,
-  PlatformExperienceControlsResponse
+  experienceControlsResponseSchema
 } from '@empathyco/x-adapter-platform';
 import {
   ExperienceControlsResponse,
@@ -63,9 +62,10 @@ semanticQueriesRequestSchema.$override<
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-call
 experienceControlsResponseSchema.$override<
-  PlatformExperienceControlsResponse,
+  Partial<ExperienceControlsResponse>,
   Partial<ExperienceControlsResponse>
 >({
+  controls: ({ controls }) => controls,
   events: {
     SemanticQueriesConfigProvided: {
       maxItemsToRequest: 'controls.semanticQueries.numberOfCarousels',

@@ -87,7 +87,7 @@
       "message": "{totalResults} résultats pour {query}"
     },
     "semanticQueries": {
-      "title": "Other similar products"
+      "title": "Êtes-vous intéressé par «{query}»? Explorez ces suggestions:"
     },
     "sort": {
       "label": "Trier par",

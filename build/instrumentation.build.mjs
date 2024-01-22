@@ -10,7 +10,7 @@ import sourcemaps from 'rollup-plugin-sourcemaps';
 import styles from 'rollup-plugin-styles';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
-import visualizer from 'rollup-plugin-visualizer';
+import { visualizer } from 'rollup-plugin-visualizer';
 import vue from 'rollup-plugin-vue';
 import * as fs from 'fs';
 
