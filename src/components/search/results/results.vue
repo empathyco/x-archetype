@@ -9,7 +9,7 @@
           :showOnlyAfterOffset="$x.partialResults.length > 0"
         >
           <BaseVariableColumnGrid
-            class="x-gap-y-32 x-gap-x-16"
+            class="x-gap-x-16 x-gap-y-32"
             :animation="staggeredFadeAndSlide"
             :columns="columns"
             data-test="base-grid"
@@ -55,7 +55,6 @@
   import { NextQueriesList } from '@empathyco/x-components/next-queries';
   import { useDevice } from '../../../composables/use-device.composable';
   import Result from '../../results/result.vue';
-  import { useExperienceControls } from '../../../composables/use-experience-controls.composable';
   import NextQueryPreview from './custom-next-query-preview.vue';
 
   export default defineComponent({
@@ -76,12 +75,11 @@
     },
     setup() {
       const { isMobile } = useDevice();
-      const { getControlFromPath } = useExperienceControls();
 
       return {
         staggeredFadeAndSlide: StaggeredFadeAndSlide,
         columns: isMobile.value ? 2 : 4,
-        maxNextQueriesPerGroup: getControlFromPath('nextQueries.maxItems', 1)
+        maxNextQueriesPerGroup: 1
       };
     }
   });
