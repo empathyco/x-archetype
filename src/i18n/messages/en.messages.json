@@ -54,6 +54,12 @@
       "title": "Top Clicked"
     },
     "facets": {
+      "calendarType": "Calendar type",
+      "categoryNames": "Categories",
+      "gemType": "Gem type",
+      "isFreeShipping": "Free shipping",
+      "isOnlineOnly": "online only",
+      "productName": "Product name",
       "gender": "Gender",
       "categoryPaths": "Categories",
       "price": "Price",

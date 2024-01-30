@@ -13,7 +13,7 @@
       class="x-gap-8 x-pl-16 tablet:x-pl-24 desktop:x-pl-0"
       :highlightCurated="true"
       :animation="relatedTagsAnimation"
-      itemClass="x-tag-outlined x-rounded-full"
+      itemClass="x-tag-outlined x-tag-accent x-rounded-md"
     >
       <template #related-tag-content="{ relatedTag, isSelected, shouldHighlightCurated }">
         <CuratedCheckIcon v-if="shouldHighlightCurated" />

@@ -14,10 +14,7 @@
         class="x-flex-no-shrink x-flex x-flex-row x-flex-wrap x-gap-8 max-desktop:x-pl-16"
       >
         <template #default="{ filter }">
-          <SimpleFilter
-            class="x-tag x-tag-auxiliary x-tag-outlined x-selected x-rounded-full"
-            :filter="filter"
-          >
+          <SimpleFilter class="x-tag x-tag-outlined x-selected x-rounded-md" :filter="filter">
             <template #label="{ filter }">
               {{ filter.label }}
               <CrossTinyIcon />
@@ -27,7 +24,7 @@
 
         <template #price="{ filter }">
           <NumberRangeFilter
-            class="x-tag x-tag-auxiliary x-tag-outlined x-selected x-rounded-full"
+            class="x-tag x-tag-auxiliary x-tag-outlined x-selected x-rounded-md"
             :filter="filter"
           >
             <template #label="{ filter }">
@@ -46,7 +43,7 @@
       v-if="isDesktopOrGreater"
       v-slot="{ selectedFilters }"
       data-test="clear-filters-toolbar"
-      class="x-button-lead x-button-sm x-button-outlined x-flex-none x-rounded-full"
+      class="x-button-lead x-button-sm x-button-outlined x-flex-none x-rounded-md"
       :alwaysVisible="false"
     >
       {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
