@@ -5,7 +5,7 @@
         v-if="isAnyQueryLoadedInPreview(queries)"
         class="x-title1 x-title1-md x-my-64 x-text-center"
       >
-        {{ $t('semanticQueries.title') }}
+        {{ $t('semanticQueries.title', { query: $x.query.search }) }}
       </h1>
       <QueryPreviewList
         :queriesPreviewInfo="queries.map(q => ({ query: q }))"
@@ -16,7 +16,7 @@
           <template #header>
             <SemanticQuery
               :suggestion="findSemanticQuery(query)"
-              class="x-button-neutral x-button-tight x-button max-desktop:x-px-16"
+              class="x-button x-button-neutral x-button-tight max-desktop:x-px-16"
             >
               {{ query }}
               ({{ totalResults }})
@@ -41,12 +41,12 @@
 
 <script lang="ts">
   import { ArrowRightIcon } from '@empathyco/x-components';
-  import { computed, defineComponent, inject } from 'vue';
+  import { defineComponent } from 'vue';
   import { SemanticQueries, SemanticQuery } from '@empathyco/x-components/semantic-queries';
   import { QueryPreviewList, useQueriesPreview } from '@empathyco/x-components/queries-preview';
-  import { Dictionary } from '@empathyco/x-utils';
   import CustomSlidingPanel from '../custom-sliding-panel.vue';
   import Result from '../results/result.vue';
+  import { useExperienceControls } from '../../composables/use-experience-controls.composable';
   import DisplayClickProvider from './display-click-provider.vue';
 
   export default defineComponent({
@@ -61,19 +61,11 @@
     },
     setup() {
       const { isAnyQueryLoadedInPreview } = useQueriesPreview();
-
-      const experienceControls = inject<Dictionary>('experienceControls', {});
-
-      const resultsPerCarousel = computed(() => {
-        const resultsPerCarousel: number =
-          experienceControls.value?.controls?.semanticQueries?.resultsPerCarousels;
-
-        return resultsPerCarousel ?? undefined;
-      });
+      const { getControlFromPath } = useExperienceControls();
 
       return {
         isAnyQueryLoadedInPreview,
-        resultsPerCarousel
+        resultsPerCarousel: getControlFromPath('semanticQueries.resultsPerCarousels')
       };
     }
   });
