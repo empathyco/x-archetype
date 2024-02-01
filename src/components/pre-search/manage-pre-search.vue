@@ -28,18 +28,10 @@
       }
     },
     setup(props) {
-      const queriesPreviewInfo = computed<QueryPreviewInfo[]>(() => {
-        const injectedQueriesPreview = inject<
-          | QueryPreviewInfo[]
-          | {
-              value: QueryPreviewInfo[];
-            }
-        >('queriesPreviewInfo', []);
-
-        return 'value' in injectedQueriesPreview
-          ? injectedQueriesPreview.value
-          : injectedQueriesPreview;
+      const injectedQueriesPreview = inject<{ value: QueryPreviewInfo[] }>('queriesPreviewInfo', {
+        value: []
       });
+      const queriesPreviewInfo = computed<QueryPreviewInfo[]>(() => injectedQueriesPreview.value);
 
       const hasQueryPreviews = computed<boolean>(() => queriesPreviewInfo.value.length !== 0);
 
