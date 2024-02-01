@@ -24,7 +24,7 @@
     props: {
       maxPopularSearchesToRender: {
         type: Number,
-        required: false
+        default: 4
       }
     },
     setup(props) {
@@ -35,13 +35,11 @@
 
       const hasQueryPreviews = computed<boolean>(() => queriesPreviewInfo.value.length !== 0);
 
-      const getQueriesPreviewInfo = (info: readonly Suggestion[]): QueryPreviewInfo[] => {
-        const queryPreviewInfo: QueryPreviewInfo[] = info.map(item => ({
+      const getQueriesPreviewInfo = (suggestion: readonly Suggestion[]): QueryPreviewInfo[] => {
+        const queryPreviewInfo: QueryPreviewInfo[] = suggestion.map(item => ({
           query: item.query
         }));
-        return props.maxPopularSearchesToRender
-          ? queryPreviewInfo.slice(0, props.maxPopularSearchesToRender)
-          : queryPreviewInfo;
+        return queryPreviewInfo.slice(0, props.maxPopularSearchesToRender);
       };
 
       return { hasQueryPreviews, queriesPreviewInfo, getQueriesPreviewInfo };
