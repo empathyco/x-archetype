@@ -3,18 +3,18 @@
     <h1 v-if="!hasQueryPreviews" class="x-title1 max-desktop:x-title1-sm max-desktop:x-px-16">
       {{ $t('popularSearches.title') }}
     </h1>
-    <CustomQueryPreview
-      :queriesPreviewInfo="
-        hasQueryPreviews ? queriesPreviewInfo : getQueriesPreviewInfo($x.popularSearches)
-      "
-    />
+    <CustomQueryPreview :queriesPreviewInfo="infoToRender" />
   </div>
 </template>
 
 <script lang="ts">
   import { computed, defineComponent, inject } from 'vue';
   import { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
-  import { Suggestion } from '@empathyco/x-types';
+
+  import { PopularSearchesState } from '@empathyco/x-components/types';
+  import { XPlugin } from '@empathyco/x-components';
+  import { popularSearchesXModule } from '@empathyco/x-components/popular-searches';
+  import { useStore } from '../../composables/use-store.composable';
   import CustomQueryPreview from './custom-query-preview.vue';
 
   export default defineComponent({
@@ -28,21 +28,37 @@
       }
     },
     setup(props) {
-      const injectedQueriesPreview = inject<{ value: QueryPreviewInfo[] }>('queriesPreviewInfo', {
-        value: []
+      const injectedQueriesPreviewInfo = computed<QueryPreviewInfo[]>(() => {
+        const injectedQueriesPreview = inject<QueryPreviewInfo[] | { value: QueryPreviewInfo[] }>(
+          'queriesPreviewInfo',
+          []
+        );
+        return 'value' in injectedQueriesPreview
+          ? injectedQueriesPreview.value
+          : injectedQueriesPreview;
       });
-      const queriesPreviewInfo = computed<QueryPreviewInfo[]>(() => injectedQueriesPreview.value);
 
-      const hasQueryPreviews = computed<boolean>(() => queriesPreviewInfo.value.length !== 0);
+      const hasQueryPreviews = computed<boolean>(
+        () => injectedQueriesPreviewInfo.value.length !== 0
+      );
 
-      const getQueriesPreviewInfo = (suggestion: readonly Suggestion[]): QueryPreviewInfo[] => {
-        const queryPreviewInfo: QueryPreviewInfo[] = suggestion.map(item => ({
+      const popularSearchesAsQueryPreviewInfo = (): QueryPreviewInfo[] => {
+        XPlugin.registerXModule(popularSearchesXModule);
+        const popularSearches = (useStore('popularSearches') as PopularSearchesState)
+          .popularSearches;
+        const queryPreviewInfo: QueryPreviewInfo[] = popularSearches.map(item => ({
           query: item.query
         }));
         return queryPreviewInfo.slice(0, props.maxPopularSearchesToRender);
       };
 
-      return { hasQueryPreviews, queriesPreviewInfo, getQueriesPreviewInfo };
+      const infoToRender = computed<QueryPreviewInfo[]>(() =>
+        hasQueryPreviews.value
+          ? injectedQueriesPreviewInfo.value
+          : popularSearchesAsQueryPreviewInfo()
+      );
+
+      return { hasQueryPreviews, infoToRender };
     }
   });
 </script>
