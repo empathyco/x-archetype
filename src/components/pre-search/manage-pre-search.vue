@@ -3,7 +3,7 @@
     <h1 v-if="!hasQueryPreviews" class="x-title1 max-desktop:x-title1-sm max-desktop:x-px-16">
       {{ $t('popularSearches.title') }}
     </h1>
-    <CustomQueryPreview :queriesPreviewInfo="infoToRender" />
+    <CustomQueryPreview :queriesPreviewInfo="queriesPreviewToRender" />
   </div>
 </template>
 
@@ -28,6 +28,7 @@
       }
     },
     setup(props) {
+      XPlugin.registerXModule(popularSearchesXModule);
       const injectedQueriesPreviewInfo = computed<QueryPreviewInfo[]>(() => {
         const injectedQueriesPreview = inject<QueryPreviewInfo[] | { value: QueryPreviewInfo[] }>(
           'queriesPreviewInfo',
@@ -42,23 +43,18 @@
         () => injectedQueriesPreviewInfo.value.length !== 0
       );
 
-      const popularSearchesAsQueryPreviewInfo = (): QueryPreviewInfo[] => {
-        XPlugin.registerXModule(popularSearchesXModule);
+      const queriesPreviewToRender = computed<QueryPreviewInfo[]>(() => {
         const popularSearches = (useStore('popularSearches') as PopularSearchesState)
           .popularSearches;
         const queryPreviewInfo: QueryPreviewInfo[] = popularSearches.map(item => ({
           query: item.query
         }));
-        return queryPreviewInfo.slice(0, props.maxPopularSearchesToRender);
-      };
-
-      const infoToRender = computed<QueryPreviewInfo[]>(() =>
-        hasQueryPreviews.value
+        return hasQueryPreviews.value
           ? injectedQueriesPreviewInfo.value
-          : popularSearchesAsQueryPreviewInfo()
-      );
+          : queryPreviewInfo.slice(0, props.maxPopularSearchesToRender);
+      });
 
-      return { hasQueryPreviews, infoToRender };
+      return { hasQueryPreviews, queriesPreviewToRender };
     }
   });
 </script>
