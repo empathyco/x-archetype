@@ -1,5 +1,5 @@
 <template>
-  <div class="x-flex x-flex-col x-gap-4">
+  <div class="x-mt-8 x-flex x-flex-col x-gap-4 desktop:x-mt-0">
     <h1 class="x-title4 x-title4-sm x-uppercase">
       {{ $t('popularSearches.title') }}
     </h1>
@@ -10,7 +10,7 @@
     >
       <template #suggestion="{ suggestion }">
         <PopularSearch
-          class="x-suggestion-lg x-suggestion desktop:x-suggestion-md"
+          class="x-suggestion x-suggestion-lg desktop:x-suggestion-md"
           :suggestion="suggestion"
         >
           <TrendingIcon class="x-icon-lg desktop:x-icon-md" />
