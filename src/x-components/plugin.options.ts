@@ -60,6 +60,7 @@ function getDomElement({ isolate }: SnippetConfig): Element {
 
   if (isolate || process.env.NODE_ENV === 'production') {
     const container = document.createElement('div');
+    container.classList.add('x-root-container');
     const shadowRoot = container.attachShadow({ mode: 'open' });
     shadowRoot.appendChild(domElement);
     document.body.appendChild(container);
