@@ -58,7 +58,7 @@
 
     @XProvide('queriesPreviewInfo')
     public get queriesPreviewInfo(): QueryPreviewInfo[] | undefined {
-      return this.snippetConfig.queriesPreview;
+      return this.snippetConfig.queriesPreview ?? [];
     }
 
     @Watch('snippetConfig.uiLang')
