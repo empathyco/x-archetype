@@ -1,5 +1,12 @@
-import { InstallXOptions, SnippetConfig } from '@empathyco/x-components';
+import {
+  createWireFromFunction,
+  filter,
+  InstallXOptions,
+  SnippetConfig
+} from '@empathyco/x-components';
 import { I18n, cssInjector } from '@empathyco/x-archetype-utils';
+import { setSearchQuery, setUrlParams } from '@empathyco/x-components/search';
+import { addQueryToHistoryQueries } from '@empathyco/x-components/history-queries';
 import App from '../App.vue';
 import * as messages from '../i18n/messages';
 import store from '../store';
@@ -8,6 +15,23 @@ import { useDevice } from '../composables/use-device.composable';
 import { mergeSemanticQueriesConfigWire } from './wiring/semantic-queries.wiring';
 
 const device = useDevice();
+
+createWireFromFunction(() => console.log);
+
+const setSearchQueryFiltered = filter(
+  setSearchQuery,
+  ({ eventPayload }) => !eventPayload.startsWith('::')
+);
+
+const setSearchQueryFromURLFiltered = filter(
+  setUrlParams,
+  ({ eventPayload }) => !eventPayload.query?.startsWith('::')
+);
+
+const addQueryToHistoryQueriesFiltered = filter(
+  addQueryToHistoryQueries,
+  ({ eventPayload }) => !eventPayload.startsWith('::')
+);
 
 export const installXOptions: InstallXOptions = {
   adapter,
@@ -28,6 +52,23 @@ export const installXOptions: InstallXOptions = {
       wiring: {
         SemanticQueriesConfigProvided: {
           mergeSemanticQueriesConfigWire
+        }
+      }
+    },
+    search: {
+      wiring: {
+        UserAcceptedAQuery: {
+          setSearchQuery: setSearchQueryFiltered
+        },
+        ParamsLoadedFromUrl: {
+          setUrlParams: setSearchQueryFromURLFiltered
+        }
+      }
+    },
+    historyQueries: {
+      wiring: {
+        UserAcceptedAQuery: {
+          addQueryToHistoryQueries: addQueryToHistoryQueriesFiltered
         }
       }
     }
