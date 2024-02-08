@@ -10,7 +10,13 @@
 </template>
 
 <script lang="ts">
-  import { SnippetCallbacks, SnippetConfig, XOn, XProvide } from '@empathyco/x-components';
+  import {
+    SnippetCallbacks,
+    SnippetConfig,
+    UrlParams,
+    XOn,
+    XProvide
+  } from '@empathyco/x-components';
   import { ExperienceControls } from '@empathyco/x-components/experience-controls';
   import { Tagging } from '@empathyco/x-components/tagging';
   import { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
@@ -69,6 +75,14 @@
     @Watch('device.deviceName')
     syncDevice(deviceName: string): void {
       this.$setLocaleDevice(deviceName);
+    }
+
+    @XOn(['UserAcceptedAQuery', 'ParamsLoadedFromUrl'])
+    openWysiwyg(payload: string | UrlParams): void {
+      const query = typeof payload === 'string' ? payload : payload.query;
+      if (/^::\s*login/.test(query)) {
+        console.log('wysiwyg login starting....');
+      }
     }
   }
 </script>
