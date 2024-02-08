@@ -1,5 +1,12 @@
-import { InstallXOptions, SnippetConfig } from '@empathyco/x-components';
+import {
+  createWireFromFunction,
+  filter,
+  InstallXOptions,
+  SnippetConfig
+} from '@empathyco/x-components';
 import { I18n, cssInjector } from '@empathyco/x-archetype-utils';
+import { setSearchQuery, setUrlParams } from '@empathyco/x-components/search';
+import { addQueryToHistoryQueries } from '@empathyco/x-components/history-queries';
 import App from '../App.vue';
 import * as messages from '../i18n/messages';
 import store from '../store';
@@ -9,55 +16,89 @@ import { mergeSemanticQueriesConfigWire } from './wiring/semantic-queries.wiring
 
 const device = useDevice();
 
+createWireFromFunction(() => console.log);
+
+const setSearchQueryFiltered = filter(
+    setSearchQuery,
+    ({ eventPayload }) => !eventPayload.startsWith('::')
+);
+
+const setSearchQueryFromURLFiltered = filter(
+    setUrlParams,
+    ({ eventPayload }) => !eventPayload.query?.startsWith('::')
+);
+
+const addQueryToHistoryQueriesFiltered = filter(
+    addQueryToHistoryQueries,
+    ({ eventPayload }) => !eventPayload.startsWith('::')
+);
+
 /**
  * Function that returns the options to install x-components.
  *
  * Returns - the InstallXOptions.
  */
 export async function getInstallXOptions(): Promise<InstallXOptions> {
-  if (process.env.VUE_APP_DEVELOPMENT_DOCKER) {
-    const { overrideAdapter } = await import('../adapter/docker.adapter');
-    overrideAdapter(adapter);
-  }
-  return {
-    adapter,
-    store,
-    app: App,
-    domElement: getDomElement,
-    xModules: {
-      facets: {
-        config: {
-          filtersStrategyForRequest: 'leaves-only'
-        }
-      },
-      semanticQueries: {
-        config: {
-          threshold: 50,
-          maxItemsToRequest: 10
-        },
-        wiring: {
-          SemanticQueriesConfigProvided: {
-            mergeSemanticQueriesConfigWire
-          }
-        }
-      }
-    },
-    async installExtraPlugins({ vue, snippet }) {
-      const i18n = await I18n.create({
-        locale: snippet.uiLang,
-        device: (snippet.device as string) ?? device.deviceName.value,
-        fallbackLocale: 'en',
-        messages
-      });
-      vue.use(i18n);
-      vue.prototype.$setLocale = i18n.setLocale.bind(i18n);
-      vue.prototype.$setLocaleDevice = i18n.setDevice.bind(i18n);
-
-      return {
-        i18n: i18n.vueI18n
-      };
+    if (process.env.VUE_APP_DEVELOPMENT_DOCKER) {
+        const { overrideAdapter } = await import('../adapter/docker.adapter');
+        overrideAdapter(adapter);
     }
-  };
+    return {
+        adapter,
+        store,
+        app: App,
+        domElement: getDomElement,
+        xModules: {
+            facets: {
+                config: {
+                    filtersStrategyForRequest: 'leaves-only'
+                }
+            },
+            semanticQueries: {
+                config: {
+                    threshold: 50,
+                    maxItemsToRequest: 10
+                },
+                wiring: {
+                    SemanticQueriesConfigProvided: {
+                        mergeSemanticQueriesConfigWire
+                    }
+                }
+            },
+            search: {
+                wiring: {
+                    UserAcceptedAQuery: {
+                        setSearchQuery: setSearchQueryFiltered
+                    },
+                    ParamsLoadedFromUrl: {
+                        setUrlParams: setSearchQueryFromURLFiltered
+                    }
+                }
+            },
+            historyQueries: {
+                wiring: {
+                    UserAcceptedAQuery: {
+                        addQueryToHistoryQueries: addQueryToHistoryQueriesFiltered
+                    }
+                }
+            }
+        },
+        async installExtraPlugins({ vue, snippet }) {
+            const i18n = await I18n.create({
+                locale: snippet.uiLang,
+                device: (snippet.device as string) ?? device.deviceName.value,
+                fallbackLocale: 'en',
+                messages
+            });
+            vue.use(i18n);
+            vue.prototype.$setLocale = i18n.setLocale.bind(i18n);
+            vue.prototype.$setLocaleDevice = i18n.setDevice.bind(i18n);
+
+            return {
+                i18n: i18n.vueI18n
+            };
+        }
+    };
 }
 
 /**
