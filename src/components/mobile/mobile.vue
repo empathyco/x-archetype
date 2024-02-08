@@ -11,9 +11,11 @@
       </div>
     </div>
 
-    <div class="x-layout-stack x-layout-expand">
+    <div class="x-layout-expand" :class="{ 'x-layout-stack': $x.query.search }">
       <LocationProvider location="predictive_layer" class="x-z-10">
-        <PredictiveLayer />
+        <PredictiveLayer
+          :class="{ 'x-mb-40 x-border-b x-border-neutral-10 x-pb-16': !$x.query.search }"
+        />
       </LocationProvider>
 
       <!-- Results -->
