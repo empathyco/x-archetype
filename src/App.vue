@@ -81,7 +81,7 @@
     openWysiwyg(payload: string | UrlParams): void {
       const query = typeof payload === 'string' ? payload : payload.query;
       if (/^::\s*login/.test(query)) {
-        console.log('wysiwyg login starting....');
+        this.$x.emit('UserAcceptedAWysiwygLogin');
       }
     }
   }
