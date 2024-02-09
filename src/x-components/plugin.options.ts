@@ -1,9 +1,4 @@
-import {
-  createWireFromFunction,
-  filter,
-  InstallXOptions,
-  SnippetConfig
-} from '@empathyco/x-components';
+import { filter, InstallXOptions, SnippetConfig } from '@empathyco/x-components';
 import { I18n, cssInjector } from '@empathyco/x-archetype-utils';
 import { setSearchQuery, setUrlParams } from '@empathyco/x-components/search';
 import { addQueryToHistoryQueries } from '@empathyco/x-components/history-queries';
@@ -15,8 +10,6 @@ import { useDevice } from '../composables/use-device.composable';
 import { mergeSemanticQueriesConfigWire } from './wiring/semantic-queries.wiring';
 
 const device = useDevice();
-
-createWireFromFunction(() => console.log);
 
 const setSearchQueryFiltered = filter(
     setSearchQuery,
