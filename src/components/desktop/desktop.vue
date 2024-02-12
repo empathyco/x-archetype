@@ -14,7 +14,7 @@
           </div>
 
           <LocationProvider location="no_query">
-            <ManagePreSearch :maxPopularSearchesToRender="5" class="x-mt-56" />
+            <PreSearchManager :maxPopularSearchesToRender="5" class="x-mt-56" />
           </LocationProvider>
 
           <LocationProvider location="results">
@@ -61,7 +61,7 @@
   import MyHistoryAside from '../my-history/my-history-aside.vue';
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
-  import ManagePreSearch from '../pre-search/manage-pre-search.vue';
+  import PreSearchManager from '../pre-search/pre-search-manager.vue';
   import DesktopTopSection from './desktop-top-section.vue';
 
   @Component({
@@ -76,7 +76,7 @@
       MyHistoryConfirmDisableModal,
       Scroll,
       ScrollToTop,
-      ManagePreSearch,
+      PreSearchManager,
       DesktopAside: () => import('../search').then(m => m.DesktopAside),
       NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
       SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage),

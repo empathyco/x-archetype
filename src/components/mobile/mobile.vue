@@ -31,7 +31,7 @@
         <MainScroll>
           <Scroll id="main-scroll" class="x-flex-1">
             <LocationProvider location="no_query">
-              <ManagePreSearch class="x-mt-16" />
+              <PreSearchManager class="x-mt-16" />
             </LocationProvider>
 
             <LocationProvider location="results">
@@ -87,7 +87,7 @@
   import { Component } from 'vue-property-decorator';
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
   import Main from '../main.vue';
-  import ManagePreSearch from '../pre-search/manage-pre-search.vue';
+  import PreSearchManager from '../pre-search/pre-search-manager.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
   import SearchBox from '../search-box.vue';
@@ -102,7 +102,7 @@
       ArrowLeftIcon,
       BaseIdModal,
       CloseMainModal,
-      ManagePreSearch,
+      PreSearchManager,
       LocationProvider,
       MobileSubHeader,
       Main,
