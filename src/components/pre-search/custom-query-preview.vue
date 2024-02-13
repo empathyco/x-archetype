@@ -1,6 +1,6 @@
 <template>
   <QueryPreviewList
-    v-if="!$x.query.searchBox && queriesPreviewInfo"
+    v-if="queriesPreviewInfo"
     :debounceTimeMs="250"
     :queriesPreviewInfo="queriesPreviewInfo"
     #default="{ queryPreviewInfo, totalResults, results }"
@@ -46,7 +46,6 @@
   import {
     BaseEventButton,
     QueryFeature,
-    XInject,
     ItemsList,
     ArrowRightIcon
   } from '@empathyco/x-components';
@@ -71,7 +70,7 @@
     @Prop({ default: 'customer' })
     protected queryFeature!: QueryFeature;
 
-    @XInject('queriesPreviewInfo')
-    public queriesPreviewInfo!: QueryPreviewInfo[];
+    @Prop()
+    protected queriesPreviewInfo!: QueryPreviewInfo[];
   }
 </script>

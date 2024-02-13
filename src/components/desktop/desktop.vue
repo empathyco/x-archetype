@@ -14,7 +14,7 @@
           </div>
 
           <LocationProvider location="no_query">
-            <CustomQueryPreview class="x-mt-56" />
+            <PreSearchManager :maxPopularSearchesToRender="5" class="x-mt-56" />
           </LocationProvider>
 
           <LocationProvider location="results">
@@ -56,19 +56,18 @@
   import { Component } from 'vue-property-decorator';
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
   import Main from '../main.vue';
-  import CustomQueryPreview from '../pre-search/custom-query-preview.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import HasSearchedMixin from '../has-searched.mixin';
   import MyHistoryAside from '../my-history/my-history-aside.vue';
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
+  import PreSearchManager from '../pre-search/pre-search-manager.vue';
   import DesktopTopSection from './desktop-top-section.vue';
 
   @Component({
     components: {
       DesktopTopSection,
       MaxDesktopWidthItem,
-      CustomQueryPreview,
       BaseIdModal,
       MyHistoryAside,
       LocationProvider,
@@ -77,6 +76,7 @@
       MyHistoryConfirmDisableModal,
       Scroll,
       ScrollToTop,
+      PreSearchManager,
       DesktopAside: () => import('../search').then(m => m.DesktopAside),
       NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
       SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage),

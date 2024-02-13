@@ -33,7 +33,7 @@
         <MainScroll>
           <Scroll id="main-scroll" class="x-flex-1">
             <LocationProvider location="no_query">
-              <CustomQueryPreview class="x-mt-16" />
+              <PreSearchManager class="x-mt-16" />
             </LocationProvider>
 
             <LocationProvider location="results">
@@ -44,7 +44,7 @@
           </Scroll>
         </MainScroll>
 
-        <div class="x-layout-item x-layout-overlap x-pointer-events-none">
+        <div class="x-layout-overlap x-layout-item x-pointer-events-none">
           <div class="x-mb-32 x-grid x-grid-cols-12 x-gap-24">
             <MobileOpenAside
               v-if="$x.totalResults > 0"
@@ -89,7 +89,7 @@
   import { Component } from 'vue-property-decorator';
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
   import Main from '../main.vue';
-  import CustomQueryPreview from '../pre-search/custom-query-preview.vue';
+  import PreSearchManager from '../pre-search/pre-search-manager.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
   import SearchBox from '../search-box.vue';
@@ -104,7 +104,7 @@
       ArrowLeftIcon,
       BaseIdModal,
       CloseMainModal,
-      CustomQueryPreview,
+      PreSearchManager,
       LocationProvider,
       MobileSubHeader,
       Main,
