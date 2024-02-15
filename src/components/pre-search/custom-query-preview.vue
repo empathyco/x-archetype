@@ -3,6 +3,8 @@
     v-if="queriesPreviewInfo"
     :debounceTimeMs="250"
     :queriesPreviewInfo="queriesPreviewInfo"
+    :persistInCache="true"
+    :queryFeature="'customer'"
     #default="{ queryPreviewInfo, totalResults, results }"
   >
     <div class="x-mb-40 x-flex x-flex-col x-gap-2 desktop:x-mb-64 desktop:x-gap-16">
@@ -13,7 +15,7 @@
         <template #header>
           <QueryPreviewButton
             :queryPreviewInfo="queryPreviewInfo"
-            class="x-button-lead x-button-tight x-button max-desktop:x-px-16"
+            class="x-button x-button-lead x-button-tight max-desktop:x-px-16"
           >
             {{ queryPreviewInfo.query }}
             ({{ totalResults }})
