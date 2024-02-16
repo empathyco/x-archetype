@@ -4,7 +4,7 @@
     :debounceTimeMs="250"
     :queriesPreviewInfo="queriesPreviewInfo"
     :persistInCache="true"
-    :queryFeature="'customer'"
+    :queryFeature="queryFeature"
     #default="{ queryPreviewInfo, totalResults, results }"
   >
     <div class="x-mb-40 x-flex x-flex-col x-gap-2 desktop:x-mb-64 desktop:x-gap-16">
