@@ -5,7 +5,7 @@
     :queriesPreviewInfo="queriesPreviewInfo"
     :persistInCache="true"
     :queryFeature="queryFeature"
-    #default="{ queryPreviewInfo, totalResults, results }"
+    #default="{ queryPreviewInfo, totalResults, results, queryTagging }"
   >
     <div class="x-mb-40 x-flex x-flex-col x-gap-2 desktop:x-mb-64 desktop:x-gap-16">
       <h1 class="x-title1 max-desktop:x-title1-sm max-desktop:x-px-16">
@@ -22,7 +22,7 @@
             <ArrowRightIcon class="x-icon-lg" />
           </QueryPreviewButton>
         </template>
-        <DisplayClickProvider resultFeature="brand_recommendations">
+        <DisplayClickProvider resultFeature="brand_recommendations" :queryTagging="queryTagging">
           <div class="x-transform-style-3d x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
             <Result
               v-for="result in results"
