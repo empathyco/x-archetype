@@ -32,7 +32,7 @@
     "@empathyco/x-adapter": "^8.0.3-alpha.1",
     "@empathyco/x-adapter-platform": "^1.1.0-alpha.1",
     "@empathyco/x-archetype-utils": "^1.1.0-alpha.2",
-    "@empathyco/x-components": "^4.1.0-alpha.19",
+    "@empathyco/x-components": "^4.1.0-alpha.20",
     "@empathyco/x-deep-merge": "^2.0.3-alpha.1",
     "@empathyco/x-types": "^10.1.0-alpha.2",
     "@empathyco/x-utils": "^1.0.3-alpha.1",
