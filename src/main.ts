@@ -1,4 +1,4 @@
-import { CssInjector } from "@empathyco/x-archetype-utils";
+import { CssInjector } from '@empathyco/x-archetype-utils';
 import { XInstaller } from '@empathyco/x-components';
 import Vue from 'vue';
 import { installXOptions } from './x-components/plugin.options';
@@ -6,6 +6,7 @@ import { installXOptions } from './x-components/plugin.options';
 declare global {
   interface Window {
     __enableVueDevtools__?: boolean;
+    wysiwyg: { login: () => Promise<void>; open: () => void };
   }
 }
 

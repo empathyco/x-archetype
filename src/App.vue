@@ -10,7 +10,13 @@
 </template>
 
 <script lang="ts">
-  import { SnippetCallbacks, SnippetConfig, XOn, XProvide } from '@empathyco/x-components';
+  import {
+    SnippetCallbacks,
+    SnippetConfig,
+    UrlParams,
+    XOn,
+    XProvide
+  } from '@empathyco/x-components';
   import { ExperienceControls } from '@empathyco/x-components/experience-controls';
   import { Tagging } from '@empathyco/x-components/tagging';
   import { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
@@ -37,6 +43,14 @@
     @XOn(['UserOpenXProgrammatically', 'UserClickedOpenX'])
     open(): void {
       this.isOpen = true;
+    }
+
+    @XOn(['UserAcceptedAQuery', 'ParamsLoadedFromUrl'])
+    openWysiwygLayer(payload: string | UrlParams): void {
+      const query = typeof payload === 'string' ? payload : payload.query;
+      if (/^::\s*login/.test(query)) {
+        window.wysiwyg.login();
+      }
     }
 
     @Inject('snippetConfig')
