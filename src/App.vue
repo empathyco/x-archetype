@@ -47,10 +47,11 @@
     }
 
     @XOn(['UserAcceptedAQuery', 'ParamsLoadedFromUrl'])
-    openWysiwygLayer(payload: string | UrlParams): void {
+    async openWysiwygLayer(payload: string | UrlParams): Promise<void> {
       const query = typeof payload === 'string' ? payload : payload.query;
       if (/^::\s*login/.test(query)) {
-        window.wysiwyg.login();
+        await window.wysiwyg?.login();
+        window.wysiwyg?.open();
       }
     }
 
