@@ -43,6 +43,7 @@
     @XOn(['UserOpenXProgrammatically', 'UserClickedOpenX'])
     open(): void {
       this.isOpen = true;
+      window.wysiwyg?.init();
     }
 
     @XOn(['UserAcceptedAQuery', 'ParamsLoadedFromUrl'])
