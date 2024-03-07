@@ -5,10 +5,9 @@
   >
     <component
       :is="isDesktopOrGreater ? 'div' : 'BaseScroll'"
-      v-if="showEmpathize || showIdentifierResults"
       class="x-h-full desktop:x-my-16 desktop:x-ml-16"
     >
-      <div class="x-layout-item desktop:x-block">
+      <div v-if="showEmpathize || showIdentifierResults" class="x-layout-item desktop:x-block">
         <BaseKeyboardNavigation
           class="x-flex x-flex-col desktop:x-grid desktop:x-grid-cols-12 desktop:x-items-start desktop:x-gap-24"
           :navigationHijacker="navigationHijacker"
@@ -50,7 +49,7 @@
               >
                 <template #suggestion="{ suggestion }">
                   <HistoryQuery
-                    class="x-suggestion-group-lg hover:x-no-underline desktop:x-suggestion-group-md"
+                    class="x-suggestion-group-lg desktop:x-suggestion-group-md hover:x-no-underline"
                     :suggestion="suggestion"
                     suggestionClass="x-suggestion x-suggestion-lg desktop:x-suggestion-md"
                   >
