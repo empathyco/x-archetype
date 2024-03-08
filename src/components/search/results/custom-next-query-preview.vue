@@ -7,14 +7,16 @@
   >
     <i18n class="x-text1 x-text1-lg max-desktop:x-px-16" tag="span" path="nextQueryPreview.message">
       <template #query>
-        <span class="x-title3">{{ $x.query.nextQueries }}</span>
+        <span class="x-title3">
+          {{ query }}
+        </span>
       </template>
     </i18n>
     <CustomSlidingPanel>
       <template #header>
         <NextQuery
           :suggestion="nextQuery"
-          class="x-button-lead x-button-tight x-button max-desktop:x-px-16"
+          class="x-button x-button-lead x-button-tight max-desktop:x-px-16"
         >
           {{ $t('nextQueryPreview.query', { query: suggestion.query }) }}
           {{ $t('nextQueryPreview.totalResults', { totalResults }) }}
@@ -38,14 +40,13 @@
 
 <script lang="ts">
   import { computed, defineComponent, PropType } from 'vue';
-  import { ArrowRightIcon, ItemsList } from '@empathyco/x-components';
+  import { ArrowRightIcon, ItemsList, useGetter } from '@empathyco/x-components';
   import { NextQuery, NextQueryPreview } from '@empathyco/x-components/next-queries';
   import { NextQuery as NextQueryModel } from '@empathyco/x-types';
   import { useDevice } from '../../../composables/use-device.composable';
   import Result from '../../results/result.vue';
   import CustomSlidingPanel from '../../custom-sliding-panel.vue';
   import DisplayClickProvider from '../display-click-provider.vue';
-
   export default defineComponent({
     components: {
       CustomSlidingPanel,
@@ -60,10 +61,13 @@
       nextQuery: { type: Object as PropType<NextQueryModel>, required: true }
     },
     setup() {
+      const queryGetter = useGetter('nextQueries', ['query'])['query'];
       const { isTabletOrLess } = useDevice();
       const maxItemsToRender = computed(() => (isTabletOrLess.value ? undefined : 5));
+      const query = computed(() => queryGetter.value);
       return {
-        maxItemsToRender
+        maxItemsToRender,
+        query
       };
     }
   });
