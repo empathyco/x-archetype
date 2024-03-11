@@ -47,6 +47,7 @@
   import Result from '../../results/result.vue';
   import CustomSlidingPanel from '../../custom-sliding-panel.vue';
   import DisplayClickProvider from '../display-click-provider.vue';
+
   export default defineComponent({
     components: {
       CustomSlidingPanel,
