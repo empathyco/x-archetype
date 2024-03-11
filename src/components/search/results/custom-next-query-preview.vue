@@ -64,12 +64,11 @@
     setup() {
       const { isTabletOrLess } = useDevice();
       const maxItemsToRender = computed(() => (isTabletOrLess.value ? undefined : 5));
-      const queryGetter = useGetter('nextQueries', ['query'])['query'];
-      const query = computed(() => queryGetter.value);
+      const queryGetter = useGetter('nextQueries', ['query']);
 
       return {
         maxItemsToRender,
-        query
+        query: queryGetter.query
       };
     }
   });
