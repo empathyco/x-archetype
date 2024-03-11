@@ -61,10 +61,11 @@
       nextQuery: { type: Object as PropType<NextQueryModel>, required: true }
     },
     setup() {
-      const queryGetter = useGetter('nextQueries', ['query'])['query'];
       const { isTabletOrLess } = useDevice();
       const maxItemsToRender = computed(() => (isTabletOrLess.value ? undefined : 5));
+      const queryGetter = useGetter('nextQueries', ['query'])['query'];
       const query = computed(() => queryGetter.value);
+
       return {
         maxItemsToRender,
         query
