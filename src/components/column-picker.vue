@@ -42,7 +42,7 @@
       );
 
       return {
-        values: columns,
+        values: columns.value,
         icons: { 1: 'Grid1ColIcon', 2: 'Grid2ColIcon', 4: 'Grid4ColIcon' }
       };
     }
