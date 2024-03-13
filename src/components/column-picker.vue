@@ -38,11 +38,11 @@
       const { getControlFromPath } = useExperienceControls();
 
       const columns = computed(() =>
-        isMobile.value ? [2, 1] : getControlFromPath('layout.columnSelector', [4, 2])
+        isMobile.value ? [2, 1] : getControlFromPath('layout.columnSelector', [4, 2]).value
       );
 
       return {
-        values: columns.value,
+        values: columns,
         icons: { 1: 'Grid1ColIcon', 2: 'Grid2ColIcon', 4: 'Grid4ColIcon' }
       };
     }
