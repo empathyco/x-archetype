@@ -8,7 +8,9 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --skip-plugins eslint",
+    "serve:docker": "VUE_APP_DEVELOPMENT_DOCKER=true vue-cli-service serve --skip-plugins eslint",
     "build": "rollup -c",
+    "build:docker": "VUE_APP_DEVELOPMENT_DOCKER=true rollup -c",
     "build:serve": "concurrently \"rollup -c -w\" \"npm run serve:dist\"",
     "serve:dist": "http-server dist -a localhost --cors",
     "cy:open": "cypress open",
