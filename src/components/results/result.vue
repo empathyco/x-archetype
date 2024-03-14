@@ -3,6 +3,10 @@
     :item="result"
     tag="article"
     class="x-result x-group/result x-flex x-flex-col x-gap-4"
+    data-wysiwyg="result"
+    :data-wysiwyg-id="result.id"
+    :data-wysiwyg-image-url="result.images ? result.images[0] : ''"
+    :data-wysiwyg-title="result.name"
   >
     <div class="x-relative">
       <BaseResultLink class="x-result__picture" :result="result">

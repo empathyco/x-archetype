@@ -5,7 +5,7 @@
     <Tagging />
     <UrlHandler />
     <ExperienceControls />
-    <MainModal v-if="isOpen" />
+    <MainModal v-if="isOpen" data-wysiwyg="layer" />
   </div>
 </template>
 
@@ -43,14 +43,25 @@
     @XOn(['UserOpenXProgrammatically', 'UserClickedOpenX'])
     open(): void {
       this.isOpen = true;
-      window.wysiwyg?.init();
+      window.wysiwyg?.open();
     }
 
-    @XOn(['UserAcceptedAQuery', 'ParamsLoadedFromUrl'])
-    async openWysiwygLayer(payload: string | UrlParams): Promise<void> {
-      const query = typeof payload === 'string' ? payload : payload.query;
+    @XOn(['UserClickedCloseX'])
+    close(): void {
+      window.wysiwyg?.close();
+    }
+
+    @XOn(['UserAcceptedAQuery'])
+    async goToLoginWysiwyg(query: string): Promise<void> {
       if (/^::\s*login/.test(query)) {
-        await window.wysiwyg?.login();
+        await window.wysiwyg?.goToLogin();
+      }
+    }
+
+    @XOn(['ParamsLoadedFromUrl'])
+    async requestAuthWysiwyg(payload: UrlParams): Promise<void> {
+      if (/^::\s*login/.test(payload.query)) {
+        await window.wysiwyg?.requestAuth();
         window.wysiwyg?.open();
       }
     }
