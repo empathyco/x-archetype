@@ -30,9 +30,7 @@
        * Sets focusOnOpen to false if there are no query previews
        * to avoid having to click the input manually to be able to write.
        */
-      const focusOnOpen = !(
-        !!snippetConfig.queriesPreview && snippetConfig.queriesPreview.length > 0
-      );
+      const focusOnOpen = !!snippetConfig.queriesPreview && snippetConfig.queriesPreview.length > 0;
 
       return {
         animation: animateClipPath(),
