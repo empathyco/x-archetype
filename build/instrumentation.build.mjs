@@ -74,6 +74,9 @@ export function createConfig({
       replace(
         mergeConfig('replace', {
           'process.env.NODE_ENV': JSON.stringify('production'),
+          'process.env.VUE_APP_DEVELOPMENT_DOCKER': process.env.VUE_APP_DEVELOPMENT_DOCKER
+            ? JSON.stringify(true)
+            : JSON.stringify(false),
           STRIP_SSR_INJECTOR: true,
           preventAssignment: true
         })
