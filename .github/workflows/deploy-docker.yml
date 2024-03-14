@@ -1,0 +1,23 @@
+name: Release docker image on demand
+on: [workflow_dispatch]
+jobs:
+  deploy-docker-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Installing dependencies
+        run: npm ci
+        shell: bash
+      - name: Build project
+        run: npm run build:docker
+        shell: bash
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          tags: empathyco/x-archetype:latest
+          push: true
