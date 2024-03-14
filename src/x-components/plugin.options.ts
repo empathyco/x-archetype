@@ -1,5 +1,8 @@
-import { InstallXOptions, SnippetConfig } from '@empathyco/x-components';
+import { filter, InstallXOptions, SnippetConfig } from '@empathyco/x-components';
 import { I18n, cssInjector } from '@empathyco/x-archetype-utils';
+import { setSearchQuery } from '@empathyco/x-components/search';
+import { addQueryToHistoryQueries } from '@empathyco/x-components/history-queries';
+import { setUrlQuery } from '@empathyco/x-components/url';
 import App from '../App.vue';
 import * as messages from '../i18n/messages';
 import store from '../store';
@@ -8,6 +11,21 @@ import { useDevice } from '../composables/use-device.composable';
 import { mergeSemanticQueriesConfigWire } from './wiring/semantic-queries.wiring';
 
 const device = useDevice();
+
+const setSearchQueryFiltered = filter(
+  setSearchQuery,
+  ({ eventPayload }) => !eventPayload.startsWith('::')
+);
+
+const addQueryToHistoryQueriesFiltered = filter(
+  addQueryToHistoryQueries,
+  ({ eventPayload }) => !eventPayload.startsWith('::')
+);
+
+const setUrlQueryFiltered = filter(
+  setUrlQuery,
+  ({ eventPayload }) => !eventPayload.startsWith('::')
+);
 
 export const installXOptions: InstallXOptions = {
   adapter,
@@ -28,6 +46,27 @@ export const installXOptions: InstallXOptions = {
       wiring: {
         SemanticQueriesConfigProvided: {
           mergeSemanticQueriesConfigWire
+        }
+      }
+    },
+    search: {
+      wiring: {
+        UserAcceptedAQuery: {
+          setSearchQuery: setSearchQueryFiltered
+        }
+      }
+    },
+    historyQueries: {
+      wiring: {
+        UserAcceptedAQuery: {
+          addQueryToHistoryQueries: addQueryToHistoryQueriesFiltered
+        }
+      }
+    },
+    url: {
+      wiring: {
+        UserAcceptedAQuery: {
+          setUrlQuery: setUrlQueryFiltered
         }
       }
     }
@@ -56,19 +95,19 @@ export const installXOptions: InstallXOptions = {
  * @returns The DOM element.
  */
 function getDomElement({ isolate }: SnippetConfig): Element {
+  const container = document.createElement('div');
+  container.classList.add('x-root-container');
   const domElement = document.createElement('div');
 
   if (isolate || process.env.NODE_ENV === 'production') {
-    const container = document.createElement('div');
-    container.classList.add('x-root-container');
     const shadowRoot = container.attachShadow({ mode: 'open' });
     shadowRoot.appendChild(domElement);
-    document.body.appendChild(container);
     cssInjector.setHost(shadowRoot);
   } else {
-    document.body.appendChild(domElement);
+    container.appendChild(domElement);
     cssInjector.setHost(document.head);
   }
 
+  document.body.appendChild(container);
   return domElement;
 }
