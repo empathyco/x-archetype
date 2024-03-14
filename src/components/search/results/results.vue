@@ -1,5 +1,9 @@
 <template>
-  <ResultsList v-if="$x.totalResults || $x.noResults" v-infinite-scroll:main-scroll>
+  <ResultsList
+    v-if="$x.totalResults || $x.noResults"
+    v-infinite-scroll:main-scroll
+    data-wysiwyg="results"
+  >
     <PromotedsList>
       <BannersList>
         <NextQueriesList
@@ -9,7 +13,7 @@
           :showOnlyAfterOffset="$x.partialResults.length > 0"
         >
           <BaseVariableColumnGrid
-            class="x-gap-y-32 x-gap-x-16"
+            class="x-gap-x-16 x-gap-y-32"
             :animation="staggeredFadeAndSlide"
             :columns="columns"
             data-test="base-grid"

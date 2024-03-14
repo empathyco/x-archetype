@@ -6,7 +6,12 @@ import { getInstallXOptions } from './x-components/plugin.options';
 declare global {
   interface Window {
     __enableVueDevtools__?: boolean;
-    wysiwyg: { login: () => Promise<void>; open: () => Promise<void>; init: () => Promise<void> };
+    wysiwyg?: {
+      goToLogin: () => Promise<void>;
+      requestAuth: () => Promise<void>;
+      open: () => Promise<void>;
+      close: () => Promise<void>;
+    };
   }
 }
 
