@@ -63,14 +63,14 @@ function resolveEmpathyEndpoint(endpoint: DockerEndpoints, context: Record<strin
   const endpointHost: string = empathyAPIHost ? empathyAPIHost : 'localhost:8080';
   const endpointInstance: string = instance ? instance : 'empathy';
   const empathyEndpoints: Record<DockerEndpoints, string> = {
-    search: `https:/${endpointHost}/search/v1/query/${endpointInstance}/search`,
-    popularSearches: `https:/${endpointHost}/search/v1/query/${endpointInstance}/empathize`,
-    recommendations: `https:/${endpointHost}/search/v1/query/${endpointInstance}/topclicked`,
-    nextQueries: `https:${endpointHost}/nextqueries/${endpointInstance}`,
-    querySuggestions: `https:/${endpointHost}/search/v1/query/${endpointInstance}/empathize`,
-    relatedTags: `https:/${endpointHost}/relatedtags/${endpointInstance}`,
-    identifierResults: `https:/${endpointHost}/search/v1/query/${endpointInstance}/skusearch`,
-    semanticQueries: `https:/${endpointHost}/semantics-api/search_single/${endpointInstance}`,
+    search: `https://${endpointHost}/search/v1/query/${endpointInstance}/search`,
+    popularSearches: `https://${endpointHost}/search/v1/query/${endpointInstance}/empathize`,
+    recommendations: `https://${endpointHost}/search/v1/query/${endpointInstance}/topclicked`,
+    nextQueries: `https://${endpointHost}/nextqueries/${endpointInstance}`,
+    querySuggestions: `https://${endpointHost}/search/v1/query/${endpointInstance}/empathize`,
+    relatedTags: `https://${endpointHost}/relatedtags/${endpointInstance}`,
+    identifierResults: `https://${endpointHost}/search/v1/query/${endpointInstance}/skusearch`,
+    semanticQueries: `https://${endpointHost}/semantics-api/search_single/${endpointInstance}`,
     experienceControls: `https://${endpointHost}/config/v1/public/configs`
   };
   return empathyEndpoints[endpoint];
