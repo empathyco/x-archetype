@@ -9,45 +9,57 @@ import { mergeSemanticQueriesConfigWire } from './wiring/semantic-queries.wiring
 
 const device = useDevice();
 
-export const installXOptions: InstallXOptions = {
-  adapter,
-  store,
-  app: App,
-  domElement: getDomElement,
-  xModules: {
-    facets: {
-      config: {
-        filtersStrategyForRequest: 'leaves-only'
-      }
-    },
-    semanticQueries: {
-      config: {
-        threshold: 50,
-        maxItemsToRequest: 10
+/**
+ * Function that returns the options to install x-components.
+ *
+ * Returns - the InstallXOptions.
+ */
+export async function getInstallXOptions(): Promise<InstallXOptions> {
+  if (process.env.VUE_APP_DEVELOPMENT_DOCKER) {
+    const { overrideAdapter } = await import('../adapter/docker.adapter');
+    overrideAdapter(adapter);
+    (window.initX as SnippetConfig).lang = 'es';
+  }
+  return {
+    adapter,
+    store,
+    app: App,
+    domElement: getDomElement,
+    xModules: {
+      facets: {
+        config: {
+          filtersStrategyForRequest: 'leaves-only'
+        }
       },
-      wiring: {
-        SemanticQueriesConfigProvided: {
-          mergeSemanticQueriesConfigWire
+      semanticQueries: {
+        config: {
+          threshold: 50,
+          maxItemsToRequest: 10
+        },
+        wiring: {
+          SemanticQueriesConfigProvided: {
+            mergeSemanticQueriesConfigWire
+          }
         }
       }
-    }
-  },
-  async installExtraPlugins({ vue, snippet }) {
-    const i18n = await I18n.create({
-      locale: snippet.uiLang,
-      device: (snippet.device as string) ?? device.deviceName.value,
-      fallbackLocale: 'en',
-      messages
-    });
-    vue.use(i18n);
-    vue.prototype.$setLocale = i18n.setLocale.bind(i18n);
-    vue.prototype.$setLocaleDevice = i18n.setDevice.bind(i18n);
+    },
+    async installExtraPlugins({ vue, snippet }) {
+      const i18n = await I18n.create({
+        locale: snippet.uiLang,
+        device: (snippet.device as string) ?? device.deviceName.value,
+        fallbackLocale: 'en',
+        messages
+      });
+      vue.use(i18n);
+      vue.prototype.$setLocale = i18n.setLocale.bind(i18n);
+      vue.prototype.$setLocaleDevice = i18n.setDevice.bind(i18n);
 
-    return {
-      i18n: i18n.vueI18n
-    };
-  }
-};
+      return {
+        i18n: i18n.vueI18n
+      };
+    }
+  };
+}
 
 /**
  * Creates a DOM element to mount the X Components app.
