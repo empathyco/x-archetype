@@ -63,15 +63,15 @@ function resolveEmpathyEndpoint(endpoint: DockerEndpoints, context: Record<strin
   const endpointHost: string = empathyAPIHost ? empathyAPIHost : 'localhost:8080';
   const endpointInstance: string = instance ? instance : 'imdb';
   const empathyEndpoints: Record<DockerEndpoints, string> = {
-    search: `https://${endpointHost}/query/${endpointInstance}/search`,
-    popularSearches: `https://${endpointHost}/query/${endpointInstance}/empathize`,
-    recommendations: `https://${endpointHost}/query/${endpointInstance}/topclicked`,
-    nextQueries: `https://${endpointHost}/nextqueries/${endpointInstance}`,
-    querySuggestions: `https://${endpointHost}/query/${endpointInstance}/empathize`,
-    relatedTags: `https://${endpointHost}/relatedtags/${endpointInstance}`,
-    identifierResults: `https://${endpointHost}/query/${endpointInstance}/skusearch`,
-    semanticQueries: `https://${endpointHost}/semantics-api/search_single/${endpointInstance}`,
-    experienceControls: `https://${endpointHost}/config/v1/public/configs`
+    search: `http://${endpointHost}/query/${endpointInstance}/search`,
+    popularSearches: `http://${endpointHost}/query/${endpointInstance}/empathize`,
+    recommendations: `http://${endpointHost}/query/${endpointInstance}/topclicked`,
+    nextQueries: `http://${endpointHost}/nextqueries/${endpointInstance}`,
+    querySuggestions: `http://${endpointHost}/query/${endpointInstance}/empathize`,
+    relatedTags: `http://${endpointHost}/relatedtags/${endpointInstance}`,
+    identifierResults: `http://${endpointHost}/query/${endpointInstance}/skusearch`,
+    semanticQueries: `http://${endpointHost}/semantics-api/search_single/${endpointInstance}`,
+    experienceControls: `http://${endpointHost}/config/v1/public/configs`
   };
   return empathyEndpoints[endpoint];
 }
