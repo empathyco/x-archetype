@@ -18,6 +18,9 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
   if (process.env.VUE_APP_DEVELOPMENT_DOCKER) {
     const { overrideAdapter } = await import('../adapter/docker.adapter');
     overrideAdapter(adapter);
+    if (typeof window.initX === 'object') {
+      window.initX.lang = 'es';
+    }
   }
   return {
     adapter,
