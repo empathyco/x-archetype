@@ -60,9 +60,13 @@
 
     @XOn(['ParamsLoadedFromUrl'])
     async requestAuthWysiwyg(payload: UrlParams): Promise<void> {
-      if (/^::\s*login/.test(payload.query)) {
-        await window.wysiwyg?.requestAuth();
-        window.wysiwyg?.open();
+      try {
+        if (window.wysiwyg) {
+          await window.wysiwyg?.requestAuth();
+          window.InterfaceX?.search();
+        }
+      } catch (_) {
+        // No error handling
       }
     }
 

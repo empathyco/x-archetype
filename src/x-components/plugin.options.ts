@@ -17,11 +17,6 @@ const setSearchQueryFiltered = filter(
     ({ eventPayload }) => !eventPayload.startsWith('::')
 );
 
-const setSearchQueryFromURLFiltered = filter(
-    setUrlParams,
-    ({ eventPayload }) => !eventPayload.query?.startsWith('::')
-);
-
 const addQueryToHistoryQueriesFiltered = filter(
     addQueryToHistoryQueries,
     ({ eventPayload }) => !eventPayload.startsWith('::')
