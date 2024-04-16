@@ -59,16 +59,16 @@ type DockerEndpoints = Exclude<keyof XComponentsAdapter, 'tagging'>;
  * @returns The url for the given endpoint.
  */
 function resolveEmpathyEndpoint(endpoint: DockerEndpoints, context: Record<string, any>): string {
-  const { empathyAPIHost, instance } = context;
+  const { empathyAPIHost } = context;
   const endpointHost: string = empathyAPIHost ? empathyAPIHost : 'localhost:8080';
-  const endpointInstance: string = instance ? instance : 'imdb';
+  const endpointInstance = 'imdb';
   const empathyEndpoints: Record<DockerEndpoints, string> = {
     search: `http://${endpointHost}/query/${endpointInstance}/search`,
     popularSearches: `http://${endpointHost}/query/${endpointInstance}/empathize`,
     recommendations: `http://${endpointHost}/query/${endpointInstance}/topclicked`,
-    nextQueries: `http://${endpointHost}/nextqueries/${endpointInstance}`,
+    nextQueries: `https://api.staging.empathy.co/nextqueries/${endpointInstance}`,
     querySuggestions: `http://${endpointHost}/query/${endpointInstance}/empathize`,
-    relatedTags: `http://${endpointHost}/relatedtags/${endpointInstance}`,
+    relatedTags: `https://api.staging.empathy.co/relatedtags/${endpointInstance}`,
     identifierResults: `http://${endpointHost}/query/${endpointInstance}/skusearch`,
     semanticQueries: `http://${endpointHost}/semantics-api/search_single/${endpointInstance}`,
     experienceControls: `http://${endpointHost}/config/v1/public/configs`
