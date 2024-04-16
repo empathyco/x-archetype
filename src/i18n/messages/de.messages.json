@@ -59,7 +59,11 @@
         "price": "Preis",
         "brand": "Marke",
         "fit": "Passform",
-        "collection": "Kollektion"
+        "collection": "Kollektion",
+        "genres": "Geschlechter",
+        "isAdult": "Inhalt für",
+        "type": "Kerl",
+        "runtimeMinutes": "Dauer in Minuten"
       },
       "facetsPanel": {
         "title": "SORTIEREN & FILTERN",

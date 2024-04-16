@@ -59,7 +59,11 @@
       "price": "Price",
       "brand": "Brand",
       "fit": "Fit",
-      "collection": "Collection"
+      "collection": "Collection",
+      "genres": "Genres",
+      "isAdult": "Is Adult",
+      "type": "Type",
+      "runtimeMinutes": "Runtime minutes"
     },
     "facetsPanel": {
       "title": "SORT & FILTER",
