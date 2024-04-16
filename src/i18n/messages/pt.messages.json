@@ -59,7 +59,11 @@
       "price": "Preço",
       "brand": "Marca",
       "fit": "Fit",
-      "collection": "Coleção"
+      "collection": "Coleção",
+      "genres": "Gêneros",
+      "isAdult": "Conteúdo adulto",
+      "type": "Cara",
+      "runtimeMinutes": "Duração em minutos"
     },
     "facetsPanel": {
       "title": "ORDENAR & FILTRAR",
