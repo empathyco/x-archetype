@@ -61,6 +61,10 @@ export interface Messages {
     brand: string;
     fit: string;
     collection: string;
+    genres: string;
+    isAdult: string;
+    type: string;
+    runtimeMinutes: string;
   };
   facetsPanel: {
     title: string;
