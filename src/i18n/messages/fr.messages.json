@@ -59,7 +59,11 @@
       "price": "Prix",
       "brand": "Marque",
       "fit": "Fit",
-      "collection": "Collection"
+      "collection": "Collection",
+      "genres": "Genres",
+      "isAdult": "Contenu adulte",
+      "type": "Type",
+      "runtimeMinutes": "Durée en minutes"
     },
     "facetsPanel": {
       "title": "TRIER ET FILTRER",
