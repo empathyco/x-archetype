@@ -25,6 +25,25 @@
   <body>
     <%= htmlWebpackPlugin.options.__injectedHome__ %>
     <script src="./snippet-script.js"></script>
+    <script type="module" src="https://assets.motive.co/wysiwyg/wysiwyg.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            window.wysiwyg.setConfig({
+                auth: {
+                    baseUrl: 'https://iam.empathy.co',
+                    clientId: 'wysiwyg'
+                },
+                analytics: {
+                    baseUrl: 'https://statistics.empathy.co'
+                },
+                lang: 'en',
+                instance: 'empathy',
+                audience: 'enterprise',
+                appContainerSelector: '.x-root-container',
+                searchLayerSelector: '.x'
+            })
+        })
+    </script>
     <!-- built files will be auto injected -->
   </body>
 </html>
