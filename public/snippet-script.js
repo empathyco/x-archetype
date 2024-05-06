@@ -108,7 +108,6 @@ window.initX = {
 };
 
 window.addEventListener('load', () => {
-  console.log('loaded');
   window.wysiwyg.setConfig({
     auth: {
       baseUrl: 'https://iam.empathy.co',
