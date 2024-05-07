@@ -5,6 +5,7 @@
     :queriesPreviewInfo="queriesPreviewInfo"
     :persistInCache="true"
     :queryFeature="queryFeature"
+    data-wysiwyg="query-previews"
     #default="{ queryPreviewInfo, totalResults, results, queryTagging }"
   >
     <div class="x-mb-40 x-flex x-flex-col x-gap-2 desktop:x-mb-64 desktop:x-gap-16">

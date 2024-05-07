@@ -5,12 +5,18 @@
     <Tagging />
     <UrlHandler />
     <ExperienceControls />
-    <MainModal v-if="isOpen" />
+    <MainModal v-if="isOpen" data-wysiwyg="layer" />
   </div>
 </template>
 
 <script lang="ts">
-  import { SnippetCallbacks, SnippetConfig, XOn, XProvide } from '@empathyco/x-components';
+  import {
+    SnippetCallbacks,
+    SnippetConfig,
+    UrlParams,
+    XOn,
+    XProvide
+  } from '@empathyco/x-components';
   import { ExperienceControls } from '@empathyco/x-components/experience-controls';
   import { Tagging } from '@empathyco/x-components/tagging';
   import { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
@@ -37,6 +43,31 @@
     @XOn(['UserOpenXProgrammatically', 'UserClickedOpenX'])
     open(): void {
       this.isOpen = true;
+      window.wysiwyg?.open();
+    }
+
+    @XOn(['UserClickedCloseX'])
+    close(): void {
+      window.wysiwyg?.close();
+    }
+
+    @XOn(['UserAcceptedAQuery'])
+    async goToLoginWysiwyg(query: string): Promise<void> {
+      if (/^::\s*login/.test(query)) {
+        await window.wysiwyg?.goToLogin();
+      }
+    }
+
+    @XOn(['ParamsLoadedFromUrl'])
+    async requestAuthWysiwyg(payload: UrlParams): Promise<void> {
+      try {
+        if (window.wysiwyg) {
+          await window.wysiwyg?.requestAuth();
+          window.InterfaceX?.search();
+        }
+      } catch (_) {
+        // No error handling
+      }
     }
 
     @Inject('snippetConfig')

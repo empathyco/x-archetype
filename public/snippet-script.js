@@ -106,3 +106,20 @@ window.initX = {
     }
   ]
 };
+
+window.addEventListener('load', () => {
+  window.wysiwyg.setConfig({
+    auth: {
+      baseUrl: 'https://iam.empathy.co',
+      clientId: 'wysiwyg'
+    },
+    analytics: {
+      baseUrl: 'https://api.staging.empathy.co/statistics/v2'
+    },
+    lang,
+    instance,
+    audience: 'enterprise',
+    appContainerSelector: '.x-root-container',
+    searchLayerSelector: '.x'
+  });
+});

@@ -1,7 +1,7 @@
 <template>
   <div v-if="$x.recommendations.length > 0" class="x-flex x-flex-col x-gap-12">
     <h1
-      class="x-title4 x-title4-sm x-flex x-h-32 x-items-center x-pt-16 x-pl-24 x-uppercase desktop:x-pl-0 desktop:x-pt-0"
+      class="x-title4 x-title4-sm x-flex x-h-32 x-items-center x-pl-24 x-pt-16 x-uppercase desktop:x-pl-0 desktop:x-pt-0"
     >
       {{ $t('recommendations.title') }}
     </h1>
@@ -16,7 +16,10 @@
         <ChevronLeftIcon class="x-icon-lg" />
       </template>
 
-      <Recommendations class="x-flex x-flex-row x-gap-12 x-pl-16 desktop:x-pl-0">
+      <Recommendations
+        class="x-flex x-flex-row x-gap-12 x-pl-16 desktop:x-pl-0"
+        data-wysiwyg="recommendations"
+      >
         <template #default="{ recommendation }">
           <DisplayClickProvider resultFeature="topclicked_recommendations">
             <Result

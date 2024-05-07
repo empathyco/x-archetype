@@ -11,6 +11,7 @@
         :queriesPreviewInfo="queries.map(q => ({ query: q }))"
         #default="{ queryPreviewInfo: { query }, results, totalResults }"
         class="x-flex x-flex-col x-gap-64"
+        data-wysiwyg="query-previews"
       >
         <CustomSlidingPanel>
           <template #header>
