@@ -1,3 +1,4 @@
+import { interpolate } from '@empathyco/x-adapter';
 import {
   platformAdapter,
   PlatformRecommendationsRequest,
@@ -10,10 +11,127 @@ import {
 } from '@empathyco/x-adapter-platform';
 import {
   ExperienceControlsResponse,
+  ExtraParamsRequest,
   RecommendationsRequest,
   Result,
   SemanticQueriesRequest
 } from '@empathyco/x-types';
+
+// TODO Manage Platform Test URLs at @empathyco/x-adapter-platform level to avoid these extends:
+// https://github.com/empathyco/x/pull/1477
+
+/**
+ * Gets the Search service URL for the given request.
+ *
+ * @param from - The request.
+ *
+ * @returns The service URL.
+ *
+ * @internal
+ */
+function getSearchServiceUrl(from: ExtraParamsRequest): string {
+  return from.extraParams?.env === 'test'
+    ? 'https://search.internal.test.empathy.co'
+    : 'https://api.{extraParams.env(.)}empathy.co/search/v1';
+}
+
+/**
+ * Gets the Beacon service URL for the given request.
+ *
+ * @param from - The request.
+ *
+ * @returns The service URL.
+ *
+ * @internal
+ */
+function getBeaconServiceUrl(from: ExtraParamsRequest): string {
+  return from.extraParams?.env === 'test'
+    ? 'https://beacon-api.internal.test.empathy.co'
+    : 'https://api.{extraParams.env(.)}empathy.co';
+}
+
+/**
+ * Gets the Semantics service URL for the given request.
+ *
+ * @param from - The request.
+ *
+ * @returns The service URL.
+ *
+ * @internal
+ */
+function getSemanticsServiceUrl(from: ExtraParamsRequest): string {
+  return from.extraParams?.env === 'test'
+    ? 'https://semantics-api.internal.test.empathy.co'
+    : 'https://api.{extraParams.env(.)}empathy.co/semantics-api';
+}
+
+/**
+ * Gets the Config service URL for the given request.
+ *
+ * @param from - The request.
+ *
+ * @returns The service URL.
+ *
+ * @internal
+ */
+function getConfigServiceUrl(from: ExtraParamsRequest): string {
+  return from.extraParams?.env === 'test'
+    ? 'https://config-service.internal.test.empathy.co'
+    : 'https://api.{extraParams.env(.)}empathy.co/config/v1';
+}
+
+const searchEndpointAdapter = platformAdapter.search.extends({
+  endpoint: from =>
+    interpolate(`${getSearchServiceUrl(from)}/query/{extraParams.instance}/search`, from)
+});
+platformAdapter.search = searchEndpointAdapter;
+
+const popularSearchesEndpointAdapter = platformAdapter.popularSearches.extends({
+  endpoint: from =>
+    interpolate(`${getSearchServiceUrl(from)}/query/{extraParams.instance}/empathize`, from)
+});
+platformAdapter.popularSearches = popularSearchesEndpointAdapter;
+
+const recommendationsEndpointAdapter = platformAdapter.recommendations.extends({
+  endpoint: from =>
+    interpolate(`${getSearchServiceUrl(from)}/query/{extraParams.instance}/topclicked`, from)
+});
+platformAdapter.recommendations = recommendationsEndpointAdapter;
+
+const nextQueriesEndpointAdapter = platformAdapter.nextQueries.extends({
+  endpoint: from =>
+    interpolate(`${getBeaconServiceUrl(from)}/nextqueries/{extraParams.instance}`, from)
+});
+platformAdapter.nextQueries = nextQueriesEndpointAdapter;
+
+const querySuggestionsEndpointAdapter = platformAdapter.querySuggestions.extends({
+  endpoint: from =>
+    interpolate(`${getSearchServiceUrl(from)}/query/{extraParams.instance}/empathize`, from)
+});
+platformAdapter.querySuggestions = querySuggestionsEndpointAdapter;
+
+const relatedTagsEndpointAdapter = platformAdapter.relatedTags.extends({
+  endpoint: from =>
+    interpolate(`${getBeaconServiceUrl(from)}/relatedtags/{extraParams.instance}`, from)
+});
+platformAdapter.relatedTags = relatedTagsEndpointAdapter;
+
+const identifierResultsEndpointAdapter = platformAdapter.identifierResults.extends({
+  endpoint: from =>
+    interpolate(`${getSearchServiceUrl(from)}/query/{extraParams.instance}/skusearch`, from)
+});
+platformAdapter.identifierResults = identifierResultsEndpointAdapter;
+
+const semanticQueriesEndpointAdapter = platformAdapter.semanticQueries.extends({
+  endpoint: from =>
+    interpolate(`${getSemanticsServiceUrl(from)}/search_single/{extraParams.instance}`, from)
+});
+platformAdapter.semanticQueries = semanticQueriesEndpointAdapter;
+
+const experienceControlsEndpointAdapter = platformAdapter.experienceControls.extends({
+  endpoint: from => interpolate(`${getConfigServiceUrl(from)}/public/configs`, from)
+});
+platformAdapter.experienceControls = experienceControlsEndpointAdapter;
 
 export const adapter = platformAdapter;
 

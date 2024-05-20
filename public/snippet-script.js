@@ -30,7 +30,7 @@ function getEnv() {
   const envsDict = {
     live: '',
     staging: 'staging',
-    test: 'staging'
+    test: 'test'
   };
 
   if (env) {
