@@ -66,14 +66,13 @@
     }
 
     @XOn(['ParamsLoadedFromUrl'])
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     async requestAuthWysiwyg(payload: UrlParams): Promise<void> {
       try {
         if (window.wysiwyg) {
           await window.wysiwyg?.requestAuth();
           window.InterfaceX?.search();
-          if (params.query) {
-            window.wysiwyg.setContext({ query: params.query });
+          if (payload.query) {
+            window.wysiwyg.setContext({ query: payload.query });
           }
         }
       } catch (_) {
