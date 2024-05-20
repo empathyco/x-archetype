@@ -22,6 +22,7 @@
   import { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
   import { UrlHandler } from '@empathyco/x-components/url';
   import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params';
+  import { InternalSearchRequest } from '@empathyco/x-components/search';
   import { Component, Inject, Provide, Vue, Watch } from 'vue-property-decorator';
   import { useDevice } from './composables/use-device.composable';
   import currencies from './i18n/currencies';
@@ -58,7 +59,13 @@
       }
     }
 
+    @XOn(['SearchRequestChanged'])
+    setWysiwygContext(payload: InternalSearchRequest | null): void {
+      window.wysiwyg?.setContext({ query: payload?.query });
+    }
+
     @XOn(['ParamsLoadedFromUrl'])
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     async requestAuthWysiwyg(payload: UrlParams): Promise<void> {
       try {
         if (window.wysiwyg) {
