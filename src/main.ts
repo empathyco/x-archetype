@@ -11,6 +11,7 @@ declare global {
       requestAuth: () => Promise<void>;
       open: () => Promise<void>;
       close: () => Promise<void>;
+      setContext: (newContext: { query?: string }) => void;
     };
   }
 }

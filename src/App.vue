@@ -55,10 +55,18 @@
     async goToLoginWysiwyg(query: string): Promise<void> {
       if (/^::\s*login/.test(query)) {
         await window.wysiwyg?.goToLogin();
+      } else {
+        window.wysiwyg?.setContext({ query });
       }
     }
 
+    @XOn(['UserClearedQuery'])
+    clearQuery(): void {
+      window.wysiwyg?.setContext({ query: undefined });
+    }
+
     @XOn(['ParamsLoadedFromUrl'])
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     async requestAuthWysiwyg(payload: UrlParams): Promise<void> {
       try {
         if (window.wysiwyg) {
