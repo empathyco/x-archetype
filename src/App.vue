@@ -59,6 +59,7 @@
     }
 
     @XOn(['ParamsLoadedFromUrl'])
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     async requestAuthWysiwyg(payload: UrlParams): Promise<void> {
       try {
         if (window.wysiwyg) {
