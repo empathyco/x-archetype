@@ -138,7 +138,7 @@
       "semantics": "Semantics",
       "searchBy": "Search by",
       "semanticSelectorTitle": "Semantic similarity",
-      "semanticSelectorBody": "Set up the weight for the semantic enrichment source used to enhance the searchable products.",
+      "semanticSelectorBody": "The semantic similarity between products ranges from 0 to 1, with 1 indicating very similar products. Set the minimum score for a product to be considered relevant to the query.",
       "semanticScoreError": "The score has to be between 0 and 1"
     }
   },
