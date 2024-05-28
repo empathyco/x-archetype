@@ -123,9 +123,17 @@
       "viewResults": "Ver todos los resultados"
     },
     "redirections": {
-     "title": "Tu búsqueda coincide con una página especial de nuestra web, vas a ser redirigido a:",
+      "title": "Tu búsqueda coincide con una página especial de nuestra web, vas a ser redirigido a:",
       "accept": "Sí, redirígeme",
       "reject": "No, me quedaré aquí"
+    },
+    "searchModeSelector": {
+      "keyword": "Keyword",
+      "semantics": "Semánticos",
+      "searchBy": "Buscar por",
+      "semanticSelectorTitle": "Similitud semántica",
+      "semanticSelectorBody": "Ajusta el peso de la similitud semántica para mejorar los resultados",
+      "semanticScoreError": "El valor tiene que estar entre 0 y 1"
     }
   },
   "mobile": {

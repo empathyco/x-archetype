@@ -126,6 +126,14 @@
       "title": "La vostra ricerca corrisponde a un luogo speciale del nostro sito web, per visitare il quale siete stati reindirizzati",
       "accept": "Sì, reindirizzami",
       "reject": "No, rimango qui"
+    },
+    "searchModeSelector": {
+      "keyword": "Keyword",
+      "semantics": "Semantics",
+      "searchBy": "Search by",
+      "semanticSelectorTitle": "Semantic similarity",
+      "semanticSelectorBody": "Set up the weight for the semantic enrichment source used to enhance the searchable products.",
+      "semanticScoreError": "The score has to be between 0 and 1"
     }
   },
   "mobile": {
