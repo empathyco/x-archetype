@@ -5,7 +5,7 @@
     data-test="total-results"
   >
     <div class="x-flex x-justify-end">
-      <SearchModeSelector />
+      <SearchModeSelector v-if="$x.query.searchBox" />
 
       <ColumnPicker v-if="$x.totalResults" data-test="column-picker" />
 

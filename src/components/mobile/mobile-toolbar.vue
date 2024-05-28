@@ -1,6 +1,6 @@
 <template>
   <div class="x-flex x-flex-col x-items-center x-gap-16">
-    <SearchModeSelector />
+    <SearchModeSelector v-if="$x.query.searchBox" />
     <div v-if="$x.totalResults" class="x-flex x-w-full x-items-center">
       <i18n class="x-text1 x-flex-auto" path="totalResults.message" tag="span">
         <template #totalResults>
