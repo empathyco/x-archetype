@@ -1,8 +1,17 @@
 <template>
   <div class="x-flex x-flex-col x-items-center x-gap-16">
     <SearchModeSelector v-if="$x.query.searchBox" />
-    <div v-if="$x.totalResults" class="x-flex x-w-full x-items-center">
-      <i18n class="x-text1 x-flex-auto" path="totalResults.message" tag="span">
+    <div
+      v-if="$x.totalResults"
+      class="x-flex x-w-full x-items-center"
+      :class="{ 'x-justify-end': !isKeywordsSearchMode }"
+    >
+      <i18n
+        v-show="isKeywordsSearchMode"
+        class="x-text1 x-flex-auto"
+        path="totalResults.message"
+        tag="span"
+      >
         <template #totalResults>
           {{ $x.totalResults }}
         </template>
@@ -19,15 +28,29 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
+  import { defineComponent, ref, watch } from 'vue';
+  import { useState } from '@empathyco/x-components';
   import ColumnPicker from '../column-picker.vue';
   import SearchModeSelector from '../search-mode-selector.vue';
 
-  @Component({
+  export default defineComponent({
+    name: 'MobileToolbar',
     components: {
       SearchModeSelector,
       ColumnPicker
+    },
+    setup() {
+      const { params, status } = useState('search', ['params', 'status']);
+      const isKeywordsSearchMode = ref(true);
+      watch(status, () => {
+        if (status.value === 'success') {
+          isKeywordsSearchMode.value = params.value.mode !== 'semantics';
+        }
+      });
+
+      return {
+        isKeywordsSearchMode
+      };
     }
-  })
-  export default class MobileToolbar extends Vue {}
+  });
 </script>
