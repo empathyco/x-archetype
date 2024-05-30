@@ -28,7 +28,7 @@
     </div>
     <div v-if="$x.totalResults">
       <i18n class="x-text1 x-text1-lg x-flex-auto" path="totalResults.message" tag="span">
-        <template #totalResults>
+        <template #totalResults v-if="isKeywordsSearchMode">
           {{ $x.totalResults }}
         </template>
         <template #query>
@@ -42,8 +42,8 @@
 </template>
 
 <script lang="ts">
-  import { BaseIdModalOpen, FiltersIcon } from '@empathyco/x-components';
-  import { defineComponent } from 'vue';
+  import { BaseIdModalOpen, FiltersIcon, useState } from '@empathyco/x-components';
+  import { defineComponent, ref, watch } from 'vue';
   import ColumnPicker from '../column-picker.vue';
   import SearchModeSelector from '../../components/search-mode-selector.vue';
 
@@ -53,6 +53,19 @@
       BaseIdModalOpen,
       FiltersIcon,
       ColumnPicker
+    },
+    setup() {
+      const { params, status } = useState('search', ['params', 'status']);
+      const isKeywordsSearchMode = ref(true);
+      watch(status, () => {
+        if (status.value === 'success') {
+          isKeywordsSearchMode.value = params.value.mode !== 'semantics';
+        }
+      });
+
+      return {
+        isKeywordsSearchMode
+      };
     }
   });
 </script>
