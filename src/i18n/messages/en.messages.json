@@ -54,6 +54,12 @@
       "title": "Top Clicked"
     },
     "facets": {
+      "calendarType": "Calendar type",
+      "categoryNames": "Categories",
+      "gemType": "Gem type",
+      "isFreeShipping": "Free shipping",
+      "isOnlineOnly": "online only",
+      "productName": "Product name",
       "gender": "Gender",
       "categoryPaths": "Categories",
       "price": "Price",
@@ -126,6 +132,14 @@
       "title": "Your search matches a special place in our website, to visit it, you are being redirected",
       "accept": "Yes, redirect me",
       "reject": "No, I'll stay here"
+    },
+    "searchModeSelector": {
+      "keyword": "Keyword",
+      "semantics": "Semantics",
+      "searchBy": "Search by",
+      "semanticSelectorTitle": "Semantic similarity",
+      "semanticSelectorBody": "The semantic similarity between products ranges from 0 to 1, with 1 indicating very similar products. Set the minimum score for a product to be considered relevant to the query.",
+      "semanticScoreError": "The score has to be between 0 and 1"
     }
   },
   "mobile": {

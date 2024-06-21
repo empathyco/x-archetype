@@ -128,4 +128,12 @@ export interface Messages {
     accept: string;
     reject: string;
   };
+  searchModeSelector: {
+    Keyword: string;
+    semantics: string;
+    searchBy: string;
+    semanticSelectorTitle: string;
+    semanticSelectorBody: string;
+    semanticScoreError: string;
+  };
 }
