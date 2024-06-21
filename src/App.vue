@@ -108,6 +108,18 @@
     syncDevice(deviceName: string): void {
       this.$setLocaleDevice(deviceName);
     }
+
+    reloadSearch(): void {
+      this.$x.emit('ReloadSearchRequested');
+    }
+
+    mounted(): void {
+      document.addEventListener('wysiwyg:reloadSearch', () => this.reloadSearch());
+    }
+
+    beforeDestroy(): void {
+      document.removeEventListener('wysiwyg:reloadSearch', () => this.reloadSearch());
+    }
   }
 </script>
 
