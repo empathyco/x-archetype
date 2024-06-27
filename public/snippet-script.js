@@ -50,10 +50,10 @@ function getIsolationStrategy() {
   return isolation === undefined ? undefined : isolation === 'true';
 }
 
-const instance = popFromURLParameters('instance') || 'empathy';
+const instance = popFromURLParameters('instance') || 'sklum';
 const env = getEnv();
 const scope = popFromURLParameters('scope') || 'desktop';
-const lang = popFromURLParameters('lang') || 'en';
+const lang = popFromURLParameters('lang') || 'es_ES';
 const device = popFromURLParameters('device') || undefined;
 const uiLang = popFromURLParameters('uiLang') || lang;
 const currency = popFromURLParameters('currency') || 'EUR';
