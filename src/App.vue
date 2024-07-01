@@ -61,7 +61,11 @@
 
     @XOn(['SearchRequestChanged'])
     setWysiwygContext(payload: InternalSearchRequest | null): void {
-      window.wysiwyg?.setContext({ query: payload?.query });
+      const { wysiwyg } = window;
+      if (wysiwyg) {
+        const query = this.$x.spellcheckedQuery! || payload?.query;
+        wysiwyg.setContext({ query });
+      }
     }
 
     @XOn(['ParamsLoadedFromUrl'])
