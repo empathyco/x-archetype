@@ -11,7 +11,12 @@ declare global {
       requestAuth: () => Promise<void>;
       open: () => Promise<void>;
       close: () => Promise<void>;
-      setContext: (newContext: { query: string | undefined }) => void;
+      setContext: (
+        newContext: Partial<{
+          query: string | undefined;
+          spellcheckedQuery: string | undefined;
+        }>
+      ) => void;
     };
   }
 }

@@ -22,7 +22,7 @@
   import { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
   import { UrlHandler } from '@empathyco/x-components/url';
   import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params';
-  import { InternalSearchRequest } from '@empathyco/x-components/search';
+  import { InternalSearchRequest, InternalSearchResponse } from '@empathyco/x-components/search';
   import { Component, Inject, Provide, Vue, Watch } from 'vue-property-decorator';
   import { useDevice } from './composables/use-device.composable';
   import currencies from './i18n/currencies';
@@ -60,8 +60,15 @@
     }
 
     @XOn(['SearchRequestChanged'])
-    setWysiwygContext(payload: InternalSearchRequest | null): void {
-      window.wysiwyg?.setContext({ query: payload?.query });
+    onSearchRequestChanged(payload: InternalSearchRequest | null): void {
+      window.wysiwyg?.setContext({ query: payload?.query, spellcheckedQuery: undefined });
+    }
+
+    @XOn(['SearchResponseChanged'])
+    onSearchResponseChanged(payload: InternalSearchResponse): void {
+      if (payload.spellcheck) {
+        window.wysiwyg?.setContext({ spellcheckedQuery: payload.spellcheck });
+      }
     }
 
     @XOn(['ParamsLoadedFromUrl'])
