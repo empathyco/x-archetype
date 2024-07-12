@@ -116,6 +116,9 @@ window.addEventListener('load', () => {
     analytics: {
       baseUrl: 'https://api.staging.empathy.co/statistics/v2'
     },
+    conversational: {
+      baseUrl: 'https://gplay-rag.internal.test.empathy.co'
+    },
     lang,
     instance,
     audience: 'enterprise',
