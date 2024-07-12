@@ -78,6 +78,7 @@
         if (window.wysiwyg) {
           await window.wysiwyg?.requestAuth();
           window.InterfaceX?.search();
+          window.wysiwyg?.setContext({ query: payload.query });
         }
       } catch (_) {
         // No error handling
