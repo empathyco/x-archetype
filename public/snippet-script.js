@@ -119,7 +119,7 @@ window.addEventListener('load', () => {
     instance,
     lang,
     audience: 'enterprise',
-    playboardUrl: 'https://playboard-platform.staging.empathy.co/empathy',
+    playboardUrl: `https://playboard-platform.staging.empathy.co/${instance}`,
     appContainerSelector: '.x-root-container',
     searchLayerSelector: '.x'
   });
