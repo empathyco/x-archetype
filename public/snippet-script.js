@@ -119,6 +119,9 @@ window.addEventListener('load', () => {
     conversational: {
       baseUrl: 'https://gplay-rag.internal.test.empathy.co'
     },
+    search: {
+      baseUrl: 'https://api.staging.empathy.co/search/v1'
+    },
     lang,
     instance,
     audience: 'enterprise',
