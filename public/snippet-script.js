@@ -119,9 +119,10 @@ window.addEventListener('load', () => {
     conversational: {
       baseUrl: 'https://gplay-rag.internal.test.empathy.co'
     },
-    lang,
     instance,
+    lang,
     audience: 'enterprise',
+    playboardUrl: `https://playboard-platform.staging.empathy.co/${instance}`,
     appContainerSelector: '.x-root-container',
     searchLayerSelector: '.x'
   });
