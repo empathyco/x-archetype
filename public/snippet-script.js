@@ -122,9 +122,10 @@ window.addEventListener('load', () => {
     search: {
       baseUrl: 'https://api.staging.empathy.co/search/v1'
     },
-    lang,
     instance,
+    lang,
     audience: 'enterprise',
+    playboardUrl: `https://playboard-platform.staging.empathy.co/${instance}`,
     appContainerSelector: '.x-root-container',
     searchLayerSelector: '.x'
   });
