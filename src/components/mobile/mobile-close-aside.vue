@@ -17,12 +17,12 @@
 </template>
 
 <script lang="ts">
-  import { BaseIdModalClose, FiltersIcon } from '@empathyco/x-components';
-  import { Component, Vue } from 'vue-property-decorator';
+  import { BaseIdModalClose } from '@empathyco/x-components';
   import { ClearFilters } from '@empathyco/x-components/facets';
+  import { defineComponent } from 'vue';
 
-  @Component({
-    components: { BaseIdModalClose, FiltersIcon, ClearFilters }
-  })
-  export default class MobileCloseAside extends Vue {}
+  export default defineComponent({
+    name: 'MobileCloseAside',
+    components: { BaseIdModalClose, ClearFilters }
+  });
 </script>

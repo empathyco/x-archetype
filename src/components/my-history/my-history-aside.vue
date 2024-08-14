@@ -17,9 +17,9 @@
     </div>
 
     <div
-      class="x-flex x-flex-col x-divide-y-1 x-divide-neutral-10 desktop:x-flex-1 desktop:x-overflow-auto desktop:x-scroll"
+      class="x-flex x-flex-col x-divide-y-1 x-divide-neutral-10 desktop:x-scroll desktop:x-flex-1 desktop:x-overflow-auto"
     >
-      <section class="x-flex x-flex-col x-gap-16 x-px-16 x-pt-24 x-pb-32 desktop:x-pl-32">
+      <section class="x-flex x-flex-col x-gap-16 x-px-16 x-pb-32 x-pt-24 desktop:x-pl-32">
         <h2 class="x-title3 x-mb-8">{{ $t('myHistory.subtitle') }}</h2>
         <p class="x-text1 x-text1-lg x-text-neutral-75">{{ $t('myHistory.message.header') }}</p>
         <p class="x-text1 x-text1-lg x-text-neutral-75">{{ $t('myHistory.message.body') }}</p>
@@ -27,7 +27,7 @@
       </section>
 
       <section
-        class="x-flex x-items-center x-justify-between x-px-16 x-pt-24 x-pb-32 desktop:x-pl-32"
+        class="x-flex x-items-center x-justify-between x-px-16 x-pb-32 x-pt-24 desktop:x-pl-32"
       >
         <div class="x-flex x-flex-col x-gap-4">
           <span class="x-title3">{{ $t('myHistory.switch.title') }}</span>
@@ -57,6 +57,7 @@
   import CustomMyHistory from './custom-my-history.vue';
 
   export default defineComponent({
+    name: 'MyHistoryAside',
     components: {
       CrossIcon,
       BaseIdModalClose,

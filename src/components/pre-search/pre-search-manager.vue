@@ -18,6 +18,7 @@
   import CustomQueryPreview from './custom-query-preview.vue';
 
   export default defineComponent({
+    name: 'PreSearchManager',
     components: {
       CustomQueryPreview
     },

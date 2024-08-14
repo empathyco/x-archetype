@@ -44,7 +44,7 @@
           </Scroll>
         </MainScroll>
 
-        <div class="x-layout-overlap x-layout-item x-pointer-events-none">
+        <div class="x-layout-item x-layout-overlap x-pointer-events-none">
           <div class="x-mb-32 x-grid x-grid-cols-12 x-gap-24">
             <MobileOpenAside
               v-if="$x.totalResults > 0"
@@ -86,8 +86,8 @@
     animateTranslate,
     BaseIdModal
   } from '@empathyco/x-components';
-  import { Component } from 'vue-property-decorator';
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
+  import { defineComponent } from 'vue';
   import Main from '../main.vue';
   import PreSearchManager from '../pre-search/pre-search-manager.vue';
   import ScrollToTop from '../scroll-to-top.vue';
@@ -99,7 +99,8 @@
   import MobileOpenAside from './mobile-open-aside.vue';
   import MobileSubHeader from './mobile-sub-header.vue';
 
-  @Component({
+  export default defineComponent({
+    name: 'Mobile',
     components: {
       ArrowLeftIcon,
       BaseIdModal,
@@ -120,10 +121,16 @@
       NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
       SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage),
       FallbackDisclaimerMessage: () => import('../search').then(m => m.FallbackDisclaimerMessage)
+    },
+    mixins: [HasSearchedMixin],
+    setup() {
+      const filtersAsideAnimation = animateTranslate('bottom');
+      const rightAsideAnimation = animateTranslate('right');
+
+      return {
+        filtersAsideAnimation,
+        rightAsideAnimation
+      };
     }
-  })
-  export default class Mobile extends HasSearchedMixin {
-    public filtersAsideAnimation = animateTranslate('bottom');
-    public rightAsideAnimation = animateTranslate('right');
-  }
+  });
 </script>

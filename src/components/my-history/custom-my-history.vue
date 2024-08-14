@@ -63,6 +63,7 @@
   import HistoryQueryFilters from '../history-query-filters.vue';
 
   export default defineComponent({
+    name: 'CustomMyHistory',
     components: {
       BaseIdModalClose,
       CrossTinyIcon,

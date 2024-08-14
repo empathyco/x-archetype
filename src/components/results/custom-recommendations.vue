@@ -34,6 +34,7 @@
   import Result from './result.vue';
 
   export default defineComponent({
+    name: 'CustomRecommendations',
     components: {
       BaseGrid,
       DisplayClickProvider,

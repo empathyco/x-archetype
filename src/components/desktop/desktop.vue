@@ -53,8 +53,8 @@
 
 <script lang="ts">
   import { animateTranslate, BaseIdModal, LocationProvider } from '@empathyco/x-components';
-  import { Component } from 'vue-property-decorator';
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
+  import { defineComponent } from 'vue';
   import Main from '../main.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import HasSearchedMixin from '../has-searched.mixin';
@@ -64,7 +64,8 @@
   import PreSearchManager from '../pre-search/pre-search-manager.vue';
   import DesktopTopSection from './desktop-top-section.vue';
 
-  @Component({
+  export default defineComponent({
+    name: 'Desktop',
     components: {
       DesktopTopSection,
       MaxDesktopWidthItem,
@@ -81,11 +82,14 @@
       NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
       SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage),
       FallbackDisclaimerMessage: () => import('../search').then(m => m.FallbackDisclaimerMessage)
+    },
+    mixins: [HasSearchedMixin],
+    setup() {
+      const rightAsideAnimation = animateTranslate('right');
+
+      return { rightAsideAnimation };
     }
-  })
-  export default class Desktop extends HasSearchedMixin {
-    protected rightAsideAnimation = animateTranslate('right');
-  }
+  });
 </script>
 
 <style>

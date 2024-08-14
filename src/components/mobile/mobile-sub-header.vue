@@ -19,6 +19,7 @@
   import IsScrollingUp from '../has-scroll-past-threshold.mixin';
 
   export default defineComponent({
+    name: 'MobileSubHeader',
     components: {
       CollapseHeightAnimation,
       MobileToolbar,
