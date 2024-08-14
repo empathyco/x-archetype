@@ -6,38 +6,31 @@
   >
     <PromotedsList>
       <BannersList>
-        <NextQueriesList
-          :offset="24"
-          :frequency="48"
-          :maxNextQueriesPerGroup="maxNextQueriesPerGroup"
-          :showOnlyAfterOffset="$x.partialResults.length > 0"
-        >
-          <NextQueriesCta>
-            <BaseVariableColumnGrid
-              class="x-gap-x-16 x-gap-y-32"
-              :animation="staggeredFadeAndSlide"
-              :columns="columns"
-              data-test="base-grid"
-            >
-              <template #result="{ item: result }">
-                <Result :result="result" data-test="search-grid-result" />
-              </template>
-              <template #banner="{ item: banner }">
-                <MainScrollItem :item="banner" tag="article">
-                  <Banner :banner="banner" />
-                </MainScrollItem>
-              </template>
-              <template #promoted="{ item: promoted }">
-                <MainScrollItem :item="promoted" tag="article">
-                  <Promoted :promoted="promoted" />
-                </MainScrollItem>
-              </template>
-              <template #next-queries-group="{ item: { nextQueries } }">
-                <NextQueryPreview :nextQuery="nextQueries[0]" />
-              </template>
-            </BaseVariableColumnGrid>
-          </NextQueriesCta>
-        </NextQueriesList>
+        <NextQueriesCta>
+          <BaseVariableColumnGrid
+            class="x-gap-x-16 x-gap-y-32"
+            :animation="staggeredFadeAndSlide"
+            :columns="columns"
+            data-test="base-grid"
+          >
+            <template #result="{ item: result }">
+              <Result :result="result" data-test="search-grid-result" />
+            </template>
+            <template #banner="{ item: banner }">
+              <MainScrollItem :item="banner" tag="article">
+                <Banner :banner="banner" />
+              </MainScrollItem>
+            </template>
+            <template #promoted="{ item: promoted }">
+              <MainScrollItem :item="promoted" tag="article">
+                <Promoted :promoted="promoted" />
+              </MainScrollItem>
+            </template>
+            <template #next-queries-group="{ item: { nextQueries } }">
+              <NextQueryPreview :nextQuery="nextQueries[0]" />
+            </template>
+          </BaseVariableColumnGrid>
+        </NextQueriesCta>
       </BannersList>
     </PromotedsList>
   </ResultsList>
@@ -58,12 +51,11 @@
     ResultsList
   } from '@empathyco/x-components/search';
   import { defineComponent } from 'vue';
-  import { NextQueriesList } from '@empathyco/x-components/next-queries';
   import { useDevice } from '../../../composables/use-device.composable';
   import Result from '../../results/result.vue';
   import { useExperienceControls } from '../../../composables/use-experience-controls.composable';
   import NextQueryPreview from './custom-next-query-preview.vue';
-  import NextQueriesCta from '@/components/search/results/next-queries-cta.vue';
+  import NextQueriesCta from './next-queries-cta.vue';
 
   export default defineComponent({
     components: {
@@ -73,7 +65,6 @@
       BaseVariableColumnGrid,
       MainScrollItem,
       NextQueryPreview,
-      NextQueriesList,
       Promoted,
       PromotedsList,
       Result,
