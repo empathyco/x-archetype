@@ -116,7 +116,6 @@
 
 <script lang="ts">
   import {
-    BaseHeaderTogglePanel,
     StaggeredFadeAndSlide,
     CheckboxUnselectedIcon,
     CheckboxSelectedIcon
@@ -126,39 +125,34 @@
     HierarchicalFilter,
     AllFilter,
     Facets,
-    SelectedFilters,
     FiltersList,
-    NumberRangeFilter,
-    FiltersSearch
+    NumberRangeFilter
   } from '@empathyco/x-components/facets';
-  import Vue from 'vue';
-  import { Component } from 'vue-property-decorator';
+  import { defineComponent } from 'vue';
   import CustomHeaderTogglePanel from '../../custom-header-toggle-panel.vue';
   import PriceFilterLabel from './price-filter-label.vue';
   import FacetSelectedFilters from './facet-selected-filters.vue';
   import CustomSlicedFilters from './custom-sliced-filters.vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       AllFilter,
-      BaseHeaderTogglePanel,
       CheckboxUnselectedIcon,
       CheckboxSelectedIcon,
       CustomHeaderTogglePanel,
       CustomSlicedFilters,
       Facets,
       FiltersList,
-      FiltersSearch,
       HierarchicalFilter,
       NumberRangeFilter,
       PriceFilterLabel,
-      SelectedFilters,
       SimpleFilter,
-      StaggeredFadeAndSlide,
       FacetSelectedFilters
+    },
+    setup() {
+      return {
+        staggeredFadeAndSlide: StaggeredFadeAndSlide
+      };
     }
-  })
-  export default class CustomFacets extends Vue {
-    protected staggeredFadeAndSlide = StaggeredFadeAndSlide;
-  }
+  });
 </script>

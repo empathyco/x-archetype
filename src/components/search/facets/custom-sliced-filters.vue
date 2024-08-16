@@ -13,17 +13,15 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
-  import { Component } from 'vue-property-decorator';
+  import { defineComponent } from 'vue';
   import { MinusIcon, PlusIcon } from '@empathyco/x-components';
   import { SlicedFilters } from '@empathyco/x-components/facets';
 
-  @Component({
+  export default defineComponent({
     components: {
       MinusIcon,
       PlusIcon,
       SlicedFilters
     }
-  })
-  export default class CustomSlicedFilters extends Vue {}
+  });
 </script>

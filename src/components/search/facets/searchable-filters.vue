@@ -17,22 +17,22 @@
     SimpleFilter,
     SlicedFilters
   } from '@empathyco/x-components/facets';
-  import Vue from 'vue';
-  import { Component, Prop } from 'vue-property-decorator';
+  import { defineComponent, PropType } from 'vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       FiltersList,
       FiltersSearch,
       SlicedFilters,
-      SimpleFilter,
-      StaggeredFadeAndSlide
+      SimpleFilter
+    },
+    props: {
+      filters: Array as PropType<Filter[]>
+    },
+    setup() {
+      return {
+        staggeredFadeAndSlide: StaggeredFadeAndSlide
+      };
     }
-  })
-  export default class SearchableFilters extends Vue {
-    protected staggeredFadeAndSlide = StaggeredFadeAndSlide;
-
-    @Prop()
-    protected filters!: Filter[];
-  }
+  });
 </script>
