@@ -42,7 +42,6 @@
   import ColumnPicker from '../column-picker.vue';
 
   export default defineComponent({
-    name: 'DesktopToolbar',
     components: {
       BaseIdModalOpen,
       FiltersIcon,

@@ -51,7 +51,6 @@
   import DisplayClickProvider from '../search/display-click-provider.vue';
 
   export default defineComponent({
-    name: 'CustomQueryPreview',
     components: {
       CustomSlidingPanel,
       DisplayClickProvider,

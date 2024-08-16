@@ -1,6 +1,6 @@
 <template>
   <div class="x-flex x-min-h-0 x-flex-auto x-flex-col x-bg-neutral-0">
-    <div class="x-flex x-items-center x-border-b x-border-neutral-90 x-p-24 x-pr-32 x-pl-40">
+    <div class="x-flex x-items-center x-border-b x-border-neutral-90 x-p-24 x-pl-40 x-pr-32">
       <span class="x-title2 x-mr-auto">
         {{ $t('facetsPanel.title') }}
       </span>
@@ -12,7 +12,7 @@
       <Sort />
       <CustomFacets v-if="$x.totalResults > 0" />
     </div>
-    <div class="x-flex x-gap-16 x-border-t x-border-neutral-90 x-p-40 x-pt-24 x-pb-16">
+    <div class="x-flex x-gap-16 x-border-t x-border-neutral-90 x-p-40 x-pb-16 x-pt-24">
       <ClearFilters
         v-slot="{ selectedFilters }"
         class="x-button-lead x-button-outlined x-flex-auto x-rounded-full x-p-24 x-py-12 x-uppercase"
@@ -32,12 +32,12 @@
 
 <script lang="ts">
   import { BaseIdModalClose, CrossIcon } from '@empathyco/x-components';
-  import { Component, Vue } from 'vue-property-decorator';
   import { ClearFilters } from '@empathyco/x-components/facets';
+  import { defineComponent } from 'vue';
   import CustomFacets from './facets/custom-facets.vue';
   import Sort from './sort.vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       CustomFacets,
       Sort,
@@ -45,6 +45,5 @@
       CrossIcon,
       ClearFilters
     }
-  })
-  export default class DesktopAside extends Vue {}
+  });
 </script>

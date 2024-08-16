@@ -57,7 +57,6 @@
   import CustomMyHistory from './custom-my-history.vue';
 
   export default defineComponent({
-    name: 'MyHistoryAside',
     components: {
       CrossIcon,
       BaseIdModalClose,

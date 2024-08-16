@@ -8,7 +8,7 @@
     <BaseResultLink
       v-slot="{ result }"
       :result="identifierResult"
-      class="x-suggestion-lg x-suggestion desktop:x-suggestion-md"
+      class="x-suggestion x-suggestion-lg desktop:x-suggestion-md"
     >
       <BarCodeIcon class="x-icon-lg desktop:x-icon-md" />
       <IdentifierResult :result="result" />

@@ -65,7 +65,6 @@
   import DesktopTopSection from './desktop-top-section.vue';
 
   export default defineComponent({
-    name: 'Desktop',
     components: {
       DesktopTopSection,
       MaxDesktopWidthItem,

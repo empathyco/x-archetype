@@ -69,7 +69,6 @@
   import { useDevice } from '../../composables/use-device.composable';
 
   export default defineComponent({
-    name: 'Result',
     components: {
       BaseAddToCart,
       BaseFallbackImage,

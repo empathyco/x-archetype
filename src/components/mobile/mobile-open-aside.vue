@@ -21,7 +21,6 @@
   import { defineComponent } from 'vue';
 
   export default defineComponent({
-    name: 'MobileOpenAside',
     components: { BaseIdModalOpen, FiltersIcon }
   });
 </script>

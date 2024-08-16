@@ -100,7 +100,6 @@
   import MobileSubHeader from './mobile-sub-header.vue';
 
   export default defineComponent({
-    name: 'Mobile',
     components: {
       ArrowLeftIcon,
       BaseIdModal,

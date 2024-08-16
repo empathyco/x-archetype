@@ -28,7 +28,6 @@
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
 
   export default defineComponent({
-    name: 'DesktopHeaderFloatingPredictive',
     components: {
       MaxDesktopWidthItem,
       CloseMainModal,

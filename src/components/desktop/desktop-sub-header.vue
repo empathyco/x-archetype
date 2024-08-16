@@ -30,7 +30,6 @@
   import DesktopToolbar from './desktop-toolbar.vue';
 
   export default defineComponent({
-    name: 'DesktopSubHeader',
     components: {
       MaxDesktopWidthItem,
       LocationProvider,

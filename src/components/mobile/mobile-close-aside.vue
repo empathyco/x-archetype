@@ -22,7 +22,6 @@
   import { defineComponent } from 'vue';
 
   export default defineComponent({
-    name: 'MobileCloseAside',
     components: { BaseIdModalClose, ClearFilters }
   });
 </script>

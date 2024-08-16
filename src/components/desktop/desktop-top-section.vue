@@ -18,7 +18,6 @@
   import DesktopSubHeader from './desktop-sub-header.vue';
 
   export default defineComponent({
-    name: 'DesktopTopSection',
     components: { DesktopSubHeader, DesktopHeaderFullPredictive },
     mixins: [HasSearchedMixin]
   });

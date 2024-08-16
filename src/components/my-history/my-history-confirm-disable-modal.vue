@@ -34,7 +34,6 @@
   import { useDevice } from '../../composables/use-device.composable';
 
   export default defineComponent({
-    name: 'MyHistoryConfirmDisableModal',
     components: {
       BaseEventsModal,
       BaseEventButton
