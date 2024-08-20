@@ -95,6 +95,7 @@
   import SearchBox from '../search-box.vue';
   import MyHistoryAside from '../my-history/my-history-aside.vue';
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
+  import { useHasSearched } from '../../composables/use-has-searched.composable';
   import MobileOpenAside from './mobile-open-aside.vue';
   import MobileSubHeader from './mobile-sub-header.vue';
 
@@ -123,10 +124,12 @@
     setup() {
       const filtersAsideAnimation = animateTranslate('bottom');
       const rightAsideAnimation = animateTranslate('right');
+      const { hasSearched } = useHasSearched();
 
       return {
         filtersAsideAnimation,
-        rightAsideAnimation
+        rightAsideAnimation,
+        hasSearched
       };
     }
   });
