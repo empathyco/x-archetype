@@ -57,11 +57,11 @@
   import { defineComponent } from 'vue';
   import Main from '../main.vue';
   import ScrollToTop from '../scroll-to-top.vue';
-  import HasSearchedMixin from '../has-searched.mixin';
   import MyHistoryAside from '../my-history/my-history-aside.vue';
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
   import PreSearchManager from '../pre-search/pre-search-manager.vue';
+  import { useHasSearched } from '../../composables/use-has-searched.composable';
   import DesktopTopSection from './desktop-top-section.vue';
 
   export default defineComponent({
@@ -82,11 +82,10 @@
       SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage),
       FallbackDisclaimerMessage: () => import('../search').then(m => m.FallbackDisclaimerMessage)
     },
-    mixins: [HasSearchedMixin],
     setup() {
       const rightAsideAnimation = animateTranslate('right');
-
-      return { rightAsideAnimation };
+      const { hasSearched } = useHasSearched();
+      return { rightAsideAnimation, hasSearched };
     }
   });
 </script>

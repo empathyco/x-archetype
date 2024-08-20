@@ -22,8 +22,8 @@
 <script lang="ts">
   import { LocationProvider } from '@empathyco/x-components';
   import { defineComponent } from 'vue';
+  import { useHasSearched } from '../composables/use-has-searched.composable';
   import CustomRecommendations from './results/custom-recommendations.vue';
-  import HasSearchedMixin from './has-searched.mixin';
   import CustomSemanticQueries from './search/custom-semantic-queries.vue';
 
   export default defineComponent({
@@ -35,6 +35,9 @@
       Results: () => import('./search').then(m => m.Results),
       Redirection: () => import('./search').then(m => m.Redirection)
     },
-    mixins: [HasSearchedMixin]
+    setup() {
+      const { hasSearched } = useHasSearched();
+      return { hasSearched };
+    }
   });
 </script>

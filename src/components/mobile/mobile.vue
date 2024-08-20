@@ -93,7 +93,6 @@
   import ScrollToTop from '../scroll-to-top.vue';
   import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
   import SearchBox from '../search-box.vue';
-  import HasSearchedMixin from '../has-searched.mixin';
   import MyHistoryAside from '../my-history/my-history-aside.vue';
   import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
   import MobileOpenAside from './mobile-open-aside.vue';
@@ -121,7 +120,6 @@
       SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage),
       FallbackDisclaimerMessage: () => import('../search').then(m => m.FallbackDisclaimerMessage)
     },
-    mixins: [HasSearchedMixin],
     setup() {
       const filtersAsideAnimation = animateTranslate('bottom');
       const rightAsideAnimation = animateTranslate('right');
