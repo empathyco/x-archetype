@@ -24,8 +24,9 @@
   import { LocationProvider } from '@empathyco/x-components';
   import RelatedTags from '../search/related-tags.vue';
   import CollapseHeightAnimation from '../collapse-height-animation.vue';
-  import IsScrollingUp from '../has-scroll-past-threshold.mixin';
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
+  // eslint-disable-next-line max-len
+  import { useHasScrollPastThreshold } from '../../composables/use-has-scroll-past-threshold.composable';
   import DesktopSearchboxAlign from './desktop-searchbox-align.vue';
   import DesktopToolbar from './desktop-toolbar.vue';
 
@@ -39,7 +40,6 @@
       DesktopSearchboxAlign,
       SelectedFilters: () => import('../search').then(m => m.SelectedFilters)
     },
-    mixins: [IsScrollingUp],
     props: {
       hasSearched: {
         type: Boolean
@@ -47,6 +47,10 @@
       isFullPredictive: {
         type: Boolean
       }
+    },
+    setup() {
+      const { hasScrolledPastThreshold } = useHasScrollPastThreshold();
+      return { hasScrolledPastThreshold };
     }
   });
 </script>
