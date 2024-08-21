@@ -18,10 +18,9 @@
 
 <script lang="ts">
   import { BaseIdModalOpen, FiltersIcon } from '@empathyco/x-components';
-  import { Component, Vue } from 'vue-property-decorator';
+  import { defineComponent } from 'vue';
 
-  @Component({
+  export default defineComponent({
     components: { BaseIdModalOpen, FiltersIcon }
-  })
-  export default class MobileOpenAside extends Vue {}
+  });
 </script>

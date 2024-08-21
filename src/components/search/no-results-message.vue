@@ -1,7 +1,7 @@
 <template>
   <i18n
     v-if="$x.noResults"
-    class="x-no-results-message x-text1 x-message desktop:x-mt-24 desktop:x-text1-lg"
+    class="x-no-results-message x-text1 x-message desktop:x-text1-lg desktop:x-mt-24"
     path="noResults.message"
     :class="{ 'x-flex-col': isTabletOrLess }"
     tag="p"
@@ -14,13 +14,16 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
+  import { defineComponent } from 'vue';
   import { useDevice } from '../../composables/use-device.composable';
 
-  @Component
-  export default class NoResultsMessage extends Vue {
-    protected get isTabletOrLess(): boolean {
-      return useDevice().isTabletOrLess.value;
+  export default defineComponent({
+    setup() {
+      const { isTabletOrLess } = useDevice();
+
+      return {
+        isTabletOrLess
+      };
     }
-  }
+  });
 </script>

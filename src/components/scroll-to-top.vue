@@ -12,16 +12,19 @@
 <script lang="ts">
   import { ChevronUpIcon, Fade } from '@empathyco/x-components';
   import { ScrollToTop } from '@empathyco/x-components/scroll';
-  import Vue from 'vue';
-  import { Component } from 'vue-property-decorator';
+  import { defineComponent } from 'vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       ScrollToTop,
       ChevronUpIcon
+    },
+    setup() {
+      const animation = Fade;
+
+      return {
+        animation
+      };
     }
-  })
-  export default class ScrollToTopComponent extends Vue {
-    private animation = Fade;
-  }
+  });
 </script>

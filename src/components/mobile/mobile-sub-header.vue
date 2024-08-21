@@ -16,7 +16,8 @@
   import { LocationProvider } from '@empathyco/x-components';
   import MobileToolbar from '../mobile/mobile-toolbar.vue';
   import CollapseHeightAnimation from '../collapse-height-animation.vue';
-  import IsScrollingUp from '../has-scroll-past-threshold.mixin';
+  // eslint-disable-next-line max-len
+  import { useHasScrollPastThreshold } from '../../composables/use-has-scroll-past-threshold.composable';
 
   export default defineComponent({
     components: {
@@ -25,11 +26,14 @@
       LocationProvider,
       RelatedTags: () => import('../search').then(m => m.RelatedTags)
     },
-    mixins: [IsScrollingUp],
     props: {
       hasSearched: {
         type: Boolean
       }
+    },
+    setup() {
+      const { hasScrolledPastThreshold } = useHasScrollPastThreshold();
+      return { hasScrolledPastThreshold };
     }
   });
 </script>

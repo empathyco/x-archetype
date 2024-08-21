@@ -10,15 +10,14 @@
 <script lang="ts">
   import { Filter } from '@empathyco/x-types';
   import { BasePriceFilterLabel } from '@empathyco/x-components';
-  import { Component, Prop, Vue } from 'vue-property-decorator';
+  import { defineComponent, PropType } from 'vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       BasePriceFilterLabel
+    },
+    props: {
+      filter: Object as PropType<Filter>
     }
-  })
-  export default class ResultComponent extends Vue {
-    @Prop()
-    public filter!: Filter;
-  }
+  });
 </script>

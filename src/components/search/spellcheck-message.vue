@@ -8,26 +8,28 @@
         </template>
       </i18n>
       <SpellcheckButton
-        class="x-button-lead x-button-link x-button x-text1 x-pl-2 x-font-bold desktop:x-text1-lg"
+        class="x-button x-button-lead x-button-link x-text1 x-pl-2 x-font-bold desktop:x-text1-lg"
       />
     </p>
   </Spellcheck>
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
   import { Spellcheck, SpellcheckButton } from '@empathyco/x-components/search';
+  import { defineComponent } from 'vue';
   import { useDevice } from '../../composables/use-device.composable';
 
-  @Component({
+  export default defineComponent({
     components: {
       Spellcheck,
       SpellcheckButton
+    },
+    setup() {
+      const { isTabletOrLess } = useDevice();
+
+      return {
+        isTabletOrLess
+      };
     }
-  })
-  export default class SpellcheckMessage extends Vue {
-    protected get isTabletOrLess(): boolean {
-      return useDevice().isTabletOrLess.value;
-    }
-  }
+  });
 </script>

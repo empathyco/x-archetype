@@ -39,41 +39,35 @@
 </template>
 
 <script lang="ts">
-  import { Prop, Component, Vue } from 'vue-property-decorator';
   import {
-    QueryPreview,
     QueryPreviewList,
     QueryPreviewInfo,
     QueryPreviewButton
   } from '@empathyco/x-components/queries-preview';
-  import {
-    BaseEventButton,
-    QueryFeature,
-    ItemsList,
-    ArrowRightIcon
-  } from '@empathyco/x-components';
+  import { QueryFeature, ArrowRightIcon } from '@empathyco/x-components';
+  import { defineComponent, PropType } from 'vue';
   import { default as Result } from '../results/result.vue';
   import CustomSlidingPanel from '../custom-sliding-panel.vue';
   import DisplayClickProvider from '../search/display-click-provider.vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       CustomSlidingPanel,
       DisplayClickProvider,
-      QueryPreview,
       Result,
-      BaseEventButton,
-      ItemsList,
       ArrowRightIcon,
       QueryPreviewList,
       QueryPreviewButton
+    },
+    props: {
+      queryFeature: {
+        type: String as PropType<QueryFeature>,
+        default: 'customer'
+      },
+      queriesPreviewInfo: {
+        type: Array as PropType<QueryPreviewInfo[]>,
+        default: () => []
+      }
     }
-  })
-  export default class CustomQueryPreview extends Vue {
-    @Prop({ default: 'customer' })
-    protected queryFeature!: QueryFeature;
-
-    @Prop()
-    protected queriesPreviewInfo!: QueryPreviewInfo[];
-  }
+  });
 </script>

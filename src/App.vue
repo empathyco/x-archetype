@@ -14,8 +14,8 @@
     SnippetCallbacks,
     SnippetConfig,
     UrlParams,
-    XOn,
-    XProvide
+    useXBus,
+    XEvent
   } from '@empathyco/x-components';
   import { ExperienceControls } from '@empathyco/x-components/experience-controls';
   import { Tagging } from '@empathyco/x-components/tagging';
@@ -23,12 +23,23 @@
   import { UrlHandler } from '@empathyco/x-components/url';
   import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params';
   import { InternalSearchRequest, InternalSearchResponse } from '@empathyco/x-components/search';
-  import { Component, Inject, Provide, Vue, Watch } from 'vue-property-decorator';
+  import {
+    computed,
+    ComputedRef,
+    defineComponent,
+    getCurrentInstance,
+    inject,
+    onBeforeUnmount,
+    onMounted,
+    provide,
+    ref,
+    watch
+  } from 'vue';
   import { useDevice } from './composables/use-device.composable';
   import currencies from './i18n/currencies';
   import './tailwind/index.css';
 
-  @Component({
+  export default defineComponent({
     components: {
       SnippetCallbacks,
       SnippetConfigExtraParams,
@@ -36,98 +47,108 @@
       UrlHandler,
       ExperienceControls,
       MainModal: () => import('./components/custom-main-modal.vue').then(m => m.default)
-    }
-  })
-  export default class App extends Vue {
-    protected isOpen = false;
+    },
+    setup() {
+      const xBus = useXBus();
+      const $x = getCurrentInstance()!.proxy.$root;
+      const device = useDevice();
+      const snippetConfig = inject<SnippetConfig>('snippetConfig')!;
+      const isOpen = ref(false);
 
-    @XOn(['UserOpenXProgrammatically', 'UserClickedOpenX'])
-    open(): void {
-      this.isOpen = true;
-      window.wysiwyg?.open();
-    }
+      const openXEvents = ['UserOpenXProgrammatically', 'UserClickedOpenX'];
 
-    @XOn(['UserClickedCloseX'])
-    close(): void {
-      window.wysiwyg?.close();
-    }
+      const open = (): void => {
+        isOpen.value = true;
+        window.wysiwyg?.open();
+      };
 
-    @XOn(['UserAcceptedAQuery'])
-    async goToLoginWysiwyg(query: string): Promise<void> {
-      if (/^::\s*login/.test(query)) {
-        await window.wysiwyg?.goToLogin();
-      }
-    }
+      openXEvents.forEach(event => xBus.on(event as XEvent, false).subscribe(open));
 
-    @XOn(['SearchRequestChanged'])
-    onSearchRequestChanged(payload: InternalSearchRequest | null): void {
-      window.wysiwyg?.setContext({ query: payload?.query, spellcheckedQuery: undefined });
-    }
+      const close = (): void => {
+        window.wysiwyg?.close();
+      };
 
-    @XOn(['SearchResponseChanged'])
-    onSearchResponseChanged(payload: InternalSearchResponse): void {
-      if (payload.spellcheck) {
-        window.wysiwyg?.setContext({ spellcheckedQuery: payload.spellcheck });
-      }
-    }
+      xBus.on('UserClickedCloseX', false).subscribe(close);
 
-    @XOn(['ParamsLoadedFromUrl'])
-    async requestAuthWysiwyg(payload: UrlParams): Promise<void> {
-      try {
-        if (window.wysiwyg) {
-          await window.wysiwyg?.requestAuth();
-          window.InterfaceX?.search();
-          window.wysiwyg?.setContext({ query: payload.query });
+      xBus.on('UserAcceptedAQuery', false).subscribe(async (query): Promise<void> => {
+        if (/^::\s*login/.test(query)) {
+          await window.wysiwyg?.goToLogin();
         }
-      } catch (_) {
-        // No error handling
-      }
-    }
+      });
 
-    @Inject('snippetConfig')
-    protected snippetConfig!: SnippetConfig;
-    protected device = useDevice();
+      xBus
+        .on('SearchRequestChanged', false)
+        .subscribe((payload: InternalSearchRequest | null): void => {
+          window.wysiwyg?.setContext({ query: payload?.query, spellcheckedQuery: undefined });
+        });
 
-    protected get documentDirection(): string {
-      return (
-        document.documentElement.dir ||
-        document.body.dir ||
-        (this.snippetConfig.documentDirection ?? 'ltr')
+      xBus.on('SearchResponseChanged', false).subscribe((payload: InternalSearchResponse): void => {
+        if (payload.spellcheck) {
+          window.wysiwyg?.setContext({ spellcheckedQuery: payload.spellcheck });
+        }
+      });
+
+      xBus.on('ParamsLoadedFromUrl', false).subscribe(async (payload: UrlParams): Promise<void> => {
+        try {
+          if (window.wysiwyg) {
+            await window.wysiwyg?.requestAuth();
+            window.InterfaceX?.search();
+            window.wysiwyg?.setContext({ query: payload.query });
+          }
+        } catch (_) {
+          // No error handling
+        }
+      });
+
+      const documentDirection = computed(() => {
+        return (
+          document.documentElement.dir ||
+          document.body.dir ||
+          (snippetConfig.documentDirection ?? 'ltr')
+        );
+      });
+
+      const currencyFormat = computed(() => currencies[snippetConfig.currency!]);
+      provide<string>('currencyFormat', currencyFormat.value);
+
+      const queriesPreviewInfo = computed(() => snippetConfig.queriesPreview ?? []);
+      provide<ComputedRef<QueryPreviewInfo[]> | undefined>(
+        'queriesPreviewInfo',
+        queriesPreviewInfo
       );
-    }
 
-    @Provide('currencyFormat')
-    public get currencyFormat(): string {
-      return currencies[this.snippetConfig.currency!];
-    }
+      watch(
+        () => snippetConfig.uiLang as string,
+        uiLang => {
+          $x.$setLocale(uiLang);
+        }
+      );
 
-    @XProvide('queriesPreviewInfo')
-    public get queriesPreviewInfo(): QueryPreviewInfo[] | undefined {
-      return this.snippetConfig.queriesPreview ?? [];
-    }
+      watch(
+        () => device.deviceName,
+        deviceName => {
+          $x.$setLocaleDevice(deviceName.value);
+        }
+      );
 
-    @Watch('snippetConfig.uiLang')
-    syncLang(uiLang: string): void {
-      this.$setLocale(uiLang);
-    }
+      const reloadSearch = (): void => {
+        xBus.emit('ReloadSearchRequested');
+      };
 
-    @Watch('device.deviceName')
-    syncDevice(deviceName: string): void {
-      this.$setLocaleDevice(deviceName);
-    }
+      onMounted(() => {
+        document.addEventListener('wysiwyg:reloadSearch', () => reloadSearch());
+      });
 
-    reloadSearch(): void {
-      this.$x.emit('ReloadSearchRequested');
-    }
+      onBeforeUnmount(() => {
+        document.removeEventListener('wysiwyg:reloadSearch', () => reloadSearch());
+      });
 
-    mounted(): void {
-      document.addEventListener('wysiwyg:reloadSearch', () => this.reloadSearch());
+      return {
+        isOpen,
+        documentDirection
+      };
     }
-
-    beforeDestroy(): void {
-      document.removeEventListener('wysiwyg:reloadSearch', () => this.reloadSearch());
-    }
-  }
+  });
 </script>
 
 <style scoped>

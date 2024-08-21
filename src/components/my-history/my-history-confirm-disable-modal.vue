@@ -15,12 +15,12 @@
       </span>
       <div class="x-flex x-justify-end x-gap-24 desktop:x-justify-center">
         <BaseEventButton
-          class="x-button-lead x-button-outlined x-button x-rounded-full"
+          class="x-button x-button-lead x-button-outlined x-rounded-full"
           :events="dismissEvents"
         >
           {{ $t('myHistory.confirmDisableModal.dismiss') }}
         </BaseEventButton>
-        <BaseEventButton class="x-button-lead x-button x-rounded-full" :events="confirmEvents">
+        <BaseEventButton class="x-button x-button-lead x-rounded-full" :events="confirmEvents">
           {{ $t('myHistory.confirmDisableModal.confirm') }}
         </BaseEventButton>
       </div>

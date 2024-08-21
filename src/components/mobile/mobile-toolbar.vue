@@ -16,13 +16,12 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
+  import { defineComponent } from 'vue';
   import ColumnPicker from '../column-picker.vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       ColumnPicker
     }
-  })
-  export default class MobileToolbar extends Vue {}
+  });
 </script>

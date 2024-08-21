@@ -15,14 +15,14 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
   import { BaseScroll } from '@empathyco/x-components';
+  import { defineComponent } from 'vue';
   import MobileCloseAside from '../mobile/mobile-close-aside.vue';
   import CustomFacets from './facets/custom-facets.vue';
   import SelectedFilters from './facets/selected-filters.vue';
   import Sort from './sort.vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       BaseScroll,
       CustomFacets,
@@ -30,6 +30,5 @@
       SelectedFilters,
       Sort
     }
-  })
-  export default class MobileAside extends Vue {}
+  });
 </script>

@@ -7,7 +7,7 @@
     <template #suggestion="{ suggestion }">
       <QuerySuggestion
         :suggestion="suggestion"
-        class="x-suggestion-lg x-suggestion desktop:x-suggestion-md"
+        class="x-suggestion x-suggestion-lg desktop:x-suggestion-md"
       >
         <template #default="{ query }">
           <SearchIcon class="x-icon-lg desktop:x-icon-md" />

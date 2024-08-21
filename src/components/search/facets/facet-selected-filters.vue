@@ -10,11 +10,14 @@
 
 <script lang="ts">
   import { FacetFilter } from '@empathyco/x-types';
-  import { Component, Prop, Vue } from 'vue-property-decorator';
+  import { defineComponent, PropType } from 'vue';
 
-  @Component
-  export default class FacetSelectedFilters extends Vue {
-    @Prop({ required: true })
-    public selectedFilters!: FacetFilter[];
-  }
+  export default defineComponent({
+    props: {
+      selectedFilters: {
+        type: Array as PropType<FacetFilter[]>,
+        required: true
+      }
+    }
+  });
 </script>

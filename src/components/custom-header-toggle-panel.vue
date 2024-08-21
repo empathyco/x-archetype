@@ -14,22 +14,26 @@
 </template>
 
 <script lang="ts">
-  import { Vue, Component } from 'vue-property-decorator';
   import {
     BaseHeaderTogglePanel,
     animateScale,
     ChevronDownIcon,
     ChevronUpIcon
   } from '@empathyco/x-components';
+  import { defineComponent } from 'vue';
 
-  @Component({
+  export default defineComponent({
     components: {
       BaseHeaderTogglePanel,
       ChevronDownIcon,
       ChevronUpIcon
+    },
+    setup() {
+      const animation = animateScale();
+
+      return {
+        animation
+      };
     }
-  })
-  export default class CustomHeaderTogglePanel extends Vue {
-    public animation = animateScale();
-  }
+  });
 </script>
