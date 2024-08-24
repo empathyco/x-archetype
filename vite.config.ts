@@ -17,8 +17,5 @@ export default defineConfig({
   },
   preview: {
     port: 8080
-  },
-  optimizeDeps: {
-    exclude: ['@empathyco/x-components']
   }
 });
