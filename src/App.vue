@@ -15,7 +15,8 @@
     SnippetConfig,
     UrlParams,
     useXBus,
-    XEvent
+    XEvent,
+    use$x
   } from '@empathyco/x-components';
   import { ExperienceControls } from '@empathyco/x-components/experience-controls';
   import { Tagging } from '@empathyco/x-components/tagging';
@@ -26,8 +27,8 @@
   import {
     computed,
     ComputedRef,
+    defineAsyncComponent,
     defineComponent,
-    getCurrentInstance,
     inject,
     onBeforeUnmount,
     onMounted,
@@ -46,11 +47,13 @@
       Tagging,
       UrlHandler,
       ExperienceControls,
-      MainModal: () => import('./components/custom-main-modal.vue').then(m => m.default)
+      MainModal: defineAsyncComponent(() =>
+        import('./components/custom-main-modal.vue').then(m => m.default)
+      )
     },
     setup() {
       const xBus = useXBus();
-      const $x = getCurrentInstance()!.proxy.$root;
+      const $x = use$x();
       const device = useDevice();
       const snippetConfig = inject<SnippetConfig>('snippetConfig')!;
       const isOpen = ref(false);
