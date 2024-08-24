@@ -33,7 +33,7 @@
           <span class="x-title3">{{ $t('myHistory.switch.title') }}</span>
           <span class="x-text1 x-text1-lg x-text-neutral-75">
             {{
-              $x.isHistoryQueriesEnabled
+              x.isHistoryQueriesEnabled
                 ? $t('myHistory.switch.disable')
                 : $t('myHistory.switch.enable')
             }}
@@ -50,7 +50,7 @@
 </template>
 
 <script lang="ts">
-  import { BaseIdModalClose, CrossIcon, LocationProvider } from '@empathyco/x-components';
+  import { BaseIdModalClose, CrossIcon, LocationProvider, use$x } from '@empathyco/x-components';
   import { HistoryQueriesSwitch } from '@empathyco/x-components/history-queries';
   import { defineComponent, onMounted } from 'vue';
   import { useDevice } from '../../composables/use-device.composable';
@@ -74,7 +74,8 @@
       });
 
       return {
-        isTabletOrLess
+        isTabletOrLess,
+        x: use$x()
       };
     }
   });
