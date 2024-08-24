@@ -155,7 +155,7 @@
 </script>
 
 <style scoped>
-  .x-modal::v-deep .x-modal__content {
+  .x-modal:deep(.x-modal__content) {
     width: 100%;
     height: 100%;
     background-color: white;
