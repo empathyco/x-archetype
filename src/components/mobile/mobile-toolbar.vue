@@ -1,6 +1,6 @@
 <template>
   <div v-if="$x.totalResults" class="x-flex x-flex-auto x-items-center">
-    <i18n class="x-text1 x-flex-auto" path="totalResults.message" tag="span">
+    <i18n-t class="x-text1 x-flex-auto" keypath="totalResults.message" tag="span">
       <template #totalResults>
         {{ $x.totalResults }}
       </template>
@@ -9,7 +9,7 @@
           {{ $x.spellcheckedQuery || $x.query.search }}
         </span>
       </template>
-    </i18n>
+    </i18n-t>
 
     <ColumnPicker v-if="$x.totalResults" />
   </div>

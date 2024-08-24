@@ -5,13 +5,17 @@
     :suggestion="nextQuery"
     :maxItemsToRender="maxItemsToRender"
   >
-    <i18n class="x-text1 x-text1-lg max-desktop:x-px-16" tag="span" path="nextQueryPreview.message">
+    <i18n-t
+      class="x-text1 x-text1-lg max-desktop:x-px-16"
+      tag="span"
+      keypath="nextQueryPreview.message"
+    >
       <template #query>
         <span class="x-title3">
           {{ query }}
         </span>
       </template>
-    </i18n>
+    </i18n-t>
     <CustomSlidingPanel>
       <template #header>
         <NextQuery
