@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!$x.query.searchBox">
+  <div v-if="!x.query.searchBox">
     <h1 v-if="!hasQueryPreviews" class="x-title1 max-desktop:x-title1-sm max-desktop:x-px-16">
       {{ $t('popularSearches.title') }}
     </h1>
@@ -12,7 +12,7 @@
   import { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
 
   import { PopularSearchesState } from '@empathyco/x-components/types';
-  import { XPlugin } from '@empathyco/x-components';
+  import { XPlugin, use$x } from '@empathyco/x-components';
   import { popularSearchesXModule } from '@empathyco/x-components/popular-searches';
   import { useStore } from '../../composables/use-store.composable';
   import CustomQueryPreview from './custom-query-preview.vue';
@@ -54,7 +54,7 @@
           : queryPreviewInfo.slice(0, props.maxPopularSearchesToRender);
       });
 
-      return { hasQueryPreviews, queriesPreviewToRender };
+      return { hasQueryPreviews, queriesPreviewToRender, x: use$x() };
     }
   });
 </script>

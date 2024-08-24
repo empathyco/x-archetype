@@ -20,30 +20,30 @@
           <div
             v-else-if="showEmpathize"
             class="x-flex x-flex-col x-gap-8 x-pl-8 desktop:x-col-span-5 desktop:x-pl-0"
-            :class="$x.query.searchBox ? 'desktop:x-gap-4' : 'desktop:x-gap-16'"
+            :class="x.query.searchBox ? 'desktop:x-gap-4' : 'desktop:x-gap-16'"
           >
             <BaseIdModalOpen
-              v-if="isTabletOrLess && !$x.query.searchBox"
+              v-if="isTabletOrLess && !x.query.searchBox"
               modalId="my-history-aside"
               class="x-button-neutral x-button-sm x-button-tight x-self-end x-pr-8"
             >
-              {{ $t('myHistory.openButton') }}
+              {{ 'myHistory.openButton' }}
               <SettingsIcon class="x-icon-lg" />
             </BaseIdModalOpen>
             <div v-if="showHistoryQueries" class="x-flex x-flex-col x-gap-4">
-              <div v-if="!$x.query.searchBox" class="x-flex x-items-center">
+              <div v-if="!x.query.searchBox" class="x-flex x-items-center">
                 <h1 class="x-title4 x-title4-sm x-flex-1 x-uppercase">
-                  {{ $t('historyQueries.title') }}
+                  {{ 'historyQueries.title' }}
                 </h1>
                 <ClearHistoryQueries class="x-button-neutral x-button-sm x-button-tight x-px-8">
                   <TrashIcon v-if="isTabletOrLess" class="x-icon-lg" />
-                  <span v-else>{{ $t('historyQueries.clear') }}</span>
+                  <span v-else>{{ 'historyQueries.clear' }}</span>
                 </ClearHistoryQueries>
               </div>
 
               <HistoryQueries
                 :animation="suggestionsAnimation"
-                :max-items-to-render="$x.query.searchBox ? 2 : 4"
+                :max-items-to-render="x.query.searchBox ? 2 : 4"
                 suggestionItemClass="x-w-full"
                 class="-x-mr-2 x-flex x-flex-col x-gap-8 desktop:x-gap-4"
               >
@@ -71,7 +71,7 @@
                     <template #remove-button-content>
                       <span
                         :aria-label="
-                          $t('historyQueries.removeLabel', { suggestion: suggestion.query })
+                          ('historyQueries.removeLabel', { suggestion: suggestion.query })
                         "
                       >
                         <CrossTinyIcon class="x-icon-lg desktop:x-icon-md" />
@@ -95,23 +95,23 @@
             />
 
             <BaseIdModalOpen
-              v-if="isDesktopOrGreater && !$x.query.searchBox"
+              v-if="isDesktopOrGreater && !x.query.searchBox"
               modalId="my-history-aside"
               class="x-button-neutral x-button-sm x-button-tight x-self-start"
               data-test="my-history-button"
             >
               <SettingsIcon />
-              {{ $t('myHistory.openButton') }}
+              {{ 'myHistory.openButton' }}
             </BaseIdModalOpen>
           </div>
 
           <SlidingRecommendations
-            v-if="isDesktopOrGreater && !$x.query.searchBox"
+            v-if="isDesktopOrGreater && !x.query.searchBox"
             class="x-col-span-7"
           />
         </BaseKeyboardNavigation>
       </div>
-      <SlidingRecommendations v-if="isTabletOrLess && !$x.query.searchBox" />
+      <SlidingRecommendations v-if="isTabletOrLess && !x.query.searchBox" />
     </component>
   </Empathize>
 </template>
@@ -127,7 +127,8 @@
     SettingsIcon,
     StaggeredFadeAndSlide,
     TrashIcon,
-    animateScale
+    animateScale,
+    use$x
   } from '@empathyco/x-components';
   import { Empathize } from '@empathyco/x-components/empathize';
   import {
@@ -192,7 +193,8 @@
         showQuerySuggestions,
         showNextQueries,
         showPopularSearches,
-        showEmpathize
+        showEmpathize,
+        x: use$x()
       };
     }
   });

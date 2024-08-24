@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$x.recommendations.length > 0" class="x-flex x-flex-col x-gap-12">
+  <div v-if="x.recommendations.length > 0" class="x-flex x-flex-col x-gap-12">
     <h1
       class="x-title4 x-title4-sm x-flex x-h-32 x-items-center x-pl-24 x-pt-16 x-uppercase desktop:x-pl-0 desktop:x-pt-0"
     >
@@ -40,7 +40,7 @@
   </div>
 </template>
 <script lang="ts">
-  import { SlidingPanel, ChevronLeftIcon, ChevronRightIcon } from '@empathyco/x-components';
+  import { SlidingPanel, ChevronLeftIcon, ChevronRightIcon, use$x } from '@empathyco/x-components';
   import { Recommendations } from '@empathyco/x-components/recommendations';
   import { defineComponent } from 'vue';
   import Result from '../results/result.vue';
@@ -54,6 +54,11 @@
       Recommendations,
       Result,
       SlidingPanel
+    },
+    setup() {
+      return {
+        x: use$x()
+      };
     }
   });
 </script>
