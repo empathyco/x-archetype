@@ -80,9 +80,9 @@
       "viewResults": "Ver todos"
     },
     "priceFilter": {
-      "lessThan": "Até {max}",
-      "fromTo": "{min} - {max}",
-      "from": "Mais de {min}"
+      "lessThan": "Até {'{max}'}",
+      "fromTo": "{'{min}'} - {'{max}'}",
+      "from": "Mais de {'{min}'}"
     },
     "toggleAside": {
       "showAside": "Ordenar e Filtrar"

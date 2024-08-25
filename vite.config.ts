@@ -11,6 +11,9 @@ export const vueDocsPlugin = {
 };
 
 export default defineConfig({
+  define: {
+    'process.env': {}
+  },
   plugins: [injectHTML(), vue(), vueDocsPlugin, Inspector()],
   server: {
     port: 8080
