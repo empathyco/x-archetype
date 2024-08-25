@@ -11,10 +11,8 @@
   import { computed, defineComponent, inject } from 'vue';
   import { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
 
-  import { PopularSearchesState } from '@empathyco/x-components/types';
-  import { XPlugin, use$x } from '@empathyco/x-components';
+  import { XPlugin, use$x, useState } from '@empathyco/x-components';
   import { popularSearchesXModule } from '@empathyco/x-components/popular-searches';
-  import { useStore } from '../../composables/use-store.composable';
   import CustomQueryPreview from './custom-query-preview.vue';
 
   export default defineComponent({
@@ -44,9 +42,9 @@
       );
 
       const queriesPreviewToRender = computed<QueryPreviewInfo[]>(() => {
-        const popularSearches = (useStore('popularSearches') as PopularSearchesState)
-          .popularSearches;
-        const queryPreviewInfo: QueryPreviewInfo[] = popularSearches.map(item => ({
+        const { popularSearches } = useState('popularSearches', ['popularSearches']);
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+        const queryPreviewInfo: QueryPreviewInfo[] = popularSearches.value.map(item => ({
           query: item.query
         }));
         return hasQueryPreviews.value
