@@ -15,8 +15,7 @@
     SnippetConfig,
     UrlParams,
     useXBus,
-    XEvent,
-    use$x
+    XEvent
   } from '@empathyco/x-components';
   import { ExperienceControls } from '@empathyco/x-components/experience-controls';
   import { Tagging } from '@empathyco/x-components/tagging';
@@ -29,6 +28,7 @@
     ComputedRef,
     defineAsyncComponent,
     defineComponent,
+    getCurrentInstance,
     inject,
     onBeforeUnmount,
     onMounted,
@@ -53,7 +53,7 @@
     },
     setup() {
       const xBus = useXBus();
-      const $x = use$x();
+      const appInstance = getCurrentInstance();
       const device = useDevice();
       const snippetConfig = inject<SnippetConfig>('snippetConfig')!;
       const isOpen = ref(false);
@@ -123,14 +123,16 @@
       watch(
         () => snippetConfig.uiLang as string,
         uiLang => {
-          $x.$setLocale(uiLang);
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+          appInstance.appContext.config.globalProperties.$setLocale(uiLang);
         }
       );
 
       watch(
         () => device.deviceName,
         deviceName => {
-          $x.$setLocaleDevice(deviceName.value);
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+          appInstance.appContext.config.globalProperties.$setLocaleDevice(deviceName.value);
         }
       );
 
