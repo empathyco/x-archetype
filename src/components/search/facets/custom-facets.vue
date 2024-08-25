@@ -26,7 +26,7 @@
               :animation="staggeredFadeAndSlide"
               class="x-flex x-flex-col x-gap-8"
             >
-              <SimpleFilter :filter="filter" class="x-facet-filter-lg x-w-full">
+              <SimpleFilter :filter="filter" :cssClasses="['x-facet-filter-lg x-w-full']">
                 <template #label>
                   <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
                   <CheckboxUnselectedIcon v-else class="x-icon-lg" />
@@ -99,7 +99,7 @@
               :animation="staggeredFadeAndSlide"
               class="x-flex x-flex-col x-gap-8"
             >
-              <NumberRangeFilter :filter="filter" class="x-facet-filter-lg x-w-full">
+              <NumberRangeFilter :filter="filter" :cssClasses="['x-facet-filter-lg x-w-full']">
                 <template #label>
                   <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
                   <CheckboxUnselectedIcon v-else class="x-icon-lg" />
