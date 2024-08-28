@@ -1,6 +1,6 @@
 import { App as Application } from 'vue';
 import { filter, InstallXOptions, SnippetConfig } from '@empathyco/x-components';
-import { cssInjector } from '@empathyco/x-archetype-utils';
+import { cssInjector, I18n } from '@empathyco/x-archetype-utils';
 import { setSearchQuery } from '@empathyco/x-components/search';
 import { addQueryToHistoryQueries } from '@empathyco/x-components/history-queries';
 import { setUrlQuery } from '@empathyco/x-components/url';
@@ -10,7 +10,6 @@ import store from '../store';
 import { adapter } from '../adapter/adapter';
 import { useDevice } from '../composables/use-device.composable';
 import { mergeSemanticQueriesConfigWire } from './wiring/semantic-queries.wiring';
-import { I18n } from './i18n.plugin';
 
 const device = useDevice();
 
