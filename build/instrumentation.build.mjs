@@ -11,7 +11,7 @@ import styles from 'rollup-plugin-styles';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 import { visualizer } from 'rollup-plugin-visualizer';
-import vue from 'rollup-plugin-vue';
+import vue3 from '@vitejs/plugin-vue';
 import * as fs from 'fs';
 
 /**
@@ -88,8 +88,8 @@ export function createConfig({
         })
       ),
       // Code transpiling plugins
-      vue(
-        mergeConfig('vue', {
+      vue3(
+        mergeConfig('vue3', {
           css: false,
           needMap: false,
           template: {

@@ -1,10 +1,9 @@
-import { App as Application } from 'vue';
 import { filter, InstallXOptions, SnippetConfig } from '@empathyco/x-components';
 import { cssInjector, I18n } from '@empathyco/x-archetype-utils';
 import { setSearchQuery } from '@empathyco/x-components/search';
 import { addQueryToHistoryQueries } from '@empathyco/x-components/history-queries';
 import { setUrlQuery } from '@empathyco/x-components/url';
-import App from '../App.vue';
+import { default as AppComponent } from '../App.vue';
 import * as messages from '../i18n/messages';
 import store from '../store';
 import { adapter } from '../adapter/adapter';
@@ -55,7 +54,7 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
   return {
     adapter,
     store,
-    rootComponent: App,
+    rootComponent: AppComponent,
     domElement: getDomElement,
     xModules: {
       facets: {
@@ -103,7 +102,8 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
         fallbackLocale: 'en',
         messages
       });
-      (app as Application<typeof App>).use(i18n);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      app.use(i18n);
       app.config.globalProperties.$setLocale = i18n.setLocale.bind(i18n);
       app.config.globalProperties.$setLocaleDevice = i18n.setDevice.bind(i18n);
 

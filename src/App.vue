@@ -124,7 +124,7 @@
         () => snippetConfig.uiLang as string,
         uiLang => {
           // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-          appInstance.appContext.config.globalProperties.$setLocale(uiLang);
+          appInstance?.appContext.config.globalProperties.$setLocale(uiLang);
         }
       );
 
@@ -132,7 +132,7 @@
         () => device.deviceName,
         deviceName => {
           // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-          appInstance.appContext.config.globalProperties.$setLocaleDevice(deviceName.value);
+          appInstance?.appContext.config.globalProperties.$setLocaleDevice(deviceName.value);
         }
       );
 

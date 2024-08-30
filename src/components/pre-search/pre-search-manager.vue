@@ -44,7 +44,7 @@
       const queriesPreviewToRender = computed<QueryPreviewInfo[]>(() => {
         const { popularSearches } = useState('popularSearches', ['popularSearches']);
         // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        const queryPreviewInfo: QueryPreviewInfo[] = popularSearches.value.map(item => ({
+        const queryPreviewInfo: QueryPreviewInfo[] = popularSearches.value.map((item: any) => ({
           query: item.query
         }));
         return hasQueryPreviews.value
