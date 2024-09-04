@@ -6,22 +6,22 @@
       <LocationProvider location="results">
         <Results />
       </LocationProvider>
-
-      <LocationProvider location="results">
+      <LocationProvider :location="semanticsLocation">
+        <CustomSemanticQueries />
+      </LocationProvider>
+      <LocationProvider v-if="!$x.semanticQueries.length" location="results">
         <PartialResults />
       </LocationProvider>
-      <LocationProvider v-if="$x.noResults && !$x.partialResults.length" location="no_results">
+      <LocationProvider v-if="showRecommendations" location="no_results">
         <CustomRecommendations />
       </LocationProvider>
-
-      <CustomSemanticQueries />
     </template>
   </div>
 </template>
 
 <script lang="ts">
-  import { LocationProvider } from '@empathyco/x-components';
-  import { defineComponent } from 'vue';
+  import { FeatureLocation, LocationProvider, use$x } from '@empathyco/x-components';
+  import { ComputedRef, computed, defineComponent } from 'vue';
   import { useHasSearched } from '../composables/use-has-searched.composable';
   import CustomRecommendations from './results/custom-recommendations.vue';
   import CustomSemanticQueries from './search/custom-semantic-queries.vue';
@@ -37,7 +37,14 @@
     },
     setup() {
       const { hasSearched } = useHasSearched();
-      return { hasSearched };
+      const $x = use$x();
+      const semanticsLocation: ComputedRef<FeatureLocation> = computed(() =>
+        $x.results.length > 0 ? 'low_results' : 'no_results'
+      );
+      const showRecommendations: ComputedRef<boolean> = computed(
+        () => $x.noResults && !$x.partialResults.length && !$x.semanticQueries.length
+      );
+      return { hasSearched, semanticsLocation, showRecommendations };
     }
   });
 </script>
