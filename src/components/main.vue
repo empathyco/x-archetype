@@ -1,21 +1,18 @@
 <template>
   <div v-if="hasSearched" class="x-flex x-flex-col">
     <Redirection />
-
-    <template>
-      <LocationProvider location="results">
-        <Results />
-      </LocationProvider>
-      <LocationProvider :location="semanticsLocation">
-        <CustomSemanticQueries />
-      </LocationProvider>
-      <LocationProvider v-if="!x.semanticQueries.length" location="results">
-        <PartialResults />
-      </LocationProvider>
-      <LocationProvider v-if="showRecommendations" location="no_results">
-        <CustomRecommendations />
-      </LocationProvider>
-    </template>
+    <LocationProvider location="results">
+      <Results />
+    </LocationProvider>
+    <LocationProvider :location="semanticsLocation">
+      <CustomSemanticQueries />
+    </LocationProvider>
+    <LocationProvider v-if="!x.semanticQueries.length" location="results">
+      <PartialResults />
+    </LocationProvider>
+    <LocationProvider v-if="showRecommendations" location="no_results">
+      <CustomRecommendations />
+    </LocationProvider>
   </div>
 </template>
 
