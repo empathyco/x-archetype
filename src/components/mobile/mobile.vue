@@ -11,10 +11,10 @@
       </div>
     </div>
 
-    <div class="x-layout-expand" :class="{ 'x-layout-stack': $x.query.search }">
+    <div class="x-layout-expand" :class="{ 'x-layout-stack': x.query.search }">
       <LocationProvider location="predictive_layer" class="x-z-10">
         <PredictiveLayer
-          :class="{ 'x-mb-40 x-border-b x-border-neutral-10 x-pb-16': !$x.query.search }"
+          :class="{ 'x-mb-40 x-border-b x-border-neutral-10 x-pb-16': !x.query.search }"
         />
       </LocationProvider>
 
@@ -22,7 +22,7 @@
       <div class="x-flex x-flex-col">
         <MobileSubHeader :has-searched="hasSearched" />
 
-        <div v-if="$x.query.search" class="x-layout-item">
+        <div v-if="x.query.search" class="x-layout-item">
           <LocationProvider location="results">
             <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
           </LocationProvider>
@@ -47,7 +47,7 @@
         <div class="x-layout-item x-layout-overlap x-pointer-events-none">
           <div class="x-mb-32 x-grid x-grid-cols-12 x-gap-24">
             <MobileOpenAside
-              v-if="$x.totalResults > 0"
+              v-if="x.totalResults > 0"
               class="x-pointer-events-auto x-col-span-8 x-col-start-3 tablet:x-col-span-4 tablet:x-col-start-5"
             />
             <ScrollToTop class="x-button-lg x-pointer-events-auto x-col-start-11" />
@@ -84,10 +84,11 @@
     CloseMainModal,
     LocationProvider,
     animateTranslate,
-    BaseIdModal
+    BaseIdModal,
+    use$x
   } from '@empathyco/x-components';
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
-  import { defineComponent } from 'vue';
+  import { defineAsyncComponent, defineComponent } from 'vue';
   import Main from '../main.vue';
   import PreSearchManager from '../pre-search/pre-search-manager.vue';
   import ScrollToTop from '../scroll-to-top.vue';
@@ -116,10 +117,16 @@
       Scroll,
       ScrollToTop,
       SearchBox,
-      MobileAside: () => import('../search').then(m => m.MobileAside),
-      NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
-      SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage),
-      FallbackDisclaimerMessage: () => import('../search').then(m => m.FallbackDisclaimerMessage)
+      MobileAside: defineAsyncComponent(() => import('../search').then(m => m.MobileAside)),
+      NoResultsMessage: defineAsyncComponent(() =>
+        import('../search').then(m => m.NoResultsMessage)
+      ),
+      SpellcheckMessage: defineAsyncComponent(() =>
+        import('../search').then(m => m.SpellcheckMessage)
+      ),
+      FallbackDisclaimerMessage: defineAsyncComponent(() =>
+        import('../search').then(m => m.FallbackDisclaimerMessage)
+      )
     },
     setup() {
       const filtersAsideAnimation = animateTranslate('bottom');
@@ -129,7 +136,8 @@
       return {
         filtersAsideAnimation,
         rightAsideAnimation,
-        hasSearched
+        hasSearched,
+        x: use$x()
       };
     }
   });

@@ -7,20 +7,25 @@
     <FiltersIcon class="x-icon-lg" />
     <span>{{ $t('toggleAside.showAside') }}</span>
     <span
-      v-if="$x.selectedFilters.length > 0"
-      :class="{ 'x-badge-circle': $x.selectedFilters.length <= 9 }"
+      v-if="x.selectedFilters.length > 0"
+      :class="{ 'x-badge-circle': x.selectedFilters.length <= 9 }"
       class="x-badge x-badge-lead"
     >
-      {{ $x.selectedFilters.length }}
+      {{ x.selectedFilters.length }}
     </span>
   </BaseIdModalOpen>
 </template>
 
 <script lang="ts">
-  import { BaseIdModalOpen, FiltersIcon } from '@empathyco/x-components';
+  import { BaseIdModalOpen, FiltersIcon, use$x } from '@empathyco/x-components';
   import { defineComponent } from 'vue';
 
   export default defineComponent({
-    components: { BaseIdModalOpen, FiltersIcon }
+    components: { BaseIdModalOpen, FiltersIcon },
+    setup() {
+      return {
+        x: use$x()
+      };
+    }
   });
 </script>

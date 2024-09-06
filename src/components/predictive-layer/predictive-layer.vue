@@ -27,17 +27,17 @@
               modalId="my-history-aside"
               class="x-button-neutral x-button-sm x-button-tight x-self-end x-pr-8"
             >
-              {{ 'myHistory.openButton' }}
+              {{ $t('myHistory.openButton') }}
               <SettingsIcon class="x-icon-lg" />
             </BaseIdModalOpen>
             <div v-if="showHistoryQueries" class="x-flex x-flex-col x-gap-4">
               <div v-if="!x.query.searchBox" class="x-flex x-items-center">
                 <h1 class="x-title4 x-title4-sm x-flex-1 x-uppercase">
-                  {{ 'historyQueries.title' }}
+                  {{ $t('historyQueries.title') }}
                 </h1>
                 <ClearHistoryQueries class="x-button-neutral x-button-sm x-button-tight x-px-8">
                   <TrashIcon v-if="isTabletOrLess" class="x-icon-lg" />
-                  <span v-else>{{ 'historyQueries.clear' }}</span>
+                  <span v-else>{{ $t('historyQueries.clear') }}</span>
                 </ClearHistoryQueries>
               </div>
 

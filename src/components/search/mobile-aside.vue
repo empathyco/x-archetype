@@ -1,12 +1,12 @@
 <template>
-  <div v-if="$x.totalResults > 0" class="x-flex x-min-h-0 x-flex-auto x-flex-col">
+  <div v-if="x.totalResults > 0" class="x-flex x-min-h-0 x-flex-auto x-flex-col">
     <BaseScroll class="x-flex-auto x-p-16 x-pt-0" :resetOnChange="false">
       <Sort />
       <CustomFacets />
     </BaseScroll>
     <div class="x-flex x-flex-col x-border-t">
       <SelectedFilters
-        v-if="$x.selectedFilters.length"
+        v-if="x.selectedFilters.length"
         class="x-flex x-flex-col x-items-stretch x-gap-16 x-py-16"
       />
       <MobileCloseAside />
@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-  import { BaseScroll } from '@empathyco/x-components';
+  import { BaseScroll, use$x } from '@empathyco/x-components';
   import { defineComponent } from 'vue';
   import MobileCloseAside from '../mobile/mobile-close-aside.vue';
   import CustomFacets from './facets/custom-facets.vue';
@@ -29,6 +29,11 @@
       MobileCloseAside,
       SelectedFilters,
       Sort
+    },
+    setup() {
+      return {
+        x: use$x()
+      };
     }
   });
 </script>
