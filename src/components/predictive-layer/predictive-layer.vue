@@ -71,7 +71,7 @@
                     <template #remove-button-content>
                       <span
                         :aria-label="
-                          ('historyQueries.removeLabel', { suggestion: suggestion.query })
+                          $t('historyQueries.removeLabel', { suggestion: suggestion.query })
                         "
                       >
                         <CrossTinyIcon class="x-icon-lg desktop:x-icon-md" />
@@ -101,7 +101,7 @@
               data-test="my-history-button"
             >
               <SettingsIcon />
-              {{ 'myHistory.openButton' }}
+              {{ $t('myHistory.openButton') }}
             </BaseIdModalOpen>
           </div>
 
