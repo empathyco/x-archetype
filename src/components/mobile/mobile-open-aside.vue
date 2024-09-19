@@ -7,11 +7,11 @@
     <FiltersIcon class="x-icon-lg" />
     <span>{{ $t('toggleAside.showAside') }}</span>
     <span
-      v-if="x.selectedFilters.length > 0"
-      :class="{ 'x-badge-circle': x.selectedFilters.length <= 9 }"
+      v-if="selectedFilters.length > 0"
+      :class="{ 'x-badge-circle': selectedFilters.length <= 9 }"
       class="x-badge x-badge-lead"
     >
-      {{ x.selectedFilters.length }}
+      {{ selectedFilters.length }}
     </span>
   </BaseIdModalOpen>
 </template>
@@ -23,9 +23,8 @@
   export default defineComponent({
     components: { BaseIdModalOpen, FiltersIcon },
     setup() {
-      return {
-        x: use$x()
-      };
+      const selectedFilters = use$x().selectedFilters;
+      return { selectedFilters };
     }
   });
 </script>

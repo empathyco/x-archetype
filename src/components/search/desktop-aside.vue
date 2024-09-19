@@ -10,7 +10,7 @@
     </div>
     <div class="x-scroll x-flex-auto x-p-40 x-pr-24 x-pt-0">
       <Sort />
-      <CustomFacets v-if="x.totalResults > 0" />
+      <CustomFacets v-if="totalResults > 0" />
     </div>
     <div class="x-flex x-gap-16 x-border-t x-border-neutral-90 x-p-40 x-pb-16 x-pt-24">
       <ClearFilters
@@ -24,7 +24,7 @@
         class="x-button-lead x-flex-auto x-rounded-full x-p-24 x-py-12"
         modalId="right-aside"
       >
-        {{ $t('facetsPanel.viewResults', { totalResults: x.totalResults }) }}
+        {{ $t('facetsPanel.viewResults', { totalResults }) }}
       </BaseIdModalClose>
     </div>
   </div>
@@ -46,9 +46,8 @@
       ClearFilters
     },
     setup() {
-      return {
-        x: use$x()
-      };
+      const totalResults = use$x().totalResults;
+      return { totalResults };
     }
   });
 </script>

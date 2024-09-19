@@ -1,12 +1,12 @@
 <template>
-  <div v-if="x.totalResults > 0" class="x-flex x-min-h-0 x-flex-auto x-flex-col">
+  <div v-if="totalResults > 0" class="x-flex x-min-h-0 x-flex-auto x-flex-col">
     <BaseScroll class="x-flex-auto x-p-16 x-pt-0" :resetOnChange="false">
       <Sort />
       <CustomFacets />
     </BaseScroll>
     <div class="x-flex x-flex-col x-border-t">
       <SelectedFilters
-        v-if="x.selectedFilters.length"
+        v-if="selectedFilters.length"
         class="x-flex x-flex-col x-items-stretch x-gap-16 x-py-16"
       />
       <MobileCloseAside />
@@ -31,8 +31,10 @@
       Sort
     },
     setup() {
+      const $x = use$x();
       return {
-        x: use$x()
+        totalResults: $x.totalResults,
+        selectedFilters: $x.selectedFilters
       };
     }
   });

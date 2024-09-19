@@ -7,7 +7,7 @@
     <LocationProvider :location="semanticsLocation">
       <CustomSemanticQueries />
     </LocationProvider>
-    <LocationProvider v-if="!x.semanticQueries.length" location="results">
+    <LocationProvider v-if="!semanticQueries.length" location="results">
       <PartialResults />
     </LocationProvider>
     <LocationProvider v-if="showRecommendations" location="no_results">
@@ -41,7 +41,12 @@
       const showRecommendations: ComputedRef<boolean> = computed(
         () => $x.noResults && !$x.partialResults.length && !$x.semanticQueries.length
       );
-      return { hasSearched, semanticsLocation, showRecommendations, x: use$x() };
+      return {
+        hasSearched,
+        semanticsLocation,
+        showRecommendations,
+        semanticQueries: $x.semanticQueries
+      };
     }
   });
 </script>
