@@ -24,9 +24,7 @@
   export default defineComponent({
     components: { BaseIdModalClose, ClearFilters },
     setup() {
-      return {
-        x: use$x()
-      };
+      return { x: use$x() };
     }
   });
 </script>

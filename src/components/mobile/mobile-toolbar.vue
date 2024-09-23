@@ -25,9 +25,7 @@
       ColumnPicker
     },
     setup() {
-      return {
-        x: use$x()
-      };
+      return { x: use$x() };
     }
   });
 </script>

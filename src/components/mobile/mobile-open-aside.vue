@@ -23,9 +23,7 @@
   export default defineComponent({
     components: { BaseIdModalOpen, FiltersIcon },
     setup() {
-      return {
-        x: use$x()
-      };
+      return { x: use$x() };
     }
   });
 </script>
