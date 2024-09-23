@@ -17,7 +17,7 @@
 
 <script lang="ts">
   import { defineComponent } from 'vue';
-  import { useAliasApi, useState } from '@empathyco/x-components';
+  import { use$x } from '@empathyco/x-components';
   import ColumnPicker from '../column-picker.vue';
 
   export default defineComponent({
@@ -25,16 +25,11 @@
       ColumnPicker
     },
     setup() {
-      const { query } = useAliasApi();
-      const { totalResults, spellcheckedQuery } = useState('search', [
-        'totalResults',
-        'spellcheckedQuery'
-      ]);
-
+      const $x = use$x();
       return {
-        query,
-        totalResults,
-        spellcheckedQuery
+        totalResults: $x.totalResults,
+        spellcheckedQuery: $x.spellcheckedQuery,
+        query: $x.query
       };
     }
   });

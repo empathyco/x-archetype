@@ -20,10 +20,10 @@
           <div
             v-else-if="showEmpathize"
             class="x-flex x-flex-col x-gap-8 x-pl-8 desktop:x-col-span-5 desktop:x-pl-0"
-            :class="query.searchBox ? 'desktop:x-gap-4' : 'desktop:x-gap-16'"
+            :class="x.query.searchBox ? 'desktop:x-gap-4' : 'desktop:x-gap-16'"
           >
             <BaseIdModalOpen
-              v-if="isTabletOrLess && !query.searchBox"
+              v-if="isTabletOrLess && !x.query.searchBox"
               modalId="my-history-aside"
               class="x-button-neutral x-button-sm x-button-tight x-self-end x-pr-8"
             >
@@ -31,7 +31,7 @@
               <SettingsIcon class="x-icon-lg" />
             </BaseIdModalOpen>
             <div v-if="showHistoryQueries" class="x-flex x-flex-col x-gap-4">
-              <div v-if="!query.searchBox" class="x-flex x-items-center">
+              <div v-if="!x.query.searchBox" class="x-flex x-items-center">
                 <h1 class="x-title4 x-title4-sm x-flex-1 x-uppercase">
                   {{ $t('historyQueries.title') }}
                 </h1>
@@ -43,7 +43,7 @@
 
               <HistoryQueries
                 :animation="suggestionsAnimation"
-                :max-items-to-render="query.searchBox ? 2 : 4"
+                :max-items-to-render="x.query.searchBox ? 2 : 4"
                 suggestionItemClass="x-w-full"
                 class="-x-mr-2 x-flex x-flex-col x-gap-8 desktop:x-gap-4"
               >
@@ -95,7 +95,7 @@
             />
 
             <BaseIdModalOpen
-              v-if="isDesktopOrGreater && !query.searchBox"
+              v-if="isDesktopOrGreater && !x.query.searchBox"
               modalId="my-history-aside"
               class="x-button-neutral x-button-sm x-button-tight x-self-start"
               data-test="my-history-button"
@@ -106,12 +106,12 @@
           </div>
 
           <SlidingRecommendations
-            v-if="isDesktopOrGreater && !query.searchBox"
+            v-if="isDesktopOrGreater && !x.query.searchBox"
             class="x-col-span-7"
           />
         </BaseKeyboardNavigation>
       </div>
-      <SlidingRecommendations v-if="isTabletOrLess && !query.searchBox" />
+      <SlidingRecommendations v-if="isTabletOrLess && !x.query.searchBox" />
     </component>
   </Empathize>
 </template>
@@ -128,7 +128,7 @@
     StaggeredFadeAndSlide,
     TrashIcon,
     animateScale,
-    useAliasApi
+    use$x
   } from '@empathyco/x-components';
   import { Empathize } from '@empathyco/x-components/empathize';
   import {
@@ -171,7 +171,6 @@
       const empathizeAnimation = animateScale();
       const suggestionsAnimation = StaggeredFadeAndSlide;
       const { isDesktopOrGreater, isTabletOrLess } = useDevice();
-      const { query } = useAliasApi();
 
       const {
         navigationHijacker,
@@ -195,7 +194,7 @@
         showNextQueries,
         showPopularSearches,
         showEmpathize,
-        query
+        x: use$x()
       };
     }
   });

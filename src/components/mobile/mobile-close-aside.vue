@@ -17,14 +17,14 @@
 </template>
 
 <script lang="ts">
-  import { BaseIdModalClose, useState } from '@empathyco/x-components';
+  import { BaseIdModalClose, use$x } from '@empathyco/x-components';
   import { ClearFilters } from '@empathyco/x-components/facets';
   import { defineComponent } from 'vue';
 
   export default defineComponent({
     components: { BaseIdModalClose, ClearFilters },
     setup() {
-      const { totalResults } = useState('search', ['totalResults']);
+      const totalResults = use$x().totalResults;
       return { totalResults };
     }
   });

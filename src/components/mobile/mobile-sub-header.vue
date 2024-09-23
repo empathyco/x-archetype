@@ -4,7 +4,7 @@
       <LocationProvider location="predictive_layer">
         <RelatedTags v-if="hasSearched" class="x-pb-16" />
       </LocationProvider>
-      <div v-if="query.search">
+      <div v-if="x.query.search">
         <MobileToolbar class="x-mb-16" />
       </div>
     </div>
@@ -13,7 +13,7 @@
 
 <script lang="ts">
   import { defineAsyncComponent, defineComponent } from 'vue';
-  import { LocationProvider, useAliasApi } from '@empathyco/x-components';
+  import { LocationProvider, use$x } from '@empathyco/x-components';
   import MobileToolbar from '../mobile/mobile-toolbar.vue';
   import CollapseHeightAnimation from '../collapse-height-animation.vue';
   // eslint-disable-next-line max-len
@@ -33,9 +33,7 @@
     },
     setup() {
       const { hasScrolledPastThreshold } = useHasScrollPastThreshold();
-      const { query } = useAliasApi();
-
-      return { hasScrolledPastThreshold, query };
+      return { hasScrolledPastThreshold, x: use$x() };
     }
   });
 </script>

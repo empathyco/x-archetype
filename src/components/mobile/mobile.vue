@@ -11,10 +11,10 @@
       </div>
     </div>
 
-    <div class="x-layout-expand" :class="{ 'x-layout-stack': query.search }">
+    <div class="x-layout-expand" :class="{ 'x-layout-stack': x.query.search }">
       <LocationProvider location="predictive_layer" class="x-z-10">
         <PredictiveLayer
-          :class="{ 'x-mb-40 x-border-b x-border-neutral-10 x-pb-16': !query.search }"
+          :class="{ 'x-mb-40 x-border-b x-border-neutral-10 x-pb-16': !x.query.search }"
         />
       </LocationProvider>
 
@@ -22,7 +22,7 @@
       <div class="x-flex x-flex-col">
         <MobileSubHeader :has-searched="hasSearched" />
 
-        <div v-if="query.search" class="x-layout-item">
+        <div v-if="x.query.search" class="x-layout-item">
           <LocationProvider location="results">
             <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
           </LocationProvider>
@@ -47,7 +47,7 @@
         <div class="x-layout-item x-layout-overlap x-pointer-events-none">
           <div class="x-mb-32 x-grid x-grid-cols-12 x-gap-24">
             <MobileOpenAside
-              v-if="totalResults > 0"
+              v-if="x.totalResults > 0"
               class="x-pointer-events-auto x-col-span-8 x-col-start-3 tablet:x-col-span-4 tablet:x-col-start-5"
             />
             <ScrollToTop class="x-button-lg x-pointer-events-auto x-col-start-11" />
@@ -85,8 +85,7 @@
     LocationProvider,
     animateTranslate,
     BaseIdModal,
-    useAliasApi,
-    useState
+    use$x
   } from '@empathyco/x-components';
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
   import { defineAsyncComponent, defineComponent } from 'vue';
@@ -133,15 +132,12 @@
       const filtersAsideAnimation = animateTranslate('bottom');
       const rightAsideAnimation = animateTranslate('right');
       const { hasSearched } = useHasSearched();
-      const { query } = useAliasApi();
-      const { totalResults } = useState('search', ['totalResults']);
 
       return {
         filtersAsideAnimation,
         rightAsideAnimation,
         hasSearched,
-        query,
-        totalResults
+        x: use$x()
       };
     }
   });

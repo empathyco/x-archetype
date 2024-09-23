@@ -2,7 +2,7 @@
   <div class="x-flex-1">
     <BaseIdModalClose modalId="my-history-aside" #closing-element="{ closeModal }">
       <MyHistory
-        v-if="isHistoryQueriesEnabled && fullHistoryQueries.length"
+        v-if="x.isHistoryQueriesEnabled && x.fullHistoryQueries.length"
         :animation="animation"
         class="x-px-16 x-pb-32 desktop:x-pl-32"
         queriesListClass="x-gap-16"
@@ -57,7 +57,7 @@
     CrossTinyIcon,
     HistoryIcon,
     StaggeredFadeAndSlide,
-    useState
+    use$x
   } from '@empathyco/x-components';
   import { MyHistory, HistoryQuery } from '@empathyco/x-components/history-queries';
   import { defineComponent } from 'vue';
@@ -73,14 +73,9 @@
       HistoryQueryFilters
     },
     setup() {
-      const { isEnabled: isHistoryQueriesEnabled, historyQueries: fullHistoryQueries } = useState(
-        'historyQueries',
-        ['isEnabled', 'historyQueries']
-      );
       return {
         animation: StaggeredFadeAndSlide,
-        isHistoryQueriesEnabled,
-        fullHistoryQueries
+        x: use$x()
       };
     }
   });

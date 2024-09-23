@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts">
-  import { BaseIdModalClose, CrossIcon, useState } from '@empathyco/x-components';
+  import { BaseIdModalClose, CrossIcon, use$x } from '@empathyco/x-components';
   import { ClearFilters } from '@empathyco/x-components/facets';
   import { defineComponent } from 'vue';
   import CustomFacets from './facets/custom-facets.vue';
@@ -46,7 +46,7 @@
       ClearFilters
     },
     setup() {
-      const { totalResults } = useState('search', ['totalResults']);
+      const totalResults = use$x().totalResults;
       return { totalResults };
     }
   });
