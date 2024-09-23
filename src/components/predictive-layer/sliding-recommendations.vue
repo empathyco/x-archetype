@@ -40,7 +40,12 @@
   </div>
 </template>
 <script lang="ts">
-  import { SlidingPanel, ChevronLeftIcon, ChevronRightIcon, use$x } from '@empathyco/x-components';
+  import {
+    SlidingPanel,
+    ChevronLeftIcon,
+    ChevronRightIcon,
+    useState
+  } from '@empathyco/x-components';
   import { Recommendations } from '@empathyco/x-components/recommendations';
   import { defineComponent } from 'vue';
   import Result from '../results/result.vue';
@@ -56,7 +61,7 @@
       SlidingPanel
     },
     setup() {
-      const recommendations = use$x().recommendations;
+      const { recommendations } = useState('recommendations', ['recommendations']);
       return { recommendations };
     }
   });

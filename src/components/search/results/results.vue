@@ -1,6 +1,6 @@
 <template>
   <ResultsList
-    v-if="x.totalResults || x.noResults"
+    v-if="totalResults || noResults"
     v-infinite-scroll:main-scroll
     data-wysiwyg="results"
   >
@@ -10,7 +10,7 @@
           :offset="24"
           :frequency="48"
           :maxNextQueriesPerGroup="maxNextQueriesPerGroup"
-          :showOnlyAfterOffset="x.partialResults.length > 0"
+          :showOnlyAfterOffset="partialResults.length > 0"
         >
           <BaseVariableColumnGrid
             class="x-gap-x-16 x-gap-y-32"
@@ -46,7 +46,7 @@
     BaseVariableColumnGrid,
     infiniteScroll,
     StaggeredFadeAndSlide,
-    use$x
+    useState
   } from '@empathyco/x-components';
   import { MainScrollItem } from '@empathyco/x-components/scroll';
   import {
@@ -82,12 +82,19 @@
     setup() {
       const { isMobile } = useDevice();
       const { getControlFromPath } = useExperienceControls();
+      const {
+        totalResults,
+        isNoResults: noResults,
+        partialResults
+      } = useState('search', ['totalResults', 'isNoResults', 'partialResults']);
 
       return {
         staggeredFadeAndSlide: StaggeredFadeAndSlide,
         columns: isMobile.value ? 2 : 4,
         maxNextQueriesPerGroup: getControlFromPath('nextQueries.maxItems', 1),
-        x: use$x()
+        totalResults,
+        noResults,
+        partialResults
       };
     }
   });

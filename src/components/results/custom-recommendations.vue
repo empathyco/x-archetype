@@ -1,13 +1,13 @@
 <template>
   <div
-    v-if="x.recommendations.length > 0"
+    v-if="recommendations.length > 0"
     class="x-flex x-flex-col x-items-start x-gap-16 x-pb-32 desktop:x-items-center desktop:x-gap-24"
     data-wysiwyg="recommendations"
   >
     <h1 class="x-title1 x-title1-sm x-text-neutral-90 desktop:x-title1-md">
       {{ $t('recommendations.title') }}
     </h1>
-    <Recommendations v-if="!x.totalResults">
+    <Recommendations v-if="!totalResults">
       <template #layout="{ recommendations }">
         <DisplayClickProvider resultFeature="topclicked_recommendations">
           <BaseGrid
@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts">
-  import { BaseGrid, StaggeredFadeAndSlide, use$x } from '@empathyco/x-components';
+  import { BaseGrid, StaggeredFadeAndSlide, useState } from '@empathyco/x-components';
   import { Recommendations } from '@empathyco/x-components/recommendations';
   import { computed, defineComponent } from 'vue';
   import { useDevice } from '../../composables/use-device.composable';
@@ -42,10 +42,14 @@
     },
     setup() {
       const { isMobile } = useDevice();
+      const { totalResults } = useState('search', ['totalResults']);
+      const { recommendations } = useState('recommendations', ['recommendations']);
+
       return {
         staggeredFadeAndSlide: StaggeredFadeAndSlide,
         columns: computed(() => (isMobile.value ? 2 : 4)),
-        x: use$x()
+        recommendations,
+        totalResults
       };
     }
   });

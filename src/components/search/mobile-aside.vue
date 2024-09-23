@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-  import { BaseScroll, use$x } from '@empathyco/x-components';
+  import { BaseScroll, useGetter, useState } from '@empathyco/x-components';
   import { defineComponent } from 'vue';
   import MobileCloseAside from '../mobile/mobile-close-aside.vue';
   import CustomFacets from './facets/custom-facets.vue';
@@ -31,10 +31,12 @@
       Sort
     },
     setup() {
-      const $x = use$x();
+      const { totalResults } = useState('search', ['totalResults']);
+      const { selectedFilters } = useGetter('facets', ['selectedFilters']);
+
       return {
-        totalResults: $x.totalResults,
-        selectedFilters: $x.selectedFilters
+        totalResults,
+        selectedFilters
       };
     }
   });

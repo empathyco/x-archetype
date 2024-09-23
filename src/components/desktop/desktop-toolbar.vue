@@ -1,17 +1,17 @@
 <template>
   <div
-    v-if="x.totalResults"
+    v-if="totalResults"
     class="x-flex x-items-center x-justify-end x-gap-24"
-    :class="{ 'x-mb-8': !x.selectedFilters.length }"
+    :class="{ 'x-mb-8': !selectedFilters.length }"
     data-test="total-results"
   >
     <i18n-t class="x-text1 x-text1-lg x-flex-auto" keypath="totalResults.message" tag="span">
       <template #totalResults>
-        {{ x.totalResults }}
+        {{ totalResults }}
       </template>
       <template #query>
         <span class="x-title3">
-          {{ x.spellcheckedQuery || x.query.search }}
+          {{ spellcheckedQuery || query.search }}
         </span>
       </template>
     </i18n-t>
@@ -26,18 +26,24 @@
       <FiltersIcon class="x-icon-lg" />
       <span>{{ $t('toggleAside.showAside') }}</span>
       <span
-        v-if="x.selectedFilters.length"
-        :class="{ 'x-badge-circle': x.selectedFilters.length <= 9 }"
+        v-if="selectedFilters.length"
+        :class="{ 'x-badge-circle': selectedFilters.length <= 9 }"
         class="x-badge x-badge-auxiliary"
       >
-        {{ x.selectedFilters.length }}
+        {{ selectedFilters.length }}
       </span>
     </BaseIdModalOpen>
   </div>
 </template>
 
 <script lang="ts">
-  import { BaseIdModalOpen, FiltersIcon, use$x } from '@empathyco/x-components';
+  import {
+    BaseIdModalOpen,
+    FiltersIcon,
+    useAliasApi,
+    useGetter,
+    useState
+  } from '@empathyco/x-components';
   import { defineComponent } from 'vue';
   import ColumnPicker from '../column-picker.vue';
 
@@ -48,7 +54,14 @@
       ColumnPicker
     },
     setup() {
-      return { x: use$x() };
+      const { query } = useAliasApi();
+      const { totalResults, spellcheckedQuery } = useState('search', [
+        'totalResults',
+        'spellcheckedQuery'
+      ]);
+      const { selectedFilters } = useGetter('facets', ['selectedFilters']);
+
+      return { query, totalResults, spellcheckedQuery, selectedFilters };
     }
   });
 </script>

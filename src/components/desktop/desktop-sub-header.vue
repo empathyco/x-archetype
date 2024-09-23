@@ -4,7 +4,7 @@
       <DesktopSearchboxAlign>
         <div class="x-layout-item" :class="{ 'x-grid x-grid-cols-6': !isFullPredictive }">
           <LocationProvider location="predictive_layer">
-            <RelatedTags v-if="x.relatedTags.length > 0" class="x-pb-24" />
+            <RelatedTags v-if="relatedTags.length > 0" class="x-pb-24" />
           </LocationProvider>
         </div>
       </DesktopSearchboxAlign>
@@ -12,7 +12,7 @@
       <div v-if="hasSearched">
         <DesktopToolbar />
       </div>
-      <div v-if="x.totalResults > 0 && hasSearched && x.selectedFilters.length">
+      <div v-if="totalResults > 0 && hasSearched && selectedFilters.length">
         <SelectedFilters class="x-py-16" />
       </div>
     </MaxDesktopWidthItem>
@@ -21,7 +21,7 @@
 
 <script lang="ts">
   import { defineComponent, defineAsyncComponent } from 'vue';
-  import { LocationProvider, use$x } from '@empathyco/x-components';
+  import { LocationProvider, useGetter, useState } from '@empathyco/x-components';
   import RelatedTags from '../search/related-tags.vue';
   import CollapseHeightAnimation from '../collapse-height-animation.vue';
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
@@ -50,7 +50,11 @@
     },
     setup() {
       const { hasScrolledPastThreshold } = useHasScrollPastThreshold();
-      return { hasScrolledPastThreshold, x: use$x() };
+      const { relatedTags } = useGetter('relatedTags', ['relatedTags']);
+      const { totalResults } = useState('search', ['totalResults']);
+      const { selectedFilters } = useGetter('facets', ['selectedFilters']);
+
+      return { hasScrolledPastThreshold, relatedTags, totalResults, selectedFilters };
     }
   });
 </script>

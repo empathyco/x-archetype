@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!x.query.searchBox">
+  <div v-if="!query.searchBox">
     <h1 v-if="!hasQueryPreviews" class="x-title1 max-desktop:x-title1-sm max-desktop:x-px-16">
       {{ $t('popularSearches.title') }}
     </h1>
@@ -11,7 +11,7 @@
   import { computed, defineComponent, inject } from 'vue';
   import { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
 
-  import { XPlugin, use$x, useState } from '@empathyco/x-components';
+  import { XPlugin, useAliasApi, useState } from '@empathyco/x-components';
   import { popularSearchesXModule } from '@empathyco/x-components/popular-searches';
   import CustomQueryPreview from './custom-query-preview.vue';
 
@@ -28,6 +28,7 @@
     setup(props) {
       XPlugin.registerXModule(popularSearchesXModule);
       const { popularSearches } = useState('popularSearches', ['popularSearches']);
+      const { query } = useAliasApi();
       const injectedQueriesPreviewInfo = computed<QueryPreviewInfo[]>(() => {
         const injectedQueriesPreview = inject<QueryPreviewInfo[] | { value: QueryPreviewInfo[] }>(
           'queriesPreviewInfo',
@@ -52,7 +53,7 @@
           : queryPreviewInfo.slice(0, props.maxPopularSearchesToRender);
       });
 
-      return { hasQueryPreviews, queriesPreviewToRender, x: use$x() };
+      return { hasQueryPreviews, queriesPreviewToRender, query };
     }
   });
 </script>

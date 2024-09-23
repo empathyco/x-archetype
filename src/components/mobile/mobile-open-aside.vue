@@ -17,13 +17,13 @@
 </template>
 
 <script lang="ts">
-  import { BaseIdModalOpen, FiltersIcon, use$x } from '@empathyco/x-components';
+  import { BaseIdModalOpen, FiltersIcon, useGetter } from '@empathyco/x-components';
   import { defineComponent } from 'vue';
 
   export default defineComponent({
     components: { BaseIdModalOpen, FiltersIcon },
     setup() {
-      const selectedFilters = use$x().selectedFilters;
+      const { selectedFilters } = useGetter('facets', ['selectedFilters']);
       return { selectedFilters };
     }
   });

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { DisplayWireMetadata, ResultFeature, use$x } from '@empathyco/x-components';
+  import { DisplayWireMetadata, ResultFeature, useAliasApi } from '@empathyco/x-components';
   import { computed, defineComponent, PropType, provide } from 'vue';
   import { TaggingRequest } from '@empathyco/x-types';
 
@@ -21,10 +21,10 @@
       }
     },
     setup(props, { slots }) {
-      const $x = use$x();
+      const aliasApi = useAliasApi();
 
       const displayClickMetadata = computed<Partial<DisplayWireMetadata>>(() => ({
-        displayOriginalQuery: $x.query.search,
+        displayOriginalQuery: aliasApi.query.search,
         feature: props.resultFeature,
         queryTagging: props.queryTagging
       }));

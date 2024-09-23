@@ -5,7 +5,7 @@
         v-if="isAnyQueryLoadedInPreview(queries)"
         class="x-title1 x-title1-md x-my-64 x-text-center"
       >
-        {{ $t('semanticQueries.title', { query: x.query.search }) }}
+        {{ $t('semanticQueries.title', { query: query.search }) }}
       </h1>
       <QueryPreviewList
         :queriesPreviewInfo="queries.map(q => ({ query: q }))"
@@ -41,7 +41,7 @@
 </template>
 
 <script lang="ts">
-  import { ArrowRightIcon, use$x } from '@empathyco/x-components';
+  import { ArrowRightIcon, useAliasApi } from '@empathyco/x-components';
   import { defineComponent } from 'vue';
   import { SemanticQueries, SemanticQuery } from '@empathyco/x-components/semantic-queries';
   import { QueryPreviewList, useQueriesPreview } from '@empathyco/x-components/queries-preview';
@@ -63,11 +63,12 @@
     setup() {
       const { isAnyQueryLoadedInPreview } = useQueriesPreview();
       const { getControlFromPath } = useExperienceControls();
+      const { query } = useAliasApi();
 
       return {
         isAnyQueryLoadedInPreview,
         resultsPerCarousel: getControlFromPath('semanticQueries.resultsPerCarousels'),
-        x: use$x()
+        query
       };
     }
   });

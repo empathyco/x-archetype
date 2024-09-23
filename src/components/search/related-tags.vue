@@ -1,6 +1,6 @@
 <template>
   <SlidingPanel
-    v-if="x.relatedTags.length"
+    v-if="relatedTags.length"
     class="x-sliding-panel-show-buttons-on-hover"
     buttonClass="x-button-lead x-button-circle x-button-ghost x-p-0"
     scrollContainerClass="desktop:x-sliding-panel-fade"
@@ -37,7 +37,7 @@
     SlidingPanel,
     StaggeredFadeAndSlide,
     CuratedCheckIcon,
-    use$x
+    useGetter
   } from '@empathyco/x-components';
   import { RelatedTags } from '@empathyco/x-components/related-tags';
   import { defineComponent } from 'vue';
@@ -57,10 +57,12 @@
     setup() {
       const relatedTagsAnimation = StaggeredFadeAndSlide;
       const { isTouchable } = useDevice();
+      const { relatedTags } = useGetter('relatedTags', ['relatedTags']);
+
       return {
         relatedTagsAnimation,
         isTouchable,
-        x: use$x()
+        relatedTags
       };
     }
   });
