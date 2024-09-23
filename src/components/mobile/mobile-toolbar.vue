@@ -1,17 +1,17 @@
 <template>
-  <div v-if="totalResults" class="x-flex x-flex-auto x-items-center">
+  <div v-if="x.totalResults" class="x-flex x-flex-auto x-items-center">
     <i18n-t class="x-text1 x-flex-auto" keypath="totalResults.message" tag="span">
       <template #totalResults>
-        {{ totalResults }}
+        {{ x.totalResults }}
       </template>
       <template #query>
         <span class="x-title3">
-          {{ spellcheckedQuery || query.search }}
+          {{ x.spellcheckedQuery || x.query.search }}
         </span>
       </template>
     </i18n-t>
 
-    <ColumnPicker v-if="totalResults" />
+    <ColumnPicker v-if="x.totalResults" />
   </div>
 </template>
 
@@ -25,11 +25,8 @@
       ColumnPicker
     },
     setup() {
-      const $x = use$x();
       return {
-        totalResults: $x.totalResults,
-        spellcheckedQuery: $x.spellcheckedQuery,
-        query: $x.query
+        x: use$x()
       };
     }
   });

@@ -11,7 +11,7 @@
       class="x-button-lead x-flex-auto x-rounded-full x-py-12"
       modalId="aside-modal"
     >
-      {{ $t('facetsPanel.viewResults', { totalResults }) }}
+      {{ $t('facetsPanel.viewResults', { totalResults: x.totalResults }) }}
     </BaseIdModalClose>
   </div>
 </template>
@@ -24,8 +24,9 @@
   export default defineComponent({
     components: { BaseIdModalClose, ClearFilters },
     setup() {
-      const totalResults = use$x().totalResults;
-      return { totalResults };
+      return {
+        x: use$x()
+      };
     }
   });
 </script>
