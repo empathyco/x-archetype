@@ -1,4 +1,4 @@
-import { Given } from 'cypress-cucumber-preprocessor/steps';
+import { Given } from '@badeball/cypress-cucumber-preprocessor';
 import ViewportPreset = Cypress.ViewportPreset;
 
 // Scenario 1
