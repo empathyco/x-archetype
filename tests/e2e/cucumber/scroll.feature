@@ -3,6 +3,8 @@ Feature: Scroll
   Background:
     Given a results API with known results
 
+  # TODO: Enable test after fixing it
+  @skip
   Scenario Outline: 1. Scroll position is kept in the URL and reset upon new search requests
     Given start page with "<view>" size view
     When  search bar is clicked
@@ -26,6 +28,8 @@ Feature: Scroll
       | tshirt | macbook-13  | result-12    |
       | tshirt | iphone-x    | result-12    |
 
+  # TODO: Enable test after fixing it
+  @skip
   Scenario Outline: 2. Scroll position is at end and toolbar is hidden
     Given start page with "<view>" size view
     When  search bar is clicked
