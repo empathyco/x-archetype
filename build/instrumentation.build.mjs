@@ -2,6 +2,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
+import * as fs from 'fs';
 import path from 'path';
 import copy from 'rollup-plugin-copy';
 import del from 'rollup-plugin-delete';
@@ -12,21 +13,22 @@ import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 import { visualizer } from 'rollup-plugin-visualizer';
 import vue3 from '@vitejs/plugin-vue';
-import * as fs from 'fs';
 
 /**
- * Creates a rollup configuration for projects that use X-Components. This configuration can be customized with the options object.
+ * Creates a rollup configuration for projects that use X-Components. This configuration can be
+ * customized with the options object.
  *
  * @param {boolean} extractCss - If true, the build will generate a `.css` and a `.js` file.
- * @param {string} outputCss - If `extractCss` is true, the build will generate a `.css` in this path.
- * @param {import('rollup').InputOptions} input - Overrides the entry file. Check http://rollupjs.org/guide/en/#input
- * @param {import('rollup').OutputOptions} output - Overrides the output settings. Check http://rollupjs.org/guide/en/#outputdir
- * @param {Record<string, Record<string, unknown>>} plugins - A dictionary that allows overriding specific plugin configurations.
+ * @param {import('rollup').InputOptions} input - Overrides the entry file. Check
+ *   http://rollupjs.org/guide/en/#input
+ * @param {import('rollup').OutputOptions} output - Overrides the output settings. Check
+ *   http://rollupjs.org/guide/en/#outputdir
+ * @param {Record<string, Record<string, unknown>>} plugins - A dictionary that allows overriding
+ *   specific plugin configurations.
  *
  * @returns {import('rollup').RollupOptions}
  */
 export function createConfig({
-  outputCss = './styles.css',
   input = path.join(process.cwd(), 'src/main.ts'),
   output,
   plugins = {},
@@ -74,9 +76,9 @@ export function createConfig({
       replace(
         mergeConfig('replace', {
           'process.env.NODE_ENV': JSON.stringify('production'),
-          'process.env.VUE_APP_DEVELOPMENT_DOCKER': process.env.VUE_APP_DEVELOPMENT_DOCKER
-            ? JSON.stringify(true)
-            : JSON.stringify(false),
+          'process.env.VUE_APP_DEVELOPMENT_DOCKER': JSON.stringify(
+            !!process.env.VUE_APP_DEVELOPMENT_DOCKER
+          ),
           STRIP_SSR_INJECTOR: true,
           preventAssignment: true
         })
@@ -90,8 +92,6 @@ export function createConfig({
       // Code transpiling plugins
       vue3(
         mergeConfig('vue3', {
-          css: false,
-          needMap: false,
           template: {
             compilerOptions: {
               whitespace: 'condense'
@@ -99,6 +99,7 @@ export function createConfig({
           }
         })
       ),
+      styles(mergeConfig('styles')),
       typescript(
         mergeConfig('typescript', {
           tsconfigOverride: {
@@ -107,28 +108,16 @@ export function createConfig({
         })
       ),
       json(),
-      styles(
-        mergeConfig('styles', {
-          mode: [
-            'inject',
-            (varname, id) =>
-              // For this to work on windows systems, the `id` which is a file path has to replace the backslashes with
-              // another symbol like forward slashes.
-              // eslint-disable-next-line max-len
-              `import {createInjector} from 'vue-runtime-helpers';const injector=createInjector({});injector('${id.replace(
-                /\\/g,
-                ''
-              )}',{source:${varname}})`
-          ]
-        })
-      ),
       htmlTemplate(
         mergeConfig('htmlTemplate', {
-          template: path.resolve(process.cwd(), 'public/index.html'),
+          template: path.resolve(process.cwd(), 'index.html'),
+          // Replace vars to make compatible the same `index.html` for dev Vite & build Rollup.
           replaceVars: {
-            '<%= htmlWebpackPlugin.options.__injectedHome__ %>': fs.readFileSync(
-              'node_modules/@empathyco/x-archetype-utils/dist/home/home-template.html'
-            )
+            '<script type="module" src="./src/main.ts"></script>': '',
+            '<load src="node_modules/@empathyco/x-archetype-utils/dist/home/home-template.html" />':
+              fs.readFileSync(
+                'node_modules/@empathyco/x-archetype-utils/dist/home/home-template.html'
+              )
           },
           attrs: ["type='module'"]
         })

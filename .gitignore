@@ -5,6 +5,7 @@ stats.html
 
 /tests/e2e/videos/
 /tests/e2e/screenshots/
+/cypress/downloads
 
 # local env files
 .env.local
