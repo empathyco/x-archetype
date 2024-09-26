@@ -1,7 +1,5 @@
 Feature: Predictive components
 
-  # TODO: Enable test after solving deprecated 'And'
-  @skip
   Scenario Outline: 1. Predictive components are displayed as expected
     Given start page with "<view>" size view
     When  search bar is clicked
@@ -21,8 +19,6 @@ Feature: Predictive components
       | dress  | macbook-13  |
       | dress  | iphone-x    |
 
-  # TODO: Enable test after solving deprecated 'And'
-  @skip
   Scenario Outline: 2. Related tags interaction
     Given start page with "<view>" size view
     When  search bar is clicked
@@ -40,8 +36,6 @@ Feature: Predictive components
       | tshirt   | 1               | macbook-13  |
       | tshirt   | 1               | iphone-x    |
 
-  # TODO: Enable test after solving deprecated 'And'
-  @skip
   Scenario Outline: 3. Clear a history query
     Given start page with "<view>" size view
     When  search bar is clicked
@@ -56,8 +50,6 @@ Feature: Predictive components
       | shirt, shoe, skirt | 0                | macbook-13  |
       | shirt, shoe, skirt | 0                | iphone-x    |
 
-  # TODO: Enable test after solving deprecated 'And'
-  @skip
   Scenario Outline: 4. Clear all history queries
     Given start page with "<view>" size view
     When  search bar is clicked
