@@ -8,17 +8,16 @@
 </template>
 
 <script lang="ts">
-  import { computed, defineComponent, inject } from 'vue';
+  import { Suggestion } from '@empathyco/x-types';
+  import { computed, ComputedRef, defineComponent, inject } from 'vue';
   import { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
-
-  import { XPlugin, use$x, useState } from '@empathyco/x-components';
+  import { use$x, useState } from '@empathyco/x-components';
   import { popularSearchesXModule } from '@empathyco/x-components/popular-searches';
   import CustomQueryPreview from './custom-query-preview.vue';
 
   export default defineComponent({
-    components: {
-      CustomQueryPreview
-    },
+    xModule: popularSearchesXModule.name,
+    components: { CustomQueryPreview },
     props: {
       maxPopularSearchesToRender: {
         type: Number,
@@ -26,8 +25,10 @@
       }
     },
     setup(props) {
-      XPlugin.registerXModule(popularSearchesXModule);
-      const { popularSearches } = useState('popularSearches', ['popularSearches']);
+      const popularSearches: ComputedRef<Suggestion[]> = useState('popularSearches', [
+        'popularSearches'
+      ]).popularSearches;
+
       const injectedQueriesPreviewInfo = computed<QueryPreviewInfo[]>(() => {
         const injectedQueriesPreview = inject<QueryPreviewInfo[] | { value: QueryPreviewInfo[] }>(
           'queriesPreviewInfo',
@@ -38,14 +39,11 @@
           : injectedQueriesPreview;
       });
 
-      const hasQueryPreviews = computed<boolean>(
-        () => injectedQueriesPreviewInfo.value.length !== 0
-      );
+      const hasQueryPreviews = computed(() => injectedQueriesPreviewInfo.value.length !== 0);
 
       const queriesPreviewToRender = computed<QueryPreviewInfo[]>(() => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        const queryPreviewInfo: QueryPreviewInfo[] = popularSearches.value.map((item: any) => ({
-          query: item.query
+        const queryPreviewInfo: QueryPreviewInfo[] = popularSearches.value.map(({ query }) => ({
+          query
         }));
         return hasQueryPreviews.value
           ? injectedQueriesPreviewInfo.value

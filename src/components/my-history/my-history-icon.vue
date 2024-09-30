@@ -1,10 +1,10 @@
-<!-- eslint-disable max-len -->
-<svg
-  :class="['x-icon-my-history'].concat(data.staticClass, data.class)"
-  fill="none"
-  viewBox="0 0 252 120"
-  xmlns="http://www.w3.org/2000/svg"
->
+<template>
+  <svg
+    class="x-icon-my-history"
+    fill="none"
+    viewBox="0 0 252 120"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <g clip-path="url(#pepa-on__a)">
       <circle cx="56" cy="58.5" r="44.5" fill="#EDBF3B" />
       <path
@@ -149,3 +149,4 @@
       </clipPath>
     </defs>
   </svg>
+</template>
