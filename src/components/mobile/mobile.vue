@@ -20,7 +20,7 @@
 
       <!-- Results -->
       <div class="x-flex x-flex-col">
-        <MobileSubHeader :has-searched="hasSearched" />
+        <MobileSubHeader :hasSearched="hasSearched" />
 
         <div v-if="x.query.search" class="x-layout-item">
           <LocationProvider location="results">
