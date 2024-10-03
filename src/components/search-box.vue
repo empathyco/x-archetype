@@ -8,14 +8,14 @@
     />
 
     <ClearSearchInput
-      v-if="isDesktopOrGreater && $x.query.searchBox"
+      v-if="isDesktopOrGreater && x.query.searchBox"
       class="x-input-group-button x-input-group-button-rectangle"
     >
       {{ $t('searchBox.clear') }}
     </ClearSearchInput>
 
     <SearchButton
-      v-if="isDesktopOrGreater || !$x.query.searchBox"
+      v-if="isDesktopOrGreater || !x.query.searchBox"
       class="x-input-group-button-primary"
     >
       <SearchIcon class="x-icon-md" />
@@ -29,7 +29,7 @@
 
 <script lang="ts">
   import { ClearSearchInput, SearchButton, SearchInput } from '@empathyco/x-components/search-box';
-  import { CrossTinyIcon, SearchIcon } from '@empathyco/x-components';
+  import { CrossTinyIcon, SearchIcon, use$x } from '@empathyco/x-components';
   import { defineComponent } from 'vue';
   import { useDevice } from '../composables/use-device.composable';
 
@@ -44,7 +44,8 @@
     setup() {
       const { isDesktopOrGreater } = useDevice();
       return {
-        isDesktopOrGreater
+        isDesktopOrGreater,
+        x: use$x()
       };
     }
   });

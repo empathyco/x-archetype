@@ -10,7 +10,7 @@
     </div>
     <div class="x-scroll x-flex-auto x-p-40 x-pr-24 x-pt-0">
       <Sort />
-      <CustomFacets v-if="$x.totalResults > 0" />
+      <CustomFacets v-if="x.totalResults > 0" />
     </div>
     <div class="x-flex x-gap-16 x-border-t x-border-neutral-90 x-p-40 x-pb-16 x-pt-24">
       <ClearFilters
@@ -24,14 +24,14 @@
         class="x-button-lead x-flex-auto x-rounded-full x-p-24 x-py-12"
         modalId="right-aside"
       >
-        {{ $t('facetsPanel.viewResults', { totalResults: $x.totalResults }) }}
+        {{ $t('facetsPanel.viewResults', { totalResults: x.totalResults }) }}
       </BaseIdModalClose>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-  import { BaseIdModalClose, CrossIcon } from '@empathyco/x-components';
+  import { BaseIdModalClose, CrossIcon, use$x } from '@empathyco/x-components';
   import { ClearFilters } from '@empathyco/x-components/facets';
   import { defineComponent } from 'vue';
   import CustomFacets from './facets/custom-facets.vue';
@@ -44,6 +44,9 @@
       BaseIdModalClose,
       CrossIcon,
       ClearFilters
+    },
+    setup() {
+      return { x: use$x() };
     }
   });
 </script>

@@ -1,7 +1,6 @@
-<template functional>
-  <!-- eslint-disable max-len -->
+<template>
   <svg
-    :class="['x-icon-no-history'].concat(data.staticClass, data.class)"
+    class="x-icon-no-history"
     fill="none"
     viewBox="0 0 504 279"
     xmlns="http://www.w3.org/2000/svg"
@@ -39,13 +38,9 @@
         y2="277.054"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFEBB3" />
+        <stop stop-color="#FFEBB3" offset="" />
         <stop offset="1" stop-color="#fff" stop-opacity="0" />
       </linearGradient>
     </defs>
   </svg>
 </template>
-
-<script lang="ts">
-  export default {};
-</script>

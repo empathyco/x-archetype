@@ -2,7 +2,7 @@
   <div class="x-flex-1">
     <BaseIdModalClose modalId="my-history-aside" #closing-element="{ closeModal }">
       <MyHistory
-        v-if="$x.isHistoryQueriesEnabled && $x.fullHistoryQueries.length"
+        v-if="x.isHistoryQueriesEnabled && x.fullHistoryQueries.length"
         :animation="animation"
         class="x-px-16 x-pb-32 desktop:x-pl-32"
         queriesListClass="x-gap-16"
@@ -56,7 +56,8 @@
     BaseIdModalClose,
     CrossTinyIcon,
     HistoryIcon,
-    StaggeredFadeAndSlide
+    StaggeredFadeAndSlide,
+    use$x
   } from '@empathyco/x-components';
   import { MyHistory, HistoryQuery } from '@empathyco/x-components/history-queries';
   import { defineComponent } from 'vue';
@@ -73,7 +74,8 @@
     },
     setup() {
       return {
-        animation: StaggeredFadeAndSlide
+        animation: StaggeredFadeAndSlide,
+        x: use$x()
       };
     }
   });

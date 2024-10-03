@@ -1,15 +1,8 @@
-<template functional>
-  <svg
-    width="142px"
-    height="19px"
-    viewBox="0 0 192 19"
-    version="1.1"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+<template>
+  <svg width="142px" height="19px" viewBox="0 0 192 19" xmlns="http://www.w3.org/2000/svg">
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
       <g id="Demo/CompanyLogo" transform="translate(-24.000000, -10.000000)" fill="#243C47">
         <g id="logo" transform="translate(24.000000, 10.000000)">
-          <!-- eslint-disable max-len-->
           <polygon
             id="Path"
             points="41.9446154 1.13421908e-05 41.9446154 19 40.1272103 19 40.1272103 3.80488451 33.0838072 16.5866581 32.1961928 16.5866581 25.1527897 3.88614181 25.1527897 19 23.3353846 19 23.3353846 0.00610563985 24.8958991 0.00610563985 32.6812175 14.0900275 40.3898522 0.00610563985"
@@ -60,7 +53,7 @@
   </svg>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
   svg {
     width: auto;
     max-width: 142px;

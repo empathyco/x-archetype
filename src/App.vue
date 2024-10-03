@@ -26,6 +26,7 @@
   import {
     computed,
     ComputedRef,
+    defineAsyncComponent,
     defineComponent,
     getCurrentInstance,
     inject,
@@ -46,12 +47,14 @@
       Tagging,
       UrlHandler,
       ExperienceControls,
-      MainModal: () => import('./components/custom-main-modal.vue').then(m => m.default)
+      MainModal: defineAsyncComponent(() =>
+        import('./components/custom-main-modal.vue').then(m => m.default)
+      )
     },
     setup() {
       const xBus = useXBus();
-      const $x = getCurrentInstance()!.proxy.$root;
-      const device = useDevice();
+      const appInstance = getCurrentInstance();
+      const { deviceName } = useDevice();
       const snippetConfig = inject<SnippetConfig>('snippetConfig')!;
       const isOpen = ref(false);
 
@@ -118,17 +121,12 @@
       );
 
       watch(
-        () => snippetConfig.uiLang as string,
-        uiLang => {
-          $x.$setLocale(uiLang);
-        }
+        () => snippetConfig.uiLang,
+        uiLang => appInstance?.appContext.config.globalProperties.$setLocale(uiLang ?? 'en')
       );
 
-      watch(
-        () => device.deviceName,
-        deviceName => {
-          $x.$setLocaleDevice(deviceName.value);
-        }
+      watch(deviceName, device =>
+        appInstance?.appContext.config.globalProperties.$setLocaleDevice(device)
       );
 
       const reloadSearch = (): void => {
@@ -152,13 +150,14 @@
 </script>
 
 <style scoped>
-  .x-modal::v-deep .x-modal__content {
+  .x-modal:deep(.x-modal__content) {
     width: 100%;
     height: 100%;
     background-color: white;
     overflow: auto;
   }
 </style>
+
 <style lang="scss">
   *:not(.x-keyboard-navigation *) {
     outline: none;

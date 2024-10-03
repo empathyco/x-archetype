@@ -1,7 +1,6 @@
-<template functional>
-  <!-- eslint-disable max-len -->
+<template>
   <svg
-    :class="['x-icon-my-history'].concat(data.staticClass, data.class)"
+    class="x-icon-my-history"
     fill="none"
     viewBox="0 0 252 120"
     xmlns="http://www.w3.org/2000/svg"
@@ -151,7 +150,3 @@
     </defs>
   </svg>
 </template>
-
-<script lang="ts">
-  export default {};
-</script>

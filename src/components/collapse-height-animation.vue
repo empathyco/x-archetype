@@ -33,12 +33,12 @@
       transition: visibility 0.35s;
       visibility: visible;
     }
+  }
 
-    &--is-collapsed {
-      grid-template-rows: 0fr;
-      & > * {
-        visibility: hidden;
-      }
+  .x-collapse-height--is-collapsed {
+    grid-template-rows: 0fr;
+    & > * {
+      visibility: hidden;
     }
   }
 </style>

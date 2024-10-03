@@ -1,4 +1,4 @@
-import { Given } from 'cypress-cucumber-preprocessor/steps';
+import { Given } from '@badeball/cypress-cucumber-preprocessor';
 const mockedApiUrl = 'https://api.staging.empathy.co';
 const searchEndpoint = `${mockedApiUrl}/search/v1/query/empathy/search*`;
 const trackEndpoint = `${mockedApiUrl}/tagging/v1/track/empathy`;

@@ -1,21 +1,33 @@
-import { defineConfig } from 'cypress'
+import { defineConfig } from 'cypress';
+import createBundler from '@bahmutov/cypress-esbuild-preprocessor';
+import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-preprocessor';
+import { createEsbuildPlugin } from '@badeball/cypress-cucumber-preprocessor/esbuild';
 
 export default defineConfig({
-  defaultCommandTimeout: 7000,
-  fixturesFolder: 'tests/e2e/fixtures',
-  screenshotsFolder: 'tests/e2e/screenshots',
-  screenshotOnRunFailure: false,
-  video: false,
-  retries: 1,
-  includeShadowDom: true,
   e2e: {
-    // We've imported your old cypress plugins here.
-    // You may want to clean this up later by importing these.
-    setupNodeEvents(on, config) {
-      return require('./tests/e2e/plugins/index.js')(on, config)
-    },
     baseUrl: 'http://localhost:8080',
+    defaultCommandTimeout: 7000,
+    requestTimeout: 7000,
+    viewportHeight: 1080,
+    viewportWidth: 1920,
     specPattern: 'tests/e2e/cucumber/**/*.feature',
     supportFile: 'tests/e2e/support/index.ts',
-  },
-})
+    fixturesFolder: 'tests/e2e/fixtures',
+    screenshotsFolder: 'tests/e2e/screenshots',
+    downloadsFolder: 'tests/e2e/downloads',
+    experimentalRunAllSpecs: true,
+    screenshotOnRunFailure: false,
+    video: false,
+    retries: 1,
+    // https://github.com/badeball/cypress-cucumber-preprocessor/blob/master/docs/quick-start.md
+    async setupNodeEvents(on, config) {
+      // This is required for the preprocessor to be able to generate JSON reports after each run, and more.
+      await addCucumberPreprocessorPlugin(on, config);
+
+      on('file:preprocessor', createBundler({ plugins: [createEsbuildPlugin(config)] }));
+
+      // Make sure to return the config object as it might have been modified by the plugin.
+      return config;
+    }
+  }
+});

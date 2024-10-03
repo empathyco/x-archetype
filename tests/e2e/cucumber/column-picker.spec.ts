@@ -1,4 +1,4 @@
-import { Then, When } from 'cypress-cucumber-preprocessor/steps';
+import { Then, When } from '@badeball/cypress-cucumber-preprocessor';
 
 Then('grid shows {int} results per row', (columns: number) => {
   cy.getByDataTest('base-grid').should('have.class', `x-base-grid--cols-${columns || 'auto'}`);

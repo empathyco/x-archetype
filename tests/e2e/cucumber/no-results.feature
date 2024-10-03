@@ -1,5 +1,5 @@
 Feature: No-results component
-
+  
   Scenario Outline: 1. No results message exists and contains the query
     Given start page with "<view>" size view
     When  search bar is clicked

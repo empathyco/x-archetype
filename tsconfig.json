@@ -13,10 +13,6 @@
     "sourceMap": true,
     "baseUrl": ".",
     "skipLibCheck": true,
-    "types": [
-      "webpack-env",
-      "jest"
-    ],
     "lib": [
       "esnext",
       "dom",
@@ -27,7 +23,8 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "vite.config.mts"
   ],
   "exclude": [
     "node_modules"

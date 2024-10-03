@@ -15,7 +15,7 @@
       >
         <template #default="{ filter }">
           <SimpleFilter
-            class="x-selected x-tag x-tag-auxiliary x-tag-outlined x-rounded-full"
+            :cssClasses="['x-selected x-tag x-tag-auxiliary x-tag-outlined x-rounded-full']"
             :filter="filter"
           >
             <template #label="{ filter }">
@@ -27,7 +27,7 @@
 
         <template #price="{ filter }">
           <NumberRangeFilter
-            class="x-selected x-tag x-tag-auxiliary x-tag-outlined x-rounded-full"
+            :cssClasses="['x-selected x-tag x-tag-auxiliary x-tag-outlined x-rounded-full']"
             :filter="filter"
           >
             <template #label="{ filter }">

@@ -23,17 +23,17 @@
                   <div
                     v-else-if="showEmpathize"
                     class="x-grid x-grid-cols-4 x-flex-row x-gap-4"
-                    :class="$x.query.searchBox ? 'x-gap-4' : 'x-gap-16'"
+                    :class="x.query.searchBox ? 'x-gap-4' : 'x-gap-16'"
                   >
                     <div class="x-col-span-4 x-grid x-grid-cols-4 x-gap-32">
                       <div v-if="showHistoryQueries" class="x-flex x-flex-col x-gap-4">
-                        <h1 v-if="!$x.query.searchBox" class="x-title4 x-title4-sm x-uppercase">
+                        <h1 v-if="!x.query.searchBox" class="x-title4 x-title4-sm x-uppercase">
                           {{ $t('historyQueries.title') }}
                         </h1>
 
                         <HistoryQueries
                           :animation="suggestionsAnimation"
-                          :max-items-to-render="$x.query.searchBox ? 2 : 4"
+                          :max-items-to-render="x.query.searchBox ? 2 : 4"
                           suggestionItemClass="x-w-full"
                           class="-x-mr-2 x-flex x-flex-col x-gap-4"
                         >
@@ -74,7 +74,7 @@
                         </HistoryQueries>
 
                         <ClearHistoryQueries
-                          v-if="!$x.query.searchBox"
+                          v-if="!x.query.searchBox"
                           class="x-button-neutral x-button-sm x-button-tight x-w-fit"
                         >
                           <TrashIcon v-if="isTabletOrLess" class="x-icon-lg" />
@@ -82,13 +82,13 @@
                         </ClearHistoryQueries>
 
                         <PredictiveQuerySuggestions
-                          v-if="$x.query.searchBox && showQuerySuggestions"
+                          v-if="x.query.searchBox && showQuerySuggestions"
                           :animation="suggestionsAnimation"
                         />
                       </div>
 
                       <PredictiveQuerySuggestions
-                        v-if="(!$x.query.searchBox || !showHistoryQueries) && showQuerySuggestions"
+                        v-if="(!x.query.searchBox || !showHistoryQueries) && showQuerySuggestions"
                         :animation="suggestionsAnimation"
                       />
 
@@ -99,12 +99,12 @@
 
                       <PredictiveNextQueries
                         v-if="showNextQueries"
-                        :class="{ 'x-pt-8': $x.query.searchBox && isDesktopOrGreater }"
+                        :class="{ 'x-pt-8': x.query.searchBox && isDesktopOrGreater }"
                         :animation="suggestionsAnimation"
                       />
 
                       <BaseIdModalOpen
-                        v-if="isDesktopOrGreater && !$x.query.searchBox"
+                        v-if="isDesktopOrGreater && !x.query.searchBox"
                         modalId="my-history-aside"
                         class="x-button-neutral x-button-sm x-button-tight x-col-start-[-1] x-self-start"
                         data-test="my-history-button"
@@ -115,13 +115,13 @@
                     </div>
 
                     <SlidingRecommendations
-                      v-if="isDesktopOrGreater && !$x.query.searchBox"
+                      v-if="isDesktopOrGreater && !x.query.searchBox"
                       class="x-col-span-4 x-pt-16"
                     />
                   </div>
                 </BaseKeyboardNavigation>
               </div>
-              <SlidingRecommendations v-if="isTabletOrLess && !$x.query.searchBox" />
+              <SlidingRecommendations v-if="isTabletOrLess && !x.query.searchBox" />
             </div>
           </div>
         </DesktopSearchboxAlign>
@@ -150,7 +150,8 @@
     SettingsIcon,
     StaggeredFadeAndSlide,
     TrashIcon,
-    animateScale
+    animateScale,
+    use$x
   } from '@empathyco/x-components';
   import { Empathize } from '@empathyco/x-components/empathize';
   import {
@@ -248,7 +249,8 @@
         showQuerySuggestions,
         showNextQueries,
         showPopularSearches,
-        showEmpathize
+        showEmpathize,
+        x: use$x()
       };
     }
   });

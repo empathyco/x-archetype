@@ -4,11 +4,11 @@
       <span class="x-title3">
         {{ $t('sort.label') }}
       </span>
-      <span>{{ $t(`sort.values.${$x.selectedSort || 'default'}`) }}</span>
+      <span>{{ $t(`sort.values.${x.selectedSort || 'default'}`) }}</span>
     </template>
     <template #default>
       <SortPickerList
-        v-if="$x.totalResults"
+        v-if="x.totalResults"
         class="x-flex x-flex-col x-gap-8 x-pb-24"
         :items="sortValues"
         buttonClass="x-facet-filter x-facet-filter-lg"
@@ -29,7 +29,8 @@
   import {
     RadioButtonSelectedIcon,
     RadioButtonUnselectedIcon,
-    animateScale
+    animateScale,
+    use$x
   } from '@empathyco/x-components';
   import { defineComponent } from 'vue';
   import CustomHeaderTogglePanel from '../custom-header-toggle-panel.vue';
@@ -46,7 +47,8 @@
       const sortValues: Sort[] = ['', 'price asc', 'price desc'];
       return {
         animation,
-        sortValues
+        sortValues,
+        x: use$x()
       };
     }
   });

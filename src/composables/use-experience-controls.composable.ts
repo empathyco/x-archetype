@@ -1,7 +1,6 @@
 import { computed, ComputedRef } from 'vue';
 import { getSafePropertyChain } from '@empathyco/x-utils';
-import { ExperienceControlsState } from '@empathyco/x-components/experience-controls';
-import { useStore } from './use-store.composable';
+import { useState } from '@empathyco/x-components';
 
 /**
  * Given a controls' object property chain, gets the experience controls values from the response.
@@ -13,14 +12,14 @@ import { useStore } from './use-store.composable';
 export const useExperienceControls = (): {
   getControlFromPath: <SomeType>(path: string, defaultValue?: SomeType) => ComputedRef<SomeType>;
 } => {
-  const experienceControls = (useStore('experienceControls') as ExperienceControlsState).controls;
+  const experienceControls = useState('experienceControls', ['controls']).controls;
 
   const getControlFromPath = <SomeType>(
     path: string,
     defaultValue?: SomeType
   ): ComputedRef<SomeType> => {
     return computed(() => {
-      return getSafePropertyChain(experienceControls, path, defaultValue) as SomeType;
+      return getSafePropertyChain(experienceControls.value, path, defaultValue) as SomeType;
     });
   };
 

@@ -1,6 +1,15 @@
 {
   "extends": ["plugin:@empathyco/x/all"],
   "rules": {
-    "vuejs-accessibility/no-autofocus": "off"
-  }
+    "vuejs-accessibility/no-autofocus": "off",
+    "vue/multi-word-component-names": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*-icon*.vue", "logo.vue"],
+      "rules": {
+        "max-len": "off"
+      }
+    }
+  ]
 }

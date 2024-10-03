@@ -54,7 +54,7 @@
 <script lang="ts">
   import { animateTranslate, BaseIdModal, LocationProvider } from '@empathyco/x-components';
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
-  import { defineComponent } from 'vue';
+  import { defineAsyncComponent, defineComponent } from 'vue';
   import Main from '../main.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import MyHistoryAside from '../my-history/my-history-aside.vue';
@@ -77,10 +77,16 @@
       Scroll,
       ScrollToTop,
       PreSearchManager,
-      DesktopAside: () => import('../search').then(m => m.DesktopAside),
-      NoResultsMessage: () => import('../search').then(m => m.NoResultsMessage),
-      SpellcheckMessage: () => import('../search').then(m => m.SpellcheckMessage),
-      FallbackDisclaimerMessage: () => import('../search').then(m => m.FallbackDisclaimerMessage)
+      DesktopAside: defineAsyncComponent(() => import('../search').then(m => m.DesktopAside)),
+      NoResultsMessage: defineAsyncComponent(() =>
+        import('../search').then(m => m.NoResultsMessage)
+      ),
+      SpellcheckMessage: defineAsyncComponent(() =>
+        import('../search').then(m => m.SpellcheckMessage)
+      ),
+      FallbackDisclaimerMessage: defineAsyncComponent(() =>
+        import('../search').then(m => m.FallbackDisclaimerMessage)
+      )
     },
     setup() {
       const rightAsideAnimation = animateTranslate('right');

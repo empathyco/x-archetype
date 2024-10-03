@@ -1,9 +1,9 @@
 import { filter, InstallXOptions, SnippetConfig } from '@empathyco/x-components';
-import { I18n, cssInjector } from '@empathyco/x-archetype-utils';
+import { cssInjector, I18n } from '@empathyco/x-archetype-utils';
 import { setSearchQuery } from '@empathyco/x-components/search';
 import { addQueryToHistoryQueries } from '@empathyco/x-components/history-queries';
 import { setUrlQuery } from '@empathyco/x-components/url';
-import App from '../App.vue';
+import { default as AppComponent } from '../App.vue';
 import * as messages from '../i18n/messages';
 import store from '../store';
 import { adapter } from '../adapter/adapter';
@@ -54,7 +54,7 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
   return {
     adapter,
     store,
-    app: App,
+    rootComponent: AppComponent,
     domElement: getDomElement,
     xModules: {
       facets: {
@@ -95,16 +95,17 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
         }
       }
     },
-    async installExtraPlugins({ vue, snippet }) {
+    async installExtraPlugins({ app, snippet }) {
       const i18n = await I18n.create({
         locale: snippet.uiLang,
         device: (snippet.device as string) ?? device.deviceName.value,
         fallbackLocale: 'en',
         messages
       });
-      vue.use(i18n);
-      vue.prototype.$setLocale = i18n.setLocale.bind(i18n);
-      vue.prototype.$setLocaleDevice = i18n.setDevice.bind(i18n);
+
+      app.use(i18n);
+      app.config.globalProperties.$setLocale = i18n.setLocale.bind(i18n);
+      app.config.globalProperties.$setLocaleDevice = i18n.setDevice.bind(i18n);
 
       return {
         i18n: i18n.vueI18n

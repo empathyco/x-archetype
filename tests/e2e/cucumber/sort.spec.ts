@@ -1,4 +1,4 @@
-import { Then, When } from 'cypress-cucumber-preprocessor/steps';
+import { Then, When } from '@badeball/cypress-cucumber-preprocessor';
 
 Then('results are ordered by {string}', (sortOrder: string) => {
   cy.getByDataTest('toggle-panel-header').should('contain', sortOrder);

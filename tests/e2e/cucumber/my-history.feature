@@ -1,5 +1,5 @@
 Feature: My History component
-
+  
   Scenario Outline: 1. Click on a history query closes the modal and searches that query
     Given start page with "<view>" size view
     When  search bar is clicked

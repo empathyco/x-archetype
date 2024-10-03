@@ -11,17 +11,20 @@
       class="x-button-lead x-flex-auto x-rounded-full x-py-12"
       modalId="aside-modal"
     >
-      {{ $t('facetsPanel.viewResults', { totalResults: $x.totalResults }) }}
+      {{ $t('facetsPanel.viewResults', { totalResults: x.totalResults }) }}
     </BaseIdModalClose>
   </div>
 </template>
 
 <script lang="ts">
-  import { BaseIdModalClose } from '@empathyco/x-components';
+  import { BaseIdModalClose, use$x } from '@empathyco/x-components';
   import { ClearFilters } from '@empathyco/x-components/facets';
   import { defineComponent } from 'vue';
 
   export default defineComponent({
-    components: { BaseIdModalClose, ClearFilters }
+    components: { BaseIdModalClose, ClearFilters },
+    setup() {
+      return { x: use$x() };
+    }
   });
 </script>

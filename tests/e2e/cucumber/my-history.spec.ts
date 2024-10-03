@@ -1,18 +1,18 @@
-import { And, Then } from 'cypress-cucumber-preprocessor/steps';
+import { Then, When } from '@badeball/cypress-cucumber-preprocessor';
 
-And('my history button is clicked', () => {
+When('my history button is clicked', () => {
   cy.getByDataTest('my-history-button').click();
 });
 
-And('my history queries are displayed', () => {
+Then('my history queries are displayed', () => {
   cy.getByDataTest('my-history-query').should('have.length.at.least', 1);
 });
 
-And('my history query number {int} is clicked', (position: number) => {
+When('my history query number {int} is clicked', (position: number) => {
   cy.getByDataTest('my-history-query').eq(position).getByDataTest('history-query').click();
 });
 
-And('my history query number {int} delete button is clicked', (position: number) => {
+When('my history query number {int} delete button is clicked', (position: number) => {
   cy.getByDataTest('my-history-query')
     .eq(position)
     .getByDataTest('remove-history-query')

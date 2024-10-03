@@ -1,18 +1,10 @@
-<template>
-  <NoElement>
-    <slot />
-  </NoElement>
-</template>
-
 <script lang="ts">
-  import { DisplayWireMetadata, NoElement, ResultFeature, use$x } from '@empathyco/x-components';
+  import { DisplayWireMetadata, ResultFeature, use$x } from '@empathyco/x-components';
   import { computed, defineComponent, PropType, provide } from 'vue';
   import { TaggingRequest } from '@empathyco/x-types';
 
   export default defineComponent({
-    components: {
-      NoElement
-    },
+    name: 'DisplayClickProvider',
     props: {
       resultFeature: {
         type: String as PropType<ResultFeature>,
@@ -28,7 +20,7 @@
         default: undefined
       }
     },
-    setup(props) {
+    setup(props, { slots }) {
       const $x = use$x();
 
       const displayClickMetadata = computed<Partial<DisplayWireMetadata>>(() => ({
@@ -46,6 +38,8 @@
           }
         })
       });
+
+      return () => slots.default?.()[0] ?? '';
     }
   });
 </script>

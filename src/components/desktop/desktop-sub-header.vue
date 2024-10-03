@@ -4,7 +4,7 @@
       <DesktopSearchboxAlign>
         <div class="x-layout-item" :class="{ 'x-grid x-grid-cols-6': !isFullPredictive }">
           <LocationProvider location="predictive_layer">
-            <RelatedTags v-if="$x.relatedTags.length > 0" class="x-pb-24" />
+            <RelatedTags v-if="x.relatedTags.length > 0" class="x-pb-24" />
           </LocationProvider>
         </div>
       </DesktopSearchboxAlign>
@@ -12,7 +12,7 @@
       <div v-if="hasSearched">
         <DesktopToolbar />
       </div>
-      <div v-if="$x.totalResults > 0 && hasSearched && $x.selectedFilters.length">
+      <div v-if="x.totalResults > 0 && hasSearched && x.selectedFilters.length">
         <SelectedFilters class="x-py-16" />
       </div>
     </MaxDesktopWidthItem>
@@ -20,8 +20,8 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
-  import { LocationProvider } from '@empathyco/x-components';
+  import { defineComponent, defineAsyncComponent } from 'vue';
+  import { LocationProvider, use$x } from '@empathyco/x-components';
   import RelatedTags from '../search/related-tags.vue';
   import CollapseHeightAnimation from '../collapse-height-animation.vue';
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
@@ -38,7 +38,7 @@
       CollapseHeightAnimation,
       DesktopToolbar,
       DesktopSearchboxAlign,
-      SelectedFilters: () => import('../search').then(m => m.SelectedFilters)
+      SelectedFilters: defineAsyncComponent(() => import('../search').then(m => m.SelectedFilters))
     },
     props: {
       hasSearched: {
@@ -50,7 +50,7 @@
     },
     setup() {
       const { hasScrolledPastThreshold } = useHasScrollPastThreshold();
-      return { hasScrolledPastThreshold };
+      return { hasScrolledPastThreshold, x: use$x() };
     }
   });
 </script>

@@ -1,4 +1,4 @@
-import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps';
+import { Given, Then, When } from '@badeball/cypress-cucumber-preprocessor';
 import ViewportPreset = Cypress.ViewportPreset;
 
 Given('start page with {string} size view', (view: ViewportPreset) => {
