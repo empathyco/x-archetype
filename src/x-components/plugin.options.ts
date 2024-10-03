@@ -102,7 +102,7 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
         fallbackLocale: 'en',
         messages
       });
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+
       app.use(i18n);
       app.config.globalProperties.$setLocale = i18n.setLocale.bind(i18n);
       app.config.globalProperties.$setLocaleDevice = i18n.setDevice.bind(i18n);

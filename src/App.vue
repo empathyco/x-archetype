@@ -54,7 +54,7 @@
     setup() {
       const xBus = useXBus();
       const appInstance = getCurrentInstance();
-      const device = useDevice();
+      const { deviceName } = useDevice();
       const snippetConfig = inject<SnippetConfig>('snippetConfig')!;
       const isOpen = ref(false);
 
@@ -121,19 +121,12 @@
       );
 
       watch(
-        () => snippetConfig.uiLang as string,
-        uiLang => {
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-          appInstance?.appContext.config.globalProperties.$setLocale(uiLang);
-        }
+        () => snippetConfig.uiLang,
+        uiLang => appInstance?.appContext.config.globalProperties.$setLocale(uiLang ?? 'en')
       );
 
-      watch(
-        () => device.deviceName,
-        deviceName => {
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-          appInstance?.appContext.config.globalProperties.$setLocaleDevice(deviceName.value);
-        }
+      watch(deviceName, device =>
+        appInstance?.appContext.config.globalProperties.$setLocaleDevice(device)
       );
 
       const reloadSearch = (): void => {
@@ -164,6 +157,7 @@
     overflow: auto;
   }
 </style>
+
 <style lang="scss">
   *:not(.x-keyboard-navigation *) {
     outline: none;

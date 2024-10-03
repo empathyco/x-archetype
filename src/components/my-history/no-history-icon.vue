@@ -1,10 +1,10 @@
-<!-- eslint-disable max-len -->
-<svg
-  :class="['x-icon-no-history'].concat(data.staticClass, data.class)"
-  fill="none"
-  viewBox="0 0 504 279"
-  xmlns="http://www.w3.org/2000/svg"
->
+<template>
+  <svg
+    class="x-icon-no-history"
+    fill="none"
+    viewBox="0 0 504 279"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
       fill="#80C0A1"
       fill-rule="evenodd"
@@ -38,8 +38,9 @@
         y2="277.054"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFEBB3" />
+        <stop stop-color="#FFEBB3" offset="" />
         <stop offset="1" stop-color="#fff" stop-opacity="0" />
       </linearGradient>
     </defs>
   </svg>
+</template>

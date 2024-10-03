@@ -18,7 +18,7 @@
 
 <script lang="ts">
   import { FeatureLocation, LocationProvider, use$x } from '@empathyco/x-components';
-  import { ComputedRef, computed, defineAsyncComponent, defineComponent } from 'vue';
+  import { computed, defineAsyncComponent, defineComponent } from 'vue';
   import { useHasSearched } from '../composables/use-has-searched.composable';
   import CustomRecommendations from './results/custom-recommendations.vue';
   import CustomSemanticQueries from './search/custom-semantic-queries.vue';
@@ -34,14 +34,16 @@
     },
     setup() {
       const { hasSearched } = useHasSearched();
-      const $x = use$x();
-      const semanticsLocation: ComputedRef<FeatureLocation> = computed(() =>
-        $x.results.length > 0 ? 'low_results' : 'no_results'
+      const x = use$x();
+
+      const semanticsLocation = computed<FeatureLocation>(() =>
+        x.results.length > 0 ? 'low_results' : 'no_results'
       );
-      const showRecommendations: ComputedRef<boolean> = computed(
-        () => $x.noResults && !$x.partialResults.length && !$x.semanticQueries.length
+      const showRecommendations = computed(
+        () => x.noResults && !x.partialResults.length && !x.semanticQueries.length
       );
-      return { hasSearched, semanticsLocation, showRecommendations, x: use$x() };
+
+      return { hasSearched, semanticsLocation, showRecommendations, x };
     }
   });
 </script>
