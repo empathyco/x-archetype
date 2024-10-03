@@ -1,14 +1,14 @@
-import { And, Then, When } from 'cypress-cucumber-preprocessor/steps';
+import { Then, When } from '@badeball/cypress-cucumber-preprocessor';
 
-And('recommendations are displayed', () => {
+Then('recommendations are displayed', () => {
   cy.getByDataTest('recommendation-item').should('have.length.at.least', 1);
 });
 
-And('search input is focused', () => {
+Then('search input is focused', () => {
   cy.getByDataTest('search-input').should('be.focused');
 });
 
-And('popular searches are displayed', () => {
+Then('popular searches are displayed', () => {
   cy.getByDataTest('popular-search').should('have.length.at.least', 1);
 });
 
@@ -83,7 +83,7 @@ Then(
 );
 
 // Scenario 4
-And('an empty search-box', () => {
+When('an empty search-box', () => {
   cy.clearSearchInput();
 });
 

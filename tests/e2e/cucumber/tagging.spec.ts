@@ -1,4 +1,4 @@
-import { Then, When } from 'cypress-cucumber-preprocessor/steps';
+import { Then, When } from '@badeball/cypress-cucumber-preprocessor';
 
 When('scrolls down to next page', () => {
   cy.getByDataTest('result-link').last().scrollIntoView({ easing: 'linear', duration: 2000 });
