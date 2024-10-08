@@ -7,7 +7,7 @@
     <component :is="isDesktopOrGreater ? 'div' : 'BaseScroll'" class="x-h-full desktop:x-ml-16">
       <div
         v-if="showEmpathize || showIdentifierResults"
-        class="x-layout-item x-bg-neutral-0 x-pb-16 desktop:x-block desktop:x-pt-16"
+        class="x-layout-item x-bg-neutral-0 x-pb-16 desktop:x-block desktop:x-pl-16 desktop:x-pt-16"
         :class="{ 'x-mb-40 x-border-b x-border-neutral-10': !x.query.search && isTabletOrLess }"
       >
         <BaseKeyboardNavigation
