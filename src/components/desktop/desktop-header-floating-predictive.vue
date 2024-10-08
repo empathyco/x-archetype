@@ -7,7 +7,7 @@
         <div class="x-relative">
           <SearchBox />
           <LocationProvider location="predictive_layer">
-            <PredictiveLayer class="x-absolute x-shadow-lg desktop:x-py-16 desktop:x-pl-16" />
+            <PredictiveLayer class="x-absolute x-shadow-lg desktop:x-pl-16" />
           </LocationProvider>
         </div>
       </div>
