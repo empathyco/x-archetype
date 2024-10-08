@@ -45,10 +45,10 @@
         </MainScroll>
 
         <div class="x-layout-item x-layout-overlap x-pointer-events-none">
-          <div class="x-mb-32 x-grid x-grid-cols-12 x-gap-24">
+          <div class="x-mb-32 x-grid x-min-h-48 x-grid-cols-12 x-items-center x-gap-24">
             <MobileOpenAside
               v-if="x.totalResults > 0"
-              class="x-pointer-events-auto x-col-span-8 x-col-start-3 tablet:x-col-span-4 tablet:x-col-start-5"
+              class="x-pointer-events-auto x-col-span-8 x-col-start-3 x-max-h-[40px] tablet:x-col-span-4 tablet:x-col-start-5"
             />
             <ScrollToTop class="x-button-lg x-pointer-events-auto x-col-start-11" />
           </div>
