@@ -4,12 +4,12 @@
       @EmpathizeOpened="handleEmpathizeEvent('EmpathizeOpened')"
       @EmpathizeClosed="handleEmpathizeEvent('EmpathizeClosed')"
       :animation="empathizeAnimation"
-      class="x-layout-item x-absolute x-z-[1] x-w-full x-bg-neutral-0 x-py-4"
+      class="x-layout-item x-absolute x-z-[1] x-w-full x-bg-neutral-0"
     >
       <MaxDesktopWidthItem>
         <DesktopSearchboxAlign>
           <div class="x-layout-item">
-            <div v-if="showEmpathize || showIdentifierResults" class="x-h-full x-py-12 x-pl-[17px]">
+            <div v-if="showEmpathize || showIdentifierResults" class="x-h-full x-py-16 x-pl-[17px]">
               <div class="x-block">
                 <BaseKeyboardNavigation
                   class="x-flex x-items-start x-gap-24"
@@ -128,7 +128,7 @@
       </MaxDesktopWidthItem>
     </Empathize>
 
-    <div class="x-opacity-30">
+    <div v-if="showEmpathize" class="x-opacity-30">
       <Fade tag="div">
         <div
           v-if="showOverlay"

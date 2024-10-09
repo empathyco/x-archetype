@@ -1,13 +1,19 @@
 <template>
   <Empathize
     :animation="empathizeAnimation"
-    class="x-bg-neutral-0 desktop:x-z-[1] desktop:x-w-full"
+    class="desktop:x-z-[1] desktop:x-w-full"
+    :class="{ 'x-bg-neutral-0': !x.query.search || isDesktopOrGreater }"
   >
     <component
       :is="isDesktopOrGreater ? 'div' : 'BaseScroll'"
-      class="x-h-full desktop:x-my-16 desktop:x-ml-16"
+      class="x-h-full desktop:x-ml-16"
+      :class="{ 'x-bg-neutral-0': showEmpathize }"
     >
-      <div v-if="showEmpathize || showIdentifierResults" class="x-layout-item desktop:x-block">
+      <div
+        v-if="showEmpathize || showIdentifierResults"
+        class="x-layout-item x-pb-16 desktop:x-block desktop:x-pl-16 desktop:x-pt-16"
+        :class="{ 'x-mb-40 x-border-b x-border-neutral-10': !x.query.search && isTabletOrLess }"
+      >
         <BaseKeyboardNavigation
           class="x-flex x-flex-col desktop:x-grid desktop:x-grid-cols-12 desktop:x-items-start desktop:x-gap-24"
           :navigationHijacker="navigationHijacker"
