@@ -16,8 +16,8 @@ Feature: Predictive components
     Then  history queries are displayed
     Examples:
       | query  | view        |
-      | dress  | macbook-13  |
-      | dress  | iphone-x    |
+      | skirt  | macbook-13  |
+      | skirt  | iphone-x    |
 
   Scenario Outline: 2. Related tags interaction
     Given start page with "<view>" size view
