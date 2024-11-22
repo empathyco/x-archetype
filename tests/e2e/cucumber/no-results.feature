@@ -6,7 +6,7 @@ Feature: No-results component
     And   "<query>" is searched
     Then  no results message is displayed
     And   recommendations are displayed
-    And   there are no results
+    Then   there are no results
     Examples:
       | query    | view        |
       | asdfgh   | macbook-13  |
