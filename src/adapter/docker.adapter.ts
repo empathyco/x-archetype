@@ -68,6 +68,7 @@ function resolveEmpathyEndpoint(endpoint: DockerEndpoints, context: Record<strin
     recommendations: `http://${endpointHost}/query/${endpointInstance}/topclicked`,
     nextQueries: `https://api.empathy.co/nextqueries/${endpointInstance}`,
     querySuggestions: `http://${endpointHost}/query/${endpointInstance}/empathize`,
+    relatedPrompts: `https://api.empathy.co/relatedPrompts/${endpointInstance}`,
     relatedTags: `https://api.empathy.co/relatedtags/${endpointInstance}`,
     identifierResults: `http://${endpointHost}/query/${endpointInstance}/skusearch`,
     semanticQueries: `http://${endpointHost}/semantics-api/search_single/${endpointInstance}`,

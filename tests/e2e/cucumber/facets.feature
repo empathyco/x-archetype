@@ -34,8 +34,8 @@ Feature: Facets component
     Then  filter <filterNumber> from facet "<facetName>" is selected is false
     Examples:
       | query | filterNumber | facetName | view        |
-      | shirt | 1            | brand     | macbook-13  |
-      | shirt | 1            | brand     | iphone-x    |
+      | shirt | 1            | gender     | macbook-13  |
+      | shirt | 1            | gender     | iphone-x    |
 
   Scenario Outline: 3. Multiple filters from the same facet can be selected
     Given start page with "<view>" size view
@@ -52,9 +52,11 @@ Feature: Facets component
     And   filter <filterNumber2> from facet "<facetName>" is selected is true
     Examples:
       | query | filterNumber | facetName | filterNumber2 | view        |
-      | shirt | 2            | brand     | 1             | macbook-13  |
-      | shirt | 2            | brand     | 1             | iphone-x    |
+      | shirt | 0            | gender     | 1             | macbook-13  |
+      | shirt | 0            | gender     | 1             | iphone-x    |
 
+  @skip
+  # TODO: Resume once the response returns multiple facets
   Scenario Outline: 4. Multiple filters from different facets can be selected
     Given start page with "<view>" size view
     When  search bar is clicked
@@ -74,7 +76,7 @@ Feature: Facets component
       | shirt | 2            | brand     | 1             | fit     | macbook-13  |
       | shirt | 2            | brand     | 1             | fit     | iphone-x    |
 
-    @skip
+  @skip
   # TODO: Resume once the response returns hierarchical filters
   Scenario Outline: 5. Hierarchical filters selection
     Given start page with "<view>" size view

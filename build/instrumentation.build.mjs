@@ -70,7 +70,7 @@ export function createConfig({
         })
       ),
       copy({
-        targets: [{ src: ['public/**', '!public/index.html'], dest: `${mergedOutput.dir}` }]
+        targets: [{ src: ['public/**'], dest: `${mergedOutput.dir}` }]
       }),
       // Resolving plugins
       replace(
