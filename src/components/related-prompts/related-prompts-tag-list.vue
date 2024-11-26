@@ -22,6 +22,7 @@
           isSelected(index) ? 'x-w-full' : 'x-w-[204px] desktop:x-w-[303px]',
           shouldHideButton(index) ? 'x-hidden' : ''
         ]"
+        data-test="related-prompt-item"
       >
         <div
           class="x-flex x-flex-row x-items-start x-justify-between x-gap-12 x-px-16 x-pt-8 x-transition-all x-duration-500"
