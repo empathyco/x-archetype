@@ -123,9 +123,12 @@
       "viewResults": "Ver todos los resultados"
     },
     "redirections": {
-     "title": "Tu búsqueda coincide con una página especial de nuestra web, vas a ser redirigido a:",
+      "title": "Tu búsqueda coincide con una página especial de nuestra web, vas a ser redirigido a:",
       "accept": "Sí, redirígeme",
       "reject": "No, me quedaré aquí"
+    },
+    "relatedPrompts": {
+      "title": "¿Estás interesado en \"{query}\"? Explora estas sugerencias:"
     }
   },
   "mobile": {

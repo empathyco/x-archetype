@@ -9,7 +9,11 @@
             <LocationProvider location="results">
               <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
             </LocationProvider>
-            <NoResultsMessage class="x-mb-16" data-test="no-results-message" />
+            <NoResultsMessage
+              v-if="showNoResultsMessage"
+              class="x-mb-16"
+              data-test="no-results-message"
+            />
             <FallbackDisclaimerMessage class="x-mb-16" />
           </div>
 
@@ -52,9 +56,14 @@
 </template>
 
 <script lang="ts">
-  import { animateTranslate, BaseIdModal, LocationProvider } from '@empathyco/x-components';
+  import {
+    animateTranslate,
+    BaseIdModal,
+    LocationProvider,
+    useState
+  } from '@empathyco/x-components';
   import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
-  import { defineAsyncComponent, defineComponent } from 'vue';
+  import { computed, defineAsyncComponent, defineComponent } from 'vue';
   import Main from '../main.vue';
   import ScrollToTop from '../scroll-to-top.vue';
   import MyHistoryAside from '../my-history/my-history-aside.vue';
@@ -91,7 +100,15 @@
     setup() {
       const rightAsideAnimation = animateTranslate('right');
       const { hasSearched } = useHasSearched();
-      return { rightAsideAnimation, hasSearched };
+      const { relatedPrompts } = useState('relatedPrompts', ['relatedPrompts']);
+
+      const showNoResultsMessage = computed(() => !relatedPrompts.value?.length);
+
+      return {
+        hasSearched,
+        rightAsideAnimation,
+        showNoResultsMessage
+      };
     }
   });
 </script>
