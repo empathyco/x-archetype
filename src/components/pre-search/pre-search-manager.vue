@@ -3,16 +3,17 @@
     <h1 v-if="!hasQueryPreviews" class="x-title1 max-desktop:x-title1-sm max-desktop:x-px-16">
       {{ $t('popularSearches.title') }}
     </h1>
-    <CustomQueryPreview :queriesPreviewInfo="queriesPreviewToRender" />
+    <CustomQueryPreview :queries-preview-info="queriesPreviewToRender" />
   </div>
 </template>
 
 <script lang="ts">
-  import { Suggestion } from '@empathyco/x-types';
-  import { computed, ComputedRef, defineComponent, inject } from 'vue';
-  import { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
+  import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview';
+  import type { Suggestion } from '@empathyco/x-types';
+  import type { ComputedRef} from 'vue';
   import { use$x, useState } from '@empathyco/x-components';
   import { popularSearchesXModule } from '@empathyco/x-components/popular-searches';
+import { computed, defineComponent, inject } from 'vue';
   import CustomQueryPreview from './custom-query-preview.vue';
 
   export default defineComponent({

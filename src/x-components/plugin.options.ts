@@ -1,13 +1,14 @@
-import { filter, InstallXOptions, SnippetConfig } from '@empathyco/x-components';
+import type { InstallXOptions, SnippetConfig } from '@empathyco/x-components';
 import { cssInjector, I18n } from '@empathyco/x-archetype-utils';
-import { setSearchQuery } from '@empathyco/x-components/search';
+import { filter } from '@empathyco/x-components';
 import { addQueryToHistoryQueries } from '@empathyco/x-components/history-queries';
+import { setSearchQuery } from '@empathyco/x-components/search';
 import { setUrlQuery } from '@empathyco/x-components/url';
+import { adapter } from '../adapter/adapter';
 import { default as AppComponent } from '../App.vue';
+import { useDevice } from '../composables/use-device.composable';
 import * as messages from '../i18n/messages';
 import store from '../store';
-import { adapter } from '../adapter/adapter';
-import { useDevice } from '../composables/use-device.composable';
 import { mergeSemanticQueriesConfigWire } from './wiring/semantic-queries.wiring';
 
 const device = useDevice();
@@ -36,7 +37,7 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
   if (process.env.VUE_APP_DEVELOPMENT_DOCKER) {
     const { overrideAdapter } = await import('../adapter/docker.adapter');
     overrideAdapter(adapter);
-    (window.initX as SnippetConfig)!.queriesPreview = [
+    (window.initX as SnippetConfig).queriesPreview = [
       {
         query: 'short',
         title: 'Short'

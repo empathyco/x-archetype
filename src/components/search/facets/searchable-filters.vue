@@ -9,7 +9,8 @@
 </template>
 
 <script lang="ts">
-  import { Filter } from '@empathyco/x-types';
+  import type { Filter } from '@empathyco/x-types';
+  import type { PropType } from 'vue';
   import { StaggeredFadeAndSlide } from '@empathyco/x-components';
   import {
     FiltersList,
@@ -17,7 +18,7 @@
     SimpleFilter,
     SlicedFilters
   } from '@empathyco/x-components/facets';
-  import { defineComponent, PropType } from 'vue';
+import { defineComponent } from 'vue';
 
   export default defineComponent({
     components: {

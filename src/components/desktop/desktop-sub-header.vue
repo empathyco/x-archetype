@@ -1,5 +1,5 @@
 <template>
-  <CollapseHeightAnimation :isCollapsed="hasScrolledPastThreshold">
+  <CollapseHeightAnimation :is-collapsed="hasScrolledPastThreshold">
     <MaxDesktopWidthItem>
       <DesktopSearchboxAlign>
         <div class="x-layout-item" :class="{ 'x-grid x-grid-cols-6': !isFullPredictive }">
@@ -20,13 +20,13 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, defineAsyncComponent } from 'vue';
   import { LocationProvider, use$x } from '@empathyco/x-components';
-  import RelatedTags from '../search/related-tags.vue';
+  import { defineAsyncComponent, defineComponent } from 'vue';
+  import { useHasScrollPastThreshold } from '../../composables/use-has-scroll-past-threshold.composable';
   import CollapseHeightAnimation from '../collapse-height-animation.vue';
   import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
-  // eslint-disable-next-line max-len
-  import { useHasScrollPastThreshold } from '../../composables/use-has-scroll-past-threshold.composable';
+   
+  import RelatedTags from '../search/related-tags.vue';
   import DesktopSearchboxAlign from './desktop-searchbox-align.vue';
   import DesktopToolbar from './desktop-toolbar.vue';
 

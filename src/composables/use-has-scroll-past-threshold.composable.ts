@@ -1,5 +1,6 @@
+import type { Ref } from 'vue';
 import { useState } from '@empathyco/x-components';
-import { computed, watch, ref, Ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 
 export const useHasScrollPastThreshold = (): { hasScrolledPastThreshold: Ref<boolean> } => {
   const hasScrolledPastThresholdFlag = ref(false);

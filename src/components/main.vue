@@ -17,7 +17,8 @@
 </template>
 
 <script lang="ts">
-  import { FeatureLocation, LocationProvider, use$x } from '@empathyco/x-components';
+  import type { FeatureLocation} from '@empathyco/x-components';
+import { LocationProvider, use$x } from '@empathyco/x-components';
   import { computed, defineAsyncComponent, defineComponent } from 'vue';
   import { useHasSearched } from '../composables/use-has-searched.composable';
   import CustomRecommendations from './results/custom-recommendations.vue';

@@ -4,7 +4,7 @@
       <span class="x-title2 x-mr-auto">
         {{ $t('facetsPanel.title') }}
       </span>
-      <BaseIdModalClose class="x-button-lead x-button-circle x-button-ghost" modalId="right-aside">
+      <BaseIdModalClose class="x-button-lead x-button-circle x-button-ghost" modal-id="right-aside">
         <CrossIcon class="x-icon-lg" />
       </BaseIdModalClose>
     </div>
@@ -16,13 +16,13 @@
       <ClearFilters
         v-slot="{ selectedFilters }"
         class="x-button-lead x-button-outlined x-flex-auto x-rounded-full x-p-24 x-py-12 x-uppercase"
-        :alwaysVisible="false"
+        :always-visible="false"
       >
         {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
       </ClearFilters>
       <BaseIdModalClose
         class="x-button-lead x-flex-auto x-rounded-full x-p-24 x-py-12"
-        modalId="right-aside"
+        modal-id="right-aside"
       >
         {{ $t('facetsPanel.viewResults', { totalResults: x.totalResults }) }}
       </BaseIdModalClose>

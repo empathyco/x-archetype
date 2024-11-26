@@ -15,10 +15,10 @@
 
 // Example of how to make the spanish messages be lazy loaded, only when the locale is set to `es`
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-export const de = () => import('./de.messages.json');
-export const es = () => import('./es.messages.json');
-export const en = () => import('./en.messages.json');
-export const fr = () => import('./fr.messages.json');
-export const pt = () => import('./pt.messages.json');
-export const it = () => import('./it.messages.json');
+export const de = async () => import('./de.messages.json');
+export const es = async () => import('./es.messages.json');
+export const en = async () => import('./en.messages.json');
+export const fr = async () => import('./fr.messages.json');
+export const pt = async () => import('./pt.messages.json');
+export const it = async () => import('./it.messages.json');
 /* eslint-enable @typescript-eslint/explicit-function-return-type */

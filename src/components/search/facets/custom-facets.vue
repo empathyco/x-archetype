@@ -7,7 +7,7 @@
       >
         <template #header>
           <span class="x-title3">{{ $t(`facets.${facet.label}`) }}</span>
-          <FacetSelectedFilters :selectedFilters="selectedFilters" />
+          <FacetSelectedFilters :selected-filters="selectedFilters" />
         </template>
         <template #default>
           <AllFilter
@@ -26,7 +26,7 @@
               :animation="staggeredFadeAndSlide"
               class="x-flex x-flex-col x-gap-8"
             >
-              <SimpleFilter :filter="filter" :cssClasses="['x-facet-filter-lg x-w-full']">
+              <SimpleFilter :filter="filter" :css-classes="['x-facet-filter-lg x-w-full']">
                 <template #label>
                   <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
                   <CheckboxUnselectedIcon v-else class="x-icon-lg" />
@@ -47,7 +47,7 @@
       >
         <template #header>
           <span class="x-title3">{{ $t(`facets.${facet.label}`) }}</span>
-          <FacetSelectedFilters :selectedFilters="selectedFilters" />
+          <FacetSelectedFilters :selected-filters="selectedFilters" />
         </template>
         <template #default>
           <AllFilter
@@ -67,8 +67,8 @@
             >
               <HierarchicalFilter
                 :filter="filter"
-                childrenFiltersClass="x-ml-16 x-mt-8 x-flex x-flex-col x-gap-8"
-                filterItemClass="x-w-full x-facet-filter-lg"
+                children-filters-class="x-ml-16 x-mt-8 x-flex x-flex-col x-gap-8"
+                filter-item-class="x-w-full x-facet-filter-lg"
               >
                 <template #label="{ filter }">
                   <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
@@ -90,7 +90,7 @@
       >
         <template #header>
           <span class="x-title3">{{ $t(`facets.${facet.label}`) }}</span>
-          <FacetSelectedFilters :selectedFilters="selectedFilters" />
+          <FacetSelectedFilters :selected-filters="selectedFilters" />
         </template>
         <template #default>
           <CustomSlicedFilters :max="6" :filters="facet.filters" class="x-pb-24">
@@ -99,7 +99,7 @@
               :animation="staggeredFadeAndSlide"
               class="x-flex x-flex-col x-gap-8"
             >
-              <NumberRangeFilter :filter="filter" :cssClasses="['x-facet-filter-lg x-w-full']">
+              <NumberRangeFilter :filter="filter" :css-classes="['x-facet-filter-lg x-w-full']">
                 <template #label>
                   <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
                   <CheckboxUnselectedIcon v-else class="x-icon-lg" />
@@ -116,23 +116,23 @@
 
 <script lang="ts">
   import {
-    StaggeredFadeAndSlide,
+    CheckboxSelectedIcon,
     CheckboxUnselectedIcon,
-    CheckboxSelectedIcon
+    StaggeredFadeAndSlide
   } from '@empathyco/x-components';
   import {
-    SimpleFilter,
-    HierarchicalFilter,
     AllFilter,
     Facets,
     FiltersList,
-    NumberRangeFilter
+    HierarchicalFilter,
+    NumberRangeFilter,
+    SimpleFilter
   } from '@empathyco/x-components/facets';
   import { defineComponent } from 'vue';
   import CustomHeaderTogglePanel from '../../custom-header-toggle-panel.vue';
-  import PriceFilterLabel from './price-filter-label.vue';
-  import FacetSelectedFilters from './facet-selected-filters.vue';
   import CustomSlicedFilters from './custom-sliced-filters.vue';
+  import FacetSelectedFilters from './facet-selected-filters.vue';
+  import PriceFilterLabel from './price-filter-label.vue';
 
   export default defineComponent({
     components: {

@@ -23,7 +23,7 @@
 
 <script lang="ts">
   import { AnimationProp, TrendingIcon } from '@empathyco/x-components';
-  import { PopularSearches, PopularSearch } from '@empathyco/x-components/popular-searches';
+  import { PopularSearch, PopularSearches } from '@empathyco/x-components/popular-searches';
   import { defineComponent } from 'vue';
 
   export default defineComponent({

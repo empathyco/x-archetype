@@ -1,7 +1,7 @@
 <template>
   <BaseHeaderTogglePanel
-    headerClass="x-flex x-w-full x-gap-8 x-py-24"
-    :startCollapsed="true"
+    header-class="x-flex x-w-full x-gap-8 x-py-24"
+    :start-collapsed="true"
     :animation="animation"
   >
     <template #header-content="{ open }">
@@ -15,8 +15,8 @@
 
 <script lang="ts">
   import {
-    BaseHeaderTogglePanel,
     animateScale,
+    BaseHeaderTogglePanel,
     ChevronDownIcon,
     ChevronUpIcon
   } from '@empathyco/x-components';

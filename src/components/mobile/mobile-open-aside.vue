@@ -1,7 +1,7 @@
 <template>
   <BaseIdModalOpen
     data-test="toggle-facets-button"
-    modalId="aside-modal"
+    modal-id="aside-modal"
     class="x-button-lead x-rounded-full x-px-16"
   >
     <FiltersIcon class="x-icon-lg" />

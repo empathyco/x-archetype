@@ -1,10 +1,10 @@
 <template>
   <div class="x-relative x-z-10">
     <Empathize
-      @EmpathizeOpened="handleEmpathizeEvent('EmpathizeOpened')"
-      @EmpathizeClosed="handleEmpathizeEvent('EmpathizeClosed')"
       :animation="empathizeAnimation"
       class="x-layout-item x-absolute x-z-[1] x-w-full x-bg-neutral-0"
+      @empathize-opened="handleEmpathizeEvent('EmpathizeOpened')"
+      @empathize-closed="handleEmpathizeEvent('EmpathizeClosed')"
     >
       <MaxDesktopWidthItem>
         <DesktopSearchboxAlign>
@@ -13,7 +13,7 @@
               <div class="x-block">
                 <BaseKeyboardNavigation
                   class="x-flex x-items-start x-gap-24"
-                  :navigationHijacker="navigationHijacker"
+                  :navigation-hijacker="navigationHijacker"
                 >
                   <PredictiveIdentifierResults
                     v-if="showIdentifierResults"
@@ -34,14 +34,14 @@
                         <HistoryQueries
                           :animation="suggestionsAnimation"
                           :max-items-to-render="x.query.searchBox ? 2 : 4"
-                          suggestionItemClass="x-w-full"
+                          suggestion-item-class="x-w-full"
                           class="-x-mr-2 x-flex x-flex-col x-gap-4"
                         >
                           <template #suggestion="{ suggestion }">
                             <HistoryQuery
                               class="x-suggestion-group-md hover:x-no-underline"
                               :suggestion="suggestion"
-                              suggestionClass="x-suggestion x-suggestion-md"
+                              suggestion-class="x-suggestion x-suggestion-md"
                             >
                               <template #default="{ query }">
                                 <HistoryIcon class="x-icon-md" />
@@ -53,7 +53,7 @@
                                   />
                                   <HistoryQueryFilters
                                     class="x-w-128"
-                                    :filtersList="suggestion.selectedFilters"
+                                    :filters-list="suggestion.selectedFilters"
                                   />
                                 </div>
                               </template>
@@ -105,7 +105,7 @@
 
                       <BaseIdModalOpen
                         v-if="isDesktopOrGreater && !x.query.searchBox"
-                        modalId="my-history-aside"
+                        modal-id="my-history-aside"
                         class="x-button-neutral x-button-sm x-button-tight x-col-start-[-1] x-self-start"
                         data-test="my-history-button"
                       >
@@ -141,6 +141,7 @@
 
 <script lang="ts">
   import {
+    animateScale,
     BaseIdModalOpen,
     BaseKeyboardNavigation,
     CrossTinyIcon,
@@ -150,7 +151,6 @@
     SettingsIcon,
     StaggeredFadeAndSlide,
     TrashIcon,
-    animateScale,
     use$x
   } from '@empathyco/x-components';
   import { Empathize } from '@empathyco/x-components/empathize';
@@ -161,15 +161,15 @@
   } from '@empathyco/x-components/history-queries';
   import { defineComponent, ref } from 'vue';
   import { useDevice } from '../../composables/use-device.composable';
-  import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
   import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composable';
   import DesktopSearchboxAlign from '../desktop/desktop-searchbox-align.vue';
   import HistoryQueryFilters from '../history-query-filters.vue';
-  import SlidingRecommendations from './sliding-recommendations.vue';
+  import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
   import PredictiveIdentifierResults from './predictive-identifier-results.vue';
   import PredictiveNextQueries from './predictive-next-queries.vue';
   import PredictivePopularSearches from './predictive-popular-searches.vue';
   import PredictiveQuerySuggestions from './predictive-query-suggestions.vue';
+  import SlidingRecommendations from './sliding-recommendations.vue';
 
   export default defineComponent({
     components: {

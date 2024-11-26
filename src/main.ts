@@ -21,4 +21,4 @@ declare global {
 }
 
 new CssInjector(true);
-getInstallXOptions().then(installXOptions => new XInstaller(installXOptions).init());
+getInstallXOptions().then(async installXOptions => new XInstaller(installXOptions).init());

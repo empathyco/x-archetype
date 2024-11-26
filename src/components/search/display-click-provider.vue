@@ -1,7 +1,9 @@
 <script lang="ts">
-  import { DisplayWireMetadata, ResultFeature, use$x } from '@empathyco/x-components';
-  import { computed, defineComponent, PropType, provide } from 'vue';
-  import { TaggingRequest } from '@empathyco/x-types';
+  import type { DisplayWireMetadata, ResultFeature} from '@empathyco/x-components';
+import type { TaggingRequest } from '@empathyco/x-types';
+  import type { PropType} from 'vue';
+import { use$x } from '@empathyco/x-components';
+  import { computed, defineComponent, provide } from 'vue';
 
   export default defineComponent({
     name: 'DisplayClickProvider',

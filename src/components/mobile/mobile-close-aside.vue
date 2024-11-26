@@ -3,13 +3,13 @@
     <ClearFilters
       v-slot="{ selectedFilters }"
       class="x-button-lead x-button-outlined x-flex-auto x-rounded-full x-py-12 x-uppercase"
-      :alwaysVisible="false"
+      :always-visible="false"
     >
       {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
     </ClearFilters>
     <BaseIdModalClose
       class="x-button-lead x-flex-auto x-rounded-full x-py-12"
-      modalId="aside-modal"
+      modal-id="aside-modal"
     >
       {{ $t('facetsPanel.viewResults', { totalResults: x.totalResults }) }}
     </BaseIdModalClose>

@@ -1,7 +1,7 @@
 <template>
   <IdentifierResults
     v-slot="{ identifierResult }"
-    :maxItemsToRender="5"
+    :max-items-to-render="5"
     :animation="animation"
     class="x-flex x-flex-col x-gap-8 desktop:x-col-span-12 desktop:x-gap-4"
   >

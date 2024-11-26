@@ -1,11 +1,11 @@
 <template>
   <div class="x-flex-1">
-    <BaseIdModalClose modalId="my-history-aside" #closing-element="{ closeModal }">
+    <BaseIdModalClose #closing-element="{ closeModal }" modal-id="my-history-aside">
       <MyHistory
         v-if="x.isHistoryQueriesEnabled && x.fullHistoryQueries.length"
         :animation="animation"
         class="x-px-16 x-pb-32 desktop:x-pl-32"
-        queriesListClass="x-gap-16"
+        queries-list-class="x-gap-16"
       >
         <template #date="{ date }">
           <div class="x-title4 x-title4-sm x-py-16 x-text-neutral-75">{{ date }}</div>
@@ -13,11 +13,11 @@
 
         <template #suggestion="{ suggestion, formatTime }">
           <HistoryQuery
-            @click="closeModal"
             data-test="my-history-query"
             :suggestion="suggestion"
-            suggestionClass="x-suggestion"
+            suggestion-class="x-suggestion"
             class="hover:x-no-underline"
+            @click="closeModal"
           >
             <HistoryIcon class="max-desktop:x-icon-lg" />
 
@@ -25,9 +25,9 @@
               <p class="group-hover:x-underline">{{ suggestion.query }}</p>
 
               <HistoryQueryFilters
-                :showLength="true"
+                :show-length="true"
                 class="x-w-224 desktop:x-w-320"
-                :filtersList="suggestion.selectedFilters"
+                :filters-list="suggestion.selectedFilters"
               />
 
               <p class="x-text1 x-text1-sm x-text-neutral-75">
@@ -59,7 +59,7 @@
     StaggeredFadeAndSlide,
     use$x
   } from '@empathyco/x-components';
-  import { MyHistory, HistoryQuery } from '@empathyco/x-components/history-queries';
+  import { HistoryQuery, MyHistory } from '@empathyco/x-components/history-queries';
   import { defineComponent } from 'vue';
   import HistoryQueryFilters from '../history-query-filters.vue';
 

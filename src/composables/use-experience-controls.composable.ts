@@ -1,6 +1,7 @@
-import { computed, ComputedRef } from 'vue';
-import { getSafePropertyChain } from '@empathyco/x-utils';
+import type { ComputedRef } from 'vue';
 import { useState } from '@empathyco/x-components';
+import { getSafePropertyChain } from '@empathyco/x-utils';
+import { computed } from 'vue';
 
 /**
  * Given a controls' object property chain, gets the experience controls values from the response.

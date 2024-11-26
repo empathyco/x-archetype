@@ -10,7 +10,7 @@
   >
     <div class="x-relative">
       <BaseResultLink class="x-result__picture" :result="result">
-        <BaseResultImage :result="result" :loadAnimation="imageAnimation" showNextImageOnHover>
+        <BaseResultImage :result="result" :load-animation="imageAnimation" show-next-image-on-hover>
           <template #placeholder>
             <BasePlaceholderImage />
           </template>
@@ -53,6 +53,8 @@
 </template>
 
 <script lang="ts">
+  import type { Result } from '@empathyco/x-types';
+  import type { PropType } from 'vue';
   import {
     BaseAddToCart,
     BaseFallbackImage,
@@ -64,8 +66,7 @@
     CrossFade
   } from '@empathyco/x-components';
   import { MainScrollItem } from '@empathyco/x-components/scroll';
-  import { Result } from '@empathyco/x-types';
-  import { defineComponent, PropType } from 'vue';
+import { defineComponent } from 'vue';
   import { useDevice } from '../../composables/use-device.composable';
 
   export default defineComponent({

@@ -9,9 +9,9 @@
     </h1>
     <Recommendations v-if="!x.totalResults">
       <template #layout="{ recommendations }">
-        <DisplayClickProvider resultFeature="topclicked_recommendations">
+        <DisplayClickProvider result-feature="topclicked_recommendations">
           <BaseGrid
-            #default="{ item: result }"
+            v-slot="{ item: result }"
             :animation="staggeredFadeAndSlide"
             :columns="columns"
             :items="recommendations"

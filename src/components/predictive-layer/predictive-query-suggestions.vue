@@ -19,8 +19,8 @@
 </template>
 
 <script lang="ts">
-  import { AnimationProp, SearchIcon, Highlight } from '@empathyco/x-components';
-  import { QuerySuggestions, QuerySuggestion } from '@empathyco/x-components/query-suggestions';
+  import { AnimationProp, Highlight, SearchIcon } from '@empathyco/x-components';
+  import { QuerySuggestion, QuerySuggestions } from '@empathyco/x-components/query-suggestions';
   import { defineComponent } from 'vue';
 
   export default defineComponent({

@@ -9,8 +9,8 @@
         <NextQueriesList
           :offset="24"
           :frequency="48"
-          :maxNextQueriesPerGroup="maxNextQueriesPerGroup"
-          :showOnlyAfterOffset="x.partialResults.length > 0"
+          :max-next-queries-per-group="maxNextQueriesPerGroup"
+          :show-only-after-offset="x.partialResults.length > 0"
         >
           <BaseVariableColumnGrid
             class="x-gap-x-16 x-gap-y-32"
@@ -32,7 +32,7 @@
               </MainScrollItem>
             </template>
             <template #next-queries-group="{ item: { nextQueries } }">
-              <NextQueryPreview :nextQuery="nextQueries[0]" />
+              <NextQueryPreview :next-query="nextQueries[0]" />
             </template>
           </BaseVariableColumnGrid>
         </NextQueriesList>
@@ -48,6 +48,7 @@
     StaggeredFadeAndSlide,
     use$x
   } from '@empathyco/x-components';
+  import { NextQueriesList } from '@empathyco/x-components/next-queries';
   import { MainScrollItem } from '@empathyco/x-components/scroll';
   import {
     Banner,
@@ -57,10 +58,9 @@
     ResultsList
   } from '@empathyco/x-components/search';
   import { defineComponent } from 'vue';
-  import { NextQueriesList } from '@empathyco/x-components/next-queries';
   import { useDevice } from '../../../composables/use-device.composable';
-  import Result from '../../results/result.vue';
   import { useExperienceControls } from '../../../composables/use-experience-controls.composable';
+  import Result from '../../results/result.vue';
   import NextQueryPreview from './custom-next-query-preview.vue';
 
   export default defineComponent({

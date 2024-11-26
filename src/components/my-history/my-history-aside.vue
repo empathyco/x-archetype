@@ -7,7 +7,7 @@
     >
       <BaseIdModalClose
         class="x-button-circle x-button-ghost hover:x-button-lead desktop:x-order-1 desktop:x-ml-auto"
-        modalId="my-history-aside"
+        modal-id="my-history-aside"
       >
         <CrossIcon class="x-icon-lg x-text-neutral-0" />
       </BaseIdModalClose>

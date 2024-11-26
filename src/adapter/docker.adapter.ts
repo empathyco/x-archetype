@@ -1,16 +1,17 @@
+import type {
+  PlatformAdapter} from '@empathyco/x-adapter-platform';
+import type { XComponentsAdapter } from '@empathyco/x-types';
 import {
-  searchEndpointAdapter,
-  PlatformAdapter,
-  nextQueriesEndpointAdapter,
+  experienceControlsEndpointAdapter,
   identifierResultsEndpointAdapter,
+  nextQueriesEndpointAdapter,
   popularSearchesEndpointAdapter,
-  recommendationsEndpointAdapter,
   querySuggestionsEndpointAdapter,
+  recommendationsEndpointAdapter,
   relatedTagsEndpointAdapter,
-  semanticQueriesEndpointAdapter,
-  experienceControlsEndpointAdapter
+  searchEndpointAdapter,
+  semanticQueriesEndpointAdapter
 } from '@empathyco/x-adapter-platform';
-import { XComponentsAdapter } from '@empathyco/x-types';
 
 /**
  * Mutates adapter to point to environment context.
@@ -60,7 +61,7 @@ type DockerEndpoints = Exclude<keyof XComponentsAdapter, 'tagging'>;
  */
 function resolveEmpathyEndpoint(endpoint: DockerEndpoints, context: Record<string, any>): string {
   const { empathyAPIHost } = context;
-  const endpointHost: string = empathyAPIHost ? empathyAPIHost : 'localhost:8080';
+  const endpointHost: string = empathyAPIHost || 'localhost:8080';
   const endpointInstance = 'imdb';
   const empathyEndpoints: Record<DockerEndpoints, string> = {
     search: `http://${endpointHost}/query/${endpointInstance}/search`,

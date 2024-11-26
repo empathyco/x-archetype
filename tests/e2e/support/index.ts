@@ -1,4 +1,10 @@
-import { AnyFunction, forEach } from '@empathyco/x-utils';
+import type { AnyFunction} from '@empathyco/x-utils';
+import { forEach } from '@empathyco/x-utils';
+
+import Loggable = Cypress.Loggable;
+import Shadow = Cypress.Shadow;
+import Timeoutable = Cypress.Timeoutable;
+import Withinable = Cypress.Withinable;
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -6,11 +12,6 @@ declare global {
     interface Chainable extends CustomCommands, CustomDualCommands {}
   }
 }
-
-import Loggable = Cypress.Loggable;
-import Timeoutable = Cypress.Timeoutable;
-import Withinable = Cypress.Withinable;
-import Shadow = Cypress.Shadow;
 
 /**
  * When the tests are running, there is a problem with the resize observer. After
@@ -36,7 +37,7 @@ interface CustomCommands {
    * @returns A Chainable object.
    * @internal
    */
-  searchQuery(query: string): Cypress.Chainable<JQuery>;
+  searchQuery: (query: string) => Cypress.Chainable<JQuery>;
   /**
    * Searches multiple queries by typing it in the search input and pressing enter.
    *
@@ -46,7 +47,7 @@ interface CustomCommands {
    * @param queries - The query to search.
    * @returns A Chainable object.
    */
-  searchQueries(...queries: string[]): void;
+  searchQueries: (...queries: string[]) => void;
   /**
    * Types a query into the search input.
    *
@@ -57,7 +58,7 @@ interface CustomCommands {
    * @returns A Chainable object.
    * @internal
    */
-  typeQuery(query: string): Cypress.Chainable<JQuery>;
+  typeQuery: (query: string) => Cypress.Chainable<JQuery>;
   /**
    * Focus into the search input.
    *
@@ -66,7 +67,7 @@ interface CustomCommands {
    *
    * @returns A Chainable object.
    */
-  focusSearchInput(): Cypress.Chainable<JQuery>;
+  focusSearchInput: () => Cypress.Chainable<JQuery>;
   /**
    * Clear search input.
    *
@@ -75,7 +76,7 @@ interface CustomCommands {
    *
    * @returns A Chainable object.
    */
-  clearSearchInput(): Cypress.Chainable<JQuery>;
+  clearSearchInput: () => Cypress.Chainable<JQuery>;
 }
 interface CustomDualCommands {
   /**
@@ -88,7 +89,7 @@ interface CustomDualCommands {
    * @param options - The options passed to the Cypress command.
    * @returns A Chainable object.
    */
-  getByDataTest(value: string, options?: CypressCommandOptions): Cypress.Chainable<JQuery>;
+  getByDataTest: (value: string, options?: CypressCommandOptions) => Cypress.Chainable<JQuery>;
 }
 
 type AddPreviousParam<Functions extends Record<keyof Functions, AnyFunction>> = {

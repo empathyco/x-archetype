@@ -1,9 +1,9 @@
 <template>
   <NextQueryPreview
-    #default="{ results, totalResults, suggestion }"
+    v-slot="{ results, totalResults, suggestion }"
     class="x-flex x-flex-col x-gap-4 x-bg-neutral-10 x-py-24 desktop:x-px-24"
     :suggestion="nextQuery"
-    :maxItemsToRender="maxItemsToRender"
+    :max-items-to-render="maxItemsToRender"
   >
     <i18n-t
       class="x-text1 x-text1-lg max-desktop:x-px-16"
@@ -30,10 +30,10 @@
       <ItemsList
         :items="results"
         class="x-flex x-gap-16 x-pt-4 max-desktop:x-px-16 desktop:x-w-full"
-        itemClass="x-flex-shrink-0"
+        item-class="x-flex-shrink-0"
       >
         <template #result="{ item: result }">
-          <DisplayClickProvider resultFeature="next_query_recommendations">
+          <DisplayClickProvider result-feature="next_query_recommendations">
             <Result :result="result" class="x-w-[calc(38vw-16px)] desktop:x-max-w-[265px]" />
           </DisplayClickProvider>
         </template>
@@ -43,13 +43,14 @@
 </template>
 
 <script lang="ts">
-  import { computed, defineComponent, PropType } from 'vue';
+  import type { NextQuery as NextQueryModel } from '@empathyco/x-types';
+import type { PropType } from 'vue';
   import { ArrowRightIcon, ItemsList, useGetter } from '@empathyco/x-components';
   import { NextQuery, NextQueryPreview } from '@empathyco/x-components/next-queries';
-  import { NextQuery as NextQueryModel } from '@empathyco/x-types';
+  import { computed, defineComponent } from 'vue';
   import { useDevice } from '../../../composables/use-device.composable';
-  import Result from '../../results/result.vue';
   import CustomSlidingPanel from '../../custom-sliding-panel.vue';
+  import Result from '../../results/result.vue';
   import DisplayClickProvider from '../display-click-provider.vue';
 
   export default defineComponent({

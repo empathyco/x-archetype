@@ -4,8 +4,8 @@
 
     <DesktopSubHeader
       data-test="sub-header"
-      :hasSearched="hasSearched"
-      :isFullPredictive="true"
+      :has-searched="hasSearched"
+      :is-full-predictive="true"
       class="x-layout-item"
     />
   </div>

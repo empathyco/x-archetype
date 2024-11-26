@@ -14,8 +14,8 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
   import { use$x } from '@empathyco/x-components';
+  import { defineComponent } from 'vue';
   import { useDevice } from '../../composables/use-device.composable';
 
   export default defineComponent({

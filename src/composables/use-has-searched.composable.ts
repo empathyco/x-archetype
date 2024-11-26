@@ -1,5 +1,6 @@
+import type { Ref} from 'vue';
 import { isStringEmpty, useXBus } from '@empathyco/x-components';
-import { Ref, ref } from 'vue';
+import { ref } from 'vue';
 
 export const useHasSearched = (): { hasSearched: Ref<boolean> } => {
   const bus = useXBus();

@@ -10,8 +10,9 @@
 </template>
 
 <script lang="ts">
-  import { Filter, HistoryQuery } from '@empathyco/x-types';
-  import { defineComponent, PropType } from 'vue';
+  import type { Filter, HistoryQuery } from '@empathyco/x-types';
+  import type { PropType } from 'vue';
+import { defineComponent } from 'vue';
 
   export default defineComponent({
     props: {

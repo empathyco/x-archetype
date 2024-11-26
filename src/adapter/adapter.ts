@@ -1,19 +1,20 @@
-import {
-  platformAdapter,
+import type {
   PlatformRecommendationsRequest,
-  PlatformSemanticQueriesRequest,
   PlatformResult,
-  recommendationsRequestSchema,
-  resultSchema,
-  semanticQueriesRequestSchema,
-  experienceControlsResponseSchema
-} from '@empathyco/x-adapter-platform';
-import {
+  PlatformSemanticQueriesRequest} from '@empathyco/x-adapter-platform';
+import type {
   ExperienceControlsResponse,
   RecommendationsRequest,
   Result,
   SemanticQueriesRequest
 } from '@empathyco/x-types';
+import {
+  experienceControlsResponseSchema,
+  platformAdapter,
+  recommendationsRequestSchema,
+  resultSchema,
+  semanticQueriesRequestSchema
+} from '@empathyco/x-adapter-platform';
 
 export const adapter = platformAdapter;
 

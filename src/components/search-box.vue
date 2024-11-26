@@ -28,8 +28,8 @@
 </template>
 
 <script lang="ts">
-  import { ClearSearchInput, SearchButton, SearchInput } from '@empathyco/x-components/search-box';
   import { CrossTinyIcon, SearchIcon, use$x } from '@empathyco/x-components';
+  import { ClearSearchInput, SearchButton, SearchInput } from '@empathyco/x-components/search-box';
   import { defineComponent } from 'vue';
   import { useDevice } from '../composables/use-device.composable';
 

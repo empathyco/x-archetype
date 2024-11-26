@@ -1,7 +1,8 @@
+import type { ComputedRef } from 'vue';
 import { use$x } from '@empathyco/x-components';
-import { computed, ComputedRef } from 'vue';
+import { computed } from 'vue';
 
-type PredictiveHelpers = {
+interface PredictiveHelpers {
   navigationHijacker: { xEvent: string; moduleName: string; direction: string }[];
   showIdentifierResults: ComputedRef<boolean>;
   showHistoryQueries: ComputedRef<boolean>;
@@ -9,7 +10,7 @@ type PredictiveHelpers = {
   showNextQueries: ComputedRef<boolean>;
   showPopularSearches: ComputedRef<boolean>;
   showEmpathize: ComputedRef<boolean>;
-};
+}
 
 /**
  * Shared code between the predictive layers.

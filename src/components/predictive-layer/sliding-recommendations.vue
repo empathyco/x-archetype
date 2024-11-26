@@ -7,10 +7,10 @@
     </h1>
     <SlidingPanel
       class="x-sliding-panel-show-buttons-on-hover"
-      :showButtons="true"
-      buttonClass="x-button-lead x-button-circle x-button-ghost x-p-0"
-      scrollContainerClass="desktop:x-sliding-panel-fade"
-      :resetOnContentChange="false"
+      :show-buttons="true"
+      button-class="x-button-lead x-button-circle x-button-ghost x-p-0"
+      scroll-container-class="desktop:x-sliding-panel-fade"
+      :reset-on-content-change="false"
     >
       <template #sliding-panel-left-button>
         <ChevronLeftIcon class="x-icon-lg" />
@@ -21,12 +21,12 @@
         data-wysiwyg="recommendations"
       >
         <template #default="{ recommendation }">
-          <DisplayClickProvider resultFeature="topclicked_recommendations">
+          <DisplayClickProvider result-feature="topclicked_recommendations">
             <Result
               :result="recommendation"
               data-test="recommendation-item"
-              :showDescription="false"
-              :showAddToCart="false"
+              :show-description="false"
+              :show-add-to-cart="false"
               class="x-w-[200px]"
             />
           </DisplayClickProvider>
@@ -40,7 +40,7 @@
   </div>
 </template>
 <script lang="ts">
-  import { SlidingPanel, ChevronLeftIcon, ChevronRightIcon, use$x } from '@empathyco/x-components';
+  import { ChevronLeftIcon, ChevronRightIcon, SlidingPanel, use$x } from '@empathyco/x-components';
   import { Recommendations } from '@empathyco/x-components/recommendations';
   import { defineComponent } from 'vue';
   import Result from '../results/result.vue';

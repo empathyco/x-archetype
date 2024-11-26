@@ -19,7 +19,7 @@
     <ColumnPicker data-test="column-picker" />
 
     <BaseIdModalOpen
-      modalId="right-aside"
+      modal-id="right-aside"
       class="x-button-lead x-button-ghost"
       data-test="toggle-facets-button"
     >
