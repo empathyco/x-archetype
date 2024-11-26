@@ -14,11 +14,11 @@ inputs:
     description: cache value for s3 sync command
     required: true
   cloudfront_distribution_id:
-      description: the CloudFront cache id to invalidate
-      required: true
+    description: the CloudFront cache id to invalidate
+    required: true
   cloudfront_invalidation_paths:
-      description: the CloudFront path to invalidate
-      required: true
+    description: the CloudFront path to invalidate
+    required: true
 runs:
   using: 'composite'
   steps:

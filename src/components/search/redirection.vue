@@ -25,15 +25,15 @@
 </template>
 
 <script lang="ts">
-  import { AutoProgressBar } from '@empathyco/x-components';
-  import { Redirection as RedirectionComponent } from '@empathyco/x-components/search';
-  import { defineComponent } from 'vue';
+import { AutoProgressBar } from '@empathyco/x-components'
+import { Redirection as RedirectionComponent } from '@empathyco/x-components/search'
+import { defineComponent } from 'vue'
 
-  export default defineComponent({
-    name: 'Redirection',
-    components: {
-      AutoProgressBar,
-      RedirectionComponent
-    }
-  });
+export default defineComponent({
+  name: 'Redirection',
+  components: {
+    AutoProgressBar,
+    RedirectionComponent,
+  },
+})
 </script>

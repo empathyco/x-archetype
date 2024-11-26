@@ -41,34 +41,34 @@
 </template>
 
 <script lang="ts">
-  import { ArrowRightIcon, use$x } from '@empathyco/x-components';
-  import { QueryPreviewList, useQueriesPreview } from '@empathyco/x-components/queries-preview';
-  import { SemanticQueries, SemanticQuery } from '@empathyco/x-components/semantic-queries';
-  import { defineComponent } from 'vue';
-  import { useExperienceControls } from '../../composables/use-experience-controls.composable';
-  import CustomSlidingPanel from '../custom-sliding-panel.vue';
-  import Result from '../results/result.vue';
-  import DisplayClickProvider from './display-click-provider.vue';
+import { ArrowRightIcon, use$x } from '@empathyco/x-components'
+import { QueryPreviewList, useQueriesPreview } from '@empathyco/x-components/queries-preview'
+import { SemanticQueries, SemanticQuery } from '@empathyco/x-components/semantic-queries'
+import { defineComponent } from 'vue'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable'
+import CustomSlidingPanel from '../custom-sliding-panel.vue'
+import Result from '../results/result.vue'
+import DisplayClickProvider from './display-click-provider.vue'
 
-  export default defineComponent({
-    components: {
-      ArrowRightIcon,
-      CustomSlidingPanel,
-      DisplayClickProvider,
-      QueryPreviewList,
-      Result,
-      SemanticQueries,
-      SemanticQuery
-    },
-    setup() {
-      const { isAnyQueryLoadedInPreview } = useQueriesPreview();
-      const { getControlFromPath } = useExperienceControls();
+export default defineComponent({
+  components: {
+    ArrowRightIcon,
+    CustomSlidingPanel,
+    DisplayClickProvider,
+    QueryPreviewList,
+    Result,
+    SemanticQueries,
+    SemanticQuery,
+  },
+  setup() {
+    const { isAnyQueryLoadedInPreview } = useQueriesPreview()
+    const { getControlFromPath } = useExperienceControls()
 
-      return {
-        isAnyQueryLoadedInPreview,
-        resultsPerCarousel: getControlFromPath('semanticQueries.resultsPerCarousels'),
-        x: use$x()
-      };
+    return {
+      isAnyQueryLoadedInPreview,
+      resultsPerCarousel: getControlFromPath('semanticQueries.resultsPerCarousels'),
+      x: use$x(),
     }
-  });
+  },
+})
 </script>

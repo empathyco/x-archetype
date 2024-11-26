@@ -17,14 +17,14 @@
 </template>
 
 <script lang="ts">
-  import { BaseIdModalClose, use$x } from '@empathyco/x-components';
-  import { ClearFilters } from '@empathyco/x-components/facets';
-  import { defineComponent } from 'vue';
+import { BaseIdModalClose, use$x } from '@empathyco/x-components'
+import { ClearFilters } from '@empathyco/x-components/facets'
+import { defineComponent } from 'vue'
 
-  export default defineComponent({
-    components: { BaseIdModalClose, ClearFilters },
-    setup() {
-      return { x: use$x() };
-    }
-  });
+export default defineComponent({
+  components: { BaseIdModalClose, ClearFilters },
+  setup() {
+    return { x: use$x() }
+  },
+})
 </script>

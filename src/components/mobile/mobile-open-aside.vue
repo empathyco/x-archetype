@@ -17,13 +17,13 @@
 </template>
 
 <script lang="ts">
-  import { BaseIdModalOpen, FiltersIcon, use$x } from '@empathyco/x-components';
-  import { defineComponent } from 'vue';
+import { BaseIdModalOpen, FiltersIcon, use$x } from '@empathyco/x-components'
+import { defineComponent } from 'vue'
 
-  export default defineComponent({
-    components: { BaseIdModalOpen, FiltersIcon },
-    setup() {
-      return { x: use$x() };
-    }
-  });
+export default defineComponent({
+  components: { BaseIdModalOpen, FiltersIcon },
+  setup() {
+    return { x: use$x() }
+  },
+})
 </script>

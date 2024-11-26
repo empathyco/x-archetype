@@ -54,8 +54,8 @@
 </template>
 
 <style scoped>
-  svg {
-    width: auto;
-    max-width: 142px;
-  }
+svg {
+  width: auto;
+  max-width: 142px;
+}
 </style>

@@ -10,29 +10,29 @@
 </template>
 
 <script lang="ts">
-  import type { Filter, HistoryQuery } from '@empathyco/x-types';
-  import type { PropType } from 'vue';
-import { defineComponent } from 'vue';
+import type { Filter, HistoryQuery } from '@empathyco/x-types'
+import type { PropType } from 'vue'
+import { defineComponent } from 'vue'
 
-  export default defineComponent({
-    props: {
-      filtersList: {
-        type: Array as PropType<HistoryQuery['selectedFilters']>,
-        required: true,
-        default: () => []
-      },
-      showLength: {
-        type: Boolean,
-        required: false,
-        default: false
-      }
+export default defineComponent({
+  props: {
+    filtersList: {
+      type: Array as PropType<HistoryQuery['selectedFilters']>,
+      required: true,
+      default: () => [],
     },
-    setup(props) {
-      return {
-        filtersWithLabel: props.filtersList?.filter(
-          filter => (filter as Filter & { label?: string }).label
-        )
-      };
+    showLength: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
+  setup(props) {
+    return {
+      filtersWithLabel: props.filtersList?.filter(
+        filter => (filter as Filter & { label?: string }).label,
+      ),
     }
-  });
+  },
+})
 </script>

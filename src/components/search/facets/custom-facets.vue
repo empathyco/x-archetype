@@ -115,44 +115,44 @@
 </template>
 
 <script lang="ts">
-  import {
-    CheckboxSelectedIcon,
-    CheckboxUnselectedIcon,
-    StaggeredFadeAndSlide
-  } from '@empathyco/x-components';
-  import {
+import {
+  CheckboxSelectedIcon,
+  CheckboxUnselectedIcon,
+  StaggeredFadeAndSlide,
+} from '@empathyco/x-components'
+import {
+  AllFilter,
+  Facets,
+  FiltersList,
+  HierarchicalFilter,
+  NumberRangeFilter,
+  SimpleFilter,
+} from '@empathyco/x-components/facets'
+import { defineComponent } from 'vue'
+import CustomHeaderTogglePanel from '../../custom-header-toggle-panel.vue'
+import CustomSlicedFilters from './custom-sliced-filters.vue'
+import FacetSelectedFilters from './facet-selected-filters.vue'
+import PriceFilterLabel from './price-filter-label.vue'
+
+export default defineComponent({
+  components: {
     AllFilter,
+    CheckboxUnselectedIcon,
+    CheckboxSelectedIcon,
+    CustomHeaderTogglePanel,
+    CustomSlicedFilters,
     Facets,
     FiltersList,
     HierarchicalFilter,
     NumberRangeFilter,
-    SimpleFilter
-  } from '@empathyco/x-components/facets';
-  import { defineComponent } from 'vue';
-  import CustomHeaderTogglePanel from '../../custom-header-toggle-panel.vue';
-  import CustomSlicedFilters from './custom-sliced-filters.vue';
-  import FacetSelectedFilters from './facet-selected-filters.vue';
-  import PriceFilterLabel from './price-filter-label.vue';
-
-  export default defineComponent({
-    components: {
-      AllFilter,
-      CheckboxUnselectedIcon,
-      CheckboxSelectedIcon,
-      CustomHeaderTogglePanel,
-      CustomSlicedFilters,
-      Facets,
-      FiltersList,
-      HierarchicalFilter,
-      NumberRangeFilter,
-      PriceFilterLabel,
-      SimpleFilter,
-      FacetSelectedFilters
-    },
-    setup() {
-      return {
-        staggeredFadeAndSlide: StaggeredFadeAndSlide
-      };
+    PriceFilterLabel,
+    SimpleFilter,
+    FacetSelectedFilters,
+  },
+  setup() {
+    return {
+      staggeredFadeAndSlide: StaggeredFadeAndSlide,
     }
-  });
+  },
+})
 </script>

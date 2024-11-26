@@ -55,41 +55,41 @@
 </template>
 
 <script lang="ts">
-  import {
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  CrossTinyIcon,
+  SlidingPanel,
+} from '@empathyco/x-components'
+import {
+  ClearFilters,
+  NumberRangeFilter,
+  SelectedFiltersList,
+  SimpleFilter,
+} from '@empathyco/x-components/facets'
+import { defineComponent } from 'vue'
+import { useDevice } from '../../../composables/use-device.composable'
+import PriceFilterLabel from './price-filter-label.vue'
+
+export default defineComponent({
+  components: {
     ChevronLeftIcon,
     ChevronRightIcon,
     CrossTinyIcon,
-    SlidingPanel
-  } from '@empathyco/x-components';
-  import {
     ClearFilters,
     NumberRangeFilter,
+    PriceFilterLabel,
     SelectedFiltersList,
-    SimpleFilter
-  } from '@empathyco/x-components/facets';
-  import { defineComponent } from 'vue';
-  import { useDevice } from '../../../composables/use-device.composable';
-  import PriceFilterLabel from './price-filter-label.vue';
-
-  export default defineComponent({
-    components: {
-      ChevronLeftIcon,
-      ChevronRightIcon,
-      CrossTinyIcon,
-      ClearFilters,
-      NumberRangeFilter,
-      PriceFilterLabel,
-      SelectedFiltersList,
-      SlidingPanel,
-      SimpleFilter
-    },
-    setup() {
-      const { isTabletOrLess, isDesktopOrGreater, isTouchable } = useDevice();
-      return {
-        isTabletOrLess,
-        isDesktopOrGreater,
-        isTouchable
-      };
+    SlidingPanel,
+    SimpleFilter,
+  },
+  setup() {
+    const { isTabletOrLess, isDesktopOrGreater, isTouchable } = useDevice()
+    return {
+      isTabletOrLess,
+      isDesktopOrGreater,
+      isTouchable,
     }
-  });
+  },
+})
 </script>

@@ -1,15 +1,15 @@
-import type { ComputedRef } from 'vue';
-import { use$x } from '@empathyco/x-components';
-import { computed } from 'vue';
+import type { ComputedRef } from 'vue'
+import { use$x } from '@empathyco/x-components'
+import { computed } from 'vue'
 
 interface PredictiveHelpers {
-  navigationHijacker: { xEvent: string; moduleName: string; direction: string }[];
-  showIdentifierResults: ComputedRef<boolean>;
-  showHistoryQueries: ComputedRef<boolean>;
-  showQuerySuggestions: ComputedRef<boolean>;
-  showNextQueries: ComputedRef<boolean>;
-  showPopularSearches: ComputedRef<boolean>;
-  showEmpathize: ComputedRef<boolean>;
+  navigationHijacker: { xEvent: string; moduleName: string; direction: string }[]
+  showIdentifierResults: ComputedRef<boolean>
+  showHistoryQueries: ComputedRef<boolean>
+  showQuerySuggestions: ComputedRef<boolean>
+  showNextQueries: ComputedRef<boolean>
+  showPopularSearches: ComputedRef<boolean>
+  showEmpathize: ComputedRef<boolean>
 }
 
 /**
@@ -20,32 +20,32 @@ interface PredictiveHelpers {
 export const usePredictiveHelpers = (): PredictiveHelpers => {
   const navigationHijacker = [
     { xEvent: 'UserPressedArrowKey', moduleName: 'scroll', direction: 'ArrowDown' },
-    { xEvent: 'UserPressedArrowKey', moduleName: 'searchBox', direction: 'ArrowDown' }
-  ];
+    { xEvent: 'UserPressedArrowKey', moduleName: 'searchBox', direction: 'ArrowDown' },
+  ]
 
-  const $x = use$x();
+  const $x = use$x()
 
   const showIdentifierResults = computed(() => {
-    return $x.identifierResults.length > 0;
-  });
+    return $x.identifierResults.length > 0
+  })
 
   const showHistoryQueries = computed(() => {
-    return $x.historyQueriesWithResults.length > 0;
-  });
+    return $x.historyQueriesWithResults.length > 0
+  })
 
   const showQuerySuggestions = computed(() => {
     return (
       !!$x.query.searchBox && $x.identifierResults.length === 0 && $x.querySuggestions.length > 0
-    );
-  });
+    )
+  })
 
   const showNextQueries = computed(() => {
-    return $x.nextQueries.length > 0 && $x.identifierResults.length === 0;
-  });
+    return $x.nextQueries.length > 0 && $x.identifierResults.length === 0
+  })
 
   const showPopularSearches = computed(() => {
-    return $x.popularSearches.length > 0 && !$x.query.searchBox;
-  });
+    return $x.popularSearches.length > 0 && !$x.query.searchBox
+  })
 
   const showEmpathize = computed(() => {
     return (
@@ -53,8 +53,8 @@ export const usePredictiveHelpers = (): PredictiveHelpers => {
       showQuerySuggestions.value ||
       showNextQueries.value ||
       showPopularSearches.value
-    );
-  });
+    )
+  })
 
   return {
     navigationHijacker,
@@ -63,6 +63,6 @@ export const usePredictiveHelpers = (): PredictiveHelpers => {
     showQuerySuggestions,
     showNextQueries,
     showPopularSearches,
-    showEmpathize
-  };
-};
+    showEmpathize,
+  }
+}

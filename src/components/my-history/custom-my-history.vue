@@ -52,31 +52,31 @@
 </template>
 
 <script lang="ts">
-  import {
+import {
+  BaseIdModalClose,
+  CrossTinyIcon,
+  HistoryIcon,
+  StaggeredFadeAndSlide,
+  use$x,
+} from '@empathyco/x-components'
+import { HistoryQuery, MyHistory } from '@empathyco/x-components/history-queries'
+import { defineComponent } from 'vue'
+import HistoryQueryFilters from '../history-query-filters.vue'
+
+export default defineComponent({
+  components: {
     BaseIdModalClose,
     CrossTinyIcon,
     HistoryIcon,
-    StaggeredFadeAndSlide,
-    use$x
-  } from '@empathyco/x-components';
-  import { HistoryQuery, MyHistory } from '@empathyco/x-components/history-queries';
-  import { defineComponent } from 'vue';
-  import HistoryQueryFilters from '../history-query-filters.vue';
-
-  export default defineComponent({
-    components: {
-      BaseIdModalClose,
-      CrossTinyIcon,
-      HistoryIcon,
-      MyHistory,
-      HistoryQuery,
-      HistoryQueryFilters
-    },
-    setup() {
-      return {
-        animation: StaggeredFadeAndSlide,
-        x: use$x()
-      };
+    MyHistory,
+    HistoryQuery,
+    HistoryQueryFilters,
+  },
+  setup() {
+    return {
+      animation: StaggeredFadeAndSlide,
+      x: use$x(),
     }
-  });
+  },
+})
 </script>

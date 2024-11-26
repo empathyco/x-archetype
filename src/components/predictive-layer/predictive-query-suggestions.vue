@@ -19,23 +19,23 @@
 </template>
 
 <script lang="ts">
-  import { AnimationProp, Highlight, SearchIcon } from '@empathyco/x-components';
-  import { QuerySuggestion, QuerySuggestions } from '@empathyco/x-components/query-suggestions';
-  import { defineComponent } from 'vue';
+import { AnimationProp, Highlight, SearchIcon } from '@empathyco/x-components'
+import { QuerySuggestion, QuerySuggestions } from '@empathyco/x-components/query-suggestions'
+import { defineComponent } from 'vue'
 
-  export default defineComponent({
-    components: {
-      SearchIcon,
-      Highlight,
-      QuerySuggestions,
-      QuerySuggestion
+export default defineComponent({
+  components: {
+    SearchIcon,
+    Highlight,
+    QuerySuggestions,
+    QuerySuggestion,
+  },
+  props: {
+    animation: {
+      type: AnimationProp,
+      required: true,
     },
-    props: {
-      animation: {
-        type: AnimationProp,
-        required: true
-      }
-    }
-  });
+  },
+})
 </script>
 <style lang="scss"></style>

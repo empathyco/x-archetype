@@ -62,7 +62,7 @@
                                 <span
                                   :aria-label="
                                     $t('historyQueries.removeLabel', {
-                                      suggestion: suggestion.query
+                                      suggestion: suggestion.query,
                                     })
                                   "
                                 >
@@ -140,123 +140,123 @@
 </template>
 
 <script lang="ts">
-  import {
-    animateScale,
+import {
+  animateScale,
+  BaseIdModalOpen,
+  BaseKeyboardNavigation,
+  CrossTinyIcon,
+  Fade,
+  Highlight,
+  HistoryIcon,
+  SettingsIcon,
+  StaggeredFadeAndSlide,
+  TrashIcon,
+  use$x,
+} from '@empathyco/x-components'
+import { Empathize } from '@empathyco/x-components/empathize'
+import {
+  ClearHistoryQueries,
+  HistoryQueries,
+  HistoryQuery,
+} from '@empathyco/x-components/history-queries'
+import { defineComponent, ref } from 'vue'
+import { useDevice } from '../../composables/use-device.composable'
+import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composable'
+import DesktopSearchboxAlign from '../desktop/desktop-searchbox-align.vue'
+import HistoryQueryFilters from '../history-query-filters.vue'
+import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
+import PredictiveIdentifierResults from './predictive-identifier-results.vue'
+import PredictiveNextQueries from './predictive-next-queries.vue'
+import PredictivePopularSearches from './predictive-popular-searches.vue'
+import PredictiveQuerySuggestions from './predictive-query-suggestions.vue'
+import SlidingRecommendations from './sliding-recommendations.vue'
+
+export default defineComponent({
+  components: {
+    HistoryQueryFilters,
+    DesktopSearchboxAlign,
+    MaxDesktopWidthItem,
+    PredictiveQuerySuggestions,
+    PredictivePopularSearches,
+    PredictiveNextQueries,
+    PredictiveIdentifierResults,
     BaseIdModalOpen,
     BaseKeyboardNavigation,
+    ClearHistoryQueries,
     CrossTinyIcon,
     Fade,
+    Empathize,
     Highlight,
+    HistoryQuery,
     HistoryIcon,
-    SettingsIcon,
-    StaggeredFadeAndSlide,
-    TrashIcon,
-    use$x
-  } from '@empathyco/x-components';
-  import { Empathize } from '@empathyco/x-components/empathize';
-  import {
-    ClearHistoryQueries,
     HistoryQueries,
-    HistoryQuery
-  } from '@empathyco/x-components/history-queries';
-  import { defineComponent, ref } from 'vue';
-  import { useDevice } from '../../composables/use-device.composable';
-  import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composable';
-  import DesktopSearchboxAlign from '../desktop/desktop-searchbox-align.vue';
-  import HistoryQueryFilters from '../history-query-filters.vue';
-  import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
-  import PredictiveIdentifierResults from './predictive-identifier-results.vue';
-  import PredictiveNextQueries from './predictive-next-queries.vue';
-  import PredictivePopularSearches from './predictive-popular-searches.vue';
-  import PredictiveQuerySuggestions from './predictive-query-suggestions.vue';
-  import SlidingRecommendations from './sliding-recommendations.vue';
+    SlidingRecommendations,
+    SettingsIcon,
+    TrashIcon,
+  },
+  setup() {
+    const empathizeAnimation = animateScale()
+    const suggestionsAnimation = StaggeredFadeAndSlide
 
-  export default defineComponent({
-    components: {
-      HistoryQueryFilters,
-      DesktopSearchboxAlign,
-      MaxDesktopWidthItem,
-      PredictiveQuerySuggestions,
-      PredictivePopularSearches,
-      PredictiveNextQueries,
-      PredictiveIdentifierResults,
-      BaseIdModalOpen,
-      BaseKeyboardNavigation,
-      ClearHistoryQueries,
-      CrossTinyIcon,
-      Fade,
-      Empathize,
-      Highlight,
-      HistoryQuery,
-      HistoryIcon,
-      HistoryQueries,
-      SlidingRecommendations,
-      SettingsIcon,
-      TrashIcon
-    },
-    setup() {
-      const empathizeAnimation = animateScale();
-      const suggestionsAnimation = StaggeredFadeAndSlide;
+    const { isDesktopOrGreater, isTabletOrLess } = useDevice()
 
-      const { isDesktopOrGreater, isTabletOrLess } = useDevice();
+    const showOverlay = ref(false)
 
-      const showOverlay = ref(false);
+    let previousBodyOverflow = ''
+    let previousHTMLOverflow = ''
 
-      let previousBodyOverflow = '';
-      let previousHTMLOverflow = '';
-
-      const disableScroll = (): void => {
-        previousBodyOverflow = document.body.style.overflow;
-        previousHTMLOverflow = document.documentElement.style.overflow;
-        document.body.style.overflow = document.documentElement.style.overflow = 'hidden';
-      };
-
-      const enableScroll = (): void => {
-        document.body.style.overflow = previousBodyOverflow;
-        document.documentElement.style.overflow = previousHTMLOverflow;
-      };
-
-      const handleEmpathizeEvent = (event: 'EmpathizeOpened' | 'EmpathizeClosed'): void => {
-        showOverlay.value = event === 'EmpathizeOpened';
-
-        if (showOverlay.value) {
-          disableScroll();
-        } else {
-          enableScroll();
-        }
-      };
-
-      const {
-        navigationHijacker,
-        showIdentifierResults,
-        showHistoryQueries,
-        showQuerySuggestions,
-        showNextQueries,
-        showPopularSearches,
-        showEmpathize
-      } = usePredictiveHelpers();
-
-      return {
-        isDesktopOrGreater,
-        isTabletOrLess,
-        empathizeAnimation,
-        suggestionsAnimation,
-        showOverlay,
-        handleEmpathizeEvent,
-        navigationHijacker,
-        showIdentifierResults,
-        showHistoryQueries,
-        showQuerySuggestions,
-        showNextQueries,
-        showPopularSearches,
-        showEmpathize,
-        x: use$x()
-      };
+    const disableScroll = (): void => {
+      previousBodyOverflow = document.body.style.overflow
+      previousHTMLOverflow = document.documentElement.style.overflow
+      document.body.style.overflow = document.documentElement.style.overflow = 'hidden'
     }
-  });
+
+    const enableScroll = (): void => {
+      document.body.style.overflow = previousBodyOverflow
+      document.documentElement.style.overflow = previousHTMLOverflow
+    }
+
+    const handleEmpathizeEvent = (event: 'EmpathizeOpened' | 'EmpathizeClosed'): void => {
+      showOverlay.value = event === 'EmpathizeOpened'
+
+      if (showOverlay.value) {
+        disableScroll()
+      } else {
+        enableScroll()
+      }
+    }
+
+    const {
+      navigationHijacker,
+      showIdentifierResults,
+      showHistoryQueries,
+      showQuerySuggestions,
+      showNextQueries,
+      showPopularSearches,
+      showEmpathize,
+    } = usePredictiveHelpers()
+
+    return {
+      isDesktopOrGreater,
+      isTabletOrLess,
+      empathizeAnimation,
+      suggestionsAnimation,
+      showOverlay,
+      handleEmpathizeEvent,
+      navigationHijacker,
+      showIdentifierResults,
+      showHistoryQueries,
+      showQuerySuggestions,
+      showNextQueries,
+      showPopularSearches,
+      showEmpathize,
+      x: use$x(),
+    }
+  },
+})
 </script>
 <style lang="scss">
-  .x-result-link:focus > * {
-    outline: -webkit-focus-ring-color auto 1px;
-  }
+.x-result-link:focus > * {
+  outline: -webkit-focus-ring-color auto 1px;
+}
 </style>

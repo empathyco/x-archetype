@@ -24,39 +24,39 @@
 </template>
 
 <script lang="ts">
-  import type { Sort } from '@empathyco/x-types';
-  import {
-    animateScale,
+import type { Sort } from '@empathyco/x-types'
+import {
+  animateScale,
+  RadioButtonSelectedIcon,
+  RadioButtonUnselectedIcon,
+  use$x,
+} from '@empathyco/x-components'
+import { SortPickerList } from '@empathyco/x-components/search'
+import { defineComponent } from 'vue'
+import CustomHeaderTogglePanel from '../custom-header-toggle-panel.vue'
+
+export default defineComponent({
+  components: {
+    SortPickerList,
+    CustomHeaderTogglePanel,
     RadioButtonSelectedIcon,
     RadioButtonUnselectedIcon,
-    use$x
-  } from '@empathyco/x-components';
-  import { SortPickerList } from '@empathyco/x-components/search';
-  import { defineComponent } from 'vue';
-  import CustomHeaderTogglePanel from '../custom-header-toggle-panel.vue';
-
-  export default defineComponent({
-    components: {
-      SortPickerList,
-      CustomHeaderTogglePanel,
-      RadioButtonSelectedIcon,
-      RadioButtonUnselectedIcon
-    },
-    setup() {
-      const animation = animateScale();
-      const sortValues: Sort[] = ['', 'price asc', 'price desc'];
-      return {
-        animation,
-        sortValues,
-        x: use$x()
-      };
+  },
+  setup() {
+    const animation = animateScale()
+    const sortValues: Sort[] = ['', 'price asc', 'price desc']
+    return {
+      animation,
+      sortValues,
+      x: use$x(),
     }
-  });
+  },
+})
 </script>
 
 <style lang="scss">
-  // TODO: Remove when implementing buttonClass prop in the SortList buttons
-  .x-sort-list__button {
-    @apply x-button-ghost;
-  }
+// TODO: Remove when implementing buttonClass prop in the SortList buttons
+.x-sort-list__button {
+  @apply x-button-ghost;
+}
 </style>

@@ -1,11 +1,11 @@
 {
   "name": "@empathyco/x-archetype",
-  "author": "Empathy Systems Corporation S.L.",
   "version": "1.0.0",
+  "private": true,
+  "description": "Starting point to setup a X Components project",
+  "author": "Empathy Systems Corporation S.L.",
   "license": "Apache-2.0",
   "homepage": "https://github.com/empathyco/x-archetype",
-  "description": "Starting point to setup a X Components project",
-  "private": true,
   "scripts": {
     "serve": "vite dev --host",
     "serve:docker": "VUE_APP_DEVELOPMENT_DOCKER=true vite dev",

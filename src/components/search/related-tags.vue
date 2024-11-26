@@ -29,39 +29,39 @@
 </template>
 
 <script lang="ts">
-  import {
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  CrossTinyIcon,
+  CuratedCheckIcon,
+  PlusIcon,
+  SlidingPanel,
+  StaggeredFadeAndSlide,
+  use$x,
+} from '@empathyco/x-components'
+import { RelatedTags } from '@empathyco/x-components/related-tags'
+import { defineComponent } from 'vue'
+import { useDevice } from '../../composables/use-device.composable'
+
+export default defineComponent({
+  components: {
     ChevronLeftIcon,
     ChevronRightIcon,
     CrossTinyIcon,
-    CuratedCheckIcon,
     PlusIcon,
+    RelatedTags,
     SlidingPanel,
-    StaggeredFadeAndSlide,
-    use$x
-  } from '@empathyco/x-components';
-  import { RelatedTags } from '@empathyco/x-components/related-tags';
-  import { defineComponent } from 'vue';
-  import { useDevice } from '../../composables/use-device.composable';
+    CuratedCheckIcon,
+  },
 
-  export default defineComponent({
-    components: {
-      ChevronLeftIcon,
-      ChevronRightIcon,
-      CrossTinyIcon,
-      PlusIcon,
-      RelatedTags,
-      SlidingPanel,
-      CuratedCheckIcon
-    },
-
-    setup() {
-      const relatedTagsAnimation = StaggeredFadeAndSlide;
-      const { isTouchable } = useDevice();
-      return {
-        relatedTagsAnimation,
-        isTouchable,
-        x: use$x()
-      };
+  setup() {
+    const relatedTagsAnimation = StaggeredFadeAndSlide
+    const { isTouchable } = useDevice()
+    return {
+      relatedTagsAnimation,
+      isTouchable,
+      x: use$x(),
     }
-  });
+  },
+})
 </script>

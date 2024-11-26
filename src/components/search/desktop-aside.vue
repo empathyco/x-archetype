@@ -31,22 +31,22 @@
 </template>
 
 <script lang="ts">
-  import { BaseIdModalClose, CrossIcon, use$x } from '@empathyco/x-components';
-  import { ClearFilters } from '@empathyco/x-components/facets';
-  import { defineComponent } from 'vue';
-  import CustomFacets from './facets/custom-facets.vue';
-  import Sort from './sort.vue';
+import { BaseIdModalClose, CrossIcon, use$x } from '@empathyco/x-components'
+import { ClearFilters } from '@empathyco/x-components/facets'
+import { defineComponent } from 'vue'
+import CustomFacets from './facets/custom-facets.vue'
+import Sort from './sort.vue'
 
-  export default defineComponent({
-    components: {
-      CustomFacets,
-      Sort,
-      BaseIdModalClose,
-      CrossIcon,
-      ClearFilters
-    },
-    setup() {
-      return { x: use$x() };
-    }
-  });
+export default defineComponent({
+  components: {
+    CustomFacets,
+    Sort,
+    BaseIdModalClose,
+    CrossIcon,
+    ClearFilters,
+  },
+  setup() {
+    return { x: use$x() }
+  },
+})
 </script>

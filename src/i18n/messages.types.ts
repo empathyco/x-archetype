@@ -2,130 +2,130 @@
 
 export interface Messages {
   searchBox: {
-    clear: string;
-    placeholder: string;
-  };
+    clear: string
+    placeholder: string
+  }
   popularSearches: {
-    title: string;
-  };
+    title: string
+  }
   historyQueries: {
-    clear: string;
-    removeLabel: string;
-    title: string;
-  };
+    clear: string
+    removeLabel: string
+    title: string
+  }
   myHistory: {
-    title: string;
-    subtitle: string;
+    title: string
+    subtitle: string
     message: {
-      header: string;
-      body: string;
-      footer: string;
-    };
-    noHistory: string;
-    openButton: string;
-    suggestionResults: string;
+      header: string
+      body: string
+      footer: string
+    }
+    noHistory: string
+    openButton: string
+    suggestionResults: string
     switch: {
-      title: string;
-      enable: string;
-      disable: string;
-    };
+      title: string
+      enable: string
+      disable: string
+    }
     confirmDisableModal: {
-      title: string;
-      message: string;
-      dismiss: string;
-      confirm: string;
-    };
-  };
+      title: string
+      message: string
+      dismiss: string
+      confirm: string
+    }
+  }
   nextQueries: {
-    title: string;
-  };
+    title: string
+  }
   nextQueriesGroup: {
-    message: string;
-  };
+    message: string
+  }
   nextQueryPreview: {
-    message: string;
-    query: string;
-    totalResults: string;
-    viewResults: string;
-  };
+    message: string
+    query: string
+    totalResults: string
+    viewResults: string
+  }
   identifierResults: {
-    title: string;
-  };
+    title: string
+  }
   recommendations: {
-    title: string;
-  };
+    title: string
+  }
   facets: {
-    gender: string;
-    categoryPaths: string;
-    price: string;
-    brand: string;
-    fit: string;
-    collection: string;
-    genres: string;
-    isAdult: string;
-    type: string;
-    runtimeMinutes: string;
-  };
+    gender: string
+    categoryPaths: string
+    price: string
+    brand: string
+    fit: string
+    collection: string
+    genres: string
+    isAdult: string
+    type: string
+    runtimeMinutes: string
+  }
   facetsPanel: {
-    title: string;
-    viewResults: string;
-  };
+    title: string
+    viewResults: string
+  }
   filters: {
-    all: string;
-    showMore: string;
-    showLess: string;
-  };
+    all: string
+    showMore: string
+    showLess: string
+  }
   partialResults: {
-    query: string;
-    totalResults: string;
-    viewResults: string;
-  };
+    query: string
+    totalResults: string
+    viewResults: string
+  }
   priceFilter: {
-    lessThan: string;
-    fromTo: string;
-    from: string;
-  };
+    lessThan: string
+    fromTo: string
+    from: string
+  }
   toggleAside: {
-    showAside: string;
-  };
+    showAside: string
+  }
   totalResults: {
-    message: string;
-  };
+    message: string
+  }
   semanticQueries: {
-    title: string;
-  };
+    title: string
+  }
   sort: {
-    label: string;
+    label: string
     values: {
-      'price asc': string;
-      'price desc': string;
-      default: string;
-    };
-  };
+      'price asc': string
+      'price desc': string
+      default: string
+    }
+  }
   selectedFilters: {
-    clear: string;
-  };
+    clear: string
+  }
   result: {
-    addToCart: string;
-  };
+    addToCart: string
+  }
   spellcheck: {
-    message: string;
-  };
+    message: string
+  }
   noResults: {
-    message: string;
-  };
+    message: string
+  }
   fallbackDisclaimer: {
-    message: string;
-  };
+    message: string
+  }
   columnPicker: {
-    message: string;
-  };
+    message: string
+  }
   queryPreview: {
-    viewResults: string;
-  };
+    viewResults: string
+  }
   redirections: {
-    title: string;
-    accept: string;
-    reject: string;
-  };
+    title: string
+    accept: string
+    reject: string
+  }
 }

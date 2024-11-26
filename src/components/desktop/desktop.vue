@@ -52,52 +52,50 @@
 </template>
 
 <script lang="ts">
-  import { animateTranslate, BaseIdModal, LocationProvider } from '@empathyco/x-components';
-  import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
-  import { defineAsyncComponent, defineComponent } from 'vue';
-  import { useHasSearched } from '../../composables/use-has-searched.composable';
-  import Main from '../main.vue';
-  import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
-  import MyHistoryAside from '../my-history/my-history-aside.vue';
-  import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
-  import PreSearchManager from '../pre-search/pre-search-manager.vue';
-  import ScrollToTop from '../scroll-to-top.vue';
-  import DesktopTopSection from './desktop-top-section.vue';
+import { animateTranslate, BaseIdModal, LocationProvider } from '@empathyco/x-components'
+import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
+import { defineAsyncComponent, defineComponent } from 'vue'
+import { useHasSearched } from '../../composables/use-has-searched.composable'
+import Main from '../main.vue'
+import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
+import MyHistoryAside from '../my-history/my-history-aside.vue'
+import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
+import PreSearchManager from '../pre-search/pre-search-manager.vue'
+import ScrollToTop from '../scroll-to-top.vue'
+import DesktopTopSection from './desktop-top-section.vue'
 
-  export default defineComponent({
-    components: {
-      DesktopTopSection,
-      MaxDesktopWidthItem,
-      BaseIdModal,
-      MyHistoryAside,
-      LocationProvider,
-      Main,
-      MainScroll,
-      MyHistoryConfirmDisableModal,
-      Scroll,
-      ScrollToTop,
-      PreSearchManager,
-      DesktopAside: defineAsyncComponent(() => import('../search').then(m => m.DesktopAside)),
-      NoResultsMessage: defineAsyncComponent(() =>
-        import('../search').then(m => m.NoResultsMessage)
-      ),
-      SpellcheckMessage: defineAsyncComponent(() =>
-        import('../search').then(m => m.SpellcheckMessage)
-      ),
-      FallbackDisclaimerMessage: defineAsyncComponent(() =>
-        import('../search').then(m => m.FallbackDisclaimerMessage)
-      )
-    },
-    setup() {
-      const rightAsideAnimation = animateTranslate('right');
-      const { hasSearched } = useHasSearched();
-      return { rightAsideAnimation, hasSearched };
-    }
-  });
+export default defineComponent({
+  components: {
+    DesktopTopSection,
+    MaxDesktopWidthItem,
+    BaseIdModal,
+    MyHistoryAside,
+    LocationProvider,
+    Main,
+    MainScroll,
+    MyHistoryConfirmDisableModal,
+    Scroll,
+    ScrollToTop,
+    PreSearchManager,
+    DesktopAside: defineAsyncComponent(() => import('../search').then(m => m.DesktopAside)),
+    NoResultsMessage: defineAsyncComponent(() => import('../search').then(m => m.NoResultsMessage)),
+    SpellcheckMessage: defineAsyncComponent(() =>
+      import('../search').then(m => m.SpellcheckMessage),
+    ),
+    FallbackDisclaimerMessage: defineAsyncComponent(() =>
+      import('../search').then(m => m.FallbackDisclaimerMessage),
+    ),
+  },
+  setup() {
+    const rightAsideAnimation = animateTranslate('right')
+    const { hasSearched } = useHasSearched()
+    return { rightAsideAnimation, hasSearched }
+  },
+})
 </script>
 
 <style>
-  .x-layout-item > * {
-    min-width: 0;
-  }
+.x-layout-item > * {
+  min-width: 0;
+}
 </style>

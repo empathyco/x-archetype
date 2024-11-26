@@ -53,44 +53,44 @@
 </template>
 
 <script lang="ts">
-  import type { Result } from '@empathyco/x-types';
-  import type { PropType } from 'vue';
-  import {
+import type { Result } from '@empathyco/x-types'
+import type { PropType } from 'vue'
+import {
+  BaseAddToCart,
+  BaseFallbackImage,
+  BasePlaceholderImage,
+  BaseResultCurrentPrice,
+  BaseResultImage,
+  BaseResultLink,
+  BaseResultPreviousPrice,
+  CrossFade,
+} from '@empathyco/x-components'
+import { MainScrollItem } from '@empathyco/x-components/scroll'
+import { defineComponent } from 'vue'
+import { useDevice } from '../../composables/use-device.composable'
+
+export default defineComponent({
+  components: {
     BaseAddToCart,
     BaseFallbackImage,
     BasePlaceholderImage,
     BaseResultCurrentPrice,
+    BaseResultPreviousPrice,
     BaseResultImage,
     BaseResultLink,
-    BaseResultPreviousPrice,
-    CrossFade
-  } from '@empathyco/x-components';
-  import { MainScrollItem } from '@empathyco/x-components/scroll';
-import { defineComponent } from 'vue';
-  import { useDevice } from '../../composables/use-device.composable';
-
-  export default defineComponent({
-    components: {
-      BaseAddToCart,
-      BaseFallbackImage,
-      BasePlaceholderImage,
-      BaseResultCurrentPrice,
-      BaseResultPreviousPrice,
-      BaseResultImage,
-      BaseResultLink,
-      MainScrollItem
-    },
-    props: {
-      result: { type: Object as PropType<Result>, required: true },
-      showDescription: { type: Boolean, default: true },
-      showAddToCart: { type: Boolean, default: true }
-    },
-    setup() {
-      const { isDesktopOrGreater } = useDevice();
-      return {
-        isDesktopOrGreater,
-        imageAnimation: CrossFade
-      };
+    MainScrollItem,
+  },
+  props: {
+    result: { type: Object as PropType<Result>, required: true },
+    showDescription: { type: Boolean, default: true },
+    showAddToCart: { type: Boolean, default: true },
+  },
+  setup() {
+    const { isDesktopOrGreater } = useDevice()
+    return {
+      isDesktopOrGreater,
+      imageAnimation: CrossFade,
     }
-  });
+  },
+})
 </script>

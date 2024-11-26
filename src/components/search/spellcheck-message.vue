@@ -15,23 +15,23 @@
 </template>
 
 <script lang="ts">
-  import { use$x } from '@empathyco/x-components';
-  import { Spellcheck, SpellcheckButton } from '@empathyco/x-components/search';
-  import { defineComponent } from 'vue';
-  import { useDevice } from '../../composables/use-device.composable';
+import { use$x } from '@empathyco/x-components'
+import { Spellcheck, SpellcheckButton } from '@empathyco/x-components/search'
+import { defineComponent } from 'vue'
+import { useDevice } from '../../composables/use-device.composable'
 
-  export default defineComponent({
-    components: {
-      Spellcheck,
-      SpellcheckButton
-    },
-    setup() {
-      const { isTabletOrLess } = useDevice();
+export default defineComponent({
+  components: {
+    Spellcheck,
+    SpellcheckButton,
+  },
+  setup() {
+    const { isTabletOrLess } = useDevice()
 
-      return {
-        isTabletOrLess,
-        x: use$x()
-      };
+    return {
+      isTabletOrLess,
+      x: use$x(),
     }
-  });
+  },
+})
 </script>

@@ -1,4 +1,4 @@
-import { When } from '@badeball/cypress-cucumber-preprocessor';
+import { When } from '@badeball/cypress-cucumber-preprocessor'
 
 When('next query number {int} is clicked', (nextQueryItem: number) => {
   cy.getByDataTest('next-query')
@@ -6,12 +6,12 @@ When('next query number {int} is clicked', (nextQueryItem: number) => {
     .eq(nextQueryItem)
     .click()
     .invoke('text')
-    .as('searchedQuery');
-});
+    .as('searchedQuery')
+})
 
 When('scroll down for two seconds', () => {
-  cy.get('#main-scroll').scrollTo(0, 1000, { duration: 2000, ensureScrollable: false });
-});
+  cy.get('#main-scroll').scrollTo(0, 1000, { duration: 2000, ensureScrollable: false })
+})
 
 When('related tag number {int} is clicked', (relatedTagItem: number) => {
   cy.getByDataTest('related-tag')
@@ -19,13 +19,13 @@ When('related tag number {int} is clicked', (relatedTagItem: number) => {
     .eq(relatedTagItem)
     .click()
     .invoke('text')
-    .as('clickedRelatedTag');
-});
+    .as('clickedRelatedTag')
+})
 
 When('clicked related tag is clicked again', function (this: { clickedRelatedTag: string }) {
   cy.getByDataTest('related-tag')
     .contains(this.clickedRelatedTag)
     .click()
     .invoke('text')
-    .as('clickedRelatedTag');
-});
+    .as('clickedRelatedTag')
+})

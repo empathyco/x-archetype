@@ -15,23 +15,23 @@
 </template>
 
 <script lang="ts">
-  import { BaseScroll, use$x } from '@empathyco/x-components';
-  import { defineComponent } from 'vue';
-  import MobileCloseAside from '../mobile/mobile-close-aside.vue';
-  import CustomFacets from './facets/custom-facets.vue';
-  import SelectedFilters from './facets/selected-filters.vue';
-  import Sort from './sort.vue';
+import { BaseScroll, use$x } from '@empathyco/x-components'
+import { defineComponent } from 'vue'
+import MobileCloseAside from '../mobile/mobile-close-aside.vue'
+import CustomFacets from './facets/custom-facets.vue'
+import SelectedFilters from './facets/selected-filters.vue'
+import Sort from './sort.vue'
 
-  export default defineComponent({
-    components: {
-      BaseScroll,
-      CustomFacets,
-      MobileCloseAside,
-      SelectedFilters,
-      Sort
-    },
-    setup() {
-      return { x: use$x() };
-    }
-  });
+export default defineComponent({
+  components: {
+    BaseScroll,
+    CustomFacets,
+    MobileCloseAside,
+    SelectedFilters,
+    Sort,
+  },
+  setup() {
+    return { x: use$x() }
+  },
+})
 </script>

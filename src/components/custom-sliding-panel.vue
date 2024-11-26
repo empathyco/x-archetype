@@ -22,19 +22,19 @@
 </template>
 
 <script lang="ts">
-  import { ChevronLeftIcon, ChevronRightIcon, SlidingPanel } from '@empathyco/x-components';
-  import { defineComponent } from 'vue';
-  import { useDevice } from '../composables/use-device.composable';
+import { ChevronLeftIcon, ChevronRightIcon, SlidingPanel } from '@empathyco/x-components'
+import { defineComponent } from 'vue'
+import { useDevice } from '../composables/use-device.composable'
 
-  export default defineComponent({
-    components: {
-      SlidingPanel,
-      ChevronLeftIcon,
-      ChevronRightIcon
-    },
-    setup() {
-      const { isTouchable } = useDevice();
-      return { isTouchable };
-    }
-  });
+export default defineComponent({
+  components: {
+    SlidingPanel,
+    ChevronLeftIcon,
+    ChevronRightIcon,
+  },
+  setup() {
+    const { isTouchable } = useDevice()
+    return { isTouchable }
+  },
+})
 </script>

@@ -42,60 +42,60 @@
 </template>
 
 <script lang="ts">
-  import {
-    BaseVariableColumnGrid,
-    infiniteScroll,
-    StaggeredFadeAndSlide,
-    use$x
-  } from '@empathyco/x-components';
-  import { NextQueriesList } from '@empathyco/x-components/next-queries';
-  import { MainScrollItem } from '@empathyco/x-components/scroll';
-  import {
+import {
+  BaseVariableColumnGrid,
+  infiniteScroll,
+  StaggeredFadeAndSlide,
+  use$x,
+} from '@empathyco/x-components'
+import { NextQueriesList } from '@empathyco/x-components/next-queries'
+import { MainScrollItem } from '@empathyco/x-components/scroll'
+import {
+  Banner,
+  BannersList,
+  Promoted,
+  PromotedsList,
+  ResultsList,
+} from '@empathyco/x-components/search'
+import { defineComponent } from 'vue'
+import { useDevice } from '../../../composables/use-device.composable'
+import { useExperienceControls } from '../../../composables/use-experience-controls.composable'
+import Result from '../../results/result.vue'
+import NextQueryPreview from './custom-next-query-preview.vue'
+
+export default defineComponent({
+  components: {
     Banner,
     BannersList,
+    BaseVariableColumnGrid,
+    MainScrollItem,
+    NextQueryPreview,
+    NextQueriesList,
     Promoted,
     PromotedsList,
-    ResultsList
-  } from '@empathyco/x-components/search';
-  import { defineComponent } from 'vue';
-  import { useDevice } from '../../../composables/use-device.composable';
-  import { useExperienceControls } from '../../../composables/use-experience-controls.composable';
-  import Result from '../../results/result.vue';
-  import NextQueryPreview from './custom-next-query-preview.vue';
+    Result,
+    ResultsList,
+  },
+  directives: {
+    'infinite-scroll': infiniteScroll,
+  },
+  setup() {
+    const { isMobile } = useDevice()
+    const { getControlFromPath } = useExperienceControls()
 
-  export default defineComponent({
-    components: {
-      Banner,
-      BannersList,
-      BaseVariableColumnGrid,
-      MainScrollItem,
-      NextQueryPreview,
-      NextQueriesList,
-      Promoted,
-      PromotedsList,
-      Result,
-      ResultsList
-    },
-    directives: {
-      'infinite-scroll': infiniteScroll
-    },
-    setup() {
-      const { isMobile } = useDevice();
-      const { getControlFromPath } = useExperienceControls();
-
-      return {
-        staggeredFadeAndSlide: StaggeredFadeAndSlide,
-        columns: isMobile.value ? 2 : 4,
-        maxNextQueriesPerGroup: getControlFromPath('nextQueries.maxItems', 1),
-        x: use$x()
-      };
+    return {
+      staggeredFadeAndSlide: StaggeredFadeAndSlide,
+      columns: isMobile.value ? 2 : 4,
+      maxNextQueriesPerGroup: getControlFromPath('nextQueries.maxItems', 1),
+      x: use$x(),
     }
-  });
+  },
+})
 </script>
 
 <style lang="scss">
-  .x-base-grid__next-queries-group {
-    grid-column-start: 1;
-    grid-column-end: -1;
-  }
+.x-base-grid__next-queries-group {
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
 </style>

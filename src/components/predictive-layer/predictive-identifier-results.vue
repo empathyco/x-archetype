@@ -20,23 +20,23 @@
 </template>
 
 <script lang="ts">
-  import { AnimationProp, BarCodeIcon, BaseResultLink } from '@empathyco/x-components';
-  import { IdentifierResult, IdentifierResults } from '@empathyco/x-components/identifier-results';
-  import { defineComponent } from 'vue';
+import { AnimationProp, BarCodeIcon, BaseResultLink } from '@empathyco/x-components'
+import { IdentifierResult, IdentifierResults } from '@empathyco/x-components/identifier-results'
+import { defineComponent } from 'vue'
 
-  export default defineComponent({
-    components: {
-      BarCodeIcon,
-      BaseResultLink,
-      IdentifierResults,
-      IdentifierResult
+export default defineComponent({
+  components: {
+    BarCodeIcon,
+    BaseResultLink,
+    IdentifierResults,
+    IdentifierResult,
+  },
+  props: {
+    animation: {
+      type: AnimationProp,
+      required: true,
     },
-    props: {
-      animation: {
-        type: AnimationProp,
-        required: true
-      }
-    }
-  });
+  },
+})
 </script>
 <style lang="scss"></style>

@@ -29,39 +29,39 @@
 </template>
 
 <script lang="ts">
-  import { BaseEventButton, BaseEventsModal } from '@empathyco/x-components';
-  import { defineComponent } from 'vue';
-  import { useDevice } from '../../composables/use-device.composable';
+import { BaseEventButton, BaseEventsModal } from '@empathyco/x-components'
+import { defineComponent } from 'vue'
+import { useDevice } from '../../composables/use-device.composable'
 
-  export default defineComponent({
-    components: {
-      BaseEventsModal,
-      BaseEventButton
-    },
-    setup() {
-      const { isTabletOrLess } = useDevice();
-      return {
-        isTabletOrLess,
-        eventsToOpenModal: ['UserClickedDisableHistoryQueries'],
-        eventsToCloseModal: [
-          'UserClickedConfirmDisableHistoryQueries',
-          'UserClickedDismissDisableHistoryQueries'
-        ],
-        dismissEvents: { UserClickedDismissDisableHistoryQueries: undefined },
-        confirmEvents: { UserClickedConfirmDisableHistoryQueries: undefined }
-      };
+export default defineComponent({
+  components: {
+    BaseEventsModal,
+    BaseEventButton,
+  },
+  setup() {
+    const { isTabletOrLess } = useDevice()
+    return {
+      isTabletOrLess,
+      eventsToOpenModal: ['UserClickedDisableHistoryQueries'],
+      eventsToCloseModal: [
+        'UserClickedConfirmDisableHistoryQueries',
+        'UserClickedDismissDisableHistoryQueries',
+      ],
+      dismissEvents: { UserClickedDismissDisableHistoryQueries: undefined },
+      confirmEvents: { UserClickedConfirmDisableHistoryQueries: undefined },
     }
-  });
+  },
+})
 </script>
 
 <style lang="scss">
-  .x-my-history-confirm-disable-modal {
-    &.x-modal {
-      .x-modal__content {
-        background: transparent;
-        justify-content: center;
-        align-items: center;
-      }
+.x-my-history-confirm-disable-modal {
+  &.x-modal {
+    .x-modal__content {
+      background: transparent;
+      justify-content: center;
+      align-items: center;
     }
   }
+}
 </style>

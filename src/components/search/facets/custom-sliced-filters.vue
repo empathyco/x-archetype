@@ -13,15 +13,15 @@
 </template>
 
 <script lang="ts">
-  import { MinusIcon, PlusIcon } from '@empathyco/x-components';
-  import { SlicedFilters } from '@empathyco/x-components/facets';
-  import { defineComponent } from 'vue';
+import { MinusIcon, PlusIcon } from '@empathyco/x-components'
+import { SlicedFilters } from '@empathyco/x-components/facets'
+import { defineComponent } from 'vue'
 
-  export default defineComponent({
-    components: {
-      MinusIcon,
-      PlusIcon,
-      SlicedFilters
-    }
-  });
+export default defineComponent({
+  components: {
+    MinusIcon,
+    PlusIcon,
+    SlicedFilters,
+  },
+})
 </script>

@@ -10,21 +10,21 @@
 </template>
 
 <script lang="ts">
-  import { ChevronUpIcon, Fade } from '@empathyco/x-components';
-  import { ScrollToTop } from '@empathyco/x-components/scroll';
-  import { defineComponent } from 'vue';
+import { ChevronUpIcon, Fade } from '@empathyco/x-components'
+import { ScrollToTop } from '@empathyco/x-components/scroll'
+import { defineComponent } from 'vue'
 
-  export default defineComponent({
-    components: {
-      ScrollToTop,
-      ChevronUpIcon
-    },
-    setup() {
-      const animation = Fade;
+export default defineComponent({
+  components: {
+    ScrollToTop,
+    ChevronUpIcon,
+  },
+  setup() {
+    const animation = Fade
 
-      return {
-        animation
-      };
+    return {
+      animation,
     }
-  });
+  },
+})
 </script>

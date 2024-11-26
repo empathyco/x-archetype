@@ -6,6 +6,6 @@ module.exports = {
     require('postcss-import'),
     require('postcss-logical'),
     require('postcss-dir-pseudo-class'),
-    require('cssnano')({ preset: ['default', { mergeLonghand: false }] })
-  ]
-};
+    require('cssnano')({ preset: ['default', { mergeLonghand: false }] }),
+  ],
+}

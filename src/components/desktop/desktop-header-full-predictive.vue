@@ -23,22 +23,22 @@
 </template>
 
 <script lang="ts">
-  import { CloseMainModal, CrossIcon, LocationProvider } from '@empathyco/x-components';
-  import { defineComponent } from 'vue';
-  import Logo from '../logo.vue';
-  import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
-  import FullWidthPredictive from '../predictive-layer/full-width-predictive.vue';
-  import SearchBox from '../search-box.vue';
+import { CloseMainModal, CrossIcon, LocationProvider } from '@empathyco/x-components'
+import { defineComponent } from 'vue'
+import Logo from '../logo.vue'
+import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
+import FullWidthPredictive from '../predictive-layer/full-width-predictive.vue'
+import SearchBox from '../search-box.vue'
 
-  export default defineComponent({
-    components: {
-      MaxDesktopWidthItem,
-      FullWidthPredictive,
-      CloseMainModal,
-      CrossIcon,
-      Logo,
-      SearchBox,
-      LocationProvider
-    }
-  });
+export default defineComponent({
+  components: {
+    MaxDesktopWidthItem,
+    FullWidthPredictive,
+    CloseMainModal,
+    CrossIcon,
+    Logo,
+    SearchBox,
+    LocationProvider,
+  },
+})
 </script>

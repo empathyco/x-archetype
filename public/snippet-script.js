@@ -1,70 +1,70 @@
 function getAllURLParameters() {
-  const parameterRegex = /[?&]+([^=&;$]+)=([^&#;$]*)/gi;
-  const parameters = {};
+  const parameterRegex = /[?&]+([^=&;$]+)=([^&#;$]*)/gi
+  const parameters = {}
 
   while ((regexMatch = parameterRegex.exec(window.location.href)) !== null) {
-    parameters[regexMatch[1]] = decodeParameterValue(regexMatch[2]);
+    parameters[regexMatch[1]] = decodeParameterValue(regexMatch[2])
   }
 
-  return parameters;
+  return parameters
 }
 
 function decodeParameterValue(parameterValue) {
-  return decodeURIComponent(parameterValue.replace(/\+/g, '%20')) || null;
+  return decodeURIComponent(parameterValue.replace(/\+/g, '%20')) || null
 }
 
 function popURLParameter(parametersDictionary, parameterKey) {
-  const parameterValue = parametersDictionary[parameterKey];
+  const parameterValue = parametersDictionary[parameterKey]
 
   if (parameterValue) {
-    delete parametersDictionary[parameterKey];
-    return parameterValue;
+    delete parametersDictionary[parameterKey]
+    return parameterValue
   }
 }
 
-const URLParameters = getAllURLParameters();
-const popFromURLParameters = popURLParameter.bind(this, URLParameters);
+const URLParameters = getAllURLParameters()
+const popFromURLParameters = popURLParameter.bind(this, URLParameters)
 
 function getEnv() {
-  const env = popFromURLParameters('env');
+  const env = popFromURLParameters('env')
   const envsDict = {
     live: '',
     staging: 'staging',
-    test: 'test'
-  };
+    test: 'test',
+  }
 
   if (env) {
-    return envsDict[env];
+    return envsDict[env]
   }
 
   if (!!document.location.host.match(/localhost|\.test\.|\.staging\./)) {
-    return 'staging';
+    return 'staging'
   }
 
-  return undefined;
+  return undefined
 }
 
 function getIsolationStrategy() {
-  const isolation = popFromURLParameters('isolation');
+  const isolation = popFromURLParameters('isolation')
 
-  return isolation === undefined ? undefined : isolation === 'true';
+  return isolation === undefined ? undefined : isolation === 'true'
 }
 
-const instance = popFromURLParameters('instance') || 'empathy';
-const env = getEnv();
-const scope = popFromURLParameters('scope') || 'desktop';
-const lang = popFromURLParameters('lang') || 'en';
-const device = popFromURLParameters('device') || undefined;
-const uiLang = popFromURLParameters('uiLang') || lang;
-const currency = popFromURLParameters('currency') || 'EUR';
-const consent = popFromURLParameters('consent') !== 'false';
-const documentDirection = popFromURLParameters('doc-dir') || 'ltr';
-const store = popFromURLParameters('store') || undefined;
-const isolate = getIsolationStrategy();
-popFromURLParameters('query'); // prevent the query from be included as extra param
-popFromURLParameters('filter'); // Prevent the filters to be included as extra param
+const instance = popFromURLParameters('instance') || 'empathy'
+const env = getEnv()
+const scope = popFromURLParameters('scope') || 'desktop'
+const lang = popFromURLParameters('lang') || 'en'
+const device = popFromURLParameters('device') || undefined
+const uiLang = popFromURLParameters('uiLang') || lang
+const currency = popFromURLParameters('currency') || 'EUR'
+const consent = popFromURLParameters('consent') !== 'false'
+const documentDirection = popFromURLParameters('doc-dir') || 'ltr'
+const store = popFromURLParameters('store') || undefined
+const isolate = getIsolationStrategy()
+popFromURLParameters('query') // prevent the query from be included as extra param
+popFromURLParameters('filter') // Prevent the filters to be included as extra param
 
-window.__enableVueDevtools__ = true;
+window.__enableVueDevtools__ = true
 window.initX = {
   instance,
   env,
@@ -82,51 +82,51 @@ window.initX = {
     {
       query: 'dress',
       title: 'Autumn dresses by Marni',
-      filters: ['brand:marni', 'categoryIds:12fad53d7']
+      filters: ['brand:marni', 'categoryIds:12fad53d7'],
     },
     {
       query: 'belted legging',
       filters: ['categoryIds:1b5f82125'],
-      title: 'Belted leggings'
+      title: 'Belted leggings',
     },
     {
       query: 'bags',
       extraParams: {
-        sort: 'price desc'
+        sort: 'price desc',
       },
-      title: 'Exclusive bags'
+      title: 'Exclusive bags',
     },
     {
       query: 'sunglasses',
-      title: 'Sunshine ready'
+      title: 'Sunshine ready',
     },
     {
       query: 'woven hat',
-      title: 'Elegant Sunshield'
-    }
-  ]
-};
+      title: 'Elegant Sunshield',
+    },
+  ],
+}
 
 window.addEventListener('load', () => {
   window.wysiwyg.setConfig({
     auth: {
       baseUrl: 'https://iam.empathy.co',
-      clientId: 'wysiwyg'
+      clientId: 'wysiwyg',
     },
     analytics: {
-      baseUrl: 'https://api.staging.empathy.co/statistics/v2'
+      baseUrl: 'https://api.staging.empathy.co/statistics/v2',
     },
     conversational: {
-      baseUrl: 'https://gplay-rag.internal.test.empathy.co'
+      baseUrl: 'https://gplay-rag.internal.test.empathy.co',
     },
     search: {
-      baseUrl: 'https://api.staging.empathy.co/search/v1'
+      baseUrl: 'https://api.staging.empathy.co/search/v1',
     },
     instance,
     lang,
     audience: 'enterprise',
     playboardUrl: `https://playboard-platform.staging.empathy.co/${instance}`,
     appContainerSelector: '.x-root-container',
-    searchLayerSelector: '.x'
-  });
-});
+    searchLayerSelector: '.x',
+  })
+})
