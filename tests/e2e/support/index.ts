@@ -6,12 +6,6 @@ import Shadow = Cypress.Shadow
 import Timeoutable = Cypress.Timeoutable
 import Withinable = Cypress.Withinable
 
-declare global {
-  namespace Cypress {
-    interface Chainable extends CustomCommands, CustomDualCommands {}
-  }
-}
-
 /**
  * When the tests are running, there is a problem with the resize observer. After
  * research some time, the issue can be related with Chrome.
@@ -22,7 +16,7 @@ declare global {
  */
 Cypress.on('uncaught:exception', err => !err.message.includes('ResizeObserver loop limit exceeded'))
 
-interface CustomCommands {
+export interface CustomCommands {
   /**
    * Searches a query by typing it in the search input and pressing enter.
    *
@@ -74,7 +68,7 @@ interface CustomCommands {
    */
   clearSearchInput: () => Cypress.Chainable<JQuery>
 }
-interface CustomDualCommands {
+export interface CustomDualCommands {
   /**
    * Gets a DOM element searching by its data-test attribute.
    *

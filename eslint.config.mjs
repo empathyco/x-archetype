@@ -30,7 +30,6 @@ export default empathyco(
       'ts/no-unsafe-argument': 'off',
       'ts/no-unsafe-member-access': 'off',
       'ts/no-unsafe-return': 'off',
-      'ts/no-namespace': 'off',
     },
   },
 )
