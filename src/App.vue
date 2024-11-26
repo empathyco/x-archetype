@@ -93,7 +93,7 @@ export default defineComponent({
           window.InterfaceX?.search()
           window.wysiwyg?.setContext({ query: payload.query })
         }
-      } catch (_) {
+      } catch {
         // No error handling
       }
     })

@@ -1,13 +1,12 @@
-import type { AnyFunction} from '@empathyco/x-utils';
-import { forEach } from '@empathyco/x-utils';
+import type { AnyFunction } from '@empathyco/x-utils'
+import { forEach } from '@empathyco/x-utils'
 
-import Loggable = Cypress.Loggable;
-import Shadow = Cypress.Shadow;
-import Timeoutable = Cypress.Timeoutable;
-import Withinable = Cypress.Withinable;
+import Loggable = Cypress.Loggable
+import Shadow = Cypress.Shadow
+import Timeoutable = Cypress.Timeoutable
+import Withinable = Cypress.Withinable
 
 declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Cypress {
     interface Chainable extends CustomCommands, CustomDualCommands {}
   }
@@ -21,10 +20,7 @@ declare global {
  * https://github.com/cypress-io/cypress/issues/8418.
  * Https://github.com/cypress-io/cypress/issues/22129.
  */
-Cypress.on(
-  'uncaught:exception',
-  err => !err.message.includes('ResizeObserver loop limit exceeded')
-);
+Cypress.on('uncaught:exception', err => !err.message.includes('ResizeObserver loop limit exceeded'))
 
 interface CustomCommands {
   /**
@@ -37,7 +33,7 @@ interface CustomCommands {
    * @returns A Chainable object.
    * @internal
    */
-  searchQuery: (query: string) => Cypress.Chainable<JQuery>;
+  searchQuery: (query: string) => Cypress.Chainable<JQuery>
   /**
    * Searches multiple queries by typing it in the search input and pressing enter.
    *
@@ -47,7 +43,7 @@ interface CustomCommands {
    * @param queries - The query to search.
    * @returns A Chainable object.
    */
-  searchQueries: (...queries: string[]) => void;
+  searchQueries: (...queries: string[]) => void
   /**
    * Types a query into the search input.
    *
@@ -58,7 +54,7 @@ interface CustomCommands {
    * @returns A Chainable object.
    * @internal
    */
-  typeQuery: (query: string) => Cypress.Chainable<JQuery>;
+  typeQuery: (query: string) => Cypress.Chainable<JQuery>
   /**
    * Focus into the search input.
    *
@@ -67,7 +63,7 @@ interface CustomCommands {
    *
    * @returns A Chainable object.
    */
-  focusSearchInput: () => Cypress.Chainable<JQuery>;
+  focusSearchInput: () => Cypress.Chainable<JQuery>
   /**
    * Clear search input.
    *
@@ -76,7 +72,7 @@ interface CustomCommands {
    *
    * @returns A Chainable object.
    */
-  clearSearchInput: () => Cypress.Chainable<JQuery>;
+  clearSearchInput: () => Cypress.Chainable<JQuery>
 }
 interface CustomDualCommands {
   /**
@@ -89,43 +85,43 @@ interface CustomDualCommands {
    * @param options - The options passed to the Cypress command.
    * @returns A Chainable object.
    */
-  getByDataTest: (value: string, options?: CypressCommandOptions) => Cypress.Chainable<JQuery>;
+  getByDataTest: (value: string, options?: CypressCommandOptions) => Cypress.Chainable<JQuery>
 }
 
 type AddPreviousParam<Functions extends Record<keyof Functions, AnyFunction>> = {
   [Key in keyof Functions]: (
     previous: unknown,
     ...args: Parameters<Functions[Key]>
-  ) => ReturnType<Functions[Key]>;
-};
+  ) => ReturnType<Functions[Key]>
+}
 
-type CypressCommandOptions = Partial<Loggable & Timeoutable & Withinable & Shadow>;
+type CypressCommandOptions = Partial<Loggable & Timeoutable & Withinable & Shadow>
 
 const customCommands: CustomCommands = {
   searchQuery: query => cy.typeQuery(query).type('{enter}', { force: true }),
   searchQueries: (...queries) => {
     queries.forEach(query => {
-      cy.getByDataTest('search-input').clear({ force: true });
-      cy.typeQuery(query).type('{enter}', { force: true });
-    });
+      cy.getByDataTest('search-input').clear({ force: true })
+      cy.typeQuery(query).type('{enter}', { force: true })
+    })
   },
   typeQuery: query => cy.getByDataTest('search-input').type(query, { force: true }),
   focusSearchInput: () => cy.getByDataTest('search-input').click(),
-  clearSearchInput: () => cy.getByDataTest('clear-search-input').click()
-};
+  clearSearchInput: () => cy.getByDataTest('clear-search-input').click(),
+}
 
 const customDualCommands: AddPreviousParam<CustomDualCommands> = {
   getByDataTest: (previous, value, options?: CypressCommandOptions) => {
-    const selector = `[data-test=${value}]`;
-    return previous ? cy.wrap(previous).find(selector, options) : cy.get(selector, options);
-  }
-};
+    const selector = `[data-test=${value}]`
+    return previous ? cy.wrap(previous).find(selector, options) : cy.get(selector, options)
+  },
+}
 
 // Register the commands
 forEach(customCommands, (name, implementation) => {
-  Cypress.Commands.add(name, implementation);
-});
+  Cypress.Commands.add(name, implementation)
+})
 
 forEach(customDualCommands, (name, implementation) => {
-  Cypress.Commands.add(name, { prevSubject: 'optional' }, implementation);
-});
+  Cypress.Commands.add(name, { prevSubject: 'optional' }, implementation)
+})

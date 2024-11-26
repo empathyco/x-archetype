@@ -1,36 +1,37 @@
 import type {
   PlatformRecommendationsRequest,
   PlatformResult,
-  PlatformSemanticQueriesRequest} from '@empathyco/x-adapter-platform';
+  PlatformSemanticQueriesRequest,
+} from '@empathyco/x-adapter-platform'
 import type {
   ExperienceControlsResponse,
   RecommendationsRequest,
   Result,
-  SemanticQueriesRequest
-} from '@empathyco/x-types';
+  SemanticQueriesRequest,
+} from '@empathyco/x-types'
 import {
   experienceControlsResponseSchema,
   platformAdapter,
   recommendationsRequestSchema,
   resultSchema,
-  semanticQueriesRequestSchema
-} from '@empathyco/x-adapter-platform';
+  semanticQueriesRequestSchema,
+} from '@empathyco/x-adapter-platform'
 
-export const adapter = platformAdapter;
+export const adapter = platformAdapter
 
 /* Code sample about how to extend the result mapper with more fields. */
 
 interface EmpathyDemoPlatformResult extends PlatformResult {
-  description: string;
-  collection: string;
-  brand: string;
+  description: string
+  collection: string
+  brand: string
 }
 
 declare module '@empathyco/x-types' {
   export interface Result {
-    collection: string;
-    description: string;
-    brand: string;
+    collection: string
+    description: string
+    brand: string
   }
 }
 
@@ -38,16 +39,16 @@ resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
   description: 'description',
   collection: 'collection',
   brand: 'brand',
-  images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images])
-});
+  images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
+})
 
 recommendationsRequestSchema.$override<
   RecommendationsRequest,
   Partial<PlatformRecommendationsRequest>
 >({
   // TODO Top clicked demo endpoint breaks if it receives the scope parameter
-  extraParams: ({ extraParams: { scope, ...extraParams } = {} }) => extraParams
-});
+  extraParams: ({ extraParams: { scope, ...extraParams } = {} }) => extraParams,
+})
 
 semanticQueriesRequestSchema.$override<
   SemanticQueriesRequest,
@@ -56,12 +57,11 @@ semanticQueriesRequestSchema.$override<
   extraParams: ({ extraParams }) => {
     return {
       extraParams,
-      filter_ids: 'NOT_ALL_WORDS,NOT_PARTIAL'
-    };
-  }
-});
+      filter_ids: 'NOT_ALL_WORDS,NOT_PARTIAL',
+    }
+  },
+})
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 experienceControlsResponseSchema.$override<
   Partial<ExperienceControlsResponse>,
   Partial<ExperienceControlsResponse>
@@ -70,7 +70,7 @@ experienceControlsResponseSchema.$override<
   events: {
     SemanticQueriesConfigProvided: {
       maxItemsToRequest: 'controls.semanticQueries.numberOfCarousels',
-      resultsPerCarousel: 'controls.semanticQueries.resultsPerCarousels'
-    }
-  }
-});
+      resultsPerCarousel: 'controls.semanticQueries.resultsPerCarousels',
+    },
+  },
+})
