@@ -1,3 +1,4 @@
+import type { TestContext } from '../support'
 import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
 import '../cucumber/global-definitions'
 
@@ -31,7 +32,7 @@ When('filter {int} from facet {string} is clicked', (filterNumber: number, facet
 
 Then(
   'filter {int} from facet {string} is selected is {boolean}',
-  function (this: any, filterNumber: number, facetName: string, isSelected: boolean) {
+  function (this: TestContext, filterNumber: number, facetName: string, isSelected: boolean) {
     cy.getByDataTest(facetName)
       .contains(this[`clickedFilter${filterNumber}`].trim())
       .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-selected')
@@ -67,7 +68,7 @@ When(
 Then(
   'selection status of child filter {int} from parent filter {int} in facet {string} is {boolean}',
   function (
-    this: any,
+    this: TestContext,
     childFilterIndex: number,
     hierarchicalFilterIndex: number,
     facetName: string,

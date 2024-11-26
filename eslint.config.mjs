@@ -22,14 +22,4 @@ export default empathyco(
       'ts/no-unsafe-member-access': 'off',
     },
   },
-  {
-    files: ['tests/**/*.{ts,tsx,vue}'],
-    rules: {
-      // Enable the following rules progressively when the project is ready to enforce them
-      'ts/no-unsafe-call': 'off',
-      'ts/no-unsafe-argument': 'off',
-      'ts/no-unsafe-member-access': 'off',
-      'ts/no-unsafe-return': 'off',
-    },
-  },
 )

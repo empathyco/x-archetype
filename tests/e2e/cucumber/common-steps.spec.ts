@@ -1,3 +1,4 @@
+import type { XAPI } from '@empathyco/x-components'
 import { Given, Then, When } from '@badeball/cypress-cucumber-preprocessor'
 import ViewportPreset = Cypress.ViewportPreset
 
@@ -8,7 +9,7 @@ Given('start page with {string} size view', (view: ViewportPreset) => {
 
 Then('search bar is clicked', () => {
   cy.getByDataTest('x').should('exist')
-  cy.window().then(window => window.InterfaceX.search())
+  cy.window().then(window => (window.InterfaceX as XAPI).search())
 })
 
 // Search

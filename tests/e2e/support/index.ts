@@ -16,6 +16,10 @@ import Withinable = Cypress.Withinable
  */
 Cypress.on('uncaught:exception', err => !err.message.includes('ResizeObserver loop limit exceeded'))
 
+export interface TestContext {
+  [key: string]: string
+}
+
 export interface CustomCommands {
   /**
    * Searches a query by typing it in the search input and pressing enter.
