@@ -53,10 +53,10 @@
             :key="query"
             @click.stop="toggleQuery(queryIndex)"
             :style="{ animationDelay: `${queryIndex * 0.3}s` }"
-            class="x-flex x-h-[40px] x-items-center x-justify-center x-gap-4 x-rounded-sm x-border-1 x-border-accent-75 x-px-12"
+            class="x-tag-outlined x-flex x-h-[40px] x-items-center x-justify-center x-gap-4 x-rounded-full x-border-1 x-px-12"
             :class="[
               'x-staggered-initial x-staggered-animation',
-              isQuerySelected(queryIndex) ? 'x-bg-accent-50' : 'x-bg-neutral-0',
+              isQuerySelected(queryIndex) ? 'x-bg-neutral-25' : 'x-bg-neutral-0',
               shouldHideQuery(queryIndex) ? 'x-hidden' : ''
             ]"
           >

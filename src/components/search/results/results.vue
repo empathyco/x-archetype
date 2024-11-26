@@ -27,11 +27,11 @@
               </MainScrollItem>
             </template>
             <template #related-prompts-group>
-              <RelatedPromptsTagList v-if="!isLowResult" class="x-mb-[52px] x-mt-[52px]" />
+              <RelatedPromptsTagList v-if="!isLowResult" class="x-my-24" />
               <CustomQueryPreview
                 v-if="selectedPrompt !== -1"
                 :key="queriesPreviewInfo.length"
-                class="x-mt-32 x-rounded-[12px] x-bg-neutral-10 x-px-8 desktop:x-mt-32 desktop:x-px-16"
+                class="x-rounded-[12px] x-bg-neutral-10 x-px-8 desktop:x-px-16"
                 :queriesPreviewInfo="queriesPreviewInfo"
               ></CustomQueryPreview>
             </template>
