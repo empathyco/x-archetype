@@ -18,8 +18,8 @@
         :class="[
           'x-staggered-initial',
           { 'x-staggered-animation': isVisible },
-          isSelected(index) ? 'x-w-full' : 'x-w-[204px] desktop:x-w-[303px]',
-          shouldHideButton(index) ? 'x-hidden' : ''
+          { 'x-hidden': shouldHideButton(index) },
+          isSelected(index) ? 'x-w-full' : 'x-w-[204px] desktop:x-w-[303px]'
         ]"
         data-test="related-prompt-item"
       >
@@ -34,7 +34,7 @@
               :class="['x-typewritter-initial', { 'x-typewritter-animation': isVisible }]"
               :style="{
                 animationDelay: `${index * 0.4 + 0.05}s`,
-                '--n': suggestion.suggestionText.length
+                '--suggestion-text-length': suggestion.suggestionText.length
               }"
             >
               {{ suggestion.suggestionText }}
@@ -59,8 +59,8 @@
             class="x-tag-outlined x-flex x-h-[40px] x-items-center x-justify-center x-gap-4 x-rounded-full x-border-1 x-px-12"
             :class="[
               'x-staggered-initial x-staggered-animation',
-              isQuerySelected(queryIndex) ? 'x-bg-neutral-25' : 'x-bg-neutral-0',
-              shouldHideQuery(queryIndex) ? 'x-hidden' : ''
+              { 'x-hidden': shouldHideButton(queryIndex) },
+              isQuerySelected(queryIndex) ? 'x-bg-neutral-25' : 'x-bg-neutral-0'
             ]"
           >
             <span
@@ -189,15 +189,16 @@
   }
 
   .x-typewritter-animation {
-    animation: t calc(var(--n) * 0.05s) steps(var(--n)) forwards;
+    animation: typewritter calc(var(--suggestion-text-length) * 0.05s)
+      steps(var(--suggestion-text-length)) forwards;
   }
 
-  @keyframes t {
+  @keyframes typewritter {
     from {
       background-size: 0 200%;
     }
     to {
-      background-size: calc(var(--n) * 1ch) 200%;
+      background-size: calc(var(--suggestion-text-length) * 1ch) 200%;
     }
   }
 

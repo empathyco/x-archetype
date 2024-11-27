@@ -58,8 +58,9 @@
     PromotedsList,
     ResultsList
   } from '@empathyco/x-components/search';
-  import { computed, defineComponent } from 'vue';
+  import { computed, ComputedRef, defineComponent } from 'vue';
   import { RelatedPromptsList } from '@empathyco/x-components/related-prompts';
+  import { SemanticQueriesConfig } from '@empathyco/x-components/semantic-queries';
   import { useDevice } from '../../../composables/use-device.composable';
   import Result from '../../results/result.vue';
   import { useExperienceControls } from '../../../composables/use-experience-controls.composable';
@@ -88,6 +89,9 @@
       const { isMobile } = useDevice();
       const { getControlFromPath } = useExperienceControls();
 
+      const semanticQueriesConfig = useState('semanticQueries', ['config'])
+        .config as ComputedRef<SemanticQueriesConfig>;
+
       const { relatedPrompts, selectedPrompt, selectedQuery } = useState('relatedPrompts', [
         'relatedPrompts',
         'selectedPrompt',
@@ -96,7 +100,9 @@
 
       const columns = computed(() => (isMobile.value ? 2 : 4));
 
-      const isLowResult = computed(() => 0 < x.totalResults && x.totalResults < 50);
+      const isLowResult = computed(
+        () => 0 < x.totalResults && x.totalResults < semanticQueriesConfig.value.threshold
+      );
 
       const queriesPreviewInfo = computed(() => {
         const queries = relatedPrompts.value[selectedPrompt.value]?.nextQueries as string[];

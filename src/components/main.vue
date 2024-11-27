@@ -24,7 +24,8 @@
 
 <script lang="ts">
   import { FeatureLocation, LocationProvider, use$x, useState } from '@empathyco/x-components';
-  import { computed, defineAsyncComponent, defineComponent } from 'vue';
+  import { computed, ComputedRef, defineAsyncComponent, defineComponent } from 'vue';
+  import { SemanticQueriesConfig } from '@empathyco/x-components/types';
   import { useHasSearched } from '../composables/use-has-searched.composable';
   import CustomRecommendations from './results/custom-recommendations.vue';
   import CustomRelatedPrompts from './related-prompts/custom-related-prompts.vue';
@@ -44,6 +45,9 @@
       const { hasSearched } = useHasSearched();
       const x = use$x();
 
+      const semanticQueriesConfig = useState('semanticQueries', ['config'])
+        .config as ComputedRef<SemanticQueriesConfig>;
+
       const { relatedPrompts } = useState('relatedPrompts', ['relatedPrompts']);
 
       const semanticsLocation = computed<FeatureLocation>(() =>
@@ -58,7 +62,9 @@
         () => x.noResults && !x.semanticQueries.length && !relatedPrompts.value?.length
       );
 
-      const isLowResult = computed(() => 0 < x.totalResults && x.totalResults < 50);
+      const isLowResult = computed(
+        () => 0 < x.totalResults && x.totalResults < semanticQueriesConfig.value.threshold
+      );
 
       const showRelatedPrompts = computed(
         () => (x.noResults || isLowResult.value) && relatedPrompts.value?.length
