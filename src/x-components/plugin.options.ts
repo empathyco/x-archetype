@@ -1,3 +1,4 @@
+/* eslint-disable node/prefer-global/process */
 import type { InstallXOptions, SnippetConfig } from '@empathyco/x-components'
 import { cssInjector, I18n } from '@empathyco/x-archetype-utils'
 import { filter } from '@empathyco/x-components'
