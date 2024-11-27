@@ -6,7 +6,8 @@ import {
   recommendationsRequestSchema,
   resultSchema,
   semanticQueriesRequestSchema,
-  experienceControlsResponseSchema
+  experienceControlsResponseSchema,
+  relatedPromptsEndpointAdapter
 } from '@empathyco/x-adapter-platform';
 import {
   ExperienceControlsResponse,
@@ -72,4 +73,10 @@ experienceControlsResponseSchema.$override<
       resultsPerCarousel: 'controls.semanticQueries.resultsPerCarousels'
     }
   }
+});
+
+adapter.relatedPrompts = relatedPromptsEndpointAdapter.extends({
+  endpoint:
+    'https://api.empathy.co/relatedprompts/mymotivemarketplace?store=Labstore+London&lang=en',
+  requestMapper: ({ query }) => ({ query })
 });

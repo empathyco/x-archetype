@@ -126,6 +126,9 @@
       "title": "A sua pesquisa corresponde a um local especial no nosso sítio Web, para o visitar, está a ser redireccionado",
       "accept": "Sim, redirecionar-me",
       "reject": "Não, vou ficar aqui"
+    },
+    "relatedPrompts": {
+      "title": "Você está interessado em \"{query}\"? Explore estas sugestões:"
     }
   },
   "mobile": {
