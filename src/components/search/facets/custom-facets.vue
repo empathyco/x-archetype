@@ -70,11 +70,11 @@
                 children-filters-class="x-ml-16 x-mt-8 x-flex x-flex-col x-gap-8"
                 filter-item-class="x-w-full x-facet-filter-lg"
               >
-                <template #label="{ filter }">
-                  <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
+                <template #label="{ filter: hierarchicalFilter }">
+                  <CheckboxSelectedIcon v-if="hierarchicalFilter.selected" class="x-icon-lg" />
                   <CheckboxUnselectedIcon v-else class="x-icon-lg" />
-                  <span class="x-filter__label">{{ filter.label }}</span>
-                  <span class="x-filter__count">({{ filter.totalResults }})</span>
+                  <span class="x-filter__label">{{ hierarchicalFilter.label }}</span>
+                  <span class="x-filter__count">({{ hierarchicalFilter.totalResults }})</span>
                 </template>
               </HierarchicalFilter>
             </FiltersList>

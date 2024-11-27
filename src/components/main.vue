@@ -25,6 +25,7 @@ import CustomRecommendations from './results/custom-recommendations.vue'
 import CustomSemanticQueries from './search/custom-semantic-queries.vue'
 
 export default defineComponent({
+  name: 'MainComponent',
   components: {
     CustomSemanticQueries,
     LocationProvider,

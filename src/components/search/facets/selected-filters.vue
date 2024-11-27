@@ -18,8 +18,8 @@
             :css-classes="['x-selected x-tag x-tag-auxiliary x-tag-outlined x-rounded-full']"
             :filter="filter"
           >
-            <template #label="{ filter }">
-              {{ filter.label }}
+            <template #label="{ filter: simpleFilter }">
+              {{ simpleFilter.label }}
               <CrossTinyIcon />
             </template>
           </SimpleFilter>
@@ -30,8 +30,8 @@
             :css-classes="['x-selected x-tag x-tag-auxiliary x-tag-outlined x-rounded-full']"
             :filter="filter"
           >
-            <template #label="{ filter }">
-              <PriceFilterLabel :filter="filter" />
+            <template #label="{ filter: numberRangeFilter }">
+              <PriceFilterLabel :filter="numberRangeFilter" />
               <CrossTinyIcon />
             </template>
           </NumberRangeFilter>

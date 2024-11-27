@@ -3,7 +3,7 @@
     class="x-my-history-confirm-disable-modal x-z-10"
     :events-to-open-modal="eventsToOpenModal"
     :events-to-close-modal="eventsToCloseModal"
-    @focusin.native.stop
+    @focusin.stop
   >
     <div
       class="x-my-history-confirm-disable-modal-content x-flex x-max-w-[322px] x-flex-col x-gap-16 x-bg-neutral-0 x-text-center"

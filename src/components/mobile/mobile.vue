@@ -36,7 +36,7 @@
 
             <LocationProvider location="results">
               <div class="x-layout-item">
-                <Main />
+                <MainComponent />
               </div>
             </LocationProvider>
           </Scroll>
@@ -88,7 +88,7 @@ import {
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { defineAsyncComponent, defineComponent } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
-import Main from '../main.vue'
+import MainComponent from '../main.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
 import PreSearchManager from '../pre-search/pre-search-manager.vue'
@@ -106,7 +106,7 @@ export default defineComponent({
     PreSearchManager,
     LocationProvider,
     MobileSubHeader,
-    Main,
+    MainComponent,
     MainScroll,
     MyHistoryAside,
     MobileOpenAside,

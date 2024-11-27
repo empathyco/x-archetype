@@ -3,7 +3,7 @@ export {}
 
 declare module 'vue' {
   interface ComponentCustomProperties {
-    $setLocale: (lang: string) => void
-    $setLocaleDevice: (device: string) => void
+    $setLocale: (lang: string) => Promise<void>
+    $setLocaleDevice: (device: string) => Promise<void>
   }
 }

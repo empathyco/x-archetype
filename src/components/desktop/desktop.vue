@@ -18,7 +18,7 @@
           </LocationProvider>
 
           <LocationProvider location="results">
-            <Main />
+            <MainComponent />
           </LocationProvider>
         </MaxDesktopWidthItem>
       </Scroll>
@@ -56,7 +56,7 @@ import { animateTranslate, BaseIdModal, LocationProvider } from '@empathyco/x-co
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { defineAsyncComponent, defineComponent } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
-import Main from '../main.vue'
+import MainComponent from '../main.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
@@ -71,7 +71,7 @@ export default defineComponent({
     BaseIdModal,
     MyHistoryAside,
     LocationProvider,
-    Main,
+    MainComponent,
     MainScroll,
     MyHistoryConfirmDisableModal,
     Scroll,

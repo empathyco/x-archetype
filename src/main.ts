@@ -20,5 +20,10 @@ declare global {
   }
 }
 
+// eslint-disable-next-line no-new
 new CssInjector(true)
-getInstallXOptions().then(async installXOptions => new XInstaller(installXOptions).init())
+getInstallXOptions()
+  .then(async installXOptions => new XInstaller(installXOptions).init())
+  .catch(error => {
+    console.error('Error initializing XInstaller:', error)
+  })

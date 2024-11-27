@@ -1,20 +1,21 @@
 import type { ScrollComponentState } from '@empathyco/x-components/types'
-import type { Ref } from 'vue'
+import type { Dictionary } from '@empathyco/x-utils'
+import type { ComputedRef, Ref } from 'vue'
 import { useState } from '@empathyco/x-components'
 import { computed, ref, watch } from 'vue'
 
 export const useHasScrollPastThreshold = (): { hasScrolledPastThreshold: Ref<boolean> } => {
   const hasScrolledPastThresholdFlag = ref(false)
   const scrollOffset = 100
-  const { data: scrollPositionsMap } = useState('scroll', ['data'])
-  const mainScrollPosition = computed(
-    () => scrollPositionsMap.value['main-scroll']?.position as number,
-  )
+  const scrollPositionsMap = useState('scroll', ['data']).data as ComputedRef<
+    Dictionary<ScrollComponentState>
+  >
+  const mainScrollPosition = computed(() => scrollPositionsMap.value['main-scroll']?.position)
 
   const hasScrolledPastThreshold = computed(() => hasScrolledPastThresholdFlag.value)
 
   watch(mainScrollPosition, () => {
-    const mainScrollData = scrollPositionsMap.value['main-scroll'] as ScrollComponentState
+    const mainScrollData = scrollPositionsMap.value['main-scroll']
 
     if (mainScrollData?.hasReachedStart) {
       hasScrolledPastThresholdFlag.value = false

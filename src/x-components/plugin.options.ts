@@ -119,6 +119,7 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
  * Creates a DOM element to mount the X Components app.
  *
  * @param snippetConfig - The snippet configuration.
+ * @param snippetConfig.isolate - Whether to isolate the DOM element using Shadow DOM.
  * @returns The DOM element.
  */
 function getDomElement({ isolate }: SnippetConfig): Element {
