@@ -76,5 +76,7 @@ experienceControlsResponseSchema.$override<
 });
 
 adapter.relatedPrompts = relatedPromptsEndpointAdapter.extends({
-  endpoint: 'https://api.staging.empathy.co/relatedprompts/fmj'
+  endpoint:
+    'https://api.empathy.co/relatedprompts/mymotivemarketplace?store=Labstore+London&lang=en',
+  requestMapper: ({ query }) => ({ query })
 });
