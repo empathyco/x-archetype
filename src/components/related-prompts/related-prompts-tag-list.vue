@@ -10,12 +10,11 @@
       class="x-flex x-gap-8 x-font-main desktop:x-mx-0 desktop:x-mb-0"
       :class="{ 'x-w-[calc(100%)]': selectedIndex !== -1 }"
     >
-      <button
+      <div
         v-for="(suggestion, index) in relatedPrompts"
         :key="index"
-        @click="toggleSuggestion(index)"
         :style="{ animationDelay: `${index * 0.4 + 0.05}s` }"
-        class="x-text-neutral-80 x-flex x-h-[112px] x-flex-col x-rounded-[12px] x-bg-neutral-10 x-text-start x-text-md x-font-[400] x-transition-all x-duration-500"
+        class="x-text-neutral-80 x-flex x-h-[112px] x-flex-col x-rounded-[12px] x-bg-neutral-10 x-text-md x-font-[400] x-transition-all x-duration-500"
         :class="[
           'x-staggered-initial',
           { 'x-staggered-animation': isVisible },
@@ -24,9 +23,11 @@
         ]"
         data-test="related-prompt-item"
       >
-        <div
-          class="x-flex x-flex-row x-items-start x-justify-between x-gap-12 x-px-16 x-pt-8 x-transition-all x-duration-500"
-          :class="isSelected(index) ? 'x-w-full' : 'x-w-[204px] desktop:x-w-[303px]'"
+        <!-- Suggestion -->
+        <button
+          @click="toggleSuggestion(index)"
+          class="x-flex x-flex-row x-items-start x-justify-between x-gap-12 x-px-16 x-pt-8 x-text-start x-transition-all x-duration-500"
+          :class="isSelected(index) ? 'x-w-full' : 'x-w-[204px] x-grow desktop:x-w-[303px]'"
         >
           <div class="x-flex x-min-h-[32px]">
             <span
@@ -43,8 +44,9 @@
             <CrossTinyIcon v-if="isSelected(index)" class="x-icon-lg" />
             <PlusIcon v-else class="x-icon-neutral-80 x-icon-lg" />
           </div>
-        </div>
+        </button>
 
+        <!-- Next queries -->
         <div
           v-if="isSelected(index)"
           class="x-no-scrollbar x-mt-8 x-flex x-w-full x-gap-12 x-overflow-y-hidden x-overflow-x-scroll x-px-16"
@@ -52,7 +54,7 @@
           <button
             v-for="(query, queryIndex) in suggestion.nextQueries"
             :key="query"
-            @click.stop="toggleQuery(queryIndex)"
+            @click="toggleQuery(queryIndex)"
             :style="{ animationDelay: `${queryIndex * 0.3}s` }"
             class="x-tag-outlined x-flex x-h-[40px] x-items-center x-justify-center x-gap-4 x-rounded-full x-border-1 x-px-12"
             :class="[
@@ -71,7 +73,7 @@
             <PlusIcon v-else class="x-text-16 x-h-20" />
           </button>
         </div>
-      </button>
+      </div>
     </div>
   </CustomSlidingPanel>
 </template>
