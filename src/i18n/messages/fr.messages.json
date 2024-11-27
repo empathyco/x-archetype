@@ -126,6 +126,9 @@
       "title": "Votre recherche correspond à un endroit spécial de notre site, pour le visiter, vous êtes redirigé",
       "accept": "Oui, redirigez-moi",
       "reject": "Non, je reste ici"
+    },
+    "relatedPrompts": {
+      "title": "Êtes-vous intéressé par «{query}»? Explorez ces suggestions:"
     }
   },
   "mobile": {

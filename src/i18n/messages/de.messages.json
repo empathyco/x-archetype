@@ -126,6 +126,9 @@
       "title": "Ihre Suche entspricht einem besonderen Ort auf unserer Website. Um ihn zu besuchen, werden Sie umgeleitet",
       "accept": "Ja, leite mich um",
       "reject": "Nein, ich bleibe hier"
+    },
+    "relatedPrompts": {
+      "title": "Sind Sie an „{query}“ interessiert? Entdecken Sie diese Vorschläge:"
     }
   },
   "mobile": {

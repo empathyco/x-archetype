@@ -6,11 +6,10 @@
   >
     <PromotedsList>
       <BannersList>
-        <NextQueriesList
+        <RelatedPromptsList
           :offset="24"
-          :frequency="48"
-          :max-next-queries-per-group="maxNextQueriesPerGroup"
-          :show-only-after-offset="x.partialResults.length > 0"
+          :max-groups="1"
+          :show-only-after-offset="x.totalResults < 50"
         >
           <BaseVariableColumnGrid
             class="x-gap-x-16 x-gap-y-32"
@@ -31,24 +30,33 @@
                 <Promoted :promoted="promoted" />
               </MainScrollItem>
             </template>
-            <template #next-queries-group="{ item: { nextQueries } }">
-              <NextQueryPreview :next-query="nextQueries[0]" />
+            <template #related-prompts-group>
+              <RelatedPromptsTagList v-if="!isLowResult" class="x-my-24" />
+              <CustomQueryPreview
+                v-if="selectedPrompt !== -1"
+                :key="queriesPreviewInfo.length"
+                class="x-rounded-[12px] x-bg-neutral-10 x-px-8 desktop:x-px-16"
+                :queries-preview-info="queriesPreviewInfo"
+              ></CustomQueryPreview>
             </template>
           </BaseVariableColumnGrid>
-        </NextQueriesList>
+        </RelatedPromptsList>
       </BannersList>
     </PromotedsList>
   </ResultsList>
 </template>
 
 <script lang="ts">
+import type { SemanticQueriesConfig } from '@empathyco/x-components/semantic-queries'
+import type { ComputedRef } from 'vue'
 import {
   BaseVariableColumnGrid,
   infiniteScroll,
   StaggeredFadeAndSlide,
   use$x,
+  useState,
 } from '@empathyco/x-components'
-import { NextQueriesList } from '@empathyco/x-components/next-queries'
+import { RelatedPromptsList } from '@empathyco/x-components/related-prompts'
 import { MainScrollItem } from '@empathyco/x-components/scroll'
 import {
   Banner,
@@ -57,22 +65,24 @@ import {
   PromotedsList,
   ResultsList,
 } from '@empathyco/x-components/search'
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
 import { useDevice } from '../../../composables/use-device.composable'
 import { useExperienceControls } from '../../../composables/use-experience-controls.composable'
+import RelatedPromptsTagList from '../../related-prompts/related-prompts-tag-list.vue'
 import Result from '../../results/result.vue'
-import NextQueryPreview from './custom-next-query-preview.vue'
+import CustomQueryPreview from './custom-query-preview.vue'
 
 export default defineComponent({
   components: {
     Banner,
     BannersList,
     BaseVariableColumnGrid,
+    CustomQueryPreview,
     MainScrollItem,
-    NextQueryPreview,
-    NextQueriesList,
     Promoted,
     PromotedsList,
+    RelatedPromptsList,
+    RelatedPromptsTagList,
     Result,
     ResultsList,
   },
@@ -80,14 +90,42 @@ export default defineComponent({
     'infinite-scroll': infiniteScroll,
   },
   setup() {
+    const x = use$x()
     const { isMobile } = useDevice()
     const { getControlFromPath } = useExperienceControls()
 
+    const semanticQueriesConfig = useState('semanticQueries', ['config'])
+      .config as ComputedRef<SemanticQueriesConfig>
+
+    const { relatedPrompts, selectedPrompt, selectedQuery } = useState('relatedPrompts', [
+      'relatedPrompts',
+      'selectedPrompt',
+      'selectedQuery',
+    ])
+
+    const columns = computed(() => (isMobile.value ? 2 : 4))
+
+    const isLowResult = computed(
+      () => x.totalResults > 0 && x.totalResults < semanticQueriesConfig.value.threshold,
+    )
+
+    const queriesPreviewInfo = computed(() => {
+      const queries = relatedPrompts.value[selectedPrompt.value]?.nextQueries as string[]
+      if (selectedQuery.value === -1) {
+        return queries.map(query => ({ query }))
+      } else {
+        return [{ query: queries[selectedQuery.value] }]
+      }
+    })
+
     return {
-      staggeredFadeAndSlide: StaggeredFadeAndSlide,
-      columns: isMobile.value ? 2 : 4,
+      columns,
+      isLowResult,
       maxNextQueriesPerGroup: getControlFromPath('nextQueries.maxItems', 1),
-      x: use$x(),
+      queriesPreviewInfo,
+      selectedPrompt,
+      staggeredFadeAndSlide: StaggeredFadeAndSlide,
+      x,
     }
   },
 })

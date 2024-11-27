@@ -126,6 +126,9 @@
       "title": "Your search matches a special place in our website, to visit it, you are being redirected",
       "accept": "Yes, redirect me",
       "reject": "No, I'll stay here"
+    },
+    "relatedPrompts": {
+      "title": "Are you interested in \"{query}\"? Explore this suggestions:"
     }
   },
   "mobile": {

@@ -1,9 +1,4 @@
 import type {
-  PlatformRecommendationsRequest,
-  PlatformResult,
-  PlatformSemanticQueriesRequest,
-} from '@empathyco/x-adapter-platform'
-import type {
   ExperienceControlsResponse,
   RecommendationsRequest,
   Result,
@@ -12,7 +7,11 @@ import type {
 import {
   experienceControlsResponseSchema,
   platformAdapter,
+  type PlatformRecommendationsRequest,
+  type PlatformResult,
+  type PlatformSemanticQueriesRequest,
   recommendationsRequestSchema,
+  relatedPromptsEndpointAdapter,
   resultSchema,
   semanticQueriesRequestSchema,
 } from '@empathyco/x-adapter-platform'
@@ -73,4 +72,10 @@ experienceControlsResponseSchema.$override<
       resultsPerCarousel: 'controls.semanticQueries.resultsPerCarousels',
     },
   },
+})
+
+adapter.relatedPrompts = relatedPromptsEndpointAdapter.extends({
+  endpoint:
+    'https://api.empathy.co/relatedprompts/mymotivemarketplace?store=Labstore+London&lang=en',
+  requestMapper: ({ query }) => ({ query }),
 })

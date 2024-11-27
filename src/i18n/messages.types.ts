@@ -128,4 +128,7 @@ export interface Messages {
     accept: string
     reject: string
   }
+  relatedPrompts: {
+    title: string
+  }
 }
