@@ -36,7 +36,7 @@
 
             <LocationProvider location="results">
               <div class="x-layout-item">
-                <Main />
+                <MainComponent />
               </div>
             </LocationProvider>
           </Scroll>
@@ -57,8 +57,8 @@
     <!-- eslint-disable max-len-->
     <BaseIdModal
       :animation="filtersAsideAnimation"
-      modalId="aside-modal"
-      contentClass="x-mt-64 x-h-[calc(100%-64px)] x-fixed x-flex-1 x-rounded-t-lg x-bg-neutral-0 desktop:x-rounded-none desktop:x-m-0"
+      modal-id="aside-modal"
+      content-class="x-mt-64 x-h-[calc(100%-64px)] x-fixed x-flex-1 x-rounded-t-lg x-bg-neutral-0 desktop:x-rounded-none desktop:x-m-0"
     >
       <MobileAside v-if="hasSearched" />
     </BaseIdModal>
@@ -66,8 +66,8 @@
     <BaseIdModal
       key="my-history-aside"
       :animation="rightAsideAnimation"
-      modalId="my-history-aside"
-      contentClass="x-bg-neutral-0"
+      modal-id="my-history-aside"
+      content-class="x-bg-neutral-0"
       class="x-z-10"
     >
       <MyHistoryAside />
@@ -77,66 +77,64 @@
 </template>
 
 <script lang="ts">
-  import {
+import {
+  animateTranslate,
+  ArrowLeftIcon,
+  BaseIdModal,
+  CloseMainModal,
+  LocationProvider,
+  use$x,
+} from '@empathyco/x-components'
+import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
+import { defineAsyncComponent, defineComponent } from 'vue'
+import { useHasSearched } from '../../composables/use-has-searched.composable'
+import MainComponent from '../main.vue'
+import MyHistoryAside from '../my-history/my-history-aside.vue'
+import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
+import PreSearchManager from '../pre-search/pre-search-manager.vue'
+import PredictiveLayer from '../predictive-layer/predictive-layer.vue'
+import ScrollToTop from '../scroll-to-top.vue'
+import SearchBox from '../search-box.vue'
+import MobileOpenAside from './mobile-open-aside.vue'
+import MobileSubHeader from './mobile-sub-header.vue'
+
+export default defineComponent({
+  components: {
     ArrowLeftIcon,
-    CloseMainModal,
-    LocationProvider,
-    animateTranslate,
     BaseIdModal,
-    use$x
-  } from '@empathyco/x-components';
-  import { MainScroll, Scroll } from '@empathyco/x-components/scroll';
-  import { defineAsyncComponent, defineComponent } from 'vue';
-  import Main from '../main.vue';
-  import PreSearchManager from '../pre-search/pre-search-manager.vue';
-  import ScrollToTop from '../scroll-to-top.vue';
-  import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
-  import SearchBox from '../search-box.vue';
-  import MyHistoryAside from '../my-history/my-history-aside.vue';
-  import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue';
-  import { useHasSearched } from '../../composables/use-has-searched.composable';
-  import MobileOpenAside from './mobile-open-aside.vue';
-  import MobileSubHeader from './mobile-sub-header.vue';
+    CloseMainModal,
+    PreSearchManager,
+    LocationProvider,
+    MobileSubHeader,
+    MainComponent,
+    MainScroll,
+    MyHistoryAside,
+    MobileOpenAside,
+    MyHistoryConfirmDisableModal,
+    PredictiveLayer,
+    Scroll,
+    ScrollToTop,
+    SearchBox,
+    MobileAside: defineAsyncComponent(() => import('../search').then(m => m.MobileAside)),
+    NoResultsMessage: defineAsyncComponent(() => import('../search').then(m => m.NoResultsMessage)),
+    SpellcheckMessage: defineAsyncComponent(() =>
+      import('../search').then(m => m.SpellcheckMessage),
+    ),
+    FallbackDisclaimerMessage: defineAsyncComponent(() =>
+      import('../search').then(m => m.FallbackDisclaimerMessage),
+    ),
+  },
+  setup() {
+    const filtersAsideAnimation = animateTranslate('bottom')
+    const rightAsideAnimation = animateTranslate('right')
+    const { hasSearched } = useHasSearched()
 
-  export default defineComponent({
-    components: {
-      ArrowLeftIcon,
-      BaseIdModal,
-      CloseMainModal,
-      PreSearchManager,
-      LocationProvider,
-      MobileSubHeader,
-      Main,
-      MainScroll,
-      MyHistoryAside,
-      MobileOpenAside,
-      MyHistoryConfirmDisableModal,
-      PredictiveLayer,
-      Scroll,
-      ScrollToTop,
-      SearchBox,
-      MobileAside: defineAsyncComponent(() => import('../search').then(m => m.MobileAside)),
-      NoResultsMessage: defineAsyncComponent(() =>
-        import('../search').then(m => m.NoResultsMessage)
-      ),
-      SpellcheckMessage: defineAsyncComponent(() =>
-        import('../search').then(m => m.SpellcheckMessage)
-      ),
-      FallbackDisclaimerMessage: defineAsyncComponent(() =>
-        import('../search').then(m => m.FallbackDisclaimerMessage)
-      )
-    },
-    setup() {
-      const filtersAsideAnimation = animateTranslate('bottom');
-      const rightAsideAnimation = animateTranslate('right');
-      const { hasSearched } = useHasSearched();
-
-      return {
-        filtersAsideAnimation,
-        rightAsideAnimation,
-        hasSearched,
-        x: use$x()
-      };
+    return {
+      filtersAsideAnimation,
+      rightAsideAnimation,
+      hasSearched,
+      x: use$x(),
     }
-  });
+  },
+})
 </script>

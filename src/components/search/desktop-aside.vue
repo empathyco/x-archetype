@@ -4,7 +4,7 @@
       <span class="x-title2 x-mr-auto">
         {{ $t('facetsPanel.title') }}
       </span>
-      <BaseIdModalClose class="x-button-lead x-button-circle x-button-ghost" modalId="right-aside">
+      <BaseIdModalClose class="x-button-lead x-button-circle x-button-ghost" modal-id="right-aside">
         <CrossIcon class="x-icon-lg" />
       </BaseIdModalClose>
     </div>
@@ -16,13 +16,13 @@
       <ClearFilters
         v-slot="{ selectedFilters }"
         class="x-button-lead x-button-outlined x-flex-auto x-rounded-full x-p-24 x-py-12 x-uppercase"
-        :alwaysVisible="false"
+        :always-visible="false"
       >
         {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
       </ClearFilters>
       <BaseIdModalClose
         class="x-button-lead x-flex-auto x-rounded-full x-p-24 x-py-12"
-        modalId="right-aside"
+        modal-id="right-aside"
       >
         {{ $t('facetsPanel.viewResults', { totalResults: x.totalResults }) }}
       </BaseIdModalClose>
@@ -31,22 +31,22 @@
 </template>
 
 <script lang="ts">
-  import { BaseIdModalClose, CrossIcon, use$x } from '@empathyco/x-components';
-  import { ClearFilters } from '@empathyco/x-components/facets';
-  import { defineComponent } from 'vue';
-  import CustomFacets from './facets/custom-facets.vue';
-  import Sort from './sort.vue';
+import { BaseIdModalClose, CrossIcon, use$x } from '@empathyco/x-components'
+import { ClearFilters } from '@empathyco/x-components/facets'
+import { defineComponent } from 'vue'
+import CustomFacets from './facets/custom-facets.vue'
+import Sort from './sort.vue'
 
-  export default defineComponent({
-    components: {
-      CustomFacets,
-      Sort,
-      BaseIdModalClose,
-      CrossIcon,
-      ClearFilters
-    },
-    setup() {
-      return { x: use$x() };
-    }
-  });
+export default defineComponent({
+  components: {
+    CustomFacets,
+    Sort,
+    BaseIdModalClose,
+    CrossIcon,
+    ClearFilters,
+  },
+  setup() {
+    return { x: use$x() }
+  },
+})
 </script>

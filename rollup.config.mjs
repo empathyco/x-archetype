@@ -1,5 +1,5 @@
-import { createConfig } from './build/instrumentation.build.mjs';
-import { rollupCssInjectorConfig } from "@empathyco/x-archetype-utils";
+import { createConfig } from './build/instrumentation.build.mjs'
+import { rollupCssInjectorConfig } from '@empathyco/x-archetype-utils'
 
 export default createConfig({
   /*
@@ -10,16 +10,16 @@ export default createConfig({
     chunkFileNames: chunkInfo => {
       switch (chunkInfo.name) {
         case 'custom-main-modal':
-          return 'x-empty-search-[hash].js';
+          return 'x-empty-search-[hash].js'
         case 'index':
-          return 'x-search-[hash].js';
+          return 'x-search-[hash].js'
         default:
-          return '[name].[hash].js';
+          return '[name].[hash].js'
       }
-    }
+    },
   },
   plugins: {
     // Modify plugins options here.
-    ...rollupCssInjectorConfig
-  }
-});
+    ...rollupCssInjectorConfig,
+  },
+})

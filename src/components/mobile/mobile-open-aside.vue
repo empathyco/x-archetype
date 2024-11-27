@@ -1,7 +1,7 @@
 <template>
   <BaseIdModalOpen
     data-test="toggle-facets-button"
-    modalId="aside-modal"
+    modal-id="aside-modal"
     class="x-button-lead x-rounded-full x-px-16"
   >
     <FiltersIcon class="x-icon-lg" />
@@ -17,13 +17,13 @@
 </template>
 
 <script lang="ts">
-  import { BaseIdModalOpen, FiltersIcon, use$x } from '@empathyco/x-components';
-  import { defineComponent } from 'vue';
+import { BaseIdModalOpen, FiltersIcon, use$x } from '@empathyco/x-components'
+import { defineComponent } from 'vue'
 
-  export default defineComponent({
-    components: { BaseIdModalOpen, FiltersIcon },
-    setup() {
-      return { x: use$x() };
-    }
-  });
+export default defineComponent({
+  components: { BaseIdModalOpen, FiltersIcon },
+  setup() {
+    return { x: use$x() }
+  },
+})
 </script>

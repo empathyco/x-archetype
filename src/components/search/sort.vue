@@ -1,5 +1,5 @@
 <template>
-  <CustomHeaderTogglePanel :data-test="'sort'" class="x-border-0 x-border-b x-border-neutral-10">
+  <CustomHeaderTogglePanel data-test="sort" class="x-border-0 x-border-b x-border-neutral-10">
     <template #header>
       <span class="x-title3">
         {{ $t('sort.label') }}
@@ -11,7 +11,7 @@
         v-if="x.totalResults"
         class="x-flex x-flex-col x-gap-8 x-pb-24"
         :items="sortValues"
-        buttonClass="x-facet-filter x-facet-filter-lg"
+        button-class="x-facet-filter x-facet-filter-lg"
       >
         <template #default="{ item, isSelected }">
           <RadioButtonSelectedIcon v-if="isSelected" class="x-icon-lg" />
@@ -24,39 +24,39 @@
 </template>
 
 <script lang="ts">
-  import { Sort } from '@empathyco/x-types';
-  import { SortPickerList } from '@empathyco/x-components/search';
-  import {
+import type { Sort } from '@empathyco/x-types'
+import {
+  animateScale,
+  RadioButtonSelectedIcon,
+  RadioButtonUnselectedIcon,
+  use$x,
+} from '@empathyco/x-components'
+import { SortPickerList } from '@empathyco/x-components/search'
+import { defineComponent } from 'vue'
+import CustomHeaderTogglePanel from '../custom-header-toggle-panel.vue'
+
+export default defineComponent({
+  components: {
+    SortPickerList,
+    CustomHeaderTogglePanel,
     RadioButtonSelectedIcon,
     RadioButtonUnselectedIcon,
-    animateScale,
-    use$x
-  } from '@empathyco/x-components';
-  import { defineComponent } from 'vue';
-  import CustomHeaderTogglePanel from '../custom-header-toggle-panel.vue';
-
-  export default defineComponent({
-    components: {
-      SortPickerList,
-      CustomHeaderTogglePanel,
-      RadioButtonSelectedIcon,
-      RadioButtonUnselectedIcon
-    },
-    setup() {
-      const animation = animateScale();
-      const sortValues: Sort[] = ['', 'price asc', 'price desc'];
-      return {
-        animation,
-        sortValues,
-        x: use$x()
-      };
+  },
+  setup() {
+    const animation = animateScale()
+    const sortValues: Sort[] = ['', 'price asc', 'price desc']
+    return {
+      animation,
+      sortValues,
+      x: use$x(),
     }
-  });
+  },
+})
 </script>
 
 <style lang="scss">
-  // TODO: Remove when implementing buttonClass prop in the SortList buttons
-  .x-sort-list__button {
-    @apply x-button-ghost;
-  }
+// TODO: Remove when implementing buttonClass prop in the SortList buttons
+.x-sort-list__button {
+  @apply x-button-ghost;
+}
 </style>

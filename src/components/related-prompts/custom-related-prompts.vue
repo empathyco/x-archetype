@@ -17,55 +17,56 @@
         v-if="selectedPrompt !== -1"
         :key="queriesPreviewInfo.length"
         class="x-rounded-[12px] x-bg-neutral-10 x-px-16"
-        :queriesPreviewInfo="queriesPreviewInfo"
+        :queries-preview-info="queriesPreviewInfo"
       ></CustomQueryPreview>
     </div>
   </div>
 </template>
 <script lang="ts">
-  import { computed, defineComponent, PropType } from 'vue';
-  import { RelatedPrompt } from '@empathyco/x-types';
-  import { use$x, useState } from '@empathyco/x-components';
-  import { relatedPromptsXModule } from '@empathyco/x-components/related-prompts';
-  import CustomQueryPreview from '../search/results/custom-query-preview.vue';
-  import RelatedPromptsTagList from './related-prompts-tag-list.vue';
+import type { RelatedPrompt } from '@empathyco/x-types'
+import type { PropType } from 'vue'
+import { use$x, useState } from '@empathyco/x-components'
+import { relatedPromptsXModule } from '@empathyco/x-components/related-prompts'
+import { computed, defineComponent } from 'vue'
+import CustomQueryPreview from '../search/results/custom-query-preview.vue'
+import RelatedPromptsTagList from './related-prompts-tag-list.vue'
 
-  export default defineComponent({
-    name: 'CustomRelatedPrompts',
-    xModule: relatedPromptsXModule.name,
-    components: {
-      CustomQueryPreview,
-      RelatedPromptsTagList
+export default defineComponent({
+  name: 'CustomRelatedPrompts',
+  xModule: relatedPromptsXModule.name,
+  components: {
+    CustomQueryPreview,
+    RelatedPromptsTagList,
+  },
+  props: {
+    relatedPromptList: {
+      type: Array as PropType<RelatedPrompt[]>,
+      required: true,
+      default: () => [],
     },
-    props: {
-      relatedPromptList: {
-        type: Array as PropType<RelatedPrompt[]>,
-        required: true,
-        default: () => []
+  },
+  setup() {
+    const x = use$x()
+    const { relatedPrompts, selectedPrompt, selectedQuery } = useState('relatedPrompts', [
+      'relatedPrompts',
+      'selectedPrompt',
+      'selectedQuery',
+    ])
+
+    const queriesPreviewInfo = computed(() => {
+      const queries = relatedPrompts.value[selectedPrompt.value].nextQueries as string[]
+      if (selectedQuery.value === -1) {
+        return queries.map(query => ({ query }))
+      } else {
+        return [{ query: queries[selectedQuery.value] }]
       }
-    },
-    setup() {
-      const x = use$x();
-      const { relatedPrompts, selectedPrompt, selectedQuery } = useState('relatedPrompts', [
-        'relatedPrompts',
-        'selectedPrompt',
-        'selectedQuery'
-      ]);
+    })
 
-      const queriesPreviewInfo = computed(() => {
-        const queries = relatedPrompts.value[selectedPrompt.value].nextQueries as string[];
-        if (selectedQuery.value === -1) {
-          return queries.map(query => ({ query }));
-        } else {
-          return [{ query: queries[selectedQuery.value] }];
-        }
-      });
-
-      return {
-        queriesPreviewInfo,
-        selectedPrompt,
-        x
-      };
+    return {
+      queriesPreviewInfo,
+      selectedPrompt,
+      x,
     }
-  });
+  },
+})
 </script>

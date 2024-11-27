@@ -1,5 +1,5 @@
 <template>
-  <CollapseHeightAnimation class="x-layout-item" :isCollapsed="hasScrolledPastThreshold">
+  <CollapseHeightAnimation class="x-layout-item" :is-collapsed="hasScrolledPastThreshold">
     <div>
       <LocationProvider location="predictive_layer">
         <RelatedTags v-if="hasSearched" class="x-pb-16" />
@@ -12,28 +12,28 @@
 </template>
 
 <script lang="ts">
-  import { defineAsyncComponent, defineComponent } from 'vue';
-  import { LocationProvider } from '@empathyco/x-components';
-  import MobileToolbar from '../mobile/mobile-toolbar.vue';
-  import CollapseHeightAnimation from '../collapse-height-animation.vue';
-  // eslint-disable-next-line max-len
-  import { useHasScrollPastThreshold } from '../../composables/use-has-scroll-past-threshold.composable';
+import { LocationProvider } from '@empathyco/x-components'
+import { defineAsyncComponent, defineComponent } from 'vue'
+import { useHasScrollPastThreshold } from '../../composables/use-has-scroll-past-threshold.composable'
+import CollapseHeightAnimation from '../collapse-height-animation.vue'
 
-  export default defineComponent({
-    components: {
-      CollapseHeightAnimation,
-      MobileToolbar,
-      LocationProvider,
-      RelatedTags: defineAsyncComponent(() => import('../search').then(m => m.RelatedTags))
+import MobileToolbar from '../mobile/mobile-toolbar.vue'
+
+export default defineComponent({
+  components: {
+    CollapseHeightAnimation,
+    MobileToolbar,
+    LocationProvider,
+    RelatedTags: defineAsyncComponent(() => import('../search').then(m => m.RelatedTags)),
+  },
+  props: {
+    hasSearched: {
+      type: Boolean,
     },
-    props: {
-      hasSearched: {
-        type: Boolean
-      }
-    },
-    setup() {
-      const { hasScrolledPastThreshold } = useHasScrollPastThreshold();
-      return { hasScrolledPastThreshold };
-    }
-  });
+  },
+  setup() {
+    const { hasScrolledPastThreshold } = useHasScrollPastThreshold()
+    return { hasScrolledPastThreshold }
+  },
+})
 </script>

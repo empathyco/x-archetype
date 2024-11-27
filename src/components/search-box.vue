@@ -28,25 +28,25 @@
 </template>
 
 <script lang="ts">
-  import { ClearSearchInput, SearchButton, SearchInput } from '@empathyco/x-components/search-box';
-  import { CrossTinyIcon, SearchIcon, use$x } from '@empathyco/x-components';
-  import { defineComponent } from 'vue';
-  import { useDevice } from '../composables/use-device.composable';
+import { CrossTinyIcon, SearchIcon, use$x } from '@empathyco/x-components'
+import { ClearSearchInput, SearchButton, SearchInput } from '@empathyco/x-components/search-box'
+import { defineComponent } from 'vue'
+import { useDevice } from '../composables/use-device.composable'
 
-  export default defineComponent({
-    components: {
-      ClearSearchInput,
-      CrossTinyIcon,
-      SearchButton,
-      SearchInput,
-      SearchIcon
-    },
-    setup() {
-      const { isDesktopOrGreater } = useDevice();
-      return {
-        isDesktopOrGreater,
-        x: use$x()
-      };
+export default defineComponent({
+  components: {
+    ClearSearchInput,
+    CrossTinyIcon,
+    SearchButton,
+    SearchInput,
+    SearchIcon,
+  },
+  setup() {
+    const { isDesktopOrGreater } = useDevice()
+    return {
+      isDesktopOrGreater,
+      x: use$x(),
     }
-  });
+  },
+})
 </script>

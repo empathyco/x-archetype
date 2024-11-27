@@ -1,5 +1,5 @@
 <template>
-  <SemanticQueries #default="{ queries, findSemanticQuery }">
+  <SemanticQueries v-slot="{ queries, findSemanticQuery }">
     <section>
       <h1
         v-if="isAnyQueryLoadedInPreview(queries)"
@@ -8,8 +8,8 @@
         {{ $t('semanticQueries.title', { query: x.query.search }) }}
       </h1>
       <QueryPreviewList
-        :queriesPreviewInfo="queries.map(q => ({ query: q }))"
-        #default="{ queryPreviewInfo: { query }, results, totalResults }"
+        v-slot="{ queryPreviewInfo: { query }, results, totalResults }"
+        :queries-preview-info="queries.map(q => ({ query: q }))"
         class="x-flex x-flex-col x-gap-64"
         data-wysiwyg="query-previews"
       >
@@ -24,7 +24,7 @@
               <ArrowRightIcon class="x-icon-lg" />
             </SemanticQuery>
           </template>
-          <DisplayClickProvider resultFeature="semantic_recommendations">
+          <DisplayClickProvider result-feature="semantic_recommendations">
             <div class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
               <Result
                 v-for="result in results.slice(0, resultsPerCarousel)"
@@ -41,34 +41,34 @@
 </template>
 
 <script lang="ts">
-  import { ArrowRightIcon, use$x } from '@empathyco/x-components';
-  import { defineComponent } from 'vue';
-  import { SemanticQueries, SemanticQuery } from '@empathyco/x-components/semantic-queries';
-  import { QueryPreviewList, useQueriesPreview } from '@empathyco/x-components/queries-preview';
-  import CustomSlidingPanel from '../custom-sliding-panel.vue';
-  import Result from '../results/result.vue';
-  import { useExperienceControls } from '../../composables/use-experience-controls.composable';
-  import DisplayClickProvider from './display-click-provider.vue';
+import { ArrowRightIcon, use$x } from '@empathyco/x-components'
+import { QueryPreviewList, useQueriesPreview } from '@empathyco/x-components/queries-preview'
+import { SemanticQueries, SemanticQuery } from '@empathyco/x-components/semantic-queries'
+import { defineComponent } from 'vue'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable'
+import CustomSlidingPanel from '../custom-sliding-panel.vue'
+import Result from '../results/result.vue'
+import DisplayClickProvider from './display-click-provider.vue'
 
-  export default defineComponent({
-    components: {
-      ArrowRightIcon,
-      CustomSlidingPanel,
-      DisplayClickProvider,
-      QueryPreviewList,
-      Result,
-      SemanticQueries,
-      SemanticQuery
-    },
-    setup() {
-      const { isAnyQueryLoadedInPreview } = useQueriesPreview();
-      const { getControlFromPath } = useExperienceControls();
+export default defineComponent({
+  components: {
+    ArrowRightIcon,
+    CustomSlidingPanel,
+    DisplayClickProvider,
+    QueryPreviewList,
+    Result,
+    SemanticQueries,
+    SemanticQuery,
+  },
+  setup() {
+    const { isAnyQueryLoadedInPreview } = useQueriesPreview()
+    const { getControlFromPath } = useExperienceControls()
 
-      return {
-        isAnyQueryLoadedInPreview,
-        resultsPerCarousel: getControlFromPath('semanticQueries.resultsPerCarousels'),
-        x: use$x()
-      };
+    return {
+      isAnyQueryLoadedInPreview,
+      resultsPerCarousel: getControlFromPath('semanticQueries.resultsPerCarousels'),
+      x: use$x(),
     }
-  });
+  },
+})
 </script>

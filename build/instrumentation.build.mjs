@@ -1,18 +1,18 @@
-import commonjs from '@rollup/plugin-commonjs';
-import json from '@rollup/plugin-json';
-import resolve from '@rollup/plugin-node-resolve';
-import replace from '@rollup/plugin-replace';
-import * as fs from 'fs';
-import path from 'path';
-import copy from 'rollup-plugin-copy';
-import del from 'rollup-plugin-delete';
-import htmlTemplate from 'rollup-plugin-generate-html-template';
-import sourcemaps from 'rollup-plugin-sourcemaps';
-import styles from 'rollup-plugin-styles';
-import { terser } from 'rollup-plugin-terser';
-import typescript from 'rollup-plugin-typescript2';
-import { visualizer } from 'rollup-plugin-visualizer';
-import vue3 from '@vitejs/plugin-vue';
+import commonjs from '@rollup/plugin-commonjs'
+import json from '@rollup/plugin-json'
+import resolve from '@rollup/plugin-node-resolve'
+import replace from '@rollup/plugin-replace'
+import * as fs from 'fs'
+import path from 'path'
+import copy from 'rollup-plugin-copy'
+import del from 'rollup-plugin-delete'
+import htmlTemplate from 'rollup-plugin-generate-html-template'
+import sourcemaps from 'rollup-plugin-sourcemaps'
+import styles from 'rollup-plugin-styles'
+import { terser } from 'rollup-plugin-terser'
+import typescript from 'rollup-plugin-typescript2'
+import { visualizer } from 'rollup-plugin-visualizer'
+import vue3 from '@vitejs/plugin-vue'
 
 /**
  * Creates a rollup configuration for projects that use X-Components. This configuration can be
@@ -33,7 +33,7 @@ export function createConfig({
   output,
   plugins = {},
   prePlugins = [],
-  postPlugins = []
+  postPlugins = [],
 } = {}) {
   /**
    * Merges a default config with the user one coming from this rollup plugin options.
@@ -45,8 +45,8 @@ export function createConfig({
   function mergeConfig(pluginName, defaultConfig = {}) {
     return {
       ...defaultConfig,
-      ...plugins[pluginName]
-    };
+      ...plugins[pluginName],
+    }
   }
 
   const mergedOutput = {
@@ -55,8 +55,8 @@ export function createConfig({
     sourcemap: true,
     assetFileNames: '[name][extname]',
     entryFileNames: 'app.js',
-    ...output
-  };
+    ...output,
+  }
 
   return {
     input,
@@ -66,46 +66,46 @@ export function createConfig({
       ...prePlugins,
       del(
         mergeConfig('del', {
-          targets: [`${mergedOutput.dir}/*`]
-        })
+          targets: [`${mergedOutput.dir}/*`],
+        }),
       ),
       copy({
-        targets: [{ src: ['public/**'], dest: `${mergedOutput.dir}` }]
+        targets: [{ src: ['public/**'], dest: `${mergedOutput.dir}` }],
       }),
       // Resolving plugins
       replace(
         mergeConfig('replace', {
           'process.env.NODE_ENV': JSON.stringify('production'),
           'process.env.VUE_APP_DEVELOPMENT_DOCKER': JSON.stringify(
-            !!process.env.VUE_APP_DEVELOPMENT_DOCKER
+            !!process.env.VUE_APP_DEVELOPMENT_DOCKER,
           ),
           STRIP_SSR_INJECTOR: true,
-          preventAssignment: true
-        })
+          preventAssignment: true,
+        }),
       ),
       commonjs(mergeConfig('commonjs')),
       resolve(
         mergeConfig('resolve', {
-          browser: true
-        })
+          browser: true,
+        }),
       ),
       // Code transpiling plugins
       vue3(
         mergeConfig('vue3', {
           template: {
             compilerOptions: {
-              whitespace: 'condense'
-            }
-          }
-        })
+              whitespace: 'condense',
+            },
+          },
+        }),
       ),
       styles(mergeConfig('styles')),
       typescript(
         mergeConfig('typescript', {
           tsconfigOverride: {
-            exclude: ['node_modules', '**/*.spec.ts', '*test*']
-          }
-        })
+            exclude: ['node_modules', '**/*.spec.ts', '*test*'],
+          },
+        }),
       ),
       json(),
       htmlTemplate(
@@ -116,22 +116,22 @@ export function createConfig({
             '<script type="module" src="./src/main.ts"></script>': '',
             '<load src="node_modules/@empathyco/x-archetype-utils/dist/home/home-template.html" />':
               fs.readFileSync(
-                'node_modules/@empathyco/x-archetype-utils/dist/home/home-template.html'
-              )
+                'node_modules/@empathyco/x-archetype-utils/dist/home/home-template.html',
+              ),
           },
-          attrs: ["type='module'"]
-        })
+          attrs: ["type='module'"],
+        }),
       ),
       sourcemaps(mergeConfig('sourcemaps')),
       terser(
         mergeConfig('terser', {
-          output: { comments: false }
-        })
+          output: { comments: false },
+        }),
       ),
       /* Can't calculate real minified size with `sourcemap: true` and `gzipSize: true`:
        https://github.com/btd/rollup-plugin-visualizer/issues/72 */
       visualizer(mergeConfig('visualizer', { sourcemap: true })),
-      ...postPlugins
-    ]
-  };
+      ...postPlugins,
+    ],
+  }
 }

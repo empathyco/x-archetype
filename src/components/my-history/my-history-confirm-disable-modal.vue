@@ -1,9 +1,9 @@
 <template>
   <BaseEventsModal
-    @focusin.native.stop
     class="x-my-history-confirm-disable-modal x-z-10"
-    :eventsToOpenModal="eventsToOpenModal"
-    :eventsToCloseModal="eventsToCloseModal"
+    :events-to-open-modal="eventsToOpenModal"
+    :events-to-close-modal="eventsToCloseModal"
+    @focusin.stop
   >
     <div
       class="x-my-history-confirm-disable-modal-content x-flex x-max-w-[322px] x-flex-col x-gap-16 x-bg-neutral-0 x-text-center"
@@ -29,39 +29,39 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
-  import { BaseEventsModal, BaseEventButton } from '@empathyco/x-components';
-  import { useDevice } from '../../composables/use-device.composable';
+import { BaseEventButton, BaseEventsModal } from '@empathyco/x-components'
+import { defineComponent } from 'vue'
+import { useDevice } from '../../composables/use-device.composable'
 
-  export default defineComponent({
-    components: {
-      BaseEventsModal,
-      BaseEventButton
-    },
-    setup() {
-      const { isTabletOrLess } = useDevice();
-      return {
-        isTabletOrLess,
-        eventsToOpenModal: ['UserClickedDisableHistoryQueries'],
-        eventsToCloseModal: [
-          'UserClickedConfirmDisableHistoryQueries',
-          'UserClickedDismissDisableHistoryQueries'
-        ],
-        dismissEvents: { UserClickedDismissDisableHistoryQueries: undefined },
-        confirmEvents: { UserClickedConfirmDisableHistoryQueries: undefined }
-      };
+export default defineComponent({
+  components: {
+    BaseEventsModal,
+    BaseEventButton,
+  },
+  setup() {
+    const { isTabletOrLess } = useDevice()
+    return {
+      isTabletOrLess,
+      eventsToOpenModal: ['UserClickedDisableHistoryQueries'],
+      eventsToCloseModal: [
+        'UserClickedConfirmDisableHistoryQueries',
+        'UserClickedDismissDisableHistoryQueries',
+      ],
+      dismissEvents: { UserClickedDismissDisableHistoryQueries: undefined },
+      confirmEvents: { UserClickedConfirmDisableHistoryQueries: undefined },
     }
-  });
+  },
+})
 </script>
 
 <style lang="scss">
-  .x-my-history-confirm-disable-modal {
-    &.x-modal {
-      .x-modal__content {
-        background: transparent;
-        justify-content: center;
-        align-items: center;
-      }
+.x-my-history-confirm-disable-modal {
+  &.x-modal {
+    .x-modal__content {
+      background: transparent;
+      justify-content: center;
+      align-items: center;
     }
   }
+}
 </style>

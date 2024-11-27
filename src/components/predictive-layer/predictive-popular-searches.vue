@@ -22,22 +22,22 @@
 </template>
 
 <script lang="ts">
-  import { AnimationProp, TrendingIcon } from '@empathyco/x-components';
-  import { PopularSearches, PopularSearch } from '@empathyco/x-components/popular-searches';
-  import { defineComponent } from 'vue';
+import { AnimationProp, TrendingIcon } from '@empathyco/x-components'
+import { PopularSearch, PopularSearches } from '@empathyco/x-components/popular-searches'
+import { defineComponent } from 'vue'
 
-  export default defineComponent({
-    components: {
-      TrendingIcon,
-      PopularSearches,
-      PopularSearch
+export default defineComponent({
+  components: {
+    TrendingIcon,
+    PopularSearches,
+    PopularSearch,
+  },
+  props: {
+    animation: {
+      type: AnimationProp,
+      required: true,
     },
-    props: {
-      animation: {
-        type: AnimationProp,
-        required: true
-      }
-    }
-  });
+  },
+})
 </script>
 <style lang="scss"></style>

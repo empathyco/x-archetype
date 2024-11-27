@@ -16,16 +16,16 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
-  import { use$x } from '@empathyco/x-components';
-  import ColumnPicker from '../column-picker.vue';
+import { use$x } from '@empathyco/x-components'
+import { defineComponent } from 'vue'
+import ColumnPicker from '../column-picker.vue'
 
-  export default defineComponent({
-    components: {
-      ColumnPicker
-    },
-    setup() {
-      return { x: use$x() };
-    }
-  });
+export default defineComponent({
+  components: {
+    ColumnPicker,
+  },
+  setup() {
+    return { x: use$x() }
+  },
+})
 </script>

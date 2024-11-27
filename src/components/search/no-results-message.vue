@@ -14,18 +14,18 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
-  import { use$x } from '@empathyco/x-components';
-  import { useDevice } from '../../composables/use-device.composable';
+import { use$x } from '@empathyco/x-components'
+import { defineComponent } from 'vue'
+import { useDevice } from '../../composables/use-device.composable'
 
-  export default defineComponent({
-    setup() {
-      const { isTabletOrLess } = useDevice();
+export default defineComponent({
+  setup() {
+    const { isTabletOrLess } = useDevice()
 
-      return {
-        isTabletOrLess,
-        x: use$x()
-      };
+    return {
+      isTabletOrLess,
+      x: use$x(),
     }
-  });
+  },
+})
 </script>

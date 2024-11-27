@@ -1,15 +1,15 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "types": ["node"],
-    "downlevelIteration": true,
     "rootDir": "../",
     "paths": {
       "@badeball/cypress-cucumber-preprocessor/*": [
         "./node_modules/@badeball/cypress-cucumber-preprocessor/dist/subpath-entrypoints/*"
       ]
-    }
+    },
+    "types": ["node"],
+    "downlevelIteration": true
   },
-  "include": ["./**/*.ts"],
+  "include": ["./**/*.ts", "cypress.d.ts"],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,5 @@
 <template>
-  <Spellcheck v-if="x.totalResults > 0" #default="{ query }" class="x-message desktop:x-flex-col">
+  <Spellcheck v-if="x.totalResults > 0" v-slot="{ query }" class="x-message desktop:x-flex-col">
     <p>
       <i18n-t class="x-text1 desktop:x-text1-lg" keypath="spellcheck.message">
         <template #query>
@@ -15,23 +15,23 @@
 </template>
 
 <script lang="ts">
-  import { Spellcheck, SpellcheckButton } from '@empathyco/x-components/search';
-  import { defineComponent } from 'vue';
-  import { use$x } from '@empathyco/x-components';
-  import { useDevice } from '../../composables/use-device.composable';
+import { use$x } from '@empathyco/x-components'
+import { Spellcheck, SpellcheckButton } from '@empathyco/x-components/search'
+import { defineComponent } from 'vue'
+import { useDevice } from '../../composables/use-device.composable'
 
-  export default defineComponent({
-    components: {
-      Spellcheck,
-      SpellcheckButton
-    },
-    setup() {
-      const { isTabletOrLess } = useDevice();
+export default defineComponent({
+  components: {
+    Spellcheck,
+    SpellcheckButton,
+  },
+  setup() {
+    const { isTabletOrLess } = useDevice()
 
-      return {
-        isTabletOrLess,
-        x: use$x()
-      };
+    return {
+      isTabletOrLess,
+      x: use$x(),
     }
-  });
+  },
+})
 </script>

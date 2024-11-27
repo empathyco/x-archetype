@@ -15,11 +15,11 @@ module.exports = {
       textAlign: 'center',
       '@screen desktop': {
         paddingTop: theme('spacing.24'),
-        paddingBottom: theme('spacing.24')
-      }
+        paddingBottom: theme('spacing.24'),
+      },
     },
     '.transform-style-3d': {
-      transformStyle: 'preserve-3d'
-    }
-  })
-};
+      transformStyle: 'preserve-3d',
+    },
+  }),
+}

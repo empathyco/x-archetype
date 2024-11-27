@@ -10,6 +10,9 @@ runs:
     - name: Installing dependencies
       run: npm ci
       shell: bash
+    - name: Run linter
+      run: npm run lint
+      shell: bash
     - name: Build project
       run: npm run build
       shell: bash

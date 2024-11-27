@@ -19,7 +19,7 @@
     <ColumnPicker data-test="column-picker" />
 
     <BaseIdModalOpen
-      modalId="right-aside"
+      modal-id="right-aside"
       class="x-button-lead x-button-ghost"
       data-test="toggle-facets-button"
     >
@@ -37,18 +37,18 @@
 </template>
 
 <script lang="ts">
-  import { BaseIdModalOpen, FiltersIcon, use$x } from '@empathyco/x-components';
-  import { defineComponent } from 'vue';
-  import ColumnPicker from '../column-picker.vue';
+import { BaseIdModalOpen, FiltersIcon, use$x } from '@empathyco/x-components'
+import { defineComponent } from 'vue'
+import ColumnPicker from '../column-picker.vue'
 
-  export default defineComponent({
-    components: {
-      BaseIdModalOpen,
-      FiltersIcon,
-      ColumnPicker
-    },
-    setup() {
-      return { x: use$x() };
-    }
-  });
+export default defineComponent({
+  components: {
+    BaseIdModalOpen,
+    FiltersIcon,
+    ColumnPicker,
+  },
+  setup() {
+    return { x: use$x() }
+  },
+})
 </script>

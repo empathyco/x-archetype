@@ -20,8 +20,8 @@
             <Result
               :result="result"
               class="x-w-[calc(38vw-16px)] x-min-w-[142px] desktop:x-w-[224px]"
-              :showDescription="isTabletOrGreater"
-              showCompactPrices
+              :show-description="isTabletOrGreater"
+              show-compact-prices
             />
           </template>
         </ItemsList>
@@ -31,26 +31,26 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
-  import { ArrowRightIcon, ItemsList } from '@empathyco/x-components';
-  import { PartialQueryButton, PartialResultsList } from '@empathyco/x-components/search';
-  import { useDevice } from '../../../composables/use-device.composable';
-  import ResultComponent from '../../results/result.vue';
-  import CustomSlidingPanel from '../../custom-sliding-panel.vue';
+import { ArrowRightIcon, ItemsList } from '@empathyco/x-components'
+import { PartialQueryButton, PartialResultsList } from '@empathyco/x-components/search'
+import { defineComponent } from 'vue'
+import { useDevice } from '../../../composables/use-device.composable'
+import CustomSlidingPanel from '../../custom-sliding-panel.vue'
+import ResultComponent from '../../results/result.vue'
 
-  export default defineComponent({
-    components: {
-      ArrowRightIcon,
-      CustomSlidingPanel,
-      ItemsList,
-      Result: ResultComponent,
-      PartialResultsList,
-      PartialQueryButton
-    },
-    setup() {
-      const { isTabletOrGreater } = useDevice();
+export default defineComponent({
+  components: {
+    ArrowRightIcon,
+    CustomSlidingPanel,
+    ItemsList,
+    Result: ResultComponent,
+    PartialResultsList,
+    PartialQueryButton,
+  },
+  setup() {
+    const { isTabletOrGreater } = useDevice()
 
-      return { isTabletOrGreater };
-    }
-  });
+    return { isTabletOrGreater }
+  },
+})
 </script>

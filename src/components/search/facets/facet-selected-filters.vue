@@ -9,15 +9,16 @@
 </template>
 
 <script lang="ts">
-  import { FacetFilter } from '@empathyco/x-types';
-  import { defineComponent, PropType } from 'vue';
+import type { FacetFilter } from '@empathyco/x-types'
+import type { PropType } from 'vue'
+import { defineComponent } from 'vue'
 
-  export default defineComponent({
-    props: {
-      selectedFilters: {
-        type: Array as PropType<FacetFilter[]>,
-        required: true
-      }
-    }
-  });
+export default defineComponent({
+  props: {
+    selectedFilters: {
+      type: Array as PropType<FacetFilter[]>,
+      required: true,
+    },
+  },
+})
 </script>

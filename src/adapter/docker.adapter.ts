@@ -1,16 +1,16 @@
+import type { PlatformAdapter } from '@empathyco/x-adapter-platform'
+import type { XComponentsAdapter } from '@empathyco/x-types'
 import {
-  searchEndpointAdapter,
-  PlatformAdapter,
-  nextQueriesEndpointAdapter,
+  experienceControlsEndpointAdapter,
   identifierResultsEndpointAdapter,
+  nextQueriesEndpointAdapter,
   popularSearchesEndpointAdapter,
-  recommendationsEndpointAdapter,
   querySuggestionsEndpointAdapter,
+  recommendationsEndpointAdapter,
   relatedTagsEndpointAdapter,
+  searchEndpointAdapter,
   semanticQueriesEndpointAdapter,
-  experienceControlsEndpointAdapter
-} from '@empathyco/x-adapter-platform';
-import { XComponentsAdapter } from '@empathyco/x-types';
+} from '@empathyco/x-adapter-platform'
 
 /**
  * Mutates adapter to point to environment context.
@@ -19,35 +19,35 @@ import { XComponentsAdapter } from '@empathyco/x-types';
  */
 export function overrideAdapter(adapter: PlatformAdapter): void {
   adapter.search = searchEndpointAdapter.extends({
-    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('search', extraParams!)
-  });
+    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('search', extraParams!),
+  })
   adapter.popularSearches = popularSearchesEndpointAdapter.extends({
-    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('popularSearches', extraParams!)
-  });
+    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('popularSearches', extraParams!),
+  })
   adapter.recommendations = recommendationsEndpointAdapter.extends({
-    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('recommendations', extraParams!)
-  });
+    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('recommendations', extraParams!),
+  })
   adapter.nextQueries = nextQueriesEndpointAdapter.extends({
-    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('nextQueries', extraParams!)
-  });
+    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('nextQueries', extraParams!),
+  })
   adapter.querySuggestions = querySuggestionsEndpointAdapter.extends({
-    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('querySuggestions', extraParams!)
-  });
+    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('querySuggestions', extraParams!),
+  })
   adapter.relatedTags = relatedTagsEndpointAdapter.extends({
-    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('relatedTags', extraParams!)
-  });
+    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('relatedTags', extraParams!),
+  })
   adapter.identifierResults = identifierResultsEndpointAdapter.extends({
-    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('identifierResults', extraParams!)
-  });
+    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('identifierResults', extraParams!),
+  })
   adapter.semanticQueries = semanticQueriesEndpointAdapter.extends({
-    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('semanticQueries', extraParams!)
-  });
+    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('semanticQueries', extraParams!),
+  })
   adapter.experienceControls = experienceControlsEndpointAdapter.extends({
-    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('experienceControls', extraParams!)
-  });
+    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('experienceControls', extraParams!),
+  })
 }
 
-type DockerEndpoints = Exclude<keyof XComponentsAdapter, 'tagging'>;
+type DockerEndpoints = Exclude<keyof XComponentsAdapter, 'tagging'>
 
 /**
  * Function that returns the url for each empathy's endpoints according to the environment context.
@@ -59,9 +59,9 @@ type DockerEndpoints = Exclude<keyof XComponentsAdapter, 'tagging'>;
  * @returns The url for the given endpoint.
  */
 function resolveEmpathyEndpoint(endpoint: DockerEndpoints, context: Record<string, any>): string {
-  const { empathyAPIHost } = context;
-  const endpointHost: string = empathyAPIHost ? empathyAPIHost : 'localhost:8080';
-  const endpointInstance = 'imdb';
+  const { empathyAPIHost } = context
+  const endpointHost = (empathyAPIHost as string) || 'localhost:8080'
+  const endpointInstance = 'imdb'
   const empathyEndpoints: Record<DockerEndpoints, string> = {
     search: `http://${endpointHost}/query/${endpointInstance}/search`,
     popularSearches: `http://${endpointHost}/query/${endpointInstance}/empathize`,
@@ -72,7 +72,7 @@ function resolveEmpathyEndpoint(endpoint: DockerEndpoints, context: Record<strin
     relatedTags: `https://api.empathy.co/relatedtags/${endpointInstance}`,
     identifierResults: `http://${endpointHost}/query/${endpointInstance}/skusearch`,
     semanticQueries: `http://${endpointHost}/semantics-api/search_single/${endpointInstance}`,
-    experienceControls: `http://${endpointHost}/config/v1/public/configs`
-  };
-  return empathyEndpoints[endpoint];
+    experienceControls: `http://${endpointHost}/config/v1/public/configs`,
+  }
+  return empathyEndpoints[endpoint]
 }

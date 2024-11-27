@@ -1,7 +1,7 @@
 <template>
   <BaseHeaderTogglePanel
-    headerClass="x-flex x-w-full x-gap-8 x-py-24"
-    :startCollapsed="true"
+    header-class="x-flex x-w-full x-gap-8 x-py-24"
+    :start-collapsed="true"
     :animation="animation"
   >
     <template #header-content="{ open }">
@@ -14,26 +14,26 @@
 </template>
 
 <script lang="ts">
-  import {
+import {
+  animateScale,
+  BaseHeaderTogglePanel,
+  ChevronDownIcon,
+  ChevronUpIcon,
+} from '@empathyco/x-components'
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  components: {
     BaseHeaderTogglePanel,
-    animateScale,
     ChevronDownIcon,
-    ChevronUpIcon
-  } from '@empathyco/x-components';
-  import { defineComponent } from 'vue';
+    ChevronUpIcon,
+  },
+  setup() {
+    const animation = animateScale()
 
-  export default defineComponent({
-    components: {
-      BaseHeaderTogglePanel,
-      ChevronDownIcon,
-      ChevronUpIcon
-    },
-    setup() {
-      const animation = animateScale();
-
-      return {
-        animation
-      };
+    return {
+      animation,
     }
-  });
+  },
+})
 </script>

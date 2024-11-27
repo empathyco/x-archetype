@@ -1,15 +1,15 @@
 ---
 name: Bug report
 description: Create a report to help us improve
-title: "[BUG]: "
+title: '[BUG]: '
 labels: [bug]
 body:
   - type: markdown
     attributes:
-      value: "Thank you for taking the time to provide feedback!"
+      value: 'Thank you for taking the time to provide feedback!'
   - type: markdown
     attributes:
-     value: Before creating a new bug, please check for [existing issues](https://github.com/empathyco/x-archetype/issues).
+      value: Before creating a new bug, please check for [existing issues](https://github.com/empathyco/x-archetype/issues).
   - type: textarea
     id: bug-environment
     attributes:

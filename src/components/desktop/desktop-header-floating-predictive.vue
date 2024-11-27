@@ -20,22 +20,22 @@
 </template>
 
 <script lang="ts">
-  import { CloseMainModal, CrossIcon, LocationProvider } from '@empathyco/x-components';
-  import { defineComponent } from 'vue';
-  import PredictiveLayer from '../predictive-layer/predictive-layer.vue';
-  import SearchBox from '../search-box.vue';
-  import Logo from '../logo.vue';
-  import MaxDesktopWidthItem from '../max-desktop-width-item.vue';
+import { CloseMainModal, CrossIcon, LocationProvider } from '@empathyco/x-components'
+import { defineComponent } from 'vue'
+import Logo from '../logo.vue'
+import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
+import PredictiveLayer from '../predictive-layer/predictive-layer.vue'
+import SearchBox from '../search-box.vue'
 
-  export default defineComponent({
-    components: {
-      MaxDesktopWidthItem,
-      CloseMainModal,
-      CrossIcon,
-      Logo,
-      SearchBox,
-      PredictiveLayer,
-      LocationProvider
-    }
-  });
+export default defineComponent({
+  components: {
+    MaxDesktopWidthItem,
+    CloseMainModal,
+    CrossIcon,
+    Logo,
+    SearchBox,
+    PredictiveLayer,
+    LocationProvider,
+  },
+})
 </script>

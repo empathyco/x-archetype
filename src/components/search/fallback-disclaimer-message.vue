@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-  import { FallbackDisclaimer } from '@empathyco/x-components/search';
-  import { use$x } from '@empathyco/x-components';
-  const x = use$x();
+import { use$x } from '@empathyco/x-components'
+import { FallbackDisclaimer } from '@empathyco/x-components/search'
+const x = use$x()
 </script>
