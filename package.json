@@ -69,7 +69,7 @@
     "postcss-logical": "~7.0.0",
     "postcss-nested": "~6.0.0",
     "process": "~0.11.10",
-    "rollup": "~4.9.1",
+    "rollup": "~4.27.4",
     "rollup-plugin-copy": "~3.5.0",
     "rollup-plugin-delete": "~2.0.0",
     "rollup-plugin-generate-html-template": "1.6.1",
