@@ -108,7 +108,7 @@ window.initX = {
 }
 
 window.addEventListener('load', () => {
-  window.wysiwyg.setConfig({
+  window.wysiwyg?.setConfig({
     auth: {
       baseUrl: 'https://iam.empathy.co',
       clientId: 'wysiwyg',
