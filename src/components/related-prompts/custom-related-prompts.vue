@@ -12,11 +12,11 @@
     </i18n-t>
 
     <div class="x-flex x-flex-col">
-      <RelatedPromptsTagList class="x-my-24" />
+      <RelatedPromptsTagList class="x-mt-24" />
       <CustomQueryPreview
         v-if="selectedPrompt !== -1"
         :key="queriesPreviewInfo.length"
-        class="x-rounded-[12px] x-bg-neutral-10 x-px-16"
+        class="x-rounded-b-[12px] x-bg-neutral-10 x-px-16"
         :queries-preview-info="queriesPreviewInfo"
       ></CustomQueryPreview>
     </div>
