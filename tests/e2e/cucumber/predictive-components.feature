@@ -9,7 +9,7 @@ Feature: Predictive components
     When  a "<query>" is typed
     Then  query suggestions are displayed
     When  search input is cleared
-    And   "<query>" is searched
+    And   a "<query>" is typed
     And   focus is set on the search input
     Then  next queries are displayed
     When  search input is cleared
