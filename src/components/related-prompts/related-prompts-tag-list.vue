@@ -30,7 +30,7 @@
           :class="[isSelected(index) ? 'x-w-full' : 'x-w-[204px] x-grow desktop:x-w-[303px]']"
           @click="toggleSuggestion(index)"
         >
-          <div class="x-flex">
+          <div class="x-flex x-min-h-[32px]">
             <span
               class="x-typewritter-initial"
               :class="[{ 'x-typewritter-animation': isVisible }]"
@@ -42,36 +42,9 @@
               {{ suggestion.suggestionText }}
             </span>
           </div>
-          <CrossTinyIcon v-if="isSelected(index)" class="x-icon-lg" />
-          <PlusIcon v-else class="x-icon-neutral-80 x-icon-lg" />
+            <CrossTinyIcon v-if="isSelected(index)" class="x-icon-lg" />
+            <PlusIcon v-else class="x-icon-neutral-80 x-icon-lg" />
         </button>
-
-        <!-- Next queries -->
-        <div
-          v-if="isSelected(index)"
-          class="x-no-scrollbar x-pb-16 x-flex x-w-full x-gap-12 x-overflow-y-hidden x-overflow-x-scroll x-px-16"
-        >
-          <button
-            v-for="(query, queryIndex) in suggestion.nextQueries"
-            :key="query"
-            :style="{ animationDelay: `${queryIndex * 0.3}s` }"
-            class="x-tag-outlined x-flex x-h-[40px] x-items-center x-justify-center x-gap-4 x-rounded-full x-border-1 x-px-12 x-staggered-initial x-staggered-animation"
-            :class="[
-              { 'x-hidden': shouldHideButton(queryIndex) },
-              isQuerySelected(queryIndex) ? 'x-bg-neutral-25' : 'x-bg-neutral-0',
-            ]"
-            @click="toggleQuery(queryIndex)"
-          >
-            <span
-              class="x-whitespace-nowrap x-text-sm"
-              :class="[isQuerySelected(queryIndex) ? ' x-text-neutral-90' : 'x-text-neutral-75']"
-            >
-              {{ query }}
-            </span>
-            <CrossTinyIcon v-if="isQuerySelected(queryIndex)" class="x-text-16 x-h-20" />
-            <PlusIcon v-else class="x-text-16 x-h-20" />
-          </button>
-        </div>
       </div>
     </div>
   </CustomSlidingPanel>
@@ -96,7 +69,6 @@ export default defineComponent({
     const isVisible = ref(false)
 
     const selectedIndex = ref<number>(-1)
-    const selectedQuery = ref<number>(-1)
 
     const observer = new IntersectionObserver(([entry]) => {
       isVisible.value = entry.isIntersecting
@@ -116,51 +88,30 @@ export default defineComponent({
       } else {
         selectedIndex.value = index
       }
-      selectedQuery.value = -1
       x.emit('UserSelectedARelatedPrompt', selectedIndex.value)
-      x.emit('UserSelectedARelatedPromptQuery', selectedQuery.value)
     }
 
     const isSelected = (index: number): boolean => selectedIndex.value === index
 
-    const toggleQuery = (queryIndex: number): void => {
-      if (selectedQuery.value === queryIndex) {
-        selectedQuery.value = -1
-      } else {
-        selectedQuery.value = queryIndex
-      }
-      x.emit('UserSelectedARelatedPromptQuery', selectedQuery.value)
-    }
-
-    const isQuerySelected = (queryIndex: number): boolean => selectedQuery.value === queryIndex
-
     const shouldHideButton = (index: number): boolean =>
       selectedIndex.value !== -1 && selectedIndex.value !== index
 
-    const shouldHideQuery = (queryIndex: number): boolean =>
-      selectedQuery.value !== -1 && selectedQuery.value !== queryIndex
-
     x.on('UserAcceptedAQueryPreview', false).subscribe(() => {
       toggleSuggestion(-1)
-      toggleQuery(-1)
     })
 
     x.on('SearchRequestChanged', false).subscribe(() => {
       toggleSuggestion(-1)
-      toggleQuery(-1)
     })
 
     return {
-      isQuerySelected,
       isSelected,
       isTouchable,
       isVisible,
       relatedPrompts,
       selectedIndex,
       shouldHideButton,
-      shouldHideQuery,
       slidingPanelContent,
-      toggleQuery,
       toggleSuggestion,
     }
   },

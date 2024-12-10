@@ -15,7 +15,7 @@
     </i18n-t>
 
     <div class="x-flex x-flex-col">
-      <RelatedPromptsTagList class="x-my-24" />
+      <RelatedPromptsTagList class="x-mt-24" />
       <CustomQueryPreview
         v-if="selectedPrompt !== -1"
         :key="queriesPreviewInfo.length"
