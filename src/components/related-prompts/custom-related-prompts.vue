@@ -1,13 +1,16 @@
 <template>
-  <div class="x-mb-32 x-flex x-flex-col">
+  <div class="x-mb-64 x-flex x-flex-col">
     <i18n-t
-      class="x-no-results-message x-text1 x-flex x-flex-wrap x-items-center x-justify-center x-break-words x-bg-neutral-10 x-p-24 x-text-center x-text-neutral-90 desktop:x-text1-lg"
+      class="x-no-results-message x-text1 x-flex x-flex-wrap x-gap-4 x-items-center x-justify-center x-break-words x-bg-neutral-10 x-p-24 x-text-center x-text-neutral-90 desktop:x-text1-lg"
       keypath="relatedPrompts.title"
-      tag="span"
+      tag="p"
       scope="global"
     >
       <template #query>
-        <span class="x-title3 x-w-auto">{{ x.query.search }}</span>
+        <span class="x-title3 x-w-auto">"{{ x.query.search }}"</span>
+      </template>
+      <template #message>
+        <span class="x-w-auto">{{ $t('relatedPrompts.message') }}</span>
       </template>
     </i18n-t>
 
@@ -16,7 +19,7 @@
       <CustomQueryPreview
         v-if="selectedPrompt !== -1"
         :key="queriesPreviewInfo.length"
-        class="x-rounded-[12px] x-bg-neutral-10 x-px-16"
+        class="x-rounded-b-[12px] x-bg-neutral-10 x-px-16"
         :queries-preview-info="queriesPreviewInfo"
       ></CustomQueryPreview>
     </div>

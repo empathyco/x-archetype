@@ -7,28 +7,30 @@
   >
     <div
       ref="slidingPanelContent"
-      class="x-flex x-gap-8 x-font-main desktop:x-mx-0 desktop:x-mb-0"
+      class="x-flex x-gap-16 x-font-main desktop:x-mx-0 desktop:x-mb-0"
       :class="{ 'x-w-[calc(100%)]': selectedIndex !== -1 }"
     >
       <div
         v-for="(suggestion, index) in relatedPrompts"
         :key="index"
         :style="{ animationDelay: `${index * 0.4 + 0.05}s` }"
-        class="x-text-neutral-80 x-flex x-h-[112px] x-flex-col x-rounded-[12px] x-bg-neutral-10 x-text-md x-font-[400] x-transition-all x-duration-500 x-staggered-initial"
+        class="x-text-neutral-80 x-flex x-flex-col x-rounded-[12px] x-bg-neutral-10 x-text-md x-font-[400] x-transition-all x-duration-500 x-staggered-initial"
         :class="[
           { 'x-staggered-animation': isVisible },
           { 'x-hidden': shouldHideButton(index) },
-          isSelected(index) ? 'x-w-full' : 'x-w-[204px] desktop:x-w-[303px]',
+          isSelected(index)
+            ? 'x-w-full x-rounded-b-none'
+            : 'x-min-h-[112px] x-h-full x-w-[204px] desktop:x-w-[303px]',
         ]"
         data-test="related-prompt-item"
       >
         <!-- Suggestion -->
         <button
-          class="x-flex x-flex-row x-items-start x-justify-between x-gap-12 x-px-16 x-pt-8 x-text-start x-transition-all x-duration-500"
-          :class="isSelected(index) ? 'x-w-full' : 'x-w-[204px] x-grow desktop:x-w-[303px]'"
+          class="x-flex x-flex-row x-items-start x-justify-between x-gap-12 x-p-16 x-text-start x-transition-all x-duration-500"
+          :class="[isSelected(index) ? 'x-w-full' : 'x-w-[204px] x-grow desktop:x-w-[303px]']"
           @click="toggleSuggestion(index)"
         >
-          <div class="x-flex x-min-h-[32px]">
+          <div class="x-flex">
             <span
               class="x-typewritter-initial"
               :class="[{ 'x-typewritter-animation': isVisible }]"
@@ -40,16 +42,14 @@
               {{ suggestion.suggestionText }}
             </span>
           </div>
-          <div class="x-mr-8 x-mt-8">
-            <CrossTinyIcon v-if="isSelected(index)" class="x-icon-lg" />
-            <PlusIcon v-else class="x-icon-neutral-80 x-icon-lg" />
-          </div>
+          <CrossTinyIcon v-if="isSelected(index)" class="x-icon-lg" />
+          <PlusIcon v-else class="x-icon-neutral-80 x-icon-lg" />
         </button>
 
         <!-- Next queries -->
         <div
           v-if="isSelected(index)"
-          class="x-no-scrollbar x-mt-8 x-flex x-w-full x-gap-12 x-overflow-y-hidden x-overflow-x-scroll x-px-16"
+          class="x-no-scrollbar x-pb-16 x-flex x-w-full x-gap-12 x-overflow-y-hidden x-overflow-x-scroll x-px-16"
         >
           <button
             v-for="(query, queryIndex) in suggestion.nextQueries"
