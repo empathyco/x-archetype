@@ -39,7 +39,7 @@
     "@empathyco/x-utils": "^1.0.3-alpha.1",
     "tslib": "~2.6.0",
     "vue": "~3.4.38",
-    "vue-i18n": "~9.14.0",
+    "vue-i18n": "~9.14.2",
     "vuex": "4.0.2"
   },
   "devDependencies": {
