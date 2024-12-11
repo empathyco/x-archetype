@@ -56,7 +56,13 @@
 </template>
 
 <script lang="ts">
-import { animateTranslate, BaseIdModal, LocationProvider, useState } from '@empathyco/x-components'
+import {
+  animateTranslate,
+  BaseIdModal,
+  LocationProvider,
+  use$x,
+  useState,
+} from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent, defineComponent } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
@@ -91,11 +97,13 @@ export default defineComponent({
     ),
   },
   setup() {
+    const x = use$x()
     const rightAsideAnimation = animateTranslate('right')
     const { hasSearched } = useHasSearched()
     const { relatedPrompts } = useState('relatedPrompts', ['relatedPrompts'])
-
-    const showNoResultsMessage = computed(() => !relatedPrompts.value?.length)
+    const showNoResultsMessage = computed(
+      () => !relatedPrompts.value?.length && !x.semanticQueries.length,
+    )
 
     return {
       hasSearched,

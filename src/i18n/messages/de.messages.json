@@ -128,7 +128,8 @@
       "reject": "Nein, ich bleibe hier"
     },
     "relatedPrompts": {
-      "title": "Sind Sie an „{query}“ interessiert? Entdecken Sie diese Vorschläge:"
+      "title": "Sind Sie an {query} interessiert?",
+      "message": "Entdecken Sie diese Vorschläge:"
     }
   },
   "mobile": {

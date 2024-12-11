@@ -20,14 +20,14 @@
           { 'x-hidden': shouldHideButton(index) },
           isSelected(index)
             ? 'x-w-full x-rounded-b-none'
-            : 'x-h-[112px] x-w-[204px] desktop:x-w-[303px]',
+            : 'x-min-h-[112px] x-h-full x-w-[204px] desktop:x-w-[303px]',
         ]"
         data-test="related-prompt-item"
       >
         <!-- Suggestion -->
         <button
-          class="x-flex x-flex-row x-items-start x-justify-between x-gap-12 x-px-16 x-pt-8 x-text-start x-transition-all x-duration-500"
-          :class="isSelected(index) ? 'x-w-full' : 'x-w-[204px] x-grow desktop:x-w-[303px]'"
+          class="x-flex x-flex-row x-items-start x-justify-between x-gap-12 x-p-16 x-text-start x-transition-all x-duration-500"
+          :class="[isSelected(index) ? 'x-w-full' : 'x-w-[204px] x-grow desktop:x-w-[303px]']"
           @click="toggleSuggestion(index)"
         >
           <div class="x-flex x-min-h-[32px]">
@@ -42,10 +42,8 @@
               {{ suggestion.suggestionText }}
             </span>
           </div>
-          <div :class="{ 'x-mr-8 x-mt-8': !isSelected(index) }">
-            <CrossTinyIcon v-if="isSelected(index)" class="x-icon-lg" />
-            <PlusIcon v-else class="x-icon-neutral-80 x-icon-lg" />
-          </div>
+          <CrossTinyIcon v-if="isSelected(index)" class="x-icon-lg" />
+          <PlusIcon v-else class="x-icon-neutral-80 x-icon-lg" />
         </button>
       </div>
     </div>

@@ -130,5 +130,6 @@ export interface Messages {
   }
   relatedPrompts: {
     title: string
+    message: string
   }
 }

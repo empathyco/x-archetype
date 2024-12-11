@@ -24,7 +24,11 @@
           <LocationProvider location="results">
             <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
           </LocationProvider>
-          <NoResultsMessage class="x-mb-16" data-test="no-results-message" />
+          <NoResultsMessage
+            v-if="showNoResultsMessage"
+            class="x-mb-16"
+            data-test="no-results-message"
+          />
           <FallbackDisclaimerMessage class="x-mb-16" data-test="fallback-message" />
         </div>
 
@@ -84,9 +88,10 @@ import {
   CloseMainModal,
   LocationProvider,
   use$x,
+  useState,
 } from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
-import { defineAsyncComponent, defineComponent } from 'vue'
+import { computed, defineAsyncComponent, defineComponent } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import MainComponent from '../main.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
@@ -125,15 +130,21 @@ export default defineComponent({
     ),
   },
   setup() {
+    const x = use$x()
     const filtersAsideAnimation = animateTranslate('bottom')
     const rightAsideAnimation = animateTranslate('right')
     const { hasSearched } = useHasSearched()
+    const { relatedPrompts } = useState('relatedPrompts', ['relatedPrompts'])
+    const showNoResultsMessage = computed(
+      () => !relatedPrompts.value?.length && !x.semanticQueries.length,
+    )
 
     return {
+      showNoResultsMessage,
       filtersAsideAnimation,
       rightAsideAnimation,
       hasSearched,
-      x: use$x(),
+      x,
     }
   },
 })

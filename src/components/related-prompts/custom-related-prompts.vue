@@ -1,18 +1,21 @@
 <template>
-  <div class="x-mb-32 x-flex x-flex-col">
+  <div class="x-mb-64 x-flex x-flex-col">
     <i18n-t
-      class="x-no-results-message x-text1 x-flex x-flex-wrap x-items-center x-justify-center x-break-words x-bg-neutral-10 x-p-24 x-text-center x-text-neutral-90 desktop:x-text1-lg"
+      class="x-no-results-message x-text1 x-flex x-flex-wrap x-gap-4 x-items-center x-justify-center x-break-words x-bg-neutral-10 x-p-24 x-text-center x-text-neutral-90 desktop:x-text1-lg"
       keypath="relatedPrompts.title"
-      tag="span"
+      tag="p"
       scope="global"
     >
       <template #query>
-        <span class="x-title3 x-w-auto">{{ x.query.search }}</span>
+        <span class="x-title3 x-w-auto">"{{ x.query.search }}"</span>
+      </template>
+      <template #message>
+        <span class="x-w-auto">{{ $t('relatedPrompts.message') }}</span>
       </template>
     </i18n-t>
 
     <div class="x-flex x-flex-col">
-      <RelatedPromptsTagList class="x-mt-24" />
+      <RelatedPromptsTagList :class="isDesktopOrGreater ? 'x-mt-24' : 'x-mt-16'" />
       <CustomQueryPreview
         v-if="selectedPrompt !== -1"
         :key="queriesPreviewInfo.length"
@@ -28,6 +31,7 @@ import type { PropType } from 'vue'
 import { use$x, useState } from '@empathyco/x-components'
 import { relatedPromptsXModule } from '@empathyco/x-components/related-prompts'
 import { computed, defineComponent } from 'vue'
+import { useDevice } from '../../composables/use-device.composable'
 import CustomQueryPreview from '../search/results/custom-query-preview.vue'
 import RelatedPromptsTagList from './related-prompts-tag-list.vue'
 
@@ -47,6 +51,7 @@ export default defineComponent({
   },
   setup() {
     const x = use$x()
+    const { isDesktopOrGreater } = useDevice()
     const { relatedPrompts, selectedPrompt, selectedQuery } = useState('relatedPrompts', [
       'relatedPrompts',
       'selectedPrompt',
@@ -63,6 +68,7 @@ export default defineComponent({
     })
 
     return {
+      isDesktopOrGreater,
       queriesPreviewInfo,
       selectedPrompt,
       x,

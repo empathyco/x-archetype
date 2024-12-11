@@ -4,10 +4,10 @@
     <LocationProvider location="results">
       <Results />
     </LocationProvider>
-    <LocationProvider v-if="showRelatedPrompts" location="related_prompts">
+    <LocationProvider v-if="showRelatedPrompts" :location="semanticsLocation">
       <CustomRelatedPrompts
         :related-prompt-list="relatedPrompts"
-        :class="x.noResults ? 'desktop:x-mt-24' : 'x-mt-24 desktop:x-mt-32'"
+        :class="x.noResults ? 'desktop:x-mt-24' : 'x-mt-48 desktop:x-mt-32'"
       />
     </LocationProvider>
     <LocationProvider v-if="!showRelatedPrompts" :location="semanticsLocation">
