@@ -7,7 +7,7 @@
   >
     <div
       ref="slidingPanelContent"
-      class="x-flex x-gap-16 x-font-main desktop:x-mx-0 desktop:x-mb-0"
+      class="x-flex x-gap-8 x-font-main desktop:x-mx-0 desktop:x-mb-0"
       :class="{ 'x-w-[calc(100%)]': selectedIndex !== -1 }"
     >
       <div
@@ -42,8 +42,8 @@
               {{ suggestion.suggestionText }}
             </span>
           </div>
-            <CrossTinyIcon v-if="isSelected(index)" class="x-icon-lg" />
-            <PlusIcon v-else class="x-icon-neutral-80 x-icon-lg" />
+          <CrossTinyIcon v-if="isSelected(index)" class="x-icon-lg" />
+          <PlusIcon v-else class="x-icon-neutral-80 x-icon-lg" />
         </button>
       </div>
     </div>

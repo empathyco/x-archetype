@@ -15,7 +15,7 @@
     </i18n-t>
 
     <div class="x-flex x-flex-col">
-      <RelatedPromptsTagList class="x-mt-24" />
+      <RelatedPromptsTagList :class="isDesktopOrGreater ? 'x-mt-24' : 'x-mt-16'" />
       <CustomQueryPreview
         v-if="selectedPrompt !== -1"
         :key="queriesPreviewInfo.length"
@@ -31,6 +31,7 @@ import type { PropType } from 'vue'
 import { use$x, useState } from '@empathyco/x-components'
 import { relatedPromptsXModule } from '@empathyco/x-components/related-prompts'
 import { computed, defineComponent } from 'vue'
+import { useDevice } from '../../composables/use-device.composable'
 import CustomQueryPreview from '../search/results/custom-query-preview.vue'
 import RelatedPromptsTagList from './related-prompts-tag-list.vue'
 
@@ -50,6 +51,7 @@ export default defineComponent({
   },
   setup() {
     const x = use$x()
+    const { isDesktopOrGreater } = useDevice()
     const { relatedPrompts, selectedPrompt, selectedQuery } = useState('relatedPrompts', [
       'relatedPrompts',
       'selectedPrompt',
@@ -66,6 +68,7 @@ export default defineComponent({
     })
 
     return {
+      isDesktopOrGreater,
       queriesPreviewInfo,
       selectedPrompt,
       x,
