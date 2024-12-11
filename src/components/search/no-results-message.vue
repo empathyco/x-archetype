@@ -1,6 +1,6 @@
 <template>
   <i18n-t
-    v-if="x.noResults"
+    v-if="showNoResultsMessage"
     class="x-no-results-message x-text1 x-message desktop:x-text1-lg desktop:x-mt-24"
     keypath="noResults.message"
     :class="{ 'x-flex-col': isTabletOrLess }"
@@ -14,17 +14,23 @@
 </template>
 
 <script lang="ts">
-import { use$x } from '@empathyco/x-components'
-import { defineComponent } from 'vue'
+import { use$x, useState } from '@empathyco/x-components'
+import { computed, defineComponent } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 
 export default defineComponent({
   setup() {
+    const x = use$x()
     const { isTabletOrLess } = useDevice()
+    const { relatedPrompts } = useState('relatedPrompts', ['relatedPrompts'])
+    const showNoResultsMessage = computed(
+      () => x.noResults && !relatedPrompts.value?.length && !x.semanticQueries.length,
+    )
 
     return {
       isTabletOrLess,
-      x: use$x(),
+      showNoResultsMessage,
+      x,
     }
   },
 })
