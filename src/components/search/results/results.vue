@@ -30,8 +30,8 @@
                 <Promoted :promoted="promoted" />
               </MainScrollItem>
             </template>
-            <template #related-prompts-group>
-              <RelatedPromptsTagList v-if="!isLowResult" class="-x-mb-1 x-mt-24 desktop:x-mt-0" />
+            <template v-if="!isLowResult" #related-prompts-group>
+              <RelatedPromptsTagList class="-x-mb-1 x-mt-24 desktop:x-mt-0" />
               <CustomQueryPreview
                 v-if="selectedPrompt !== -1"
                 :key="queriesPreviewInfo.length"
