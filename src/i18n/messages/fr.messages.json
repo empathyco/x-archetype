@@ -128,7 +128,7 @@
       "reject": "Non, je reste ici"
     },
     "relatedPrompts": {
-      "title": "Êtes-vous intéressé par {query}?",
+      "title": "Êtes-vous intéressé par {query}? {message}",
       "message": "Explorez ces suggestions:"
     }
   },
