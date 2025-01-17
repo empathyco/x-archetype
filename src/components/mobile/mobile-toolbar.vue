@@ -1,6 +1,9 @@
 <template>
-  <div class="x-flex x-w-full x-flex-row x-items-center x-justify-between x-gap-16">
-    <div v-if="x.totalResults" class="x-flex x-w-full x-items-center">
+  <div
+    v-if="x.totalResults"
+    class="x-flex x-w-full x-flex-row x-items-center x-justify-between x-gap-16"
+  >
+    <div class="x-flex x-flex-auto x-items-center x-justify-end">
       <i18n-t class="x-text1 x-flex-auto" keypath="totalResults.message" tag="span">
         <template #totalResults>
           {{ x.totalResults }}

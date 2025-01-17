@@ -1,22 +1,31 @@
 <template>
   <MobileLayout>
     <template #header>
-      <CloseMainModal class="x-button-lead x-button-circle x-button-ghost">
-        <ArrowLeftIcon class="x-icon-lg" />
-      </CloseMainModal>
-      <SearchBox class="x-flex-1" />
+      <div class="x-flex x-w-full x-gap-8 x-py-16">
+        <CloseMainModal class="x-button-lead x-button-circle x-button-ghost">
+          <ArrowLeftIcon class="x-icon-lg" />
+        </CloseMainModal>
+        <SearchBox class="x-flex-1" />
+      </div>
     </template>
+
     <template #sub-header>
       <LocationProvider location="predictive_layer" class="x-z-10">
         <PredictiveLayer />
       </LocationProvider>
+      <LocationProvider location="no_query">
+        <PreSearchManager class="x-z-10 x-mt-16" />
+      </LocationProvider>
     </template>
+
     <template #toolbar>
       <MobileSubHeader :has-searched="hasSearched" />
     </template>
+
     <template #filters-modal>
       <MobileAside v-if="hasSearched" />
     </template>
+
     <template #my-history-modal>
       <MyHistoryAside />
       <MyHistoryConfirmDisableModal />
@@ -34,9 +43,6 @@
         />
         <FallbackDisclaimerMessage class="x-mb-16" data-test="fallback-message" />
       </section>
-      <LocationProvider location="no_query">
-        <PreSearchManager class="x-mt-16" />
-      </LocationProvider>
       <LocationProvider location="results">
         <MainComponent />
       </LocationProvider>

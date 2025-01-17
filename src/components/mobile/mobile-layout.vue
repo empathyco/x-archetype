@@ -153,23 +153,25 @@ export default defineComponent({
   grid-column: page;
   grid-row: header;
   z-index: 1;
+  max-width: 100vw;
 }
 
 .x-layout__header-content {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  margin-block: var(--x-layout-min-margin);
 }
 
 .x-layout__sub-header {
   grid-column: page;
   grid-row: 2/ -1;
+  max-width: 100vw;
 }
 
 .x-layout__toolbar {
   grid-column: page;
   grid-row: toolbar;
+  max-width: 100vw;
 }
 
 .x-layout__toolbar-content {
@@ -200,6 +202,7 @@ export default defineComponent({
   grid-row: main;
   min-height: 0;
   min-width: 0;
+  max-width: 100vw;
 }
 
 .x-layout__main-scroll {
