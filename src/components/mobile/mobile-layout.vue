@@ -14,10 +14,7 @@
       </div>
     </header>
 
-    <div
-      class="x-layout__sub-header"
-      :class="{ 'x-layout-stack': x.query.search || !x.isEmpathizeOpen }"
-    >
+    <div class="x-layout__sub-header x-layout-stack">
       <slot name="sub-header" />
     </div>
 
@@ -123,7 +120,6 @@ export default defineComponent({
   display: grid;
   align-content: stretch;
   height: calc(100% + var(--toolbar-height));
-  min-height: 100%;
   grid-template-columns:
     [page-start]
     1fr

@@ -13,9 +13,6 @@
       <LocationProvider location="predictive_layer">
         <PredictiveLayer class="x-relative" />
       </LocationProvider>
-      <LocationProvider location="no_query">
-        <PreSearchManager class="x-z-10 x-mt-16" />
-      </LocationProvider>
     </template>
 
     <template #toolbar>
@@ -43,6 +40,9 @@
         />
         <FallbackDisclaimerMessage class="x-mb-16" data-test="fallback-message" />
       </section>
+      <LocationProvider location="no_query">
+        <PreSearchManager class="x-z-10 x-mt-16" />
+      </LocationProvider>
       <LocationProvider location="results">
         <MainComponent />
       </LocationProvider>
