@@ -10,8 +10,8 @@
     </template>
 
     <template #sub-header>
-      <LocationProvider location="predictive_layer" class="x-z-10">
-        <PredictiveLayer />
+      <LocationProvider location="predictive_layer">
+        <PredictiveLayer class="x-relative" />
       </LocationProvider>
       <LocationProvider location="no_query">
         <PreSearchManager class="x-z-10 x-mt-16" />
