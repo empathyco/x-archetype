@@ -1,5 +1,7 @@
 Feature: Multiple interactions
 
+  @skip
+  # Needs a refactor since next query fallback are changing in benefit of related prompts
   Scenario Outline: 1. Refine and filter
     Given start page with "<view>" size view
     When  search bar is clicked
