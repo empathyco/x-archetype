@@ -187,7 +187,7 @@ export default defineComponent({
 .x-layout__my-history-modal {
   grid-column: page;
   grid-row: page;
-  z-index: 10;
+  z-index: 20;
 }
 
 .x-layout__overlay {
