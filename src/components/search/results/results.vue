@@ -48,9 +48,7 @@
 </template>
 
 <script lang="ts">
-import type { SemanticQueriesConfig } from '@empathyco/x-components/semantic-queries'
 import type { RelatedPromptNextQuery } from '@empathyco/x-types'
-import type { ComputedRef } from 'vue'
 import {
   BaseVariableColumnGrid,
   infiniteScroll,
@@ -96,9 +94,6 @@ export default defineComponent({
     const { isMobile } = useDevice()
     const { getControlFromPath } = useExperienceControls()
 
-    const semanticQueriesConfig = useState('semanticQueries', ['config'])
-      .config as ComputedRef<SemanticQueriesConfig>
-
     const { relatedPrompts, selectedPrompt } = useState('relatedPrompts', [
       'relatedPrompts',
       'selectedPrompt',
@@ -106,9 +101,7 @@ export default defineComponent({
 
     const columns = computed(() => (isMobile.value ? 2 : 4))
 
-    const isLowResult = computed(
-      () => x.totalResults > 0 && x.totalResults < semanticQueriesConfig.value.threshold,
-    )
+    const isLowResult = computed(() => x.totalResults > 0 && x.totalResults < 24)
 
     const queriesPreviewInfo = computed(() => {
       if (relatedPrompts.value.length) {

@@ -1,7 +1,7 @@
 <template>
   <div class="x-mb-64 x-flex x-flex-col">
     <i18n-t
-      class="x-no-results-message x-text1 x-flex x-flex-wrap x-gap-4 x-items-center x-justify-center x-break-words x-bg-neutral-10 x-p-24 x-text-center x-text-neutral-90 desktop:x-text1-lg"
+      class="x-no-results-message x-text1 x-mb-24 x-flex x-flex-wrap x-gap-4 x-items-center x-justify-center x-break-words x-bg-neutral-10 x-p-24 x-text-center x-text-neutral-90 desktop:x-text1-lg"
       keypath="relatedPrompts.title"
       tag="p"
       scope="global"

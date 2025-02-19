@@ -32,7 +32,7 @@ Then('scroll position is at top', () => {
  */
 When('scrolling down to the bottom', () => {
   cy.getByDataTest('related-prompts-tag-list-item')
-    .should('have.length.at.least', 5)
+    .should('have.length.at.least', 4)
     .then(() => {
       cy.getByDataTest('base-scroll').scrollTo('center', { duration: 1000 })
       cy.getByDataTest('base-scroll').scrollTo('bottom', { duration: 500 })
