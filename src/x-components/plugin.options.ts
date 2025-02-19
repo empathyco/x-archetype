@@ -108,10 +108,6 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
       app.use(i18n)
       app.config.globalProperties.$setLocale = i18n.setLocale.bind(i18n)
       app.config.globalProperties.$setLocaleDevice = i18n.setDevice.bind(i18n)
-
-      return {
-        i18n: i18n.vueI18n,
-      }
     },
   }
 }
