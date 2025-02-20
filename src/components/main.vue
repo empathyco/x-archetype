@@ -4,13 +4,13 @@
     <LocationProvider location="results">
       <Results />
     </LocationProvider>
-    <LocationProvider v-if="showRelatedPrompts" :location="semanticsLocation">
+    <LocationProvider v-if="showRelatedPrompts" :location="location">
       <CustomRelatedPrompts
         :related-prompt-list="relatedPrompts"
         :class="x.noResults ? 'desktop:x-mt-24' : 'x-mt-48 desktop:x-mt-32'"
       />
     </LocationProvider>
-    <LocationProvider v-if="showSemantics" :location="semanticsLocation">
+    <LocationProvider v-if="showSemantics" :location="location">
       <CustomSemanticQueries />
     </LocationProvider>
     <LocationProvider v-if="showPartials" location="results">
@@ -55,7 +55,7 @@ export default defineComponent({
 
     const { config } = useState('search', ['config'])
 
-    const semanticsLocation = computed<FeatureLocation>(() =>
+    const location = computed<FeatureLocation>(() =>
       x.results.length > 0 ? 'low_results' : 'no_results',
     )
 
@@ -82,7 +82,7 @@ export default defineComponent({
     return {
       hasSearched,
       relatedPrompts,
-      semanticsLocation,
+      location,
       showPartials,
       showRecommendations,
       showRelatedPrompts,

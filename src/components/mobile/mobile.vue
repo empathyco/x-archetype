@@ -1,96 +1,74 @@
 <template>
-  <div
-    class="x-layout-container x-layout-max-width-md x-layout-min-margin-16 tablet:x-layout-min-margin-24"
-  >
-    <div class="x-layout-item">
-      <div class="x-flex x-gap-8 x-py-16">
+  <MobileLayout>
+    <template #header>
+      <div class="x-flex x-w-full x-gap-8 x-py-16">
         <CloseMainModal class="x-button-lead x-button-circle x-button-ghost">
           <ArrowLeftIcon class="x-icon-lg" />
         </CloseMainModal>
         <SearchBox class="x-flex-1" />
       </div>
-    </div>
+    </template>
 
-    <div class="x-layout-expand" :class="{ 'x-layout-stack': x.query.search }">
-      <LocationProvider location="predictive_layer" class="x-z-10">
-        <PredictiveLayer />
+    <template #sub-header>
+      <LocationProvider location="predictive_layer">
+        <PredictiveLayer class="x-relative" />
       </LocationProvider>
+    </template>
 
-      <!-- Results -->
-      <div class="x-flex x-flex-col">
-        <MobileSubHeader :has-searched="hasSearched" />
+    <template #toolbar>
+      <MobileSubHeader :has-searched="hasSearched" />
+    </template>
 
-        <div v-if="x.query.search" class="x-layout-item">
-          <LocationProvider location="results">
-            <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
-          </LocationProvider>
-          <NoResultsMessage
-            v-if="showNoResultsMessage"
-            class="x-mb-16"
-            data-test="no-results-message"
-          />
-          <FallbackDisclaimerMessage class="x-mb-16" data-test="fallback-message" />
-        </div>
-
-        <MainScroll>
-          <Scroll id="main-scroll" class="x-flex-1">
-            <LocationProvider location="no_query">
-              <PreSearchManager class="x-mt-16" />
-            </LocationProvider>
-
-            <LocationProvider location="results">
-              <div class="x-layout-item">
-                <MainComponent />
-              </div>
-            </LocationProvider>
-          </Scroll>
-        </MainScroll>
-
-        <div class="x-layout-item x-layout-overlap x-pointer-events-none">
-          <div class="x-mb-32 x-grid x-min-h-48 x-grid-cols-12 x-items-center x-gap-24">
-            <MobileOpenAside
-              v-if="x.totalResults > 0"
-              class="x-pointer-events-auto x-col-span-8 x-col-start-3 x-max-h-[40px] tablet:x-col-span-4 tablet:x-col-start-5"
-            />
-            <ScrollToTop class="x-button-lg x-pointer-events-auto x-col-start-11" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- eslint-disable max-len-->
-    <BaseIdModal
-      :animation="filtersAsideAnimation"
-      modal-id="aside-modal"
-      content-class="x-mt-64 x-h-[calc(100%-64px)] x-fixed x-flex-1 x-rounded-t-lg x-bg-neutral-0 desktop:x-rounded-none desktop:x-m-0"
-    >
+    <template #filters-modal>
       <MobileAside v-if="hasSearched" />
-    </BaseIdModal>
+    </template>
 
-    <BaseIdModal
-      key="my-history-aside"
-      :animation="rightAsideAnimation"
-      modal-id="my-history-aside"
-      content-class="x-bg-neutral-0"
-      class="x-z-10"
-    >
+    <template #my-history-modal>
       <MyHistoryAside />
-    </BaseIdModal>
-    <MyHistoryConfirmDisableModal />
-  </div>
+      <MyHistoryConfirmDisableModal />
+    </template>
+
+    <template #main>
+      <section v-if="x.query.search">
+        <LocationProvider location="results">
+          <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
+        </LocationProvider>
+        <NoResultsMessage
+          v-if="showNoResultsMessage"
+          class="x-mb-16"
+          data-test="no-results-message"
+        />
+        <FallbackDisclaimerMessage class="x-mb-16" data-test="fallback-message" />
+      </section>
+      <LocationProvider location="no_query">
+        <PreSearchManager class="x-z-10 x-mt-16" />
+      </LocationProvider>
+      <LocationProvider location="results">
+        <MainComponent />
+      </LocationProvider>
+    </template>
+
+    <template #overlay>
+      <div class="x-mb-32 x-grid x-min-h-48 x-w-full x-grid-cols-12 x-items-center x-gap-24">
+        <MobileOpenAside
+          v-if="x.totalResults > 0"
+          class="x-pointer-events-auto x-col-span-8 x-col-start-3 x-max-h-[40px] tablet:x-col-span-4 tablet:x-col-start-5"
+        />
+        <ScrollToTop class="x-button-lg x-pointer-events-auto x-col-start-11" />
+      </div>
+    </template>
+  </MobileLayout>
 </template>
 
 <script lang="ts">
 import {
   animateTranslate,
   ArrowLeftIcon,
-  BaseIdModal,
   CloseMainModal,
   LocationProvider,
   use$x,
   useState,
 } from '@empathyco/x-components'
-import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent, defineComponent } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import MainComponent from '../main.vue'
@@ -100,24 +78,23 @@ import PreSearchManager from '../pre-search/pre-search-manager.vue'
 import PredictiveLayer from '../predictive-layer/predictive-layer.vue'
 import ScrollToTop from '../scroll-to-top.vue'
 import SearchBox from '../search-box.vue'
+import MobileLayout from './mobile-layout.vue'
 import MobileOpenAside from './mobile-open-aside.vue'
 import MobileSubHeader from './mobile-sub-header.vue'
 
 export default defineComponent({
   components: {
     ArrowLeftIcon,
-    BaseIdModal,
     CloseMainModal,
     PreSearchManager,
     LocationProvider,
     MobileSubHeader,
     MainComponent,
-    MainScroll,
     MyHistoryAside,
+    MobileLayout,
     MobileOpenAside,
     MyHistoryConfirmDisableModal,
     PredictiveLayer,
-    Scroll,
     ScrollToTop,
     SearchBox,
     MobileAside: defineAsyncComponent(() => import('../search').then(m => m.MobileAside)),
