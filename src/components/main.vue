@@ -53,6 +53,8 @@ export default defineComponent({
 
     const { relatedPrompts } = useState('relatedPrompts', ['relatedPrompts'])
 
+    const { config } = useState('search', ['config'])
+
     const semanticsLocation = computed<FeatureLocation>(() =>
       x.results.length > 0 ? 'low_results' : 'no_results',
     )
@@ -73,7 +75,7 @@ export default defineComponent({
     )
 
     const showRelatedPrompts = computed(
-      () => (x.noResults || x.totalResults < 24) && relatedPrompts.value?.length,
+      () => (x.noResults || x.totalResults < config.value.pageSize) && relatedPrompts.value?.length,
     )
 
     return {

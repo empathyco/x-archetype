@@ -99,9 +99,11 @@ export default defineComponent({
       'selectedPrompt',
     ])
 
+    const { config } = useState('search', ['config'])
+
     const columns = computed(() => (isMobile.value ? 2 : 4))
 
-    const isLowResult = computed(() => x.totalResults > 0 && x.totalResults < 24)
+    const isLowResult = computed(() => x.totalResults > 0 && x.totalResults < config.value.pageSize)
 
     const queriesPreviewInfo = computed(() => {
       if (relatedPrompts.value.length) {
