@@ -75,7 +75,8 @@ export default defineComponent({
     )
 
     const showRelatedPrompts = computed(
-      () => (x.noResults || x.totalResults < config.value.pageSize) && relatedPrompts.value?.length,
+      () =>
+        (x.noResults || x.totalResults < config.value?.pageSize) && relatedPrompts.value?.length,
     )
 
     return {
