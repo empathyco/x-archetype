@@ -1,7 +1,7 @@
 <template>
   <RelatedPromptsTagList
     button-class="x-button-lead x-button-circle x-button-ghost x-p-0"
-    class="x-p-0 x-text-neutral-50 x-mt-0"
+    class="x-p-0 x-text-neutral-50 x-h-[80px] x-mt-0"
     :tag-class="tagClass"
     :tag-colors="['x-bg-neutral-10']"
   >
