@@ -15,8 +15,8 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4
         with:
           node-version: '22'
       - name: Install deps, lint, build and test project
@@ -31,7 +31,7 @@ jobs:
           cloudfront_distribution_id: ${{ secrets.CLOUDFRONT_ID_TEST }}
           cloudfront_invalidation_paths: '/preview/${{ github.event.number }}/*'
       - name: Adding comment to PR with preview link and validation results
-        uses: actions/github-script@v7
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7
         with:
           script: |
             github.rest.issues.createComment({
