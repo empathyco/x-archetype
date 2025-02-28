@@ -10,7 +10,7 @@
     </template>
     <template #default="{ relatedPrompt, isSelected, onSelect }">
       <DisplayEmitter
-        :payload="relatedPrompt.toolingDisplayTagging"
+        :payload="relatedPrompt.tagging.toolingDisplayTagging"
         :event-metadata="{
           feature: 'related_prompts',
           displayOriginalQuery: x.query.searchBox,
