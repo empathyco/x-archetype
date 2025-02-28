@@ -31,12 +31,13 @@
               </MainScrollItem>
             </template>
             <template v-if="!isLowResult" #related-prompts-group>
-              <RelatedPromptsTagList class="-x-mb-1 x-mt-24 desktop:x-mt-0" />
+              <RelatedPrompts class="-x-mb-1 x-mt-24 desktop:x-mt-0" />
               <CustomQueryPreview
                 v-if="selectedPrompt !== -1"
                 :key="queriesPreviewInfo.length"
                 class="x-rounded-b-[12px] x-bg-neutral-10 x-px-8 desktop:x-px-16"
                 :queries-preview-info="queriesPreviewInfo"
+                query-feature="related_prompts"
               ></CustomQueryPreview>
             </template>
           </BaseVariableColumnGrid>
@@ -47,8 +48,7 @@
 </template>
 
 <script lang="ts">
-import type { SemanticQueriesConfig } from '@empathyco/x-components/semantic-queries'
-import type { ComputedRef } from 'vue'
+import type { RelatedPromptNextQuery } from '@empathyco/x-types'
 import {
   BaseVariableColumnGrid,
   infiniteScroll,
@@ -68,12 +68,13 @@ import {
 import { computed, defineComponent } from 'vue'
 import { useDevice } from '../../../composables/use-device.composable'
 import { useExperienceControls } from '../../../composables/use-experience-controls.composable'
-import RelatedPromptsTagList from '../../related-prompts/related-prompts-tag-list.vue'
+import RelatedPrompts from '../../related-prompts/related-prompts.vue'
 import Result from '../../results/result.vue'
 import CustomQueryPreview from './custom-query-preview.vue'
 
 export default defineComponent({
   components: {
+    RelatedPrompts,
     Banner,
     BannersList,
     BaseVariableColumnGrid,
@@ -82,7 +83,6 @@ export default defineComponent({
     Promoted,
     PromotedsList,
     RelatedPromptsList,
-    RelatedPromptsTagList,
     Result,
     ResultsList,
   },
@@ -94,28 +94,28 @@ export default defineComponent({
     const { isMobile } = useDevice()
     const { getControlFromPath } = useExperienceControls()
 
-    const semanticQueriesConfig = useState('semanticQueries', ['config'])
-      .config as ComputedRef<SemanticQueriesConfig>
-
-    const { relatedPrompts, selectedPrompt, selectedQuery } = useState('relatedPrompts', [
+    const { relatedPrompts, selectedPrompt } = useState('relatedPrompts', [
       'relatedPrompts',
       'selectedPrompt',
-      'selectedQuery',
     ])
+
+    const { config } = useState('search', ['config'])
 
     const columns = computed(() => (isMobile.value ? 2 : 4))
 
     const isLowResult = computed(
-      () => x.totalResults > 0 && x.totalResults < semanticQueriesConfig.value.threshold,
+      () => x.totalResults > 0 && x.totalResults < config.value?.pageSize,
     )
 
     const queriesPreviewInfo = computed(() => {
-      const queries = relatedPrompts.value[selectedPrompt.value]?.nextQueries as string[]
-      if (selectedQuery.value === -1) {
+      if (relatedPrompts.value.length) {
+        const queries = [] as string[]
+        relatedPrompts.value[selectedPrompt.value].relatedPromptNextQueries.forEach(
+          (nextQuery: RelatedPromptNextQuery) => queries.push(nextQuery.query),
+        )
         return queries.map(query => ({ query }))
-      } else {
-        return [{ query: queries[selectedQuery.value] }]
       }
+      return []
     })
 
     return {

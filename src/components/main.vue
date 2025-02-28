@@ -10,7 +10,7 @@
         :class="x.noResults ? 'desktop:x-mt-24' : 'x-mt-48 desktop:x-mt-32'"
       />
     </LocationProvider>
-    <LocationProvider v-if="!showRelatedPrompts" :location="semanticsLocation">
+    <LocationProvider v-if="showSemantics" :location="semanticsLocation">
       <CustomSemanticQueries />
     </LocationProvider>
     <LocationProvider v-if="showPartials" location="results">
@@ -53,6 +53,8 @@ export default defineComponent({
 
     const { relatedPrompts } = useState('relatedPrompts', ['relatedPrompts'])
 
+    const { config } = useState('search', ['config'])
+
     const semanticsLocation = computed<FeatureLocation>(() =>
       x.results.length > 0 ? 'low_results' : 'no_results',
     )
@@ -65,12 +67,16 @@ export default defineComponent({
       () => x.noResults && !x.semanticQueries.length && !relatedPrompts.value?.length,
     )
 
-    const isLowResult = computed(
-      () => x.totalResults > 0 && x.totalResults < semanticQueriesConfig.value.threshold,
+    const showSemantics = computed(
+      () =>
+        x.totalResults > 0 &&
+        x.totalResults < semanticQueriesConfig.value.threshold &&
+        !relatedPrompts.value?.length,
     )
 
     const showRelatedPrompts = computed(
-      () => (x.noResults || isLowResult.value) && relatedPrompts.value?.length,
+      () =>
+        (x.noResults || x.totalResults < config.value?.pageSize) && relatedPrompts.value?.length,
     )
 
     return {
@@ -80,6 +86,7 @@ export default defineComponent({
       showPartials,
       showRecommendations,
       showRelatedPrompts,
+      showSemantics,
       x,
     }
   },
