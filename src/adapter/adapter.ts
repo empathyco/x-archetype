@@ -1,8 +1,3 @@
-import type {
-  PlatformRecommendationsRequest,
-  PlatformResult,
-  PlatformSemanticQueriesRequest,
-} from '@empathyco/x-adapter-platform'
 import {
   experienceControlsResponseSchema,
   platformAdapter,
@@ -17,6 +12,11 @@ import type {
   Result,
   SemanticQueriesRequest,
 } from '@empathyco/x-types'
+import type {
+  PlatformRecommendationsRequest,
+  PlatformResult,
+  PlatformSemanticQueriesRequest,
+} from '@empathyco/x-adapter-platform'
 export const adapter = platformAdapter
 
 /* Code sample about how to extend the result mapper with more fields. */
