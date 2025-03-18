@@ -32,6 +32,7 @@ import {
   watch,
 } from 'vue'
 import { useDevice } from './composables/use-device.composable'
+import { isIOS } from './composables/use-is-ios-composable'
 import currencies from './i18n/currencies'
 import './tailwind/index.css'
 
@@ -132,6 +133,19 @@ export default defineComponent({
     onBeforeUnmount(() => {
       document.removeEventListener('wysiwyg:reloadSearch', () => reloadSearch())
     })
+
+    //fix keyboard issue on iOS
+    if (isIOS()) {
+      const handleTouchMove = () => {
+        if (document.activeElement && document.activeElement.matches('.x-search-input')) {
+          ;(document.activeElement as HTMLElement).blur()
+        }
+      }
+      document.addEventListener('touchmove', handleTouchMove)
+      onBeforeUnmount(() => {
+        document.removeEventListener('touchmove', handleTouchMove)
+      })
+    }
 
     return {
       isOpen,
