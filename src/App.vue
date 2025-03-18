@@ -32,7 +32,7 @@ import {
   watch,
 } from 'vue'
 import { useDevice } from './composables/use-device.composable'
-import { isIOS } from './composables/use-is-ios-composable'
+import { isIOS, removeSearchInputFocus } from './composables/use-ios-utils-composable'
 import currencies from './i18n/currencies'
 import './tailwind/index.css'
 
@@ -136,14 +136,9 @@ export default defineComponent({
 
     //fix keyboard issue on iOS
     if (isIOS()) {
-      const handleTouchMove = () => {
-        if (document.activeElement && document.activeElement.matches('.x-search-input')) {
-          ;(document.activeElement as HTMLElement).blur()
-        }
-      }
-      document.addEventListener('touchmove', handleTouchMove)
+      document.addEventListener('touchmove', removeSearchInputFocus)
       onBeforeUnmount(() => {
-        document.removeEventListener('touchmove', handleTouchMove)
+        document.removeEventListener('touchmove', removeSearchInputFocus)
       })
     }
 

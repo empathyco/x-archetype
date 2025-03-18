@@ -190,19 +190,15 @@ export default defineComponent({
       showEmpathize,
     } = usePredictiveHelpers()
 
-    const desktopCloseEvents: Array<keyof XEventsTypes> = [
-      'UserClosedEmpathize',
-      'UserSelectedASuggestion',
-      'UserPressedEnterKey',
-      'UserBlurredSearchBox',
-    ]
-
     const mobileCloseEvents: Array<keyof XEventsTypes> = [
       'UserClosedEmpathize',
       'UserSelectedASuggestion',
       'UserPressedEnterKey',
     ]
-
+    const desktopCloseEvents: Array<keyof XEventsTypes> = [
+      ...mobileCloseEvents,
+      'UserBlurredSearchBox',
+    ]
     return {
       isDesktopOrGreater,
       isTabletOrLess,
