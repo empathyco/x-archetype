@@ -32,10 +32,10 @@
   "dependencies": {
     "@empathyco/x-adapter": "^8.1.0-alpha.0",
     "@empathyco/x-adapter-platform": "^1.1.0-alpha.13",
-    "@empathyco/x-archetype-utils": "^2.0.0-alpha.3",
+    "@empathyco/x-archetype-utils": "^2.0.0-alpha.2",
     "@empathyco/x-components": "^6.0.0-alpha.43",
     "@empathyco/x-deep-merge": "^2.0.3-alpha.1",
-    "@empathyco/x-types": "^10.1.0-alpha.8",
+    "@empathyco/x-types": "^10.1.0-alpha.10",
     "@empathyco/x-utils": "^1.0.3-alpha.1",
     "tslib": "~2.6.0",
     "vue": "~3.4.38",
