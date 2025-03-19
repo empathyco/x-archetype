@@ -1,15 +1,18 @@
 import type {
+  PlatformRecommendationsRequest,
+  PlatformResult,
+  PlatformSemanticQueriesRequest,
+} from '@empathyco/x-adapter-platform'
+import type {
   ExperienceControlsResponse,
   RecommendationsRequest,
   Result,
   SemanticQueriesRequest,
 } from '@empathyco/x-types'
+
 import {
   experienceControlsResponseSchema,
   platformAdapter,
-  type PlatformRecommendationsRequest,
-  type PlatformResult,
-  type PlatformSemanticQueriesRequest,
   recommendationsRequestSchema,
   relatedPromptsEndpointAdapter,
   resultSchema,
