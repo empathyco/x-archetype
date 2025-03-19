@@ -1,8 +1,9 @@
 <template>
   <Empathize
     :animation="empathizeAnimation"
-    class="desktop:x-z-[1] desktop:x-w-full"
+    class="x-z-20 desktop:x-w-full"
     :class="{ 'x-bg-neutral-0': !x.query.search || isDesktopOrGreater }"
+    :events-to-close-empathize="isDesktopOrGreater ? desktopCloseEvents : mobileCloseEvents"
   >
     <component
       :is="isDesktopOrGreater ? 'div' : 'BaseScroll'"
@@ -123,6 +124,7 @@
 </template>
 
 <script lang="ts">
+import type { XEventsTypes } from '@empathyco/x-components'
 import {
   animateScale,
   BaseIdModalOpen,
@@ -188,6 +190,15 @@ export default defineComponent({
       showEmpathize,
     } = usePredictiveHelpers()
 
+    const mobileCloseEvents: Array<keyof XEventsTypes> = [
+      'UserClosedEmpathize',
+      'UserSelectedASuggestion',
+      'UserPressedEnterKey',
+    ]
+    const desktopCloseEvents: Array<keyof XEventsTypes> = [
+      ...mobileCloseEvents,
+      'UserBlurredSearchBox',
+    ]
     return {
       isDesktopOrGreater,
       isTabletOrLess,
@@ -200,6 +211,8 @@ export default defineComponent({
       showNextQueries,
       showPopularSearches,
       showEmpathize,
+      desktopCloseEvents,
+      mobileCloseEvents,
       x: use$x(),
     }
   },
