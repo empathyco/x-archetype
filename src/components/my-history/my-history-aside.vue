@@ -39,7 +39,9 @@
             }}
           </span>
         </div>
-        <HistoryQueriesSwitch />
+        <HistoryQueriesSwitch
+          :class="{ 'x-selected x-switch--is-selected': x.isHistoryQueriesEnabled }"
+        />
       </section>
 
       <LocationProvider location="my_history">
