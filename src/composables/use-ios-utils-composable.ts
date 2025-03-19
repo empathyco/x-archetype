@@ -16,7 +16,15 @@ export const isIOS = (): boolean => {
  * @returns {void}
  */
 export const removeSearchInputFocus = (): void => {
-  if (document.activeElement && document.activeElement.matches('.x-search-input')) {
-    ;(document.activeElement as HTMLElement).blur()
+  const shadowHost = document.querySelector('.x-root-container')
+  if (shadowHost?.shadowRoot) {
+    const input = shadowHost.shadowRoot.querySelector('.x-search-input') as HTMLInputElement
+    if (input) {
+      input.blur()
+    }
+  } else {
+    if (document.activeElement && document.activeElement.tagName === 'INPUT') {
+      ;(document.activeElement as HTMLElement).blur()
+    }
   }
 }
