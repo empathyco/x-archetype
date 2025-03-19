@@ -23,7 +23,7 @@ export const removeSearchInputFocus = (): void => {
       input.blur()
     }
   } else {
-    if (document.activeElement && document.activeElement.tagName === 'INPUT') {
+    if (document.activeElement?.matches('.x-search-input')) {
       ;(document.activeElement as HTMLElement).blur()
     }
   }
