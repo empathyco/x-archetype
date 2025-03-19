@@ -32,6 +32,7 @@ import {
   watch,
 } from 'vue'
 import { useDevice } from './composables/use-device.composable'
+import { isIOS, removeSearchInputFocus } from './composables/use-ios-utils-composable'
 import currencies from './i18n/currencies'
 import './tailwind/index.css'
 
@@ -132,6 +133,14 @@ export default defineComponent({
     onBeforeUnmount(() => {
       document.removeEventListener('wysiwyg:reloadSearch', () => reloadSearch())
     })
+
+    //fix keyboard issue on iOS
+    if (isIOS()) {
+      document.addEventListener('touchmove', removeSearchInputFocus)
+      onBeforeUnmount(() => {
+        document.removeEventListener('touchmove', removeSearchInputFocus)
+      })
+    }
 
     return {
       isOpen,
