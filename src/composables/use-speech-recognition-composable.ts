@@ -69,12 +69,15 @@ export function useSpeechRecognition(inputRef: Ref<InstanceType<typeof SearchInp
       return
     }
 
-    if (isListening.value) {
-      void recognition.stop()
-      isListening.value = false
-    } else {
-      void recognition.start()
-      isListening.value = true
+    try {
+      if (isListening.value) {
+        recognition.stop()
+      } else {
+        recognition.start()
+      }
+      isListening.value = !isListening.value
+    } catch (error) {
+      console.error('Speech recognition error:', error)
     }
   }
 
