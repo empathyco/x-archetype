@@ -1,7 +1,7 @@
-import { onBeforeUnmount, onMounted, ref } from 'vue'
 import type { Ref } from 'vue'
-import { use$x } from '@empathyco/x-components'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import type { XEvent } from '@empathyco/x-components'
+import { use$x } from '@empathyco/x-components'
 
 /**
  * Implements the voice recognition functionality.
@@ -15,8 +15,8 @@ export function useSpeechRecognition(inputRef: Ref<any>) {
 
   // Function to programmatically set the input value and dispatch the necessary events
   const setInputValue = (value: string) => {
-    const inputElement = inputRef.value?.inputElement as HTMLInputElement | undefined
-    if (inputElement) {
+    const inputElement = inputRef.value?.inputElement
+    if (inputElement && inputElement instanceof HTMLInputElement) {
       inputElement.value = value
 
       // Dispatch event to simulate user typing
@@ -69,10 +69,10 @@ export function useSpeechRecognition(inputRef: Ref<any>) {
     }
 
     if (isListening.value) {
-      recognition.stop()
+      void recognition.stop()
       isListening.value = false
     } else {
-      recognition.start()
+      void recognition.start()
       isListening.value = true
     }
   }
