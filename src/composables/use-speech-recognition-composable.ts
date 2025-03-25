@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
-import { onBeforeUnmount, onMounted, ref } from 'vue'
 import type { XEvent } from '@empathyco/x-components'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { use$x } from '@empathyco/x-components'
 
 /**
@@ -15,8 +15,8 @@ export function useSpeechRecognition(inputRef: Ref<any>) {
 
   // Function to programmatically set the input value and dispatch the necessary events
   const setInputValue = (value: string) => {
-    const inputElement = inputRef.value?.inputElement
-    if (inputElement && inputElement instanceof HTMLInputElement) {
+    const inputElement = inputRef.value?.inputElement as HTMLInputElement
+    if (inputElement) {
       inputElement.value = value
 
       // Dispatch event to simulate user typing
