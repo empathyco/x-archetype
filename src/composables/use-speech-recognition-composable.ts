@@ -70,11 +70,9 @@ export function useSpeechRecognition(inputRef: Ref<InstanceType<typeof SearchInp
     }
 
     if (isListening.value) {
-      // eslint-disable-next-line ts/no-floating-promises
       void recognition.stop()
       isListening.value = false
     } else {
-      // eslint-disable-next-line ts/no-floating-promises
       void recognition.start()
       isListening.value = true
     }
