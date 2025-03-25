@@ -51,8 +51,7 @@ export default defineComponent({
   setup() {
     const { isDesktopOrGreater } = useDevice()
     const x = use$x()
-    const searchInputRef = ref<InstanceType<typeof SearchInput> | null>(null)
-
+    const searchInputRef = ref<InstanceType<typeof SearchInput>>(null as any)
     const { isListening, toggleVoiceRecognition } = useSpeechRecognition(searchInputRef)
 
     return {
