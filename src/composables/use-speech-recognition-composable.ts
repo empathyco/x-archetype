@@ -4,6 +4,8 @@ import type { Ref } from 'vue'
 import { use$x } from '@empathyco/x-components'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
+/* eslint-disable ts/no-floating-promises */
+
 /**
  * Implements the voice recognition functionality.
  * @param {Ref<InstanceType<typeof SearchInput>>} inputRef - Reference to the SearchInput where the voice recognition will be typed.
