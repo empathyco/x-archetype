@@ -69,15 +69,14 @@ export function useSpeechRecognition(inputRef: Ref<InstanceType<typeof SearchInp
       return
     }
 
-    try {
-      if (isListening.value) {
-        recognition.stop()
-      } else {
-        recognition.start()
-      }
-      isListening.value = !isListening.value
-    } catch (error) {
-      console.error('Speech recognition error:', error)
+    if (isListening.value) {
+      // eslint-disable-next-line ts/no-floating-promises
+      void recognition.stop()
+      isListening.value = false
+    } else {
+      // eslint-disable-next-line ts/no-floating-promises
+      void recognition.start()
+      isListening.value = true
     }
   }
 
