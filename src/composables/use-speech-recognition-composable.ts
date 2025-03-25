@@ -1,14 +1,15 @@
 import type { Ref } from 'vue'
 import type { XEvent } from '@empathyco/x-components'
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { SearchInput } from '@empathyco/x-components/types'
 import { use$x } from '@empathyco/x-components'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 /**
  * Implements the voice recognition functionality.
- * @param {Ref<any>} inputRef - Reference to the SearchInput where the voice recognition will be typed.
+ * @param {Ref<InstanceType<typeof SearchInput>>} inputRef - Reference to the SearchInput where the voice recognition will be typed.
  * @returns {object} - Object containing the reactive isListening flag and the function to toggle voice recognition.
  */
-export function useSpeechRecognition(inputRef: Ref<any>) {
+export function useSpeechRecognition(inputRef: Ref<InstanceType<typeof SearchInput>>) {
   const isListening = ref(false)
   let recognition: SpeechRecognition | null = null
   const x = use$x()
