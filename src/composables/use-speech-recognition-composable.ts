@@ -1,20 +1,22 @@
-import { ref, onMounted, onBeforeUnmount, Ref } from 'vue'
-import { XEvent, use$x } from '@empathyco/x-components'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+import type { Ref } from 'vue'
+import { use$x } from '@empathyco/x-components'
+import type { XEvent } from '@empathyco/x-components'
 
 /**
  * Implements the voice recognition functionality.
  * @param {Ref<any>} inputRef - Reference to the SearchInput where the voice recognition will be typed.
- * @returns {Object} - Object containing the reactive isListening flag and the function to toggle voice recognition.
+ * @returns {object} - Object containing the reactive isListening flag and the function to toggle voice recognition.
  */
 export function useSpeechRecognition(inputRef: Ref<any>) {
   const isListening = ref(false)
-  let recognition: any = null
+  let recognition: SpeechRecognition | null = null
   const x = use$x()
 
   // Function to programmatically set the input value and dispatch the necessary events
   const setInputValue = (value: string) => {
-    if (inputRef.value && inputRef.value.inputElement) {
-      const inputElement = inputRef.value.inputElement as HTMLInputElement
+    const inputElement = inputRef.value?.inputElement as HTMLInputElement | undefined
+    if (inputElement) {
       inputElement.value = value
 
       // Dispatch event to simulate user typing
@@ -28,7 +30,9 @@ export function useSpeechRecognition(inputRef: Ref<any>) {
   onMounted(() => {
     // Initialize SpeechRecognition, TODO: research possible params
     if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
-      recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)()
+      const SpeechRecognitionConstructor =
+        window.SpeechRecognition || window.webkitSpeechRecognition
+      recognition = new SpeechRecognitionConstructor()
       recognition.lang = 'en-US' //BCP 47 Language Tags TODO: make it dynamic
       recognition.continuous = false // when false, it stops automatically upon detecting silence; when true, it requires a button press to stop
       recognition.interimResults = true // Returns partial results while speaking
