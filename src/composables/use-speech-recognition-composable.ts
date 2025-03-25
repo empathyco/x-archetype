@@ -1,6 +1,6 @@
 import type { XEvent } from '@empathyco/x-components'
-import type { Ref } from 'vue'
 import type { SearchInput } from '@empathyco/x-components/types'
+import type { Ref } from 'vue'
 import { use$x } from '@empathyco/x-components'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
