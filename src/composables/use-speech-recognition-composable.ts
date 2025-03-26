@@ -15,14 +15,12 @@ export function useSpeechRecognition(inputRef: Ref<InstanceType<typeof SearchInp
   const isListening = ref(false)
   let recognition: SpeechRecognition | null = null
   const x = use$x()
-  let lastTranscript = ''
 
   // Function to programmatically set the input value and dispatch the necessary events
   const setInputValue = (value: string) => {
     const inputElement = inputRef.value?.inputElement as HTMLInputElement
     if (inputElement) {
       inputElement.value = value
-      lastTranscript = value
 
       // Dispatch event to simulate user typing
       const inputEvent = new Event('input', { bubbles: true })
@@ -75,13 +73,11 @@ export function useSpeechRecognition(inputRef: Ref<InstanceType<typeof SearchInp
       recognition.onend = () => {
         isListening.value = false
         const inputElement = inputRef.value?.inputElement as HTMLInputElement
+        x.emit('UserAcceptedAQuery' as XEvent, inputElement.value, {
+          target: inputElement,
+          feature: 'search_box',
+        })
 
-        if (lastTranscript) {
-          x.emit('UserAcceptedAQuery' as XEvent, lastTranscript, {
-            target: inputElement,
-            feature: 'search_box',
-          })
-        }
         emulateKeyboardOkSearchInput()
       }
     } else {
