@@ -32,6 +32,23 @@ export function useSpeechRecognition(inputRef: Ref<InstanceType<typeof SearchInp
     }
   }
 
+  //Emulates clicking in the search box, opening the keyboard, and clicking the OK button.
+  const emulateKeyboardOkSearchInput = (): void => {
+    const shadowHost = document.querySelector('.x-root-container')
+    if (shadowHost?.shadowRoot) {
+      const input = shadowHost.shadowRoot.querySelector('.x-search-input') as HTMLInputElement
+      if (input) {
+        input.focus()
+        input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }))
+      }
+    } else {
+      const input = document.querySelector('.x-search-input') as HTMLInputElement
+      if (input) {
+        input.focus()
+        input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }))
+      }
+    }
+  }
   onMounted(() => {
     // Initialize SpeechRecognition, TODO: research possible params
     if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
@@ -65,6 +82,7 @@ export function useSpeechRecognition(inputRef: Ref<InstanceType<typeof SearchInp
             feature: 'search_box',
           })
         }
+        emulateKeyboardOkSearchInput()
       }
     } else {
       console.warn('Speech Recognition API not supported in this browser.')
