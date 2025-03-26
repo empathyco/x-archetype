@@ -32,6 +32,8 @@ export function useSpeechRecognition(inputRef: Ref<InstanceType<typeof SearchInp
         return 'it-IT'
       case 'pt':
         return 'pt-PT'
+      case undefined:
+        return 'en-US'
       default:
         return 'en-US'
     }
@@ -71,7 +73,6 @@ export function useSpeechRecognition(inputRef: Ref<InstanceType<typeof SearchInp
   onMounted(() => {
     // Initialize SpeechRecognition, TODO: research possible params
     if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
-      console.log(langCode.value)
       const SpeechRecognitionConstructor =
         window.SpeechRecognition || window.webkitSpeechRecognition
       recognition = new SpeechRecognitionConstructor()
