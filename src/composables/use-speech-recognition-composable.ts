@@ -1,8 +1,8 @@
 import type { XEvent } from '@empathyco/x-components'
-import type { SearchInput } from '@empathyco/x-components/types'
+import type { SearchInput, SnippetConfig } from '@empathyco/x-components/types'
 import type { Ref } from 'vue'
 import { use$x } from '@empathyco/x-components'
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, inject, onBeforeUnmount, onMounted, ref } from 'vue'
 
 /* eslint-disable ts/no-floating-promises */
 
@@ -15,6 +15,27 @@ export function useSpeechRecognition(inputRef: Ref<InstanceType<typeof SearchInp
   const isListening = ref(false)
   let recognition: SpeechRecognition | null = null
   const x = use$x()
+
+  const snippetConfig = inject<SnippetConfig>('snippetConfig')
+  //BCP 47 Language Tag
+  const langCode = computed(() => {
+    switch (snippetConfig?.lang) {
+      case 'en':
+        return 'en-US'
+      case 'es':
+        return 'es-ES'
+      case 'fr':
+        return 'fr-FR'
+      case 'de':
+        return 'de-DE'
+      case 'it':
+        return 'it-IT'
+      case 'pt':
+        return 'pt-PT'
+      default:
+        return 'en-US'
+    }
+  })
 
   // Function to programmatically set the input value and dispatch the necessary events
   const setInputValue = (value: string) => {
@@ -50,10 +71,11 @@ export function useSpeechRecognition(inputRef: Ref<InstanceType<typeof SearchInp
   onMounted(() => {
     // Initialize SpeechRecognition, TODO: research possible params
     if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+      console.log(langCode.value)
       const SpeechRecognitionConstructor =
         window.SpeechRecognition || window.webkitSpeechRecognition
       recognition = new SpeechRecognitionConstructor()
-      recognition.lang = 'en-US' //BCP 47 Language Tags TODO: make it dynamic
+      recognition.lang = langCode.value
       recognition.continuous = false // when false, it stops automatically upon detecting silence; when true, it requires a button press to stop
       recognition.interimResults = true // Returns partial results while speaking
 
