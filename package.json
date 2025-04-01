@@ -43,7 +43,7 @@
     "vuex": "4.0.2"
   },
   "devDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "20.0.7",
+    "@badeball/cypress-cucumber-preprocessor": "22.0.1",
     "@bahmutov/cypress-esbuild-preprocessor": "2.2.4",
     "@empathyco/eslint-config": "1.7.0",
     "@empathyco/x-tailwindcss": "1.2.0-alpha.7",
