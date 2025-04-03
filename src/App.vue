@@ -19,6 +19,7 @@ import { ExperienceControls } from '@empathyco/x-components/experience-controls'
 import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params'
 import { Tagging } from '@empathyco/x-components/tagging'
 import { UrlHandler } from '@empathyco/x-components/url'
+import { useEventListener } from '@vueuse/core'
 import {
   computed,
   defineAsyncComponent,
@@ -136,10 +137,7 @@ export default defineComponent({
 
     //fix keyboard issue on iOS
     if (isIOS()) {
-      document.addEventListener('touchmove', removeSearchInputFocus)
-      onBeforeUnmount(() => {
-        document.removeEventListener('touchmove', removeSearchInputFocus)
-      })
+      useEventListener(document, 'touchmove', removeSearchInputFocus)
     }
 
     return {

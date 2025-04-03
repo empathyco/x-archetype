@@ -8,7 +8,7 @@
       class="desktop:x-pl-24"
     />
 
-    <button @click="toggleVoiceRecognition" class="x-input-group-button x-rounded-full">
+    <button class="x-input-group-button x-rounded-full" @click="toggleVoiceRecognition">
       <span v-if="isListening">🛑</span>
       <span v-else>🎤</span>
     </button>

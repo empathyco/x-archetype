@@ -18,7 +18,6 @@ export default defineComponent({
   props: {
     filtersList: {
       type: Array as PropType<HistoryQuery['selectedFilters']>,
-      required: true,
       default: () => [],
     },
     showLength: {
