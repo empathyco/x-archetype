@@ -24,12 +24,23 @@ jobs:
       - name: Deploy PR Preview
         uses: ./.github/actions/deploy
         with:
-          aws_role: ${{ secrets.AWS_ROLE_TEST_ACCOUNT }}
-          aws_deploy_path: ${{ secrets.AWS_TEST_BUCKET }}/preview/${{ github.event.number }}
-          aws_s3_sync_args: --include '*' --exclude '*/*'
-          aws_s3_cache: no-store
-          cloudfront_distribution_id: ${{ secrets.CLOUDFRONT_ID_TEST }}
-          cloudfront_invalidation_paths: '/preview/${{ github.event.number }}/*'
+          r2_account_id: ${{ secrets.R2_TEST_ACCOUNT_ID }}
+          r2_access_key_id: ${{ secrets.R2_TEST_ACCESS_KEY_ID }}
+          r2_secret_access_key: ${{ secrets.R2_TEST_SECRET_ACCESS_KEY }}
+          r2_bucket: ${{ secrets.R2_TEST_BUCKET }}/preview/${{ github.event.number }}
+          r2_zone_id: ${{ secrets.CLOUDFLARE_EMPATHY_CO_ZONE_ID }}
+          r2_api_token: ${{ secrets.CLOUDFLARE_PURGE_TOKEN }}
+          r2_purge_strategy: |
+            {
+              "files": [
+                {
+                  "url": "https://x.test.empathy.co/preview/${{ github.event.number }}/app.js",
+                  "headers": {
+                    "origin": "https://x.test.empathy.co"
+                  }
+                }
+              ]
+            }
       - name: Adding comment to PR with preview link and validation results
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7
         with:
