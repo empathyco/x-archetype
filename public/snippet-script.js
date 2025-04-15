@@ -60,6 +60,7 @@ const currency = popFromURLParameters('currency') || 'EUR'
 const consent = popFromURLParameters('consent') !== 'false'
 const documentDirection = popFromURLParameters('doc-dir') || 'ltr'
 const store = popFromURLParameters('store') || undefined
+const relatedPromptsTarget = ''
 const isolate = getIsolationStrategy()
 popFromURLParameters('query') // prevent the query from be included as extra param
 popFromURLParameters('filter') // Prevent the filters to be included as extra param
@@ -77,6 +78,7 @@ window.initX = {
   documentDirection,
   store,
   isolate,
+  relatedPromptsTarget,
   ...URLParameters,
   queriesPreview: [
     {

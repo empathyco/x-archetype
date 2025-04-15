@@ -4,100 +4,67 @@
     <SnippetCallbacks />
     <Tagging />
     <UrlHandler />
-    <ExperienceControls />
-    <MainModal v-if="isOpen" data-wysiwyg="layer" />
+    <BaseTeleport :target="relatedPromptsTarget">
+      <div class="x-flex x-flex-col">
+        <RelatedPrompts :class="isDesktopOrGreater ? 'x-mt-24' : 'x-mt-16'" />
+        <CustomQueryPreview
+          v-if="selectedPrompt !== -1"
+          :key="queriesPreviewInfo.length"
+          class="x-rounded-b-[12px] x-bg-neutral-10 x-px-16"
+          :queries-preview-info="queriesPreviewInfo"
+          query-feature="related_prompts"
+        ></CustomQueryPreview>
+      </div>
+    </BaseTeleport>
   </div>
 </template>
 
 <script lang="ts">
-import type { SnippetConfig, UrlParams, XEvent } from '@empathyco/x-components'
-import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview'
-import type { InternalSearchRequest, InternalSearchResponse } from '@empathyco/x-components/search'
-import type { ComputedRef } from 'vue'
-import { SnippetCallbacks, useXBus } from '@empathyco/x-components'
-import { ExperienceControls } from '@empathyco/x-components/experience-controls'
+import {
+  BaseTeleport,
+  SnippetCallbacks,
+  SnippetConfig,
+  use$x,
+  useState,
+} from '@empathyco/x-components'
 import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params'
 import { Tagging } from '@empathyco/x-components/tagging'
 import { UrlHandler } from '@empathyco/x-components/url'
-import { useEventListener } from '@vueuse/core'
-import {
-  computed,
-  defineAsyncComponent,
-  defineComponent,
-  getCurrentInstance,
-  inject,
-  onBeforeUnmount,
-  onMounted,
-  provide,
-  ref,
-  watch,
-} from 'vue'
+import { computed, defineComponent, inject } from 'vue'
 import { useDevice } from './composables/use-device.composable'
-import { isIOS, removeSearchInputFocus } from './composables/use-ios-utils-composable'
-import currencies from './i18n/currencies'
 import './tailwind/index.css'
+import RelatedPrompts from './components/related-prompts/related-prompts.vue'
+import CustomQueryPreview from './components/search/results/custom-query-preview.vue'
+import { RelatedPromptNextQuery } from '@empathyco/x-types'
 
 export default defineComponent({
   components: {
+    BaseTeleport,
+    CustomQueryPreview,
+    RelatedPrompts,
     SnippetCallbacks,
     SnippetConfigExtraParams,
     Tagging,
     UrlHandler,
-    ExperienceControls,
-    MainModal: defineAsyncComponent(() =>
-      import('./components/custom-main-modal.vue').then(m => m.default),
-    ),
   },
   setup() {
-    const xBus = useXBus()
-    const appInstance = getCurrentInstance()
-    const { deviceName } = useDevice()
+    const x = use$x()
+    const { isDesktopOrGreater } = useDevice()
     const snippetConfig = inject<SnippetConfig>('snippetConfig')!
-    const isOpen = ref(false)
+    const { relatedPrompts, selectedPrompt } = useState('relatedPrompts', [
+      'relatedPrompts',
+      'selectedPrompt',
+    ])
 
-    const openXEvents = ['UserOpenXProgrammatically', 'UserClickedOpenX']
-
-    const open = (): void => {
-      isOpen.value = true
-      window.wysiwyg?.open()
-    }
-
-    openXEvents.forEach(event => xBus.on(event as XEvent, false).subscribe(open))
-
-    const close = (): void => {
-      window.wysiwyg?.close()
-    }
-
-    xBus.on('UserClickedCloseX', false).subscribe(close)
-
-    xBus.on('UserAcceptedAQuery', false).subscribe(async (query): Promise<void> => {
-      if (/^::\s*login/.test(query)) {
-        await window.wysiwyg?.goToLogin()
+    const queriesPreviewInfo = computed(() => {
+      if (relatedPrompts.value.length) {
+        const queries = [] as string[]
+        relatedPrompts.value[selectedPrompt.value].relatedPromptNextQueries.forEach(
+          (nextQuery: RelatedPromptNextQuery) => queries.push(nextQuery.query),
+        )
+        return queries.map(query => ({ query }))
       }
-    })
-
-    xBus
-      .on('SearchRequestChanged', false)
-      .subscribe((payload: InternalSearchRequest | null): void => {
-        window.wysiwyg?.setContext({ query: payload?.query, spellcheckedQuery: undefined })
-      })
-
-    xBus.on('SearchResponseChanged', false).subscribe((payload: InternalSearchResponse): void => {
-      if (payload.spellcheck) {
-        window.wysiwyg?.setContext({ spellcheckedQuery: payload.spellcheck })
-      }
-    })
-
-    xBus.on('ParamsLoadedFromUrl', false).subscribe(async (payload: UrlParams): Promise<void> => {
-      try {
-        if (window.wysiwyg) {
-          await window.wysiwyg?.requestAuth()
-          window.InterfaceX?.search()
-          window.wysiwyg?.setContext({ query: payload.query })
-        }
-      } catch {
-        // No error handling
-      }
+      return []
     })
 
     const documentDirection = computed(() => {
@@ -108,41 +75,17 @@ export default defineComponent({
       )
     })
 
-    const currencyFormat = computed(() => currencies[snippetConfig.currency!])
-    provide<string>('currencyFormat', currencyFormat.value)
-
-    const queriesPreviewInfo = computed(() => snippetConfig.queriesPreview ?? [])
-    provide<ComputedRef<QueryPreviewInfo[]> | undefined>('queriesPreviewInfo', queriesPreviewInfo)
-
-    watch(
-      () => snippetConfig.uiLang,
-      uiLang => appInstance?.appContext.config.globalProperties.$setLocale(uiLang ?? 'en'),
-    )
-
-    watch(deviceName, device =>
-      appInstance?.appContext.config.globalProperties.$setLocaleDevice(device),
-    )
-
-    const reloadSearch = (): void => {
-      xBus.emit('ReloadSearchRequested')
-    }
-
-    onMounted(() => {
-      document.addEventListener('wysiwyg:reloadSearch', () => reloadSearch())
+    const relatedPromptsTarget = computed((): string => {
+      return snippetConfig.relatedPromptsTarget ?? '.body-container'
     })
-
-    onBeforeUnmount(() => {
-      document.removeEventListener('wysiwyg:reloadSearch', () => reloadSearch())
-    })
-
-    //fix keyboard issue on iOS
-    if (isIOS()) {
-      useEventListener(document, 'touchmove', removeSearchInputFocus)
-    }
 
     return {
-      isOpen,
+      isDesktopOrGreater,
+      queriesPreviewInfo,
+      selectedPrompt,
       documentDirection,
+      relatedPromptsTarget,
+      x,
     }
   },
 })
