@@ -125,8 +125,7 @@ function getDomElement({ isolate }: SnippetConfig): Element {
   const domElement = document.createElement('div')
 
   if (isolate || process.env.NODE_ENV === 'production') {
-    const teleportContainer = document.getElementsByClassName('x-base-teleport')[0]
-    const shadowRoot = teleportContainer.attachShadow({ mode: 'open' })
+    const shadowRoot = container.attachShadow({ mode: 'open' })
     shadowRoot.appendChild(domElement)
     cssInjector.setHost(shadowRoot)
   } else {
