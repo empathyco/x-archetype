@@ -119,13 +119,20 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
  * @param snippetConfig.isolate - Whether to isolate the DOM element using Shadow DOM.
  * @returns The DOM element.
  */
-function getDomElement(): Element {
+function getDomElement({ isolate }: SnippetConfig): Element {
   const container = document.createElement('div')
   container.classList.add('x-root-container')
   const domElement = document.createElement('div')
 
-  container.appendChild(domElement)
-  cssInjector.setHost(document.head)
+  if (isolate || process.env.NODE_ENV === 'production') {
+    const teleportContainer = document.getElementsByClassName('x-base-teleport')[0]
+    const shadowRoot = teleportContainer.attachShadow({ mode: 'open' })
+    shadowRoot.appendChild(domElement)
+    cssInjector.setHost(shadowRoot)
+  } else {
+    container.appendChild(domElement)
+    cssInjector.setHost(document.head)
+  }
 
   document.body.appendChild(container)
   return domElement
