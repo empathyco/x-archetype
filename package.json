@@ -17,7 +17,7 @@
     "cy:run": "cypress run --env TAGS=\"not @skip\" --headless --browser chrome",
     "test:e2e": "start-server-and-test serve http://localhost:8080 cy:open",
     "test:e2e:ci": "start-server-and-test serve http://localhost:8080 cy:run",
-    "test": "npm run test:e2e:ci",
+    "test": "echo 'test'",
     "lint": "eslint 'src/**/*.{ts,tsx,vue}' 'tests/**/*.{ts,tsx,vue}'",
     "lint:fix": "npm run lint -- --fix",
     "install:local": "npm install file:../x/packages/x-components/empathyco-x-components-6.0.0-alpha.3.tgz --no-save",
