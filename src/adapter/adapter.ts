@@ -14,7 +14,6 @@ import {
   experienceControlsResponseSchema,
   platformAdapter,
   recommendationsRequestSchema,
-  relatedPromptsEndpointAdapter,
   resultSchema,
   semanticQueriesRequestSchema,
 } from '@empathyco/x-adapter-platform'
@@ -75,9 +74,4 @@ experienceControlsResponseSchema.$override<
       resultsPerCarousel: 'controls.semanticQueries.resultsPerCarousels',
     },
   },
-})
-
-adapter.relatedPrompts = relatedPromptsEndpointAdapter.extends({
-  endpoint: 'https://api.staging.empathy.co/relatedprompts/chedraui?internal=true&lang=es-MX',
-  requestMapper: ({ query }) => ({ query }),
 })
