@@ -20,16 +20,16 @@
 </template>
 
 <script lang="ts">
-import { BaseTeleport, SnippetCallbacks, use$x, useState } from '@empathyco/x-components'
 import type { SnippetConfig } from '@empathyco/x-components'
+import type { RelatedPromptNextQuery } from '@empathyco/x-types'
+import { BaseTeleport, SnippetCallbacks, use$x, useState } from '@empathyco/x-components'
 import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params'
 import { Tagging } from '@empathyco/x-components/tagging'
 import { UrlHandler } from '@empathyco/x-components/url'
-import type { RelatedPromptNextQuery } from '@empathyco/x-types'
 import { computed, defineComponent, inject } from 'vue'
-import { useDevice } from './composables/use-device.composable'
 import RelatedPrompts from './components/related-prompts/related-prompts.vue'
 import CustomQueryPreview from './components/search/results/custom-query-preview.vue'
+import { useDevice } from './composables/use-device.composable'
 import './tailwind/index.css'
 
 export default defineComponent({
