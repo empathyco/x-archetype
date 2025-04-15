@@ -119,7 +119,7 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
  * @param snippetConfig.isolate - Whether to isolate the DOM element using Shadow DOM.
  * @returns The DOM element.
  */
-function getDomElement({ isolate }: SnippetConfig): Element {
+function getDomElement(): Element {
   const container = document.createElement('div')
   container.classList.add('x-root-container')
   const domElement = document.createElement('div')
