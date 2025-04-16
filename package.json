@@ -47,7 +47,7 @@
     "@bahmutov/cypress-esbuild-preprocessor": "2.2.4",
     "@cucumber/messages": "27.2.0",
     "@empathyco/eslint-config": "1.7.0",
-    "@empathyco/x-tailwindcss": "1.2.0-alpha.7",
+    "@empathyco/x-tailwindcss": "1.2.0-alpha.5",
     "@empathyco/x-translations": "1.1.0-alpha.38",
     "@rollup/plugin-commonjs": "25.0.8",
     "@rollup/plugin-json": "6.1.0",
