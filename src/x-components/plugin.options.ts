@@ -115,23 +115,15 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
 /**
  * Creates a DOM element to mount the X Components app.
  *
- * @param snippetConfig - The snippet configuration.
- * @param snippetConfig.isolate - Whether to isolate the DOM element using Shadow DOM.
  * @returns The DOM element.
  */
-function getDomElement({ isolate }: SnippetConfig): Element {
+function getDomElement(): Element {
   const container = document.createElement('div')
   container.classList.add('x-root-container')
   const domElement = document.createElement('div')
 
-  if (isolate || process.env.NODE_ENV === 'production') {
-    const shadowRoot = container.attachShadow({ mode: 'open' })
-    shadowRoot.appendChild(domElement)
-    cssInjector.setHost(shadowRoot)
-  } else {
-    container.appendChild(domElement)
-    cssInjector.setHost(document.head)
-  }
+  container.appendChild(domElement)
+  cssInjector.setHost(document.head)
 
   document.body.appendChild(container)
   return domElement
