@@ -31,8 +31,8 @@ Then('scroll position is at top', () => {
  * the subheader. And then we can reach the bottom because we have the total height of the page.
  */
 When('scrolling down to the bottom', () => {
-  cy.getByDataTest('related-prompts-tag-list-item')
-    .should('have.length.at.least', 4)
+  cy.getByDataTest('base-grid')
+    .should('exist')
     .then(() => {
       cy.getByDataTest('base-scroll').scrollTo('center', { duration: 1000 })
       cy.getByDataTest('base-scroll').scrollTo('bottom', { duration: 500 })
