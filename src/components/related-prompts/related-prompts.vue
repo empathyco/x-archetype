@@ -55,7 +55,7 @@ export default defineComponent({
     const { selectedPrompt } = useState('relatedPrompts', ['selectedPrompt'])
     const tagClass = computed(() =>
       selectedPrompt.value !== -1
-        ? 'x-rounded-t-md x-gap-8 x-w-[300px] x-p-8'
+        ? 'x-rounded-t-md x-gap-8 x-p-8'
         : 'x-rounded-md x-gap-8 x-w-[300px] x-p-8',
     )
     return { x: use$x(), tagClass }
