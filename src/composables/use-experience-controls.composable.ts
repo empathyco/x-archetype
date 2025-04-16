@@ -13,7 +13,7 @@ import { computed } from 'vue'
 export const useExperienceControls = (): {
   getControlFromPath: <SomeType>(path: string, defaultValue?: SomeType) => ComputedRef<SomeType>
 } => {
-  const experienceControls = useState('experienceControls', ['controls']).controls
+  const { controls: experienceControls } = useState('experienceControls')
 
   const getControlFromPath = <SomeType>(
     path: string,

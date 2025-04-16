@@ -24,8 +24,6 @@
 
 <script lang="ts">
 import type { FeatureLocation } from '@empathyco/x-components'
-import type { SemanticQueriesConfig } from '@empathyco/x-components/types'
-import type { ComputedRef } from 'vue'
 import { LocationProvider, use$x, useState } from '@empathyco/x-components'
 import { computed, defineAsyncComponent, defineComponent } from 'vue'
 import { useHasSearched } from '../composables/use-has-searched.composable'
@@ -48,12 +46,11 @@ export default defineComponent({
     const { hasSearched } = useHasSearched()
     const x = use$x()
 
-    const semanticQueriesConfig = useState('semanticQueries', ['config'])
-      .config as ComputedRef<SemanticQueriesConfig>
+    const { config: semanticQueriesConfig } = useState('semanticQueries')
 
-    const { relatedPrompts } = useState('relatedPrompts', ['relatedPrompts'])
+    const { relatedPrompts } = useState('relatedPrompts')
 
-    const { config } = useState('search', ['config'])
+    const { config } = useState('search')
 
     const location = computed<FeatureLocation>(() =>
       x.results.length > 0 ? 'low_results' : 'no_results',
