@@ -1,7 +1,7 @@
 <template>
   <RelatedPromptsTagList
     button-class="x-button-lead x-button-circle x-button-ghost x-p-0"
-    class="x-p-0 x-text-neutral-50 x-h-[80px] x-mt-0"
+    class="x-mt-0 x-h-[80px] x-p-0 x-text-neutral-50"
     :tag-class="tagClass"
     :tag-colors="['x-bg-neutral-10']"
   >
@@ -52,7 +52,7 @@ export default defineComponent({
     RelatedPrompt,
   },
   setup() {
-    const { selectedPrompt } = useState('relatedPrompts', ['selectedPrompt'])
+    const { selectedPrompt } = useState('relatedPrompts')
     const tagClass = computed(() =>
       selectedPrompt.value !== -1
         ? 'x-rounded-t-md x-gap-8 x-w-[300px] x-p-8'

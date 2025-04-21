@@ -94,12 +94,9 @@ export default defineComponent({
     const { isMobile } = useDevice()
     const { getControlFromPath } = useExperienceControls()
 
-    const { relatedPrompts, selectedPrompt } = useState('relatedPrompts', [
-      'relatedPrompts',
-      'selectedPrompt',
-    ])
+    const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
 
-    const { config } = useState('search', ['config'])
+    const { config } = useState('search')
 
     const columns = computed(() => (isMobile.value ? 2 : 4))
 
@@ -110,7 +107,7 @@ export default defineComponent({
     const queriesPreviewInfo = computed(() => {
       if (relatedPrompts.value.length) {
         const queries = [] as string[]
-        relatedPrompts.value[selectedPrompt.value].relatedPromptNextQueries.forEach(
+        relatedPrompts.value[selectedPrompt.value].relatedPromptNextQueries?.forEach(
           (nextQuery: RelatedPromptNextQuery) => queries.push(nextQuery.query),
         )
         return queries.map(query => ({ query }))
