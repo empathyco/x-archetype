@@ -50,15 +50,12 @@ export default defineComponent({
     const x = use$x()
     const { isDesktopOrGreater } = useDevice()
     const snippetConfig = inject<SnippetConfig>('snippetConfig')!
-    const { relatedPrompts, selectedPrompt } = useState('relatedPrompts', [
-      'relatedPrompts',
-      'selectedPrompt',
-    ])
+    const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
 
     const queriesPreviewInfo = computed(() => {
       if (relatedPrompts.value.length) {
         const queries = [] as string[]
-        relatedPrompts.value[selectedPrompt.value].relatedPromptNextQueries.forEach(
+        relatedPrompts.value[selectedPrompt.value].relatedPromptNextQueries?.forEach(
           (nextQuery: RelatedPromptNextQuery) => queries.push(nextQuery.query),
         )
         return queries.map(query => ({ query }))
