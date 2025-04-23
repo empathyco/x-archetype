@@ -41,13 +41,6 @@
         <span class="x-text2">{{ result.collection }}</span>
         <span class="x-text2 x-text-lead-50">{{ result.brand }}</span>
       </template>
-      <div class="x-flex x-flex-wrap x-gap-8">
-        <BaseResultCurrentPrice :result="result" class="x-text2 x-text2-lg x-font-bold" />
-        <BaseResultPreviousPrice
-          :result="result"
-          class="x-text2 x-leading-[1.7] x-text-neutral-75 x-line-through"
-        />
-      </div>
     </BaseResultLink>
   </MainScrollItem>
 </template>
@@ -59,10 +52,8 @@ import {
   BaseAddToCart,
   BaseFallbackImage,
   BasePlaceholderImage,
-  BaseResultCurrentPrice,
   BaseResultImage,
   BaseResultLink,
-  BaseResultPreviousPrice,
   CrossFade,
 } from '@empathyco/x-components'
 import { MainScrollItem } from '@empathyco/x-components/scroll'
@@ -74,8 +65,6 @@ export default defineComponent({
     BaseAddToCart,
     BaseFallbackImage,
     BasePlaceholderImage,
-    BaseResultCurrentPrice,
-    BaseResultPreviousPrice,
     BaseResultImage,
     BaseResultLink,
     MainScrollItem,
