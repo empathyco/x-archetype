@@ -43,6 +43,13 @@ resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
   collection: 'collection',
   brand: 'brand',
   images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
+  price: {
+    value: ({ __prices }) => __prices?.current?.value,
+    originalValue: ({ __prices }) => __prices?.previous?.value ?? __prices?.current.value,
+    futureValue: ({ __prices }) => __prices?.future?.value ?? __prices?.current.value,
+    hasDiscount: ({ __prices }) =>
+      __prices?.current.value < (__prices?.previous?.value ?? __prices?.current.value),
+  },
 })
 
 recommendationsRequestSchema.$override<
