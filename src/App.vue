@@ -101,6 +101,10 @@ export default defineComponent({
   outline: none;
 }
 
+.x-base-teleport {
+  width: -webkit-fill-available;
+}
+
 .x-banner,
 .x-promoted {
   &__title {
