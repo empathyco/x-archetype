@@ -100,7 +100,7 @@ export default defineComponent({
     const x = use$x()
     const rightAsideAnimation = animateTranslate('right')
     const { hasSearched } = useHasSearched()
-    const { relatedPrompts } = useState('relatedPrompts', ['relatedPrompts'])
+    const { relatedPrompts } = useState('relatedPrompts')
     const showNoResultsMessage = computed(
       () => !relatedPrompts.value?.length && !x.semanticQueries.length,
     )

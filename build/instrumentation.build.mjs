@@ -1,9 +1,10 @@
+import * as fs from 'node:fs'
+import path from 'node:path'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import resolve from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
-import * as fs from 'fs'
-import path from 'path'
+import vue3 from '@vitejs/plugin-vue'
 import copy from 'rollup-plugin-copy'
 import del from 'rollup-plugin-delete'
 import htmlTemplate from 'rollup-plugin-generate-html-template'
@@ -12,7 +13,6 @@ import styles from 'rollup-plugin-styles'
 import { terser } from 'rollup-plugin-terser'
 import typescript from 'rollup-plugin-typescript2'
 import { visualizer } from 'rollup-plugin-visualizer'
-import vue3 from '@vitejs/plugin-vue'
 
 /**
  * Creates a rollup configuration for projects that use X-Components. This configuration can be

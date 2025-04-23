@@ -9,8 +9,6 @@
 
 <script lang="ts">
 import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview'
-import type { Suggestion } from '@empathyco/x-types'
-import type { ComputedRef } from 'vue'
 import { use$x, useState } from '@empathyco/x-components'
 import { popularSearchesXModule } from '@empathyco/x-components/popular-searches'
 import { computed, defineComponent, inject } from 'vue'
@@ -26,9 +24,7 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const popularSearches: ComputedRef<Suggestion[]> = useState('popularSearches', [
-      'popularSearches',
-    ]).popularSearches
+    const { popularSearches } = useState('popularSearches')
 
     const injectedQueriesPreviewInfo = computed<QueryPreviewInfo[]>(() => {
       const injectedQueriesPreview = inject<QueryPreviewInfo[] | { value: QueryPreviewInfo[] }>(

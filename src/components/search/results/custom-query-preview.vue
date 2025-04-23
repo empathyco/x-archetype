@@ -95,18 +95,16 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const { relatedPrompts, selectedPrompt } = useState('relatedPrompts', [
-      'relatedPrompts',
-      'selectedPrompt',
-    ])
+    const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
     const getToolingTagging = (
       queryPreviewInfo: QueryPreviewInfo,
       toolingTagging: string,
     ): TaggingRequest => {
       if (relatedPrompts.value.length) {
-        const nextQuery = relatedPrompts.value[selectedPrompt.value].relatedPromptNextQueries.find(
-          (nextQuery: RelatedPromptNextQuery) => nextQuery.query === queryPreviewInfo.query,
-        )
+        const nextQuery: Record<string, any> =
+          relatedPrompts.value[selectedPrompt.value]?.relatedPromptNextQueries?.find(
+            (nextQuery: RelatedPromptNextQuery) => nextQuery.query === queryPreviewInfo.query,
+          ) ?? {}
         return nextQuery[toolingTagging]
       }
       return {} as TaggingRequest
