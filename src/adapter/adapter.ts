@@ -13,10 +13,10 @@ import type {
 import {
   experienceControlsResponseSchema,
   platformAdapter,
-  recommendationsRequestSchema,
-  resultSchema,
-  semanticQueriesRequestSchema,
-} from '@empathyco/x-adapter-platform'
+  recommendationsRequestSchema, relatedPromptsEndpointAdapter,
+  resultSchema, searchEndpointAdapter,
+  semanticQueriesRequestSchema
+} from "@empathyco/x-adapter-platform";
 
 export const adapter = platformAdapter
 
@@ -75,3 +75,13 @@ experienceControlsResponseSchema.$override<
     },
   },
 })
+
+adapter.relatedPrompts = relatedPromptsEndpointAdapter.extends({
+  endpoint:
+    'https://api.empathy.co/relatedprompts/primor?',
+});
+
+adapter.search = searchEndpointAdapter.extends({
+  endpoint:
+    'https://api.empathy.co/search/v1/query/perfumesclub/search?',
+});
