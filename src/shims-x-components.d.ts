@@ -3,6 +3,7 @@ import type { SemanticQueriesConfig } from '@empathyco/x-components/semantic-que
 declare module '@empathyco/x-components' {
   interface SnippetConfig {
     relatedPromptsTarget: string
+    position: number
   }
   interface XEventsTypes {
     SemanticQueriesConfigProvided: SemanticQueriesConfig

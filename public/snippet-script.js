@@ -62,6 +62,7 @@ const documentDirection = popFromURLParameters('doc-dir') || 'ltr'
 const store = popFromURLParameters('store') || undefined
 const relatedPromptsTarget = '.x-archetype-list'
 const isolate = getIsolationStrategy()
+const position = 0
 popFromURLParameters('query') // prevent the query from be included as extra param
 popFromURLParameters('filter') // Prevent the filters to be included as extra param
 
@@ -79,6 +80,7 @@ window.initX = {
   store,
   isolate,
   relatedPromptsTarget,
+  position,
   ...URLParameters,
   queriesPreview: [
     {

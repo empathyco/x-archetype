@@ -4,7 +4,11 @@
     <SnippetCallbacks />
     <Tagging />
     <UrlHandler />
-    <BaseTeleport :target="relatedPromptsTarget" :hide-siblings="false" :position="-1">
+    <BaseTeleport
+      :target="relatedPromptsTarget"
+      :hide-siblings="false"
+      :position="teleportPosition"
+    >
       <div class="x-flex x-flex-col">
         <RelatedPrompts :class="isDesktopOrGreater ? 'x-mt-24' : 'x-mt-16'" />
         <CustomQueryPreview
@@ -75,12 +79,17 @@ export default defineComponent({
       return snippetConfig.relatedPromptsTarget ?? '.body-container'
     })
 
+    const teleportPosition = computed((): number => {
+      return snippetConfig.position ?? 0
+    })
+
     return {
       isDesktopOrGreater,
       queriesPreviewInfo,
       selectedPrompt,
       documentDirection,
       relatedPromptsTarget,
+      teleportPosition,
       x,
     }
   },
