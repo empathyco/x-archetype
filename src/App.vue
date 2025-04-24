@@ -4,7 +4,7 @@
     <SnippetCallbacks />
     <Tagging />
     <UrlHandler />
-    <BaseTeleport :target="relatedPromptsTarget">
+    <BaseTeleport :target="relatedPromptsTarget" :hide-siblings="false" :position="-1">
       <div class="x-flex x-flex-col">
         <RelatedPrompts :class="isDesktopOrGreater ? 'x-mt-24' : 'x-mt-16'" />
         <CustomQueryPreview
