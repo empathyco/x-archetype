@@ -1,36 +1,46 @@
 name: Deploy
 description: Deploy project
 inputs:
-  aws_role:
-    description: Role to assume during the deployment
+  r2_account_id:
+    description: the Cloudflare R2 account ID
     required: true
-  aws_deploy_path:
-    description: the path to the s3 folder where to deploy
+  r2_access_key_id:
+    description: the Cloudflare R2 access key ID
     required: true
-  aws_s3_sync_args:
-    description: additional arguments for s3 sync command
+  r2_secret_access_key:
+    description: the Cloudflare R2 secret access key
     required: true
-  aws_s3_cache:
-    description: cache value for s3 sync command
+  r2_bucket:
+    description: the Cloudflare R2 bucket name
     required: true
-  cloudfront_distribution_id:
-    description: the CloudFront cache id to invalidate
+  r2_zone_id:
+    description: the Cloudflare R2 zone ID
     required: true
-  cloudfront_invalidation_paths:
-    description: the CloudFront path to invalidate
+  r2_api_token:
+    description: the Cloudflare R2 API token
+    required: true
+  r2_purge_strategy:
+    description: the Cloudflare R2 purge cache strategy (must be a valid JSON string)
     required: true
 runs:
   using: 'composite'
   steps:
-    - name: Configure AWS credentials from Websites account
-      uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502 # v4
+    - name: Deploy to Cloudflare R2
+      uses: empathyco/platform-reusable-github-actions/.github/actions/cloudflare-r2@main
       with:
-        role-to-assume: ${{ inputs.aws_role }}
-        aws-region: eu-west-1
-    - name: Sync files to the bucket
+        source: './dist'
+        r2-account-id: ${{ inputs.r2_account_id }}
+        r2-access-key-id: ${{ inputs.r2_access_key_id }}
+        r2-secret-access-key: ${{ inputs.r2_secret_access_key }}
+        r2-bucket: ${{ inputs.r2_bucket }}
+    - name: Purge strategy validation
       run: |
-        aws s3 sync dist ${{ inputs.aws_deploy_path }} --delete --cache-control ${{ inputs.aws_s3_cache }} ${{ inputs.aws_s3_sync_args }}  --no-progress
+        echo '${{ inputs.r2_purge_strategy }}' | jq . || { echo "Invalid JSON in r2_purge_strategy"; exit 1; }
       shell: bash
-    - name: Invalidate CloudFront cache
-      run: AWS_MAX_ATTEMPTS=10 aws cloudfront create-invalidation --distribution-id ${{ inputs.cloudfront_distribution_id }} --paths ${{ inputs.cloudfront_invalidation_paths }}
+    - name: Purge Cloudflare Cache
+      run: |
+        curl --verbose --location POST https://api.cloudflare.com/client/v4/zones/${{ inputs.r2_zone_id }}/purge_cache \
+          --header "Authorization: Bearer ${{ inputs.r2_api_token }}" \
+          --header "Content-Type: application/json" \
+          --data '${{ inputs.r2_purge_strategy }}'
       shell: bash
