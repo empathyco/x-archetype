@@ -16,6 +16,7 @@ import {
   recommendationsRequestSchema,
   relatedPromptsEndpointAdapter,
   resultSchema,
+  searchEndpointAdapter,
   semanticQueriesRequestSchema,
 } from '@empathyco/x-adapter-platform'
 
@@ -42,6 +43,13 @@ resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
   collection: 'collection',
   brand: 'brand',
   images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
+  price: {
+    value: ({ __prices }) => __prices?.current?.value,
+    originalValue: ({ __prices }) => __prices?.previous?.value ?? __prices?.current.value,
+    futureValue: ({ __prices }) => __prices?.future?.value ?? __prices?.current.value,
+    hasDiscount: ({ __prices }) =>
+      __prices?.current.value < (__prices?.previous?.value ?? __prices?.current.value),
+  },
 })
 
 recommendationsRequestSchema.$override<
@@ -78,7 +86,9 @@ experienceControlsResponseSchema.$override<
 })
 
 adapter.relatedPrompts = relatedPromptsEndpointAdapter.extends({
-  endpoint:
-    'https://api.empathy.co/relatedprompts/mymotivemarketplace?store=Labstore+London&lang=en',
-  requestMapper: ({ query }) => ({ query }),
+  endpoint: 'https://api.empathy.co/relatedprompts/primor?',
+})
+
+adapter.search = searchEndpointAdapter.extends({
+  endpoint: 'https://api.empathy.co/search/v1/query/perfumesclub/search?',
 })

@@ -53,14 +53,16 @@ function getIsolationStrategy() {
 const instance = popFromURLParameters('instance') || 'empathy'
 const env = getEnv()
 const scope = popFromURLParameters('scope') || 'desktop'
-const lang = popFromURLParameters('lang') || 'en'
+const lang = popFromURLParameters('lang') || 'es'
 const device = popFromURLParameters('device') || undefined
 const uiLang = popFromURLParameters('uiLang') || lang
 const currency = popFromURLParameters('currency') || 'EUR'
 const consent = popFromURLParameters('consent') !== 'false'
 const documentDirection = popFromURLParameters('doc-dir') || 'ltr'
 const store = popFromURLParameters('store') || undefined
+const relatedPromptsTarget = '.x-archetype-list'
 const isolate = getIsolationStrategy()
+const position = 0
 popFromURLParameters('query') // prevent the query from be included as extra param
 popFromURLParameters('filter') // Prevent the filters to be included as extra param
 
@@ -77,6 +79,8 @@ window.initX = {
   documentDirection,
   store,
   isolate,
+  relatedPromptsTarget,
+  position,
   ...URLParameters,
   queriesPreview: [
     {
