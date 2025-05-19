@@ -1,0 +1,51 @@
+name: Deploy to Cloudflare R2
+description: Deploy static assets to Cloudflare R2
+inputs:
+  r2_account_id:
+    description: the Cloudflare R2 account ID
+    required: true
+  r2_access_key_id:
+    description: the Cloudflare R2 access key ID
+    required: true
+  r2_secret_access_key:
+    description: the Cloudflare R2 secret access key
+    required: true
+  r2_bucket:
+    description: the Cloudflare R2 bucket name
+    required: true
+  r2_bucket_path:
+    description: the Cloudflare R2 bucket path to deploy
+    required: false
+    default: './'
+  r2_zone_id:
+    description: the Cloudflare R2 zone ID
+    required: true
+  r2_api_token:
+    description: the Cloudflare R2 API token
+    required: true
+  r2_purge_strategy:
+    description: the Cloudflare R2 purge cache strategy (must be a valid JSON string)
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Deploy to Cloudflare R2
+      uses: ryand56/r2-upload-action@latest
+      with:
+        r2-account-id: ${{ inputs.r2_account_id }}
+        r2-access-key-id: ${{ inputs.r2_access_key_id }}
+        r2-secret-access-key: ${{ inputs.r2_secret_access_key }}
+        r2-bucket: ${{ inputs.r2_bucket }}
+        source-dir: './dist'
+        destination-dir: ${{ inputs.r2_bucket_path }}
+    - name: Purge strategy validation
+      run: |
+        echo '${{ inputs.r2_purge_strategy }}' | jq . || { echo "Invalid JSON in r2_purge_strategy"; exit 1; }
+      shell: bash
+    - name: Purge Cloudflare Cache
+      run: |
+        curl --verbose --location POST https://api.cloudflare.com/client/v4/zones/${{ inputs.r2_zone_id }}/purge_cache \
+          --header "Authorization: Bearer ${{ inputs.r2_api_token }}" \
+          --header "Content-Type: application/json" \
+          --data '${{ inputs.r2_purge_strategy }}'
+      shell: bash
