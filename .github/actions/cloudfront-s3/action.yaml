@@ -23,7 +23,7 @@ runs:
   using: 'composite'
   steps:
     - name: Configure AWS credentials from Websites account
-      uses: aws-actions/configure-aws-credentials@v4
+      uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502 # v4
       with:
         role-to-assume: ${{ inputs.aws_role }}
         aws-region: eu-west-1
@@ -32,7 +32,6 @@ runs:
         aws s3 sync dist ${{ inputs.aws_deploy_path }} --delete --cache-control ${{ inputs.aws_s3_cache }} ${{ inputs.aws_s3_sync_args }}  --no-progress
       shell: bash
     - name: Invalidate CloudFront cache
-      run:
-        AWS_MAX_ATTEMPTS=10 aws cloudfront create-invalidation --distribution-id ${{
+      run: AWS_MAX_ATTEMPTS=10 aws cloudfront create-invalidation --distribution-id ${{
         inputs.cloudfront_distribution_id }} --paths ${{ inputs.cloudfront_invalidation_paths }}
       shell: bash
