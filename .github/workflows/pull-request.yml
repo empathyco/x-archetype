@@ -21,18 +21,14 @@ jobs:
           node-version: '22'
       - name: Install deps, lint, build and test project
         uses: ./.github/actions/install
-      - name: Deploy PR Preview on Cloudfront S3
-        uses: ./.github/actions/cloudfront-s3
+      - name: Deploy PR Preview
+        uses: ./.github/actions/frontend-deploy
         with:
           aws_role: ${{ secrets.AWS_ROLE_TEST_ACCOUNT }}
           aws_deploy_path: ${{ secrets.AWS_TEST_BUCKET }}/preview/${{ github.event.number }}
-          aws_s3_sync_args: --include '*' --exclude '*/*'
           aws_s3_cache: no-store
           cloudfront_distribution_id: ${{ secrets.CLOUDFRONT_ID_TEST }}
           cloudfront_invalidation_paths: '/preview/${{ github.event.number }}/*'
-      - name: Deploy PR Preview on Cloudflare R2
-        uses: ./.github/actions/cloudflare-r2
-        with:
           r2_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           r2_access_key_id: ${{ secrets.R2_TEST_ACCESS_KEY }}
           r2_secret_access_key: ${{ secrets.R2_TEST_ACCESS_SECRET }}

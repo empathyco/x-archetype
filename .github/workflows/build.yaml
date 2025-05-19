@@ -18,20 +18,15 @@ jobs:
       - name: Install deps, lint, build and test project
         uses: ./.github/actions/install
       # Every push to main deploys to staging
-      - name: Deploy to staging S3
+      - name: Deploy to staging
         if: ${{ github.ref_name == 'main' }}
-        uses: ./.github/actions/cloudfront-s3
+        uses: ./.github/actions/frontend-deploy
         with:
           aws_role: ${{ secrets.AWS_ROLE_STAGING_ACCOUNT }}
           aws_deploy_path: ${{ secrets.AWS_STAGING_BUCKET }}
-          aws_s3_sync_args: --include '*' --exclude '*/*'
           aws_s3_cache: no-store
           cloudfront_distribution_id: ${{ secrets.CLOUDFRONT_ID_STAGING }}
           cloudfront_invalidation_paths: '/*'
-      - name: Deploy to staging R2
-        if: ${{ github.ref_name == 'main' }}
-        uses: ./.github/actions/cloudflare-r2
-        with:
           r2_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           r2_access_key_id: ${{ secrets.R2_STAGING_ACCOUNT_KEY }}
           r2_secret_access_key: ${{ secrets.R2_STAGING_ACCESS_SECRET }}
@@ -50,20 +45,14 @@ jobs:
               ]
             }
       # Only tags named as release-* will deploy to production
-      - name: Deploy to prod S3
+      - name: Deploy to prod
         if: startsWith(github.ref, 'refs/tags/release-')
-        uses: ./.github/actions/cloudfront-s3
+        uses: ./.github/actions/frontend-deploy
         with:
           aws_role: ${{ secrets.AWS_ROLE_PRODUCTION_ACCOUNT }}
           aws_deploy_path: ${{ secrets.AWS_PRODUCTION_BUCKET }}
-          aws_s3_sync_args: --include '*' --exclude '*/*'
-          aws_s3_cache: max-age=3600
           cloudfront_distribution_id: ${{ secrets.CLOUDFRONT_ID_PRODUCTION }}
           cloudfront_invalidation_paths: '/*'
-      - name: Deploy to prod R2
-        if: ${{ github.ref_name == 'main' }}
-        uses: ./.github/actions/cloudflare-r2
-        with:
           r2_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           r2_access_key_id: ${{ secrets.R2_PROD_ACCOUNT_KEY }}
           r2_secret_access_key: ${{ secrets.R2_PROD_ACCESS_SECRET }}
