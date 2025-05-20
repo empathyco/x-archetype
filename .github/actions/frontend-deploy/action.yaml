@@ -1,0 +1,82 @@
+name: Deploy
+description: Deploy project
+inputs:
+  aws_role:
+    description: 'AWS role to assume'
+    type: string
+    required: true
+  aws_deploy_path:
+    description: 'AWS S3 bucket to deploy'
+    type: string
+    required: true
+  aws_s3_sync_args:
+    description: 'AWS S3 sync arguments'
+    type: string
+    default: --include '*' --exclude '*/*'
+  aws_s3_cache:
+    description: 'AWS S3 cache control'
+    type: string
+    default: max-age=3600
+  cloudfront_distribution_id:
+    description: 'Cloudfront distribution id'
+    type: string
+    required: true
+  cloudfront_invalidation_paths:
+    description: 'Cloudfront invalidation paths'
+    type: string
+    required: true
+  r2_account_id:
+    description: 'Cloudflare R2 account id'
+    type: string
+    required: true
+  r2_access_key_id:
+    description: 'Cloudflare R2 access key id'
+    type: string
+    required: true
+  r2_secret_access_key:
+    description: 'Cloudflare R2 secret access key'
+    type: string
+    required: true
+  r2_bucket:
+    description: 'Cloudflare R2 bucket'
+    type: string
+    required: true
+  r2_bucket_path:
+    description: 'Cloudflare R2 bucket path'
+    type: string
+    required: true
+  r2_zone_id:
+    description: 'Cloudflare R2 zone id'
+    type: string
+    required: true
+  r2_api_token:
+    description: 'Cloudflare R2 API token'
+    type: string
+    required: true
+  r2_purge_strategy:
+    description: 'Cloudflare R2 purge strategy'
+    type: string
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Deploy project on Cloudfront S3
+      uses: ./.github/actions/cloudfront-s3
+      with:
+        aws_role: ${{ inputs.aws_role }}
+        aws_deploy_path: ${{ inputs.aws_deploy_path }}
+        aws_s3_sync_args: ${{ inputs.aws_s3_sync_args }}
+        aws_s3_cache: ${{ inputs.aws_s3_cache }}
+        cloudfront_distribution_id: ${{ inputs.cloudfront_distribution_id }}
+        cloudfront_invalidation_paths: ${{ inputs.cloudfront_invalidation_paths }}
+    - name: Deploy project on Cloudflare R2
+      uses: ./.github/actions/cloudflare-r2
+      with:
+        r2_account_id: ${{ inputs.r2_account_id }}
+        r2_access_key_id: ${{ inputs.r2_access_key_id }}
+        r2_secret_access_key: ${{ inputs.r2_secret_access_key }}
+        r2_bucket: ${{ inputs.r2_bucket }}
+        r2_bucket_path: ${{ inputs.r2_bucket_path }}
+        r2_zone_id: ${{ inputs.r2_zone_id }}
+        r2_api_token: ${{ inputs.r2_api_token }}
+        r2_purge_strategy: ${{ inputs.r2_purge_strategy }}

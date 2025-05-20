@@ -1,5 +1,5 @@
-name: Deploy
-description: Deploy project
+name: Deploy to Cloudfront S3
+description: Deploy static assets to Cloudfront S3
 inputs:
   aws_role:
     description: Role to assume during the deployment
@@ -32,5 +32,6 @@ runs:
         aws s3 sync dist ${{ inputs.aws_deploy_path }} --delete --cache-control ${{ inputs.aws_s3_cache }} ${{ inputs.aws_s3_sync_args }}  --no-progress
       shell: bash
     - name: Invalidate CloudFront cache
-      run: AWS_MAX_ATTEMPTS=10 aws cloudfront create-invalidation --distribution-id ${{ inputs.cloudfront_distribution_id }} --paths ${{ inputs.cloudfront_invalidation_paths }}
+      run: AWS_MAX_ATTEMPTS=10 aws cloudfront create-invalidation --distribution-id ${{
+        inputs.cloudfront_distribution_id }} --paths ${{ inputs.cloudfront_invalidation_paths }}
       shell: bash
