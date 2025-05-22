@@ -15,8 +15,7 @@ inputs:
     required: true
   r2_bucket_path:
     description: the Cloudflare R2 bucket path to deploy
-    required: false
-    default: './'
+    required: true
   r2_zone_id:
     description: the Cloudflare R2 zone ID
     required: true
