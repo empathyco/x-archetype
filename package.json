@@ -60,7 +60,7 @@
     "autoprefixer": "10.4.21",
     "colors": "1.4.0",
     "concurrently": "9.1.2",
-    "cssnano": "6.1.2",
+    "cssnano": "7.0.7",
     "cypress": "14.4.0",
     "http-server": "14.1.1",
     "husky": "8.0.3",
