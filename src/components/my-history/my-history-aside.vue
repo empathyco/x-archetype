@@ -40,7 +40,7 @@
           </span>
         </div>
         <HistoryQueriesSwitch
-          :class="{ 'x-selected x-switch--is-selected': x.isHistoryQueriesEnabled }"
+          :class="{ 'x-switch--is-selected x-selected': x.isHistoryQueriesEnabled }"
         />
       </section>
 
