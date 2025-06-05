@@ -26,7 +26,7 @@ inputs:
     description: the Cloudflare R2 purge cache strategy (must be a valid JSON string)
     required: true
 runs:
-  using: 'composite'
+  using: composite
   steps:
     - name: Deploy to Cloudflare R2
       uses: ryand56/r2-upload-action@latest
@@ -35,7 +35,7 @@ runs:
         r2-access-key-id: ${{ inputs.r2_access_key_id }}
         r2-secret-access-key: ${{ inputs.r2_secret_access_key }}
         r2-bucket: ${{ inputs.r2_bucket }}
-        source-dir: './dist'
+        source-dir: ./dist
         destination-dir: ${{ inputs.r2_bucket_path }}
     - name: Purge strategy validation
       run: |
