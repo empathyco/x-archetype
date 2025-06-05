@@ -14,8 +14,10 @@ runs:
     - name: Run typecheck
       run: npm run typecheck
       shell: bash
-    - name: Run linter
-      run: npm run lint
+    - name: Check linter
+      run: npm run lint:check
+    - name: Check format
+      run: npm run format:check
       shell: bash
     - name: Build project
       run: npm run build
