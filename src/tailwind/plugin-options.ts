@@ -2,8 +2,8 @@ import type { Config } from 'tailwindcss/types/config'
 import { xTailwindPlugin } from '@empathyco/x-tailwindcss'
 
 /**
- * TODO Pending the second step of the migration to x-tailwindcss 2.x
- * Define the theme instead of extending it.
+ * TODO Pending the second step of the migration to x-tailwindcss 2.x:
+ * Remove the 'x-' prefix from the tailwind default classes in every component.
  *
  * Example: https://github.com/empathyco/motive-market/blob/main/tailwind/plugin-options.ts
  */
