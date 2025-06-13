@@ -14,7 +14,7 @@ import Withinable = Cypress.Withinable
  * https://github.com/cypress-io/cypress/issues/8418.
  * Https://github.com/cypress-io/cypress/issues/22129.
  */
-Cypress.on('uncaught:exception', err => !err.message.includes('ResizeObserver loop limit exceeded'))
+Cypress.on('uncaught:exception', err => !err.message.includes('ResizeObserver'))
 
 export interface TestContext {
   [key: string]: string
