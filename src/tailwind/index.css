@@ -4,21 +4,21 @@
 
 @layer components {
   .x-message {
-    display: 'flex';
-    flex-wrap: 'wrap';
-    align-items: 'center';
-    justify-content: 'center';
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: theme('spacing.8');
     background-color: theme('colors.neutral.10');
     padding: theme('spacing.24');
     padding-top: theme('spacing.8');
     padding-bottom: theme('spacing.8');
-    text-align: 'center';
-  }
+    text-align: center;
 
-  @screen desktop {
-    padding-top: theme('spacing.24');
-    padding-bottom: theme('spacing.24');
+    @screen desktop {
+      padding-top: theme('spacing.24');
+      padding-bottom: theme('spacing.24');
+    }
   }
 
   .x-transform-style-3d {

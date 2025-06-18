@@ -4,7 +4,7 @@
       <Sort />
       <CustomFacets />
     </BaseScroll>
-    <div class="x-flex x-flex-col x-border-t">
+    <div class="x-flex x-flex-col x-border-t x-border-neutral-90">
       <SelectedFilters
         v-if="x.selectedFilters.length"
         class="x-flex x-flex-col x-items-stretch x-gap-16 x-py-16"
