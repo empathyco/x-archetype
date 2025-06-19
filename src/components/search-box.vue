@@ -5,7 +5,7 @@
       :autofocus="false"
       :placeholder="$t('searchBox.placeholder')"
       :instant="true"
-      class="desktop:x-pl-24"
+      class="desktop:!x-pl-24"
     />
 
     <button class="x-input-group-button x-rounded-full" @click="toggleVoiceRecognition">

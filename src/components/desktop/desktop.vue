@@ -36,7 +36,7 @@
         key="right-aside"
         :animation="rightAsideAnimation"
         modal-id="right-aside"
-        content-class="x-w-512 x-ml-auto"
+        content-class="!x-w-512 x-ml-auto"
       >
         <DesktopAside v-if="hasSearched" />
       </BaseIdModal>
@@ -45,7 +45,7 @@
         key="my-history-aside"
         :animation="rightAsideAnimation"
         modal-id="my-history-aside"
-        content-class="x-w-512 x-ml-auto"
+        content-class="!x-w-512 x-ml-auto"
       >
         <MyHistoryAside />
       </BaseIdModal>

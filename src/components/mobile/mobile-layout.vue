@@ -29,7 +29,7 @@
       modal-id="aside-modal"
       :animation="filtersAnimation"
       class="x-layout__filters-modal"
-      content-class="x-mt-64 x-h-[calc(100%-64px)] x-fixed x-flex-1 x-rounded-t-lg x-bg-neutral-0
+      content-class="x-mt-64 !x-h-[calc(100%-64px)] x-fixed x-flex-1 x-rounded-t-lg x-bg-neutral-0
          desktop:x-rounded-none desktop:x-m-0"
     >
       <slot name="filters-modal" />

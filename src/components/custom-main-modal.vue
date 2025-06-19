@@ -29,7 +29,7 @@ export default defineComponent({
     const x = use$x()
 
     const overflowClass = computed(() =>
-      !isDesktopOrGreater.value && x.query.searchBox ? 'x-overflow-clip x-touch-none' : '',
+      !isDesktopOrGreater.value && x.query.searchBox ? '!x-overflow-clip x-touch-none' : '',
     )
 
     const contentClass = computed(() => `${overflowClass.value}`)
