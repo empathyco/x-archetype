@@ -36,7 +36,7 @@
                   <template v-if="suggestion.totalResults !== undefined">
                     -
                     {{
-                      $t('myHistory.suggestionResults', { totalResults: suggestion.totalResults })
+                      $t('myHistory.suggestionResults', suggestion.totalResults, { count: suggestion.totalResults })
                     }}
                   </template>
                 </p>

@@ -46,10 +46,10 @@
       v-if="isDesktopOrGreater"
       v-slot="{ selectedFilters }"
       data-test="clear-filters-toolbar"
-      class="x-button-lead x-button-sm x-button-outlined x-flex-none x-rounded-full"
+      class="x-button-lead x-button-sm x-button-outlined x-flex-none x-rounded-full x-uppercase"
       :always-visible="false"
     >
-      {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
+      {{ $t('selectedFilters.clear', selectedFilters.length, { count: selectedFilters.length }) }}
     </ClearFilters>
   </div>
 </template>
@@ -88,7 +88,7 @@ export default defineComponent({
     return {
       isTabletOrLess,
       isDesktopOrGreater,
-      isTouchable,
+      isTouchable
     }
   },
 })
