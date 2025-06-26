@@ -4,7 +4,13 @@
     class="x-flex x-w-full x-flex-row x-items-center x-justify-between x-gap-16"
   >
     <div class="x-flex x-flex-auto x-items-center x-justify-end">
-      <i18n-t class="x-text1 x-flex-auto" keypath="totalResults.message" tag="span">
+      <i18n-t
+        class="x-text1 x-flex-auto"
+        keypath="totalResults.message"
+        tag="span"
+        scope="global"
+        :plural="x.totalResults"
+      >
         <template #totalResults>
           {{ x.totalResults }}
         </template>
