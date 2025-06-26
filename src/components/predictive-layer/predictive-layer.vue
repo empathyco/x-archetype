@@ -32,7 +32,7 @@
             <BaseIdModalOpen
               v-if="isTabletOrLess && !x.query.searchBox"
               modal-id="my-history-aside"
-              class="x-button-neutral x-button-sm x-button-tight x-self-end x-pr-8"
+              class="x-button-neutral x-button-sm x-button-tight x-self-end x-pr-8 x-capitalize"
             >
               {{ $t('myHistory.openButton') }}
               <SettingsIcon class="x-icon-lg" />

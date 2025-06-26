@@ -11,7 +11,7 @@
       >
         <CrossIcon class="x-icon-lg x-text-neutral-0" />
       </BaseIdModalClose>
-      <h1 class="desktop:x-title-md x-title2 x-title2-sm x-text-neutral-0">
+      <h1 class="desktop:x-title-md x-title2 x-title2-sm x-capitalize x-text-neutral-0">
         {{ $t('myHistory.title') }}
       </h1>
     </div>
@@ -30,7 +30,7 @@
         class="x-flex x-items-center x-justify-between x-px-16 x-pb-32 x-pt-24 desktop:x-pl-32"
       >
         <div class="x-flex x-flex-col x-gap-4">
-          <span class="x-title3">{{ $t('myHistory.switch.title') }}</span>
+          <span class="x-title3 x-capitalize">{{ $t('myHistory.switch.title') }}</span>
           <span class="x-text1 x-text1-lg x-text-neutral-75">
             {{
               x.isHistoryQueriesEnabled
@@ -40,7 +40,7 @@
           </span>
         </div>
         <HistoryQueriesSwitch
-          :class="{ 'x-selected x-switch--is-selected': x.isHistoryQueriesEnabled }"
+          :class="{ 'x-switch--is-selected x-selected': x.isHistoryQueriesEnabled }"
         />
       </section>
 

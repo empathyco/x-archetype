@@ -1,7 +1,12 @@
 <template>
   <Spellcheck v-if="x.totalResults > 0" v-slot="{ query }" class="x-message desktop:x-flex-col">
     <p>
-      <i18n-t class="x-text1 desktop:x-text1-lg" keypath="spellcheck.message">
+      <i18n-t
+        class="x-text1 desktop:x-text1-lg"
+        keypath="spellcheck.message"
+        scope="global"
+        tag="p"
+      >
         <template #query>
           <span class="x-w-auto x-font-bold">"{{ query }}".</span>
           <div v-if="isTabletOrLess" class="x-basis-full"></div>

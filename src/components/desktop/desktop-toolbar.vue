@@ -5,7 +5,13 @@
     :class="{ 'x-mb-8': !x.selectedFilters.length }"
     data-test="total-results"
   >
-    <i18n-t class="x-text1 x-text1-lg x-flex-auto" keypath="totalResults.message" tag="span">
+    <i18n-t
+      class="x-text1 x-text1-lg x-flex-auto"
+      keypath="totalResults.message"
+      tag="span"
+      scope="global"
+      :plural="x.totalResults"
+    >
       <template #totalResults>
         {{ x.totalResults }}
       </template>
@@ -24,7 +30,7 @@
       data-test="toggle-facets-button"
     >
       <FiltersIcon class="x-icon-lg" />
-      <span>{{ $t('toggleAside.showAside') }}</span>
+      <span class="x-capitalize">{{ $t('toggleAside.showAside') }}</span>
       <span
         v-if="x.selectedFilters.length"
         :class="{ 'x-badge-circle': x.selectedFilters.length <= 9 }"

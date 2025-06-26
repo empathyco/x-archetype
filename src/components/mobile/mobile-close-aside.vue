@@ -5,13 +5,13 @@
       class="x-button-lead x-button-outlined x-flex-auto x-rounded-full x-py-12 x-uppercase"
       :always-visible="false"
     >
-      {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
+      {{ $t('selectedFilters.clear', selectedFilters.length, { count: selectedFilters.length }) }}
     </ClearFilters>
     <BaseIdModalClose
-      class="x-button-lead x-flex-auto x-rounded-full x-py-12"
+      class="x-button-lead x-flex-auto x-rounded-full x-py-12 x-uppercase"
       modal-id="aside-modal"
     >
-      {{ $t('facetsPanel.viewResults', { totalResults: x.totalResults }) }}
+      {{ $t('facetsPanel.viewResults', x.totalResults, { count: x.totalResults }) }}
     </BaseIdModalClose>
   </div>
 </template>

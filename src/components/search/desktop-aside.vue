@@ -1,7 +1,7 @@
 <template>
   <div class="x-flex x-min-h-0 x-flex-auto x-flex-col x-bg-neutral-0">
     <div class="x-flex x-items-center x-border-b x-border-neutral-90 x-p-24 x-pl-40 x-pr-32">
-      <span class="x-title2 x-mr-auto">
+      <span class="x-title2 x-mr-auto x-uppercase">
         {{ $t('facetsPanel.title') }}
       </span>
       <BaseIdModalClose class="x-button-lead x-button-circle x-button-ghost" modal-id="right-aside">
@@ -18,13 +18,13 @@
         class="x-button-lead x-button-outlined x-flex-auto x-rounded-full x-p-24 x-py-12 x-uppercase"
         :always-visible="false"
       >
-        {{ $t('selectedFilters.clear', { selectedFiltersNumber: selectedFilters.length }) }}
+        {{ $t('selectedFilters.clear', selectedFilters.length, { count: selectedFilters.length }) }}
       </ClearFilters>
       <BaseIdModalClose
-        class="x-button-lead x-flex-auto x-rounded-full x-p-24 x-py-12"
+        class="x-button-lead x-flex-auto x-rounded-full x-p-24 x-py-12 x-uppercase"
         modal-id="right-aside"
       >
-        {{ $t('facetsPanel.viewResults', { totalResults: x.totalResults }) }}
+        {{ $t('facetsPanel.viewResults', x.totalResults, { count: x.totalResults }) }}
       </BaseIdModalClose>
     </div>
   </div>
