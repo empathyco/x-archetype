@@ -24,7 +24,7 @@
         v-if="isDesktopOrGreater && showAddToCart"
         class="x-result__overlay x-invisible x-absolute x-bottom-0 x-flex x-w-full group-hover/result:x-visible"
       >
-        <BaseAddToCart :result="result" class="x-button-lead x-m-16 x-flex-auto x-rounded-full">
+        <BaseAddToCart :result="result" class="x-button-lead x-m-16 x-flex-auto x-rounded-full x-uppercase">
           {{ $t('result.addToCart') }}
         </BaseAddToCart>
       </div>

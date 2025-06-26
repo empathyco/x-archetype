@@ -5,7 +5,7 @@
     class="x-button-lead x-rounded-full x-px-16"
   >
     <FiltersIcon class="x-icon-lg" />
-    <span>{{ $t('toggleAside.showAside') }}</span>
+    <span class="x-uppercase">{{ $t('toggleAside.showAside') }}</span>
     <span
       v-if="x.selectedFilters.length > 0"
       :class="{ 'x-badge-circle': x.selectedFilters.length <= 9 }"

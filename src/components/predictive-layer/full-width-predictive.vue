@@ -106,7 +106,7 @@
                       <BaseIdModalOpen
                         v-if="isDesktopOrGreater && !x.query.searchBox"
                         modal-id="my-history-aside"
-                        class="x-button-neutral x-button-sm x-button-tight x-col-start-[-1] x-self-start"
+                        class="x-button-neutral x-button-sm x-button-tight x-col-start-[-1] x-self-start x-capitalize"
                         data-test="my-history-button"
                       >
                         <SettingsIcon />
