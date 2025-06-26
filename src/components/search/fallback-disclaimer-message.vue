@@ -1,6 +1,11 @@
 <template>
   <FallbackDisclaimer v-if="x.fromNoResultsWithFilters" class="x-fallback-message x-message">
-    <i18n-t class="x-text1 desktop:x-text1-lg" keypath="fallbackDisclaimer.message" tag="p">
+    <i18n-t
+      class="x-text1 desktop:x-text1-lg"
+      keypath="fallbackDisclaimer.message"
+      tag="p"
+      scope="global"
+    >
       <template #query>
         <span class="x-w-auto x-font-bold">"{{ x.query.search }}"</span>
       </template>

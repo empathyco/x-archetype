@@ -9,6 +9,7 @@
       class="x-text1 x-text1-lg max-desktop:x-px-16"
       tag="span"
       keypath="nextQueryPreview.message"
+      scope="global"
     >
       <template #query>
         <span class="x-title3">
