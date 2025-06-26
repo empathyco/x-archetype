@@ -5,15 +5,15 @@
       "placeholder": "What are you looking for?"
     },
     "popularSearches": {
-      "title": "Popular Searches"
+      "title": "Popular searches"
     },
     "historyQueries": {
       "clear": "Clear all",
       "removeLabel": "Remove {suggestion} from history queries",
-      "title": "History Queries"
+      "title": "History queries"
     },
     "myHistory": {
-      "title": "My History",
+      "title": "My history",
       "subtitle": "This is the complete list of history queries",
       "message": {
         "header": "This data is stored locally. Just in your device and never travel outside of it.",
@@ -21,10 +21,10 @@
         "footer": "Your privacy under your control."
       },
       "noHistory": "No history activity to show",
-      "openButton": "My History",
-      "suggestionResults": "({totalResults} results)",
+      "openButton": "My history",
+      "suggestionResults": "(no results) | ({count} result) | ({count} results)",
       "switch": {
-        "title": "History Queries",
+        "title": "History queries",
         "enable": "Enable",
         "disable": "Disable and clear"
       },
@@ -36,7 +36,7 @@
       }
     },
     "nextQueries": {
-      "title": "What's Next"
+      "title": "What's next"
     },
     "nextQueriesGroup": {
       "message": "Those who searched for {query} also viewed:"
@@ -48,10 +48,10 @@
       "viewResults": "View all results"
     },
     "identifierResults": {
-      "title": "SKU Search"
+      "title": "SKU search"
     },
     "recommendations": {
-      "title": "Top Clicked"
+      "title": "Top clicked"
     },
     "facets": {
       "gender": "Gender",
@@ -61,13 +61,13 @@
       "fit": "Fit",
       "collection": "Collection",
       "genres": "Genres",
-      "isAdult": "Is Adult",
+      "isAdult": "Is adult",
       "type": "Type",
       "runtimeMinutes": "Runtime minutes"
     },
     "facetsPanel": {
-      "title": "SORT & FILTER",
-      "viewResults": "VIEW {totalResults} RESULTS"
+      "title": "Sort & filter",
+      "viewResults": "View 1 result | View {count} results"
     },
     "filters": {
       "all": "All",
@@ -85,10 +85,10 @@
       "from": "from {'{min}'}"
     },
     "toggleAside": {
-      "showAside": "Sort & Filter"
+      "showAside": "Sort & filter"
     },
     "totalResults": {
-      "message": "{totalResults} results for {query}"
+      "message": "1 result for {query} | {totalResults} results for {query}"
     },
     "semanticQueries": {
       "title": "Are you interested in \"{query}\"? Explore this suggestions:"
@@ -102,10 +102,10 @@
       }
     },
     "selectedFilters": {
-      "clear": "CLEAR {selectedFiltersNumber} FILTERS"
+      "clear": "Clear 1 filter | Clear {count} filters"
     },
     "result": {
-      "addToCart": "ADD TO CART"
+      "addToCart": "Add to cart"
     },
     "spellcheck": {
       "message": "No results found for {query} We show you results for"
@@ -140,7 +140,7 @@
       "viewResults": "View all"
     },
     "totalResults": {
-      "message": "{totalResults} results"
+      "message": "{totalResults} result | {totalResults} results"
     },
     "queryPreview": {
       "viewResults": "View all"

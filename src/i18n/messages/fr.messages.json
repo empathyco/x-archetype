@@ -5,12 +5,12 @@
       "placeholder": "Que cherchez-vous?"
     },
     "popularSearches": {
-      "title": "Recherches Populaires"
+      "title": "Recherches populaires"
     },
     "historyQueries": {
       "clear": "Tout effacer",
       "removeLabel": "Supprimer {suggestion} des requêtes d'historique",
-      "title": "Recherches D'historique"
+      "title": "Recherches d'historique"
     },
     "myHistory": {
       "title": "Mon histoire",
@@ -22,7 +22,7 @@
       },
       "noHistory": "Aucune activité d'historique à afficher",
       "openButton": "Mon histoire",
-      "suggestionResults": "({totalResults} résultats)",
+      "suggestionResults": "(aucun résultat) | ({count} résultat) | ({count} résultats)",
       "switch": {
         "title": "Requêtes d'historique",
         "enable": "Activer",
@@ -36,7 +36,7 @@
       }
     },
     "nextQueries": {
-      "title": "Et Après"
+      "title": "Et après"
     },
     "nextQueriesGroup": {
       "message": "Ceux qui cherchaient {query} également consulté:"
@@ -48,7 +48,7 @@
       "viewResults": "Voir tous les résultats"
     },
     "identifierResults": {
-      "title": "SKU Chercher"
+      "title": "SKU chercher"
     },
     "recommendations": {
       "title": "Top cliqué"
@@ -66,8 +66,8 @@
       "runtimeMinutes": "Durée en minutes"
     },
     "facetsPanel": {
-      "title": "TRIER ET FILTRER",
-      "viewResults": "VOIR {totalResults} RÉSULTATS"
+      "title": "Trier et filtrer",
+      "viewResults": "Voir 1 résultat | Voir {count} résultats"
     },
     "filters": {
       "all": "Tout",
@@ -88,7 +88,7 @@
       "showAside": "Trier et filtrer"
     },
     "totalResults": {
-      "message": "{totalResults} résultats pour {query}"
+      "message": "1 résultat pour {query} | {totalResults} résultats pour {query}"
     },
     "semanticQueries": {
       "title": "Êtes-vous intéressé par «{query}»? Explorez ces suggestions:"
@@ -102,10 +102,10 @@
       }
     },
     "selectedFilters": {
-      "clear": "EFFACER {selectedFiltersNumber} FILTRES"
+      "clear": "Effacer 1 filtre | Effacer {count} filtres"
     },
     "result": {
-      "addToCart": "AJOUTER AU PANIER"
+      "addToCart": "Ajouter au panier"
     },
     "spellcheck": {
       "message": "Aucun résultat trouvé pour {query} Nous vous montrons les résultats pour"
@@ -140,7 +140,7 @@
       "viewResults": "Voir tout"
     },
     "totalResults": {
-      "message": "{totalResults} résultats"
+      "message": "1 résultat | {totalResults} résultats"
     },
     "queryPreview": {
       "viewResults": "Voir tout"

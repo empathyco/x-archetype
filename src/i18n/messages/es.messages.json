@@ -5,7 +5,7 @@
       "placeholder": "¿Qué estás buscando?"
     },
     "popularSearches": {
-      "title": "Búsquedas Populares"
+      "title": "Búsquedas populares"
     },
     "historyQueries": {
       "clear": "Limpiar historial",
@@ -13,7 +13,7 @@
       "title": "Historial"
     },
     "myHistory": {
-      "title": "Mi Historial",
+      "title": "Mi historial",
       "subtitle": "Este es tu historial de búsqueda",
       "message": {
         "header": "Los datos se guardan en local. Solo están en tu dispositivo y nunca salen de ahí.",
@@ -21,8 +21,8 @@
         "footer": "Tu privacidad bajo tu control."
       },
       "noHistory": "No hay historial de búsqueda para mostrar",
-      "openButton": "Mi Historial",
-      "suggestionResults": "({totalResults} resultados)",
+      "openButton": "Mi historial",
+      "suggestionResults": "(sin resultados) | (1 resultado) | ({count} resultados)",
       "switch": {
         "title": "Historial de búsqueda",
         "enable": "Activar",
@@ -36,7 +36,7 @@
       }
     },
     "nextQueries": {
-      "title": "Quizás te Interese"
+      "title": "Quizás te interese"
     },
     "nextQueriesGroup": {
       "message": "Los que buscaron {query} también han visto:"
@@ -51,7 +51,7 @@
       "title": "Búsqueda SKU"
     },
     "recommendations": {
-      "title": "Top Clicked"
+      "title": "Top clicked"
     },
     "facets": {
       "gender": "Género",
@@ -61,13 +61,13 @@
       "fit": "Fit",
       "collection": "Colección",
       "genres": "Géneros",
-      "isAdult": "Contenido Adulto",
+      "isAdult": "Contenido adulto",
       "type": "Tipo",
       "runtimeMinutes": "Minutos de duración"
     },
     "facetsPanel": {
-      "title": "ORDENAR & FILTRAR",
-      "viewResults": "VER {totalResults} RESULTADOS"
+      "title": "Ordenar y filtrar",
+      "viewResults": "Ver 1 resultado | Ver {count} resultados"
     },
     "filters": {
       "all": "Todo",
@@ -85,10 +85,10 @@
       "from": "desde {'{min}'}"
     },
     "toggleAside": {
-      "showAside": "Ordenar y Filtrar"
+      "showAside": "Ordenar y filtrar"
     },
     "totalResults": {
-      "message": "{totalResults} resultados para {query}"
+      "message": "1 resultado para {query} | {totalResults} resultados para {query}"
     },
     "semanticQueries": {
       "title": "¿Estás interesado en \"{query}\"? Explora estas sugerencias:"
@@ -102,10 +102,10 @@
       }
     },
     "selectedFilters": {
-      "clear": "LIMPIAR {selectedFiltersNumber} FILTROS"
+      "clear": "Limpiar 1 filtro | Limpiar {count} filtros"
     },
     "result": {
-      "addToCart": "AÑADIR AL CARRITO"
+      "addToCart": "Añadir al carrito"
     },
     "spellcheck": {
       "message": "No se han encontrado resultados para {query} Aquí tienes resultados para"
@@ -140,7 +140,7 @@
       "viewResults": "Ver todos"
     },
     "totalResults": {
-      "message": "{totalResults} resultados"
+      "message": "{totalResults} resultado | {totalResults} resultados"
     },
     "queryPreview": {
       "viewResults": "Ver todo"

@@ -5,12 +5,12 @@
       "placeholder": "O que você está procurando?"
     },
     "popularSearches": {
-      "title": "Buscas Populares"
+      "title": "Buscas populares"
     },
     "historyQueries": {
       "clear": "Limpar histórico",
       "removeLabel": "Limpar {suggestion} histórico de buscas",
-      "title": "Histórico de Buscas"
+      "title": "Histórico de buscas"
     },
     "myHistory": {
       "title": "Meu histórico",
@@ -22,7 +22,7 @@
       },
       "noHistory": "Não há histórico de buscas para mostrar",
       "openButton": "Meu histórico",
-      "suggestionResults": "({totalResults} resultados)",
+      "suggestionResults": "(nenhum resultado) | ({count} resultado) | ({count} resultados)",
       "switch": {
         "title": "Histórico de buscas",
         "enable": "Ativo",
@@ -36,7 +36,7 @@
       }
     },
     "nextQueries": {
-      "title": "Você Pode se Interessar"
+      "title": "Você pode se interessar"
     },
     "nextQueriesGroup": {
       "message": "Aqueles que pesquisaram por {query} também viram:"
@@ -66,8 +66,8 @@
       "runtimeMinutes": "Duração em minutos"
     },
     "facetsPanel": {
-      "title": "ORDENAR & FILTRAR",
-      "viewResults": "VER {totalResults} RESULTADOS"
+      "title": "Ordenar e filtrar",
+      "viewResults": "Ver 1 resultado | Ver {count} resultados"
     },
     "filters": {
       "all": "Todo",
@@ -88,7 +88,7 @@
       "showAside": "Ordenar e Filtrar"
     },
     "totalResults": {
-      "message": "{totalResults} resultados para {query}"
+      "message": "1 resultado para {query} | {totalResults} resultados para {query}"
     },
     "semanticQueries": {
       "title": "Você está interessado em \"{query}\"? Explore estas sugestões:"
@@ -102,10 +102,10 @@
       }
     },
     "selectedFilters": {
-      "clear": "LIMPAR {selectedFiltersNumber} FILTROS"
+      "clear": "Limpar 1 filtro | Limpar {count} filtros"
     },
     "result": {
-      "addToCart": "ADICIONAR AO CARRINHO"
+      "addToCart": "Adicionar ao carrinho"
     },
     "spellcheck": {
       "message": "Sem resultados encontrados para {query} Aqui estão os resultados para"
@@ -140,7 +140,7 @@
       "viewResults": "Ver todos"
     },
     "totalResults": {
-      "message": "{totalResults} resultados"
+      "message": "1 resultado | {totalResults} resultados"
     },
     "queryPreview": {
       "viewResults": "Ver todos"

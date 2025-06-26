@@ -5,7 +5,7 @@
       "placeholder": "Wonach suchen Sie?"
     },
     "popularSearches": {
-      "title": "Beliebte Suchanfragen"
+      "title": "Beliebte suchanfragen"
     },
     "historyQueries": {
       "clear": "Alle löschen",
@@ -13,7 +13,7 @@
       "title": "Verlaufsanfragen"
     },
     "myHistory": {
-      "title": "Mein Verlauf",
+      "title": "Mein verlauf",
       "subtitle": "Dies ist die vollständige Liste der Verlaufsanfragen",
       "message": {
         "header": "Diese Daten werden lokal gespeichert. Nur auf Ihrem Gerät und verlassen es nie.",
@@ -21,8 +21,8 @@
         "footer": "Ihre Privatsphäre unter Ihrer Kontrolle."
       },
       "noHistory": "Keine Verlaufaktivität vorhanden",
-      "openButton": "Mein Verlauf",
-      "suggestionResults": "({totalResults} Ergebnisse)",
+      "openButton": "Mein verlauf",
+      "suggestionResults": "(keine Ergebnisse) | ({count} Ergebnis) | ({count} Ergebnisse)",
       "switch": {
         "title": "Verlaufsanfragen",
         "enable": "Aktivieren",
@@ -36,7 +36,7 @@
       }
     },
     "nextQueries": {
-      "title": "Was kommt als Nächstes"
+      "title": "Was kommt als nächstes"
     },
     "nextQueriesGroup": {
       "message": "Diejenigen, die nach {query} gesucht haben, haben auch angesehen:"
@@ -66,8 +66,8 @@
       "runtimeMinutes": "Dauer in Minuten"
     },
     "facetsPanel": {
-      "title": "SORTIEREN & FILTERN",
-      "viewResults": "ERGEBNISSE ANZEIGEN ({totalResults})"
+      "title": "Sortieren & filtern",
+      "viewResults": "1 Ergebnis anzeigen | {count} Ergebnisse anzeigen"
     },
     "filters": {
       "all": "Alle",
@@ -85,10 +85,10 @@
       "from": "ab {'{min}'}"
     },
     "toggleAside": {
-      "showAside": "Sortieren & Filtern"
+      "showAside": "Sortieren & filtern"
     },
     "totalResults": {
-      "message": "{totalResults} Ergebnisse für {query}"
+      "message": "1 Ergebnis für {query} | {totalResults} Ergebnisse für {query}"
     },
     "semanticQueries": {
       "title": "Sind Sie an „{query}“ interessiert? Entdecken Sie diese Vorschläge:"
@@ -102,10 +102,10 @@
       }
     },
     "selectedFilters": {
-      "clear": "FILTER LÖSCHEN ({selectedFiltersNumber})"
+      "clear": "1 Filter löschen | {count} Filter löschen"
     },
     "result": {
-      "addToCart": "IN DEN WARENKORB LEGEN"
+      "addToCart": "In den Warenkorb legen"
     },
     "spellcheck": {
       "message": "Keine Ergebnisse gefunden für {query}. Wir zeigen Ihnen Ergebnisse für"
@@ -140,7 +140,7 @@
       "viewResults": "Alle anzeigen"
     },
     "totalResults": {
-      "message": "{totalResults} Ergebnisse"
+      "message": "1 Ergebnis | {totalResults} Ergebnisse"
     },
     "queryPreview": {
       "viewResults": "Alle anzeigen"

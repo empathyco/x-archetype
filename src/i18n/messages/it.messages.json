@@ -22,7 +22,7 @@
       },
       "noHistory": "La cronologia e' vuota",
       "openButton": "Cronologia",
-      "suggestionResults": "({totalResults} risultati)",
+      "suggestionResults": "(nessun risultato) | ({count} risultato) | ({count} risultati)",
       "switch": {
         "title": "Cronologia ricerche",
         "enable": "Attiva",
@@ -51,7 +51,7 @@
       "title": "Ricerca SKU"
     },
     "recommendations": {
-      "title": "Top Cliccati"
+      "title": "Top cliccati"
     },
     "facets": {
       "gender": "Genere",
@@ -66,8 +66,8 @@
       "runtimeMinutes": "Durata minuti"
     },
     "facetsPanel": {
-      "title": "ORDINA & FILTRA",
-      "viewResults": "MOSTRA {totalResults} RISULTATI"
+      "title": "Ordina & filtra",
+      "viewResults": "Vedi 1 risultato | Vedi {count} risultati"
     },
     "filters": {
       "all": "Tutto",
@@ -88,7 +88,7 @@
       "showAside": "Ordina & Filtra"
     },
     "totalResults": {
-      "message": "{totalResults} risultati per {query}"
+      "message": "1 risultato per {query} | {totalResults} risultati per {query}"
     },
     "semanticQueries": {
       "title": "Ti interessa \"{query}\"? Esplora questi suggerimenti:"
@@ -102,10 +102,10 @@
       }
     },
     "selectedFilters": {
-      "clear": "RIMUOVI {selectedFiltersNumber} FILTRI"
+      "clear": "Rimuovi 1 filtro | Rimuovi {count} filtri"
     },
     "result": {
-      "addToCart": "AGGIUNGI AL CARRELLO"
+      "addToCart": "Aggiungi al carrello"
     },
     "spellcheck": {
       "message": "Nessun risultato trovato per {query} Ecco i risultati per"
@@ -140,7 +140,7 @@
       "viewResults": "Mostra tutti"
     },
     "totalResults": {
-      "message": "{totalResults} risultati"
+      "message": "1 risultato | {totalResults} risultati"
     },
     "queryPreview": {
       "viewResults": "Mostra tutti"
