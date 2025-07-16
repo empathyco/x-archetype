@@ -2,63 +2,63 @@ name: Deploy
 description: Deploy project
 inputs:
   aws_role:
-    description: 'AWS role to assume'
+    description: AWS role to assume
     type: string
     required: true
   aws_deploy_path:
-    description: 'AWS S3 bucket to deploy'
+    description: AWS S3 bucket to deploy
     type: string
     required: true
   aws_s3_sync_args:
-    description: 'AWS S3 sync arguments'
+    description: AWS S3 sync arguments
     type: string
     default: --include '*' --exclude '*/*'
   aws_s3_cache:
-    description: 'AWS S3 cache control'
+    description: AWS S3 cache control
     type: string
     default: max-age=3600
   cloudfront_distribution_id:
-    description: 'Cloudfront distribution id'
+    description: Cloudfront distribution id
     type: string
     required: true
   cloudfront_invalidation_paths:
-    description: 'Cloudfront invalidation paths'
+    description: Cloudfront invalidation paths
     type: string
     required: true
   r2_account_id:
-    description: 'Cloudflare R2 account id'
+    description: Cloudflare R2 account id
     type: string
     required: true
   r2_access_key_id:
-    description: 'Cloudflare R2 access key id'
+    description: Cloudflare R2 access key id
     type: string
     required: true
   r2_secret_access_key:
-    description: 'Cloudflare R2 secret access key'
+    description: Cloudflare R2 secret access key
     type: string
     required: true
   r2_bucket:
-    description: 'Cloudflare R2 bucket'
+    description: Cloudflare R2 bucket
     type: string
     required: true
   r2_bucket_path:
-    description: 'Cloudflare R2 bucket path'
+    description: Cloudflare R2 bucket path
     type: string
     required: true
   r2_zone_id:
-    description: 'Cloudflare R2 zone id'
+    description: Cloudflare R2 zone id
     type: string
     required: true
   r2_api_token:
-    description: 'Cloudflare R2 API token'
+    description: Cloudflare R2 API token
     type: string
     required: true
   r2_purge_strategy:
-    description: 'Cloudflare R2 purge strategy'
+    description: Cloudflare R2 purge strategy
     type: string
     required: true
 runs:
-  using: 'composite'
+  using: composite
   steps:
     - name: Deploy project on Cloudfront S3
       uses: ./.github/actions/cloudfront-s3
