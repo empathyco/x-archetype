@@ -11,6 +11,9 @@ runs:
     - name: Installing dependencies
       run: npm ci
       shell: bash
+    - name: Run typecheck
+      run: npm run typecheck
+      shell: bash
     - name: Run linter
       run: npm run lint
       shell: bash
