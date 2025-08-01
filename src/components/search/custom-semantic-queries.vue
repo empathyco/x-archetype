@@ -1,5 +1,13 @@
 <template>
-  <SemanticQueries v-slot="{ queries, findSemanticQuery }">
+  <SemanticQueries
+    v-slot="{
+      queries,
+      findSemanticQuery,
+    }: {
+      queries: string[]
+      findSemanticQuery: (query: string) => any /* TODO use the real type */
+    }"
+  >
     <section>
       <h1
         v-if="isAnyQueryLoadedInPreview(queries)"

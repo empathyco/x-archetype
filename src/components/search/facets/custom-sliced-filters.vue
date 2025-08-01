@@ -1,5 +1,5 @@
 <template>
-  <SlicedFilters v-bind="$attrs" button-class="x-facet-filter-lg x-mt-8 x-w-full">
+  <SlicedFilters :filters :parent-id :max button-class="x-facet-filter-lg x-mt-8 x-w-full">
     <template #show-more>
       <PlusIcon class="x-icon-lg" />
       {{ $t('filters.showMore') }}
@@ -12,16 +12,21 @@
   </SlicedFilters>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
+import type { Filter } from '@empathyco/x-types'
 import { MinusIcon, PlusIcon } from '@empathyco/x-components'
 import { SlicedFilters } from '@empathyco/x-components/facets'
-import { defineComponent } from 'vue'
 
-export default defineComponent({
-  components: {
-    MinusIcon,
-    PlusIcon,
-    SlicedFilters,
-  },
-})
+defineProps<{
+  /** Copy of SlicedFilters props. TODO use SlicedFilters props type interface */
+  /** The list of filters to be rendered as slots. */
+  filters: Filter[]
+  /**
+   * This prop is used in the `HierarchicalFilter` component and only in that case. It is necessary
+   * to make the `renderedFilters` to return only the filters of each level of the hierarchy.
+   */
+  parentId?: string | number
+  /** The maximum number of filters to show. */
+  max: number
+}>()
 </script>
