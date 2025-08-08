@@ -32,7 +32,9 @@
             </QueryPreviewButton>
           </template>
           <DisplayClickProvider
-            result-feature="query-preview"
+            :result-feature="
+              'query-preview' as unknown as 'search' /* TODO add query-preview to Result feature or change the string */
+            "
             :query-tagging="queryTagging"
             :tooling-display-tagging="
               getToolingTagging(queryPreviewInfo, 'toolingDisplayClickTagging')

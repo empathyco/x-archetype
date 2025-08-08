@@ -1,9 +1,10 @@
+import type { TakeNavigationControl } from '@empathyco/x-components'
 import type { ComputedRef } from 'vue'
 import { use$x } from '@empathyco/x-components'
 import { computed } from 'vue'
 
 interface PredictiveHelpers {
-  navigationHijacker: { xEvent: string; moduleName: string; direction: string }[]
+  navigationHijacker: TakeNavigationControl[]
   showIdentifierResults: ComputedRef<boolean>
   showHistoryQueries: ComputedRef<boolean>
   showQuerySuggestions: ComputedRef<boolean>
@@ -18,7 +19,7 @@ interface PredictiveHelpers {
  * @returns The predictive utils.
  */
 export const usePredictiveHelpers = (): PredictiveHelpers => {
-  const navigationHijacker = [
+  const navigationHijacker: TakeNavigationControl[] = [
     { xEvent: 'UserPressedArrowKey', moduleName: 'scroll', direction: 'ArrowDown' },
     { xEvent: 'UserPressedArrowKey', moduleName: 'searchBox', direction: 'ArrowDown' },
   ]

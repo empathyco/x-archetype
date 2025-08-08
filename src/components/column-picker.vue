@@ -8,7 +8,7 @@
       <template #divider>
         <span class="x-button-group-divider x-mx-8 x-text-neutral-25" />
       </template>
-      <template #default="{ column }">
+      <template #default="{ column }: { column: 1 | 2 | 4 }">
         <component :is="icons[column]" class="x-icon-lg" />
       </template>
     </BaseColumnPickerList>

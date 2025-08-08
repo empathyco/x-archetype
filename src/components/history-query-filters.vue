@@ -12,12 +12,14 @@
 <script lang="ts">
 import type { Filter, HistoryQuery } from '@empathyco/x-types'
 import type { PropType } from 'vue'
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
+
+type FilterWithLabel = Filter & { label: string }
 
 export default defineComponent({
   props: {
     filtersList: {
-      type: Array as PropType<HistoryQuery['selectedFilters']>,
+      type: Array as PropType<Exclude<HistoryQuery['selectedFilters'], undefined>>,
       default: () => [],
     },
     showLength: {
@@ -27,11 +29,11 @@ export default defineComponent({
     },
   },
   setup(props) {
-    return {
-      filtersWithLabel: props.filtersList?.filter(
-        filter => (filter as Filter & { label?: string }).label,
-      ),
-    }
+    const filtersWithLabel = computed(() =>
+      props.filtersList.filter((f): f is FilterWithLabel => !!(f as FilterWithLabel).label),
+    )
+
+    return { filtersWithLabel }
   },
 })
 </script>

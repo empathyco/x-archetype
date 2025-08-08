@@ -29,6 +29,7 @@
 </template>
 
 <script lang="ts">
+import type { XEventsTypes } from '@empathyco/x-components'
 import { BaseEventButton, BaseEventsModal } from '@empathyco/x-components'
 import { defineComponent } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
@@ -40,16 +41,18 @@ export default defineComponent({
   },
   setup() {
     const { isTabletOrLess } = useDevice()
-    return {
-      isTabletOrLess,
-      eventsToOpenModal: ['UserClickedDisableHistoryQueries'],
-      eventsToCloseModal: [
-        'UserClickedConfirmDisableHistoryQueries',
-        'UserClickedDismissDisableHistoryQueries',
-      ],
-      dismissEvents: { UserClickedDismissDisableHistoryQueries: undefined },
-      confirmEvents: { UserClickedConfirmDisableHistoryQueries: undefined },
+    const eventsToOpenModal: (keyof XEventsTypes)[] = ['UserClickedDisableHistoryQueries']
+    const eventsToCloseModal: (keyof XEventsTypes)[] = [
+      'UserClickedConfirmDisableHistoryQueries',
+      'UserClickedDismissDisableHistoryQueries',
+    ]
+    const dismissEvents: Partial<XEventsTypes> = {
+      UserClickedDismissDisableHistoryQueries: undefined,
     }
+    const confirmEvents: Partial<XEventsTypes> = {
+      UserClickedConfirmDisableHistoryQueries: undefined,
+    }
+    return { isTabletOrLess, eventsToOpenModal, eventsToCloseModal, dismissEvents, confirmEvents }
   },
 })
 </script>

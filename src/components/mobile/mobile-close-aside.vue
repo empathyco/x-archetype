@@ -11,12 +11,16 @@
       class="x-button-lead x-flex-auto x-rounded-full x-py-12 x-uppercase"
       modal-id="aside-modal"
     >
-      {{ $t('facetsPanel.viewResults', x.totalResults, { count: x.totalResults }) }}
+      {{
+        $t('facetsPanel.viewResults', x.totalResults, { count: x.totalResults } as TranslateOptions)
+      }}
     </BaseIdModalClose>
   </div>
 </template>
 
 <script lang="ts">
+// eslint-disable-next-line unused-imports/no-unused-imports
+import type { TranslateOptions } from 'vue-i18n'
 import { BaseIdModalClose, use$x } from '@empathyco/x-components'
 import { ClearFilters } from '@empathyco/x-components/facets'
 import { defineComponent } from 'vue'
