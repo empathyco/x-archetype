@@ -88,7 +88,7 @@ export default defineComponent({
     return {
       isTabletOrLess,
       isDesktopOrGreater,
-      isTouchable
+      isTouchable,
     }
   },
 })

@@ -19,8 +19,10 @@
     "test:e2e": "start-server-and-test serve http://localhost:8080 cy:open",
     "test:e2e:ci": "start-server-and-test serve http://localhost:8080 cy:run",
     "test": "npm run test:e2e:ci",
-    "lint": "eslint 'src/**/*.{ts,tsx,vue}' 'tests/**/*.{ts,tsx,vue}'",
-    "lint:fix": "npm run lint -- --fix",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
     "install:local": "npm install file:$(ls ../x/packages/x-components/*.tgz | sort -V | tail -n 1) --no-save",
     "install:adapter-platform:local": "npm install file:$(ls ../x/packages/x-adapter-platform/*.tgz | sort -V | tail -n 1) --no-save",
     "install:types:local": "npm install file:$(ls ../x/packages/x-types/*.tgz | sort -V | tail -n 1) --no-save",
@@ -92,9 +94,9 @@
   },
   "prettier": "@empathyco/eslint-config/prettier",
   "lint-staged": {
-    "./{src,tests,build}/**/*.{vue,js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
+    "*": [
+      "eslint --fix --no-warn-ignored",
+      "prettier --write --list-different --ignore-unknown"
     ]
   }
 }

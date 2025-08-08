@@ -1,14 +1,14 @@
 # Learn more about CodeQL at https://codeql.github.com/docs/
 # Learn more about code scanning at https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
 #
-name: 'CodeQL'
+name: CodeQL
 
 on:
   push:
-    branches: ['main']
+    branches: [main]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: ['main']
+    branches: [main]
   schedule:
     # Runs periodically at 00:00 UTC on Monday
     - cron: '00 00 * * 1'

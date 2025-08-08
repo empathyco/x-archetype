@@ -1,7 +1,7 @@
 <template>
   <i18n-t
     v-if="x.noResults"
-    class="x-no-results-message x-text1 x-message desktop:x-text1-lg desktop:x-mt-24"
+    class="x-no-results-message x-message x-text1 desktop:x-text1-lg desktop:x-mt-24"
     keypath="noResults.message"
     :class="{ 'x-flex-col': isTabletOrLess }"
     tag="p"
