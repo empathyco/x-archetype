@@ -57,7 +57,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import {
   BaseIdModalClose,
   CrossTinyIcon,
@@ -66,23 +66,8 @@ import {
   use$x,
 } from '@empathyco/x-components'
 import { HistoryQuery, MyHistory } from '@empathyco/x-components/history-queries'
-import { defineComponent } from 'vue'
 import HistoryQueryFilters from '../history-query-filters.vue'
 
-export default defineComponent({
-  components: {
-    BaseIdModalClose,
-    CrossTinyIcon,
-    HistoryIcon,
-    MyHistory,
-    HistoryQuery,
-    HistoryQueryFilters,
-  },
-  setup() {
-    return {
-      animation: StaggeredFadeAndSlide,
-      x: use$x(),
-    }
-  },
-})
+const animation = StaggeredFadeAndSlide as any
+const x = use$x()
 </script>

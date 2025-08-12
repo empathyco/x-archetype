@@ -123,13 +123,12 @@
   </Empathize>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import type { XEventsTypes } from '@empathyco/x-components'
 import {
   animateScale,
   BaseIdModalOpen,
   BaseKeyboardNavigation,
-  BaseScroll,
   CrossTinyIcon,
   Highlight,
   HistoryIcon,
@@ -144,7 +143,6 @@ import {
   HistoryQueries,
   HistoryQuery,
 } from '@empathyco/x-components/history-queries'
-import { defineComponent } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composable'
 import HistoryQueryFilters from '../history-query-filters.vue'
@@ -154,69 +152,28 @@ import PredictivePopularSearches from './predictive-popular-searches.vue'
 import PredictiveQuerySuggestions from './predictive-query-suggestions.vue'
 import SlidingRecommendations from './sliding-recommendations.vue'
 
-export default defineComponent({
-  components: {
-    HistoryQueryFilters,
-    BaseScroll,
-    PredictivePopularSearches,
-    PredictiveNextQueries,
-    PredictiveQuerySuggestions,
-    PredictiveIdentifierResults,
-    BaseIdModalOpen,
-    BaseKeyboardNavigation,
-    ClearHistoryQueries,
-    CrossTinyIcon,
-    Empathize,
-    Highlight,
-    HistoryQuery,
-    HistoryIcon,
-    HistoryQueries,
-    SlidingRecommendations,
-    SettingsIcon,
-    TrashIcon,
-  },
-  setup() {
-    const empathizeAnimation = animateScale()
-    const suggestionsAnimation = StaggeredFadeAndSlide
-    const { isDesktopOrGreater, isTabletOrLess } = useDevice()
+const empathizeAnimation = animateScale()
+const suggestionsAnimation = StaggeredFadeAndSlide as any
+const { isDesktopOrGreater, isTabletOrLess } = useDevice()
 
-    const {
-      navigationHijacker,
-      showIdentifierResults,
-      showHistoryQueries,
-      showQuerySuggestions,
-      showNextQueries,
-      showPopularSearches,
-      showEmpathize,
-    } = usePredictiveHelpers()
+const {
+  navigationHijacker,
+  showIdentifierResults,
+  showHistoryQueries,
+  showQuerySuggestions,
+  showNextQueries,
+  showPopularSearches,
+  showEmpathize,
+} = usePredictiveHelpers()
 
-    const mobileCloseEvents: Array<keyof XEventsTypes> = [
-      'UserClosedEmpathize',
-      'UserSelectedASuggestion',
-      'UserPressedEnterKey',
-    ]
-    const desktopCloseEvents: Array<keyof XEventsTypes> = [
-      ...mobileCloseEvents,
-      'UserBlurredSearchBox',
-    ]
-    return {
-      isDesktopOrGreater,
-      isTabletOrLess,
-      empathizeAnimation,
-      suggestionsAnimation,
-      navigationHijacker,
-      showIdentifierResults,
-      showHistoryQueries,
-      showQuerySuggestions,
-      showNextQueries,
-      showPopularSearches,
-      showEmpathize,
-      desktopCloseEvents,
-      mobileCloseEvents,
-      x: use$x(),
-    }
-  },
-})
+const mobileCloseEvents: Array<keyof XEventsTypes> = [
+  'UserClosedEmpathize',
+  'UserSelectedASuggestion',
+  'UserPressedEnterKey',
+]
+const desktopCloseEvents: Array<keyof XEventsTypes> = [...mobileCloseEvents, 'UserBlurredSearchBox']
+
+const x = use$x()
 </script>
 <style lang="scss">
 .x-result-link:focus > * {

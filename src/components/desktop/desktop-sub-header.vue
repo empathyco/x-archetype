@@ -19,38 +19,23 @@
   </CollapseHeightAnimation>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { LocationProvider, use$x } from '@empathyco/x-components'
-import { defineAsyncComponent, defineComponent } from 'vue'
+import { defineAsyncComponent } from 'vue'
 import { useHasScrollPastThreshold } from '../../composables/use-has-scroll-past-threshold.composable'
 import CollapseHeightAnimation from '../collapse-height-animation.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
-
 import RelatedTags from '../search/related-tags.vue'
 import DesktopSearchboxAlign from './desktop-searchbox-align.vue'
 import DesktopToolbar from './desktop-toolbar.vue'
 
-export default defineComponent({
-  components: {
-    MaxDesktopWidthItem,
-    LocationProvider,
-    RelatedTags,
-    CollapseHeightAnimation,
-    DesktopToolbar,
-    DesktopSearchboxAlign,
-    SelectedFilters: defineAsyncComponent(() => import('../search').then(m => m.SelectedFilters)),
-  },
-  props: {
-    hasSearched: {
-      type: Boolean,
-    },
-    isFullPredictive: {
-      type: Boolean,
-    },
-  },
-  setup() {
-    const { hasScrolledPastThreshold } = useHasScrollPastThreshold()
-    return { hasScrolledPastThreshold, x: use$x() }
-  },
-})
+defineProps<{
+  hasSearched?: boolean
+  isFullPredictive?: boolean
+}>()
+
+const SelectedFilters = defineAsyncComponent(() => import('../search').then(m => m.SelectedFilters))
+
+const { hasScrolledPastThreshold } = useHasScrollPastThreshold()
+const x = use$x()
 </script>

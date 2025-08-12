@@ -18,17 +18,10 @@
   </div>
 </template>
 
-<script lang="ts">
-// eslint-disable-next-line unused-imports/no-unused-imports
+<script setup lang="ts">
 import type { TranslateOptions } from 'vue-i18n'
 import { BaseIdModalClose, use$x } from '@empathyco/x-components'
 import { ClearFilters } from '@empathyco/x-components/facets'
-import { defineComponent } from 'vue'
 
-export default defineComponent({
-  components: { BaseIdModalClose, ClearFilters },
-  setup() {
-    return { x: use$x() }
-  },
-})
+const x = use$x()
 </script>

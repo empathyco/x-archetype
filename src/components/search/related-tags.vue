@@ -28,7 +28,7 @@
   </SlidingPanel>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -40,28 +40,9 @@ import {
   use$x,
 } from '@empathyco/x-components'
 import { RelatedTags } from '@empathyco/x-components/related-tags'
-import { defineComponent } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 
-export default defineComponent({
-  components: {
-    ChevronLeftIcon,
-    ChevronRightIcon,
-    CrossTinyIcon,
-    PlusIcon,
-    RelatedTags,
-    SlidingPanel,
-    CuratedCheckIcon,
-  },
-
-  setup() {
-    const relatedTagsAnimation = StaggeredFadeAndSlide
-    const { isTouchable } = useDevice()
-    return {
-      relatedTagsAnimation,
-      isTouchable,
-      x: use$x(),
-    }
-  },
-})
+const relatedTagsAnimation = StaggeredFadeAndSlide as any
+const { isTouchable } = useDevice()
+const x = use$x()
 </script>

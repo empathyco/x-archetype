@@ -18,24 +18,13 @@
   </QuerySuggestions>
 </template>
 
-<script lang="ts">
-import { AnimationProp, Highlight, SearchIcon } from '@empathyco/x-components'
+<script setup lang="ts">
+import type { AnimationProp } from '@empathyco/x-components'
+import { Highlight, SearchIcon } from '@empathyco/x-components'
 import { QuerySuggestion, QuerySuggestions } from '@empathyco/x-components/query-suggestions'
-import { defineComponent } from 'vue'
 
-export default defineComponent({
-  components: {
-    SearchIcon,
-    Highlight,
-    QuerySuggestions,
-    QuerySuggestion,
-  },
-  props: {
-    animation: {
-      type: AnimationProp,
-      required: true,
-    },
-  },
-})
+defineProps<{
+  animation: typeof AnimationProp
+}>()
 </script>
 <style lang="scss"></style>

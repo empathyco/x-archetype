@@ -26,51 +26,36 @@
     </div>
   </div>
 </template>
-<script lang="ts">
+<script setup lang="ts">
 import type { RelatedPrompt, RelatedPromptNextQuery } from '@empathyco/x-types'
-import type { PropType } from 'vue'
 import { use$x, useState } from '@empathyco/x-components'
 import { relatedPromptsXModule } from '@empathyco/x-components/related-prompts'
-import { computed, defineComponent } from 'vue'
+import { computed } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 import CustomQueryPreview from '../search/results/custom-query-preview.vue'
 import RelatedPrompts from './related-prompts.vue'
 
-export default defineComponent({
+defineOptions({
   name: 'CustomRelatedPrompts',
   xModule: relatedPromptsXModule.name,
-  components: {
-    RelatedPrompts,
-    CustomQueryPreview,
-  },
-  props: {
-    relatedPromptList: {
-      type: Array as PropType<RelatedPrompt[]>,
-      default: () => [],
-    },
-  },
-  setup() {
-    const x = use$x()
-    const { isDesktopOrGreater } = useDevice()
-    const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
+})
 
-    const queriesPreviewInfo = computed(() => {
-      if (relatedPrompts.value.length) {
-        const queries = [] as string[]
-        relatedPrompts.value[selectedPrompt.value].relatedPromptNextQueries?.forEach(
-          (nextQuery: RelatedPromptNextQuery) => queries.push(nextQuery.query),
-        )
-        return queries.map(query => ({ query }))
-      }
-      return []
-    })
+defineProps<{
+  relatedPromptList?: RelatedPrompt[]
+}>()
 
-    return {
-      isDesktopOrGreater,
-      queriesPreviewInfo,
-      selectedPrompt,
-      x,
-    }
-  },
+const x = use$x()
+const { isDesktopOrGreater } = useDevice()
+const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
+
+const queriesPreviewInfo = computed(() => {
+  if (relatedPrompts.value.length) {
+    const queries = [] as string[]
+    relatedPrompts.value[selectedPrompt.value].relatedPromptNextQueries?.forEach(
+      (nextQuery: RelatedPromptNextQuery) => queries.push(nextQuery.query),
+    )
+    return queries.map(query => ({ query }))
+  }
+  return []
 })
 </script>

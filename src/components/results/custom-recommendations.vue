@@ -25,28 +25,16 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { BaseGrid, StaggeredFadeAndSlide, use$x } from '@empathyco/x-components'
 import { Recommendations } from '@empathyco/x-components/recommendations'
-import { computed, defineComponent } from 'vue'
+import { computed } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 import DisplayClickProvider from '../search/display-click-provider.vue'
 import Result from './result.vue'
 
-export default defineComponent({
-  components: {
-    BaseGrid,
-    DisplayClickProvider,
-    Recommendations,
-    Result,
-  },
-  setup() {
-    const { isMobile } = useDevice()
-    return {
-      staggeredFadeAndSlide: StaggeredFadeAndSlide,
-      columns: computed(() => (isMobile.value ? 2 : 4)),
-      x: use$x(),
-    }
-  },
-})
+const { isMobile } = useDevice()
+const staggeredFadeAndSlide = StaggeredFadeAndSlide as any
+const columns = computed(() => (isMobile.value ? 2 : 4))
+const x = use$x()
 </script>

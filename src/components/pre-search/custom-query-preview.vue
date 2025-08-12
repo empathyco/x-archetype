@@ -38,35 +38,22 @@
   </QueryPreviewList>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import type { QueryFeature } from '@empathyco/x-components'
 import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview'
-import type { PropType } from 'vue'
 import { ArrowRightIcon } from '@empathyco/x-components'
 import { QueryPreviewButton, QueryPreviewList } from '@empathyco/x-components/queries-preview'
-import { defineComponent } from 'vue'
 import CustomSlidingPanel from '../custom-sliding-panel.vue'
 import Result from '../results/result.vue'
 import DisplayClickProvider from '../search/display-click-provider.vue'
 
-export default defineComponent({
-  components: {
-    CustomSlidingPanel,
-    DisplayClickProvider,
-    Result,
-    ArrowRightIcon,
-    QueryPreviewList,
-    QueryPreviewButton,
-  },
-  props: {
-    queryFeature: {
-      type: String as PropType<QueryFeature>,
-      default: 'customer',
-    },
-    queriesPreviewInfo: {
-      type: Array as PropType<QueryPreviewInfo[]>,
-      default: () => [],
-    },
-  },
+interface Props {
+  queryFeature?: QueryFeature
+  queriesPreviewInfo?: QueryPreviewInfo[]
+}
+
+withDefaults(defineProps<Props>(), {
+  queryFeature: 'customer',
+  queriesPreviewInfo: () => [],
 })
 </script>

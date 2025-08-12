@@ -13,27 +13,13 @@
   </BaseHeaderTogglePanel>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import {
   animateScale,
   BaseHeaderTogglePanel,
   ChevronDownIcon,
   ChevronUpIcon,
 } from '@empathyco/x-components'
-import { defineComponent } from 'vue'
 
-export default defineComponent({
-  components: {
-    BaseHeaderTogglePanel,
-    ChevronDownIcon,
-    ChevronUpIcon,
-  },
-  setup() {
-    const animation = animateScale()
-
-    return {
-      animation,
-    }
-  },
-})
+const animation = animateScale()
 </script>

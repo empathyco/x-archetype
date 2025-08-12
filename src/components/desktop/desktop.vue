@@ -55,7 +55,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import {
   animateTranslate,
   BaseIdModal,
@@ -64,7 +64,7 @@ import {
   useState,
 } from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
-import { computed, defineAsyncComponent, defineComponent } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import MainComponent from '../main.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
@@ -74,44 +74,24 @@ import PreSearchManager from '../pre-search/pre-search-manager.vue'
 import ScrollToTop from '../scroll-to-top.vue'
 import DesktopTopSection from './desktop-top-section.vue'
 
-export default defineComponent({
-  components: {
-    DesktopTopSection,
-    MaxDesktopWidthItem,
-    BaseIdModal,
-    MyHistoryAside,
-    LocationProvider,
-    MainComponent,
-    MainScroll,
-    MyHistoryConfirmDisableModal,
-    Scroll,
-    ScrollToTop,
-    PreSearchManager,
-    DesktopAside: defineAsyncComponent(() => import('../search').then(m => m.DesktopAside)),
-    NoResultsMessage: defineAsyncComponent(() => import('../search').then(m => m.NoResultsMessage)),
-    SpellcheckMessage: defineAsyncComponent(() =>
-      import('../search').then(m => m.SpellcheckMessage),
-    ),
-    FallbackDisclaimerMessage: defineAsyncComponent(() =>
-      import('../search').then(m => m.FallbackDisclaimerMessage),
-    ),
-  },
-  setup() {
-    const x = use$x()
-    const rightAsideAnimation = animateTranslate('right')
-    const { hasSearched } = useHasSearched()
-    const { relatedPrompts } = useState('relatedPrompts')
-    const showNoResultsMessage = computed(
-      () => !relatedPrompts.value?.length && !x.semanticQueries.length,
-    )
+const x = use$x()
+const rightAsideAnimation = animateTranslate('right') as any
+const { hasSearched } = useHasSearched()
+const { relatedPrompts } = useState('relatedPrompts')
+const showNoResultsMessage = computed(
+  () => !relatedPrompts.value?.length && !x.semanticQueries.length,
+)
 
-    return {
-      hasSearched,
-      rightAsideAnimation,
-      showNoResultsMessage,
-    }
-  },
-})
+const DesktopAside = defineAsyncComponent(() => import('../search').then(m => m.DesktopAside))
+const NoResultsMessage = defineAsyncComponent(() =>
+  import('../search').then(m => m.NoResultsMessage),
+)
+const SpellcheckMessage = defineAsyncComponent(() =>
+  import('../search').then(m => m.SpellcheckMessage),
+)
+const FallbackDisclaimerMessage = defineAsyncComponent(() =>
+  import('../search').then(m => m.FallbackDisclaimerMessage),
+)
 </script>
 
 <style>

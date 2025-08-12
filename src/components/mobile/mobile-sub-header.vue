@@ -7,22 +7,14 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { LocationProvider } from '@empathyco/x-components'
-import { defineAsyncComponent, defineComponent } from 'vue'
-
+import { defineAsyncComponent } from 'vue'
 import MobileToolbar from '../mobile/mobile-toolbar.vue'
 
-export default defineComponent({
-  components: {
-    MobileToolbar,
-    LocationProvider,
-    RelatedTags: defineAsyncComponent(() => import('../search').then(m => m.RelatedTags)),
-  },
-  props: {
-    hasSearched: {
-      type: Boolean,
-    },
-  },
-})
+defineProps<{
+  hasSearched?: boolean
+}>()
+
+const RelatedTags = defineAsyncComponent(() => import('../search').then(m => m.RelatedTags))
 </script>

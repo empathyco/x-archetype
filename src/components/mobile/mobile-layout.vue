@@ -64,12 +64,11 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { animateTranslate, BaseIdModal, use$x } from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { useElementSize } from '@vueuse/core'
-import { computed, defineComponent, ref } from 'vue'
-
+import { computed, ref } from 'vue'
 import { useHasScrollPastThreshold } from '../../composables/use-has-scroll-past-threshold.composable'
 
 /**
@@ -77,40 +76,26 @@ import { useHasScrollPastThreshold } from '../../composables/use-has-scroll-past
  *
  * @public
  */
-export default defineComponent({
+defineOptions({
   name: 'MobileLayout',
-  components: {
-    BaseIdModal,
-    MainScroll,
-    Scroll,
-  },
-  setup() {
-    const toolbarWrapperRef = ref(null)
-
-    const x = use$x()
-    const closeEmpathize = (): void => {
-      x.emit('UserClosedEmpathize')
-    }
-    const { height } = useElementSize(toolbarWrapperRef, { width: 0, height: 48 })
-
-    const { hasScrolledPastThreshold } = useHasScrollPastThreshold()
-
-    const filtersAnimation = animateTranslate('bottom')
-    const myHistoryAnimation = animateTranslate('right')
-
-    const toolbarHeight = computed(() => `${height.value}px`)
-
-    return {
-      closeEmpathize,
-      filtersAnimation,
-      isScrollingDown: hasScrolledPastThreshold,
-      myHistoryAnimation,
-      toolbarHeight,
-      toolbarWrapperRef,
-      x,
-    }
-  },
 })
+
+const toolbarWrapperRef = ref(null)
+
+const x = use$x()
+const closeEmpathize = (): void => {
+  x.emit('UserClosedEmpathize')
+}
+const { height } = useElementSize(toolbarWrapperRef, { width: 0, height: 48 })
+
+const { hasScrolledPastThreshold } = useHasScrollPastThreshold()
+
+const filtersAnimation = animateTranslate('bottom')
+const myHistoryAnimation = animateTranslate('right')
+
+const toolbarHeight = computed(() => `${height.value}px`)
+
+const isScrollingDown = hasScrolledPastThreshold
 </script>
 
 <style scoped>

@@ -9,31 +9,24 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import type { Filter, HistoryQuery } from '@empathyco/x-types'
-import type { PropType } from 'vue'
-import { computed, defineComponent } from 'vue'
+import { computed } from 'vue'
 
 type FilterWithLabel = Filter & { label: string }
 
-export default defineComponent({
-  props: {
-    filtersList: {
-      type: Array as PropType<Exclude<HistoryQuery['selectedFilters'], undefined>>,
-      default: () => [],
-    },
-    showLength: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
+const props = withDefaults(
+  defineProps<{
+    filtersList?: Exclude<HistoryQuery['selectedFilters'], undefined>
+    showLength?: boolean
+  }>(),
+  {
+    filtersList: () => [],
+    showLength: false,
   },
-  setup(props) {
-    const filtersWithLabel = computed(() =>
-      props.filtersList.filter((f): f is FilterWithLabel => !!(f as FilterWithLabel).label),
-    )
+)
 
-    return { filtersWithLabel }
-  },
-})
+const filtersWithLabel = computed(() =>
+  props.filtersList.filter((f): f is FilterWithLabel => !!(f as FilterWithLabel).label),
+)
 </script>

@@ -11,17 +11,10 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import DesktopHeaderFullPredictive from './desktop-header-full-predictive.vue'
 import DesktopSubHeader from './desktop-sub-header.vue'
 
-export default defineComponent({
-  components: { DesktopSubHeader, DesktopHeaderFullPredictive },
-  setup() {
-    const { hasSearched } = useHasSearched()
-    return { hasSearched }
-  },
-})
+const { hasSearched } = useHasSearched()
 </script>

@@ -43,41 +43,27 @@
   </NextQueryPreview>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import type { NextQuery as NextQueryModel } from '@empathyco/x-types'
-import type { PropType } from 'vue'
 import { ArrowRightIcon, ItemsList, useGetter } from '@empathyco/x-components'
 import { NextQuery, NextQueryPreview } from '@empathyco/x-components/next-queries'
-import { computed, defineComponent } from 'vue'
+import { computed } from 'vue'
 import { useDevice } from '../../../composables/use-device.composable'
 import CustomSlidingPanel from '../../custom-sliding-panel.vue'
 import Result from '../../results/result.vue'
 import DisplayClickProvider from '../display-click-provider.vue'
 
-export default defineComponent({
-  components: {
-    CustomSlidingPanel,
-    NextQuery,
-    Result,
-    ArrowRightIcon,
-    ItemsList,
-    NextQueryPreview,
-    DisplayClickProvider,
-  },
-  props: {
-    nextQuery: { type: Object as PropType<NextQueryModel>, required: true },
-  },
-  setup() {
-    const { isTabletOrLess } = useDevice()
-    const maxItemsToRender = computed(() => (isTabletOrLess.value ? undefined : 5))
-    const queryGetter = useGetter('nextQueries', ['query'])
+interface Props {
+  nextQuery: NextQueryModel
+}
 
-    return {
-      maxItemsToRender,
-      query: queryGetter.query,
-    }
-  },
-})
+defineProps<Props>()
+
+const { isTabletOrLess } = useDevice()
+const maxItemsToRender = computed(() => (isTabletOrLess.value ? undefined : 5))
+const queryGetter = useGetter('nextQueries', ['query'])
+
+const query = queryGetter.query
 </script>
 
 <style lang="scss">

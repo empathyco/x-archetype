@@ -19,24 +19,13 @@
   </IdentifierResults>
 </template>
 
-<script lang="ts">
-import { AnimationProp, BarCodeIcon, BaseResultLink } from '@empathyco/x-components'
+<script setup lang="ts">
+import type { AnimationProp } from '@empathyco/x-components'
+import { BarCodeIcon, BaseResultLink } from '@empathyco/x-components'
 import { IdentifierResult, IdentifierResults } from '@empathyco/x-components/identifier-results'
-import { defineComponent } from 'vue'
 
-export default defineComponent({
-  components: {
-    BarCodeIcon,
-    BaseResultLink,
-    IdentifierResults,
-    IdentifierResult,
-  },
-  props: {
-    animation: {
-      type: AnimationProp,
-      required: true,
-    },
-  },
-})
+defineProps<{
+  animation: typeof AnimationProp
+}>()
 </script>
 <style lang="scss"></style>

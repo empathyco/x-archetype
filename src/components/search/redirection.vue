@@ -24,16 +24,11 @@
   </RedirectionComponent>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { AutoProgressBar } from '@empathyco/x-components'
 import { Redirection as RedirectionComponent } from '@empathyco/x-components/search'
-import { defineComponent } from 'vue'
 
-export default defineComponent({
+defineOptions({
   name: 'Redirection',
-  components: {
-    AutoProgressBar,
-    RedirectionComponent,
-  },
 })
 </script>

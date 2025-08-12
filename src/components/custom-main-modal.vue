@@ -10,36 +10,20 @@
   </MainModal>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { animateClipPath, MainModal, use$x } from '@empathyco/x-components'
-import { computed, defineComponent } from 'vue'
+import { computed } from 'vue'
 import { useDevice } from '../composables/use-device.composable'
 import Desktop from './desktop/desktop.vue'
 import Mobile from './mobile/mobile.vue'
 
-export default defineComponent({
-  components: {
-    MainModal,
-    Mobile,
-    Desktop,
-  },
-  setup() {
-    const { deviceName, isDesktopOrGreater, isTabletOrLess } = useDevice()
-    const animation = animateClipPath()
-    const x = use$x()
+const { deviceName, isDesktopOrGreater, isTabletOrLess } = useDevice()
+const animation = animateClipPath()
+const x = use$x()
 
-    const overflowClass = computed(() =>
-      !isDesktopOrGreater.value && x.query.searchBox ? '!x-overflow-clip x-touch-none' : '',
-    )
+const overflowClass = computed(() =>
+  !isDesktopOrGreater.value && x.query.searchBox ? '!x-overflow-clip x-touch-none' : '',
+)
 
-    const contentClass = computed(() => `${overflowClass.value}`)
-
-    return {
-      animation,
-      contentClass,
-      deviceName,
-      isTabletOrLess,
-    }
-  },
-})
+const contentClass = computed(() => `${overflowClass.value}`)
 </script>

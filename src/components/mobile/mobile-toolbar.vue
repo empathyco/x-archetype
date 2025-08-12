@@ -26,18 +26,9 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { use$x } from '@empathyco/x-components'
-import { defineComponent } from 'vue'
 import ColumnPicker from '../column-picker.vue'
 
-export default defineComponent({
-  components: {
-    ColumnPicker,
-  },
-  setup() {
-    const x = use$x()
-    return { x }
-  },
-})
+const x = use$x()
 </script>

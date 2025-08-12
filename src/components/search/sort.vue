@@ -23,35 +23,15 @@
   </CustomHeaderTogglePanel>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import type { Sort } from '@empathyco/x-types'
-import {
-  animateScale,
-  RadioButtonSelectedIcon,
-  RadioButtonUnselectedIcon,
-  use$x,
-} from '@empathyco/x-components'
+import { RadioButtonSelectedIcon, RadioButtonUnselectedIcon, use$x } from '@empathyco/x-components'
 import { SortPickerList } from '@empathyco/x-components/search'
-import { defineComponent } from 'vue'
 import CustomHeaderTogglePanel from '../custom-header-toggle-panel.vue'
 
-export default defineComponent({
-  components: {
-    SortPickerList,
-    CustomHeaderTogglePanel,
-    RadioButtonSelectedIcon,
-    RadioButtonUnselectedIcon,
-  },
-  setup() {
-    const animation = animateScale()
-    const sortValues: Sort[] = ['', 'price asc', 'price desc']
-    return {
-      animation,
-      sortValues,
-      x: use$x(),
-    }
-  },
-})
+// const animation = animateScale()
+const sortValues: Sort[] = ['', 'price asc', 'price desc']
+const x = use$x()
 </script>
 
 <style lang="scss">

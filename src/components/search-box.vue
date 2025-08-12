@@ -33,34 +33,15 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { CrossTinyIcon, SearchIcon, use$x } from '@empathyco/x-components'
 import { ClearSearchInput, SearchButton, SearchInput } from '@empathyco/x-components/search-box'
-import { defineComponent, ref } from 'vue'
+import { ref } from 'vue'
 import { useDevice } from '../composables/use-device.composable'
 import { useSpeechRecognition } from '../composables/use-speech-recognition-composable'
 
-export default defineComponent({
-  components: {
-    ClearSearchInput,
-    CrossTinyIcon,
-    SearchButton,
-    SearchInput,
-    SearchIcon,
-  },
-  setup() {
-    const { isDesktopOrGreater } = useDevice()
-    const x = use$x()
-    const searchInputRef = ref<InstanceType<typeof SearchInput>>(null as any)
-    const { isListening, toggleVoiceRecognition } = useSpeechRecognition(searchInputRef)
-
-    return {
-      isDesktopOrGreater,
-      x,
-      searchInputRef,
-      isListening,
-      toggleVoiceRecognition,
-    }
-  },
-})
+const { isDesktopOrGreater } = useDevice()
+const x = use$x()
+const searchInputRef = ref<InstanceType<typeof SearchInput>>(null as any)
+const { isListening, toggleVoiceRecognition } = useSpeechRecognition(searchInputRef)
 </script>

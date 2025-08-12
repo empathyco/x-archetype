@@ -15,36 +15,24 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import {
   BaseColumnPickerList,
   Grid1ColIcon,
   Grid2ColIcon,
   Grid4ColIcon,
 } from '@empathyco/x-components'
-import { computed, defineComponent } from 'vue'
+import { computed } from 'vue'
 import { useDevice } from '../composables/use-device.composable'
 import { useExperienceControls } from '../composables/use-experience-controls.composable'
 
-export default defineComponent({
-  components: {
-    BaseColumnPickerList,
-    Grid1ColIcon,
-    Grid2ColIcon,
-    Grid4ColIcon,
-  },
-  setup() {
-    const { isMobile } = useDevice()
-    const { getControlFromPath } = useExperienceControls()
+const { isMobile } = useDevice()
+const { getControlFromPath } = useExperienceControls()
 
-    const columns = computed(() =>
-      isMobile.value ? [2, 1] : getControlFromPath('layout.columnSelector', [4, 2]).value,
-    )
+const columns = computed(() =>
+  isMobile.value ? [2, 1] : getControlFromPath('layout.columnSelector', [4, 2]).value,
+)
 
-    return {
-      values: columns,
-      icons: { 1: 'Grid1ColIcon', 2: 'Grid2ColIcon', 4: 'Grid4ColIcon' },
-    }
-  },
-})
+const values = columns
+const icons = { 1: Grid1ColIcon, 2: Grid2ColIcon, 4: Grid4ColIcon }
 </script>
