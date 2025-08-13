@@ -103,6 +103,7 @@ export function createConfig({
       styles(mergeConfig('styles')),
       typescript(
         mergeConfig('typescript', {
+          check: false,
           tsconfigOverride: {
             exclude: ['node_modules', '**/*.spec.ts', '*test*'],
           },
