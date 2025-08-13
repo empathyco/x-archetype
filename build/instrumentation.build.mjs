@@ -13,7 +13,6 @@ import sourcemaps from 'rollup-plugin-sourcemaps'
 import styles from 'rollup-plugin-styles'
 import { terser } from 'rollup-plugin-terser'
 import typescript from 'rollup-plugin-typescript2'
-import { visualizer } from 'rollup-plugin-visualizer'
 
 /**
  * Creates a rollup configuration for projects that use X-Components. This configuration can be
@@ -130,9 +129,6 @@ export function createConfig({
           output: { comments: false },
         }),
       ),
-      /* Can't calculate real minified size with `sourcemap: true` and `gzipSize: true`:
-       https://github.com/btd/rollup-plugin-visualizer/issues/72 */
-      visualizer(mergeConfig('visualizer', { sourcemap: true })),
       ...postPlugins,
     ],
   }
