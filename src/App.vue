@@ -115,11 +115,11 @@ const reloadSearch = (): void => {
 }
 
 onMounted(() => {
-  document.addEventListener('wysiwyg:reloadSearch', () => reloadSearch())
+  document.addEventListener('wysiwyg:reloadSearch', reloadSearch)
 })
 
 onBeforeUnmount(() => {
-  document.removeEventListener('wysiwyg:reloadSearch', () => reloadSearch())
+  document.removeEventListener('wysiwyg:reloadSearch', reloadSearch)
 })
 
 //fix keyboard issue on iOS
