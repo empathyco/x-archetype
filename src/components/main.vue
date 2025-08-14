@@ -34,7 +34,8 @@ import CustomSemanticQueries from './search/custom-semantic-queries.vue'
 defineOptions({
   name: 'MainComponent',
 })
-
+const PartialResults = defineAsyncComponent(() => import('./search').then(m => m.PartialResults))
+const Redirection = defineAsyncComponent(() => import('./search').then(m => m.Redirection))
 const Results = defineAsyncComponent(() => import('./search').then(m => m.Results))
 
 const { hasSearched } = useHasSearched()
