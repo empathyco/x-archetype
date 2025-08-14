@@ -78,10 +78,6 @@ interface Props {
   queriesPreviewInfo?: QueryPreviewInfo[]
 }
 
-defineOptions({
-  name: 'CustomQueryPreview',
-})
-
 const props = withDefaults(defineProps<Props>(), {
   queryFeature: 'customer',
   queriesPreviewInfo: () => [],

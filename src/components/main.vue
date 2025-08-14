@@ -31,9 +31,6 @@ import CustomRelatedPrompts from './related-prompts/custom-related-prompts.vue'
 import CustomRecommendations from './results/custom-recommendations.vue'
 import CustomSemanticQueries from './search/custom-semantic-queries.vue'
 
-defineOptions({
-  name: 'MainComponent',
-})
 const PartialResults = defineAsyncComponent(() => import('./search').then(m => m.PartialResults))
 const Redirection = defineAsyncComponent(() => import('./search').then(m => m.Redirection))
 const Results = defineAsyncComponent(() => import('./search').then(m => m.Results))

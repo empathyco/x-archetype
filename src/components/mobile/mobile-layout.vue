@@ -76,10 +76,6 @@ import { useHasScrollPastThreshold } from '../../composables/use-has-scroll-past
  *
  * @public
  */
-defineOptions({
-  name: 'MobileLayout',
-})
-
 const toolbarWrapperRef = ref(null)
 
 const x = use$x()

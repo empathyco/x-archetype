@@ -14,10 +14,6 @@ interface Props {
   queryTagging?: TaggingRequest
 }
 
-defineOptions({
-  name: 'DisplayClickProvider',
-})
-
 const props = withDefaults(defineProps<Props>(), {
   ignoreResultClickEvent: false,
   queryTagging: undefined,

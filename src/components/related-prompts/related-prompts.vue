@@ -43,10 +43,6 @@ import {
 import { RelatedPrompt, RelatedPromptsTagList } from '@empathyco/x-components/related-prompts'
 import { computed } from 'vue'
 
-defineOptions({
-  name: 'RelatedPrompts',
-})
-
 const { selectedPrompt } = useState('relatedPrompts')
 const tagClass = computed(() =>
   selectedPrompt.value !== -1

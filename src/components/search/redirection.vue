@@ -27,8 +27,4 @@
 <script setup lang="ts">
 import { AutoProgressBar } from '@empathyco/x-components'
 import { Redirection as RedirectionComponent } from '@empathyco/x-components/search'
-
-defineOptions({
-  name: 'Redirection',
-})
 </script>

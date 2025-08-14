@@ -44,7 +44,7 @@
         <PreSearchManager class="x-z-10 x-mt-16" />
       </LocationProvider>
       <LocationProvider location="results">
-        <MainComponent />
+        <Main />
       </LocationProvider>
     </template>
 
@@ -70,7 +70,7 @@ import {
 } from '@empathyco/x-components'
 import { computed, defineAsyncComponent } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
-import MainComponent from '../main.vue'
+import Main from '../main.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
 import PreSearchManager from '../pre-search/pre-search-manager.vue'

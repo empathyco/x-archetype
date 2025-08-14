@@ -36,7 +36,6 @@ import CustomQueryPreview from '../search/results/custom-query-preview.vue'
 import RelatedPrompts from './related-prompts.vue'
 
 defineOptions({
-  name: 'CustomRelatedPrompts',
   xModule: relatedPromptsXModule.name,
 })
 
