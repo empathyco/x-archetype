@@ -35,10 +35,7 @@ import { ArrowRightIcon, ItemsList } from '@empathyco/x-components'
 import { PartialQueryButton, PartialResultsList } from '@empathyco/x-components/search'
 import { useDevice } from '../../../composables/use-device.composable'
 import CustomSlidingPanel from '../../custom-sliding-panel.vue'
-import ResultComponent from '../../results/result.vue'
+import Result from '../../results/result.vue'
 
 const { isTabletOrGreater } = useDevice()
-
-// Components available in template
-const Result = ResultComponent
 </script>

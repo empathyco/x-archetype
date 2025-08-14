@@ -21,9 +21,7 @@ const { deviceName, isDesktopOrGreater, isTabletOrLess } = useDevice()
 const animation = animateClipPath()
 const x = use$x()
 
-const overflowClass = computed(() =>
+const contentClass = computed(() =>
   !isDesktopOrGreater.value && x.query.searchBox ? '!x-overflow-clip x-touch-none' : '',
 )
-
-const contentClass = computed(() => `${overflowClass.value}`)
 </script>

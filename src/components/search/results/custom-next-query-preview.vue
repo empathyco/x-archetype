@@ -61,9 +61,7 @@ defineProps<Props>()
 
 const { isTabletOrLess } = useDevice()
 const maxItemsToRender = computed(() => (isTabletOrLess.value ? undefined : 5))
-const queryGetter = useGetter('nextQueries', ['query'])
-
-const query = queryGetter.query
+const { query } = useGetter('nextQueries')
 </script>
 
 <style lang="scss">
