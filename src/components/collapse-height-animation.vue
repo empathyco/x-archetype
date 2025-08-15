@@ -9,16 +9,10 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  props: {
-    isCollapsed: {
-      type: Boolean,
-    },
-  },
-})
+<script setup lang="ts">
+defineProps<{
+  isCollapsed?: boolean
+}>()
 </script>
 
 <style lang="scss" scoped>

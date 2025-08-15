@@ -47,7 +47,7 @@
   </ResultsList>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import type { RelatedPromptNextQuery } from '@empathyco/x-types'
 import {
   BaseVariableColumnGrid,
@@ -65,67 +65,37 @@ import {
   PromotedsList,
   ResultsList,
 } from '@empathyco/x-components/search'
-import { computed, defineComponent } from 'vue'
+import { computed } from 'vue'
 import { useDevice } from '../../../composables/use-device.composable'
-import { useExperienceControls } from '../../../composables/use-experience-controls.composable'
 import RelatedPrompts from '../../related-prompts/related-prompts.vue'
 import Result from '../../results/result.vue'
 import CustomQueryPreview from './custom-query-preview.vue'
 
-export default defineComponent({
-  components: {
-    RelatedPrompts,
-    Banner,
-    BannersList,
-    BaseVariableColumnGrid,
-    CustomQueryPreview,
-    MainScrollItem,
-    Promoted,
-    PromotedsList,
-    RelatedPromptsList,
-    Result,
-    ResultsList,
-  },
-  directives: {
-    'infinite-scroll': infiniteScroll,
-  },
-  setup() {
-    const x = use$x()
-    const { isMobile } = useDevice()
-    const { getControlFromPath } = useExperienceControls()
+const x = use$x()
+const { isMobile } = useDevice()
 
-    const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
+const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
 
-    const { config } = useState('search')
+const { config } = useState('search')
 
-    const columns = computed(() => (isMobile.value ? 2 : 4))
+const columns = computed(() => (isMobile.value ? 2 : 4))
 
-    const isLowResult = computed(
-      () => x.totalResults > 0 && x.totalResults < config.value?.pageSize,
+const isLowResult = computed(() => x.totalResults > 0 && x.totalResults < config.value?.pageSize)
+
+const queriesPreviewInfo = computed(() => {
+  if (relatedPrompts.value.length) {
+    const queries = [] as string[]
+    relatedPrompts.value[selectedPrompt.value].relatedPromptNextQueries?.forEach(
+      (nextQuery: RelatedPromptNextQuery) => queries.push(nextQuery.query),
     )
-
-    const queriesPreviewInfo = computed(() => {
-      if (relatedPrompts.value.length) {
-        const queries = [] as string[]
-        relatedPrompts.value[selectedPrompt.value].relatedPromptNextQueries?.forEach(
-          (nextQuery: RelatedPromptNextQuery) => queries.push(nextQuery.query),
-        )
-        return queries.map(query => ({ query }))
-      }
-      return []
-    })
-
-    return {
-      columns,
-      isLowResult,
-      maxNextQueriesPerGroup: getControlFromPath('nextQueries.maxItems', 1),
-      queriesPreviewInfo,
-      selectedPrompt,
-      staggeredFadeAndSlide: StaggeredFadeAndSlide,
-      x,
-    }
-  },
+    return queries.map(query => ({ query }))
+  }
+  return []
 })
+
+const staggeredFadeAndSlide = StaggeredFadeAndSlide as any
+
+const vInfiniteScroll = infiniteScroll
 </script>
 
 <style lang="scss">

@@ -14,24 +14,12 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { BaseScroll, use$x } from '@empathyco/x-components'
-import { defineComponent } from 'vue'
 import MobileCloseAside from '../mobile/mobile-close-aside.vue'
 import CustomFacets from './facets/custom-facets.vue'
 import SelectedFilters from './facets/selected-filters.vue'
 import Sort from './sort.vue'
 
-export default defineComponent({
-  components: {
-    BaseScroll,
-    CustomFacets,
-    MobileCloseAside,
-    SelectedFilters,
-    Sort,
-  },
-  setup() {
-    return { x: use$x() }
-  },
-})
+const x = use$x()
 </script>

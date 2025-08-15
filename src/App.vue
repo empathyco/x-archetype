@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import type { SnippetConfig, UrlParams, XEvent } from '@empathyco/x-components'
 import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview'
 import type { InternalSearchRequest, InternalSearchResponse } from '@empathyco/x-components/search'
@@ -23,7 +23,6 @@ import { useEventListener } from '@vueuse/core'
 import {
   computed,
   defineAsyncComponent,
-  defineComponent,
   getCurrentInstance,
   inject,
   onBeforeUnmount,
@@ -37,115 +36,96 @@ import { isIOS, removeSearchInputFocus } from './composables/use-ios-utils-compo
 import currencies from './i18n/currencies'
 import './tailwind/index.css'
 
-export default defineComponent({
-  components: {
-    SnippetCallbacks,
-    SnippetConfigExtraParams,
-    Tagging,
-    UrlHandler,
-    ExperienceControls,
-    MainModal: defineAsyncComponent(() =>
-      import('./components/custom-main-modal.vue').then(m => m.default),
-    ),
-  },
-  setup() {
-    const xBus = useXBus()
-    const appInstance = getCurrentInstance()
-    const { deviceName } = useDevice()
-    const snippetConfig = inject<SnippetConfig>('snippetConfig')!
-    const isOpen = ref(false)
+const MainModal = defineAsyncComponent(() =>
+  import('./components/custom-main-modal.vue').then(m => m.default),
+)
 
-    const openXEvents = ['UserOpenXProgrammatically', 'UserClickedOpenX']
+const xBus = useXBus()
+const appInstance = getCurrentInstance()
+const { deviceName } = useDevice()
+const snippetConfig = inject<SnippetConfig>('snippetConfig')!
+const isOpen = ref(false)
 
-    const open = (): void => {
-      isOpen.value = true
-      window.wysiwyg?.open()
-    }
+const openXEvents = ['UserOpenXProgrammatically', 'UserClickedOpenX']
 
-    openXEvents.forEach(event => xBus.on(event as XEvent, false).subscribe(open))
+const open = (): void => {
+  isOpen.value = true
+  window.wysiwyg?.open()
+}
 
-    const close = (): void => {
-      window.wysiwyg?.close()
-    }
+openXEvents.forEach(event => xBus.on(event as XEvent, false).subscribe(open))
 
-    xBus.on('UserClickedCloseX', false).subscribe(close)
+const close = (): void => {
+  window.wysiwyg?.close()
+}
 
-    xBus.on('UserAcceptedAQuery', false).subscribe(async (query): Promise<void> => {
-      if (/^::\s*login/.test(query)) {
-        await window.wysiwyg?.goToLogin()
-      }
-    })
+xBus.on('UserClickedCloseX', false).subscribe(close)
 
-    xBus
-      .on('SearchRequestChanged', false)
-      .subscribe((payload: InternalSearchRequest | null): void => {
-        window.wysiwyg?.setContext({ query: payload?.query, spellcheckedQuery: undefined })
-      })
-
-    xBus.on('SearchResponseChanged', false).subscribe((payload: InternalSearchResponse): void => {
-      if (payload.spellcheck) {
-        window.wysiwyg?.setContext({ spellcheckedQuery: payload.spellcheck })
-      }
-    })
-
-    xBus.on('ParamsLoadedFromUrl', false).subscribe(async (payload: UrlParams): Promise<void> => {
-      try {
-        if (window.wysiwyg) {
-          await window.wysiwyg?.requestAuth()
-          window.InterfaceX?.search()
-          window.wysiwyg?.setContext({ query: payload.query })
-        }
-      } catch {
-        // No error handling
-      }
-    })
-
-    const documentDirection = computed(() => {
-      return (
-        document.documentElement.dir ||
-        document.body.dir ||
-        (snippetConfig.documentDirection ?? 'ltr')
-      )
-    })
-
-    const currencyFormat = computed(() => currencies[snippetConfig.currency!])
-    provide<string>('currencyFormat', currencyFormat.value)
-
-    const queriesPreviewInfo = computed(() => snippetConfig.queriesPreview ?? [])
-    provide<ComputedRef<QueryPreviewInfo[]> | undefined>('queriesPreviewInfo', queriesPreviewInfo)
-
-    watch(
-      () => snippetConfig.uiLang,
-      uiLang => appInstance?.appContext.config.globalProperties.$setLocale(uiLang ?? 'en'),
-    )
-
-    watch(deviceName, device =>
-      appInstance?.appContext.config.globalProperties.$setLocaleDevice(device),
-    )
-
-    const reloadSearch = (): void => {
-      xBus.emit('ReloadSearchRequested')
-    }
-
-    onMounted(() => {
-      document.addEventListener('wysiwyg:reloadSearch', () => reloadSearch())
-    })
-
-    onBeforeUnmount(() => {
-      document.removeEventListener('wysiwyg:reloadSearch', () => reloadSearch())
-    })
-
-    //fix keyboard issue on iOS
-    if (isIOS()) {
-      useEventListener(document, 'touchmove', removeSearchInputFocus)
-    }
-
-    return {
-      isOpen,
-      documentDirection,
-    }
-  },
+xBus.on('UserAcceptedAQuery', false).subscribe(async (query): Promise<void> => {
+  if (/^::\s*login/.test(query)) {
+    await window.wysiwyg?.goToLogin()
+  }
 })
+
+xBus.on('SearchRequestChanged', false).subscribe((payload: InternalSearchRequest | null): void => {
+  window.wysiwyg?.setContext({ query: payload?.query, spellcheckedQuery: undefined })
+})
+
+xBus.on('SearchResponseChanged', false).subscribe((payload: InternalSearchResponse): void => {
+  if (payload.spellcheck) {
+    window.wysiwyg?.setContext({ spellcheckedQuery: payload.spellcheck })
+  }
+})
+
+xBus.on('ParamsLoadedFromUrl', false).subscribe(async (payload: UrlParams): Promise<void> => {
+  try {
+    if (window.wysiwyg) {
+      await window.wysiwyg?.requestAuth()
+      window.InterfaceX?.search()
+      window.wysiwyg?.setContext({ query: payload.query })
+    }
+  } catch {
+    // No error handling
+  }
+})
+
+const documentDirection = computed(() => {
+  return (
+    document.documentElement.dir || document.body.dir || (snippetConfig.documentDirection ?? 'ltr')
+  )
+})
+
+const currencyFormat = computed(() => currencies[snippetConfig.currency!])
+provide<string>('currencyFormat', currencyFormat.value)
+
+const queriesPreviewInfo = computed(() => snippetConfig.queriesPreview ?? [])
+provide<ComputedRef<QueryPreviewInfo[]> | undefined>('queriesPreviewInfo', queriesPreviewInfo)
+
+watch(
+  () => snippetConfig.uiLang,
+  uiLang => appInstance?.appContext.config.globalProperties.$setLocale(uiLang ?? 'en'),
+)
+
+watch(deviceName, device =>
+  appInstance?.appContext.config.globalProperties.$setLocaleDevice(device),
+)
+
+const reloadSearch = (): void => {
+  xBus.emit('ReloadSearchRequested')
+}
+
+onMounted(() => {
+  document.addEventListener('wysiwyg:reloadSearch', reloadSearch)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('wysiwyg:reloadSearch', reloadSearch)
+})
+
+//fix keyboard issue on iOS
+if (isIOS()) {
+  useEventListener(document, 'touchmove', removeSearchInputFocus)
+}
 </script>
 
 <style scoped>

@@ -32,7 +32,7 @@
   </RelatedPromptsTagList>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -41,26 +41,15 @@ import {
   useState,
 } from '@empathyco/x-components'
 import { RelatedPrompt, RelatedPromptsTagList } from '@empathyco/x-components/related-prompts'
-import { computed, defineComponent } from 'vue'
-export default defineComponent({
-  name: 'RelatedPrompts',
-  components: {
-    DisplayEmitter,
-    ChevronLeftIcon,
-    ChevronRightIcon,
-    RelatedPromptsTagList,
-    RelatedPrompt,
-  },
-  setup() {
-    const { selectedPrompt } = useState('relatedPrompts')
-    const tagClass = computed(() =>
-      selectedPrompt.value !== -1
-        ? 'x-rounded-t-md x-gap-8 x-w-[300px] x-p-8'
-        : 'x-rounded-md x-gap-8 x-w-[300px] x-p-8',
-    )
-    return { x: use$x(), tagClass }
-  },
-})
+import { computed } from 'vue'
+
+const { selectedPrompt } = useState('relatedPrompts')
+const tagClass = computed(() =>
+  selectedPrompt.value !== -1
+    ? 'x-rounded-t-md x-gap-8 x-w-[300px] x-p-8'
+    : 'x-rounded-md x-gap-8 x-w-[300px] x-p-8',
+)
+const x = use$x()
 </script>
 
 <style>

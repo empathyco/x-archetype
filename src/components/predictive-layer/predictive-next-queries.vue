@@ -22,24 +22,13 @@
   </div>
 </template>
 
-<script lang="ts">
-import { AnimationProp, CuratedCheckIcon, LightBulbOn } from '@empathyco/x-components'
+<script setup lang="ts">
+import type { AnimationProp } from '@empathyco/x-components'
+import { CuratedCheckIcon, LightBulbOn } from '@empathyco/x-components'
 import { NextQueries, NextQuery } from '@empathyco/x-components/next-queries'
-import { defineComponent } from 'vue'
 
-export default defineComponent({
-  components: {
-    CuratedCheckIcon,
-    LightBulbOn,
-    NextQuery,
-    NextQueries,
-  },
-  props: {
-    animation: {
-      type: AnimationProp,
-      required: true,
-    },
-  },
-})
+defineProps<{
+  animation: typeof AnimationProp
+}>()
 </script>
 <style lang="scss"></style>

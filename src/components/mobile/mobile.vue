@@ -44,7 +44,7 @@
         <PreSearchManager class="x-z-10 x-mt-16" />
       </LocationProvider>
       <LocationProvider location="results">
-        <MainComponent />
+        <Main />
       </LocationProvider>
     </template>
 
@@ -60,18 +60,17 @@
   </MobileLayout>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import {
-  animateTranslate,
   ArrowLeftIcon,
   CloseMainModal,
   LocationProvider,
   use$x,
   useState,
 } from '@empathyco/x-components'
-import { computed, defineAsyncComponent, defineComponent } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
-import MainComponent from '../main.vue'
+import Main from '../main.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
 import PreSearchManager from '../pre-search/pre-search-manager.vue'
@@ -82,47 +81,21 @@ import MobileLayout from './mobile-layout.vue'
 import MobileOpenAside from './mobile-open-aside.vue'
 import MobileSubHeader from './mobile-sub-header.vue'
 
-export default defineComponent({
-  components: {
-    ArrowLeftIcon,
-    CloseMainModal,
-    PreSearchManager,
-    LocationProvider,
-    MobileSubHeader,
-    MainComponent,
-    MyHistoryAside,
-    MobileLayout,
-    MobileOpenAside,
-    MyHistoryConfirmDisableModal,
-    PredictiveLayer,
-    ScrollToTop,
-    SearchBox,
-    MobileAside: defineAsyncComponent(() => import('../search').then(m => m.MobileAside)),
-    NoResultsMessage: defineAsyncComponent(() => import('../search').then(m => m.NoResultsMessage)),
-    SpellcheckMessage: defineAsyncComponent(() =>
-      import('../search').then(m => m.SpellcheckMessage),
-    ),
-    FallbackDisclaimerMessage: defineAsyncComponent(() =>
-      import('../search').then(m => m.FallbackDisclaimerMessage),
-    ),
-  },
-  setup() {
-    const x = use$x()
-    const filtersAsideAnimation = animateTranslate('bottom')
-    const rightAsideAnimation = animateTranslate('right')
-    const { hasSearched } = useHasSearched()
-    const { relatedPrompts } = useState('relatedPrompts')
-    const showNoResultsMessage = computed(
-      () => !relatedPrompts.value?.length && !x.semanticQueries.length,
-    )
+const MobileAside = defineAsyncComponent(() => import('../search').then(m => m.MobileAside))
+const NoResultsMessage = defineAsyncComponent(() =>
+  import('../search').then(m => m.NoResultsMessage),
+)
+const SpellcheckMessage = defineAsyncComponent(() =>
+  import('../search').then(m => m.SpellcheckMessage),
+)
+const FallbackDisclaimerMessage = defineAsyncComponent(() =>
+  import('../search').then(m => m.FallbackDisclaimerMessage),
+)
 
-    return {
-      showNoResultsMessage,
-      filtersAsideAnimation,
-      rightAsideAnimation,
-      hasSearched,
-      x,
-    }
-  },
-})
+const x = use$x()
+const { hasSearched } = useHasSearched()
+const { relatedPrompts } = useState('relatedPrompts')
+const showNoResultsMessage = computed(
+  () => !relatedPrompts.value?.length && !x.semanticQueries.length,
+)
 </script>

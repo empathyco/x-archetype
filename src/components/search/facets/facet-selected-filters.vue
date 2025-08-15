@@ -8,17 +8,10 @@
   </span>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import type { FacetFilter } from '@empathyco/x-types'
-import type { PropType } from 'vue'
-import { defineComponent } from 'vue'
 
-export default defineComponent({
-  props: {
-    selectedFilters: {
-      type: Array as PropType<FacetFilter[]>,
-      required: true,
-    },
-  },
-})
+defineProps<{
+  selectedFilters: FacetFilter[]
+}>()
 </script>

@@ -54,7 +54,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -67,29 +67,8 @@ import {
   SelectedFiltersList,
   SimpleFilter,
 } from '@empathyco/x-components/facets'
-import { defineComponent } from 'vue'
 import { useDevice } from '../../../composables/use-device.composable'
 import PriceFilterLabel from './price-filter-label.vue'
 
-export default defineComponent({
-  components: {
-    ChevronLeftIcon,
-    ChevronRightIcon,
-    CrossTinyIcon,
-    ClearFilters,
-    NumberRangeFilter,
-    PriceFilterLabel,
-    SelectedFiltersList,
-    SlidingPanel,
-    SimpleFilter,
-  },
-  setup() {
-    const { isTabletOrLess, isDesktopOrGreater, isTouchable } = useDevice()
-    return {
-      isTabletOrLess,
-      isDesktopOrGreater,
-      isTouchable,
-    }
-  },
-})
+const { isDesktopOrGreater, isTouchable } = useDevice()
 </script>

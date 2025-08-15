@@ -34,25 +34,12 @@
   </div>
 </template>
 
-<script lang="ts">
-// eslint-disable-next-line unused-imports/no-unused-imports
+<script setup lang="ts">
 import type { TranslateOptions } from 'vue-i18n'
 import { BaseIdModalClose, CrossIcon, use$x } from '@empathyco/x-components'
 import { ClearFilters } from '@empathyco/x-components/facets'
-import { defineComponent } from 'vue'
 import CustomFacets from './facets/custom-facets.vue'
 import Sort from './sort.vue'
 
-export default defineComponent({
-  components: {
-    CustomFacets,
-    Sort,
-    BaseIdModalClose,
-    CrossIcon,
-    ClearFilters,
-  },
-  setup() {
-    return { x: use$x() }
-  },
-})
+const x = use$x()
 </script>

@@ -22,70 +22,48 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import type { FeatureLocation } from '@empathyco/x-components'
 import { LocationProvider, use$x, useState } from '@empathyco/x-components'
-import { computed, defineAsyncComponent, defineComponent } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 import { useHasSearched } from '../composables/use-has-searched.composable'
 import CustomRelatedPrompts from './related-prompts/custom-related-prompts.vue'
 import CustomRecommendations from './results/custom-recommendations.vue'
 import CustomSemanticQueries from './search/custom-semantic-queries.vue'
 
-export default defineComponent({
-  name: 'MainComponent',
-  components: {
-    CustomRecommendations,
-    CustomRelatedPrompts,
-    CustomSemanticQueries,
-    LocationProvider,
-    PartialResults: defineAsyncComponent(() => import('./search').then(m => m.PartialResults)),
-    Redirection: defineAsyncComponent(() => import('./search').then(m => m.Redirection)),
-    Results: defineAsyncComponent(() => import('./search').then(m => m.Results)),
-  },
-  setup() {
-    const { hasSearched } = useHasSearched()
-    const x = use$x()
+const PartialResults = defineAsyncComponent(() => import('./search').then(m => m.PartialResults))
+const Redirection = defineAsyncComponent(() => import('./search').then(m => m.Redirection))
+const Results = defineAsyncComponent(() => import('./search').then(m => m.Results))
 
-    const { config: semanticQueriesConfig } = useState('semanticQueries')
+const { hasSearched } = useHasSearched()
+const x = use$x()
 
-    const { relatedPrompts } = useState('relatedPrompts')
+const { config: semanticQueriesConfig } = useState('semanticQueries')
 
-    const { config } = useState('search')
+const { relatedPrompts } = useState('relatedPrompts')
 
-    const location = computed<FeatureLocation>(() =>
-      x.results.length > 0 ? 'low_results' : 'no_results',
-    )
+const { config } = useState('search')
 
-    const showRecommendations = computed(
-      () => x.noResults && !x.partialResults.length && !x.semanticQueries.length,
-    )
+const location = computed<FeatureLocation>(() =>
+  x.results.length > 0 ? 'low_results' : 'no_results',
+)
 
-    const showPartials = computed(
-      () => x.noResults && !x.semanticQueries.length && !relatedPrompts.value?.length,
-    )
+const showRecommendations = computed(
+  () => x.noResults && !x.partialResults.length && !x.semanticQueries.length,
+)
 
-    const showSemantics = computed(
-      () =>
-        x.totalResults > 0 &&
-        x.totalResults < semanticQueriesConfig.value.threshold &&
-        !relatedPrompts.value?.length,
-    )
+const showPartials = computed(
+  () => x.noResults && !x.semanticQueries.length && !relatedPrompts.value?.length,
+)
 
-    const showRelatedPrompts = computed(
-      () =>
-        (x.noResults || x.totalResults < config.value?.pageSize) && relatedPrompts.value?.length,
-    )
+const showSemantics = computed(
+  () =>
+    x.totalResults > 0 &&
+    x.totalResults < semanticQueriesConfig.value.threshold &&
+    !relatedPrompts.value?.length,
+)
 
-    return {
-      hasSearched,
-      relatedPrompts,
-      location,
-      showPartials,
-      showRecommendations,
-      showRelatedPrompts,
-      showSemantics,
-      x,
-    }
-  },
-})
+const showRelatedPrompts = computed(
+  () => (x.noResults || x.totalResults < config.value?.pageSize) && relatedPrompts.value?.length,
+)
 </script>

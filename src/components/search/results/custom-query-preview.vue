@@ -58,11 +58,10 @@
   </QueryPreviewList>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import type { QueryFeature } from '@empathyco/x-components'
 import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview'
 import type { RelatedPromptNextQuery, TaggingRequest } from '@empathyco/x-types'
-import type { PropType } from 'vue'
 import {
   ArrowRightIcon,
   DisplayClickProvider,
@@ -71,52 +70,34 @@ import {
   useState,
 } from '@empathyco/x-components'
 import { QueryPreviewButton, QueryPreviewList } from '@empathyco/x-components/queries-preview'
-import { defineComponent } from 'vue'
 import CustomSlidingPanel from '../../custom-sliding-panel.vue'
 import Result from '../../results/result.vue'
 
-export default defineComponent({
-  name: 'CustomQueryPreview',
-  components: {
-    DisplayEmitter,
-    ArrowRightIcon,
-    CustomSlidingPanel,
-    DisplayClickProvider,
-    QueryPreviewButton,
-    QueryPreviewList,
-    Result,
-  },
-  props: {
-    queryFeature: {
-      type: String as PropType<QueryFeature>,
-      default: 'customer',
-    },
-    queriesPreviewInfo: {
-      type: Array as PropType<QueryPreviewInfo[]>,
-      default: () => [],
-    },
-  },
-  setup(props) {
-    const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
-    const getToolingTagging = (
-      queryPreviewInfo: QueryPreviewInfo,
-      toolingTagging: string,
-    ): TaggingRequest => {
-      if (relatedPrompts.value.length) {
-        const nextQuery: Record<string, any> =
-          relatedPrompts.value[selectedPrompt.value]?.relatedPromptNextQueries?.find(
-            (nextQuery: RelatedPromptNextQuery) => nextQuery.query === queryPreviewInfo.query,
-          ) ?? {}
-        return nextQuery[toolingTagging]
-      }
-      return {} as TaggingRequest
-    }
+interface Props {
+  queryFeature?: QueryFeature
+  queriesPreviewInfo?: QueryPreviewInfo[]
+}
 
-    return {
-      metadata: { feature: props.queryFeature },
-      x: use$x(),
-      getToolingTagging,
-    }
-  },
+const props = withDefaults(defineProps<Props>(), {
+  queryFeature: 'customer',
+  queriesPreviewInfo: () => [],
 })
+
+const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
+const getToolingTagging = (
+  queryPreviewInfo: QueryPreviewInfo,
+  toolingTagging: string,
+): TaggingRequest => {
+  if (relatedPrompts.value.length) {
+    const nextQuery: Record<string, any> =
+      relatedPrompts.value[selectedPrompt.value]?.relatedPromptNextQueries?.find(
+        (nextQuery: RelatedPromptNextQuery) => nextQuery.query === queryPreviewInfo.query,
+      ) ?? {}
+    return nextQuery[toolingTagging]
+  }
+  return {} as TaggingRequest
+}
+
+const metadata = { feature: props.queryFeature }
+const x = use$x()
 </script>

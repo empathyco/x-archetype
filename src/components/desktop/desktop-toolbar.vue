@@ -42,19 +42,9 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { BaseIdModalOpen, FiltersIcon, use$x } from '@empathyco/x-components'
-import { defineComponent } from 'vue'
 import ColumnPicker from '../column-picker.vue'
 
-export default defineComponent({
-  components: {
-    BaseIdModalOpen,
-    FiltersIcon,
-    ColumnPicker,
-  },
-  setup() {
-    return { x: use$x() }
-  },
-})
+const x = use$x()
 </script>

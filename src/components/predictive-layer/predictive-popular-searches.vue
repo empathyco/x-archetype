@@ -21,23 +21,13 @@
   </div>
 </template>
 
-<script lang="ts">
-import { AnimationProp, TrendingIcon } from '@empathyco/x-components'
+<script setup lang="ts">
+import type { AnimationProp } from '@empathyco/x-components'
+import { TrendingIcon } from '@empathyco/x-components'
 import { PopularSearch, PopularSearches } from '@empathyco/x-components/popular-searches'
-import { defineComponent } from 'vue'
 
-export default defineComponent({
-  components: {
-    TrendingIcon,
-    PopularSearches,
-    PopularSearch,
-  },
-  props: {
-    animation: {
-      type: AnimationProp,
-      required: true,
-    },
-  },
-})
+defineProps<{
+  animation: typeof AnimationProp
+}>()
 </script>
 <style lang="scss"></style>

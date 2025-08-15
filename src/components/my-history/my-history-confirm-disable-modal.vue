@@ -28,33 +28,23 @@
   </BaseEventsModal>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import type { XEventsTypes } from '@empathyco/x-components'
 import { BaseEventButton, BaseEventsModal } from '@empathyco/x-components'
-import { defineComponent } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 
-export default defineComponent({
-  components: {
-    BaseEventsModal,
-    BaseEventButton,
-  },
-  setup() {
-    const { isTabletOrLess } = useDevice()
-    const eventsToOpenModal: (keyof XEventsTypes)[] = ['UserClickedDisableHistoryQueries']
-    const eventsToCloseModal: (keyof XEventsTypes)[] = [
-      'UserClickedConfirmDisableHistoryQueries',
-      'UserClickedDismissDisableHistoryQueries',
-    ]
-    const dismissEvents: Partial<XEventsTypes> = {
-      UserClickedDismissDisableHistoryQueries: undefined,
-    }
-    const confirmEvents: Partial<XEventsTypes> = {
-      UserClickedConfirmDisableHistoryQueries: undefined,
-    }
-    return { isTabletOrLess, eventsToOpenModal, eventsToCloseModal, dismissEvents, confirmEvents }
-  },
-})
+const { isTabletOrLess } = useDevice()
+const eventsToOpenModal: (keyof XEventsTypes)[] = ['UserClickedDisableHistoryQueries']
+const eventsToCloseModal: (keyof XEventsTypes)[] = [
+  'UserClickedConfirmDisableHistoryQueries',
+  'UserClickedDismissDisableHistoryQueries',
+]
+const dismissEvents: Partial<XEventsTypes> = {
+  UserClickedDismissDisableHistoryQueries: undefined,
+}
+const confirmEvents: Partial<XEventsTypes> = {
+  UserClickedConfirmDisableHistoryQueries: undefined,
+}
 </script>
 
 <style lang="scss">

@@ -8,9 +8,8 @@
   </FiltersSearch>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import type { Filter } from '@empathyco/x-types'
-import type { PropType } from 'vue'
 import { StaggeredFadeAndSlide } from '@empathyco/x-components'
 import {
   FiltersList,
@@ -18,22 +17,10 @@ import {
   SimpleFilter,
   SlicedFilters,
 } from '@empathyco/x-components/facets'
-import { defineComponent } from 'vue'
 
-export default defineComponent({
-  components: {
-    FiltersList,
-    FiltersSearch,
-    SlicedFilters,
-    SimpleFilter,
-  },
-  props: {
-    filters: Array as PropType<Filter[]>,
-  },
-  setup() {
-    return {
-      staggeredFadeAndSlide: StaggeredFadeAndSlide,
-    }
-  },
-})
+defineProps<{
+  filters?: Filter[]
+}>()
+
+const staggeredFadeAndSlide = StaggeredFadeAndSlide
 </script>

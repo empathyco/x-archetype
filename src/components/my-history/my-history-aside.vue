@@ -51,34 +51,18 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { BaseIdModalClose, CrossIcon, LocationProvider, use$x } from '@empathyco/x-components'
 import { HistoryQueriesSwitch } from '@empathyco/x-components/history-queries'
-import { defineComponent, onMounted } from 'vue'
-import { useDevice } from '../../composables/use-device.composable'
+import { onMounted } from 'vue'
 import CustomMyHistory from './custom-my-history.vue'
 
-export default defineComponent({
-  components: {
-    CrossIcon,
-    BaseIdModalClose,
-    CustomMyHistory,
-    HistoryQueriesSwitch,
-    LocationProvider,
-  },
-  setup() {
-    const { isTabletOrLess } = useDevice()
-    onMounted(() => {
-      const activeElement = document.activeElement as HTMLElement
-      if (activeElement.classList.contains('x-search-input')) {
-        activeElement.blur()
-      }
-    })
-
-    return {
-      isTabletOrLess,
-      x: use$x(),
-    }
-  },
+onMounted(() => {
+  const activeElement = document.activeElement as HTMLElement
+  if (activeElement.classList.contains('x-search-input')) {
+    activeElement.blur()
+  }
 })
+
+const x = use$x()
 </script>

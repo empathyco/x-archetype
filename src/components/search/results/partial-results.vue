@@ -30,27 +30,12 @@
   </PartialResultsList>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { ArrowRightIcon, ItemsList } from '@empathyco/x-components'
 import { PartialQueryButton, PartialResultsList } from '@empathyco/x-components/search'
-import { defineComponent } from 'vue'
 import { useDevice } from '../../../composables/use-device.composable'
 import CustomSlidingPanel from '../../custom-sliding-panel.vue'
-import ResultComponent from '../../results/result.vue'
+import Result from '../../results/result.vue'
 
-export default defineComponent({
-  components: {
-    ArrowRightIcon,
-    CustomSlidingPanel,
-    ItemsList,
-    Result: ResultComponent,
-    PartialResultsList,
-    PartialQueryButton,
-  },
-  setup() {
-    const { isTabletOrGreater } = useDevice()
-
-    return { isTabletOrGreater }
-  },
-})
+const { isTabletOrGreater } = useDevice()
 </script>

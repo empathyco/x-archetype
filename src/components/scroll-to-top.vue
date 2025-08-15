@@ -9,22 +9,9 @@
   </ScrollToTop>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { ChevronUpIcon, Fade } from '@empathyco/x-components'
 import { ScrollToTop } from '@empathyco/x-components/scroll'
-import { defineComponent } from 'vue'
 
-export default defineComponent({
-  components: {
-    ScrollToTop,
-    ChevronUpIcon,
-  },
-  setup() {
-    const animation = Fade
-
-    return {
-      animation,
-    }
-  },
-})
+const animation = Fade
 </script>

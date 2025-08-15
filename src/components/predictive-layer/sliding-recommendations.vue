@@ -39,24 +39,11 @@
     </SlidingPanel>
   </div>
 </template>
-<script lang="ts">
+<script setup lang="ts">
 import { ChevronLeftIcon, ChevronRightIcon, SlidingPanel, use$x } from '@empathyco/x-components'
 import { Recommendations } from '@empathyco/x-components/recommendations'
-import { defineComponent } from 'vue'
 import Result from '../results/result.vue'
 import DisplayClickProvider from '../search/display-click-provider.vue'
 
-export default defineComponent({
-  components: {
-    ChevronLeftIcon,
-    ChevronRightIcon,
-    DisplayClickProvider,
-    Recommendations,
-    Result,
-    SlidingPanel,
-  },
-  setup() {
-    return { x: use$x() }
-  },
-})
+const x = use$x()
 </script>
