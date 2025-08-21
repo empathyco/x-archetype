@@ -119,20 +119,17 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
  * @param snippetConfig.isolate - Whether to isolate the DOM element using Shadow DOM.
  * @returns The DOM element.
  */
-function getDomElement({ isolate }: SnippetConfig): Element {
+function getDomElement({ isolate }: SnippetConfig): ShadowRoot | HTMLElement {
   const container = document.createElement('div')
   container.classList.add('x-root-container')
-  const domElement = document.createElement('div')
+  document.body.appendChild(container)
 
   if (isolate || process.env.NODE_ENV === 'production') {
     const shadowRoot = container.attachShadow({ mode: 'open' })
-    shadowRoot.appendChild(domElement)
-    cssInjector.setHost(shadowRoot)
+    cssInjector.addHost(shadowRoot)
+    return shadowRoot
   } else {
-    container.appendChild(domElement)
-    cssInjector.setHost(document.head)
+    cssInjector.addHost(document)
+    return container
   }
-
-  document.body.appendChild(container)
-  return domElement
 }
