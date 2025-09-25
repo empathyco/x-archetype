@@ -86,7 +86,7 @@
     "start-server-and-test": "2.0.12",
     "tailwindcss": "3.4.17",
     "typescript": "5.8.3",
-    "vite": "6.3.5",
+    "vite": "6.3.6",
     "vite-plugin-html-inject": "1.1.2",
     "vite-plugin-vue-inspector": "5.3.2",
     "vue-tsc": "3.0.4"
