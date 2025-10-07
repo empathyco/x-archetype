@@ -16,7 +16,7 @@
         </template>
         <template #query>
           <span class="x-title3">
-            {{ x.spellcheckedQuery || x.query.search }}
+            {{ x.spellcheckedQuery || query }}
           </span>
         </template>
       </i18n-t>
@@ -27,8 +27,9 @@
 </template>
 
 <script setup lang="ts">
-import { use$x } from '@empathyco/x-components'
+import { use$x, useGetter } from '@empathyco/x-components'
 import ColumnPicker from '../column-picker.vue'
 
 const x = use$x()
+const { query } = useGetter('search')
 </script>
