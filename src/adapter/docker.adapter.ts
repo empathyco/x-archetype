@@ -73,6 +73,10 @@ function resolveEmpathyEndpoint(endpoint: DockerEndpoints, context: Record<strin
     identifierResults: `http://${endpointHost}/query/${endpointInstance}/skusearch`,
     semanticQueries: `http://${endpointHost}/semantics-api/search_single/${endpointInstance}`,
     experienceControls: `http://${endpointHost}/config/v1/public/configs`,
+    aiSuggestions: `http://${endpointHost}/overview/${endpointInstance}/suggestions`,
+    aiSuggestionsSearch: `http://${endpointHost}/overview/${endpointInstance}/suggestions/search`,
+    aiQuestions: `http://${endpointHost}/questions/${endpointInstance}/conversational`,
+    aiTasks: `http://${endpointHost}/questions/${endpointInstance}/skus/tasks/`,
   }
   return empathyEndpoints[endpoint]
 }
