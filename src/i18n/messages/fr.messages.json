@@ -38,6 +38,9 @@
     "nextQueries": {
       "title": "Et après"
     },
+    "nextQueriesCta": {
+      "message": "Ceux qui cherchaient {query} également consulté:"
+    },
     "nextQueriesGroup": {
       "message": "Ceux qui cherchaient {query} également consulté:"
     },

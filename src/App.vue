@@ -14,7 +14,7 @@ import type { SnippetConfig, UrlParams, XEvent } from '@empathyco/x-components'
 import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview'
 import type { InternalSearchRequest, InternalSearchResponse } from '@empathyco/x-components/search'
 import type { ComputedRef } from 'vue'
-import { SnippetCallbacks, useXBus } from '@empathyco/x-components'
+import { SnippetCallbacks, use$x } from '@empathyco/x-components'
 import { ExperienceControls } from '@empathyco/x-components/experience-controls'
 import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params'
 import { Tagging } from '@empathyco/x-components/tagging'
@@ -40,11 +40,12 @@ const MainModal = defineAsyncComponent(() =>
   import('./components/custom-main-modal.vue').then(m => m.default),
 )
 
-const xBus = useXBus()
+const x = use$x()
 const appInstance = getCurrentInstance()
 const { deviceName } = useDevice()
 const snippetConfig = inject<SnippetConfig>('snippetConfig')!
 const isOpen = ref(false)
+const showNextQueriesTags = ref(true)
 
 const openXEvents = ['UserOpenXProgrammatically', 'UserClickedOpenX']
 
@@ -53,31 +54,31 @@ const open = (): void => {
   window.wysiwyg?.open()
 }
 
-openXEvents.forEach(event => xBus.on(event as XEvent, false).subscribe(open))
+openXEvents.forEach(event => x.on(event as XEvent, false).subscribe(open))
 
 const close = (): void => {
   window.wysiwyg?.close()
 }
 
-xBus.on('UserClickedCloseX', false).subscribe(close)
+x.on('UserClickedCloseX', false).subscribe(close)
 
-xBus.on('UserAcceptedAQuery', false).subscribe(async (query): Promise<void> => {
+x.on('UserAcceptedAQuery', false).subscribe(async (query): Promise<void> => {
   if (/^::\s*login/.test(query)) {
     await window.wysiwyg?.goToLogin()
   }
 })
 
-xBus.on('SearchRequestChanged', false).subscribe((payload: InternalSearchRequest | null): void => {
+x.on('SearchRequestChanged', false).subscribe((payload: InternalSearchRequest | null): void => {
   window.wysiwyg?.setContext({ query: payload?.query, spellcheckedQuery: undefined })
 })
 
-xBus.on('SearchResponseChanged', false).subscribe((payload: InternalSearchResponse): void => {
+x.on('SearchResponseChanged', false).subscribe((payload: InternalSearchResponse): void => {
   if (payload.spellcheck) {
     window.wysiwyg?.setContext({ spellcheckedQuery: payload.spellcheck })
   }
 })
 
-xBus.on('ParamsLoadedFromUrl', false).subscribe(async (payload: UrlParams): Promise<void> => {
+x.on('ParamsLoadedFromUrl', false).subscribe(async (payload: UrlParams): Promise<void> => {
   try {
     if (window.wysiwyg) {
       await window.wysiwyg?.requestAuth()
@@ -87,6 +88,14 @@ xBus.on('ParamsLoadedFromUrl', false).subscribe(async (payload: UrlParams): Prom
   } catch {
     // No error handling
   }
+})
+
+x.on('UserClickedCloseNextQueries', false).subscribe(() => {
+  showNextQueriesTags.value = false
+})
+
+x.on('UserAcceptedAQuery', false).subscribe(() => {
+  showNextQueriesTags.value = true
 })
 
 const documentDirection = computed(() => {
@@ -101,6 +110,9 @@ provide<string>('currencyFormat', currencyFormat.value)
 const queriesPreviewInfo = computed(() => snippetConfig.queriesPreview ?? [])
 provide<ComputedRef<QueryPreviewInfo[]> | undefined>('queriesPreviewInfo', queriesPreviewInfo)
 
+const showNextQueries = computed(() => showNextQueriesTags.value)
+provide('showNextQueries', showNextQueries)
+
 watch(
   () => snippetConfig.uiLang,
   uiLang => appInstance?.appContext.config.globalProperties.$setLocale(uiLang ?? 'en'),
@@ -111,7 +123,7 @@ watch(deviceName, device =>
 )
 
 const reloadSearch = (): void => {
-  xBus.emit('ReloadSearchRequested')
+  x.emit('ReloadSearchRequested')
 }
 
 onMounted(() => {

@@ -11,36 +11,46 @@
           :max-groups="1"
           :show-only-after-offset="x.totalResults < 50"
         >
-          <BaseVariableColumnGrid
-            class="x-gap-x-16 x-gap-y-32"
-            :animation="staggeredFadeAndSlide"
-            :columns="columns"
-            data-test="base-grid"
-          >
-            <template #result="{ item: result }">
-              <Result :result="result" data-test="search-grid-result" />
-            </template>
-            <template #banner="{ item: banner }">
-              <MainScrollItem :item="banner" tag="article">
-                <Banner :banner="banner" />
-              </MainScrollItem>
-            </template>
-            <template #promoted="{ item: promoted }">
-              <MainScrollItem :item="promoted" tag="article">
-                <Promoted :promoted="promoted" />
-              </MainScrollItem>
-            </template>
-            <template v-if="!isLowResult" #related-prompts-group>
-              <RelatedPrompts class="-x-mb-1 x-mt-24 desktop:x-mt-0" />
-              <CustomQueryPreview
-                v-if="selectedPrompt !== -1"
-                :key="queriesPreviewInfo.length"
-                class="x-rounded-b-[12px] x-bg-neutral-10 x-px-8 desktop:x-px-16"
-                :queries-preview-info="queriesPreviewInfo"
-                query-feature="related_prompts"
-              ></CustomQueryPreview>
-            </template>
-          </BaseVariableColumnGrid>
+          <NextQueriesCta>
+            <BaseVariableColumnGrid
+              class="x-gap-x-16 x-gap-y-32"
+              :animation="staggeredFadeAndSlide"
+              :columns="columns"
+              data-test="base-grid"
+            >
+              <template #result="{ item: result }">
+                <Result :result="result" data-test="search-grid-result" />
+              </template>
+              <template #next-queries-cta-group="{ item: { nextQueries } }">
+                <LocationProvider
+                  v-if="nextQueries.length > 0 && showNextQueries"
+                  location="add2cart"
+                >
+                  <NextQueriesTags />
+                </LocationProvider>
+              </template>
+              <template #banner="{ item: banner }">
+                <MainScrollItem :item="banner" tag="article">
+                  <Banner :banner="banner" />
+                </MainScrollItem>
+              </template>
+              <template #promoted="{ item: promoted }">
+                <MainScrollItem :item="promoted" tag="article">
+                  <Promoted :promoted="promoted" />
+                </MainScrollItem>
+              </template>
+              <template v-if="!isLowResult" #related-prompts-group>
+                <RelatedPrompts class="-x-mb-1 x-mt-24 desktop:x-mt-0" />
+                <CustomQueryPreview
+                  v-if="selectedPrompt !== -1"
+                  :key="queriesPreviewInfo.length"
+                  class="x-rounded-b-[12px] x-bg-neutral-10 x-px-8 desktop:x-px-16"
+                  :queries-preview-info="queriesPreviewInfo"
+                  query-feature="related_prompts"
+                ></CustomQueryPreview>
+              </template>
+            </BaseVariableColumnGrid>
+          </NextQueriesCta>
         </RelatedPromptsList>
       </BannersList>
     </PromotedsList>
@@ -49,9 +59,11 @@
 
 <script setup lang="ts">
 import type { RelatedPromptNextQuery } from '@empathyco/x-types'
+import type { Ref } from 'vue'
 import {
   BaseVariableColumnGrid,
   infiniteScroll,
+  LocationProvider,
   StaggeredFadeAndSlide,
   use$x,
   useState,
@@ -65,11 +77,13 @@ import {
   PromotedsList,
   ResultsList,
 } from '@empathyco/x-components/search'
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 import { useDevice } from '../../../composables/use-device.composable'
 import RelatedPrompts from '../../related-prompts/related-prompts.vue'
 import Result from '../../results/result.vue'
 import CustomQueryPreview from './custom-query-preview.vue'
+import NextQueriesCta from './next-queries-cta.vue'
+import NextQueriesTags from './next-queries-tags.vue'
 
 const x = use$x()
 const { isMobile } = useDevice()
@@ -77,6 +91,8 @@ const { isMobile } = useDevice()
 const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
 
 const { config } = useState('search')
+
+const showNextQueries = computed(() => inject<Ref<boolean>>('showNextQueries')?.value)
 
 const columns = computed(() => (isMobile.value ? 2 : 4))
 
@@ -99,8 +115,12 @@ const vInfiniteScroll = infiniteScroll
 </script>
 
 <style lang="scss">
-.x-base-grid__next-queries-group {
+.x-base-grid__next-queries-group,
+.x-base-grid__next-queries-cta-group {
   grid-column-start: 1;
   grid-column-end: -1;
+}
+.x-base-grid__next-queries-cta-group:empty {
+  display: none;
 }
 </style>

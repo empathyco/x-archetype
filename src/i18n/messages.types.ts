@@ -39,6 +39,9 @@ export interface Messages {
   nextQueries: {
     title: string
   }
+  nextQueriesCta: {
+    message: string
+  }
   nextQueriesGroup: {
     message: string
   }

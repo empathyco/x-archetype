@@ -3,5 +3,6 @@ import type { SemanticQueriesConfig } from '@empathyco/x-components/semantic-que
 declare module '@empathyco/x-components' {
   interface XEventsTypes {
     SemanticQueriesConfigProvided: SemanticQueriesConfig
+    UserClickedCloseNextQueries: void
   }
 }
