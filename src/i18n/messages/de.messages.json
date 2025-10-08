@@ -38,6 +38,9 @@
     "nextQueries": {
       "title": "Was kommt als nächstes"
     },
+    "nextQueriesCta": {
+      "message": "Diejenigen, die nach {query} gesucht haben, haben auch angesehen:"
+    },
     "nextQueriesGroup": {
       "message": "Diejenigen, die nach {query} gesucht haben, haben auch angesehen:"
     },

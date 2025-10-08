@@ -38,6 +38,9 @@
     "nextQueries": {
       "title": "Você pode se interessar"
     },
+    "nextQueriesCta": {
+      "message": "Aqueles que pesquisaram por {query} também viram:"
+    },
     "nextQueriesGroup": {
       "message": "Aqueles que pesquisaram por {query} também viram:"
     },
