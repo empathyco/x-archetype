@@ -1,10 +1,12 @@
 import type {
+  PlatformFacet,
   PlatformRecommendationsRequest,
   PlatformResult,
   PlatformSemanticQueriesRequest,
 } from '@empathyco/x-adapter-platform'
 import type {
   ExperienceControlsResponse,
+  NumberRangeFacet,
   RecommendationsRequest,
   Result,
   SemanticQueriesRequest,
@@ -12,12 +14,14 @@ import type {
 
 import {
   experienceControlsResponseSchema,
+  facetSchema,
   platformAdapter,
   recommendationsRequestSchema,
   relatedPromptsEndpointAdapter,
   resultSchema,
   semanticQueriesRequestSchema,
 } from '@empathyco/x-adapter-platform'
+import { getFacetConfigWithEditable } from './utils/facet.utils'
 
 export const adapter = platformAdapter
 
@@ -81,4 +85,17 @@ adapter.relatedPrompts = relatedPromptsEndpointAdapter.extends({
   endpoint:
     'https://api.empathy.co/relatedprompts/mymotivemarketplace?store=Labstore+London&lang=en',
   requestMapper: ({ query }) => ({ query }),
+})
+
+/**
+ * Temporary override of the facet schema to customize the facet type for price facet.
+ * It should be removed when the slider facet type is implemented in backend.
+ */
+facetSchema.$override<PlatformFacet, Partial<NumberRangeFacet>>({
+  modelName: ({ type, facet }) =>
+    getFacetConfigWithEditable(facet, type).modelName as 'NumberRangeFacet' | undefined,
+  filters: {
+    $path: 'values',
+    $subSchema: ({ type, facet }) => getFacetConfigWithEditable(facet, type).schema,
+  },
 })

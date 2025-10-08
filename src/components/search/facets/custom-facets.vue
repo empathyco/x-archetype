@@ -111,11 +111,21 @@
         </template>
       </CustomHeaderTogglePanel>
     </template>
+
+    <template #price="{ facet, selectedFilters }">
+      <PriceFacet
+        :facet="facet"
+        :selected-filters="selectedFilters"
+        :set-facet-label="setFacetLabel"
+      />
+    </template>
   </Facets>
 </template>
 
 <script setup lang="ts">
+import type { TranslateResult } from 'vue-i18n'
 import {
+  capitalize,
   CheckboxSelectedIcon,
   CheckboxUnselectedIcon,
   StaggeredFadeAndSlide,
@@ -131,7 +141,22 @@ import {
 import CustomHeaderTogglePanel from '../../custom-header-toggle-panel.vue'
 import CustomSlicedFilters from './custom-sliced-filters.vue'
 import FacetSelectedFilters from './facet-selected-filters.vue'
+import PriceFacet from './price-facet.vue'
 import PriceFilterLabel from './price-filter-label.vue'
 
 const staggeredFadeAndSlide = StaggeredFadeAndSlide as any
+
+/**
+ * Checks if the vue-i18n translation returns the missing key error message,
+ * if so, returns the facet's label without translating it, otherwise it returns
+ * the translated result.
+ *
+ * @param message - The vue-i18n translation message.
+ * @param facetLabel - The facet's label.
+ *
+ * @returns A translated result or the facet's label.
+ */
+const setFacetLabel = (message: TranslateResult, facetLabel: string): string | TranslateResult => {
+  return message.toString().startsWith('[i18n]') ? capitalize(facetLabel) : message
+}
 </script>
