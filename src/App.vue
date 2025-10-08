@@ -5,7 +5,8 @@
     <Tagging />
     <UrlHandler />
     <ExperienceControls />
-    <MainModal v-if="isOpen" data-wysiwyg="layer" />
+    <CustomTeleport v-if="teleportFeature" />
+    <MainModal v-if="!teleportFeature && isOpen" data-wysiwyg="layer" />
   </div>
 </template>
 
@@ -31,7 +32,9 @@ import {
   ref,
   watch,
 } from 'vue'
+import CustomTeleport from './components/teleport/custom-teleport.vue'
 import { useDevice } from './composables/use-device.composable'
+import { FeatureFlag, useFeatureFlags } from './composables/use-feature-flags.composable'
 import { isIOS, removeSearchInputFocus } from './composables/use-ios-utils-composable'
 import currencies from './i18n/currencies'
 import './tailwind/index.css'
@@ -43,9 +46,12 @@ const MainModal = defineAsyncComponent(() =>
 const x = use$x()
 const appInstance = getCurrentInstance()
 const { deviceName } = useDevice()
+const { isFeatureEnabled } = useFeatureFlags()
 const snippetConfig = inject<SnippetConfig>('snippetConfig')!
 const isOpen = ref(false)
 const showNextQueriesTags = ref(true)
+
+const teleportFeature = isFeatureEnabled(FeatureFlag.TELEPORT_FEATURE)
 
 const openXEvents = ['UserOpenXProgrammatically', 'UserClickedOpenX']
 

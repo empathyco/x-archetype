@@ -1,6 +1,6 @@
 <template>
   <BaseEventsModal
-    class="x-my-history-confirm-disable-modal x-z-10"
+    class="x-my-history-confirm-disable-modal !x-z-50 !x-items-center !x-justify-center"
     :events-to-open-modal="eventsToOpenModal"
     :events-to-close-modal="eventsToCloseModal"
     @focusin.stop
@@ -51,7 +51,7 @@ const confirmEvents: Partial<XEventsTypes> = {
 .x-my-history-confirm-disable-modal {
   &.x-modal {
     .x-modal__content {
-      background: transparent;
+      background-color: transparent !important;
       justify-content: center;
       align-items: center;
     }
