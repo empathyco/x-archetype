@@ -28,8 +28,31 @@ export const FEATURE_FLAGS: Record<FeatureFlag, boolean> = {
  */
 export function useFeatureFlags(): {
   isFeatureEnabled: (featureId: FeatureFlag) => ComputedRef<boolean>
+  isFeatureEnabledInProd: (featureId: FeatureFlag) => ComputedRef<boolean>
 } {
   const { isProd } = useEnvironment()
+
+  /**
+   * Checks if a feature should be visible in production
+   * - In production: only if the feature flag is set to true
+   * - In non-production: always visible for testing purposes.
+   *
+   * @param featureId - The ID of the feature to check.
+   * @returns Whether the feature should be visible.
+   */
+  function isFeatureEnabledInProd(featureId: FeatureFlag): ComputedRef<boolean> {
+    return computed(() => {
+      // If feature is not registered, warn and disable it
+      if (FEATURE_FLAGS[featureId] === undefined) {
+        console.warn(`Feature "${featureId}" not registered in FEATURE_FLAGS. Disabling it.`)
+        return false
+      }
+
+      // In production, respect the static flag value
+      // In non-production environments, always enable the feature
+      return isProd.value ? FEATURE_FLAGS[featureId] : true
+    })
+  }
 
   /**
    * Checks if a feature should be visible
@@ -47,13 +70,12 @@ export function useFeatureFlags(): {
         return false
       }
 
-      // In production, respect the static flag value
-      // In non-production environments, always enable the feature
-      return isProd.value ? FEATURE_FLAGS[featureId] : true
+      return FEATURE_FLAGS[featureId]
     })
   }
 
   return {
     isFeatureEnabled,
+    isFeatureEnabledInProd,
   }
 }
