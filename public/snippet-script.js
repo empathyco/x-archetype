@@ -122,6 +122,9 @@ window.addEventListener('load', () => {
     search: {
       baseUrl: 'https://api.staging.empathy.co/search/v1',
     },
+    chatBot: {
+      baseUrl: 'https://mcp-client-assistant.prod.empathy.co',
+    },
     instance,
     lang,
     audience: 'enterprise',
