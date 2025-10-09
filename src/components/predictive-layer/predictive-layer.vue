@@ -1,8 +1,7 @@
 <template>
   <Empathize
     :animation="empathizeAnimation"
-    class="x-z-20 desktop:x-w-full"
-    :class="{ 'x-bg-neutral-0': !x.query.search || isDesktopOrGreater }"
+    class="x-z-40 x-bg-neutral-0 desktop:x-w-full"
     :events-to-close-empathize="isDesktopOrGreater ? desktopCloseEvents : mobileCloseEvents"
   >
     <component
