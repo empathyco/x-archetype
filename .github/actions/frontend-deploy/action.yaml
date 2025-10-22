@@ -1,30 +1,6 @@
 name: Deploy
 description: Deploy project
 inputs:
-  aws_role:
-    description: AWS role to assume
-    type: string
-    required: true
-  aws_deploy_path:
-    description: AWS S3 bucket to deploy
-    type: string
-    required: true
-  aws_s3_sync_args:
-    description: AWS S3 sync arguments
-    type: string
-    default: --include '*' --exclude '*/*'
-  aws_s3_cache:
-    description: AWS S3 cache control
-    type: string
-    default: max-age=3600
-  cloudfront_distribution_id:
-    description: Cloudfront distribution id
-    type: string
-    required: true
-  cloudfront_invalidation_paths:
-    description: Cloudfront invalidation paths
-    type: string
-    required: true
   r2_account_id:
     description: Cloudflare R2 account id
     type: string
@@ -60,15 +36,6 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Deploy project on Cloudfront S3
-      uses: ./.github/actions/cloudfront-s3
-      with:
-        aws_role: ${{ inputs.aws_role }}
-        aws_deploy_path: ${{ inputs.aws_deploy_path }}
-        aws_s3_sync_args: ${{ inputs.aws_s3_sync_args }}
-        aws_s3_cache: ${{ inputs.aws_s3_cache }}
-        cloudfront_distribution_id: ${{ inputs.cloudfront_distribution_id }}
-        cloudfront_invalidation_paths: ${{ inputs.cloudfront_invalidation_paths }}
     - name: Deploy project on Cloudflare R2
       uses: ./.github/actions/cloudflare-r2
       with:
