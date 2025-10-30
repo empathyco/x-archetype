@@ -1,7 +1,6 @@
 import type { PlatformAdapter } from '@empathyco/x-adapter-platform'
 import type { XComponentsAdapter } from '@empathyco/x-types'
 import {
-  experienceControlsEndpointAdapter,
   identifierResultsEndpointAdapter,
   nextQueriesEndpointAdapter,
   popularSearchesEndpointAdapter,
@@ -42,12 +41,9 @@ export function overrideAdapter(adapter: PlatformAdapter): void {
   adapter.semanticQueries = semanticQueriesEndpointAdapter.extends({
     endpoint: ({ extraParams }) => resolveEmpathyEndpoint('semanticQueries', extraParams!),
   })
-  adapter.experienceControls = experienceControlsEndpointAdapter.extends({
-    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('experienceControls', extraParams!),
-  })
 }
 
-type DockerEndpoints = Exclude<keyof XComponentsAdapter, 'tagging'>
+type DockerEndpoints = Exclude<keyof XComponentsAdapter, 'tagging' | 'experienceControls'>
 
 /**
  * Function that returns the url for each empathy's endpoints according to the environment context.
@@ -72,7 +68,6 @@ function resolveEmpathyEndpoint(endpoint: DockerEndpoints, context: Record<strin
     relatedTags: `https://api.empathy.co/relatedtags/${endpointInstance}`,
     identifierResults: `http://${endpointHost}/query/${endpointInstance}/skusearch`,
     semanticQueries: `http://${endpointHost}/semantics-api/search_single/${endpointInstance}`,
-    experienceControls: `http://${endpointHost}/config/v1/public/configs`,
     aiSuggestions: `http://${endpointHost}/overview/${endpointInstance}/suggestions`,
     aiSuggestionsSearch: `http://${endpointHost}/overview/${endpointInstance}/suggestions/search`,
     aiQuestions: `http://${endpointHost}/questions/${endpointInstance}/conversational`,

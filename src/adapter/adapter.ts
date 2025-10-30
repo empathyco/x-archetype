@@ -5,7 +5,6 @@ import type {
   PlatformSemanticQueriesRequest,
 } from '@empathyco/x-adapter-platform'
 import type {
-  ExperienceControlsResponse,
   NumberRangeFacet,
   RecommendationsRequest,
   Result,
@@ -13,7 +12,6 @@ import type {
 } from '@empathyco/x-types'
 
 import {
-  experienceControlsResponseSchema,
   facetSchema,
   platformAdapter,
   recommendationsRequestSchema,
@@ -65,19 +63,6 @@ semanticQueriesRequestSchema.$override<
       extraParams,
       filter_ids: 'NOT_ALL_WORDS,NOT_PARTIAL',
     }
-  },
-})
-
-experienceControlsResponseSchema.$override<
-  Partial<ExperienceControlsResponse>,
-  Partial<ExperienceControlsResponse>
->({
-  controls: ({ controls }) => controls,
-  events: {
-    SemanticQueriesConfigProvided: {
-      maxItemsToRequest: 'controls.semanticQueries.numberOfCarousels',
-      resultsPerCarousel: 'controls.semanticQueries.resultsPerCarousels',
-    },
   },
 })
 

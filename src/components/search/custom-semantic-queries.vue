@@ -49,17 +49,16 @@
 </template>
 
 <script setup lang="ts">
-import { ArrowRightIcon, use$x } from '@empathyco/x-components'
+import { ArrowRightIcon, use$x, useState } from '@empathyco/x-components'
 import { QueryPreviewList, useQueriesPreview } from '@empathyco/x-components/queries-preview'
 import { SemanticQueries, SemanticQuery } from '@empathyco/x-components/semantic-queries'
-import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import CustomSlidingPanel from '../custom-sliding-panel.vue'
 import Result from '../results/result.vue'
 import DisplayClickProvider from './display-click-provider.vue'
 
 const { isAnyQueryLoadedInPreview } = useQueriesPreview()
-const { getControlFromPath } = useExperienceControls()
+const { config: semanticQueriesConfig } = useState('semanticQueries')
 
-const resultsPerCarousel = getControlFromPath('semanticQueries.resultsPerCarousels')
+const resultsPerCarousel = semanticQueriesConfig.value.maxItemsToRequest
 const x = use$x()
 </script>
