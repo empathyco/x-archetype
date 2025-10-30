@@ -18,15 +18,16 @@ import typescript from 'rollup-plugin-typescript2'
  * Creates a rollup configuration for projects that use X-Components. This configuration can be
  * customized with the options object.
  *
- * @param {boolean} extractCss - If true, the build will generate a `.css` and a `.js` file.
- * @param {import('rollup').InputOptions} input - Overrides the entry file. Check
- *   http://rollupjs.org/guide/en/#input
- * @param {import('rollup').OutputOptions} output - Overrides the output settings. Check
+ * @param {object} options - Configuration options.
+ * @param {string} [options.input] - Entry file path. Defaults to 'src/main.ts'.
+ * @param {import('rollup').OutputOptions} [options.output] - Overrides the output settings. Check
  *   http://rollupjs.org/guide/en/#outputdir
- * @param {Record<string, Record<string, unknown>>} plugins - A dictionary that allows overriding
+ * @param {Record<string, Record<string, unknown>>} [options.plugins] - A dictionary that allows overriding
  *   specific plugin configurations.
+ * @param {Array} [options.prePlugins] - Plugins to run before the main plugins.
+ * @param {Array} [options.postPlugins] - Plugins to run after the main plugins.
  *
- * @returns {import('rollup').RollupOptions}
+ * @returns {import('rollup').RollupOptions} The Rollup configuration object.
  */
 export function createConfig({
   input = path.join(process.cwd(), 'src/main.ts'),

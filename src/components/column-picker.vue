@@ -24,14 +24,10 @@ import {
 } from '@empathyco/x-components'
 import { computed } from 'vue'
 import { useDevice } from '../composables/use-device.composable'
-import { useExperienceControls } from '../composables/use-experience-controls.composable'
 
 const { isMobile } = useDevice()
-const { getControlFromPath } = useExperienceControls()
 
-const columns = computed(() =>
-  isMobile.value ? [2, 1] : getControlFromPath('layout.columnSelector', [4, 2]).value,
-)
+const columns = computed(() => (isMobile.value ? [2, 1] : [4, 2]))
 
 const values = columns
 const icons = { 1: Grid1ColIcon, 2: Grid2ColIcon, 4: Grid4ColIcon }
