@@ -1,6 +1,11 @@
 import type { PlatformAdapter } from '@empathyco/x-adapter-platform'
 import type { XComponentsAdapter } from '@empathyco/x-types'
 import {
+  aiQuestionsEndpointAdapter,
+  aiSuggestionsEndpointAdapter,
+  aiSuggestionsSearchEndpointAdapter,
+  aiSummarizeEndpointAdapter,
+  aiTasksEndpointAdapter,
   identifierResultsEndpointAdapter,
   nextQueriesEndpointAdapter,
   popularSearchesEndpointAdapter,
@@ -41,6 +46,21 @@ export function overrideAdapter(adapter: PlatformAdapter): void {
   adapter.semanticQueries = semanticQueriesEndpointAdapter.extends({
     endpoint: ({ extraParams }) => resolveEmpathyEndpoint('semanticQueries', extraParams!),
   })
+  adapter.aiSuggestions = aiSuggestionsEndpointAdapter.extends({
+    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('aiSuggestions', extraParams!),
+  })
+  adapter.aiSuggestionsSearch = aiSuggestionsSearchEndpointAdapter.extends({
+    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('aiSuggestionsSearch', extraParams!),
+  })
+  adapter.aiSummarize = aiSummarizeEndpointAdapter.extends({
+    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('aiSummarize', extraParams!),
+  })
+  adapter.aiQuestions = aiQuestionsEndpointAdapter.extends({
+    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('aiQuestions', extraParams!),
+  })
+  adapter.aiTasks = aiTasksEndpointAdapter.extends({
+    endpoint: ({ extraParams }) => resolveEmpathyEndpoint('aiTasks', extraParams!),
+  })
 }
 
 type DockerEndpoints = Exclude<keyof XComponentsAdapter, 'tagging' | 'experienceControls'>
@@ -70,8 +90,9 @@ function resolveEmpathyEndpoint(endpoint: DockerEndpoints, context: Record<strin
     semanticQueries: `http://${endpointHost}/semantics-api/search_single/${endpointInstance}`,
     aiSuggestions: `http://${endpointHost}/overview/${endpointInstance}/suggestions`,
     aiSuggestionsSearch: `http://${endpointHost}/overview/${endpointInstance}/suggestions/search`,
+    aiSummarize: `http://${endpointHost}/overview/${endpointInstance}/summarize`,
     aiQuestions: `http://${endpointHost}/questions/${endpointInstance}/conversational`,
-    aiTasks: `http://${endpointHost}/questions/${endpointInstance}/skus/tasks/`,
+    aiTasks: `http://${endpointHost}/questions/${endpointInstance}/skus/tasks`,
   }
   return empathyEndpoints[endpoint]
 }
