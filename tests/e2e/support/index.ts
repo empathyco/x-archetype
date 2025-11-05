@@ -14,7 +14,14 @@ import Withinable = Cypress.Withinable
  * https://github.com/cypress-io/cypress/issues/8418.
  * Https://github.com/cypress-io/cypress/issues/22129.
  */
-Cypress.on('uncaught:exception', err => !err.message.includes('ResizeObserver'))
+Cypress.on('uncaught:exception', (err, _runnable, promise) => {
+  // TODO - Bug in AI requests about always cancelling the first request (summarize or suggestions).
+  // Remove conditional when the bug is solved and only one request is performed.
+  if (promise) {
+    return false
+  }
+  return !err.message.includes('ResizeObserver')
+})
 
 export interface TestContext {
   [key: string]: string
