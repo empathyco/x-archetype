@@ -85,7 +85,7 @@ const { t } = useI18n()
 
 ### Export/Import CSV
 
-For translation agencies:
+> **Note:** Rarely used; for bulk translation handoff only.
 
 ```bash
 npm run json:csv  # Exports to ./output/*.csv
