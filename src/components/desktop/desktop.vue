@@ -7,13 +7,19 @@
         <MaxDesktopWidthItem>
           <div v-if="hasSearched">
             <LocationProvider location="results">
+              <AiOverview />
+            </LocationProvider>
+
+            <LocationProvider location="results">
               <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
             </LocationProvider>
+
             <NoResultsMessage
               v-if="showNoResultsMessage"
               class="x-mb-16"
               data-test="no-results-message"
             />
+
             <FallbackDisclaimerMessage class="x-mb-16" />
           </div>
 
@@ -27,6 +33,7 @@
         </MaxDesktopWidthItem>
       </Scroll>
     </MainScroll>
+
     <MaxDesktopWidthItem class="x-layout-on-margin-right x-layout-overlap">
       <ScrollToTop />
     </MaxDesktopWidthItem>
@@ -92,6 +99,7 @@ const SpellcheckMessage = defineAsyncComponent(() =>
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
   import('../search').then(m => m.FallbackDisclaimerMessage),
 )
+const AiOverview = defineAsyncComponent(() => import('../ai-overview.vue').then(m => m.default))
 </script>
 
 <style>
