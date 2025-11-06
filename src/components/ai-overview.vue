@@ -20,5 +20,3 @@ import { AiOverview } from '@empathyco/x-components/ai'
 import CustomSlidingPanel from './custom-sliding-panel.vue'
 import Result from './results/result.vue'
 </script>
-
-<style scoped></style>
