@@ -24,6 +24,28 @@ When translating Figma designs to code:
 
 **Instead**: Warn the developer about needed changes and wait for confirmation before proceeding with structural modifications.
 
+## 🎯 CRITICAL: X Tailwind First Rule
+
+**🚨 ALWAYS check if X Tailwind already provides the component before creating custom overrides.**
+
+**Examples of what NOT to override:**
+
+- Standard font weights (300, 400, 600, 700)
+- Standard spacing values (8px increments: 8, 16, 24, 32, 40, 48, 56, 64, 80, 96...)
+- Default font families (Roboto, Inter, etc.)
+- Standard color scales that already exist
+- **Existing components**: `.x-tag`, `.x-button`, `.x-input`, `.x-icon`, etc.
+
+**✅ CORRECT**: Use existing X Tailwind components + minimal brand-specific overrides
+**❌ WRONG**: Recreate components that already exist in X Tailwind
+
+Examples of what NOT to override:
+
+- Standard font weights (300, 400, 600, 700)
+- Standard spacing values (8px increments: 8, 16, 24, 32, 40, 48, 56, 64, 80, 96...)
+- Default font families (Roboto, Inter, etc.)
+- Standard color scales that already exist
+
 ## Figma MCP Integration Rules
 
 These rules define how to translate Figma inputs into code for this project and must be followed for every Figma-driven change.

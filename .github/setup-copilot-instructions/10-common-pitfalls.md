@@ -2,6 +2,44 @@
 
 > Frequent mistakes that cause issues - be aware of them when coding.
 
+## 🚨 CRITICAL: Recreating Existing X Tailwind Components
+
+**This is the #1 most wasteful error - recreating components that already exist in X Tailwind.**
+
+### ❌ WRONG - Recreating X Tailwind components
+
+```typescript
+// DON'T DO THIS - X Tailwind already provides .x-tag
+components: ({ theme }) => ({
+  '.x-custom-tag': {
+    display: 'flex',
+    alignItems: 'center',
+    padding: '8px 12px',
+    backgroundColor: 'white',
+    border: '1px solid gray',
+    borderRadius: '4px',
+    // ... 50+ lines recreating what already exists
+  },
+})
+```
+
+### ✅ CORRECT - Use existing + minimal overrides
+
+```typescript
+// GOOD - Use existing X Tailwind components + minimal brand overrides
+components: ({ theme }) => ({
+  '.x-tag.x-selected': {
+    backgroundColor: theme('x.colors.lead.50'), // MartiMotos red
+    color: theme('x.colors.neutral.0'), // White text
+  },
+})
+
+// In components:
+<tag class="x-tag x-tag-lead x-tag-md x-font-bold">
+```
+
+**Always check first**: `grep -r "x-component-name" node_modules/@empathyco/x-tailwindcss/dist/`
+
 ## 🚨 CRITICAL: Device Breakpoints Synchronization
 
 **This is the #1 most common error that breaks responsive behavior across the entire application.**
