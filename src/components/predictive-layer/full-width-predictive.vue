@@ -215,7 +215,7 @@ const {
 const x = use$x()
 </script>
 <style lang="scss">
-.x-result-link:focus > * {
+.x-result-link:focus-visible > * {
   outline: -webkit-focus-ring-color auto 1px;
 }
 </style>
