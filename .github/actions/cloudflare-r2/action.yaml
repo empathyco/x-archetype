@@ -37,6 +37,7 @@ runs:
         r2-bucket: ${{ inputs.r2_bucket }}
         source-dir: ./dist
         destination-dir: ${{ inputs.r2_bucket_path }}
+        keep-file-fresh: true
     - name: Purge strategy validation
       run: |
         echo '${{ inputs.r2_purge_strategy }}' | jq . || { echo "Invalid JSON in r2_purge_strategy"; exit 1; }
