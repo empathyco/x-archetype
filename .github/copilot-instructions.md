@@ -92,3 +92,5 @@ Feature flags, internationalization, code style, file naming, import conventions
 3. **Type Extensions**: Declare in `src/shims-*.d.ts` files, override schemas in `adapter.ts`
 4. **Script Setup**: Prefer `<script setup lang="ts">` for new components
 5. **Custom Wiring**: Place in `src/x-components/wiring/` for reusable event handlers
+
+Testing
