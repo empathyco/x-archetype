@@ -6,6 +6,12 @@ REPO=$1
 BRANCH_NAME="chore/sync-copilot-instructions-$(date +%Y%m%d-%H%M%S)"
 BASE_BRANCH="main"
 
+# Ensure GH_TOKEN is set
+if [ -z "${GH_TOKEN}" ]; then
+  echo "❌ Error: GH_TOKEN environment variable is not set"
+  exit 1
+fi
+
 echo "🔄 Syncing Copilot instructions to ${OWNER}/${REPO}"
 
 # Clone target repository
@@ -14,6 +20,8 @@ gh repo clone "${OWNER}/${REPO}" target-repo -- --depth 1
 
 cd target-repo
 
+ls
+
 # Create new branch
 echo "🌿 Creating branch ${BRANCH_NAME}..."
 git checkout -b "${BRANCH_NAME}"
@@ -21,13 +29,13 @@ git checkout -b "${BRANCH_NAME}"
 # Copy files from source
 echo "📝 Copying Copilot instructions..."
 mkdir -p .github
-cp -f ./source/.github/copilot-instructions.md .github/
+cp -f ../source/.github/copilot-instructions.md .github/
 
 # Copy setup-copilot-instructions directory
-if [ -d "./source/.github/setup-copilot-instructions" ]; then
+if [ -d "../source/.github/setup-copilot-instructions" ]; then
   echo "📁 Copying setup-copilot-instructions directory..."
   rm -rf .github/setup-copilot-instructions
-  cp -r ./source/.github/setup-copilot-instructions .github/
+  cp -r ../source/.github/setup-copilot-instructions .github/
 fi
 
 # Check if there are changes
@@ -53,6 +61,7 @@ git push origin "${BRANCH_NAME}"
 # Create pull request
 echo "🔀 Creating pull request..."
 gh pr create \
+  --repo "${OWNER}/${REPO}" \
   --title "chore(copilot): sync instructions from x-archetype" \
   --body "🤖 **Actualización automática de instrucciones de Copilot**
 
