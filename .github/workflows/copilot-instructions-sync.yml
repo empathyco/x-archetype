@@ -43,6 +43,10 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           ls
+          echo "---"
           cd source
           ls
+          echo "---"
+          cat package.json
+          echo "---"
           bash .github/scripts/sync-copilot-instructions.sh ${{ matrix.repository }}

@@ -18,9 +18,19 @@ echo "🔄 Syncing Copilot instructions to ${OWNER}/${REPO}"
 echo "📦 Cloning target repository..."
 gh repo clone "${OWNER}/${REPO}" target-repo -- --depth 1
 
+ls
+
+echo "---"
+
 cd target-repo
 
 ls
+
+echo "---"
+
+cat package.json
+
+echo "---"
 
 # Create new branch
 echo "🌿 Creating branch ${BRANCH_NAME}..."
