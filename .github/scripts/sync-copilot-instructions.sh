@@ -18,13 +18,13 @@ echo "🔄 Syncing Copilot instructions to ${OWNER}/${REPO}"
 echo "📦 Cloning target repository..."
 gh repo clone "${OWNER}/${REPO}" target-repo -- --depth 1
 
-ls
+ls -a
 
 echo "---"
 
 cd target-repo
 
-ls
+ls -a
 
 echo "---"
 

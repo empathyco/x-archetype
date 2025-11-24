@@ -42,10 +42,10 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          ls
+          ls -a
           echo "---"
           cd source
-          ls
+          ls -a
           echo "---"
           cat package.json
           echo "---"
