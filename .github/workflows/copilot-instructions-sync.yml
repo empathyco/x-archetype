@@ -41,14 +41,4 @@ jobs:
       - name: Sync to ${{ matrix.repository }}
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          ls -a
-          echo "---"
-          cd source
-          ls -a
-          echo "---"
-          ls .github
-          echo "---"
-          cat package.json
-          echo "---"
-          bash .github/scripts/sync-copilot-instructions.sh ${{ matrix.repository }}
+        run: bash .github/scripts/sync-copilot-instructions.sh ${{ matrix.repository }}
