@@ -6,11 +6,13 @@ on:
       - .github/copilot-instructions.md
       - '.github/setup-copilot-instructions/**'
   workflow_dispatch:
+
 jobs:
   sync-copilot-instructions:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      pull-requests: write
     strategy:
       matrix:
         repository:
