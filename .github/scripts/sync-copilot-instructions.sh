@@ -21,13 +21,13 @@ git checkout -b "${BRANCH_NAME}"
 # Copy files from source
 echo "📝 Copying Copilot instructions..."
 mkdir -p .github
-cp -f ../source/.github/copilot-instructions.md .github/
+cp -f ./source/.github/copilot-instructions.md .github/
 
 # Copy setup-copilot-instructions directory
-if [ -d "../source/.github/setup-copilot-instructions" ]; then
+if [ -d "./source/.github/setup-copilot-instructions" ]; then
   echo "📁 Copying setup-copilot-instructions directory..."
   rm -rf .github/setup-copilot-instructions
-  cp -r ../source/.github/setup-copilot-instructions .github/
+  cp -r ./source/.github/setup-copilot-instructions .github/
 fi
 
 # Check if there are changes
