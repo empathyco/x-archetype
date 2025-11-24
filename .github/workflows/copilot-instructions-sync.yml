@@ -47,6 +47,8 @@ jobs:
           cd source
           ls -a
           echo "---"
+          ls .github
+          echo "---"
           cat package.json
           echo "---"
           bash .github/scripts/sync-copilot-instructions.sh ${{ matrix.repository }}
