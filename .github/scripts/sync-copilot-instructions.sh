@@ -14,6 +14,9 @@ fi
 
 echo "🔄 Syncing Copilot instructions to ${OWNER}/${REPO}"
 
+# Configure git to use GitHub CLI for authentication
+gh auth setup-git
+
 # Clone target repository
 echo "📦 Cloning target repository..."
 gh repo clone "${OWNER}/${REPO}" target-repo -- --depth 1
@@ -46,6 +49,8 @@ fi
 
 # Commit changes
 echo "💾 Committing changes..."
+git config user.name "github-actions[bot]"
+git config user.email "github-actions[bot]@users.noreply.github.com"
 git add .github/copilot-instructions.md
 git add .github/setup-copilot-instructions/
 git commit -m "chore(copilot): sync instructions from x-archetype" -m "Syncing from empathyco/x-archetype"
