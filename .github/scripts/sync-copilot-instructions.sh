@@ -74,9 +74,7 @@ Esta PR sincroniza los ficheros de configuración de Copilot desde el [arquetipo
 
 Por favor, revisa los cambios antes de mergear." \
   --base "${BASE_BRANCH}" \
-  --head "${BRANCH_NAME}" \
-  --label "copilot-sync" \
-  --label "automated"
+  --head "${BRANCH_NAME}"
 
 echo "✅ Pull request created successfully!"
 
