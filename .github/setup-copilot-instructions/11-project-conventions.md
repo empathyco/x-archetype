@@ -123,7 +123,7 @@ export const currencies = {
 
 ### Vue Block Order
 
-**IMPORTANT**: ESLint enforces `<template>` before `<script>` - all Vue files must follow this order
+**IMPORTANT**: ESLint enforces `<template>` before `<script>` - all Vue files must follow this order.
 
 ### Scoped Styles and Media Queries
 

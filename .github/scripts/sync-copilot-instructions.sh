@@ -18,19 +18,7 @@ echo "🔄 Syncing Copilot instructions to ${OWNER}/${REPO}"
 echo "📦 Cloning target repository..."
 gh repo clone "${OWNER}/${REPO}" target-repo -- --depth 1
 
-ls -a
-
-echo "---"
-
 cd target-repo
-
-ls -a
-
-echo "---"
-
-cat package.json
-
-echo "---"
 
 # Create new branch
 echo "🌿 Creating branch ${BRANCH_NAME}..."
@@ -58,8 +46,6 @@ fi
 
 # Commit changes
 echo "💾 Committing changes..."
-git config user.name "github-actions[bot]"
-git config user.email "github-actions[bot]@users.noreply.github.com"
 git add .github/copilot-instructions.md
 git add .github/setup-copilot-instructions/
 git commit -m "chore(copilot): sync instructions from x-archetype" -m "Syncing from empathyco/x-archetype"
