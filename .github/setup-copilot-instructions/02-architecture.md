@@ -24,9 +24,15 @@ The app initializes via `src/main.ts` → `XInstaller` with options from `src/x-
   - Use `useDevice()` composable for device detection:
     ```typescript
     const {
-      isMobile, isTablet, isDesktop,                    // Exact device
-      isMobileOrGreater, isTabletOrGreater, etc.,       // Range detection
-      deviceName, isTouchable, orientation              // Device info
+      isMobile,
+      isTablet,
+      isDesktop, // Exact device
+      isMobileOrGreater,
+      isTabletOrGreater,
+      etc, // Range detection
+      deviceName,
+      isTouchable,
+      orientation, // Device info
     } = useDevice()
     ```
   - Common: `isTabletOrGreater` (tablet + desktop), `isTouchable` (hide buttons on touch devices)
@@ -35,5 +41,5 @@ The app initializes via `src/main.ts` → `XInstaller` with options from `src/x-
 ## State Management
 
 - Vuex store (`src/store/index.ts`) is minimal - X Components manages most state internally
-- Access X state: `use$x()` for reactive getters, `useState('moduleName')` for module state
+- Access X state: `use$x()` for reactive getters, `useState('moduleName')` for module state.
 - Custom events: Extend types in `src/shims-x-components.d.ts` (see `XEventsTypes` interface)
