@@ -11,4 +11,4 @@
 
 - Minimal code comments - only add when essential for understanding
 - Focus on implementation, not explanatory comments
-- Use self-documenting code patterns
+- Use self-documenting code patterns.
