@@ -99,9 +99,9 @@ export default defineComponent({
     const visibleGrid = ref(false)
 
     const searchBoxTarget = computed(
-      () => snippetConfig.searchBoxTarget ?? '.x-archetype-header__input-container',
+      () => snippetConfig.searchBoxSelector ?? '.empathy-searchBox-container',
     )
-    const gridTarget = computed(() => snippetConfig.gridTarget ?? '.body-container')
+    const gridTarget = computed(() => snippetConfig.resultsSelector ?? '.empathy-results-container')
 
     x.on('UserClickedScrollToTop', false).subscribe(() => {
       scrollTo({

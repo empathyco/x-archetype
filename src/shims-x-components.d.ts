@@ -2,8 +2,10 @@ import type { SemanticQueriesConfig } from '@empathyco/x-components/semantic-que
 
 declare module '@empathyco/x-components' {
   interface SnippetConfig {
-    searchBoxTarget: string
-    gridTarget: string
+    searchBoxSelector: string
+    resultsSelector: string
+    layerSelector: string
+    viewMode: 'fullScreen' | 'embedded'
   }
 
   interface XEventsTypes {
