@@ -111,7 +111,7 @@ const documentDirection = computed(() => {
 })
 
 const isTeleportViewMode = computed(() =>
-  snippetConfig.viewMode ? snippetConfig.viewMode === 'embedded' : teleportFeature,
+  snippetConfig.viewMode ? snippetConfig.viewMode === 'embedded' : teleportFeature.value,
 )
 
 const currencyFormat = computed(() => currencies[snippetConfig.currency!])
