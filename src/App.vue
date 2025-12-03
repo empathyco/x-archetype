@@ -1,6 +1,6 @@
 <template>
   <div class="x" data-test="x" :dir="documentDirection">
-    <SnippetConfigExtraParams />
+    <SnippetConfigExtraParams :excluded-extra-params="excludedExtraParams" />
     <SnippetCallbacks />
     <Tagging />
     <UrlHandler />
@@ -59,6 +59,8 @@ const open = (): void => {
 }
 
 openXEvents.forEach(event => x.on(event as XEvent, false).subscribe(open))
+
+const excludedExtraParams = ['viewMode', 'layerSelector', 'resultsSelector', 'searchBoxSelector']
 
 const close = (): void => {
   window.wysiwyg?.close()
