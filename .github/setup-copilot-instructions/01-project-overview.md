@@ -51,4 +51,4 @@ When implementing features, **always reference the X Tailwind design system** to
 
 ### Important Note
 
-⚠️ While archetypal repositories are references, they may contain anti-patterns (documented in "Common Pitfalls" section). Always verify implementation patterns against this guide before adopting them.
+⚠️ While archetypal repositories are references, they may contain anti-patterns (documented in "Common Pitfalls" section). Always verify implementation patterns against this guide before adopting them
