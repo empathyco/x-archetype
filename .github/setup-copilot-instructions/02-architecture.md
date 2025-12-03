@@ -42,4 +42,4 @@ The app initializes via `src/main.ts` → `XInstaller` with options from `src/x-
 
 - Vuex store (`src/store/index.ts`) is minimal - X Components manages most state internally
 - Access X state: `use$x()` for reactive getters, `useState('moduleName')` for module state.
-- Custom events: Extend types in `src/shims-x-components.d.ts` (see `XEventsTypes` interface)
+- Custom events: Extend types in `src/shims-x-components.d.ts` (see `XEventsTypes` interface).
