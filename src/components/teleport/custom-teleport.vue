@@ -99,9 +99,11 @@ export default defineComponent({
     const visibleGrid = ref(false)
 
     const searchBoxTarget = computed(
-      () => snippetConfig.searchBoxSelector ?? '.empathy-searchBox-container',
+      () => snippetConfig.searchBoxSelector ?? "[data-teleport='empathy-searchBox-container']",
     )
-    const gridTarget = computed(() => snippetConfig.resultsSelector ?? '.empathy-results-container')
+    const gridTarget = computed(
+      () => snippetConfig.resultsSelector ?? "[data-teleport='empathy-results-container']",
+    )
 
     x.on('UserClickedScrollToTop', false).subscribe(() => {
       scrollTo({

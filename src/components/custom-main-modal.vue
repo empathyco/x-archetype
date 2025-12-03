@@ -25,7 +25,7 @@ const x = use$x()
 const snippetConfig = inject<SnippetConfig>('snippetConfig')
 
 const referenceSelector = computed(() => {
-  return snippetConfig?.layerSelector ?? ''
+  return snippetConfig?.layerSelector ?? undefined
 })
 
 const contentClass = computed(() =>
