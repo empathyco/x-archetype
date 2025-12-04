@@ -35,7 +35,7 @@
   "dependencies": {
     "@empathyco/x-adapter": "8.1.0-alpha.9",
     "@empathyco/x-adapter-platform": "1.1.0-alpha.39",
-    "@empathyco/x-archetype-utils": "2.0.0-alpha.18",
+    "@empathyco/x-archetype-utils": "2.0.0-alpha.19",
     "@empathyco/x-components": "6.0.0-alpha.182",
     "@empathyco/x-deep-merge": "2.0.3-alpha.9",
     "@empathyco/x-types": "10.1.0-alpha.32",
