@@ -1,11 +1,11 @@
 <template>
   <div class="x" data-test="x" :dir="documentDirection">
-    <SnippetConfigExtraParams />
+    <SnippetConfigExtraParams :excluded-extra-params="excludedExtraParams" />
     <SnippetCallbacks />
     <Tagging />
     <UrlHandler />
-    <CustomTeleport v-if="teleportFeature" />
-    <MainModal v-if="!teleportFeature && isOpen" data-wysiwyg="layer" />
+    <CustomTeleport v-if="isTeleportViewMode" />
+    <MainModal v-if="!isTeleportViewMode && isOpen" data-wysiwyg="layer" />
   </div>
 </template>
 
@@ -60,6 +60,8 @@ const open = (): void => {
 
 openXEvents.forEach(event => x.on(event as XEvent, false).subscribe(open))
 
+const excludedExtraParams = ['viewMode', 'layerSelector', 'resultsSelector', 'searchBoxSelector']
+
 const close = (): void => {
   window.wysiwyg?.close()
 }
@@ -107,6 +109,10 @@ const documentDirection = computed(() => {
     document.documentElement.dir || document.body.dir || (snippetConfig.documentDirection ?? 'ltr')
   )
 })
+
+const isTeleportViewMode = computed(() =>
+  snippetConfig.viewMode ? snippetConfig.viewMode === 'embedded' : teleportFeature.value,
+)
 
 const currencyFormat = computed(() => currencies[snippetConfig.currency!])
 provide<string>('currencyFormat', currencyFormat.value)
