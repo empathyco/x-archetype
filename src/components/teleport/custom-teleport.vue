@@ -99,7 +99,7 @@ export default defineComponent({
     const visibleGrid = ref(false)
 
     const searchBoxTarget = computed(
-      () => snippetConfig.searchBoxSelector ?? "[data-teleport='empathy-searchBox-container']",
+      () => snippetConfig.searchBoxSelector ?? "[data-teleport='empathy-search-box-container']",
     )
     const gridTarget = computed(
       () => snippetConfig.resultsSelector ?? "[data-teleport='empathy-results-container']",
