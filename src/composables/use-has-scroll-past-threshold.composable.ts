@@ -4,7 +4,7 @@ import { computed, ref, watch } from 'vue'
 
 export const useHasScrollPastThreshold = (): { hasScrolledPastThreshold: Ref<boolean> } => {
   const hasScrolledPastThresholdFlag = ref(false)
-  const scrollOffset = 100
+  const scrollOffset = 200
   const { data: scrollPositionsMap } = useState('scroll')
   const mainScrollPosition = computed(() => scrollPositionsMap.value['main-scroll']?.position)
 
