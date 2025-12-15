@@ -49,7 +49,7 @@
       :result="result"
     >
       <h2 class="x-title4 x-truncate x-uppercase" data-test="result-title">
-        {{ result.description }}
+        {{ result.description || result.name }}
       </h2>
       <template v-if="showDescription">
         <span class="x-text2">{{ result.collection }}</span>
