@@ -108,7 +108,12 @@
       "clear": "Effacer 1 filtre | Effacer {count} filtres"
     },
     "result": {
-      "addToCart": "Ajouter au panier"
+      "addToCart": "Ajouter au panier",
+      "seeVariants": "Voir les variantes",
+      "selectAllOptions": "Veuillez sélectionner une option de chaque variation",
+      "maxUnits": "Quantité maximale",
+      "viewDetails": "Voir les détails",
+      "selectOption": "Sélectionnez une option"
     },
     "spellcheck": {
       "message": "Aucun résultat trouvé pour {query} Nous vous montrons les résultats pour"

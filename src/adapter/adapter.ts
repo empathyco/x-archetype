@@ -19,23 +19,29 @@ import {
   resultSchema,
   semanticQueriesRequestSchema,
 } from '@empathyco/x-adapter-platform'
-import { getFacetConfigWithEditable } from './utils/facet.utils'
+import { getFacetConfigWithEditable } from './facets/utils'
+import { skuSearchEndpointAdapter } from './skusearch/skusearch.endpoint-adapter'
 
 export const adapter = platformAdapter
 
 /* Code sample about how to extend the result mapper with more fields. */
 
 interface EmpathyDemoPlatformResult extends PlatformResult {
-  description: string
-  collection: string
-  brand: string
+  brand?: string
+  collection?: string
+  description?: string
+  variants?: any[]
 }
 
 declare module '@empathyco/x-types' {
   export interface Result {
-    collection: string
-    description: string
-    brand: string
+    brand?: string
+    collection?: string
+    description?: string
+    hasVariants?: boolean
+    maxSale?: number
+    availableQuantity?: number
+    isOutOfStock?: boolean
   }
 }
 
@@ -44,6 +50,7 @@ resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
   collection: 'collection',
   brand: 'brand',
   images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
+  hasVariants: ({ variants }) => !!variants?.length,
 })
 
 recommendationsRequestSchema.$override<
@@ -84,3 +91,5 @@ facetSchema.$override<PlatformFacet, Partial<NumberRangeFacet>>({
     $subSchema: ({ type, facet }) => getFacetConfigWithEditable(facet, type).schema,
   },
 })
+
+adapter.skuSearch = skuSearchEndpointAdapter

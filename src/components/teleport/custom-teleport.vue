@@ -50,6 +50,8 @@
 
     <MyHistoryConfirmDisableModal />
   </div>
+
+  <VariantSelector />
 </template>
 
 <script lang="ts">
@@ -66,6 +68,7 @@ import {
 import { computed, defineComponent, inject, ref } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
+import VariantSelector from '../add2cart/variant-selector.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
 import PredictiveLayer from '../predictive-layer/predictive-layer.vue'
@@ -88,6 +91,7 @@ export default defineComponent({
     MyHistoryConfirmDisableModal,
     CrossTinyIcon,
     ChevronLeftIcon,
+    VariantSelector,
   },
   setup() {
     const x = use$x()
