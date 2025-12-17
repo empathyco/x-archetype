@@ -1,7 +1,8 @@
-// The SnippetConfig import is necessary because TypeScript only loads module augmentation when the module is actually imported
-// eslint-disable-next-line unused-imports/no-unused-imports
+/* eslint-disable unused-imports/no-unused-imports */
+// Unused imports are necessary because TypeScript only loads module augmentation when the module is actually imported
 import type { SnippetConfig } from '@empathyco/x-components'
 import type { SemanticQueriesConfig } from '@empathyco/x-components/semantic-queries'
+import type { XComponentsAdapter } from '@empathyco/x-types'
 
 declare module '@empathyco/x-components' {
   interface SnippetConfig {
@@ -39,5 +40,14 @@ declare module '@empathyco/x-components' {
   interface XEventsTypes {
     SemanticQueriesConfigProvided: SemanticQueriesConfig
     UserClickedCloseNextQueries: void
+    UserClickedResultWithVariants: Result
+    UserClickedResultVariantAddToCart: Result
+    UserClickedResultVariantRemoveFromCart: Result
+  }
+}
+
+declare module '@empathyco/x-types' {
+  export interface XComponentsAdapter {
+    skuSearch: EndpointAdapter
   }
 }

@@ -94,6 +94,7 @@ function resolveEmpathyEndpoint(endpoint: DockerEndpoints, context: Record<strin
     aiQuestions: `http://${endpointHost}/questions/${endpointInstance}/conversational`,
     aiTasks: `http://${endpointHost}/questions/${endpointInstance}/skus/tasks`,
     facets: `http://${endpointHost}/query/${endpointInstance}/facets`,
+    skuSearch: `http://${endpointHost}/query/${endpointInstance}/skusearch`,
   }
   return empathyEndpoints[endpoint]
 }

@@ -24,7 +24,15 @@
         v-if="isDesktopOrGreater && showAddToCart"
         class="x-result__overlay x-invisible x-absolute x-bottom-0 x-flex x-w-full group-hover/result:x-visible"
       >
+        <BaseEventButton
+          v-if="result.hasVariants"
+          :events="events"
+          class="x-button x-button-lead x-m-16 x-flex-auto x-rounded-full x-uppercase"
+        >
+          {{ $t('result.seeVariants') }}
+        </BaseEventButton>
         <BaseAddToCart
+          v-else
           :result="result"
           class="x-button-lead x-m-16 x-flex-auto x-rounded-full x-uppercase"
         >
@@ -59,6 +67,7 @@
 import type { Result } from '@empathyco/x-types'
 import {
   BaseAddToCart,
+  BaseEventButton,
   BaseFallbackImage,
   BasePlaceholderImage,
   BaseResultCurrentPrice,
@@ -76,10 +85,12 @@ interface Props {
   showAddToCart?: boolean
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   showDescription: true,
   showAddToCart: true,
 })
+
+const events = { UserClickedResultWithVariants: props.result }
 
 const { isDesktopOrGreater } = useDevice()
 const imageAnimation = CrossFade

@@ -110,6 +110,11 @@ export interface Messages {
   }
   result: {
     addToCart: string
+    seeVariants: string
+    selectAllOptions: string
+    maxUnits: string
+    viewDetails: string
+    selectOption: string
   }
   spellcheck: {
     message: string

@@ -9,6 +9,7 @@
     <Mobile v-if="isTabletOrLess" />
     <Desktop v-else />
   </MainModal>
+  <VariantSelector />
 </template>
 
 <script setup lang="ts">
@@ -16,6 +17,7 @@ import type { SnippetConfig } from '@empathyco/x-components'
 import { animateClipPath, MainModal, use$x } from '@empathyco/x-components'
 import { computed, inject } from 'vue'
 import { useDevice } from '../composables/use-device.composable'
+import VariantSelector from './add2cart/variant-selector.vue'
 import Desktop from './desktop/desktop.vue'
 import Mobile from './mobile/mobile.vue'
 

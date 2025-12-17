@@ -60,7 +60,17 @@ const open = (): void => {
 
 openXEvents.forEach(event => x.on(event as XEvent, false).subscribe(open))
 
-const excludedExtraParams = ['viewMode', 'layerSelector', 'resultsSelector', 'searchBoxSelector']
+const excludedExtraParams = [
+  'callbacks',
+  'cart',
+  'currency',
+  'layerSelector',
+  'queriesPreview',
+  'resultsSelector',
+  'searchBoxSelector',
+  'viewMode',
+  'wishlist',
+]
 
 const close = (): void => {
   window.wysiwyg?.close()
@@ -151,7 +161,7 @@ if (isIOS()) {
 </script>
 
 <style scoped>
-.x-modal:deep(.x-modal__content) {
+:deep(.x-main-modal .x-modal__content) {
   width: 100%;
   height: 100%;
   background-color: white;

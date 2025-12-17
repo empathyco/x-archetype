@@ -108,7 +108,12 @@
       "clear": "Clear 1 filter | Clear {count} filters"
     },
     "result": {
-      "addToCart": "Add to cart"
+      "addToCart": "Add to cart",
+      "seeVariants": "See variants",
+      "selectAllOptions": "Please select an option from each variation",
+      "maxUnits": "Max units",
+      "viewDetails": "View details",
+      "selectOption": "Select option"
     },
     "spellcheck": {
       "message": "No results found for {query} We show you results for"
