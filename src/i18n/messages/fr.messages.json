@@ -138,6 +138,9 @@
     "relatedPrompts": {
       "title": "Êtes-vous intéressé par {query}? {message}",
       "message": "Explorez ces suggestions:"
+    },
+    "pageLoaderButton": {
+      "message": "Charger plus de produits"
     }
   },
   "mobile": {

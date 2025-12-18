@@ -140,4 +140,7 @@ export interface Messages {
     title: string
     message: string
   }
+  pageLoaderButton: {
+    message: string
+  }
 }
