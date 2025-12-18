@@ -44,7 +44,7 @@ runs:
       shell: bash
     - name: Purge Cloudflare Cache
       run: |
-        curl --verbose --location POST https://api.cloudflare.com/client/v4/zones/${{ inputs.r2_zone_id }}/purge_cache \
+        curl -XPOST --location https://api.cloudflare.com/client/v4/zones/${{ inputs.r2_zone_id }}/purge_cache \
           --header "Authorization: Bearer ${{ inputs.r2_api_token }}" \
           --header "Content-Type: application/json" \
           --data '${{ inputs.r2_purge_strategy }}'
