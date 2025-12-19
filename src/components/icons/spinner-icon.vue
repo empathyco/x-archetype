@@ -18,13 +18,13 @@
   </svg>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  props: {
-    animationClass: { type: String, default: 'x-animate-spin' },
-    fillClass: { type: String, default: 'x-text-neutral-0' },
-  },
+<script setup lang="ts">
+interface Props {
+  animationClass?: string
+  fillClass?: string
+}
+withDefaults(defineProps<Props>(), {
+  animationClass: 'x-animate-spin',
+  fillClass: 'x-text-neutral-0',
 })
 </script>

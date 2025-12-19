@@ -124,7 +124,6 @@ window.initX = {
       console.log('removed from cart', result)
     },
     UserClickedResultWishlist(result) {
-      console.log(result)
       const index = wishlist.findIndex(i => i === result.id)
       if (index > -1) {
         wishlist.splice(index, 1)

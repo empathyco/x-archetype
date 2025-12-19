@@ -22,7 +22,7 @@
 
       <button
         class="x-button-circle x-absolute x-right-0 x-top-0 x-flex x-h-40 x-w-40 x-items-center x-justify-center x-justify-items-center"
-        @click="emitOnWishlistBeacon"
+        @click="onWishlistClick"
       >
         <HeartIcon
           class="hover:x-fill-icon x-icon-lg x-mt-4"
@@ -111,7 +111,7 @@ const isWishListed = computed(() => {
   return wishlist.includes(props.result.id)
 })
 
-const emitOnWishlistBeacon = (): void => {
+const onWishlistClick = (): void => {
   x.emit('UserClickedResultWishlist', props.result)
 }
 </script>
