@@ -53,7 +53,7 @@ jobs:
           r2_secret_access_key: ${{ secrets.R2_PROD_ACCESS_SECRET }}
           r2_bucket: ${{ secrets.R2_PROD_BUCKET }}
           r2_bucket_path: ./
-          r2_zone_id: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          r2_zone_id: ${{ secrets.CLOUDFLARE_PROD_ZONE_ID }}
           r2_api_token: ${{ secrets.CLOUDFLARE_PURGE_TOKEN }}
           r2_purge_strategy: |
             {
