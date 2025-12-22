@@ -1,4 +1,3 @@
-import type { XAPI } from '@empathyco/x-components'
 import { CssInjector } from '@empathyco/x-archetype-utils'
 import { XInstaller } from '@empathyco/x-components'
 import { getInstallXOptions } from './x-components/plugin.options'
@@ -18,7 +17,6 @@ declare global {
         }>,
       ) => void
     }
-    InterfaceX?: XAPI
   }
 }
 

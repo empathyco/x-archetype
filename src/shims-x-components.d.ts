@@ -45,9 +45,7 @@ declare module '@empathyco/x-components' {
     UserClickedResultWithVariants: Result
     UserClickedResultVariantAddToCart: Result
     UserClickedResultVariantRemoveFromCart: Result
-    UserClickedChangeUnits: Result
     UserClickedResultRemoveFromCart: Result
-    UserModifiedAdd2cart: Partial<Result>
     UserClickedResultWishlist: Result
   }
 }

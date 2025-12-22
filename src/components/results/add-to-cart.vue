@@ -154,15 +154,6 @@ const setIsLoading = (resultId: string | number): void => {
   }),
 )
 
-xBus.on('UserClickedChangeUnits', false).subscribe((result: Result) => {
-  if (result.id === props.result.id && props.result.measurementUnit) {
-    measurementUnit.value =
-      measurementUnit.value === defaultMeasurementUnit
-        ? props.result.measurementUnit
-        : defaultMeasurementUnit
-  }
-})
-
 /**
  * Updates the number of units for a given result item and emits the appropriate event.
  * The inputValue is passed as a part of the event's metadata, this way we can emit
