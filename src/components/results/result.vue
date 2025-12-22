@@ -20,15 +20,15 @@
         </BaseResultImage>
       </BaseResultLink>
 
-      <button
+      <BaseEventButton
         class="x-button-circle x-absolute x-right-0 x-top-0 x-flex x-h-40 x-w-40 x-items-center x-justify-center x-justify-items-center"
-        @click="onWishlistClick"
+        :events="onWishlistClickEvents"
       >
         <HeartIcon
           class="hover:x-fill-icon x-icon-lg x-mt-4"
           :class="{ 'x-fill-icon': isWishListed }"
         />
-      </button>
+      </BaseEventButton>
 
       <div
         v-if="isDesktopOrGreater"
@@ -80,7 +80,6 @@ import {
   BaseResultPreviousPrice,
   CrossFade,
   HeartIcon,
-  use$x,
 } from '@empathyco/x-components'
 import { MainScrollItem } from '@empathyco/x-components/scroll'
 import { computed, inject } from 'vue'
@@ -99,8 +98,8 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const events = { UserClickedResultWithVariants: props.result }
+const onWishlistClickEvents = { UserClickedResultWishlist: props.result }
 
-const x = use$x()
 const { isDesktopOrGreater } = useDevice()
 const imageAnimation = CrossFade
 
@@ -110,10 +109,6 @@ const isWishListed = computed(() => {
   const wishlist = snippetConfig?.wishlist ?? []
   return wishlist.includes(props.result.id)
 })
-
-const onWishlistClick = (): void => {
-  x.emit('UserClickedResultWishlist', props.result)
-}
 </script>
 <style lang="scss">
 .x-fill-icon > path {

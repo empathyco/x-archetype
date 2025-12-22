@@ -1,3 +1,5 @@
+import { addToCartCallback, removeFromCartCallback, wishlistCallback } from '../src/callbacks'
+
 function getAllURLParameters() {
   const parameterRegex = /[?&]+([^=&;$]+)=([^&#;$]*)/gi
   const parameters = {}
@@ -62,8 +64,6 @@ const documentDirection = popFromURLParameters('doc-dir') || 'ltr'
 const store = popFromURLParameters('store') || undefined
 const viewMode = popFromURLParameters('viewMode') || 'fullScreen'
 const isolate = getIsolationStrategy()
-var cart = {}
-var wishlist = []
 popFromURLParameters('query') // prevent the query from be included as extra param
 popFromURLParameters('filter') // Prevent the filters to be included as extra param
 
@@ -83,57 +83,11 @@ window.initX = {
   isolate,
   ...URLParameters,
   callbacks: {
-    /**
-     * Callback function to handle adding a result item to the cart:
-     * Adds the item to the cart with the specified number of inputUnits,
-     * or increments the existing quantity by the result's sellPackUnit.
-     *
-     * @param {Object} result - The result item to be added to the cart.
-     * @param {number} [metadata.inputValue] - The number of units to update the cart with.
-     */
-    UserClickedResultAddToCart: function (result, metadata) {
-      console.log(metadata)
-      console.log('User shopping with:', result)
-      cart[result.id] = metadata.inputValue || (cart[result.id] ? cart[result.id] + 1 : 1)
-
-      InterfaceX.setSnippetConfig({
-        cart: {
-          ...cart,
-        },
-      })
-    },
-    /**
-     * Callback function to handle removing a result item from the cart:
-     * Removes the item from the cart, leaving it with the specified number of inputUnits,
-     * or decrements the existing quantity by the result's sellPackUnit.
-     *
-     * @param {Object} result - The result item to be removed from the cart.
-     * @param {number} [metadata.inputValue] - The number of units to update the cart with.
-     */
-    UserClickedResultRemoveFromCart: function (result, metadata) {
-      if (metadata.inputValue === 0) {
-        delete cart[result.id]
-      } else {
-        cart[result.id] = metadata.inputValue || (cart[result.id] ? cart[result.id] - 1 : 0)
-      }
-      InterfaceX.setSnippetConfig({
-        cart: {
-          ...cart,
-        },
-      })
-      console.log('removed from cart', result)
-    },
-    UserClickedResultWishlist(result) {
-      const index = wishlist.findIndex(i => i === result.id)
-      if (index > -1) {
-        wishlist.splice(index, 1)
-      } else {
-        wishlist.push(result.id)
-      }
-      InterfaceX.setSnippetConfig({
-        wishlist: [...wishlist],
-      })
-    },
+    UserClickedResultAddToCart: addToCartCallback(result, metadata),
+    UserClickedResultRemoveFromCart: removeFromCartCallback(result, metadata),
+    UserClickedResultWishlist: wishlistCallback(result),
+    UserClickedResultVariantAddToCart: addToCartCallback(result, metadata),
+    UserClickedResultVariantRemoveFromCart: removeFromCartCallback(result, metadata),
   },
   queriesPreview: [
     {
