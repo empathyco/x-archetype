@@ -42,6 +42,7 @@ declare module '@empathyco/x-types' {
     maxSale?: number
     availableQuantity?: number
     isOutOfStock?: boolean
+    measurementUnit?: string
   }
 }
 

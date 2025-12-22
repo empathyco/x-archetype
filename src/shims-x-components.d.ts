@@ -6,6 +6,8 @@ import type { XComponentsAdapter } from '@empathyco/x-types'
 
 declare module '@empathyco/x-components' {
   interface SnippetConfig {
+    cart: Record<Result['id'], number>
+    wishlist: Result['id'][]
     /**
      * Selector for the container where the search box element will be embedded with the teleport feature.
      *
@@ -43,6 +45,8 @@ declare module '@empathyco/x-components' {
     UserClickedResultWithVariants: Result
     UserClickedResultVariantAddToCart: Result
     UserClickedResultVariantRemoveFromCart: Result
+    UserClickedResultRemoveFromCart: Result
+    UserClickedResultWishlist: Result
   }
 }
 

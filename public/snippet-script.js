@@ -22,6 +22,63 @@ function popURLParameter(parametersDictionary, parameterKey) {
   }
 }
 
+/**
+ * Callback function to handle adding a result item to the cart:
+ * Adds the item to the cart with the specified number of inputUnits,
+ * or increments the existing quantity by the result's sellPackUnit.
+ *
+ * @param {object} result - The result item to be added to the cart.
+ * @param {number} [metadata.inputValue] - The number of units to update the cart with.
+ */
+function addToCartCallback(result, metadata) {
+  cart[result.id] = metadata.inputValue || (cart[result.id] ? cart[result.id] + 1 : 1)
+
+  InterfaceX.setSnippetConfig({
+    cart: {
+      ...cart,
+    },
+  })
+}
+
+/**
+ * Callback function to handle removing a result item from the cart:
+ * Removes the item from the cart, leaving it with the specified number of inputUnits,
+ * or decrements the existing quantity by the result's sellPackUnit.
+ *
+ * @param {object} result - The result item to be removed from the cart.
+ * @param {number} [metadata.inputValue] - The number of units to update the cart with.
+ */
+function removeFromCartCallback(result, metadata) {
+  if (metadata.inputValue === 0) {
+    delete cart[result.id]
+  } else {
+    cart[result.id] = metadata.inputValue || (cart[result.id] ? cart[result.id] - 1 : 0)
+  }
+  InterfaceX.setSnippetConfig({
+    cart: {
+      ...cart,
+    },
+  })
+}
+
+/**
+ * Callback function to handle adding or removing a result item from the wishlist:
+ * Adds or removes the item id from the wishlist array.
+ *
+ * @param {object} result - The result item to be added or removed from the wishlist.
+ */
+function wishlistCallback(result) {
+  const index = wishlist.findIndex(i => i === result.id)
+  if (index > -1) {
+    wishlist.splice(index, 1)
+  } else {
+    wishlist.push(result.id)
+  }
+  InterfaceX.setSnippetConfig({
+    wishlist: [...wishlist],
+  })
+}
+
 const URLParameters = getAllURLParameters()
 const popFromURLParameters = popURLParameter.bind(this, URLParameters)
 
@@ -62,6 +119,8 @@ const documentDirection = popFromURLParameters('doc-dir') || 'ltr'
 const store = popFromURLParameters('store') || undefined
 const viewMode = popFromURLParameters('viewMode') || 'fullScreen'
 const isolate = getIsolationStrategy()
+var cart = {}
+var wishlist = []
 popFromURLParameters('query') // prevent the query from be included as extra param
 popFromURLParameters('filter') // Prevent the filters to be included as extra param
 
@@ -80,6 +139,13 @@ window.initX = {
   viewMode,
   isolate,
   ...URLParameters,
+  callbacks: {
+    UserClickedResultAddToCart: addToCartCallback,
+    UserClickedResultRemoveFromCart: removeFromCartCallback,
+    UserClickedResultWishlist: wishlistCallback,
+    UserClickedResultVariantAddToCart: addToCartCallback,
+    UserClickedResultVariantRemoveFromCart: removeFromCartCallback,
+  },
   queriesPreview: [
     {
       query: 'dress',

@@ -20,8 +20,18 @@
         </BaseResultImage>
       </BaseResultLink>
 
+      <BaseEventButton
+        class="x-button-circle x-absolute x-right-0 x-top-0 x-flex x-h-40 x-w-40 x-items-center x-justify-center x-justify-items-center"
+        :events="onWishlistClickEvents"
+      >
+        <HeartIcon
+          class="hover:x-fill-icon x-icon-lg x-mt-4"
+          :class="{ 'x-fill-icon': isWishListed }"
+        />
+      </BaseEventButton>
+
       <div
-        v-if="isDesktopOrGreater && showAddToCart"
+        v-if="isDesktopOrGreater"
         class="x-result__overlay x-invisible x-absolute x-bottom-0 x-flex x-w-full group-hover/result:x-visible"
       >
         <BaseEventButton
@@ -31,13 +41,6 @@
         >
           {{ $t('result.seeVariants') }}
         </BaseEventButton>
-        <BaseAddToCart
-          v-else
-          :result="result"
-          class="x-button-lead x-m-16 x-flex-auto x-rounded-full x-uppercase"
-        >
-          {{ $t('result.addToCart') }}
-        </BaseAddToCart>
       </div>
     </div>
 
@@ -60,13 +63,14 @@
         />
       </div>
     </BaseResultLink>
+    <AddToCart v-if="showAddToCart" :result="result" class="x-my-4 x-w-full" />
   </MainScrollItem>
 </template>
 
 <script setup lang="ts">
+import type { SnippetConfig } from '@empathyco/x-components'
 import type { Result } from '@empathyco/x-types'
 import {
-  BaseAddToCart,
   BaseEventButton,
   BaseFallbackImage,
   BasePlaceholderImage,
@@ -75,9 +79,12 @@ import {
   BaseResultLink,
   BaseResultPreviousPrice,
   CrossFade,
+  HeartIcon,
 } from '@empathyco/x-components'
 import { MainScrollItem } from '@empathyco/x-components/scroll'
+import { computed, inject } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
+import AddToCart from './add-to-cart.vue'
 
 interface Props {
   result: Result
@@ -91,7 +98,20 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const events = { UserClickedResultWithVariants: props.result }
+const onWishlistClickEvents = { UserClickedResultWishlist: props.result }
 
 const { isDesktopOrGreater } = useDevice()
 const imageAnimation = CrossFade
+
+const snippetConfig = inject<SnippetConfig>('snippetConfig')
+
+const isWishListed = computed(() => {
+  const wishlist = snippetConfig?.wishlist ?? []
+  return wishlist.includes(props.result.id)
+})
 </script>
+<style lang="scss">
+.x-fill-icon > path {
+  fill: red;
+}
+</style>
