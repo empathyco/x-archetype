@@ -31,6 +31,7 @@ interface EmpathyDemoPlatformResult extends PlatformResult {
   collection?: string
   description?: string
   variants?: any[]
+  hasVariants?: boolean
   tradePolicies?: number[]
   score?: number
   mainImage?: string
@@ -40,6 +41,8 @@ interface EmpathyDemoPlatformResult extends PlatformResult {
   textLink?: string
   productId?: string
   __boostId?: string
+  id?: string
+  filerSpecifications?: any
 }
 
 declare module '@empathyco/x-types' {
@@ -65,14 +68,14 @@ declare module '@empathyco/x-types' {
 }
 
 resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
-  id: '__id',
+  id: rawResult => rawResult.__id ?? rawResult.id,
   name: '__name',
   images: '__images',
   url: '__url',
   description: 'description',
   collection: 'collection',
   brand: 'brand',
-  hasVariants: ({ variants }) => !!variants?.length,
+  hasVariants: 'hasVariants',
   tradePolicies: 'tradePolicies',
   score: 'score',
   mainImage: 'mainImage',
@@ -82,6 +85,7 @@ resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
   textLink: 'textLink',
   productId: 'productId',
   boostId: '__boostId',
+  variants: 'filerSpecifications',
   price: ({ __prices }) => {
     if (__prices?.current?.value !== undefined) {
       return {
