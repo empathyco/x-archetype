@@ -174,7 +174,7 @@
                   :key="value"
                   class="hover:x-border-neutral-70 x-button x-button-sm x-button-ghost x-h-40 x-min-w-fit x-rounded-sm x-border-neutral-25 x-px-16 hover:x-bg-neutral-0"
                   :class="{
-                    '!x-border-auxiliary-90 x-border-2':
+                    'x-border-2 !x-border-neutral-90':
                       selection[variant.name] && selection[variant.name] === value,
                     'x-h-fit x-px-4': variant.name === 'Color',
                   }"
@@ -290,7 +290,7 @@ const hasMaxUnitsReached = computed(
 )
 
 const variantOptions: ComputedRef<any[]> = computed(() => {
-  const allVariations = rawVariants.value?.flatMap((result: any) => result.variations || [])
+  const allVariations = rawVariants.value?.flatMap((result: any) => result.variants || [])
   return mergeVariationsByName(allVariations)
 })
 
@@ -415,7 +415,7 @@ x.on('UserClickedResultWithVariants', true).subscribe(({ eventPayload }) => {
   result.value = eventPayload
 
   XPlugin.adapter
-    .skuSearch({ ...searchRequest.value, query: result.value?.id ?? '' })
+    .skuSearch({ ...searchRequest.value, query: result.value?.productId ?? '' })
     .then((response: any) => {
       rawVariants.value = response?.results || []
     })
@@ -442,15 +442,17 @@ eventsToCloseVariantsModal?.forEach(event =>
 function mergeVariationsByName(variations: any[]) {
   const merged: Record<string, { values: string[]; images?: string[] }> = {}
   variations.forEach(variation => {
-    if (!merged[variation.name]) {
-      merged[variation.name] = { values: [] }
-    }
-    merged[variation.name].values.push(...variation.values)
+    Object.keys(variation).forEach(variationKey => {
+      if (!merged[variationKey]) {
+        merged[variationKey] = { values: [] }
+      }
+      merged[variationKey].values.push(...variation[variationKey])
 
-    // Add images for the "Color" variation
-    if (variation.name === 'Color' && result.value?.images?.[0]) {
-      merged[variation.name].images = [result.value.images[0]]
-    }
+      // Add images for the "Color" variation
+      if (variationKey === 'Color' && result.value?.images?.[0]) {
+        merged[variationKey].images = [result.value.images[0]]
+      }
+    })
   })
   return Object.entries(merged).map(([name, { values, images }]) => ({
     name,
@@ -468,7 +470,9 @@ function doesSelectionMatchVariant(variant: any) {
   return Object.entries(selection.value).every(
     ([name, value]) =>
       value === undefined ||
-      variant.variations?.some((v: any) => v.name === name && v.values.includes(value)),
+      Object.keys(variant.variants).some(
+        vKey => vKey === name && variant.variants[vKey].includes(value),
+      ),
   )
 }
 
@@ -487,9 +491,11 @@ function clickedOptionValue(variant: any, value: string) {
 
   // If only one matching variant is found, select the other variation
   if (matchingVariants.length === 1) {
-    const otherVariant = matchingVariants[0].variations.find((v: any) => v.name !== variant.name)
+    const otherVariant = Object.keys(matchingVariants[0].variants).find(
+      vKey => vKey === variant.name,
+    )
     if (otherVariant) {
-      selection.value[otherVariant.name] = otherVariant.values[0] ?? undefined
+      selection.value[otherVariant] = matchingVariants[0].variants[otherVariant] ?? undefined
     }
   }
 }

@@ -31,6 +31,18 @@ interface EmpathyDemoPlatformResult extends PlatformResult {
   collection?: string
   description?: string
   variants?: any[]
+  hasVariants?: boolean
+  tradePolicies?: number[]
+  score?: number
+  mainImage?: string
+  isVisible?: boolean
+  categories?: string[]
+  isActive?: boolean
+  textLink?: string
+  productId?: string
+  __boostId?: string
+  id?: string
+  filerSpecifications?: any
 }
 
 declare module '@empathyco/x-types' {
@@ -43,15 +55,53 @@ declare module '@empathyco/x-types' {
     availableQuantity?: number
     isOutOfStock?: boolean
     measurementUnit?: string
+    tradePolicies?: number[]
+    score?: number
+    mainImage?: string
+    isVisible?: boolean
+    categories?: string[]
+    isActive?: boolean
+    textLink?: string
+    productId?: string
+    boostId?: string
   }
 }
 
 resultSchema.$override<EmpathyDemoPlatformResult, Partial<Result>>({
+  id: rawResult => rawResult.__id ?? rawResult.id,
+  name: '__name',
+  images: '__images',
+  url: '__url',
   description: 'description',
   collection: 'collection',
   brand: 'brand',
-  images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
-  hasVariants: ({ variants }) => !!variants?.length,
+  hasVariants: 'hasVariants',
+  tradePolicies: 'tradePolicies',
+  score: 'score',
+  mainImage: 'mainImage',
+  isVisible: 'isVisible',
+  categories: 'categories',
+  isActive: 'isActive',
+  textLink: 'textLink',
+  productId: 'productId',
+  boostId: '__boostId',
+  variants: 'filerSpecifications',
+  price: ({ __prices }) => {
+    if (__prices?.current?.value !== undefined) {
+      return {
+        value: __prices.current.value,
+        originalValue: __prices.previous?.value ?? __prices.current.value,
+        futureValue: __prices.future?.value ?? __prices.current.value,
+        hasDiscount: __prices.current.value < (__prices.previous?.value ?? __prices.current.value),
+      }
+    }
+    return {
+      value: 0,
+      originalValue: 0,
+      futureValue: 0,
+      hasDiscount: false,
+    }
+  },
 })
 
 recommendationsRequestSchema.$override<
