@@ -46,7 +46,7 @@
     "vuex": "4.0.2"
   },
   "devDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "22.2.0",
+    "@badeball/cypress-cucumber-preprocessor": "24.0.0",
     "@bahmutov/cypress-esbuild-preprocessor": "2.2.8",
     "@cucumber/messages": "31.1.0",
     "@empathyco/eslint-config": "1.10.22",
