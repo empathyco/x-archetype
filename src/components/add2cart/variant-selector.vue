@@ -281,9 +281,7 @@ const selection: Ref<Record<string, string | undefined>> = ref({})
 const inputUnits = ref(0)
 const isEditing = ref(false)
 
-const maxInputValue = computed(() =>
-  Math.min(result.value?.maxSale ?? 0, result.value?.availableQuantity ?? 0),
-)
+const maxInputValue = computed(() => Number.MAX_SAFE_INTEGER)
 
 const hasMaxUnitsReached = computed(
   () => result.value?.isOutOfStock || inputUnits.value >= maxInputValue.value,
@@ -340,8 +338,7 @@ const updateUnits = (newValue: number): number => {
     return units.value
   }
 
-  const maxInput = Math.min(result.value?.maxSale ?? 0, result.value?.availableQuantity ?? 0)
-  const value = Math.min(newValue, maxInput)
+  const value = Math.min(newValue, maxInputValue.value)
 
   if (value === 0 && units.value !== 0) {
     x.emit('UserClickedResultVariantRemoveFromCart', itemSelected.value, { inputValue: 0 })
