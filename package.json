@@ -48,7 +48,7 @@
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "22.2.0",
     "@bahmutov/cypress-esbuild-preprocessor": "2.2.7",
-    "@cucumber/messages": "27.2.0",
+    "@cucumber/messages": "31.1.0",
     "@empathyco/eslint-config": "1.10.14",
     "@empathyco/x-tailwindcss": "2.0.0-alpha.20",
     "@empathyco/x-translations": "2.0.3-alpha.13",
