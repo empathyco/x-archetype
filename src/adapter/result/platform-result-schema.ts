@@ -10,10 +10,12 @@ interface EmpathyDemoPlatformResult extends PlatformResult {
   variants?: any[]
 }
 
-export const platformResultSchema: DeepPartial<Schema<EmpathyDemoPlatformResult, Result>> = {
-  description: 'description',
-  collection: 'collection',
-  brand: 'brand',
-  images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
-  hasVariants: ({ variants }): boolean => !!variants?.length,
-}
+export const platformResultSchema: DeepPartial<Schema<any, Result>> & Schema<any, Partial<Result>> =
+  {
+    brand: 'brand',
+    collection: 'collection',
+    description: 'description',
+    hasVariants: ({ variants }: EmpathyDemoPlatformResult): boolean => !!variants?.length,
+    images: ({ __images }: EmpathyDemoPlatformResult) =>
+      Array.isArray(__images) ? __images.reverse() : [__images],
+  }

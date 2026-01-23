@@ -6,6 +6,7 @@ import type {
 import type {
   NumberRangeFacet,
   RecommendationsRequest,
+  Result,
   SemanticQueriesRequest,
 } from '@empathyco/x-types'
 
@@ -28,7 +29,7 @@ export const adapter = platformAdapter
  *
  * We have two result schemas examples (one for VTEX and other for Empathy Platform).
  */
-resultSchema.$override(platformResultSchema)
+resultSchema.$override<any, Partial<Result>>(platformResultSchema)
 
 recommendationsRequestSchema.$override<
   RecommendationsRequest,
