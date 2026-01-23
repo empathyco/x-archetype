@@ -54,4 +54,27 @@ declare module '@empathyco/x-types' {
   export interface XComponentsAdapter {
     skuSearch: EndpointAdapter
   }
+
+  export interface Result {
+    // Empathy Platform properties
+    brand?: string
+    collection?: string
+    description?: string
+    hasVariants?: boolean
+
+    // VTEX-specific properties
+    maxSale?: number
+    availableQuantity?: number
+    isOutOfStock?: boolean
+    measurementUnit?: string
+    tradePolicies?: number[]
+    score?: number
+    mainImage?: string
+    isVisible?: boolean
+    categories?: string[]
+    isActive?: boolean
+    textLink?: string
+    productId?: string
+    boostId?: string
+  }
 }
