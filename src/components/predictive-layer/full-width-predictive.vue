@@ -2,6 +2,8 @@
   <div class="x-relative x-z-10">
     <Empathize
       :animation="empathizeAnimation"
+      :has-content="showEmpathize || showIdentifierResults"
+      search-and-close-on-no-content
       class="x-layout-item x-absolute x-z-[1] x-w-full x-bg-neutral-0"
       @empathize-opened="handleEmpathizeEvent('EmpathizeOpened')"
       @empathize-closed="handleEmpathizeEvent('EmpathizeClosed')"
@@ -9,7 +11,7 @@
       <MaxDesktopWidthItem>
         <DesktopSearchboxAlign>
           <div class="x-layout-item">
-            <div v-if="showEmpathize || showIdentifierResults" class="x-h-full x-py-16 x-pl-[17px]">
+            <div class="x-h-full x-py-16 x-pl-[17px]">
               <div class="x-block">
                 <BaseKeyboardNavigation
                   class="x-flex x-items-start x-gap-24"

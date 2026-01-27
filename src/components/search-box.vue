@@ -4,7 +4,7 @@
       ref="searchInputRef"
       :autofocus="false"
       :placeholder="$t('searchBox.placeholder')"
-      :instant="true"
+      :instant="!!isDesktopOrGreater"
       class="desktop:!x-pl-24"
     />
 
