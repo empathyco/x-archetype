@@ -94,3 +94,7 @@ When('clear history queries button is clicked', () => {
 Then('no history queries are displayed', () => {
   cy.getByDataTest('history-queries').should('not.exist')
 })
+
+When('user presses enter', () => {
+  cy.getByDataTest('search-input').type('{enter}')
+})
