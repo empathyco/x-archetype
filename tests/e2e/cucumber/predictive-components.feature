@@ -10,6 +10,7 @@ Feature: Predictive components
     Then  query suggestions are displayed
     When  search input is cleared
     And   a "<query>" is typed
+    And   user presses enter
     And   focus is set on the search input
     Then  next queries are displayed
     When  search input is cleared
