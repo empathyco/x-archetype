@@ -62,36 +62,39 @@ import {
   BaseTeleport,
   ChevronLeftIcon,
   CrossTinyIcon,
-  LocationProvider,
   use$x,
 } from '@empathyco/x-components'
-import { computed, defineComponent, inject, ref } from 'vue'
+import { computed, defineAsyncComponent, defineComponent, inject, ref } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import VariantSelector from '../add2cart/variant-selector.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
-import PredictiveLayer from '../predictive-layer/predictive-layer.vue'
-import SearchBox from '../search-box.vue'
 import { DesktopAside } from '../search/index'
-import DesktopTeleport from './desktop-teleport.vue'
-import MobileTeleport from './mobile-teleport.vue'
 
 export default defineComponent({
   components: {
     DesktopAside,
-    PredictiveLayer,
-    LocationProvider,
-    SearchBox,
     BaseTeleport,
-    DesktopTeleport,
     BaseIdModal,
-    MobileTeleport,
     MyHistoryAside,
     MyHistoryConfirmDisableModal,
     CrossTinyIcon,
     ChevronLeftIcon,
     VariantSelector,
+    DesktopTeleport: defineAsyncComponent(() =>
+      import('./desktop-teleport.vue').then(m => m.default),
+    ),
+    LocationProvider: defineAsyncComponent(() =>
+      import('@empathyco/x-components').then(m => m.LocationProvider),
+    ),
+    MobileTeleport: defineAsyncComponent(() =>
+      import('./mobile-teleport.vue').then(m => m.default),
+    ),
+    SearchBox: defineAsyncComponent(() => import('../search-box.vue').then(m => m.default)),
+    PredictiveLayer: defineAsyncComponent(() =>
+      import('../predictive-layer/predictive-layer.vue').then(m => m.default),
+    ),
   },
   setup() {
     const x = use$x()

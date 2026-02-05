@@ -30,7 +30,6 @@ import {
   ref,
   watch,
 } from 'vue'
-import CustomTeleport from './components/teleport/custom-teleport.vue'
 import { useDevice } from './composables/use-device.composable'
 import { FeatureFlag, useFeatureFlags } from './composables/use-feature-flags.composable'
 import { isIOS, removeSearchInputFocus } from './composables/use-ios-utils-composable'
@@ -39,6 +38,9 @@ import './tailwind/index.css'
 
 const MainModal = defineAsyncComponent(() =>
   import('./components/custom-main-modal.vue').then(m => m.default),
+)
+const CustomTeleport = defineAsyncComponent(() =>
+  import('./components/teleport/custom-teleport.vue').then(m => m.default),
 )
 
 const x = use$x()

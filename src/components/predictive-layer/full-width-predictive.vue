@@ -155,23 +155,41 @@ import {
   TrashIcon,
   use$x,
 } from '@empathyco/x-components'
-import { Empathize } from '@empathyco/x-components/empathize'
-import {
-  ClearHistoryQueries,
-  HistoryQueries,
-  HistoryQuery,
-} from '@empathyco/x-components/history-queries'
-import { ref } from 'vue'
+import { defineAsyncComponent, ref } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composable'
 import DesktopSearchboxAlign from '../desktop/desktop-searchbox-align.vue'
-import HistoryQueryFilters from '../history-query-filters.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
-import PredictiveIdentifierResults from './predictive-identifier-results.vue'
-import PredictiveNextQueries from './predictive-next-queries.vue'
-import PredictivePopularSearches from './predictive-popular-searches.vue'
-import PredictiveQuerySuggestions from './predictive-query-suggestions.vue'
-import SlidingRecommendations from './sliding-recommendations.vue'
+const HistoryQuery = defineAsyncComponent(() =>
+  import('@empathyco/x-components/history-queries').then(m => m.HistoryQuery),
+)
+const HistoryQueries = defineAsyncComponent(() =>
+  import('@empathyco/x-components/history-queries').then(m => m.HistoryQueries),
+)
+const ClearHistoryQueries = defineAsyncComponent(() =>
+  import('@empathyco/x-components/history-queries').then(m => m.ClearHistoryQueries),
+)
+const Empathize = defineAsyncComponent(() =>
+  import('@empathyco/x-components/empathize').then(m => m.Empathize),
+)
+const HistoryQueryFilters = defineAsyncComponent(() =>
+  import('../history-query-filters.vue').then(m => m.default),
+)
+const PredictiveIdentifierResults = defineAsyncComponent(() =>
+  import('./predictive-identifier-results.vue').then(m => m.default),
+)
+const PredictiveNextQueries = defineAsyncComponent(() =>
+  import('./predictive-next-queries.vue').then(m => m.default),
+)
+const PredictivePopularSearches = defineAsyncComponent(() =>
+  import('./predictive-popular-searches.vue').then(m => m.default),
+)
+const PredictiveQuerySuggestions = defineAsyncComponent(() =>
+  import('./predictive-query-suggestions.vue').then(m => m.default),
+)
+const SlidingRecommendations = defineAsyncComponent(() =>
+  import('./sliding-recommendations.vue').then(m => m.default),
+)
 
 const empathizeAnimation = animateScale() as any
 const suggestionsAnimation = StaggeredFadeAndSlide as any
