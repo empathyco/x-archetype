@@ -5,7 +5,7 @@ Feature: No-results component
     When  search bar is clicked
     And   "<query>" is searched
     Then  no results message is displayed
-    And   recommendations are displayed
+#   And   recommendations are displayed     No recommendations are returned by the endpoint
     Then   there are no results
     Examples:
       | query    | view        |

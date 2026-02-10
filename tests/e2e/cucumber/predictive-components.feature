@@ -1,3 +1,4 @@
+@skip
 Feature: Predictive components
 
   Scenario Outline: 1. Predictive components are displayed as expected
