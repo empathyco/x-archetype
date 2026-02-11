@@ -67,7 +67,6 @@ import {
 import { computed, defineAsyncComponent, defineComponent, inject, ref } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
-import VariantSelector from '../add2cart/variant-selector.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
 import { DesktopAside } from '../search/index'
@@ -81,7 +80,9 @@ export default defineComponent({
     MyHistoryConfirmDisableModal,
     CrossTinyIcon,
     ChevronLeftIcon,
-    VariantSelector,
+    VariantSelector: defineAsyncComponent(() =>
+      import('../add2cart/variant-selector.vue').then(m => m.default),
+    ),
     DesktopTeleport: defineAsyncComponent(() =>
       import('./desktop-teleport.vue').then(m => m.default),
     ),
