@@ -1,6 +1,6 @@
 <template>
   <div class="x-layout-container">
-    <div class="x-sticky x-top-0 x-z-[1] x-mt-14 x-bg-neutral-0">
+    <div class="x-sticky x-top-0 x-z-[1] x-bg-neutral-0">
       <DesktopSubHeader
         data-test="sub-header"
         :has-searched="hasSearched"

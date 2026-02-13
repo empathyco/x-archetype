@@ -3,7 +3,7 @@
     <section v-if="isDesktopOrGreater" class="x-relative">
       <SearchBox />
       <LocationProvider location="predictive_layer">
-        <PredictiveLayer class="x-absolute x-shadow-lg" />
+        <PredictiveLayer v-if="triggerEmpathizeRequests" class="x-absolute x-shadow-lg" />
       </LocationProvider>
     </section>
     <section v-else>
@@ -16,6 +16,7 @@
       </div>
       <LocationProvider location="predictive_layer">
         <PredictiveLayer
+          v-if="triggerEmpathizeRequests"
           class="x-layout-min-margin-16 x-absolute x-left-0 x-w-full desktop:x-h-[600px]"
         />
       </LocationProvider>
@@ -105,6 +106,7 @@ export default defineComponent({
     const { hasSearched } = useHasSearched()
 
     const visibleGrid = ref(false)
+    const triggerEmpathizeRequests = ref(false)
 
     const searchBoxTarget = computed(
       () => snippetConfig.searchBoxSelector ?? "[data-teleport='empathy-search-box-container']",
@@ -128,6 +130,14 @@ export default defineComponent({
       x.emit('UserClosedEmpathize')
     }
 
+    x.on('UserClickedSearchBox', false).subscribe(() => {
+      triggerEmpathizeRequests.value = true
+    })
+
+    x.on('UserClosedEmpathize', false).subscribe(() => {
+      triggerEmpathizeRequests.value = false
+    })
+
     return {
       x,
       rightAsideAnimation,
@@ -136,6 +146,7 @@ export default defineComponent({
       gridTarget,
       isDesktopOrGreater,
       hasSearched,
+      triggerEmpathizeRequests,
       closeEmpathize,
     }
   },

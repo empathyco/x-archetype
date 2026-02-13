@@ -84,31 +84,15 @@ import {
   StaggeredFadeAndSlide,
   use$x,
 } from '@empathyco/x-components'
-import { defineAsyncComponent } from 'vue'
+import { Empathize } from '@empathyco/x-components/empathize'
 import { useDevice } from '../../composables/use-device.composable'
 import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composable'
-
-const Empathize = defineAsyncComponent(() =>
-  import('@empathyco/x-components/empathize').then(m => m.Empathize),
-)
-const PredictiveHistoryQueries = defineAsyncComponent(() =>
-  import('./predictive-history-queries.vue').then(m => m.default),
-)
-const PredictiveIdentifierResults = defineAsyncComponent(() =>
-  import('./predictive-identifier-results.vue').then(m => m.default),
-)
-const PredictiveNextQueries = defineAsyncComponent(() =>
-  import('./predictive-next-queries.vue').then(m => m.default),
-)
-const PredictivePopularSearches = defineAsyncComponent(() =>
-  import('./predictive-popular-searches.vue').then(m => m.default),
-)
-const PredictiveQuerySuggestions = defineAsyncComponent(() =>
-  import('./predictive-query-suggestions.vue').then(m => m.default),
-)
-const SlidingRecommendations = defineAsyncComponent(() =>
-  import('./sliding-recommendations.vue').then(m => m.default),
-)
+import PredictiveHistoryQueries from './predictive-history-queries.vue'
+import PredictiveIdentifierResults from './predictive-identifier-results.vue'
+import PredictiveNextQueries from './predictive-next-queries.vue'
+import PredictivePopularSearches from './predictive-popular-searches.vue'
+import PredictiveQuerySuggestions from './predictive-query-suggestions.vue'
+import SlidingRecommendations from './sliding-recommendations.vue'
 
 const empathizeAnimation = animateScale()
 const suggestionsAnimation = StaggeredFadeAndSlide as any
