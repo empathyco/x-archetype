@@ -9,14 +9,6 @@
       />
     </div>
 
-    <div class="x-layout-item">
-      <MaxDesktopWidthItem>
-        <LocationProvider location="predictive_layer">
-          <RelatedTags v-if="x.relatedTags.length > 0" class="x-pb-24" />
-        </LocationProvider>
-      </MaxDesktopWidthItem>
-    </div>
-
     <MainScroll :use-window="true" class="x-main-scroll x-mb-24 x-flex x-flex-col">
       <Scroll id="main-scroll">
         <MaxDesktopWidthItem class="x-z-1 x-bg-neutral-0">
@@ -65,13 +57,11 @@ import { useHasSearched } from '../../composables/use-has-searched.composable'
 import DesktopSubHeader from '../desktop/desktop-sub-header.vue'
 import MainComponent from '../main.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
-import RelatedTags from '../search/related-tags.vue'
 
 export default defineComponent({
   components: {
     PageLoaderButton,
     DesktopSubHeader,
-    RelatedTags,
     MaxDesktopWidthItem,
     LocationProvider,
     MainScroll,
