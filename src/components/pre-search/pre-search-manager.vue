@@ -3,7 +3,7 @@
     <h1 v-if="!hasQueryPreviews" class="x-title1 max-desktop:x-title1-sm max-desktop:x-px-16">
       {{ $t('popularSearches.title') }}
     </h1>
-    <CustomQueryPreview :queries-preview-info="queriesPreviewToRender" />
+    <PreSearchQueryPreviewList :queries-preview-info="queriesPreviewToRender" />
   </div>
 </template>
 
@@ -12,7 +12,7 @@ import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview'
 import { use$x, useState } from '@empathyco/x-components'
 import { popularSearchesXModule } from '@empathyco/x-components/popular-searches'
 import { computed, inject } from 'vue'
-import CustomQueryPreview from './custom-query-preview.vue'
+import PreSearchQueryPreviewList from './pre-search-query-preview-list.vue'
 
 defineOptions({
   xModule: popularSearchesXModule.name,

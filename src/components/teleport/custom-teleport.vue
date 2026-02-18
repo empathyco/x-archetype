@@ -56,7 +56,7 @@
 </template>
 
 <script lang="ts">
-import type { SnippetConfig, XEventsTypes } from '@empathyco/x-components'
+import type { SnippetConfig } from '@empathyco/x-components'
 import {
   animateTranslate,
   BaseIdModal,
@@ -69,6 +69,7 @@ import {
 import { computed, defineAsyncComponent, defineComponent, inject, ref } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
+import { eventsToOpenEmpathize } from '../../x-components/constants'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
 import SearchBox from '../search-box.vue'
@@ -99,11 +100,6 @@ export default defineComponent({
     ),
   },
   setup() {
-    const eventsToOpenEmpathize: (keyof XEventsTypes)[] = [
-      'UserFocusedSearchBox',
-      'UserIsTypingAQuery',
-      'UserClickedSearchBox',
-    ]
     const x = use$x()
     const rightAsideAnimation = animateTranslate('right')
     const { isDesktopOrGreater } = useDevice()

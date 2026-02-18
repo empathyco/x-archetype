@@ -5,6 +5,7 @@
     search-and-close-on-no-content
     class="x-z-40 x-bg-neutral-0 desktop:x-w-full"
     :events-to-close-empathize="isDesktopOrGreater ? desktopCloseEvents : mobileCloseEvents"
+    :events-to-open-empathize="eventsToOpenEmpathize"
   >
     <component
       :is="isDesktopOrGreater ? 'div' : 'BaseScroll'"
@@ -87,6 +88,7 @@ import {
 import { Empathize } from '@empathyco/x-components/empathize'
 import { useDevice } from '../../composables/use-device.composable'
 import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composable'
+import { eventsToOpenEmpathize } from '../../x-components/constants'
 import PredictiveHistoryQueries from './predictive-history-queries.vue'
 import PredictiveIdentifierResults from './predictive-identifier-results.vue'
 import PredictiveNextQueries from './predictive-next-queries.vue'
