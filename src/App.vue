@@ -87,12 +87,12 @@ x.on('UserAcceptedAQuery', false).subscribe(async (query): Promise<void> => {
 })
 
 x.on('SearchRequestChanged', false).subscribe((payload: InternalSearchRequest | null): void => {
-  window.wysiwyg?.setContext({ query: payload?.query, spellcheckedQuery: undefined })
+  window.wysiwyg?.setConfig({ query: payload?.query, spellcheckedQuery: undefined })
 })
 
 x.on('SearchResponseChanged', false).subscribe((payload: InternalSearchResponse): void => {
   if (payload.spellcheck) {
-    window.wysiwyg?.setContext({ spellcheckedQuery: payload.spellcheck })
+    window.wysiwyg?.setConfig({ spellcheckedQuery: payload.spellcheck })
   }
 })
 
@@ -101,7 +101,7 @@ x.on('ParamsLoadedFromUrl', false).subscribe(async (payload: UrlParams): Promise
     if (window.wysiwyg) {
       await window.wysiwyg?.requestAuth()
       window.InterfaceX?.search()
-      window.wysiwyg?.setContext({ query: payload.query })
+      window.wysiwyg?.setConfig({ query: payload.query })
     }
   } catch {
     // No error handling
