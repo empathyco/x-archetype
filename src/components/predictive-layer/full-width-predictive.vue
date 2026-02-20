@@ -5,6 +5,7 @@
       :has-content="showEmpathize || showIdentifierResults"
       search-and-close-on-no-content
       class="x-layout-item x-absolute x-z-[1] x-w-full x-bg-neutral-0"
+      :events-to-open-empathize="eventsToOpenEmpathize"
       @empathize-opened="handleEmpathizeEvent('EmpathizeOpened')"
       @empathize-closed="handleEmpathizeEvent('EmpathizeClosed')"
     >
@@ -164,6 +165,7 @@ import {
 import { ref } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composable'
+import { eventsToOpenEmpathize } from '../../x-components/constants'
 import DesktopSearchboxAlign from '../desktop/desktop-searchbox-align.vue'
 import HistoryQueryFilters from '../history-query-filters.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'

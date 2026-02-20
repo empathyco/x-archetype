@@ -166,7 +166,7 @@ window.wysiwyg = {
   open: () => {
     /* Show search interface */
   },
-  setContext: context => {
+  setConfig: context => {
     /* Update search context */
   },
   goToLogin: () => {

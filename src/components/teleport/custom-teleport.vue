@@ -3,7 +3,7 @@
     <section v-if="isDesktopOrGreater" class="x-relative">
       <SearchBox />
       <LocationProvider location="predictive_layer">
-        <PredictiveLayer class="x-absolute x-shadow-lg" />
+        <PredictiveLayer v-if="openPredictiveLayer" class="x-absolute x-shadow-lg" />
       </LocationProvider>
     </section>
     <section v-else>
@@ -16,6 +16,7 @@
       </div>
       <LocationProvider location="predictive_layer">
         <PredictiveLayer
+          v-if="openPredictiveLayer"
           class="x-layout-min-margin-16 x-absolute x-left-0 x-w-full desktop:x-h-[600px]"
         />
       </LocationProvider>
@@ -65,33 +66,38 @@ import {
   LocationProvider,
   use$x,
 } from '@empathyco/x-components'
-import { computed, defineComponent, inject, ref } from 'vue'
+import { computed, defineAsyncComponent, defineComponent, inject, ref } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
-import VariantSelector from '../add2cart/variant-selector.vue'
+import { eventsToOpenEmpathize } from '../../x-components/constants'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
-import PredictiveLayer from '../predictive-layer/predictive-layer.vue'
 import SearchBox from '../search-box.vue'
 import { DesktopAside } from '../search/index'
-import DesktopTeleport from './desktop-teleport.vue'
-import MobileTeleport from './mobile-teleport.vue'
 
 export default defineComponent({
   components: {
     DesktopAside,
-    PredictiveLayer,
-    LocationProvider,
-    SearchBox,
     BaseTeleport,
-    DesktopTeleport,
     BaseIdModal,
-    MobileTeleport,
     MyHistoryAside,
     MyHistoryConfirmDisableModal,
     CrossTinyIcon,
     ChevronLeftIcon,
-    VariantSelector,
+    SearchBox,
+    LocationProvider,
+    VariantSelector: defineAsyncComponent(() =>
+      import('../add2cart/variant-selector.vue').then(m => m.default),
+    ),
+    DesktopTeleport: defineAsyncComponent(() =>
+      import('./desktop-teleport.vue').then(m => m.default),
+    ),
+    MobileTeleport: defineAsyncComponent(() =>
+      import('./mobile-teleport.vue').then(m => m.default),
+    ),
+    PredictiveLayer: defineAsyncComponent(() =>
+      import('../predictive-layer/predictive-layer.vue').then(m => m.default),
+    ),
   },
   setup() {
     const x = use$x()
@@ -101,6 +107,7 @@ export default defineComponent({
     const { hasSearched } = useHasSearched()
 
     const visibleGrid = ref(false)
+    const openPredictiveLayer = ref(false)
 
     const searchBoxTarget = computed(
       () => snippetConfig.searchBoxSelector ?? "[data-teleport='empathy-search-box-container']",
@@ -124,6 +131,12 @@ export default defineComponent({
       x.emit('UserClosedEmpathize')
     }
 
+    eventsToOpenEmpathize.forEach(event =>
+      x.on(event, false).subscribe(() => {
+        openPredictiveLayer.value = true
+      }),
+    )
+
     return {
       x,
       rightAsideAnimation,
@@ -132,6 +145,7 @@ export default defineComponent({
       gridTarget,
       isDesktopOrGreater,
       hasSearched,
+      openPredictiveLayer,
       closeEmpathize,
     }
   },
