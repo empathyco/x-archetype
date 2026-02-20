@@ -1,0 +1,65 @@
+name: Build on push
+on: [push]
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+      - name: Install deps, lint, build and test project
+        uses: ./.github/actions/install
+      # Every push to main deploys to staging
+      - name: Deploy to staging
+        if: ${{ github.ref_name == 'main' }}
+        uses: ./.github/actions/frontend-deploy
+        with:
+          aws_role: ${{ secrets.AWS_ROLE_STAGING_ACCOUNT }}
+          aws_deploy_path: ${{ secrets.AWS_STAGING_BUCKET }}
+          aws_s3_cache: no-store
+          cloudfront_distribution_id: ${{ secrets.CLOUDFRONT_ID_STAGING }}
+          cloudfront_invalidation_paths: '/*'
+          r2_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          r2_access_key_id: ${{ secrets.R2_STAGING_ACCOUNT_KEY }}
+          r2_secret_access_key: ${{ secrets.R2_STAGING_ACCESS_SECRET }}
+          r2_bucket: ${{ secrets.R2_STAGING_BUCKET }}
+          r2_bucket_path: ./
+          r2_zone_id: ${{ secrets.CLOUDFLARE_STAGING_ZONE_ID }}
+          r2_api_token: ${{ secrets.CLOUDFLARE_PURGE_TOKEN }}
+          r2_purge_strategy: |
+            {
+              "files": [
+                "https://x.staging.empathy.co/app.js",
+                "https://x.staging.empathy.co/snippet-script.js",
+                "https://x.staging.empathy.co/index.html"
+              ]
+            }
+      # Only tags named as release-* will deploy to production
+      - name: Deploy to prod
+        if: startsWith(github.ref, 'refs/tags/release-')
+        uses: ./.github/actions/frontend-deploy
+        with:
+          aws_role: ${{ secrets.AWS_ROLE_PRODUCTION_ACCOUNT }}
+          aws_deploy_path: ${{ secrets.AWS_PRODUCTION_BUCKET }}
+          cloudfront_distribution_id: ${{ secrets.CLOUDFRONT_ID_PRODUCTION }}
+          cloudfront_invalidation_paths: '/*'
+          r2_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          r2_access_key_id: ${{ secrets.R2_PROD_ACCOUNT_KEY }}
+          r2_secret_access_key: ${{ secrets.R2_PROD_ACCESS_SECRET }}
+          r2_bucket: ${{ secrets.R2_PROD_BUCKET }}
+          r2_bucket_path: ./
+          r2_zone_id: ${{ secrets.CLOUDFLARE_PROD_ZONE_ID }}
+          r2_api_token: ${{ secrets.CLOUDFLARE_PURGE_TOKEN }}
+          r2_purge_strategy: |
+            {
+              "files": [
+                "https://x.empathy.co/app.js",
+                "https://x.empathy.co/snippet-script.js",
+                "https://x.empathy.co/index.html"
+              ]
+            }

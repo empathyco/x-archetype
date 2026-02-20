@@ -60,6 +60,10 @@ Proven patterns from 17+ production implementations: query filtering, semantic c
 
 Feature flags, internationalization, code style, file naming, import conventions, and testing patterns.
 
+### 12. [Setup New Instance](./setup-ai-instructions/12-setup-new-instance.md)
+
+**📦 ARCHETYPE SETUP**: Complete guide for creating a new search experience from this archetype. Required configuration (lang, currency, viewMode, platform), GitHub cleanup, snippet configuration, adapter setup, and verification checklist.
+
 ## How to Use This Documentation
 
 ### For New AI Agents
@@ -76,6 +80,7 @@ Feature flags, internationalization, code style, file naming, import conventions
 - **Setting up development**: [Development Workflows](./setup-ai-instructions/06-development-workflows.md)
 - **Extending types**: [Vue & TypeScript](./setup-ai-instructions/03-vue-typescript.md)
 - **Customizing wiring**: [X Components Integration](./setup-ai-instructions/07-x-components-integration.md)
+- **Creating a new instance from archetype**: [Setup New Instance](./setup-ai-instructions/12-setup-new-instance.md)
 
 ## Key References
 

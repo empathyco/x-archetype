@@ -6,44 +6,9 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}
   cancel-in-progress: true
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
-    permissions:
-      id-token: write
-      contents: read
-      pull-requests: write
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-      - name: Install deps, lint, build and test project
-        uses: ./.github/actions/install
-      - name: Deploy PR Preview
-        uses: ./.github/actions/frontend-deploy
-        with:
-          r2_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          r2_access_key_id: ${{ secrets.R2_TEST_ACCESS_KEY }}
-          r2_secret_access_key: ${{ secrets.R2_TEST_ACCESS_SECRET }}
-          r2_bucket: ${{ secrets.R2_TEST_BUCKET }}
-          r2_bucket_path: preview/${{ github.event.number }}
-          r2_zone_id: ${{ secrets.CLOUDFLARE_TEST_ZONE_ID }}
-          r2_api_token: ${{ secrets.CLOUDFLARE_PURGE_TOKEN }}
-          r2_purge_strategy: |
-            {
-              "files": [
-                "https://x.test.empathy.co/preview/${{ github.event.number }}/app.js",
-                "https://x.test.empathy.co/preview/${{ github.event.number }}/index.html",
-                "https://x.test.empathy.co/preview/${{ github.event.number }}/snippet-script.js"
-              ]
-            }
-      - name: Adding comment to PR with preview link and validation results
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `Check **PR ${{ github.event.number }}** preview 👀 <br> <br> \
-                    [https://x.test.empathy.co/preview/${{ github.event.number }}/index.html](https://x.test.empathy.co/preview/${{ github.event.number }}/index.html)`
-            })
+  pr-preview:
+    if: false
+    uses: empathyco/platform-reusable-github-actions/.github/workflows/x-archetype-pr-preview.yml@main
+    secrets: inherit
