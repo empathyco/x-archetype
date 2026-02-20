@@ -268,6 +268,19 @@ Edit `package.json`:
 
 **Pattern**: `"{Instance Display Name} integration with X Components"`
 
+### Remove Docker Scripts
+
+Remove the Docker-related build scripts from the `scripts` section:
+
+```json
+{
+  "scripts": {
+    "build:docker": "..." // Remove this entire line
+    "serve:docker": "..." // Remove this entire line
+  }
+}
+```
+
 Examples:
 
 - `x-empathy` → `"Empathy integration with X Components"`
@@ -287,6 +300,7 @@ After completing all steps, verify:
 - [ ] `Dockerfile` and `renovate.json` have been deleted
 - [ ] Docker variable replacement removed from `build/instrumentation.build.mjs`
 - [ ] Docker development condition removed from `src/x-components/plugin.options.ts`
+- [ ] `build:docker` and `serve:docker` scripts removed from `package.json`
 - [ ] `package.json` has correct name and description
 
 ## Example: Setting Up x-brand
