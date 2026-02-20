@@ -199,7 +199,52 @@ Delete the following files from the project root:
 - `Dockerfile`
 - `renovate.json`
 
-## Step 5: Update Package Configuration
+## Step 5: Remove Docker Development Environment Code
+
+### Remove Docker Variable from Build Configuration
+
+Edit `build/instrumentation.build.mjs` and remove the Docker environment variable replacement:
+
+**Find and remove these lines:**
+
+```javascript
+'process.env.VUE_APP_DEVELOPMENT_DOCKER': JSON.stringify(
+  !!process.env.VUE_APP_DEVELOPMENT_DOCKER,
+),
+```
+
+This is typically found within the `replace()` plugin configuration around line 80.
+
+### Remove Docker Condition from Plugin Options
+
+Edit `src/x-components/plugin.options.ts` and remove the entire Docker development condition:
+
+**Find and remove the entire if block:**
+
+```typescript
+if (process.env.VUE_APP_DEVELOPMENT_DOCKER) {
+  const { overrideAdapter } = await import('../adapter/docker.adapter')
+  overrideAdapter(adapter)
+  ;(window.initX as SnippetConfig).queriesPreview = [
+    {
+      query: 'short',
+      title: 'Short',
+    },
+    {
+      query: 'comedy',
+      title: 'Comedy',
+    },
+    {
+      query: 'family',
+      title: 'Family',
+    },
+  ]
+}
+```
+
+This block is typically found at the beginning of the `getInstallXOptions()` function around line 38.
+
+## Step 6: Update Package Configuration
 
 Edit `package.json`:
 
@@ -240,6 +285,8 @@ After completing all steps, verify:
 - [ ] `adapter.ts` uses correct result schema (vtexResultSchema for VTEX, platformResultSchema otherwise)
 - [ ] `adapter.relatedPrompts` extension has been removed from `adapter.ts`
 - [ ] `Dockerfile` and `renovate.json` have been deleted
+- [ ] Docker variable replacement removed from `build/instrumentation.build.mjs`
+- [ ] Docker development condition removed from `src/x-components/plugin.options.ts`
 - [ ] `package.json` has correct name and description
 
 ## Example: Setting Up x-brand
