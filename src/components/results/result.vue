@@ -29,19 +29,6 @@
           :class="{ 'x-fill-icon': isWishListed }"
         />
       </BaseEventButton>
-
-      <div
-        v-if="isDesktopOrGreater"
-        class="x-result__overlay x-invisible x-absolute x-bottom-0 x-flex x-w-full group-hover/result:x-visible"
-      >
-        <BaseEventButton
-          v-if="result.hasVariants"
-          :events="events"
-          class="x-button x-button-lead x-m-16 x-flex-auto x-rounded-full x-uppercase"
-        >
-          {{ $t('result.seeVariants') }}
-        </BaseEventButton>
-      </div>
     </div>
 
     <BaseResultLink
@@ -49,7 +36,7 @@
       :result="result"
     >
       <h2 class="x-title4 x-truncate x-uppercase" data-test="result-title">
-        {{ result.description }}
+        {{ result.description || result.name }}
       </h2>
       <template v-if="showDescription">
         <span class="x-text2">{{ result.collection }}</span>
@@ -63,7 +50,20 @@
         />
       </div>
     </BaseResultLink>
-    <AddToCart v-if="showAddToCart" :result="result" class="x-my-4 x-w-full" />
+
+    <BaseEventButton
+      v-if="result.hasVariants && isDesktopOrGreater"
+      :events="events"
+      class="x-button x-button-lead x-m-16 x-flex-auto x-rounded-full x-uppercase"
+    >
+      {{ $t('result.seeVariants') }}
+    </BaseEventButton>
+
+    <AddToCart
+      v-if="showAddToCart && !result.hasVariants"
+      :result="result"
+      class="x-my-4 x-w-full"
+    />
   </MainScrollItem>
 </template>
 
