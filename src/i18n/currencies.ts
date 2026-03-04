@@ -1,4 +1,15 @@
 export default {
+  AED: 'AEDiiii.dd',
+  BRL: 'R$ i.iii,dd',
+  CHF: 'CHF iiii.dd',
+  CLP: '$i,iii.dd',
+  COP: '$ i.iii,dd',
+  DKK: 'Kriiii.dd',
+  DT: 'i iii,ddd DT',
   EUR: 'i.iii,dd €',
+  GBP: '£i,iii.dd',
+  MXN: '$i,iii.dd',
+  NOK: 'Kriiii.dd',
+  SEK: 'Kriiii.dd',
   USD: '$i,iii.dd',
 } as Record<string, string>
