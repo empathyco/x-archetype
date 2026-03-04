@@ -58,6 +58,7 @@
 </template>
 
 <script setup lang="ts">
+import type { SnippetConfig } from '@empathyco/x-components'
 import type { RelatedPromptNextQuery } from '@empathyco/x-types'
 import type { Ref } from 'vue'
 import {
@@ -92,6 +93,7 @@ const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
 
 const { config } = useState('search')
 
+const snippetConfig = inject<SnippetConfig>('snippetConfig')!
 const showNextQueries = computed(() => inject<Ref<boolean>>('showNextQueries')?.value)
 
 const columns = computed(() => (isMobile.value ? 2 : 4))
@@ -111,7 +113,10 @@ const queriesPreviewInfo = computed(() => {
 
 const staggeredFadeAndSlide = StaggeredFadeAndSlide as any
 
-const vInfiniteScroll = infiniteScroll
+// If customer wants to use infinite scroll in embeded, we need to change the scroll target to 'html'.
+const vInfiniteScroll = computed(() =>
+  snippetConfig.viewMode === 'fullScreen' ? infiniteScroll : undefined,
+)
 </script>
 
 <style lang="scss">
