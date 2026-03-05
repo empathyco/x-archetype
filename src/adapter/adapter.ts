@@ -19,7 +19,7 @@ import {
   semanticQueriesRequestSchema,
 } from '@empathyco/x-adapter-platform'
 import { getFacetConfigWithEditable } from './facets/utils'
-import { platformResultSchema } from './result/platform-result-schema'
+import { vtexResultSchema } from './result/vtex-result-schema'
 import { skuSearchEndpointAdapter } from './skusearch/skusearch.endpoint-adapter'
 
 export const adapter = platformAdapter
@@ -29,7 +29,7 @@ export const adapter = platformAdapter
  *
  * We have two result schemas examples (one for VTEX and other for Empathy Platform).
  */
-resultSchema.$override<any, Partial<Result>>(platformResultSchema)
+resultSchema.$override<any, Partial<Result>>(vtexResultSchema)
 
 recommendationsRequestSchema.$override<
   RecommendationsRequest,
