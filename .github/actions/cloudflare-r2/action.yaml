@@ -42,6 +42,7 @@ runs:
         aws s3 sync ./dist "s3://${{ inputs.r2_bucket }}/${{ inputs.r2_bucket_path }}" \
           --endpoint-url "https://${{ inputs.r2_account_id }}.r2.cloudflarestorage.com" \
           $DELETE_FLAG \
+          --exact-timestamps \
           --cache-control "public, max-age=300, s-maxage=120, stale-while-revalidate=21600, stale-if-error=3600, proxy-revalidate" \
           --no-progress
       shell: bash
