@@ -33,6 +33,11 @@ inputs:
     description: Cloudflare R2 purge strategy
     type: string
     required: true
+  delete_old_files:
+    description: Whether to delete files that exist in the destination but not in the source
+    type: boolean
+    default: false
+
 runs:
   using: composite
   steps:
@@ -47,3 +52,4 @@ runs:
         r2_zone_id: ${{ inputs.r2_zone_id }}
         r2_api_token: ${{ inputs.r2_api_token }}
         r2_purge_strategy: ${{ inputs.r2_purge_strategy }}
+        delete_old_files: ${{ inputs.delete_old_files }}

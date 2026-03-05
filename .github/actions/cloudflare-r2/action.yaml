@@ -25,19 +25,31 @@ inputs:
   r2_purge_strategy:
     description: the Cloudflare R2 purge cache strategy (must be a valid JSON string)
     required: true
+  delete_old_files:
+    description: whether to delete files that exist in the destination but not in the source
+    type: boolean
+    default: false
+
 runs:
   using: composite
   steps:
     - name: Deploy to Cloudflare R2
-      uses: ryand56/r2-upload-action@latest
-      with:
-        r2-account-id: ${{ inputs.r2_account_id }}
-        r2-access-key-id: ${{ inputs.r2_access_key_id }}
-        r2-secret-access-key: ${{ inputs.r2_secret_access_key }}
-        r2-bucket: ${{ inputs.r2_bucket }}
-        source-dir: ./dist
-        destination-dir: ${{ inputs.r2_bucket_path }}
-        keep-file-fresh: true
+      run: |
+        DELETE_FLAG=""
+        if [ "${{ inputs.delete_old_files }}" = "true" ]; then
+          DELETE_FLAG="--delete"
+        fi
+        aws s3 sync ./dist "s3://${{ inputs.r2_bucket }}/${{ inputs.r2_bucket_path }}" \
+          --endpoint-url "https://${{ inputs.r2_account_id }}.r2.cloudflarestorage.com" \
+          $DELETE_FLAG \
+          --exact-timestamps \
+          --cache-control "public, max-age=300, s-maxage=120, stale-while-revalidate=21600, stale-if-error=3600, proxy-revalidate" \
+          --no-progress
+      shell: bash
+      env:
+        AWS_ACCESS_KEY_ID: ${{ inputs.r2_access_key_id }}
+        AWS_SECRET_ACCESS_KEY: ${{ inputs.r2_secret_access_key }}
+
     - name: Purge strategy validation
       run: |
         echo '${{ inputs.r2_purge_strategy }}' | jq . || { echo "Invalid JSON in r2_purge_strategy"; exit 1; }
