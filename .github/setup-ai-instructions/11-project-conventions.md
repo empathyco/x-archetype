@@ -83,15 +83,6 @@ const { t } = useI18n()
 </script>
 ```
 
-### Export/Import CSV
-
-> **Note:** Rarely used; for bulk translation handoff only.
-
-```bash
-npm run json:csv  # Exports to ./output/*.csv
-npm run csv:json  # Imports from ./output/*.csv
-```
-
 ### Currency Formatting
 
 **Location**: `src/i18n/currencies.ts`
