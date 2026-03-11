@@ -24,4 +24,9 @@
   .x-transform-style-3d {
     transform-style: preserve-3d;
   }
+
+  .x-suggestions--horizontal {
+    flex-flow: row nowrap !important;
+    align-items: center;
+  }
 }
