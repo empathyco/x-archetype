@@ -17,9 +17,7 @@ This is an Interface X Archetype - a Vue 3 + TypeScript search interface impleme
 - [`@empathyco/x-adapter`](https://github.com/empathyco/x/tree/main/packages/x-adapter) – Adapter base utilities and schema helpers for building custom adapters
 - [`@empathyco/x-archetype-utils`](https://github.com/empathyco/x/tree/main/packages/x-archetype-utils) – Utilities for archetype projects (build, CSS injection, analytics helpers)
 - [`@empathyco/x-utils`](https://github.com/empathyco/x/tree/main/packages/x-utils) – General utilities to ease development across X projects
-- [`@empathyco/x-translations`](https://github.com/empathyco/x/tree/main/packages/x-translations) – Tools for managing translations (JSON↔CSV conversion, i18n helpers)
 - [`@empathyco/x-svg-converter`](https://github.com/empathyco/x/tree/main/packages/x-svg-converter) – Utilities for converting SVGs for use in X Components
-- [`@empathyco/x-deep-merge`](https://github.com/empathyco/x/tree/main/packages/deep-merge) – Utility for deep merging of objects (used internally by other packages)
 - [`@empathyco/storage-service`](https://github.com/empathyco/x/tree/main/packages/storage-service) – Wrapper on top of the Web Storage API with key prefixing and TTL
 - [`@empathyco/jest-utils`](https://github.com/empathyco/x/tree/main/packages/jest-utils) – Utilities and helpers for testing with Jest
 
