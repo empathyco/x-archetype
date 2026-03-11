@@ -12,7 +12,7 @@
       <MaxDesktopWidthItem>
         <DesktopSearchboxAlign>
           <div class="x-layout-item">
-            <div class="x-h-full x-py-16 x-pl-[17px]">
+            <div class="x-h-full x-py-16">
               <div class="x-block">
                 <BaseKeyboardNavigation
                   class="x-flex x-items-start x-gap-24"
@@ -30,9 +30,11 @@
                   >
                     <div class="x-col-span-4 x-grid x-grid-cols-4 x-gap-32">
                       <div v-if="showHistoryQueries" class="x-flex x-flex-col x-gap-4">
-                        <h1 v-if="!x.query.searchBox" class="x-title4 x-title4-sm x-uppercase">
-                          {{ $t('historyQueries.title') }}
-                        </h1>
+                        <div class="x-flex x-min-h-32 x-items-center">
+                          <h1 v-if="!x.query.searchBox" class="x-title4 x-title4-sm x-uppercase">
+                            {{ $t('historyQueries.title') }}
+                          </h1>
+                        </div>
 
                         <HistoryQueries
                           :animation="suggestionsAnimation"
