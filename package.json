@@ -28,8 +28,6 @@
     "install:types:local": "npm install file:$(ls ../x/packages/x-types/*.tgz | sort -V | tail -n 1) --no-save",
     "install:utils:local": "npm install file:$(ls ../x/packages/x-archetype-utils/*.tgz | sort -V | tail -n 1) --no-save",
     "install:xds:local": "npm install file:$(ls ../x/packages/x-tailwindcss/*.tgz | sort -V | tail -n 1) --no-save",
-    "json:csv": "json-csv ./src/i18n/messages",
-    "csv:json": "csv-json ./output ./src/i18n/messages",
     "prepare": "husky install"
   },
   "dependencies": {

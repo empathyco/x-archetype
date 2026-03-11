@@ -23,24 +23,6 @@ This project is a default setup of the [Interface X Components](https://github.c
 3. Run the development server: `npm run serve`.
 4. Open http://localhost:8080.
 
-## Translations
-
-This project has a couple a of npm commands which allow you to export/import the translations:
-
-- If you want to export to a .csv file the messages of the project:
-
-```shell
-npm run json:csv
-```
-
-- If you want to import the translations in a .csv file to this project:
-
-```shell
-npm run csv:json
-```
-
-In that case you need to put the .csv files inside a folder called `output`in the root directory.
-
 ## License
 
 [Apache 2.0](./LICENSE)
