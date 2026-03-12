@@ -127,7 +127,7 @@ const isTeleportViewMode = computed(() =>
 )
 
 const currencyFormat = computed(() => currencies[snippetConfig.currency!])
-provide<string>('currencyFormat', currencyFormat.value)
+provide('currencyFormat', currencyFormat)
 
 const queriesPreviewInfo = computed(() => snippetConfig.queriesPreview ?? [])
 provide<ComputedRef<QueryPreviewInfo[]> | undefined>('queriesPreviewInfo', queriesPreviewInfo)
