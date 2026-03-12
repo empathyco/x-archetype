@@ -1,7 +1,7 @@
 <template>
   <button
     v-if="isLoading[result.id]"
-    class="x-button x-button-sm x-h-[35px] x-rounded-full x-border-neutral-50 x-bg-neutral-50 x-px-[34px]"
+    class="x-button x-button-sm x-m-16 x-h-[35px] x-rounded-full x-border-neutral-50 x-bg-neutral-50 x-px-[34px]"
   >
     <SpinnerIcon />
   </button>
@@ -9,13 +9,13 @@
     <BaseAddToCart
       v-if="units === 0"
       :result="result"
-      class="x-button x-text2 x-text2-lg x-bottom-0 x-max-h-40 x-flex-auto x-rounded-full x-border-none x-bg-neutral-50 x-text-neutral-0 hover:x-bg-neutral-25"
+      class="x-button x-button-lead x-m-16 x-flex-auto x-rounded-full x-uppercase"
     >
       {{ $t('result.addToCart') }}
     </BaseAddToCart>
     <div
       v-else-if="units > 0"
-      class="x-flex x-h-[40px] x-w-full x-items-center x-justify-between x-rounded-full x-border x-border-neutral-50 x-bg-neutral-0"
+      class="x-m-16 x-flex x-h-[40px] x-w-full x-items-center x-justify-between x-rounded-full x-border x-border-neutral-50 x-bg-neutral-0"
     >
       <BaseEventButton
         class="x-button x-button-sm x-ml-4 x-h-[35px] x-w-[35px] x-rounded-full x-border-none x-bg-neutral-0 x-text-neutral-50 hover:x-bg-neutral-25"
