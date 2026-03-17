@@ -19,7 +19,6 @@ defineProps<{
 .x-collapse-height {
   display: grid;
   grid-template-rows: 1fr;
-  overflow: hidden;
   transition: grid-template-rows 0.35s;
 
   & > * {

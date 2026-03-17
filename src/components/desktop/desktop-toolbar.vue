@@ -39,12 +39,15 @@
         {{ x.selectedFilters.length }}
       </span>
     </BaseIdModalOpen>
+
+    <SortSelector />
   </div>
 </template>
 
 <script setup lang="ts">
 import { BaseIdModalOpen, FiltersIcon, use$x, useGetter } from '@empathyco/x-components'
 import ColumnPicker from '../column-picker.vue'
+import SortSelector from '../search/sort-selector.vue'
 
 const x = use$x()
 const { query } = useGetter('search')
