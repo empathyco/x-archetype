@@ -5,3 +5,5 @@ export const eventsToOpenEmpathize: (keyof XEventsTypes)[] = [
   'UserIsTypingAQuery',
   'UserClickedSearchBox',
 ]
+
+export const priceFacetId = 'price'
