@@ -119,7 +119,21 @@
       "message": "Nessun risultato trovato per {query} Ecco i risultati per"
     },
     "noResults": {
-      "message": "Ci dispiace ma non abbiamo trovato alcun risultato per {query}Potresti essere interessato in questi prodotti"
+      "message": "Ci dispiace ma non abbiamo trovato alcun risultato per {query}Potresti essere interessato in questi prodotti",
+      "AIRetry": {
+        "loading": {
+          "title": "Cerco alternative...",
+          "subtitle": "Stiamo cercando prodotti simili in base alla tua ricerca"
+        },
+        "success": {
+          "title": "Abbiamo trovato alcune alternative!",
+          "subtitle": "Guarda questi prodotti che potrebbero interessarti"
+        },
+        "noResults": {
+          "title": "Non siamo riusciti a trovare alternative",
+          "subtitle": "Prova a modificare la tua ricerca o i filtri per migliorare i risultati"
+        }
+      }
     },
     "fallbackDisclaimer": {
       "message": "Nessun risultato trovato per {query} con i filtri selezionati. I filtri sono stati deselezionati"

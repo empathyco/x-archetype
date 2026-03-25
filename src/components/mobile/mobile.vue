@@ -31,7 +31,7 @@
     <template #main>
       <section v-if="x.query.search">
         <LocationProvider location="results">
-          <AiOverview />
+          <CustomAiOverview />
         </LocationProvider>
 
         <LocationProvider location="results">
@@ -97,7 +97,9 @@ const SpellcheckMessage = defineAsyncComponent(() =>
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
   import('../search').then(m => m.FallbackDisclaimerMessage),
 )
-const AiOverview = defineAsyncComponent(() => import('../ai-overview.vue').then(m => m.default))
+const CustomAiOverview = defineAsyncComponent(() =>
+  import('../ai/custom-ai-overview.vue').then(m => m.default),
+)
 
 const x = use$x()
 const { hasSearched } = useHasSearched()

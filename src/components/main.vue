@@ -10,6 +10,9 @@
         :class="x.noResults ? 'desktop:x-mt-24' : 'x-mt-48 desktop:x-mt-32'"
       />
     </LocationProvider>
+    <LocationProvider v-if="showAIResults" :location="location">
+      <AiFallback />
+    </LocationProvider>
     <LocationProvider v-if="showSemantics" :location="location">
       <CustomSemanticQueries />
     </LocationProvider>
@@ -27,6 +30,7 @@ import type { FeatureLocation } from '@empathyco/x-components'
 import { LocationProvider, use$x, useState } from '@empathyco/x-components'
 import { computed, defineAsyncComponent } from 'vue'
 import { useHasSearched } from '../composables/use-has-searched.composable'
+import AiFallback from './ai/ai-fallback.vue'
 import CustomRelatedPrompts from './related-prompts/custom-related-prompts.vue'
 import CustomRecommendations from './results/custom-recommendations.vue'
 import CustomSemanticQueries from './search/custom-semantic-queries.vue'
@@ -47,6 +51,12 @@ const { config } = useState('search')
 const location = computed<FeatureLocation>(() =>
   x.results.length > 0 ? 'low_results' : 'no_results',
 )
+
+const isLowResult = computed(
+  () => x.totalResults > 0 && x.totalResults < semanticQueriesConfig.value.threshold,
+)
+
+const showAIResults = computed(() => x.noResults || isLowResult.value)
 
 const showRecommendations = computed(
   () => x.noResults && !x.partialResults.length && !x.semanticQueries.length,
