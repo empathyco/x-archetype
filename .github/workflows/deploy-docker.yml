@@ -34,7 +34,7 @@ jobs:
         run: npm run build:docker
         shell: bash
       - name: Log in to the Container registry
-        uses: docker/login-action@c144859092e8e353f3e118b0b329679a62351c3e
+        uses: docker/login-action@292fe2d7ee5389e283d2c71e565819146798c2e2
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
