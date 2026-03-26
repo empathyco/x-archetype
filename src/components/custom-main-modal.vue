@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import type { SnippetConfig } from '@empathyco/x-components'
-import { animateClipPath, MainModal, use$x } from '@empathyco/x-components'
+import { AnimateClipPath, MainModal, use$x } from '@empathyco/x-components'
 import { computed, inject } from 'vue'
 import { useDevice } from '../composables/use-device.composable'
 import VariantSelector from './add2cart/variant-selector.vue'
@@ -22,7 +22,7 @@ import Desktop from './desktop/desktop.vue'
 import Mobile from './mobile/mobile.vue'
 
 const { deviceName, isDesktopOrGreater, isTabletOrLess } = useDevice()
-const animation = animateClipPath()
+const animation = AnimateClipPath
 const x = use$x()
 const snippetConfig = inject<SnippetConfig>('snippetConfig')
 

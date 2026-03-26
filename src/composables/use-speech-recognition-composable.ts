@@ -1,5 +1,5 @@
-import type { XEvent } from '@empathyco/x-components'
-import type { SearchInput, SnippetConfig } from '@empathyco/x-components/types'
+import type { SnippetConfig, XEvent } from '@empathyco/x-components'
+import type { SearchInput } from '@empathyco/x-components/search-box'
 import type { Ref } from 'vue'
 import { use$x } from '@empathyco/x-components'
 import { computed, inject, onBeforeUnmount, onMounted, ref } from 'vue'

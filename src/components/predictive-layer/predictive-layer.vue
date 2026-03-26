@@ -78,7 +78,7 @@
 <script setup lang="ts">
 import type { XEventsTypes } from '@empathyco/x-components'
 import {
-  animateScale,
+  AnimateScale,
   BaseIdModalOpen,
   BaseKeyboardNavigation,
   SettingsIcon,
@@ -96,7 +96,7 @@ import PredictivePopularSearches from './predictive-popular-searches.vue'
 import PredictiveQuerySuggestions from './predictive-query-suggestions.vue'
 import SlidingRecommendations from './sliding-recommendations.vue'
 
-const empathizeAnimation = animateScale()
+const empathizeAnimation = AnimateScale
 const suggestionsAnimation = StaggeredFadeAndSlide as any
 const { isDesktopOrGreater, isTabletOrLess } = useDevice()
 

@@ -29,12 +29,12 @@
 
 <script setup lang="ts">
 import type { Sort } from '@empathyco/x-types'
-import { animateScale, ChevronDownIcon, ChevronUpIcon, use$x } from '@empathyco/x-components'
+import { AnimateScale, ChevronDownIcon, ChevronUpIcon, use$x } from '@empathyco/x-components'
 import { SortDropdown } from '@empathyco/x-components/search'
 
 const sortValues: Sort[] = ['', 'price asc', 'price desc']
 const x = use$x()
-const animation = animateScale() as any
+const animation = AnimateScale
 </script>
 
 <style lang="scss">

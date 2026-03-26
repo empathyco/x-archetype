@@ -64,14 +64,14 @@
 
 <script setup lang="ts">
 import {
-  animateTranslate,
+  AnimateTranslate,
   BaseIdModal,
   LocationProvider,
   use$x,
   useState,
 } from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
-import { computed, defineAsyncComponent } from 'vue'
+import { computed, defineAsyncComponent, h } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import MainComponent from '../main.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
@@ -82,7 +82,7 @@ import ScrollToTop from '../scroll-to-top.vue'
 import DesktopTopSection from './desktop-top-section.vue'
 
 const x = use$x()
-const rightAsideAnimation = animateTranslate('right') as any
+const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
 const showNoResultsMessage = computed(

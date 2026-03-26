@@ -146,7 +146,7 @@
 
 <script setup lang="ts">
 import {
-  animateScale,
+  AnimateScale,
   BaseIdModalOpen,
   BaseKeyboardNavigation,
   CrossTinyIcon,
@@ -177,7 +177,7 @@ import PredictivePopularSearches from './predictive-popular-searches.vue'
 import PredictiveQuerySuggestions from './predictive-query-suggestions.vue'
 import SlidingRecommendations from './sliding-recommendations.vue'
 
-const empathizeAnimation = animateScale() as any
+const empathizeAnimation = AnimateScale
 const suggestionsAnimation = StaggeredFadeAndSlide as any
 
 const { isDesktopOrGreater, isTabletOrLess } = useDevice()

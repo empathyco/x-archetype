@@ -58,7 +58,7 @@
 <script lang="ts">
 import type { SnippetConfig } from '@empathyco/x-components'
 import {
-  animateTranslate,
+  AnimateTranslate,
   BaseIdModal,
   BaseTeleport,
   ChevronLeftIcon,
@@ -66,7 +66,7 @@ import {
   LocationProvider,
   use$x,
 } from '@empathyco/x-components'
-import { computed, defineAsyncComponent, defineComponent, inject, ref } from 'vue'
+import { computed, defineAsyncComponent, defineComponent, h, inject, ref } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import { eventsToOpenEmpathize } from '../../x-components/constants'
@@ -101,7 +101,7 @@ export default defineComponent({
   },
   setup() {
     const x = use$x()
-    const rightAsideAnimation = animateTranslate('right')
+    const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
     const { isDesktopOrGreater } = useDevice()
     const snippetConfig = inject<SnippetConfig>('snippetConfig')!
     const { hasSearched } = useHasSearched()

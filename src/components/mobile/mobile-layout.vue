@@ -65,10 +65,10 @@
 </template>
 
 <script setup lang="ts">
-import { animateTranslate, BaseIdModal, use$x } from '@empathyco/x-components'
+import { AnimateTranslate, BaseIdModal, use$x } from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { useElementSize } from '@vueuse/core'
-import { computed, ref } from 'vue'
+import { computed, h, ref } from 'vue'
 import { useHasScrollPastThreshold } from '../../composables/use-has-scroll-past-threshold.composable'
 
 /**
@@ -86,8 +86,8 @@ const { height } = useElementSize(toolbarWrapperRef, { width: 0, height: 48 })
 
 const { hasScrolledPastThreshold } = useHasScrollPastThreshold()
 
-const filtersAnimation = animateTranslate('bottom')
-const myHistoryAnimation = animateTranslate('right')
+const filtersAnimation = h(AnimateTranslate, { animationOrigin: 'bottom' })
+const myHistoryAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
 
 const toolbarHeight = computed(() => `${height.value}px`)
 

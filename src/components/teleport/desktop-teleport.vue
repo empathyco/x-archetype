@@ -45,14 +45,14 @@
 
 <script lang="ts">
 import {
-  animateTranslate,
+  AnimateTranslate,
   LocationProvider,
   PageLoaderButton,
   use$x,
   useState,
 } from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
-import { computed, defineAsyncComponent, defineComponent } from 'vue'
+import { computed, defineAsyncComponent, defineComponent, h } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import DesktopSubHeader from '../desktop/desktop-sub-header.vue'
 import MainComponent from '../main.vue'
@@ -76,7 +76,7 @@ export default defineComponent({
     ),
   },
   setup() {
-    const rightAsideAnimation = animateTranslate('right')
+    const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
     const { hasSearched } = useHasSearched()
     const { relatedPrompts } = useState('relatedPrompts')
     const x = use$x()
