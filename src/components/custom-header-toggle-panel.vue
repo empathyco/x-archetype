@@ -15,11 +15,11 @@
 
 <script setup lang="ts">
 import {
-  animateScale,
+  AnimateScale,
   BaseHeaderTogglePanel,
   ChevronDownIcon,
   ChevronUpIcon,
 } from '@empathyco/x-components'
 
-const animation = animateScale()
+const animation = AnimateScale
 </script>
