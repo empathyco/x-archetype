@@ -6,8 +6,8 @@
       <Scroll id="main-scroll">
         <MaxDesktopWidthItem>
           <div v-if="hasSearched">
-            <LocationProvider location="results">
-              <AiOverview />
+            <LocationProvider v-if="showCustomAiOverview" location="results">
+              <CustomAiOverview />
             </LocationProvider>
 
             <LocationProvider location="results">
@@ -85,9 +85,12 @@ const x = use$x()
 const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
+const { config: semanticQueriesConfig } = useState('semanticQueries')
 const showNoResultsMessage = computed(
   () => !relatedPrompts.value?.length && !x.semanticQueries.length,
 )
+
+const showCustomAiOverview = computed(() => x.totalResults > semanticQueriesConfig.value.threshold)
 
 const DesktopAside = defineAsyncComponent(() => import('../search').then(m => m.DesktopAside))
 const NoResultsMessage = defineAsyncComponent(() =>
@@ -99,7 +102,9 @@ const SpellcheckMessage = defineAsyncComponent(() =>
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
   import('../search').then(m => m.FallbackDisclaimerMessage),
 )
-const AiOverview = defineAsyncComponent(() => import('../ai-overview.vue').then(m => m.default))
+const CustomAiOverview = defineAsyncComponent(() =>
+  import('../ai/custom-ai-overview.vue').then(m => m.default),
+)
 </script>
 
 <style>

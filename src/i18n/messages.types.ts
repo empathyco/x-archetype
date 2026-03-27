@@ -121,6 +121,20 @@ export interface Messages {
   }
   noResults: {
     message: string
+    AIRetry: {
+      loading: {
+        title: string
+        subtitle: string
+      }
+      success: {
+        title: string
+        subtitle: string
+      }
+      noResults: {
+        title: string
+        subtitle: string
+      }
+    }
   }
   fallbackDisclaimer: {
     message: string
