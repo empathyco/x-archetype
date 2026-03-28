@@ -1,6 +1,7 @@
 import type { MapperContext } from '@empathyco/x-adapter'
 import type { FacetConfig, PlatformFacetType } from '@empathyco/x-adapter-platform'
 import { getFacetConfig } from '@empathyco/x-adapter-platform'
+import { priceFacetId } from '../../x-components/constants'
 
 /**
  * Retrieves the facet configuration with editable properties for a given facet ID and type.
@@ -13,10 +14,12 @@ export const getFacetConfigWithEditable = (
   facetId: string,
   type: PlatformFacetType,
 ): FacetConfig => {
-  if (facetId === 'price') {
+  if (facetId === priceFacetId) {
     const salePriceConfig = getFacetConfig('editable-range')
     const getSalePriceFilterId = (context?: MapperContext): string | undefined =>
-      (context?.requestParameters?.filter as string[])?.find(filter => filter.includes('price'))
+      (context?.requestParameters?.filter as string[])?.find(filter =>
+        filter.includes(priceFacetId),
+      )
 
     salePriceConfig.schema = {
       ...salePriceConfig.schema,
