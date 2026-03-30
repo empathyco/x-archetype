@@ -30,7 +30,7 @@
 
     <template #main>
       <section v-if="x.query.search">
-        <LocationProvider location="results">
+        <LocationProvider v-if="showCustomAiOverview" location="results">
           <CustomAiOverview />
         </LocationProvider>
 
@@ -104,7 +104,9 @@ const CustomAiOverview = defineAsyncComponent(() =>
 const x = use$x()
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
+const { config: semanticQueriesConfig } = useState('semanticQueries')
 const showNoResultsMessage = computed(
   () => !relatedPrompts.value?.length && !x.semanticQueries.length,
 )
+const showCustomAiOverview = computed(() => x.totalResults > semanticQueriesConfig.value.threshold)
 </script>
