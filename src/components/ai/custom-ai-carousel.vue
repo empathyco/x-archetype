@@ -1,6 +1,6 @@
 <template>
   <AiCarousel
-    class="x-mb-32 x-mt-6 [--x-ai-carousel-color-lighter:theme(colors.neutral.10)] [--x-ai-carousel-color:theme(colors.neutral.25)]"
+    class="x-mb-32 x-mt-6 [--x-ai-carousel-color-lighter:theme(colors.neutral.10)] [--x-ai-carousel-color:theme(colors.neutral.50)]"
   >
     <template #result="{ result }: { result: ResultType }">
       <Result

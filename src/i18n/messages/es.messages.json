@@ -119,20 +119,24 @@
       "message": "No se han encontrado resultados para {query} Aquí tienes resultados para"
     },
     "noResults": {
-      "message": "No se han encontrado resultados para {query}Quizás te interesen estos productos",
-      "AIRetry": {
-        "loading": {
-          "title": "Buscando alternativas...",
-          "subtitle": "Estamos buscando productos similares basados en tu búsqueda"
-        },
-        "success": {
-          "title": "¡Encontramos algunas alternativas!",
-          "subtitle": "Mira estos productos que podrían interesarte"
-        },
-        "noResults": {
-          "title": "No pudimos encontrar alternativas",
-          "subtitle": "Intenta ajustar tu búsqueda o filtros para obtener mejores resultados"
-        }
+      "message": "No se han encontrado resultados para {query}Quizás te interesen estos productos"
+    },
+    "overview": {
+      "collapseButton": "Mostrar menos",
+      "expandButton": "Mostrar más"
+    },
+    "aiFallback": {
+      "loading": {
+        "title": "Buscando alternativas...",
+        "subtitle": "Estamos buscando productos similares basados en tu búsqueda"
+      },
+      "success": {
+        "title": "¡Encontramos algunas alternativas!",
+        "subtitle": "Mira estos productos que podrían interesarte"
+      },
+      "noResults": {
+        "title": "No pudimos encontrar alternativas",
+        "subtitle": "Intenta ajustar tu búsqueda o filtros para obtener mejores resultados"
       }
     },
     "fallbackDisclaimer": {

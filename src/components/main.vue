@@ -26,7 +26,7 @@ const x = use$x()
 
 const { config: semanticQueriesConfig } = useState('semanticQueries')
 
-const aiFallbackMode = getControlFromPath('fallback.aiFallbackMode')
+const aiSearchFallback = getControlFromPath('aiSearchFallback')
 
 const isLowResult = computed(
   () => x.totalResults > 0 && x.totalResults < semanticQueriesConfig.value.threshold,
@@ -36,6 +36,6 @@ const showFallbacks = computed(
   () => (x.noResults || isLowResult.value) && x.status.search === 'success',
 )
 
-const showAiSearchFallback = computed(() => aiFallbackMode.value && showFallbacks.value)
-const showSearchFallbacks = computed(() => !aiFallbackMode.value && showFallbacks.value)
+const showAiSearchFallback = computed(() => aiSearchFallback.value && showFallbacks.value)
+const showSearchFallbacks = computed(() => !aiSearchFallback.value && showFallbacks.value)
 </script>

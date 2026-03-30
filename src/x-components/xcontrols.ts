@@ -1,5 +1,3 @@
 export const xControlsState = {
-  fallback: {
-    aiFallbackMode: true,
-  },
+  aiSearchFallback: true,
 }

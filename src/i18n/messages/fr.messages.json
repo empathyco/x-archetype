@@ -119,20 +119,24 @@
       "message": "Aucun résultat trouvé pour {query} Nous vous montrons les résultats pour"
     },
     "noResults": {
-      "message": "Désolé mais il n'y a pas de résultats pour {query}Vous pourriez être intéressé par ces produits",
-      "AIRetry": {
-        "loading": {
-          "title": "Recherche d'alternatives...",
-          "subtitle": "Nous recherchons des produits similaires en fonction de votre recherche"
-        },
-        "success": {
-          "title": "Nous avons trouvé des alternatives!",
-          "subtitle": "Consultez ces produits qui pourraient vous intéresser"
-        },
-        "noResults": {
-          "title": "Nous n'avons pas trouvé d'alternatives",
-          "subtitle": "Essayez d'ajuster votre recherche ou vos filtres pour de meilleurs résultats"
-        }
+      "message": "Désolé mais il n'y a pas de résultats pour {query}Vous pourriez être intéressé par ces produits"
+    },
+    "overview": {
+      "collapseButton": "Montrer moins",
+      "expandButton": "Montrer plus"
+    },
+    "aiFallback": {
+      "loading": {
+        "title": "Recherche d'alternatives...",
+        "subtitle": "Nous recherchons des produits similaires en fonction de votre recherche"
+      },
+      "success": {
+        "title": "Nous avons trouvé des alternatives!",
+        "subtitle": "Consultez ces produits qui pourraient vous intéresser"
+      },
+      "noResults": {
+        "title": "Nous n'avons pas trouvé d'alternatives",
+        "subtitle": "Essayez d'ajuster votre recherche ou vos filtres pour de meilleurs résultats"
       }
     },
     "fallbackDisclaimer": {
