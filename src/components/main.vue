@@ -10,10 +10,11 @@
 </template>
 
 <script setup lang="ts">
-import { LocationProvider, use$x, useState } from '@empathyco/x-components'
+import { LocationProvider, use$x } from '@empathyco/x-components'
 import { computed, defineAsyncComponent } from 'vue'
 import { useExperienceControls } from '../composables/use-experience-controls.composable'
 import { useHasSearched } from '../composables/use-has-searched.composable'
+import { lowResultsThreshold } from '../x-components/constants'
 import AiSearchFallback from './ai/ai-search-fallback.vue'
 import SearchFallback from './search/search-fallback.vue'
 
@@ -24,13 +25,9 @@ const { getControlFromPath } = useExperienceControls()
 const { hasSearched } = useHasSearched()
 const x = use$x()
 
-const { config: semanticQueriesConfig } = useState('semanticQueries')
-
 const aiSearchFallback = getControlFromPath('aiSearchFallback')
 
-const isLowResult = computed(
-  () => x.totalResults > 0 && x.totalResults < semanticQueriesConfig.value.threshold,
-)
+const isLowResult = computed(() => x.totalResults > 0 && x.totalResults < lowResultsThreshold)
 
 const showFallbacks = computed(
   () => (x.noResults || isLowResult.value) && x.status.search === 'success',
