@@ -30,10 +30,6 @@
 
     <template #main>
       <section v-if="x.query.search">
-        <LocationProvider v-if="showCustomAiOverview" location="results">
-          <CustomAiOverview />
-        </LocationProvider>
-
         <LocationProvider location="results">
           <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
         </LocationProvider>
@@ -97,16 +93,11 @@ const SpellcheckMessage = defineAsyncComponent(() =>
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
   import('../search').then(m => m.FallbackDisclaimerMessage),
 )
-const CustomAiOverview = defineAsyncComponent(() =>
-  import('../ai/custom-ai-overview.vue').then(m => m.default),
-)
 
 const x = use$x()
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
-const { config: semanticQueriesConfig } = useState('semanticQueries')
 const showNoResultsMessage = computed(
   () => !relatedPrompts.value?.length && !x.semanticQueries.length,
 )
-const showCustomAiOverview = computed(() => x.totalResults > semanticQueriesConfig.value.threshold)
 </script>
