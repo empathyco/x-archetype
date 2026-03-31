@@ -122,6 +122,24 @@ export interface Messages {
   noResults: {
     message: string
   }
+  overview: {
+    collapseButton: string
+    expandButton: string
+  }
+  aiFallback: {
+    loading: {
+      title: string
+      subtitle: string
+    }
+    success: {
+      title: string
+      subtitle: string
+    }
+    noResults: {
+      title: string
+      subtitle: string
+    }
+  }
   fallbackDisclaimer: {
     message: string
   }

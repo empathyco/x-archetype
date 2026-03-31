@@ -5,3 +5,4 @@ export const eventsToOpenEmpathize: (keyof XEventsTypes)[] = [
   'UserIsTypingAQuery',
   'UserClickedSearchBox',
 ]
+export const lowResultsThreshold = 50

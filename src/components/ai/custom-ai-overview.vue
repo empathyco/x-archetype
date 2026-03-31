@@ -1,5 +1,9 @@
 <template>
-  <AiOverview class="x-mb-32 x-mt-12 [--x-ai-overview-color:theme(colors.lead.25)]">
+  <AiOverview
+    :collapse-text="$t('overview.collapseButton')"
+    :expand-text="$t('overview.expandButton')"
+    class="x-mb-32 x-mt-12 [--x-ai-overview-color:theme(colors.lead.25)]"
+  >
     <template #sliding-panel="{ results }">
       <CustomSlidingPanel>
         <div class="x-flex x-gap-16 x-px-16 x-pb-16">
@@ -17,6 +21,6 @@
 
 <script setup lang="ts">
 import { AiOverview } from '@empathyco/x-components/ai'
-import CustomSlidingPanel from './custom-sliding-panel.vue'
-import Result from './results/result.vue'
+import CustomSlidingPanel from '../custom-sliding-panel.vue'
+import Result from '../results/result.vue'
 </script>

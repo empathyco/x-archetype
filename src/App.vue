@@ -4,6 +4,7 @@
     <SnippetCallbacks />
     <Tagging />
     <UrlHandler />
+    <ExperienceControls />
     <CustomTeleport v-if="isTeleportViewMode" />
     <MainModal v-if="!isTeleportViewMode && isOpen" data-wysiwyg="layer" />
   </div>
@@ -15,6 +16,7 @@ import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview'
 import type { InternalSearchRequest, InternalSearchResponse } from '@empathyco/x-components/search'
 import type { ComputedRef } from 'vue'
 import { SnippetCallbacks, use$x } from '@empathyco/x-components'
+import { ExperienceControls } from '@empathyco/x-components/experience-controls'
 import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params'
 import { Tagging } from '@empathyco/x-components/tagging'
 import { UrlHandler } from '@empathyco/x-components/url'

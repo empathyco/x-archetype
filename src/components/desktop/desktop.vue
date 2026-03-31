@@ -7,10 +7,6 @@
         <MaxDesktopWidthItem>
           <div v-if="hasSearched">
             <LocationProvider location="results">
-              <AiOverview />
-            </LocationProvider>
-
-            <LocationProvider location="results">
               <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
             </LocationProvider>
 
@@ -99,7 +95,6 @@ const SpellcheckMessage = defineAsyncComponent(() =>
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
   import('../search').then(m => m.FallbackDisclaimerMessage),
 )
-const AiOverview = defineAsyncComponent(() => import('../ai-overview.vue').then(m => m.default))
 </script>
 
 <style>

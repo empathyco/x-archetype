@@ -121,6 +121,24 @@
     "noResults": {
       "message": "Não encontramos resultados para{query} Talvez você pode se interessar por esses produtos"
     },
+    "overview": {
+      "collapseButton": "Mostrar menos",
+      "expandButton": "Mostrar mais"
+    },
+    "aiFallback": {
+      "loading": {
+        "title": "Buscando alternativas...",
+        "subtitle": "Estamos procurando produtos semelhantes com base na sua busca"
+      },
+      "success": {
+        "title": "Encontramos algumas alternativas!",
+        "subtitle": "Confira estes produtos que podem interessar a você"
+      },
+      "noResults": {
+        "title": "Não conseguimos encontrar alternativas",
+        "subtitle": "Tente ajustar sua busca ou filtros para obter melhores resultados"
+      }
+    },
     "fallbackDisclaimer": {
       "message": "Sem resultados encontrados para {query} com os filtros seleccionados. Os filtros foram não seleccionados"
     },
