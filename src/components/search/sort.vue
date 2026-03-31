@@ -4,7 +4,7 @@
       <span class="x-title3">
         {{ $t('sort.label') }}
       </span>
-      <span>{{ $t(`sort.values.${x.selectedSort || 'default'}`) }}</span>
+      <span>{{ $t(`sort.values.${getSortValueTranslation(x.selectedSort) || 'default'}`) }}</span>
     </template>
     <template #default>
       <SortPickerList
@@ -16,7 +16,7 @@
         <template #default="{ item, isSelected }">
           <RadioButtonSelectedIcon v-if="isSelected" class="x-icon-lg" />
           <RadioButtonUnselectedIcon v-else class="x-icon-lg" />
-          {{ $t(`sort.values.${item || 'default'}`) }}
+          {{ $t(`sort.values.${getSortValueTranslation(item) || 'default'}`) }}
         </template>
       </SortPickerList>
     </template>
@@ -27,11 +27,18 @@
 import type { Sort } from '@empathyco/x-types'
 import { RadioButtonSelectedIcon, RadioButtonUnselectedIcon, use$x } from '@empathyco/x-components'
 import { SortPickerList } from '@empathyco/x-components/search'
+import { sortPriceId } from '../../x-components/constants'
 import CustomHeaderTogglePanel from '../custom-header-toggle-panel.vue'
 
-// const animation = animateScale()
-const sortValues: Sort[] = ['', 'price asc', 'price desc']
+const sortValues: Sort[] = ['', `${sortPriceId} asc`, `${sortPriceId} desc`]
 const x = use$x()
+
+const getSortValueTranslation = (sortItem: Sort) =>
+  sortItem.split(' ')[0] === sortPriceId
+    ? sortItem.split(' ')[1] === 'asc'
+      ? 'price asc'
+      : 'price desc'
+    : sortItem
 </script>
 
 <style lang="scss">
