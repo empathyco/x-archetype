@@ -118,7 +118,8 @@ const isWishListed = computed(() => {
   return wishlist.includes(props.result.id)
 })
 </script>
-<style lang="scss">
+
+<style>
 .x-fill-icon > path {
   fill: red;
 }

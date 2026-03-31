@@ -173,15 +173,13 @@ if (isIOS()) {
 }
 </style>
 
-<style lang="scss">
+<style>
 *:not(.x-keyboard-navigation *) {
   outline: none;
 }
 
-.x-banner,
-.x-promoted {
-  &__title {
-    display: none;
-  }
+.x-banner__title,
+.x-promoted__title {
+  display: none;
 }
 </style>

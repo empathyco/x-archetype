@@ -495,7 +495,7 @@ function clickedOptionValue(variant: any, value: string) {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .x-variant-selector-modal {
   &.x-modal {
     justify-content: center;

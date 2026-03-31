@@ -47,7 +47,7 @@ const confirmEvents: Partial<XEventsTypes> = {
 }
 </script>
 
-<style lang="scss">
+<style>
 .x-my-history-confirm-disable-modal {
   &.x-modal {
     .x-modal__content {

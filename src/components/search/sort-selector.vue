@@ -37,7 +37,7 @@ const x = use$x()
 const animation = AnimateScale
 </script>
 
-<style lang="scss">
+<style>
 .x-dropdown__items-list {
   text-align-last: start;
   left: 0;

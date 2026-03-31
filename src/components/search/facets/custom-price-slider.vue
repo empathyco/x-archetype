@@ -101,10 +101,10 @@ watch([() => selectedRange.value.min, () => selectedRange.value.max], () => {
 })
 </script>
 
-<style lang="scss">
+<style>
 .x-price-slider {
   .noUi-connect {
-    background: theme('colors.lead.50');
+    background: var(--xds-color-lead-50);
     height: 4px;
   }
   .x-base-slider__nouislider {
@@ -118,7 +118,7 @@ watch([() => selectedRange.value.min, () => selectedRange.value.max], () => {
     width: 24px;
     top: -10px;
     right: -12px; /* half the width */
-    background: theme('colors.lead.50');
+    background: var(--xds-color-lead-50);
     box-shadow: none;
     clip-path: circle(50%);
     border: none;

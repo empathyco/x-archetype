@@ -64,7 +64,7 @@ const maxItemsToRender = computed(() => (isTabletOrLess.value ? undefined : 5))
 const { query } = useGetter('nextQueries')
 </script>
 
-<style lang="scss">
+<style>
 .x-mobile {
   .x-next-query-preview {
     margin-left: calc(-1 * var(--x-margin-left));

@@ -53,7 +53,7 @@ const priceFilterValue = computed<EditableNumberRangeFilterModel | undefined>(()
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 /* Remove arrows from number inputs */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,

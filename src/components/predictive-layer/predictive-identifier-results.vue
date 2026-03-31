@@ -28,4 +28,3 @@ defineProps<{
   animation: typeof AnimationProp
 }>()
 </script>
-<style lang="scss"></style>

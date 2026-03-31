@@ -33,10 +33,3 @@ import CustomHeaderTogglePanel from '../custom-header-toggle-panel.vue'
 const sortValues: Sort[] = ['', 'price asc', 'price desc']
 const x = use$x()
 </script>
-
-<style lang="scss">
-// TODO: Remove when implementing buttonClass prop in the SortList buttons
-.x-sort-list__button {
-  @apply x-button-ghost;
-}
-</style>

@@ -220,7 +220,8 @@ const {
 
 const x = use$x()
 </script>
-<style lang="scss">
+
+<style>
 .x-result-link:focus-visible > * {
   outline: -webkit-focus-ring-color auto 1px;
 }

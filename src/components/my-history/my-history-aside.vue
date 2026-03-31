@@ -66,7 +66,8 @@ onMounted(() => {
 
 const x = use$x()
 </script>
-<style lang="scss">
+
+<style>
 .x-layout__my-history-modal {
   z-index: 40 !important;
 }

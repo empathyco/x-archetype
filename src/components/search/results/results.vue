@@ -119,7 +119,7 @@ const vInfiniteScroll = computed(() =>
 )
 </script>
 
-<style lang="scss">
+<style>
 .x-base-grid__next-queries-group,
 .x-base-grid__next-queries-cta-group {
   grid-column-start: 1;

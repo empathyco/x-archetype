@@ -219,7 +219,7 @@ watch(units, (currentUnits, oldUnits) => {
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
