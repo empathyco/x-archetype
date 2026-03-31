@@ -68,6 +68,16 @@ jobs:
     secrets: inherit
 ```
 
+**File: `.github/workflows/ai-instructions-sync.yml`**
+
+```yaml
+jobs:
+  sync:
+    if: false # Remove this entire line
+    uses: empathyco/platform-reusable-github-actions/.github/workflows/ai-instructions-sync.yml@main
+    secrets: inherit
+```
+
 After removal, the jobs should look like:
 
 ```yaml

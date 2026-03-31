@@ -1,0 +1,11 @@
+name: AI Instructions Sync
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * 3' # Every Wednesday at 8am UTC
+
+jobs:
+  sync:
+    if: false
+    uses: empathyco/platform-reusable-github-actions/.github/workflows/ai-instructions-sync.yml@main
+    secrets: inherit
