@@ -36,7 +36,7 @@ import { useDevice } from './composables/use-device.composable'
 import { FeatureFlag, useFeatureFlags } from './composables/use-feature-flags.composable'
 import { isIOS, removeSearchInputFocus } from './composables/use-ios-utils-composable'
 import currencies from './i18n/currencies'
-import './tailwind/index.css'
+import './tailwind/xds.css'
 
 const MainModal = defineAsyncComponent(() =>
   import('./components/custom-main-modal.vue').then(m => m.default),

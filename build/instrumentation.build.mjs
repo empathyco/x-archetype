@@ -5,6 +5,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import resolve from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
+import tailwindcss from '@tailwindcss/vite'
 import vue3 from '@vitejs/plugin-vue'
 import copy from 'rollup-plugin-copy'
 import del from 'rollup-plugin-delete'
@@ -100,6 +101,7 @@ export function createConfig({
           },
         }),
       ),
+      tailwindcss(),
       styles(mergeConfig('styles')),
       typescript(
         mergeConfig('typescript', {

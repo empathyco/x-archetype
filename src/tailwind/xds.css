@@ -1,7 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import '../../node_modules/@empathyco/x-design-system/dist/index.css';
 
+/* TODO - Review these styles.
 @layer components {
   .x-message {
     display: flex;
@@ -10,9 +9,7 @@
     justify-content: center;
     gap: theme('spacing.8');
     background-color: theme('colors.neutral.10');
-    padding: theme('spacing.24');
-    padding-top: theme('spacing.8');
-    padding-bottom: theme('spacing.8');
+    padding: theme('spacing.8') theme('spacing.24');
     text-align: center;
 
     @screen desktop {
@@ -30,3 +27,4 @@
     align-items: center;
   }
 }
+*/
