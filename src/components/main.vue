@@ -15,11 +15,15 @@ import { computed, defineAsyncComponent } from 'vue'
 import { useExperienceControls } from '../composables/use-experience-controls.composable'
 import { useHasSearched } from '../composables/use-has-searched.composable'
 import { lowResultsThreshold } from '../x-components/constants'
-import AiSearchFallback from './ai/ai-search-fallback.vue'
-import SearchFallback from './search/search-fallback.vue'
 
 const Redirection = defineAsyncComponent(() => import('./search').then(m => m.Redirection))
 const Results = defineAsyncComponent(() => import('./search').then(m => m.Results))
+const AiSearchFallback = defineAsyncComponent(() =>
+  import('./ai/ai-search-fallback.vue').then(m => m.default),
+)
+const SearchFallback = defineAsyncComponent(() =>
+  import('./search/search-fallback.vue').then(m => m.default),
+)
 
 const { getControlFromPath } = useExperienceControls()
 const { hasSearched } = useHasSearched()

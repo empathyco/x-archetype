@@ -37,6 +37,7 @@
     "@empathyco/x-components": "6.0.0-alpha.230",
     "@empathyco/x-types": "10.1.0-alpha.52",
     "@empathyco/x-utils": "1.0.3-alpha.17",
+    "@vueuse/core": "14.2.1",
     "tslib": "2.8.1",
     "vue": "3.5.29",
     "vue-i18n": "9.14.5",
