@@ -77,10 +77,10 @@ facetSchema.$override<PlatformFacet, Partial<NumberRangeFacet>>({
 searchResponseSchema.$override<any, Partial<SearchResponse>>({
   stats: ({ catalog }) => ({
     price: {
-      min: catalog.stats[priceFacetId]?.min
+      min: catalog.stats?.[priceFacetId]?.min
         ? Math.floor(Number.parseFloat(catalog.stats[priceFacetId].min))
         : 0,
-      max: catalog.stats[priceFacetId]?.max
+      max: catalog.stats?.[priceFacetId]?.max
         ? Math.ceil(Number.parseFloat(catalog.stats[priceFacetId].max))
         : 100,
     },
