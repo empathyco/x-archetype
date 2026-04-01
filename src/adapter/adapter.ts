@@ -1,14 +1,7 @@
 import type {
-  facetSchema,
-  platformAdapter,
   PlatformFacet,
   PlatformRecommendationsRequest,
   PlatformSemanticQueriesRequest,
-  recommendationsRequestSchema,
-  relatedPromptsEndpointAdapter,
-  resultSchema,
-  searchResponseSchema,
-  semanticQueriesRequestSchema,
 } from '@empathyco/x-adapter-platform'
 import type {
   NumberRangeFacet,
@@ -17,7 +10,15 @@ import type {
   SearchResponse,
   SemanticQueriesRequest,
 } from '@empathyco/x-types'
-
+import {
+  facetSchema,
+  platformAdapter,
+  recommendationsRequestSchema,
+  relatedPromptsEndpointAdapter,
+  resultSchema,
+  searchResponseSchema,
+  semanticQueriesRequestSchema,
+} from '@empathyco/x-adapter-platform'
 import { priceFacetId } from '../x-components/constants'
 import { getFacetConfigWithEditable } from './facets/utils'
 import { platformResultSchema } from './result/platform-result-schema'
