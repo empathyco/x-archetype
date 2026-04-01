@@ -3,7 +3,7 @@
     :animation="empathizeAnimation"
     :has-content="showEmpathize || showIdentifierResults"
     search-and-close-on-no-content
-    class="x-z-40 x-bg-neutral-0 desktop:x-w-full"
+    class="x-z-40 x-bg-neutral-0 desktop:x-w-full desktop:x-min-w-[750px]"
     :events-to-close-empathize="isDesktopOrGreater ? desktopCloseEvents : mobileCloseEvents"
     :events-to-open-empathize="eventsToOpenEmpathize"
   >
