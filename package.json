@@ -28,7 +28,7 @@
     "install:types:local": "npm install file:$(ls ../x/packages/x-types/*.tgz | sort -V | tail -n 1) --no-save",
     "install:utils:local": "npm install file:$(ls ../x/packages/x-archetype-utils/*.tgz | sort -V | tail -n 1) --no-save",
     "install:xds:local": "npm install file:$(ls ../x/packages/x-tailwindcss/*.tgz | sort -V | tail -n 1) --no-save",
-    "prepare": "husky install"
+    "prepare": "husky install && skilld update -b"
   },
   "dependencies": {
     "@empathyco/x-adapter": "8.1.0-alpha.22",
@@ -80,6 +80,7 @@
     "rollup-plugin-terser": "7.0.2",
     "rollup-plugin-typescript2": "0.36.0",
     "sass": "1.97.3",
+    "skilld": "^1.5.5",
     "start-server-and-test": "2.1.5",
     "tailwindcss": "3.4.19",
     "typescript": "5.9.3",
