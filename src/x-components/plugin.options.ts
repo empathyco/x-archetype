@@ -1,4 +1,3 @@
-/* eslint-disable node/prefer-global/process */
 import type { InstallXOptions, SnippetConfig } from '@empathyco/x-components'
 import { cssInjector, I18n } from '@empathyco/x-archetype-utils'
 import { filter } from '@empathyco/x-components'
@@ -36,7 +35,7 @@ const setUrlQueryFiltered = filter(
  * Returns - the InstallXOptions.
  */
 export async function getInstallXOptions(): Promise<InstallXOptions> {
-  if (process.env.VUE_APP_DEVELOPMENT_DOCKER) {
+  if (false) {
     const { overrideAdapter } = await import('../adapter/docker.adapter')
     overrideAdapter(adapter)
     ;(window.initX as SnippetConfig).queriesPreview = [
@@ -56,6 +55,7 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
   }
   return {
     adapter,
+    // eslint-disable-next-line ts/no-unsafe-assignment
     store,
     rootComponent: AppComponent,
     domElement: getDomElement,
@@ -142,12 +142,12 @@ function getDomElement({ isolate }: SnippetConfig): ShadowRoot | HTMLElement {
   container.classList.add('x-root-container')
   document.body.appendChild(container)
 
-  if (isolate || process.env.NODE_ENV === 'production') {
-    const shadowRoot = container.attachShadow({ mode: 'open' })
-    cssInjector.addHost(shadowRoot)
-    return shadowRoot
-  } else {
+  if (isolate === false) {
     cssInjector.addHost(document)
     return container
   }
+
+  const shadowRoot = container.attachShadow({ mode: 'open' })
+  cssInjector.addHost(shadowRoot)
+  return shadowRoot
 }

@@ -11,11 +11,6 @@
       "matchPackageNames": ["vue-i18n"],
       "allowedVersions": "<10",
       "description": "Keep the version used by X."
-    },
-    {
-      "matchPackageNames": ["rollup-plugin-generate-html-template"],
-      "allowedVersions": "1.6.1",
-      "description": "v1.7 does not work as expected: https://github.com/empathyco/motive-x/pull/280#issuecomment-1362687014"
     }
   ]
 }

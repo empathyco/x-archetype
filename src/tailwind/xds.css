@@ -1,6 +1,8 @@
 @import '../../node_modules/@empathyco/x-design-system/dist/index.css';
 
-/* TODO - Review these styles.
+/* TODO - Review this. */
+@source './**/*.{js,jsx,ts,tsx,vue}';
+/*
 @layer components {
   .x-message {
     display: flex;

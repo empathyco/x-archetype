@@ -1,9 +1,11 @@
+import type { XCSSInjector } from '@empathyco/x-archetype-utils'
 import { CssInjector } from '@empathyco/x-archetype-utils'
 import { XInstaller } from '@empathyco/x-components'
 import { getInstallXOptions } from './x-components/plugin.options'
 
 declare global {
   interface Window {
+    xCSSInjector: XCSSInjector
     __enableVueDevtools__?: boolean
     wysiwyg?: {
       goToLogin: () => Promise<void>
@@ -22,6 +24,7 @@ declare global {
 
 // eslint-disable-next-line no-new
 new CssInjector(true)
+
 getInstallXOptions()
   .then(async installXOptions => new XInstaller(installXOptions).init())
   .catch(error => {
