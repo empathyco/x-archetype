@@ -59,6 +59,7 @@
 </template>
 
 <script setup lang="ts">
+// 1. Imports, including async component imports
 import {
   AnimateTranslate,
   BaseIdModal,
@@ -78,17 +79,6 @@ import PreSearchManager from '../pre-search/pre-search-manager.vue'
 import ScrollToTop from '../scroll-to-top.vue'
 import DesktopTopSection from './desktop-top-section.vue'
 
-const x = use$x()
-const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
-const { hasSearched } = useHasSearched()
-const { relatedPrompts } = useState('relatedPrompts')
-const { getControlFromPath } = useExperienceControls()
-const aiSearchFallback = getControlFromPath('aiSearchFallback')
-
-const showNoResultsMessage = computed(
-  () => !aiSearchFallback.value && !relatedPrompts.value?.length && !x.semanticQueries.length,
-)
-
 const DesktopAside = defineAsyncComponent(() => import('../search').then(m => m.DesktopAside))
 const NoResultsMessage = defineAsyncComponent(() =>
   import('../search').then(m => m.NoResultsMessage),
@@ -98,6 +88,18 @@ const SpellcheckMessage = defineAsyncComponent(() =>
 )
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
   import('../search').then(m => m.FallbackDisclaimerMessage),
+)
+
+const x = use$x()
+const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
+
+const { hasSearched } = useHasSearched()
+const { relatedPrompts } = useState('relatedPrompts')
+const { getControlFromPath } = useExperienceControls()
+const aiSearchFallback = getControlFromPath('aiSearchFallback')
+
+const showNoResultsMessage = computed(
+  () => !aiSearchFallback.value && !relatedPrompts.value?.length && !x.semanticQueries.length,
 )
 </script>
 
