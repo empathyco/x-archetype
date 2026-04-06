@@ -3,7 +3,7 @@
     class="x-layout-no-margin-left x-layout-no-margin-right x-my-24"
     :class="{ 'x-my-0': x.noResults }"
   >
-    <Message>
+    <Message data-test="no-results-message">
       <div :key="aiState" data-test="no-results-info">
         <span
           class="x-message x-title3 x-text-neutral-90 desktop:x-title2"
