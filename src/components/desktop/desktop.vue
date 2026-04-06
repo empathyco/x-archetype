@@ -68,6 +68,7 @@ import {
 } from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent, h } from 'vue'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import MainComponent from '../main.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
@@ -81,8 +82,11 @@ const x = use$x()
 const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
+const { getControlFromPath } = useExperienceControls()
+const aiSearchFallback = getControlFromPath('aiSearchFallback')
+
 const showNoResultsMessage = computed(
-  () => !relatedPrompts.value?.length && !x.semanticQueries.length,
+  () => !aiSearchFallback.value && !relatedPrompts.value?.length && !x.semanticQueries.length,
 )
 
 const DesktopAside = defineAsyncComponent(() => import('../search').then(m => m.DesktopAside))
