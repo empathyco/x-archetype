@@ -1,5 +1,5 @@
 <template>
-  <Spellcheck v-if="x.totalResults > 0" v-slot="{ query }" class="x-message desktop:x-flex-col">
+  <Spellcheck v-if="x.totalResults > 0" v-slot="{ query }" class="desktop:x-flex-col xds:message">
     <i18n-t class="x-text1 desktop:x-text1-lg" keypath="spellcheck.message" scope="global" tag="p">
       <template #query>
         <span class="x-font-bold">"{{ query }}".</span>

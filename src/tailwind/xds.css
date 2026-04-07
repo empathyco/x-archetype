@@ -3,31 +3,18 @@
 /* TODO - Review this. */
 @source './**/*.{js,ts}';
 
-/*
-@layer components {
-  .x-message {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: theme('spacing.8');
-    background-color: theme('colors.neutral.10');
-    padding: theme('spacing.8') theme('spacing.24');
-    text-align: center;
+@utility message {
+  @apply xds:flex xds:flex-wrap xds:items-center xds:justify-center xds:gap-8 xds:bg-neutral-10 xds:px-8 xds:py-8 xds:text-center;
 
-    @screen desktop {
-      padding-top: theme('spacing.24');
-      padding-bottom: theme('spacing.24');
-    }
-  }
-
-  .x-transform-style-3d {
-    transform-style: preserve-3d;
-  }
-
-  .x-suggestions--horizontal {
-    flex-flow: row nowrap !important;
-    align-items: center;
+  @variant desktop {
+    @apply xds:py-24;
   }
 }
-*/
+
+@utility transform-style-3d {
+  @apply xds:transform-3d;
+}
+
+@utility suggestions--horizontal {
+  @apply xds:flex-row xds:flex-nowrap xds:items-center;
+}

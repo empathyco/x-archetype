@@ -15,7 +15,7 @@
         :animation="animation"
         :max-items-to-render="horizontalLayout ? 5 : 4"
         class="x-gap-8 desktop:x-gap-4"
-        :class="{ 'x-suggestions--horizontal': horizontalLayout }"
+        :class="{ 'xds:suggestions--horizontal': horizontalLayout }"
       >
         <template #suggestion="{ suggestion }">
           <PopularSearch

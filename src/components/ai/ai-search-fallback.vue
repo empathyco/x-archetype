@@ -6,15 +6,15 @@
     <Message>
       <div :key="aiState" data-test="no-results-info">
         <span
-          class="x-message x-title3 x-text-neutral-90 desktop:x-title2"
+          class="x-title3 x-text-neutral-90 desktop:x-title2 xds:message"
           data-test="no-results-title"
         >
           {{ $t(`aiFallback.${aiState}.title`) }}
         </span>
-        <span v-if="aiLoading" class="x-message x-pt-0" data-test="no-results-icon">
+        <span v-if="aiLoading" class="x-pt-0 xds:message" data-test="no-results-icon">
           <AiSpinnerIcon class="x-h-64 x-w-64" />
         </span>
-        <span class="x-message x-text1 x-pt-0 x-text-neutral-90" data-test="no-results-subtitle">
+        <span class="x-text1 x-pt-0 x-text-neutral-90 xds:message" data-test="no-results-subtitle">
           {{ $t(`aiFallback.${aiState}.subtitle`) }}
         </span>
       </div>

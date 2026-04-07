@@ -1,5 +1,5 @@
 <template>
-  <FallbackDisclaimer v-if="x.fromNoResultsWithFilters" class="x-fallback-message x-message">
+  <FallbackDisclaimer v-if="x.fromNoResultsWithFilters" class="x-fallback-message xds:message">
     <i18n-t
       class="x-text1 desktop:x-text1-lg"
       keypath="fallbackDisclaimer.message"
