@@ -59,7 +59,6 @@
 </template>
 
 <script setup lang="ts">
-// 1. Imports, including async component imports
 import {
   AnimateTranslate,
   BaseIdModal,
