@@ -39,7 +39,7 @@ function overrideXCssInjector(): PluginOption {
 export default defineConfig({
   define: {},
   build: {
-    minify: false,
+    // minify: false,
     rollupOptions: {
       output: {
         format: 'es',

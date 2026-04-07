@@ -10,7 +10,7 @@
     {
       "matchPackageNames": ["vue-i18n"],
       "allowedVersions": "<10",
-      "description": "Keep the version used by X."
+      "description": "Keep the version used by x-archetype-utils."
     }
   ]
 }

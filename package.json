@@ -8,11 +8,11 @@
   "license": "Apache-2.0",
   "homepage": "https://github.com/empathyco/x-archetype",
   "scripts": {
-    "serve": "vite dev --host",
-    "serve:docker": "VUE_APP_DEVELOPMENT_DOCKER=true npm run serve",
+    "serve": "vite dev",
+    "serve:docker": "VITE_APP_DEVELOPMENT_DOCKER=true npm run serve",
     "serve:preview": "vite preview",
     "build": "vite build",
-    "build:docker": "VUE_APP_DEVELOPMENT_DOCKER=true npm run build",
+    "build:docker": "VITE_APP_DEVELOPMENT_DOCKER=true npm run build",
     "build:preview": "npm run build && npm run serve:preview",
     "typecheck": "vue-tsc --noEmit",
     "cy:open": "cypress open --e2e --browser chrome",
@@ -49,11 +49,9 @@
     "@types/cypress-cucumber-preprocessor": "4.0.5",
     "@types/dom-speech-recognition": "0.0.7",
     "@vitejs/plugin-vue": "5.2.4",
-    "colors": "1.4.0",
     "cypress": "14.5.4",
     "husky": "8.0.3",
     "lint-staged": "15.5.2",
-    "process": "0.11.10",
     "skilld": "1.5.5",
     "start-server-and-test": "2.1.5",
     "tailwindcss": "4.2.2",
@@ -64,8 +62,8 @@
   },
   "lint-staged": {
     "*": [
-      "eslint --fix --no-warn-ignored",
-      "prettier --write --list-different --ignore-unknown"
+      "npm run format:check",
+      "npm run lint:check"
     ]
   }
 }
