@@ -8,8 +8,8 @@
     :query-feature="queryFeature"
     data-wysiwyg="query-previews"
   >
-    <div class="x-mb-40 x-flex x-flex-col x-gap-2 desktop:x-mb-64 desktop:x-gap-16">
-      <h1 class="x-title1 x-text-neutral-90 max-desktop:x-title1-sm max-desktop:x-px-16">
+    <div class="xds:mb-40 xds:flex xds:flex-col xds:gap-2 xds:desktop:mb-64 xds:desktop:gap-16">
+      <h1 class="xds:title1 xds:text-neutral-90 xds:max-desktop:px-16 xds:max-desktop:title1-sm">
         {{ queryPreviewInfo.title }}
       </h1>
       <DisplayEmitter
@@ -24,11 +24,11 @@
             <QueryPreviewButton
               :query-preview-info="queryPreviewInfo"
               :metadata="metadata"
-              class="x-button x-button-lead x-button-tight x-title3 x-title3-sm desktop:x-title3-md max-desktop:x-px-16"
+              class="xds:button xds:button-tight xds:button-lead xds:title3 xds:title3-sm xds:max-desktop:px-16 xds:desktop:title3-md"
             >
               {{ queryPreviewInfo.query }}
               ({{ totalResults }})
-              <ArrowRightIcon class="x-icon-lg" />
+              <ArrowRightIcon class="xds:icon-lg" />
             </QueryPreviewButton>
           </template>
           <DisplayClickProvider
@@ -43,12 +43,12 @@
               getToolingTagging(queryPreviewInfo, 'toolingDisplayAdd2CartTagging')
             "
           >
-            <div class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16 xds:transform-style-3d">
+            <div class="xds:flex xds:gap-16 xds:pt-16 xds:transform-style-3d xds:max-desktop:px-16">
               <Result
                 v-for="result in results"
                 :key="result.id"
                 :result="result"
-                class="x-w-[calc(38vw-16px)] x-min-w-[142px] desktop:x-w-[216px]"
+                class="xds:w-[calc(38vw-16px)] xds:min-w-35.5 xds:desktop:w-54"
               />
             </div>
           </DisplayClickProvider>

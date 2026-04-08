@@ -2,7 +2,7 @@
   <LocationProvider v-if="showRelatedPrompts" :location="location">
     <CustomRelatedPrompts
       :related-prompt-list="relatedPrompts"
-      :class="x.noResults ? 'desktop:x-mt-24' : 'x-mt-48 desktop:x-mt-32'"
+      :class="x.noResults ? 'xds:desktop:mt-24' : 'xds:mt-48 xds:desktop:mt-32'"
     />
   </LocationProvider>
   <LocationProvider v-if="showSemantics" :location="location">
@@ -15,6 +15,7 @@
     <CustomRecommendations />
   </LocationProvider>
 </template>
+
 <script setup lang="ts">
 import { LocationProvider, use$x, useState } from '@empathyco/x-components'
 import { computed, defineAsyncComponent } from 'vue'

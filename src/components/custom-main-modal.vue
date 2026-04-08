@@ -31,6 +31,6 @@ const referenceSelector = computed(() => {
 })
 
 const contentClass = computed(() =>
-  !isDesktopOrGreater.value && x.query.searchBox ? '!x-overflow-clip x-touch-none' : '',
+  !isDesktopOrGreater.value && x.query.searchBox ? 'xds:overflow-clip! xds:touch-none' : '',
 )
 </script>

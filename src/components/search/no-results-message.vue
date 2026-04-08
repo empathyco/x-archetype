@@ -1,14 +1,14 @@
 <template>
   <i18n-t
     v-if="x.noResults"
-    class="x-no-results-message x-text1 desktop:x-text1-lg desktop:x-mt-24 xds:message"
+    class="x-no-results-message xds:message xds:text1 xds:desktop:mt-24 xds:desktop:text1-lg"
     keypath="noResults.message"
-    :class="{ 'x-flex-col': isTabletOrLess }"
+    :class="{ 'xds:flex-col': isTabletOrLess }"
     tag="p"
   >
     <template #query>
-      <span class="x-w-auto x-font-bold">"{{ x.query.search }}"</span>
-      <div class="x-basis-full"></div>
+      <span class="xds:w-auto xds:font-bold">"{{ x.query.search }}"</span>
+      <div class="xds:basis-full"></div>
     </template>
   </i18n-t>
 </template>

@@ -3,25 +3,27 @@
     :items="sortValues"
     :animation="animation"
     data-test="sort-dropdown-button"
-    class="x-z-[3]"
+    class="xds:z-3"
   >
     <template #toggle="{ isOpen }">
-      <div class="x-text-neutral-85 x-button x-button-lead x-button-ghost x-gap-8 x-font-normal">
+      <div
+        class="xds:button xds:button-ghost xds:gap-8 xds:button-lead xds:font-normal xds:text-neutral-90"
+      >
         <span>{{ $t('sort.label') }}</span>
-        <span class="x-font-bold x-text-lead-75">
+        <span class="xds:font-bold xds:text-lead-75">
           {{ $t(`sort.values.${x.selectedSort || 'default'}`) }}
         </span>
-        <ChevronUpIcon v-if="isOpen" class="x-text-lead-100 x-icon-lg" />
-        <ChevronDownIcon v-else class="x-text-lead-100 x-icon-lg" />
+        <ChevronUpIcon v-if="isOpen" class="xds:text-lead-100 xds:icon-lg" />
+        <ChevronDownIcon v-else class="xds:text-lead-100 xds:icon-lg" />
       </div>
     </template>
 
     <template #item="{ isSelected, item }">
       <div
-        class="x-text-neutral-85 x-facet-filter x-bg-neutral-0 x-px-16 hover:x-bg-neutral-10 hover:x-text-neutral-100"
-        :class="{ 'x-bg-neutral-25': isSelected }"
+        class="xds:text-neutral-85 xds:filter-facet xds:bg-neutral-0 xds:px-16 xds:hover:bg-neutral-10 xds:hover:text-neutral-100"
+        :class="{ 'xds:bg-neutral-25': isSelected }"
       >
-        <span class="x-text2 x-text2-sm">{{ $t(`sort.values.${item || 'default'}`) }}</span>
+        <span class="xds:text2 xds:text2-sm">{{ $t(`sort.values.${item || 'default'}`) }}</span>
       </div>
     </template>
   </SortDropdown>

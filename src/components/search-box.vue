@@ -5,7 +5,7 @@
       :autofocus="false"
       :placeholder="$t('searchBox.placeholder')"
       :instant="!!isDesktopOrGreater"
-      class="desktop:!xds:pl-24"
+      class="xds:input xds:desktop:pl-24!"
     />
 
     <button class="xds:input-group-button xds:rounded-full" @click="toggleVoiceRecognition">
@@ -22,12 +22,12 @@
 
     <SearchButton
       v-if="isDesktopOrGreater || !x.query.searchBox"
-      class="xds:input-group-button-primary"
+      class="xds:input-group-button-primary xds:input-group-button xds:p-0"
     >
-      <SearchIcon class="xds:icon-md" />
+      <SearchIcon />
     </SearchButton>
 
-    <ClearSearchInput v-else class="xds:input-group-button-primary">
+    <ClearSearchInput v-else class="xds:input-group-button-primary xds:input-group-button">
       <CrossTinyIcon class="xds:icon-lg" />
     </ClearSearchInput>
   </div>

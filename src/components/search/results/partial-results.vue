@@ -1,25 +1,25 @@
 <template>
-  <PartialResultsList class="x-mb-24 x-gap-40 desktop:x-gap-80">
+  <PartialResultsList class="xds:mb-24 xds:gap-40 xds:desktop:gap-80">
     <template #default="{ partialResult }">
       <CustomSlidingPanel>
         <template #header>
           <PartialQueryButton
             :query="partialResult.query"
-            class="x-button x-button-lead x-button-tight max-desktop:x-px-16"
+            class="xds:button xds:button-tight xds:button-lead xds:max-desktop:px-16"
           >
             {{ $t('partialResults.query', { query: partialResult.query }) }}
             {{ $t('partialResults.totalResults', { totalResults: partialResult.totalResults }) }}
-            <ArrowRightIcon class="x-icon-lg" />
+            <ArrowRightIcon class="xds:icon-lg" />
           </PartialQueryButton>
         </template>
         <ItemsList
           :items="partialResult.results"
-          class="x-flex x-gap-16 x-pt-4 max-desktop:x-px-16"
+          class="xds:flex xds:gap-16 xds:pt-4 xds:max-desktop:px-16"
         >
           <template #result="{ item: result }">
             <Result
               :result="result"
-              class="x-w-[calc(38vw-16px)] x-min-w-[142px] desktop:x-w-[224px]"
+              class="xds:w-[calc(38vw-16px)] xds:min-w-35.5 xds:desktop:w-224"
               :show-description="isTabletOrGreater"
               show-compact-prices
             />

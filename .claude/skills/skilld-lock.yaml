@@ -2,7 +2,7 @@ skills:
   vue-skilld:
     packageName: vue
     version: 3.5.30
-    packages: vue@3.5.30
+    packages: "vue@3.5.30"
     repo: vuejs/core
     source: "https://github.com/vuejs/core/tree/main/docs"
     syncedAt: 2026-04-03
@@ -17,7 +17,7 @@ skills:
   tailwindcss-skilld:
     packageName: tailwindcss
     version: 4.2.2
-    packages: tailwindcss@4.2.2
+    packages: "tailwindcss@4.2.2"
     repo: tailwindlabs/tailwindcss
     source: "https://github.com/tailwindlabs/tailwindcss/tree/main/docs"
     syncedAt: 2026-04-03
@@ -31,11 +31,11 @@ skills:
     generator: skilld
   vite-skilld:
     packageName: vite
-    version: 6.4.1
-    packages: vite@6.4.1
+    version: 6.4.2
+    packages: "vite@6.4.2"
     repo: vitejs/vite
-    source: "https://github.com/vitejs/vite/tree/v6.4.1/docs"
-    syncedAt: 2026-04-03
+    source: "https://github.com/vitejs/vite/tree/v6.4.2/docs"
+    syncedAt: 2026-04-08
     generator: skilld
   vueuse-core-skilld:
     packageName: "@vueuse/core"

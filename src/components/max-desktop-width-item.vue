@@ -1,6 +1,6 @@
 <template>
   <div
-    class="desktop:xds:layout-min-margin-32 large:xds:layout-max-width-lg large:xds:layout-min-margin-48 xds:layout-item xds:layout-max-width-md"
+    class="xds:layout-item xds:layout-max-width-md xds:desktop:layout-min-margin-32 xds:large:layout-max-width-lg xds:large:layout-min-margin-48"
   >
     <slot />
   </div>

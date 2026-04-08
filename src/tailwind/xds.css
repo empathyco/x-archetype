@@ -16,5 +16,5 @@
 }
 
 @utility suggestions--horizontal {
-  @apply xds:flex-row xds:flex-nowrap xds:items-center;
+  @apply xds:flex-row! xds:flex-nowrap! xds:items-center;
 }

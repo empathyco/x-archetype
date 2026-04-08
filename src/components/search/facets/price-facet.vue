@@ -1,10 +1,10 @@
 <template>
   <CustomHeaderTogglePanel
     :data-test="facet?.label"
-    class="x-border-0 x-border-b x-border-neutral-10"
+    class="xds:border-0 xds:border-b xds:border-neutral-10"
   >
     <template #header>
-      <span class="x-title3">
+      <span class="xds:title3">
         {{ setFacetLabel($t(`facets.${facet?.label}`), facet?.label) }}
       </span>
       <FacetSelectedFilters :selected-filters="selectedFilters" />

@@ -3,14 +3,14 @@
     v-slot="{ identifierResult }"
     :max-items-to-render="5"
     :animation="animation"
-    class="x-flex x-flex-col x-gap-8 desktop:x-col-span-12 desktop:x-gap-4"
+    class="xds:flex xds:flex-col xds:gap-8 xds:desktop:col-span-12 xds:desktop:gap-4"
   >
     <BaseResultLink
       v-slot="{ result }"
       :result="identifierResult"
-      class="x-suggestion x-suggestion-lg desktop:x-suggestion-md"
+      class="xds:suggestion xds:suggestion-lg xds:desktop:suggestion-md"
     >
-      <BarCodeIcon class="x-icon-lg desktop:x-icon-md" />
+      <BarCodeIcon class="xds:icon-lg xds:desktop:icon-md" />
       <IdentifierResult :result="result" />
       <span>
         {{ result.name }}

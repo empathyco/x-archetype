@@ -11,34 +11,34 @@
     <section>
       <h1
         v-if="isAnyQueryLoadedInPreview(queries)"
-        class="x-title1 x-title1-md x-my-64 x-text-center"
+        class="xds:my-64 xds:text-center xds:title1 xds:title1-md"
       >
         {{ $t('semanticQueries.title', { query: x.query.search }) }}
       </h1>
       <QueryPreviewList
         v-slot="{ queryPreviewInfo: { query }, results, totalResults }"
         :queries-preview-info="queries.map(q => ({ query: q }))"
-        class="x-flex x-flex-col x-gap-64"
+        class="xds:flex xds:flex-col xds:gap-64"
         data-wysiwyg="query-previews"
       >
         <CustomSlidingPanel>
           <template #header>
             <SemanticQuery
               :suggestion="findSemanticQuery(query)"
-              class="x-button x-button-neutral x-button-tight max-desktop:x-px-16"
+              class="xds:button xds:button-tight xds:button-neutral xds:max-desktop:px-16"
             >
               {{ query }}
               ({{ totalResults }})
-              <ArrowRightIcon class="x-icon-lg" />
+              <ArrowRightIcon class="xds:icon-lg" />
             </SemanticQuery>
           </template>
           <DisplayClickProvider result-feature="semantic_recommendations">
-            <div class="x-flex x-gap-16 x-pt-16 max-desktop:x-px-16">
+            <div class="xds:flex xds:gap-16 xds:pt-16 xds:max-desktop:px-16">
               <Result
                 v-for="result in results.slice(0, resultsPerCarousel)"
                 :key="result.id"
                 :result="result"
-                class="x-w-[calc(38vw-16px)] desktop:x-w-[216px]"
+                class="xds:w-[calc(38vw-16px)] xds:desktop:w-54"
               />
             </div>
           </DisplayClickProvider>

@@ -1,11 +1,11 @@
 <template>
-  <div v-if="filtersWithLabel.length" class="x-text1-sm x-flex x-gap-8 x-text-lead-50">
-    <div class="x-truncate">
-      <span v-for="filter in filtersWithLabel" :key="filter.id" class="x-pr-8">
+  <div v-if="filtersWithLabel.length" class="xds:flex xds:gap-8 xds:text1-sm xds:text-lead-50">
+    <div class="xds:truncate">
+      <span v-for="filter in filtersWithLabel" :key="filter.id" class="xds:pr-8">
         {{ filter.label }}
       </span>
     </div>
-    <span v-if="showLength">({{ filtersList.length }})</span>
+    <span v-if="showLength">({{ filtersList?.length }})</span>
   </div>
 </template>
 

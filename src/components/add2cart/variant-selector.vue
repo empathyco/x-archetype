@@ -1,30 +1,30 @@
 <template>
   <BaseEventsModal
-    class="x-variant-selector-modal !x-z-[999]"
+    class="x-variant-selector-modal xds:z-999!"
     :class="{ 'x-variant-selector-modal--mobile': isMobileOrLess }"
     :events-to-open-modal="eventsToOpenVariantsModal"
     :events-to-close-modal="eventsToCloseVariantsModal"
     @focusin.stop
   >
     <div
-      class="x-variant-selector-modal-content x-relative x-flex x-max-h-[calc(100%-4rem)] x-min-w-[320px] x-max-w-[732px] x-flex-col x-gap-24 x-rounded-t-md x-bg-neutral-0"
-      :class="isMobileOrLess ? 'x-p-12 x-pt-32' : 'x-rounded-b-md x-p-32'"
+      class="x-variant-selector-modal-content xds:relative xds:flex xds:max-h-[calc(100%-4rem)] xds:max-w-183 xds:min-w-320 xds:flex-col xds:gap-24 xds:rounded-t-md xds:bg-neutral-0"
+      :class="isMobileOrLess ? 'xds:p-12 xds:pt-32' : 'xds:rounded-b-md xds:p-32'"
       @click="hideTooltip"
     >
-      <div class="x-flex x-flex-row x-gap-24">
+      <div class="xds:flex xds:flex-row xds:gap-24">
         <BaseEventButton
           :events="{ UserClickedCloseModal: undefined }"
-          class="x-absolute x-right-0 x-top-0 x-m-8 x-rounded-full"
+          class="xds:absolute xds:top-0 xds:right-0 xds:m-8 xds:rounded-full"
         >
           <CrossIcon />
         </BaseEventButton>
-        <div class="x-flex x-w-[182px] x-min-w-[144px] x-justify-center">
-          <div class="x-relative x-flex x-h-full x-w-full x-justify-center">
+        <div class="xds:flex xds:w-45.5 xds:min-w-36 xds:justify-center">
+          <div class="xds:relative xds:flex xds:h-full xds:w-full xds:justify-center">
             <BaseResultImage
               v-if="result"
               :result="result"
               :show-next-image-on-hover="true"
-              class="outline-none x-w-[150px]"
+              class="outline-none xds:w-37.5"
             >
               <template #placeholder>
                 <BasePlaceholderImage />
@@ -35,19 +35,19 @@
             </BaseResultImage>
 
             <div
-              class="x-result__overlay x-absolute x-bottom-0 x-flex x-w-full x-flex-col x-items-end"
+              class="x-result__overlay xds:absolute xds:bottom-0 xds:flex xds:w-full xds:flex-col xds:items-end"
             >
               <div
                 v-if="showTooltip && missingOptions"
-                class="x-absolute x-bottom-full x-left-0 x-z-10 x-mb-8 x-w-max x-max-w-[190px] x-rounded-md x-bg-auxiliary-50 x-py-4 x-text-xs x-text-neutral-10"
+                class="xds:absolute xds:bottom-full xds:left-0 xds:z-10 xds:mb-8 xds:w-max xds:max-w-47.5 xds:rounded-md xds:bg-auxiliary-50 xds:py-4 xds:text-xs xds:text-neutral-10"
                 @click.stop
               >
-                <div class="x-text-center">{{ $t('result.selectAllOptions') }}</div>
+                <div class="xds:text-center">{{ $t('result.selectAllOptions') }}</div>
               </div>
 
               <button
                 v-if="units === 0"
-                class="x-text-2 x-button x-button-lead x-button-sm x-ml-auto x-h-[35px] x-w-[35px] x-rounded-full x-px-12 hover:x-bg-lead-50"
+                class="xds:text-2 xds:ml-auto xds:button xds:h-8.75 xds:button-sm xds:w-8.75 xds:rounded-full xds:button-lead xds:px-12 xds:hover:bg-lead-50"
                 @click.stop="add2cart"
               >
                 <span> <PlusIcon /> </span>
@@ -55,23 +55,23 @@
 
               <div
                 v-else-if="units > 0"
-                class="x-border-neutral-30 x-flex x-h-[35px] x-w-full x-items-center x-justify-between x-rounded-full x-border-b x-border-t x-bg-neutral-0"
+                class="xds:border-neutral-30 xds:flex xds:h-8.75 xds:w-full xds:items-center xds:justify-between xds:rounded-full xds:border-t xds:border-b xds:bg-neutral-0"
               >
                 <button
-                  class="x-border-lead-30 x-bg-lead-30 hover:x-border-lead-30 hover:x-bg-lead-30 x-button x-button-sm x-h-[35px] x-w-[35px] x-rounded-full"
+                  class="xds:border-lead-30 xds:bg-lead-30 xds:hover:border-lead-30 xds:hover:bg-lead-30 xds:button xds:h-8.75 xds:button-sm xds:w-8.75 xds:rounded-full"
                   @click="removeUnit"
                 >
-                  <MinusIcon class="x-icon x-icon-stroke-width-lg x-text-lead-50" />
+                  <MinusIcon class="xds:icon xds:icon-stroke-width-lg xds:text-lead-50" />
                 </button>
 
                 <div
-                  class="focus:outline-none x-text2 x-text2-sm x-flex x-h-full x-w-full x-appearance-none x-flex-col x-items-center x-justify-center x-font-bold x-text-neutral-90"
+                  class="focus:outline-none xds:text2 xds:text2-sm xds:flex xds:h-full xds:w-full xds:appearance-none xds:flex-col xds:items-center xds:justify-center xds:font-bold xds:text-neutral-90"
                   @click="enableEditing"
                 >
                   <span
                     v-if="!isEditing"
                     class="w-full"
-                    :class="{ 'x-text-error-50': hasMaxUnitsReached }"
+                    :class="{ 'xds:text-error-50': hasMaxUnitsReached }"
                   >
                     {{ units }}
                   </span>
@@ -85,8 +85,8 @@
                     type="tel"
                     step="1.2"
                     :max="maxInputValue"
-                    class="x-w-full x-text-center"
-                    :class="{ 'x-text-error-50': hasMaxUnitsReached }"
+                    class="xds:w-full xds:text-center"
+                    :class="{ 'xds:text-error-50': hasMaxUnitsReached }"
                     placeholder=""
                     @blur="updateUnits(Number(($event.target as HTMLInputElement)?.value))"
                     @focus="clearInputValue"
@@ -94,59 +94,59 @@
                   />
                   <span
                     v-if="hasMaxUnitsReached"
-                    class="x-title4 x-mt-[-6px] x-text-center x-text-[8px] x-font-bold x-text-error-50"
+                    class="xds:-mt-1.5 xds:text-center xds:title4 xds:text-[8px] xds:font-bold xds:text-error-50"
                   >
                     {{ $t('result.maxUnits') }}
                   </span>
                 </div>
 
                 <button
-                  class="x-bg-lead-30 hover:x-bg-lead-30 x-button x-button-sm x-h-[35px] x-w-[35px] x-rounded-full x-border-lead-50 hover:x-border-lead-50"
-                  :class="{ 'x-bg-neutral-30 x-border-none': hasMaxUnitsReached }"
+                  class="xds:bg-lead-30 xds:hover:bg-lead-30 xds:button xds:h-8.75 xds:button-sm xds:w-8.75 xds:rounded-full xds:border-lead-50 xds:hover:border-lead-50"
+                  :class="{ 'xds:bg-neutral-30 xds:border-none': hasMaxUnitsReached }"
                   :disabled="hasMaxUnitsReached"
                   @click="addUnit"
                 >
                   <PlusIcon
-                    class="x-icon x-icon-stroke-width-lg x-text-lead-50"
-                    :class="{ 'x-text-neutral-50': hasMaxUnitsReached }"
+                    class="xds:icon xds:icon-stroke-width-lg xds:text-lead-50"
+                    :class="{ 'xds:text-neutral-50': hasMaxUnitsReached }"
                   />
                 </button>
               </div>
             </div>
           </div>
         </div>
-        <div class="x-flex x-max-w-[640px] x-flex-col x-justify-start x-gap-4 x-pr-16">
+        <div class="xds:flex xds:max-w-[640px] xds:flex-col xds:justify-start xds:gap-4 xds:pr-16">
           <h2
-            class="x-line-clamp-3 x-flex x-leading-xs x-text-neutral-100"
-            :class="isMobileOrLess ? 'x-text1 x-text1-sm x-font-bold' : 'x-title4 x-pb-8'"
+            class="xds:line-clamp-3 xds:flex xds:leading-xs xds:text-neutral-100"
+            :class="isMobileOrLess ? 'xds:text1 xds:text1-sm xds:font-bold' : 'xds:pb-8 xds:title4'"
             data-test="result-title"
           >
             {{ result?.name }}
           </h2>
           <div
-            class="x-text1 x-line-clamp-2 x-flex x-leading-xs x-text-neutral-100"
-            :class="isMobileOrLess ? 'x-h-[30px] x-text-xxs' : 'x-text1-sm'"
+            class="xds:line-clamp-2 xds:flex xds:text1 xds:leading-xs xds:text-neutral-100"
+            :class="isMobileOrLess ? 'xds:h-7.5 xds:text-xxs' : 'xds:text1-sm'"
           >
             {{ result?.description }}
           </div>
 
-          <div class="x-flex x-flex-wrap x-gap-8">
+          <div class="xds:flex xds:flex-wrap xds:gap-8">
             <BaseResultCurrentPrice
               v-if="result"
               :result="result"
-              class="x-title2 x-title2-sm x-flex x-font-bold x-leading-xs"
-              :class="{ 'x-text-auxiliary-90': result?.price?.hasDiscount }"
+              class="xds:flex xds:title2 xds:title2-sm xds:leading-xs xds:font-bold"
+              :class="{ 'xds:text-auxiliary-75': result?.price?.hasDiscount }"
             />
             <BaseResultPreviousPrice
               v-if="result"
               :result="result"
-              class="x-text-neutral-65 x-text1 x-flex x-items-center x-text-[10px] x-leading-xs x-line-through"
+              class="xds:text-neutral-65 xds:flex xds:items-center xds:text1 xds:text-xxs xds:leading-xs xds:line-through"
             />
           </div>
 
-          <BaseResultLink v-if="result" :result="result" class="x-flex">
+          <BaseResultLink v-if="result" :result="result" class="xds:flex">
             <span
-              class="x-text-auxiliary-90 x-text1 x-text1-sm x-line-clamp-2 x-leading-xs x-underline"
+              class="xds:line-clamp-2 xds:text1 xds:text1-sm xds:leading-xs xds:text-auxiliary-75 xds:underline"
             >
               {{ $t('result.viewDetails') }}
             </span>
@@ -156,27 +156,27 @@
             <div
               v-for="variant in variantOptions"
               :key="variant.name"
-              class="x-mb-8 x-flex x-flex-col x-gap-4"
+              class="xds:mb-8 xds:flex xds:flex-col xds:gap-4"
             >
               <h2
-                class="x-text-neutral-40 x-text1 x-text1-sm x-line-clamp-3 x-flex x-leading-xs"
+                class="xds:text-neutral-40 xds:line-clamp-3 xds:flex xds:text1 xds:text1-sm xds:leading-xs"
                 data-test="result-title"
               >
                 <span>{{ variant.name }}</span>
                 <span v-if="selection[variant.name]">: {{ selection[variant.name] }}</span>
-                <span v-else-if="missingOptions" class="x-pl-4 x-text-error-75">
+                <span v-else-if="missingOptions" class="xds:pl-4 xds:text-error-75">
                   {{ $t('result.selectOption') }}
                 </span>
               </h2>
-              <div class="x-flex x-shrink x-flex-row x-flex-wrap x-gap-8">
+              <div class="xds:flex xds:shrink xds:flex-row xds:flex-wrap xds:gap-8">
                 <button
                   v-for="(value, index) in variant.values"
                   :key="value"
-                  class="hover:x-border-neutral-70 x-button x-button-sm x-button-ghost x-h-40 x-min-w-fit x-rounded-sm x-border-neutral-25 x-px-16 hover:x-bg-neutral-0"
+                  class="xds:button xds:h-40 xds:button-sm xds:min-w-fit xds:button-ghost xds:rounded-sm xds:border-neutral-25 xds:px-16 xds:hover:border-neutral-75 xds:hover:bg-neutral-0"
                   :class="{
-                    '!x-border-auxiliary-90 x-border-2':
+                    'xds:border-2 xds:border-auxiliary-75!':
                       selection[variant.name] && selection[variant.name] === value,
-                    'x-h-fit x-px-4': variant.name === 'Color',
+                    'xds:h-fit xds:px-4': variant.name === 'Color',
                   }"
                   @click="clickedOptionValue(variant, value)"
                 >
@@ -184,9 +184,11 @@
                     v-if="variant.name === 'Color' && variant.images"
                     :src="variant.images[index]"
                     alt="Color variant image"
-                    class="x-h-[56px] x-w-[63px]"
+                    class="xds:h-56 xds:w-15.75"
                   />
-                  <span v-else class="x-text1 x-text-md x-font-bold x-leading-xs">{{ value }}</span>
+                  <span v-else class="xds:text1 xds:text-md xds:leading-xs xds:font-bold">
+                    {{ value }}
+                  </span>
                 </button>
               </div>
             </div>
@@ -197,27 +199,27 @@
         <div
           v-for="variant in variantOptions"
           :key="variant.name"
-          class="x-mb-8 x-flex x-flex-col x-gap-4"
+          class="xds:mb-8 xds:flex xds:flex-col xds:gap-4"
         >
           <h2
-            class="x-text-neutral-40 x-text1 x-text1-sm x-line-clamp-3 x-flex x-leading-xs"
+            class="xds:text-neutral-40 xds:line-clamp-3 xds:flex xds:text1 xds:text1-sm xds:leading-xs"
             data-test="result-title"
           >
             <span>{{ variant.name }}</span>
             <span v-if="selection[variant.name]">: {{ selection[variant.name] }}</span>
-            <span v-else-if="missingOptions" class="x-pl-4 x-text-error-75">
+            <span v-else-if="missingOptions" class="xds:pl-4 xds:text-error-75">
               {{ $t('result.selectOption') }}
             </span>
           </h2>
-          <div class="x-flex x-shrink x-flex-row x-flex-wrap x-gap-8">
+          <div class="xds:flex xds:shrink xds:flex-row xds:flex-wrap xds:gap-8">
             <button
               v-for="(value, index) in variant.values"
               :key="value"
-              class="hover:x-border-neutral-70 x-button x-button-sm x-button-ghost x-h-40 x-min-w-fit x-rounded-sm x-border-neutral-25 x-px-16 hover:x-bg-neutral-0"
+              class="xds:button xds:h-40 xds:button-sm xds:min-w-fit xds:button-ghost xds:rounded-sm xds:border-neutral-25 xds:px-16 xds:hover:border-neutral-75 xds:hover:bg-neutral-0"
               :class="{
-                '!x-border-auxiliary-90 x-border-2':
+                'xds:border-2 xds:border-auxiliary-75!':
                   selection[variant.name] && selection[variant.name] === value,
-                'x-h-fit x-px-4': variant.name === 'Color',
+                'xds:h-fit xds:px-4': variant.name === 'Color',
               }"
               @click="clickedOptionValue(variant, value)"
             >
@@ -225,9 +227,11 @@
                 v-if="variant.name === 'Color' && variant.images"
                 :src="variant.images[index]"
                 alt="Color variant image"
-                class="x-h-[56px] x-w-[63px]"
+                class="xds:h-56 xds:w-15.75"
               />
-              <span v-else class="x-text1 x-text-md x-font-bold x-leading-xs">{{ value }}</span>
+              <span v-else class="xds:text1 xds:text-md xds:leading-xs xds:font-bold">
+                {{ value }}
+              </span>
             </button>
           </div>
         </div>

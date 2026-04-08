@@ -1,19 +1,19 @@
 <template>
   <SlidingPanel
     v-if="x.relatedTags.length"
-    class="x-sliding-panel-show-buttons-on-hover"
-    button-class="x-button-lead x-button-circle x-button-ghost x-p-0"
-    scroll-container-class="desktop:x-sliding-panel-fade"
+    class="xds:sliding-panel-show-buttons-on-hover"
+    button-class="xds:button xds:button-lead xds:button-circle xds:button-ghost xds:p-0"
+    scroll-container-class="xds:desktop:sliding-panel-fade"
     :show-buttons="!isTouchable"
   >
     <template #sliding-panel-left-button>
-      <ChevronLeftIcon class="x-icon-lg" />
+      <ChevronLeftIcon class="xds:icon-lg" />
     </template>
     <RelatedTags
-      class="x-gap-8 x-pl-16 tablet:x-pl-24 desktop:x-pl-0"
+      class="xds:gap-8 xds:pl-16 xds:tablet:pl-24 xds:desktop:pl-0"
       :highlight-curated="true"
       :animation="relatedTagsAnimation"
-      item-class="x-tag-outlined x-rounded-full"
+      item-class="xds:tag-outlined xds:rounded-full"
     >
       <template #related-tag-content="{ relatedTag, isSelected, shouldHighlightCurated }">
         <CuratedCheckIcon v-if="shouldHighlightCurated" />
@@ -23,7 +23,7 @@
       </template>
     </RelatedTags>
     <template #sliding-panel-right-button>
-      <ChevronRightIcon class="x-icon-lg" />
+      <ChevronRightIcon class="xds:icon-lg" />
     </template>
   </SlidingPanel>
 </template>

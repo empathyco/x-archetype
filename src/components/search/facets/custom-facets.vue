@@ -3,33 +3,33 @@
     <template #default="{ facet, selectedFilters }">
       <CustomHeaderTogglePanel
         :data-test="facet.label"
-        class="x-border-0 x-border-b x-border-neutral-10"
+        class="xds:border-0 xds:border-b xds:border-neutral-10"
       >
         <template #header>
-          <span class="x-title3">{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="xds:title3">{{ $t(`facets.${facet.label}`) }}</span>
           <FacetSelectedFilters :selected-filters="selectedFilters" />
         </template>
         <template #default>
           <AllFilter
             v-slot="{ isSelected }"
             :facet="facet"
-            class="x-facet-filter-lg x-mb-8 x-w-full"
+            class="xds:mb-8 xds:filter-facet-lg xds:w-full"
           >
-            <CheckboxSelectedIcon v-if="isSelected" class="x-icon-lg" />
-            <CheckboxUnselectedIcon v-else class="x-icon-lg" />
+            <CheckboxSelectedIcon v-if="isSelected" class="xds:icon-lg" />
+            <CheckboxUnselectedIcon v-else class="xds:icon-lg" />
             <span>{{ $t('filters.all') }}</span>
           </AllFilter>
 
-          <CustomSlicedFilters :max="6" :filters="facet.filters" class="x-pb-24">
+          <CustomSlicedFilters :max="6" :filters="facet.filters" class="xds:pb-24">
             <FiltersList
               v-slot="{ filter }"
               :animation="staggeredFadeAndSlide"
-              class="x-flex x-flex-col x-gap-8"
+              class="xds:flex xds:flex-col xds:gap-8"
             >
-              <SimpleFilter :filter="filter" :css-classes="['x-facet-filter-lg x-w-full']">
+              <SimpleFilter :filter="filter" :css-classes="['xds:filter-facet-lg xds:w-full']">
                 <template #label>
-                  <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
-                  <CheckboxUnselectedIcon v-else class="x-icon-lg" />
+                  <CheckboxSelectedIcon v-if="filter.selected" class="xds:icon-lg" />
+                  <CheckboxUnselectedIcon v-else class="xds:icon-lg" />
                   <span class="x-filter__label">{{ filter.label }}</span>
                   <span class="x-filter__count">({{ filter.totalResults }})</span>
                 </template>
@@ -43,36 +43,36 @@
     <template #hierarchical-facet="{ facet, selectedFilters }">
       <CustomHeaderTogglePanel
         :data-test="facet.label"
-        class="x-border-0 x-border-b x-border-neutral-10"
+        class="xds:border-0 xds:border-b xds:border-neutral-10"
       >
         <template #header>
-          <span class="x-title3">{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="xds:title3">{{ $t(`facets.${facet.label}`) }}</span>
           <FacetSelectedFilters :selected-filters="selectedFilters" />
         </template>
         <template #default>
           <AllFilter
             v-slot="{ isSelected }"
             :facet="facet"
-            class="x-facet-filter-lg x-mb-8 x-w-full"
+            class="xds:mb-8 xds:filter-facet-lg xds:w-full"
           >
-            <CheckboxSelectedIcon v-if="isSelected" class="x-icon-lg" />
-            <CheckboxUnselectedIcon v-else class="x-icon-lg" />
+            <CheckboxSelectedIcon v-if="isSelected" class="xds:icon-lg" />
+            <CheckboxUnselectedIcon v-else class="xds:icon-lg" />
             <span>{{ $t('filters.all') }}</span>
           </AllFilter>
-          <CustomSlicedFilters :max="6" :filters="facet.filters" class="x-pb-24">
+          <CustomSlicedFilters :max="6" :filters="facet.filters" class="xds:pb-24">
             <FiltersList
               v-slot="{ filter }"
               :animation="staggeredFadeAndSlide"
-              class="x-flex x-flex-col x-gap-8"
+              class="xds:flex xds:flex-col xds:gap-8"
             >
               <HierarchicalFilter
                 :filter="filter"
-                children-filters-class="x-ml-16 x-mt-8 x-flex x-flex-col x-gap-8"
-                filter-item-class="x-w-full x-facet-filter-lg"
+                children-filters-class="xds:ml-16 xds:mt-8 xds:flex xds:flex-col xds:gap-8"
+                filter-item-class="xds:w-full xds:filter-facet-lg"
               >
                 <template #label="{ filter: hierarchicalFilter }">
-                  <CheckboxSelectedIcon v-if="hierarchicalFilter.selected" class="x-icon-lg" />
-                  <CheckboxUnselectedIcon v-else class="x-icon-lg" />
+                  <CheckboxSelectedIcon v-if="hierarchicalFilter.selected" class="xds:icon-lg" />
+                  <CheckboxUnselectedIcon v-else class="xds:icon-lg" />
                   <span class="x-filter__label">{{ hierarchicalFilter.label }}</span>
                   <span class="x-filter__count">({{ hierarchicalFilter.totalResults }})</span>
                 </template>
@@ -86,23 +86,23 @@
     <template #number-range-facet="{ facet, selectedFilters }">
       <CustomHeaderTogglePanel
         :data-test="facet.label"
-        class="x-border-0 x-border-b x-border-neutral-10"
+        class="xds:border-0 xds:border-b xds:border-neutral-10"
       >
         <template #header>
-          <span class="x-title3">{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="xds:title3">{{ $t(`facets.${facet.label}`) }}</span>
           <FacetSelectedFilters :selected-filters="selectedFilters" />
         </template>
         <template #default>
-          <CustomSlicedFilters :max="6" :filters="facet.filters" class="x-pb-24">
+          <CustomSlicedFilters :max="6" :filters="facet.filters" class="xds:pb-24">
             <FiltersList
               v-slot="{ filter }"
               :animation="staggeredFadeAndSlide"
-              class="x-flex x-flex-col x-gap-8"
+              class="xds:flex xds:flex-col xds:gap-8"
             >
-              <NumberRangeFilter :filter="filter" :css-classes="['x-facet-filter-lg x-w-full']">
+              <NumberRangeFilter :filter="filter" :css-classes="['xds:filter-facet-lg xds:w-full']">
                 <template #label>
-                  <CheckboxSelectedIcon v-if="filter.selected" class="x-icon-lg" />
-                  <CheckboxUnselectedIcon v-else class="x-icon-lg" />
+                  <CheckboxSelectedIcon v-if="filter.selected" class="xds:icon-lg" />
+                  <CheckboxUnselectedIcon v-else class="xds:icon-lg" />
                   <PriceFilterLabel :filter="filter" />
                 </template>
               </NumberRangeFilter>

@@ -20,7 +20,7 @@ function overrideXCssInjector(): PluginOption {
     name: 'override-x-css-injector',
     enforce: 'pre',
     transform(code: string, id: string) {
-      const stringInjector = '(css) => window.xCSSInjector.addStyle({ source: css });'
+      const stringInjector = '(cssCode) => window.xCSSInjector.addStyle({ source: cssCode });'
       /* Replace the X CSS injector by xCSSInjector only for vite BUILD (look for ID). */
       if (id.includes('node_modules/@empathyco/x-components/tools/inject-css.js')) {
         return code.replace('export default injectCss', `export default ${stringInjector}`)
@@ -39,7 +39,7 @@ function overrideXCssInjector(): PluginOption {
 export default defineConfig({
   define: {},
   build: {
-    // minify: false,
+    minify: false,
     rollupOptions: {
       output: {
         format: 'es',
@@ -52,9 +52,18 @@ export default defineConfig({
   plugins: [
     overrideXCssInjector(),
     vue(),
-    tailwindcss(),
+    // TODO - Evaluate "optimize"
+    tailwindcss({ optimize: true }),
     cssInjectedByJsPlugin({
-      injectCode: cssCode => `window.xCSSInjector.addStyle({ source: ${cssCode} });`,
+      injectCodeFunction: cssCode => {
+        // TODO - Tailwind 4 + ShadowRoot issue enclosing @supports block. Especially
+        //  the `-webkit-hyphens: none` condition. `@supports ((-webkit-hyphens: none) and`
+        // https://github.com/tailwindlabs/tailwindcss/issues/15005#issuecomment-3722970702
+        const normalizedCssCodeForShadowRoot = cssCode
+          .replaceAll('((-webkit-hyphens: none)) and ', '')
+          .replaceAll('(-webkit-hyphens: none) and ', '')
+        return window.xCSSInjector.addStyle({ source: normalizedCssCodeForShadowRoot })
+      },
       topExecutionPriority: false, // Wait until `window.xCSSInjector` is created.
       dev: { enableDev: true },
     }),

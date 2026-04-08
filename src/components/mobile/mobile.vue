@@ -56,9 +56,9 @@
       >
         <MobileOpenAside
           v-if="x.totalResults > 0"
-          class="tablet:xds:col-span-4 tablet:xds:col-start-5 xds:pointer-events-auto xds:col-span-8 xds:col-start-3 xds:max-h-40"
+          class="xds:pointer-events-auto xds:col-span-8 xds:col-start-3 xds:max-h-40 xds:tablet:col-span-4 xds:tablet:col-start-5"
         />
-        <ScrollToTop class="xds:pointer-events-auto xds:col-start-11 xds:button-lg" />
+        <ScrollToTop class="xds:pointer-events-auto xds:col-start-11 xds:button-sm" />
       </div>
     </template>
   </MobileLayout>

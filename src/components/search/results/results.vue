@@ -13,7 +13,7 @@
         >
           <NextQueriesCta>
             <BaseVariableColumnGrid
-              class="x-gap-x-16 x-gap-y-32"
+              class="xds:gap-x-16 xds:gap-y-32"
               :animation="staggeredFadeAndSlide"
               :columns="columns"
               data-test="base-grid"
@@ -40,11 +40,11 @@
                 </MainScrollItem>
               </template>
               <template v-if="!isLowResult" #related-prompts-group>
-                <RelatedPrompts class="-x-mb-1 x-mt-24 desktop:x-mt-0" />
+                <RelatedPrompts class="xds:mt-24 xds:-mb-1 xds:desktop:mt-0" />
                 <CustomQueryPreview
                   v-if="selectedPrompt !== -1"
                   :key="queriesPreviewInfo.length"
-                  class="x-rounded-b-[12px] x-bg-neutral-10 x-px-8 desktop:x-px-16"
+                  class="xds:rounded-b-xl xds:bg-neutral-10 xds:px-8 xds:desktop:px-16"
                   :queries-preview-info="queriesPreviewInfo"
                   query-feature="related_prompts"
                 ></CustomQueryPreview>

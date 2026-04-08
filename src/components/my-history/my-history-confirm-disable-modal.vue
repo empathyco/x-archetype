@@ -1,26 +1,29 @@
 <template>
   <BaseEventsModal
-    class="x-my-history-confirm-disable-modal !x-z-50 !x-items-center !x-justify-center"
+    class="x-my-history-confirm-disable-modal xds:z-50! xds:items-center! xds:justify-center!"
     :events-to-open-modal="eventsToOpenModal"
     :events-to-close-modal="eventsToCloseModal"
     @focusin.stop
   >
     <div
-      class="x-my-history-confirm-disable-modal-content x-flex x-max-w-[322px] x-flex-col x-gap-16 x-bg-neutral-0 x-text-center"
-      :class="isTabletOrLess ? 'x-rounded-lg x-p-24 x-pb-8' : 'x-p-56'"
+      class="x-my-history-confirm-disable-modal-content xds:flex xds:max-w-80.5 xds:flex-col xds:gap-16 xds:bg-neutral-0 xds:text-center"
+      :class="isTabletOrLess ? 'xds:rounded-lg xds:p-24 xds:pb-8' : 'xds:p-56'"
     >
-      <h1 class="x-title3">{{ $t('myHistory.confirmDisableModal.title') }}</h1>
-      <span class="x-text1 x-text-neutral-75">
+      <h1 class="xds:title3">{{ $t('myHistory.confirmDisableModal.title') }}</h1>
+      <span class="xds:text1 xds:text-neutral-75">
         {{ $t('myHistory.confirmDisableModal.message') }}
       </span>
-      <div class="x-flex x-justify-end x-gap-24 desktop:x-justify-center">
+      <div class="xds:flex xds:justify-end xds:gap-24 xds:desktop:justify-center">
         <BaseEventButton
-          class="x-button x-button-lead x-button-outlined x-rounded-full"
+          class="xds:button xds:button-outlined xds:rounded-full xds:button-lead"
           :events="dismissEvents"
         >
           {{ $t('myHistory.confirmDisableModal.dismiss') }}
         </BaseEventButton>
-        <BaseEventButton class="x-button x-button-lead x-rounded-full" :events="confirmEvents">
+        <BaseEventButton
+          class="xds:button xds:rounded-full xds:button-lead"
+          :events="confirmEvents"
+        >
           {{ $t('myHistory.confirmDisableModal.confirm') }}
         </BaseEventButton>
       </div>
@@ -49,12 +52,10 @@ const confirmEvents: Partial<XEventsTypes> = {
 
 <style>
 .x-my-history-confirm-disable-modal {
-  &.x-modal {
-    .x-modal__content {
-      background-color: transparent !important;
-      justify-content: center;
-      align-items: center;
-    }
+  &.x-modal .x-modal__content {
+    background-color: transparent !important;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>

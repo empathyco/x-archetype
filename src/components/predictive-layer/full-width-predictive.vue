@@ -1,21 +1,21 @@
 <template>
-  <div class="x-relative x-z-10">
+  <div class="xds:relative xds:z-10">
     <Empathize
       :animation="empathizeAnimation"
       :has-content="showEmpathize || showIdentifierResults"
       search-and-close-on-no-content
-      class="x-layout-item x-absolute x-z-[1] x-w-full x-bg-neutral-0"
+      class="xds:absolute xds:z-1 xds:layout-item xds:w-full xds:bg-neutral-0"
       :events-to-open-empathize="eventsToOpenEmpathize"
       @empathize-opened="handleEmpathizeEvent('EmpathizeOpened')"
       @empathize-closed="handleEmpathizeEvent('EmpathizeClosed')"
     >
       <MaxDesktopWidthItem>
         <DesktopSearchboxAlign>
-          <div class="x-layout-item">
-            <div class="x-h-full x-py-16">
-              <div class="x-block">
+          <div class="xds:layout-item">
+            <div class="xds:h-full xds:py-16">
+              <div class="xds:block">
                 <BaseKeyboardNavigation
-                  class="x-flex x-items-start x-gap-24"
+                  class="xds:flex xds:items-start xds:gap-24"
                   :navigation-hijacker="navigationHijacker"
                 >
                   <PredictiveIdentifierResults
@@ -25,13 +25,16 @@
 
                   <div
                     v-else-if="showEmpathize"
-                    class="x-grid x-grid-cols-4 x-flex-row x-gap-4"
-                    :class="x.query.searchBox ? 'x-gap-4' : 'x-gap-16'"
+                    class="xds:grid xds:grid-cols-4 xds:flex-row xds:gap-4"
+                    :class="x.query.searchBox ? 'xds:gap-4' : 'xds:gap-16'"
                   >
-                    <div class="x-col-span-4 x-grid x-grid-cols-4 x-gap-32">
-                      <div v-if="showHistoryQueries" class="x-flex x-flex-col x-gap-4">
-                        <div class="x-flex x-min-h-32 x-items-center">
-                          <h1 v-if="!x.query.searchBox" class="x-title4 x-title4-sm x-uppercase">
+                    <div class="xds:col-span-4 xds:grid xds:grid-cols-4 xds:gap-32">
+                      <div v-if="showHistoryQueries" class="xds:flex xds:flex-col xds:gap-4">
+                        <div class="xds:flex xds:min-h-32 xds:items-center">
+                          <h1
+                            v-if="!x.query.searchBox"
+                            class="xds:title4 xds:title4-sm xds:uppercase"
+                          >
                             {{ $t('historyQueries.title') }}
                           </h1>
                         </div>
@@ -39,25 +42,25 @@
                         <HistoryQueries
                           :animation="suggestionsAnimation"
                           :max-items-to-render="x.query.searchBox ? 2 : 4"
-                          suggestion-item-class="x-w-full"
-                          class="-x-mr-2 x-flex x-flex-col x-gap-4"
+                          suggestion-item-class="xds:w-full"
+                          class="xds:-mr-2 xds:flex xds:flex-col xds:gap-4"
                         >
                           <template #suggestion="{ suggestion }">
                             <HistoryQuery
-                              class="x-suggestion-group-md hover:x-no-underline"
+                              class="xds:suggestion-group-md xds:hover:no-underline"
                               :suggestion="suggestion"
-                              suggestion-class="x-suggestion x-suggestion-md"
+                              suggestion-class="xds:suggestion xds:suggestion-md"
                             >
                               <template #default="{ query }">
-                                <HistoryIcon class="x-icon-md" />
-                                <div class="x-group x-flex x-flex-col x-gap-2">
+                                <HistoryIcon class="xds:icon-md" />
+                                <div class="xds:group xds:flex xds:flex-col xds:gap-2">
                                   <Highlight
                                     :text="suggestion.query"
                                     :highlight="query"
-                                    class="group-hover:x-underline"
+                                    class="xds:group-hover:underline"
                                   />
                                   <HistoryQueryFilters
-                                    class="x-w-128"
+                                    class="xds:w-128"
                                     :filters-list="suggestion.selectedFilters"
                                   />
                                 </div>
@@ -71,7 +74,7 @@
                                     })
                                   "
                                 >
-                                  <CrossTinyIcon class="x-icon-md" />
+                                  <CrossTinyIcon class="xds:icon-md" />
                                 </span>
                               </template>
                             </HistoryQuery>
@@ -80,9 +83,9 @@
 
                         <ClearHistoryQueries
                           v-if="!x.query.searchBox"
-                          class="x-button-neutral x-button-sm x-button-tight x-w-fit"
+                          class="xds:button-sm xds:w-fit xds:button-tight xds:button-neutral"
                         >
-                          <TrashIcon v-if="isTabletOrLess" class="x-icon-lg" />
+                          <TrashIcon v-if="isTabletOrLess" class="xds:icon-lg" />
                           <span v-else>{{ $t('historyQueries.clear') }}</span>
                         </ClearHistoryQueries>
 
@@ -104,14 +107,14 @@
 
                       <PredictiveNextQueries
                         v-if="showNextQueries"
-                        :class="{ 'x-pt-8': x.query.searchBox && isDesktopOrGreater }"
+                        :class="{ 'xds:pt-8': x.query.searchBox && isDesktopOrGreater }"
                         :animation="suggestionsAnimation"
                       />
 
                       <BaseIdModalOpen
                         v-if="isDesktopOrGreater && !x.query.searchBox"
                         modal-id="my-history-aside"
-                        class="x-button-neutral x-button-sm x-button-tight x-col-start-[-1] x-self-start x-capitalize"
+                        class="xds:-col-start-1 xds:button-sm xds:button-tight xds:self-start xds:button-neutral xds:capitalize"
                         data-test="my-history-button"
                       >
                         <SettingsIcon />
@@ -121,7 +124,7 @@
 
                     <SlidingRecommendations
                       v-if="isDesktopOrGreater && !x.query.searchBox"
-                      class="x-col-span-4 x-pt-16"
+                      class="xds:col-span-4 xds:pt-16"
                     />
                   </div>
                 </BaseKeyboardNavigation>
@@ -133,11 +136,11 @@
       </MaxDesktopWidthItem>
     </Empathize>
 
-    <div v-if="showEmpathize" class="x-opacity-30">
+    <div v-if="showEmpathize" class="xds:opacity-30">
       <Fade tag="div">
         <div
           v-if="showOverlay"
-          class="x-layout-item x-fixed x-h-screen x-w-full x-bg-neutral-100"
+          class="xds:fixed xds:layout-item xds:h-screen xds:w-full xds:bg-neutral-100"
         ></div>
       </Fade>
     </div>

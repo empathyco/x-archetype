@@ -1,27 +1,27 @@
 <template>
-  <div class="x-layout-container">
-    <div class="x-sticky x-top-0 x-z-[1] x-bg-neutral-0">
+  <div class="xds:layout-container">
+    <div class="xds:sticky xds:top-0 xds:z-1 xds:bg-neutral-0">
       <DesktopSubHeader
         data-test="sub-header"
         :has-searched="hasSearched"
         :is-full-predictive="false"
-        class="x-layout-item"
+        class="xds:layout-item"
       />
     </div>
 
-    <MainScroll :use-window="true" class="x-main-scroll x-mb-24 x-flex x-flex-col">
+    <MainScroll :use-window="true" class="x-main-scroll xds:mb-24 xds:flex xds:flex-col">
       <Scroll id="main-scroll">
-        <MaxDesktopWidthItem class="x-z-1 x-bg-neutral-0">
+        <MaxDesktopWidthItem class="xds:z-1 xds:bg-neutral-0">
           <div v-if="hasSearched">
             <LocationProvider location="results">
-              <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
+              <SpellcheckMessage class="xds:mb-16" data-test="spellcheck-message" />
             </LocationProvider>
             <NoResultsMessage
               v-if="showNoResultsMessage"
-              class="x-mb-16"
+              class="xds:mb-16"
               data-test="no-results-message"
             />
-            <FallbackDisclaimerMessage class="x-mb-16" />
+            <FallbackDisclaimerMessage class="xds:mb-16" />
           </div>
 
           <LocationProvider location="results">
@@ -29,8 +29,8 @@
           </LocationProvider>
           <PageLoaderButton
             v-if="x.query.searchBox && x.results.length > 0"
-            button-classes="x-button-outlined x-button-lead x-rounded-sm hover:x-bg-accent-25 x-text-neutral-75 hover:x-text-neutral-75 x-text2 x-text2-lg x-px-[42px] x-py-12"
-            :class="{ '!x-hidden': x.results.length >= x.totalResults }"
+            button-classes="xds:button-outlined xds:button-lead xds:rounded-sm xds:hover:bg-accent-25 xds:text-neutral-75 xds:hover:text-neutral-75 xds:text2 xds:text2-lg xds:px-[42px] xds:py-12"
+            :class="{ 'xds:hidden!': x.results.length >= x.totalResults }"
           >
             <template #textContent>
               <div></div>
@@ -96,9 +96,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style>
-.x-layout-item > * {
-  min-width: 0;
-}
-</style>

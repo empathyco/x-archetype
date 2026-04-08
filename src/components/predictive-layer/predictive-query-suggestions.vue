@@ -2,15 +2,15 @@
   <QuerySuggestions
     :animation="animation"
     :max-items-to-render="5"
-    class="x-flex x-flex-col x-gap-8 desktop:x-gap-4"
+    class="xds:flex xds:flex-col xds:gap-8 xds:desktop:gap-4"
   >
     <template #suggestion="{ suggestion }">
       <QuerySuggestion
         :suggestion="suggestion"
-        class="x-suggestion x-suggestion-lg desktop:x-suggestion-md"
+        class="xds:suggestion xds:suggestion-lg xds:desktop:suggestion-md"
       >
         <template #default="{ query }">
-          <SearchIcon class="x-icon-lg desktop:x-icon-md" />
+          <SearchIcon class="xds:icon-lg xds:desktop:icon-md" />
           <Highlight :text="suggestion.query" :highlight="query" />
         </template>
       </QuerySuggestion>

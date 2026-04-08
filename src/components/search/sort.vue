@@ -1,7 +1,7 @@
 <template>
-  <CustomHeaderTogglePanel data-test="sort" class="x-border-0 x-border-b x-border-neutral-10">
+  <CustomHeaderTogglePanel data-test="sort" class="xds:border-0 xds:border-b xds:border-neutral-10">
     <template #header>
-      <span class="x-title3">
+      <span class="xds:title3">
         {{ $t('sort.label') }}
       </span>
       <span>{{ $t(`sort.values.${x.selectedSort || 'default'}`) }}</span>
@@ -9,13 +9,13 @@
     <template #default>
       <SortPickerList
         v-if="x.totalResults"
-        class="x-flex x-flex-col x-gap-8 x-pb-24"
+        class="xds:flex xds:flex-col xds:gap-8 xds:pb-24"
         :items="sortValues"
-        button-class="x-facet-filter x-facet-filter-lg"
+        button-class="xds:filter-facet xds:filter-facet-lg"
       >
         <template #default="{ item, isSelected }">
-          <RadioButtonSelectedIcon v-if="isSelected" class="x-icon-lg" />
-          <RadioButtonUnselectedIcon v-else class="x-icon-lg" />
+          <RadioButtonSelectedIcon v-if="isSelected" class="xds:icon-lg" />
+          <RadioButtonUnselectedIcon v-else class="xds:icon-lg" />
           {{ $t(`sort.values.${item || 'default'}`) }}
         </template>
       </SortPickerList>
