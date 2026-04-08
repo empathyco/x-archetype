@@ -107,17 +107,17 @@ function getIsolationStrategy() {
   return isolation === undefined ? undefined : isolation === 'true'
 }
 
-const instance = popFromURLParameters('instance') || 'empathy'
+const instance = popFromURLParameters('instance') || 'vtex'
 const env = getEnv()
 const scope = popFromURLParameters('scope') || 'desktop'
-const lang = popFromURLParameters('lang') || 'en'
+const lang = popFromURLParameters('lang') || 'es'
 const device = popFromURLParameters('device') || undefined
 const uiLang = popFromURLParameters('uiLang') || lang
 const currency = popFromURLParameters('currency') || 'EUR'
 const consent = popFromURLParameters('consent') !== 'false'
 const documentDirection = popFromURLParameters('doc-dir') || 'ltr'
 const store = popFromURLParameters('store') || undefined
-const viewMode = popFromURLParameters('viewMode') || 'fullScreen'
+const viewMode = popFromURLParameters('viewMode') || 'embedded'
 const isolate = getIsolationStrategy()
 var cart = {}
 var wishlist = []
