@@ -18,6 +18,7 @@
 <script setup lang="ts">
 import type { EditableNumberRangeFilter as EditableNumberRangeFilterModel } from '@empathyco/x-types'
 import { computed } from 'vue'
+import { priceFacetId } from '../../../x-components/constants'
 import CustomHeaderTogglePanel from '../../custom-header-toggle-panel.vue'
 import CustomPriceSlider from './custom-price-slider.vue'
 import FacetSelectedFilters from './facet-selected-filters.vue'
@@ -35,10 +36,10 @@ const props = defineProps({
 })
 
 const priceFilter: EditableNumberRangeFilterModel & { label: string } = {
-  id: `price:0.0-*`,
+  id: `${priceFacetId}:0.0-*`,
   modelName: 'EditableNumberRangeFilter',
-  label: `price`,
-  facetId: 'price',
+  label: priceFacetId,
+  facetId: priceFacetId,
   range: {
     min: null,
     max: null,
@@ -48,7 +49,7 @@ const priceFilter: EditableNumberRangeFilterModel & { label: string } = {
 
 const priceFilterValue = computed<EditableNumberRangeFilterModel | undefined>(() => {
   return props.selectedFilters?.find(
-    (filter: EditableNumberRangeFilterModel) => filter.facetId === 'price',
+    (filter: EditableNumberRangeFilterModel) => filter.facetId === priceFacetId,
   )
 })
 </script>

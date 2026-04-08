@@ -7,17 +7,19 @@ import type {
   NumberRangeFacet,
   RecommendationsRequest,
   Result,
+  SearchResponse,
   SemanticQueriesRequest,
 } from '@empathyco/x-types'
-
 import {
   facetSchema,
   platformAdapter,
   recommendationsRequestSchema,
   relatedPromptsEndpointAdapter,
   resultSchema,
+  searchResponseSchema,
   semanticQueriesRequestSchema,
 } from '@empathyco/x-adapter-platform'
+import { priceFacetId } from '../x-components/constants'
 import { getFacetConfigWithEditable } from './facets/utils'
 import { platformResultSchema } from './result/platform-result-schema'
 import { skuSearchEndpointAdapter } from './skusearch/skusearch.endpoint-adapter'
@@ -68,6 +70,21 @@ facetSchema.$override<PlatformFacet, Partial<NumberRangeFacet>>({
     $path: 'values',
     $subSchema: ({ type, facet }) => getFacetConfigWithEditable(facet, type).schema,
   },
+})
+
+/* eslint-disable ts/no-unsafe-member-access */
+/* eslint-disable ts/no-unsafe-argument */
+searchResponseSchema.$override<any, Partial<SearchResponse>>({
+  stats: ({ catalog }) => ({
+    price: {
+      min: catalog.stats?.[priceFacetId]?.min
+        ? Math.floor(Number.parseFloat(catalog.stats[priceFacetId].min))
+        : 0,
+      max: catalog.stats?.[priceFacetId]?.max
+        ? Math.ceil(Number.parseFloat(catalog.stats[priceFacetId].max))
+        : 100,
+    },
+  }),
 })
 
 adapter.skuSearch = skuSearchEndpointAdapter

@@ -6,3 +6,5 @@ export const eventsToOpenEmpathize: (keyof XEventsTypes)[] = [
   'UserClickedSearchBox',
 ]
 export const lowResultsThreshold = 50
+export const priceFacetId = 'price'
+export const sortPriceId = 'price'
