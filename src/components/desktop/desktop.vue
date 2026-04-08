@@ -68,6 +68,7 @@ import {
 } from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent, h } from 'vue'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import MainComponent from '../main.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
@@ -76,14 +77,6 @@ import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disab
 import PreSearchManager from '../pre-search/pre-search-manager.vue'
 import ScrollToTop from '../scroll-to-top.vue'
 import DesktopTopSection from './desktop-top-section.vue'
-
-const x = use$x()
-const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
-const { hasSearched } = useHasSearched()
-const { relatedPrompts } = useState('relatedPrompts')
-const showNoResultsMessage = computed(
-  () => !relatedPrompts.value?.length && !x.semanticQueries.length,
-)
 
 const DesktopAside = defineAsyncComponent(() => import('../search').then(m => m.DesktopAside))
 const NoResultsMessage = defineAsyncComponent(() =>
@@ -94,5 +87,17 @@ const SpellcheckMessage = defineAsyncComponent(() =>
 )
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
   import('../search').then(m => m.FallbackDisclaimerMessage),
+)
+
+const x = use$x()
+const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
+
+const { hasSearched } = useHasSearched()
+const { relatedPrompts } = useState('relatedPrompts')
+const { getControlFromPath } = useExperienceControls()
+const aiSearchFallback = getControlFromPath('aiSearchFallback')
+
+const showNoResultsMessage = computed(
+  () => !aiSearchFallback.value && !relatedPrompts.value?.length && !x.semanticQueries.length,
 )
 </script>
