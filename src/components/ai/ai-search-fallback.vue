@@ -36,7 +36,7 @@ import CustomAiCarousel from './custom-ai-carousel.vue'
 import CustomAiOverview from './custom-ai-overview.vue'
 
 const x = use$x()
-const { suggestionsLoading, suggestionsSearchLoading, suggestionsSearch } = useState('ai')
+const { suggestionsStatus, suggestionsSearchStatus, suggestionsSearch } = useState('ai')
 
 const location = computed<FeatureLocation>(() =>
   x.results.length > 0 ? 'low_results' : 'no_results',
@@ -44,6 +44,13 @@ const location = computed<FeatureLocation>(() =>
 
 const aiState = ref<'loading' | 'success' | 'noResults'>('loading')
 const aiLoading = computed(() => aiState.value === 'loading')
+const suggestionsLoading = computed(
+  () => suggestionsStatus.value !== 'success' && suggestionsStatus.value !== 'error',
+)
+
+const suggestionsSearchLoading = computed(
+  () => suggestionsSearchStatus.value !== 'success' && suggestionsSearchStatus.value !== 'error',
+)
 
 watchEffect(() => {
   if (suggestionsLoading.value || suggestionsSearchLoading.value) {
