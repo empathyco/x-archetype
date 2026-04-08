@@ -31,12 +31,12 @@
     "prepare": "husky install && skilld update -b"
   },
   "dependencies": {
-    "@empathyco/x-adapter": "8.1.0-alpha.22",
-    "@empathyco/x-adapter-platform": "1.1.0-alpha.63",
-    "@empathyco/x-archetype-utils": "2.0.0-alpha.39",
-    "@empathyco/x-components": "6.0.0-alpha.230",
-    "@empathyco/x-types": "10.1.0-alpha.52",
-    "@empathyco/x-utils": "1.0.3-alpha.17",
+    "@empathyco/x-adapter": "8.1.0-alpha.23",
+    "@empathyco/x-adapter-platform": "1.1.0-alpha.64",
+    "@empathyco/x-archetype-utils": "2.0.0-alpha.40",
+    "@empathyco/x-components": "6.0.0-alpha.236",
+    "@empathyco/x-types": "10.1.0-alpha.53",
+    "@empathyco/x-utils": "1.0.3-alpha.18",
     "@vueuse/core": "14.2.1",
     "tslib": "2.8.1",
     "vue": "3.5.29",

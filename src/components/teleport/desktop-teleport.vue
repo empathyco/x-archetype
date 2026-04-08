@@ -53,6 +53,7 @@ import {
 } from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent, defineComponent, h } from 'vue'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import DesktopSubHeader from '../desktop/desktop-sub-header.vue'
 import MainComponent from '../main.vue'
@@ -80,7 +81,11 @@ export default defineComponent({
     const { hasSearched } = useHasSearched()
     const { relatedPrompts } = useState('relatedPrompts')
     const x = use$x()
-    const showNoResultsMessage = computed(() => !relatedPrompts.value?.length)
+    const { getControlFromPath } = useExperienceControls()
+    const aiSearchFallback = getControlFromPath('aiSearchFallback')
+    const showNoResultsMessage = computed(
+      () => !aiSearchFallback.value && !relatedPrompts.value?.length,
+    )
 
     return {
       hasSearched,

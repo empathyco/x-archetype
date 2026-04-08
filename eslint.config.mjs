@@ -8,5 +8,6 @@ export default empathyco({
     'cypress.config.ts',
     '**/*.js',
     '**/*.md',
+    '**/skills/*.yaml',
   ],
 })

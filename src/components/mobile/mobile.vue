@@ -71,6 +71,7 @@ import {
   useState,
 } from '@empathyco/x-components'
 import { computed, defineAsyncComponent } from 'vue'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import Main from '../main.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
@@ -97,7 +98,9 @@ const FallbackDisclaimerMessage = defineAsyncComponent(() =>
 const x = use$x()
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
+const { getControlFromPath } = useExperienceControls()
+const aiSearchFallback = getControlFromPath('aiSearchFallback')
 const showNoResultsMessage = computed(
-  () => !relatedPrompts.value?.length && !x.semanticQueries.length,
+  () => !aiSearchFallback.value && !relatedPrompts.value?.length && !x.semanticQueries.length,
 )
 </script>
