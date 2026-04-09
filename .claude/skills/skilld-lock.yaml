@@ -31,11 +31,11 @@ skills:
     generator: skilld
   vite-skilld:
     packageName: vite
-    version: 6.4.2
-    packages: "vite@6.4.2"
+    version: 7.3.2
+    packages: "vite@7.3.2"
     repo: vitejs/vite
-    source: "https://github.com/vitejs/vite/tree/v6.4.2/docs"
-    syncedAt: 2026-04-08
+    source: "https://github.com/vitejs/vite/tree/v7.3.2/docs"
+    syncedAt: 2026-04-09
     generator: skilld
   vueuse-core-skilld:
     packageName: "@vueuse/core"

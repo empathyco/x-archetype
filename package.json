@@ -44,7 +44,7 @@
     "@bahmutov/cypress-esbuild-preprocessor": "2.2.8",
     "@cucumber/messages": "31.2.0",
     "@empathyco/eslint-config": "1.10.31",
-    "@empathyco/x-design-system": "0.1.0-alpha.2",
+    "@empathyco/x-design-system": "0.1.0-alpha.3",
     "@tailwindcss/vite": "4.2.2",
     "@types/cypress-cucumber-preprocessor": "4.0.5",
     "@types/dom-speech-recognition": "0.0.7",
@@ -57,7 +57,7 @@
     "start-server-and-test": "2.1.5",
     "tailwindcss": "4.2.2",
     "typescript": "5.9.3",
-    "vite": "6.4.2",
+    "vite": "7.3.2",
     "vite-plugin-css-injected-by-js": "4.0.1",
     "vue-tsc": "3.2.6"
   },

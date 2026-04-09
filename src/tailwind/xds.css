@@ -1,14 +1,7 @@
-/* TODO - Importing the XDS in this way generates an app.js chunk with the whole XDS without three-shaking. */
-/* @import '../../node_modules/@empathyco/x-design-system/dist/index.css'; */
+@import '../../node_modules/@empathyco/x-design-system/dist/index.css';
 
-@import 'tailwindcss' prefix(xds);
-
-@import '../../node_modules/@empathyco/x-design-system/dist/components/index.css';
-@import '../../node_modules/@empathyco/x-design-system/dist/theme.css';
-@import '../../node_modules/@empathyco/x-design-system/dist/variants.css';
-
-/* Scan tailwind classes from x-components */
-@source '../../node_modules/@empathyco/x-components/**/*.js';
+/* Scan tailwind classes from x-components. */
+@source '../../node_modules/@empathyco/x-components';
 
 @utility message {
   @apply xds:flex xds:flex-wrap xds:items-center xds:justify-center xds:gap-8 xds:bg-neutral-10 xds:px-8 xds:py-8 xds:text-center;
