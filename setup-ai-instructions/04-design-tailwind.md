@@ -1,137 +1,111 @@
-# Design System & Tailwind CSS
+# Design System & Tailwind 4 CSS
 
-> **🚨 CRITICAL WARNING**: Before creating ANY custom component styles, **ALWAYS check if X Tailwind already provides the component**. X Tailwind has comprehensive component libraries (buttons, tags, inputs, etc.) that should be leveraged with minimal brand-specific overrides only. **This is not optional - it's the fundamental pattern for working with X Tailwind effectively.**
+> **🚨 CRITICAL WARNING**: Before creating ANY custom component styles, **ALWAYS check if X Design System already provides the component**. X Design System has comprehensive component libraries (buttons, tags, inputs, etc.) that should be leveraged with minimal brand-specific overrides only. **This is not optional - it's the fundamental pattern for working with X Design System effectively.**
 
-## X Tailwind Design System
+## X Design System with Tailwind 4
 
-### 🚨 CORE PRINCIPLE: Leverage Existing X Tailwind Components
+### 🚨 CORE PRINCIPLE: Leverage Existing X Design System Components
 
-**🔥 CRITICAL: ALWAYS check if X Tailwind already provides the component before creating custom overrides.**
+**🔥 CRITICAL: ALWAYS check if X Design System already provides the component before creating custom overrides.**
 
-**X Tailwind already includes comprehensive component libraries:**
+**X Design System already includes comprehensive component libraries:**
 
-- **Buttons**: `.x-button`, `.x-button-{color}`, `.x-button-{size}`, `.x-button-outlined`, etc.
-- **Tags**: `.x-tag`, `.x-tag-{color}`, `.x-tag-{size}`, `.x-tag-solid`, `.x-tag-ghost`, etc.
-- **Inputs**: `.x-input`, `.x-input-{size}`, input variants
-- **Icons**: `.x-icon`, `.x-icon-{size}`, icon utilities
-- **Typography**: `.x-title1`, `.x-text1`, typography scales
-- **Layout**: `.x-layout-stack`, `.x-layout-expand`, layout utilities
+- **Buttons**: `xds:button`, `xds:button-{color}`, `xds:button-{size}`, `xds:button-outlined`, etc.
+- **Tags**: `xds:tag`, `xds:tag-{color}`, `xds:tag-{size}`, `xds:tag-solid`, `xds:tag-ghost`, etc.
+- **Inputs**: `xds:input`, `xds:input-{size}`, input variants
+- **Icons**: `xds:icon`, `xds:icon-{size}`, icon utilities
+- **Typography**: `xds:title1`, `xds:title2`, `xds:text1`, `xds:text2`, typography scales
+- **Layout**: `xds:layout-stack`, `xds:layout-expand`, layout utilities
 
 **✅ CORRECT APPROACH - Leverage existing + minimal overrides:**
 
-```typescript
-// Use existing X Tailwind tag component
-class="x-tag x-tag-lead x-tag-md x-font-bold"
+```css
+/* Use existing X Design System tag component */
+@utility custom-selected-tag {
+  @apply xds:tag xds:tag-md xds:tag-lead xds:font-bold;
+}
 
-// Only override brand-specific styling
-'.x-tag.x-selected': {
-  backgroundColor: theme('x.colors.lead.50'), // MartiMotos red
-  color: theme('x.colors.neutral.0'), // White text
+/* Only override brand-specific styling if needed */
+@utility brand-selected {
+  @apply xds:bg-lead-50 xds:text-neutral-0;
 }
 ```
 
 **❌ WRONG APPROACH - Recreating existing components:**
 
-```typescript
-// DON'T DO THIS - X Tailwind already provides .x-tag
-'.x-tag-custom': {
-  display: 'flex',
-  alignItems: 'center',
-  padding: '8px 12px',
-  // ... recreating what already exists
+```css
+/* DON'T DO THIS - X Design System already provides xds:tag */
+@utility custom-tag {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  /* ... recreating what already exists */
 }
 ```
 
-**Always use design tokens from the [X Tailwind design system](https://github.com/empathyco/x/tree/main/packages/x-tailwindcss) instead of creating custom values.**
+**Always use design tokens from the [X Design System](https://github.com/empathyco/x/tree/main/packages/x-design-system) instead of creating custom values.**
 
-### 🎯 CRITICAL: X Tailwind Integration Rules
+### 🎯 CRITICAL: X Design System Integration Rules
 
-**🚨 STEP 1: ALWAYS CHECK X TAILWIND FIRST**
+**🚨 STEP 1: ALWAYS CHECK X DESIGN SYSTEM FIRST**
 
 ```bash
 # Search for existing components before creating custom ones
-grep -r "x-tag\|x-button\|x-input" node_modules/@empathyco/x-tailwindcss/dist/
+grep -r "button\|tag\|input" node_modules/@empathyco/x-design-system/dist/
 ```
 
 **🚨 STEP 2: USE EXISTING COMPONENTS + MINIMAL OVERRIDES**
 
-- **NEVER recreate X Tailwind components** - they already provide comprehensive styling, states, variants, and accessibility
+- **NEVER recreate X Design System components** - they already provide comprehensive styling, states, variants, and accessibility
 - **Only override brand-specific values** - colors, fonts, spacing that differ from defaults
 - **Leverage existing variants** - sizes, colors, states (solid, outlined, ghost, selected)
 
-**🚨 STEP 3: FOLLOW X TAILWIND PATTERNS**
+**🚨 STEP 3: FOLLOW TAILWIND 4 CSS-FIRST PATTERNS**
 
-- **NEVER override X Tailwind default values** - only add custom values that differ from the standard X Tailwind design system
-- Always check what exists by default before adding overrides
-- **Follow X Tailwind naming conventions** - use scale names (xs, sm, md, lg, xl, 2xl) instead of numeric values
-- **Create intermediate scale values** using descriptive names that indicate position in hierarchy
+- Configuration is in `src/tailwind/xds.css` using `@import 'tailwindcss' prefix(xds)`
+- **ALL classes use `xds:` prefix** - e.g., `xds:button`, `xds:flex`, `xds:bg-white`
+- Custom utilities use `@utility` directive
+- Responsive variants use `@variant` directive
+- **NEVER override X Design System default values** - only add custom values that differ from the standard design system
 
 **Examples of what EXISTS and should NOT be recreated:**
 
-- **Tag components**: `.x-tag`, `.x-tag-{color}`, `.x-tag-{size}`, `.x-tag-solid`, `.x-tag-ghost`, `.x-selected` state
-- **Button components**: `.x-button`, `.x-button-{color}`, `.x-button-{size}`, `.x-button-outlined`, `.x-button-ghost`
-- **Input components**: `.x-input`, `.x-input-{size}`, input states and variants
-- **Typography**: `.x-title1-4`, `.x-text1-2`, typography scales and responsive variants
+- **Tag components**: `xds:tag`, `xds:tag-{color}`, `xds:tag-{size}`, `xds:tag-solid`, `xds:tag-ghost`, `xds:selected` state
+- **Button components**: `xds:button`, `xds:button-{color}`, `xds:button-{size}`, `xds:button-outlined`, `xds:button-ghost`
+- **Input components**: `xds:input`, `xds:input-{size}`, input states and variants
+- **Typography**: `xds:title1-4`, `xds:text1-2`, typography scales and responsive variants
 - **Standard values**: Font weights (300, 400, 600, 700), spacing (8px increments), default fonts, color scales
 
-### 🎯 CRITICAL: Scale Extension Pattern
+### Tailwind 4 Configuration
 
-When extending X Tailwind scales (fontSize, lineHeight, spacing), **always use descriptive intermediate names** instead of numeric values:
+- **CSS-First**: Configuration is in `src/tailwind/xds.css` using `@import 'tailwindcss' prefix(xds)`
+- **Prefix**: ALL Tailwind classes use `xds:` prefix - e.g., `xds:flex`, `xds:bg-white`, `xds:button`
+- **Theme**: Imports `@empathyco/x-design-system` components, theme, and variants
+- **Custom utilities**: Define using `@utility` directive in `xds.css`
+- **Responsive variants**: Define using `@variant` directive (e.g., `@variant desktop`)
 
-**❌ WRONG - Numeric values**:
-
-```typescript
-fontSize: {
-  22: '22px',  // Bad - no context about scale position
-  28: '28px',  // Bad - doesn't follow naming pattern
-}
-```
-
-**✅ CORRECT - Intermediate scale names**:
-
-```typescript
-fontSize: {
-  'lg-xl': '22px',    // Between lg/20px and xl/24px
-  'xl-2xl': '28px',   // Between xl/24px and 2xl/32px
-}
-```
-
-**Benefits**:
-
-- Clear hierarchy positioning (`lg-xl` is obviously between `lg` and `xl`)
-- Consistent with X Tailwind naming conventions
-- Self-documenting scale relationships
-- Easier maintenance and understanding
-
-**Standard X Tailwind scales for reference**:
-
-- **fontSize**: xs=12px, sm=14px, md=16px, lg=20px, xl=24px, 2xl=32px
-- **lineHeight**: varies but follows similar pattern
-- **spacing**: 0, 1=4px, 2=8px, 4=16px, 6=24px, 8=32px, etc.
-
-### Tailwind Configuration
-
-- **Prefix**: ALL custom classes use `x-` prefix (configured in `tailwind.config.ts`)
-- **Theme**: Extends `@empathyco/x-tailwindcss` design system (colors, spacing, fonts)
-- **Migration note**: TODO exists to remove `x-` prefix after x-tailwindcss 2.x migration completes
+**Important**: The `prefix(xds)` directive means ALL Tailwind utilities are prefixed with `xds:` when used in HTML.
 
 ### 🚨 CRITICAL: Device Breakpoints Synchronization
 
-**MUST** be defined consistently in both files:
+**MUST** be defined consistently in both locations:
 
-- **`src/device-breakpoints.ts`** → Controls Vue component logic via `useDevice()` composable
-- **`tailwind.config.ts`** → Generates responsive CSS classes (`desktop:x-*`, `tablet:x-*`)
+- **`src/composables/use-device.composable.ts`** → Controls Vue component logic via `useDevice()` composable
+- **`src/tailwind/xds.css`** → Generates responsive CSS classes via `@variant` directives (`desktop:xds:*`, `tablet:xds:*`)
 
 **Default values**:
 
 ```typescript
-// src/device-breakpoints.ts
-export const deviceBreakpoints = {
+// src/composables/use-device.composable.ts
+export const breakpoints = {
   mobile: 0,
   tablet: 744,
   desktop: 1280,
+  large: 2560,
 }
 ```
+
+**Usage in HTML**: Classes are prefixed with breakpoint name, e.g., `desktop:xds:flex`, `tablet:xds:grid`
 
 **If these don't match**: CSS applies at one breakpoint but Vue detects a different device, breaking responsive behavior.
 
@@ -139,139 +113,108 @@ See [Common Pitfalls - Device Breakpoints](./10-common-pitfalls.md#critical-devi
 
 ## Theme Customization Patterns
 
-### Pattern 1: Theme Token Overrides
+### Pattern 1: Custom Utilities with Tailwind 4
 
-Use this pattern to override semantic colors and fonts with brand-specific values:
+Use `@utility` directive in `src/tailwind/xds.css` for reusable custom styles:
 
-```typescript
-// src/tailwind/plugin-options.ts
-theme: {
-  extend: {
-    x: (theme: (param: string) => string) => ({
-      colors: {
-        // Override semantic colors with brand colors
-        neutral: {
-          10: '#F6F6F6',
-          25: '#E2E6E9',
-          50: '#D8D8D8',
-          75: '#7A7A7A',
-          90: '#474747',
-        },
-        lead: {
-          25: '#7A5891',
-          50: '#EA2221',
-          75: '#221F24',
-        },
-      },
-      fontFamily: {
-        main: "'Montserrat', sans-serif",
-        alternative: "'Montserrat', sans-serif",
-      },
-    }),
-    // Map X tokens to Tailwind utilities
-    fontFamily: plugin => plugin.theme('x.fontFamily'),
-    fontSize: plugin => plugin.theme('x.fontSize'),
-    spacing: plugin => plugin.theme('x.spacing'),
-    colors: plugin => plugin.theme('x.colors'),
-  },
+```css
+@utility message {
+  @apply xds:flex xds:flex-wrap xds:items-center xds:justify-center xds:gap-8;
+  @apply xds:bg-neutral-10 xds:px-8 xds:py-8 xds:text-center;
+
+  @variant desktop {
+    @apply xds:py-24;
+  }
+}
+
+@utility transform-style-3d {
+  @apply xds:transform-3d;
 }
 ```
 
-### Pattern 2: Custom Component Extensions
+### Pattern 2: Responsive Variants
 
-Only when X Tailwind components don't cover the use case:
+Define device-specific styles using `@variant`:
 
-```typescript
-// src/tailwind/plugin-options.ts
-components: ({ theme }) => ({
-  '.message': {
-    display: 'flex',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    gap: theme('spacing.8'),
-    backgroundColor: theme('colors.neutral.10'),
-    padding: theme('spacing.24'),
-  },
-  '.transform-style-3d': {
-    transformStyle: 'preserve-3d',
-  },
-})
+```css
+@utility my-component {
+  @apply xds:flex-col xds:gap-4;
+
+  @variant tablet {
+    @apply xds:flex-row xds:gap-8;
+  }
+
+  @variant desktop {
+    @apply xds:grid xds:grid-cols-4 xds:gap-16;
+  }
+}
 ```
 
 ### ❌ Anti-patterns to Avoid
 
-- Creating one-off colors instead of using semantic tokens
-- Hardcoding spacing values (use `theme('spacing.X')`)
-- Custom components that duplicate X Tailwind components
+- Creating one-off colors instead of using semantic tokens from X Design System
+- Hardcoding spacing values (use X Design System tokens)
+- Custom utilities that duplicate X Design System components
 - Overriding without understanding the cascade implications
 
-### ⚠️ Advanced Pattern: CSS Variable Integration
+## X Design System Structure
 
-**Only use if you need runtime theming from API** (rare). Standard projects should use Pattern 1.
+The design system provides styling through Tailwind 4 CSS with three main imports:
 
-```typescript
-// Only for dynamic theming use cases
-css: {
-  variables: {
-    '--custom-color-primary': '#f5f5f5',
-    '--custom-spacing-unit': '8px',
-  },
-  custom: 'h1 { color: var(--custom-color-primary); }',
-}
+### Design System Files
+
+**Location**: `node_modules/@empathyco/x-design-system/dist/`
+
+- **`components/index.css`**: Pre-built component styles (buttons, inputs, tags, etc.)
+- **`theme.css`**: Theme tokens (colors, spacing, typography, borders)
+- **`variants.css`**: Component variants (sizes, colors, states)
+
+### Integration in Project
+
+**Location**: `src/tailwind/xds.css`
+
+```css
+@import 'tailwindcss' prefix(xds);
+
+@import '../../node_modules/@empathyco/x-design-system/dist/components/index.css';
+@import '../../node_modules/@empathyco/x-design-system/dist/theme.css';
+@import '../../node_modules/@empathyco/x-design-system/dist/variants.css';
+
+/* Scan tailwind classes from x-components */
+@source '../../node_modules/@empathyco/x-components/**/*.js';
 ```
 
-## X Tailwind Design System Structure
+### Component Classes Available
 
-The design system provides three layers of styling:
+- **Buttons**: `xds:button`, `xds:button-{color}`, `xds:button-{size}`, `xds:button-outlined`
+- **Tags**: `xds:tag`, `xds:tag-{color}`, `xds:tag-{size}`, `xds:tag-solid`, `xds:tag-ghost`
+- **Inputs**: `xds:input`, `xds:input-{size}`
+- **Typography**: `xds:title1` to `xds:title4`, `xds:text1`, `xds:text2`
+- **Icons**: `xds:icon`, `xds:icon-{size}`
+- **Layout**: `xds:layout-stack`, `xds:layout-expand`, `xds:scroll`
 
-### 1. Theme Tokens
-
-[`theme.ts`](https://github.com/empathyco/x/blob/main/packages/x-tailwindcss/src/x-tailwind-plugin/theme.ts)
-
-- **Colors**: Semantic color palette (neutral, lead, auxiliary, accent, highlight, success, warning, error)
-- **Spacing**: Consistent scale from `0` to `512px` (e.g., `x-spacing-8`, `x-spacing-16`, `x-spacing-24`)
-- **Typography**: `fontSize` (`xs` to `8xl`), `fontWeight` (light/regular/bold), `lineHeight`, `letterSpacing`
-- **Border**: `borderRadius` (none/xs/sm/md/lg/xl/full), `borderWidth` (1/2/4)
-
-### 2. Component Styles
-
-[`components/`](https://github.com/empathyco/x/tree/main/packages/x-tailwindcss/src/x-tailwind-plugin/components)
-
-- **Pre-built components**: `.x-button`, `.x-input`, `.x-tag`, `.x-badge`, `.x-icon`, `.x-suggestion`
-- **Variants**: sizes (sm/md/lg/xl), colors (neutral/lead/accent/highlight), styles (outlined/ghost/solid)
-- **Typography**: `.x-title1` to `.x-title4`, `.x-text1`, `.x-text2`
-- **Layout**: `.x-layout-stack`, `.x-layout-expand`, `.x-scroll`
-
-### 3. Dynamic Components
-
-[`dynamic-components/`](https://github.com/empathyco/x/tree/main/packages/x-tailwindcss/src/x-tailwind-plugin/dynamic-components)
-
-Runtime-generated component utilities.
-
-### ⚠️ Deprecated
-
-**Do NOT use styles from [`old-ds-plugin/`](https://github.com/empathyco/x/tree/main/packages/x-tailwindcss/src/old-ds-plugin)** - this is the old design system.
+**Note**: All classes use the `xds:` prefix due to `@import 'tailwindcss' prefix(xds)` in xds.css
 
 ## Component Class Pattern
 
-Apply component classes following this structure:
+Apply component classes following this structure with `xds:` prefix:
 
 ```vue
 <!-- Base component class -->
-<button class="x-button x-button-lead x-button-md">
+<button class="xds:button xds:button-md xds:button-lead">
   Click me
 </button>
 
 <!-- With variants -->
-<button class="x-button x-button-accent x-button-lg x-button-outlined">
+<button class="xds:button xds:button-lg xds:button-outlined xds:button-accent">
   Large Outlined
 </button>
 
 <!-- Input with size variant -->
-<input class="x-input x-input-lg" />
+<input class="xds:input xds:input-lg" />
 
 <!-- Tag with color and style variants -->
-<span class="x-tag x-tag-md x-tag-highlight x-tag-solid">
+<span class="xds:tag xds:tag-md xds:tag-highlight xds:tag-solid">
   Tag
 </span>
 ```
@@ -282,122 +225,102 @@ Apply component classes following this structure:
 - **Color variants**: `-neutral`, `-lead`, `-accent`, `-highlight`
 - **Style variants**: `-outlined`, `-ghost`, `-solid`, `-tight`
 
+**All component classes use the `xds:` prefix** because of the `prefix(xds)` directive in xds.css.
+
 ## Typography Component Integration
 
-When implementing typography from Figma designs that use predefined X Tailwind typography classes (`.x-text1`, `.x-text2`, `.x-title1`, `.x-title2`, etc.), follow this pattern:
+When implementing typography from Figma designs that use predefined X Design System typography classes (`xds:text1`, `xds:text2`, `xds:title1`, `xds:title2`, etc.), follow this pattern:
 
-### 1. Add Custom Theme Tokens
+### 1. Use Existing Typography Classes
 
-First, extend the theme with custom fontSize and lineHeight values that differ from X Tailwind defaults:
+X Design System provides typography classes that can be used directly:
 
-```typescript
-// src/tailwind/plugin-options.ts
-theme: {
-  extend: {
-    x: (theme) => ({
-      fontSize: {
-        20: '20px',  // Custom sizes from Figma
-        22: '22px',
-        28: '28px',
-      },
-      lineHeight: {
-        16: '16px',  // Custom line heights from Figma
-        20: '20px',
-        24: '24px',
-        32: '32px',
-      },
-    }),
+```vue
+<h1 class="xds:title1">Main Heading</h1>
+<h2 class="xds:title2">Sub Heading</h2>
+<p class="xds:text1">Body text</p>
+<span class="xds:text2">Secondary text</span>
+```
+
+### 2. Create Custom Utilities for Brand-Specific Typography
+
+If you need to customize typography for brand-specific requirements, create custom utilities:
+
+```css
+/* src/tailwind/xds.css */
+@utility brand-title {
+  @apply xds:text-xl xds:leading-tight xds:font-bold;
+
+  @variant desktop {
+    @apply xds:text-2xl;
   }
+}
+
+@utility brand-body {
+  @apply xds:text-base xds:leading-normal xds:text-neutral-90;
 }
 ```
 
-### 2. Override Typography Components
+Then use in HTML:
 
-Then add component overrides to ensure exact Figma matching:
-
-```typescript
-// src/tailwind/plugin-options.ts
-components: ({ theme }: { theme: (path: string) => any }) => ({
-  /* eslint-disable ts/no-unsafe-assignment */
-
-  // Title 1 - 28px font, 32px line height from Figma
-  '.x-title1': {
-    fontFamily: theme('x.fontFamily.main'),
-    fontWeight: theme('x.fontWeight.bold'),
-    fontSize: theme('x.fontSize.28'), // Custom MartiMotos token
-    lineHeight: theme('x.lineHeight.32'), // Custom MartiMotos token
-  },
-  '.x-title1-sm': {
-    fontSize: theme('x.fontSize.28'),
-    lineHeight: theme('x.lineHeight.32'),
-  },
-  // ... repeat for all size variants
-
-  /* eslint-enable ts/no-unsafe-assignment */
-})
+```vue
+<h1 class="brand-title">Custom Title</h1>
+<p class="brand-body">Custom Body Text</p>
 ```
 
-### 3. Why Both Steps Are Needed
+### 3. Why This Approach Works
 
-- **Theme tokens**: Provide the raw values that components can reference
-- **Component overrides**: Ensure typography components use exact Figma specifications instead of X Tailwind defaults
-
-This pattern ensures that classes like `.x-title1`, `.x-title2-md`, etc. match the Figma design system exactly rather than using X Tailwind's default font/line height combinations.
+- **Tailwind 4 CSS-first**: Configuration is in CSS files, not JavaScript
+- **Component-based**: X Design System provides the foundation
+- **Customizable**: Create utilities for brand-specific needs
+- **Responsive**: Use `@variant` for breakpoint-specific styles
+- **Prefixed**: All classes use `xds:` prefix automatically
 
 ## 🚨 CRITICAL: Design System First Approach
 
-**This is exactly how X Tailwind is meant to be used - leverage the existing design system and only customize what's truly brand-specific!**
+**This is exactly how X Design System is meant to be used - leverage the existing design system and only customize what's truly brand-specific!**
 
 ### ✅ The CORRECT Approach
 
-1. **Check X Tailwind first**: Search for existing components before creating anything
-2. **Use existing components**: Apply `.x-tag`, `.x-button`, `.x-input` with their variants
+1. **Check X Design System first**: Search for existing components before creating anything
+2. **Use existing components**: Apply `xds:tag`, `xds:button`, `xds:input` with their variants
 3. **Minimal overrides only**: Only customize brand colors, fonts, or spacing that truly differ
-4. **Preserve functionality**: Keep X Tailwind's hover states, accessibility, responsive behavior
+4. **Preserve functionality**: Keep X Design System's hover states, accessibility, responsive behavior
 
 **Example of proper usage:**
 
-```typescript
-// ✅ CORRECT - Leverage X Tailwind + minimal brand overrides
-components: ({ theme }) => ({
-  // Override ONLY the selected state for brand colors
-  '.x-tag.x-selected': {
-    backgroundColor: theme('x.colors.lead.50'), // MartiMotos red
-    color: theme('x.colors.neutral.0'), // White text
-    fontWeight: theme('x.fontWeight.bold'), // Bold for selected
-  },
+```css
+/* ✅ CORRECT - Leverage X Design System + minimal brand overrides */
 
-  // Override ONLY font weight for specific tag types
-  '.x-tag-auxiliary': {
-    fontWeight: '300', // Light for related tags
-  },
-})
+/* Use existing X Design System component classes in HTML */
+<tag class="xds:tag xds:tag-lead xds:tag-md xds:font-bold">
 
-// In components, use existing X Tailwind classes
-<tag class="x-tag x-tag-lead x-tag-md x-font-bold">
+/* Create custom utilities only for brand-specific overrides */
+@utility brand-selected-tag {
+  @apply xds:tag xds:tag-md xds:tag-lead;
+  @apply xds:bg-lead-50 xds:font-bold xds:text-neutral-0;
+}
 ```
 
-```typescript
-// ❌ WRONG - Recreating what already exists
-components: ({ theme }) => ({
-  '.x-custom-tag': {
-    display: 'flex',
-    alignItems: 'center',
-    padding: '8px 12px',
-    backgroundColor: 'white',
-    border: '1px solid gray',
-    borderRadius: '4px',
-    // ... 50+ lines recreating .x-tag
-  },
-})
+```css
+/* ❌ WRONG - Recreating what already exists */
+@utility custom-tag {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 4px;
+  /* ... 50+ lines recreating xds:tag */
+}
 ```
 
 ### 💡 Benefits of This Approach
 
-- **Less code**: Leverage existing X Tailwind components (avoid 70+ lines of redundant CSS)
-- **Better maintainability**: Built on proven X Tailwind component system
+- **Less code**: Leverage existing X Design System components (avoid 70+ lines of redundant CSS)
+- **Better maintainability**: Built on proven X Design System component system
 - **Automatic features**: Get hover states, accessibility, responsive behavior for free
-- **Future-proof**: Automatically benefit from X Tailwind updates
+- **Future-proof**: Automatically benefit from X Design System updates
 - **Performance**: Smaller CSS bundle, better tree-shaking
 
 **Always prioritize the design system** to ensure:
@@ -409,10 +332,12 @@ components: ({ theme }) => ({
 
 ### 🚨 Remember: Check First, Override Minimally
 
-Before adding any custom component styles, **always search X Tailwind first**:
+Before adding any custom component styles, **always search X Design System first**:
 
 ```bash
-grep -r "x-component-name" node_modules/@empathyco/x-tailwindcss/dist/
+grep -r "button\|tag\|input" node_modules/@empathyco/x-design-system/dist/
 ```
 
-If it exists, use it with minimal brand-specific overrides. This is **not optional** - it's the fundamental pattern for working with X Tailwind effectively.
+If it exists, use it with minimal brand-specific overrides. This is **not optional** - it's the fundamental pattern for working with X Design System effectively.
+
+**Remember**: ALL Tailwind classes use the `xds:` prefix (e.g., `xds:flex`, `xds:button`, `xds:bg-white`) due to `prefix(xds)` in xds.css.
