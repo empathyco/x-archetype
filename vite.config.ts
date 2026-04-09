@@ -57,8 +57,8 @@ export default defineConfig({
         //  the `-webkit-hyphens: none` condition. `@supports ((-webkit-hyphens: none) and`
         // https://github.com/tailwindlabs/tailwindcss/issues/15005#issuecomment-3722970702
         const normalizedCssCodeForShadowRoot = cssCode
-          .replaceAll('((-webkit-hyphens:none)) and ', '')
-          .replaceAll('(-webkit-hyphens: none) and ', '')
+          .replaceAll('((-webkit-hyphens:none)) and ', '') // BUILD
+          .replaceAll('(-webkit-hyphens: none) and ', '') // DEV
         return window.xCSSInjector.addStyle({ source: normalizedCssCodeForShadowRoot })
       },
       topExecutionPriority: false, // Wait until `window.xCSSInjector` is created.

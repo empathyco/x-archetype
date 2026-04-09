@@ -6,7 +6,7 @@
     <UrlHandler />
     <ExperienceControls />
     <CustomTeleport v-if="isTeleportViewMode" />
-    <MainModal v-if="!isTeleportViewMode && isOpen" data-wysiwyg="layer" />
+    <CustomMainModal v-if="!isTeleportViewMode && isOpen" data-wysiwyg="layer" />
   </div>
 </template>
 
@@ -38,7 +38,7 @@ import { isIOS, removeSearchInputFocus } from './composables/use-ios-utils-compo
 import currencies from './i18n/currencies'
 import './tailwind/xds.css'
 
-const MainModal = defineAsyncComponent(() =>
+const CustomMainModal = defineAsyncComponent(() =>
   import('./components/custom-main-modal.vue').then(m => m.default),
 )
 const CustomTeleport = defineAsyncComponent(() =>

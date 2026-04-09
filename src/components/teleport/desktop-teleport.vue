@@ -1,5 +1,5 @@
 <template>
-  <div class="xds:layout-container">
+  <div class="xds:layout-container xds:layout">
     <div class="xds:sticky xds:top-0 xds:z-1 xds:bg-neutral-0">
       <DesktopSubHeader
         data-test="sub-header"

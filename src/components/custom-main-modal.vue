@@ -1,5 +1,6 @@
 <template>
   <MainModal
+    class="xds:layout"
     :animation="animation"
     :class="`x-${deviceName}`"
     :content-class="contentClass"
