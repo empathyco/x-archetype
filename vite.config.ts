@@ -37,9 +37,7 @@ function overrideXCssInjector(): PluginOption {
 }
 
 export default defineConfig({
-  define: {},
   build: {
-    minify: false,
     rollupOptions: {
       output: {
         format: 'es',
@@ -52,15 +50,14 @@ export default defineConfig({
   plugins: [
     overrideXCssInjector(),
     vue(),
-    // TODO - Evaluate "optimize"
-    tailwindcss({ optimize: true }),
+    tailwindcss(),
     cssInjectedByJsPlugin({
       injectCodeFunction: cssCode => {
         // TODO - Tailwind 4 + ShadowRoot issue enclosing @supports block. Especially
         //  the `-webkit-hyphens: none` condition. `@supports ((-webkit-hyphens: none) and`
         // https://github.com/tailwindlabs/tailwindcss/issues/15005#issuecomment-3722970702
         const normalizedCssCodeForShadowRoot = cssCode
-          .replaceAll('((-webkit-hyphens: none)) and ', '')
+          .replaceAll('((-webkit-hyphens:none)) and ', '')
           .replaceAll('(-webkit-hyphens: none) and ', '')
         return window.xCSSInjector.addStyle({ source: normalizedCssCodeForShadowRoot })
       },
