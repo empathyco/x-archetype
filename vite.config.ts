@@ -1,6 +1,7 @@
 import type { PluginOption } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
+import visualizer from 'rollup-plugin-visualizer'
 import { defineConfig } from 'vite'
 import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 
@@ -64,6 +65,7 @@ export default defineConfig({
       topExecutionPriority: false, // Wait until `window.xCSSInjector` is created.
       dev: { enableDev: true },
     }),
+    visualizer(),
   ],
   server: { port: 8080 },
   preview: { port: 8080 },

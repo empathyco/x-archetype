@@ -52,6 +52,7 @@
     "cypress": "14.5.4",
     "husky": "8.0.3",
     "lint-staged": "15.5.2",
+    "rollup-plugin-visualizer": "7.0.1",
     "skilld": "1.5.5",
     "start-server-and-test": "2.1.5",
     "tailwindcss": "4.2.2",
