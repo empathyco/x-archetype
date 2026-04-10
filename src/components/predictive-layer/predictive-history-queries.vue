@@ -1,11 +1,11 @@
 <template>
-  <div class="x-flex x-flex-col x-gap-4">
-    <div v-if="!x.query.searchBox" class="x-flex x-min-h-32 x-items-center">
-      <h1 class="x-title4 x-title4-sm x-flex-1 x-uppercase">
+  <div class="xds:flex xds:flex-col xds:gap-4">
+    <div v-if="!x.query.searchBox" class="xds:flex xds:min-h-32 xds:items-center">
+      <h1 class="xds:flex-1 xds:title4 xds:title4-sm xds:uppercase">
         {{ $t('historyQueries.title') }}
       </h1>
-      <ClearHistoryQueries class="x-button-neutral x-button-sm x-button-tight x-px-8">
-        <TrashIcon v-if="isTabletOrLess" class="x-icon-lg" />
+      <ClearHistoryQueries class="xds:button-sm xds:button-tight xds:button-neutral xds:px-8">
+        <TrashIcon v-if="isTabletOrLess" class="xds:icon-lg" />
         <span v-else>{{ $t('historyQueries.clear') }}</span>
       </ClearHistoryQueries>
     </div>
@@ -14,34 +14,34 @@
       :is="horizontalLayout ? SlidingPanel : 'div'"
       :show-buttons="false"
       :reset-on-content-change="false"
-      button-class="x-button-lead x-button-circle x-button-ghost x-p-0"
+      button-class="xds:button-lead xds:button-circle xds:button-ghost xds:p-0"
     >
       <HistoryQueries
         :animation="suggestionsAnimation"
         :max-items-to-render="horizontalLayout ? 5 : 2"
-        class="x-gap-8 desktop:x-gap-4"
-        :class="{ 'x-suggestions--horizontal': horizontalLayout }"
+        class="xds:gap-8 xds:desktop:gap-4"
+        :class="{ 'xds:suggestions--horizontal': horizontalLayout }"
       >
         <template #suggestion="{ suggestion }">
           <HistoryQuery
-            class="hover:x-no-underline"
+            class="xds:hover:no-underline"
             :class="{
-              'x-suggestion-group-outlined': horizontalLayout,
-              'x-suggestion-group-lg desktop:x-suggestion-group-md': !horizontalLayout,
+              'xds:suggestion-group-outlined': horizontalLayout,
+              'xds:suggestion-group-lg xds:desktop:suggestion-group-md': !horizontalLayout,
             }"
             :suggestion="suggestion"
-            :suggestion-class="`x-suggestion  ${!horizontalLayout ? 'x-suggestion-lg desktop:x-suggestion-md' : ''}`"
+            :suggestion-class="`xds:suggestion  ${!horizontalLayout ? 'xds:suggestion-lg xds:desktop:suggestion-md' : ''}`"
           >
             <template #default="{ query }">
-              <HistoryIcon class="x-icon-lg x-mb-4 desktop:x-icon-md desktop:x-mb-0" />
-              <div class="x-flex x-flex-col x-gap-2">
+              <HistoryIcon class="xds:mb-4 xds:icon-lg xds:desktop:mb-0 xds:desktop:icon-md" />
+              <div class="xds:flex xds:flex-col xds:gap-2">
                 <Highlight
                   :text="suggestion.query"
                   :highlight="query"
-                  class="group-hover:x-no-underline"
+                  class="xds:group-hover:no-underline"
                 />
                 <HistoryQueryFilters
-                  class="x-w-192 desktop:x-w-128"
+                  class="xds:w-192 xds:desktop:w-128"
                   :filters-list="suggestion.selectedFilters"
                 />
               </div>
@@ -51,7 +51,7 @@
               <span
                 :aria-label="$t('historyQueries.removeLabel', { suggestion: suggestion.query })"
               >
-                <CrossTinyIcon class="x-icon-lg desktop:x-icon-md" />
+                <CrossTinyIcon class="xds:icon-lg xds:desktop:icon-md" />
               </span>
             </template>
           </HistoryQuery>
@@ -60,6 +60,7 @@
     </component>
   </div>
 </template>
+
 <script setup lang="ts">
 import {
   CrossTinyIcon,

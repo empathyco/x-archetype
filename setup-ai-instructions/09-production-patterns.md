@@ -42,18 +42,24 @@ search: {
 Production repos use meaningful chunk names for tracking bundle loads:
 
 ```typescript
-// rollup.config.mjs
-export default createConfig({
-  output: {
-    chunkFileNames: chunkInfo => {
-      switch (chunkInfo.name) {
-        case 'custom-main-modal':
-          return 'x-empty-search-[hash].js' // Track empty search modal loads
-        case 'index':
-          return 'x-search-[hash].js' // Track main search bundle
-        default:
-          return '[name].[hash].js'
-      }
+// vite.config.ts
+function getChunkFileName(name: string) {
+  switch (name) {
+    case 'custom-main-modal':
+      return 'x-empty-search-[hash].js' // Track empty search modal loads
+    case 'index':
+      return 'x-search-[hash].js' // Track main search bundle
+    default:
+      return '[name]-[hash].js'
+  }
+}
+
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      output: {
+        chunkFileNames: ({ name }) => getChunkFileName(name),
+      },
     },
   },
 })

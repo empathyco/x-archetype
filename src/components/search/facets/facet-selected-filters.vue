@@ -1,8 +1,8 @@
 <template>
   <span
     v-if="selectedFilters.length > 0"
-    :class="{ 'x-badge-circle': selectedFilters.length <= 9 }"
-    class="x-badge x-badge-auxiliary"
+    :class="{ 'xds:badge-circle': selectedFilters.length <= 9 }"
+    class="xds:badge xds:badge-auxiliary"
   >
     {{ selectedFilters.length }}
   </span>

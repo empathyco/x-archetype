@@ -2,43 +2,39 @@
 
 > Frequent mistakes that cause issues - be aware of them when coding.
 
-## 🚨 CRITICAL: Recreating Existing X Tailwind Components
+## 🚨 CRITICAL: Recreating Existing X Design System Components
 
-**This is the #1 most wasteful error - recreating components that already exist in X Tailwind.**
+**This is the #1 most wasteful error - recreating components that already exist in X Design System.**
 
-### ❌ WRONG - Recreating X Tailwind components
+### ❌ WRONG - Recreating X Design System components
 
-```typescript
-// DON'T DO THIS - X Tailwind already provides .x-tag
-components: ({ theme }) => ({
-  '.x-custom-tag': {
-    display: 'flex',
-    alignItems: 'center',
-    padding: '8px 12px',
-    backgroundColor: 'white',
-    border: '1px solid gray',
-    borderRadius: '4px',
-    // ... 50+ lines recreating what already exists
-  },
-})
+```css
+/* DON'T DO THIS - X Design System already provides xds:tag */
+@utility custom-tag {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 4px;
+  /* ... 50+ lines recreating what already exists */
+}
 ```
 
 ### ✅ CORRECT - Use existing + minimal overrides
 
-```typescript
-// GOOD - Use existing X Tailwind components + minimal brand overrides
-components: ({ theme }) => ({
-  '.x-tag.x-selected': {
-    backgroundColor: theme('x.colors.lead.50'), // MartiMotos red
-    color: theme('x.colors.neutral.0'), // White text
-  },
-})
+```css
+/* GOOD - Use existing X Design System components + minimal brand overrides */
+@utility brand-selected-tag {
+  @apply xds:tag xds:tag-lead xds:tag-md;
+  @apply xds:bg-lead-50 xds:text-neutral-0;
+}
 
-// In components:
-<tag class="x-tag x-tag-lead x-tag-md x-font-bold">
+/* In components: */
+<tag class="xds:tag xds:tag-lead xds:tag-md xds:font-bold">
 ```
 
-**Always check first**: `grep -r "x-component-name" node_modules/@empathyco/x-tailwindcss/dist/`
+**Always check first**: `grep -r "button\|tag\|input" node_modules/@empathyco/x-design-system/dist/`
 
 ## 🚨 CRITICAL: Device Breakpoints Synchronization
 
@@ -46,23 +42,30 @@ components: ({ theme }) => ({
 
 The app uses **TWO systems** that must stay synchronized:
 
-1. **`src/device-breakpoints.ts`** → Controls Vue component logic via `useDevice()` composable
-2. **`tailwind.config.ts`** (or `src/tailwind/plugin-options.ts`) → Generates responsive CSS classes
+1. **`src/composables/use-device.composable.ts`** → Controls Vue component logic via `useDevice()` composable
+2. **`src/tailwind/xds.css`** → Generates responsive CSS classes via `@variant` directives
 
 ### These MUST have matching values
 
 ```typescript
-// src/device-breakpoints.ts
-export const deviceBreakpoints = {
+// src/composables/use-device.composable.ts
+export const breakpoints = {
   mobile: 0,
   tablet: 744,
   desktop: 1280,
+  large: 2560,
 }
 
-// tailwind.config.ts or src/tailwind/plugin-options.ts
-theme: {
-  extend: {
-    screens: plugin => plugin.theme('x.screens') // Should map to same values
+// src/tailwind/xds.css should use matching breakpoints for @variant directives
+@utility my-component {
+  /* mobile styles */
+
+  @variant tablet {
+    /* applies at 744px */
+  }
+
+  @variant desktop {
+    /* applies at 1280px */
   }
 }
 ```
@@ -70,53 +73,38 @@ theme: {
 ### ❌ WRONG - Mismatched breakpoints break responsive system
 
 ```typescript
-// device-breakpoints.ts has desktop: 1280
-// but tailwind config has:
-theme: {
-  extend: {
-    x: theme => ({
-      screens: {
-        desktop: '992px', // CRITICAL ERROR - doesn't match device-breakpoints.ts
-      },
-    })
-  }
+// use-device.composable.ts has desktop: 1280
+// but custom @variant uses different value
+@variant desktop {
+  /* This would apply at wrong breakpoint */
 }
 ```
 
-### ✅ CORRECT - Keep defaults or sync both files
+### ✅ CORRECT - Keep defaults or sync both locations
 
 ```typescript
-// Option 1: Use X Tailwind defaults (recommended)
-theme: {
-  extend: {
-    x: (theme) => ({
-      colors: { /* ... */ },
-      fontFamily: { /* ... */ },
-      // NO screens override - uses default from X Tailwind
-    }),
-    screens: plugin => plugin.theme('x.screens')
-  }
+// Option 1: Use X Design System defaults (recommended)
+// src/composables/use-device.composable.ts
+export const breakpoints = {
+  mobile: 0,
+  tablet: 744,
+  desktop: 1280,
+  large: 2560,
 }
 
-// Option 2: If you MUST customize, sync BOTH files
-// device-breakpoints.ts: { mobile: 0, tablet: 768, desktop: 1024 }
-// tailwind config:
-theme: {
-  extend: {
-    x: (theme) => ({
-      screens: {
-        tablet: '768px',   // Matches device-breakpoints.ts
-        desktop: '1024px', // Matches device-breakpoints.ts
-      }
-    })
-  }
-}
+// src/tailwind/xds.css - use standard @variant names
+@variant tablet { /* ... */ }
+@variant desktop { /* ... */ }
+
+// Option 2: If you MUST customize, sync BOTH locations
+// If you change breakpoints in use-device.composable.ts,
+// ensure @variant directives in xds.css match
 ```
 
 ### Why this matters
 
-- `device-breakpoints.ts` controls `isMobile`, `isTablet`, `isDesktop` detection
-- Tailwind generates CSS classes: `desktop:x-hidden`, `tablet:x-flex`, etc.
+- `use-device.composable.ts` controls `isMobile`, `isTablet`, `isDesktop` detection
+- Tailwind generates CSS classes: `desktop:xds-*`, `tablet:xds-*`, etc.
 - If values don't match: CSS shows desktop layout but Vue thinks it's mobile (or vice versa)
 - Desktop/mobile component switching, sliding panels, modals all break
 
@@ -180,9 +168,9 @@ resultSchema.$override<Result>({
 
 ## Tailwind CSS Issues
 
-### Missing x- Prefix
+### Using Correct Prefix
 
-Don't forget `x-` prefix on ALL custom classes:
+Use `xds:` prefix for Tailwind utilities in CSS files:
 
 ❌ **Wrong**:
 
@@ -193,89 +181,89 @@ Don't forget `x-` prefix on ALL custom classes:
 ✅ **Correct**:
 
 ```vue
-<div class="x-bg-white x-text-red-500"></div>
+<div class="xds:bg-white xds:text-red-500"></div>
+```
+
+Or use X Design System component classes:
+
+```vue
+<div class="xds-bg-white xds-text-red-500"></div>
 ```
 
 ### Ignoring Design System
 
-Always use X Tailwind design tokens before creating custom values:
+Always use X Design System design tokens before creating custom values:
 
 ❌ **Wrong**: Creating custom colors
 
-```typescript
-theme: {
-  extend: {
-    colors: {
-      primary: '#3B82F6',  // Arbitrary blue
-    }
-  }
+```css
+@utility custom-primary {
+  background-color: #3b82f6; /* Arbitrary blue */
 }
 ```
 
 ✅ **Correct**: Using design system
 
 ```vue
-<button class="x-bg-lead-50 x-text-neutral-10">
-  <!-- Uses semantic colors from X Tailwind -->
+<button class="xds:bg-lead-50 xds:text-neutral-10">
+  <!-- Uses semantic colors from X Design System -->
 </button>
 ```
 
 ### ⚠️ Hardcoded Color Values (Anti-pattern from production)
 
-❌ **Anti-pattern**: Overriding semantic colors with arbitrary hex values
+❌ **Anti-pattern**: Creating arbitrary hex values without semantic meaning
 
-```typescript
-// BAD - creates maintenance burden
-x: theme => ({
-  colors: {
-    neutral: {
-      71: '#5D677E', // no named color in figma - RED FLAG!
-    },
-  },
-})
+```css
+/* BAD - creates maintenance burden */
+@utility custom-gray {
+  color: #5d677e; /* no named color in design system - RED FLAG! */
+}
 ```
 
-✅ **Correct**: Use semantic color names
+✅ **Correct**: Use semantic color names from X Design System
 
-```typescript
-x: theme => ({
-  colors: {
-    lead: {
-      50: '#C62D2D', // Map brand primary to semantic lead-50
-      75: '#a72626',
-    },
-    neutral: {
-      // Use complete semantic palette, not arbitrary values
-      10: '#F4F3F1',
-      90: '#454545',
-    },
-  },
-})
+```css
+/* GOOD - Use X Design System semantic colors */
+@utility brand-primary {
+  @apply xds:bg-lead-50 xds:text-neutral-0;
+}
+
+@utility brand-secondary {
+  @apply xds:bg-neutral-90;
+}
 ```
 
 ### ⚠️ Typography Overrides Without Justification
 
-❌ **Anti-pattern**: Overriding with arbitrary values
+❌ **Anti-pattern**: Creating arbitrary typography values
 
-```typescript
-// BAD - breaks responsive typography
-fontSize: {
-  xs: '12px',  // Hardcoded instead of using design system scale
-  s: '14px',
-  m: '16px',
+```css
+/* BAD - breaks responsive typography */
+@utility custom-text-xs {
+  font-size: 12px; /* Hardcoded instead of using design system scale */
+}
+
+@utility custom-text-s {
+  font-size: 14px;
 }
 ```
 
-✅ **Correct**: Only override if Figma differs significantly
+✅ **Correct**: Use X Design System typography or create justified custom utilities
 
-```typescript
-// GOOD - Only override what's necessary
-x: theme => ({
-  fontFamily: {
-    main: "'Open Sans', sans-serif", // Brand font is valid override
-  },
-  // Use default fontSize/lineHeight/fontWeight unless required
-})
+```css
+/* GOOD - Use existing typography classes */
+<p class="xds-text1">Body text</p>
+<h1 class="xds-title1">Heading</h1>
+
+/* Or create brand-specific utility only if needed */
+@utility brand-heading {
+  @apply xds:text-2xl xds:font-bold;
+
+  @variant desktop {
+    @apply xds:text-3xl;
+  }
+}
 ```
 
 ## Adapter Schema Issues
@@ -330,22 +318,22 @@ interface Props {
 
 ```vue
 <style scoped>
-/* BAD - doesn't match device-breakpoints.ts */
+/* BAD - doesn't match use-device.composable.ts */
 @media (max-width: 743px) {
-  .x-result-item {
+  .result-item {
     flex-direction: row;
   }
 }
 </style>
 ```
 
-✅ **Correct**: Use Tailwind responsive classes OR `useDevice()` composable for dynamic classes
+✅ **Correct**: Use Tailwind responsive utilities OR `useDevice()` composable for dynamic classes
 
-**Option 1: Tailwind responsive classes**
+**Option 1: Tailwind responsive utilities**
 
 ```vue
 <template>
-  <div class="x-flex mobile:x-flex-col desktop:x-grid desktop:x-grid-cols-4">
+  <div class="xds:flex mobile:xds:flex-col desktop:xds:grid desktop:xds:grid-cols-4">
 </template>
 ```
 
@@ -353,7 +341,7 @@ interface Props {
 
 ```vue
 <template>
-  <div class="x-flex" :class="{ 'x-grid x-grid-cols-4': isTabletOrGreater }">
+  <div class="xds:flex" :class="{ 'xds:grid xds:grid-cols-4': isTabletOrGreater }">
 </template>
 
 <script setup lang="ts">
@@ -459,20 +447,20 @@ RelatedPromptsResponseChanged: {
 
 ## Build Configuration Issues
 
-### Rollup Chunk Naming
+### Chunk Naming
 
 ✅ **Good pattern**: Semantic chunk names for analytics
 
 ```typescript
-// GOOD - semantic naming for tracking
-chunkFileNames: chunkInfo => {
-  switch (chunkInfo.name) {
+// vite.config.ts
+function getChunkFileName(name: string) {
+  switch (name) {
     case 'custom-main-modal':
       return 'x-empty-search-[hash].js'
     case 'index':
       return 'x-search-[hash].js'
     default:
-      return '[name].[hash].js'
+      return '[name]-[hash].js'
   }
 }
 ```
@@ -481,5 +469,5 @@ chunkFileNames: chunkInfo => {
 
 ```typescript
 // BAD - no analytics insight
-chunkFileNames: '[name].[hash].js'
+chunkFileNames: '[name]-[hash].js'
 ```

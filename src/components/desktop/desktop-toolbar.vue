@@ -1,12 +1,12 @@
 <template>
   <div
     v-if="x.totalResults"
-    class="x-flex x-items-center x-justify-end x-gap-24"
-    :class="{ 'x-mb-8': !x.selectedFilters.length }"
+    class="xds:flex xds:items-center xds:justify-end xds:gap-24"
+    :class="{ 'xds:mb-8': !x.selectedFilters.length }"
     data-test="total-results"
   >
     <i18n-t
-      class="x-text1 x-text1-lg x-flex-auto"
+      class="xds:flex-auto xds:text1 xds:text1-lg"
       keypath="totalResults.message"
       tag="span"
       scope="global"
@@ -16,7 +16,7 @@
         {{ x.totalResults }}
       </template>
       <template #query>
-        <span class="x-title3">
+        <span class="xds:title3">
           {{ x.spellcheckedQuery || query }}
         </span>
       </template>
@@ -26,15 +26,15 @@
 
     <BaseIdModalOpen
       modal-id="right-aside"
-      class="x-button-lead x-button-ghost"
+      class="xds:button-ghost xds:button-lead"
       data-test="toggle-facets-button"
     >
-      <FiltersIcon class="x-icon-lg" />
-      <span class="x-capitalize">{{ $t('toggleAside.showAside') }}</span>
+      <FiltersIcon class="xds:icon-lg" />
+      <span class="xds:capitalize">{{ $t('toggleAside.showAside') }}</span>
       <span
         v-if="x.selectedFilters.length"
-        :class="{ 'x-badge-circle': x.selectedFilters.length <= 9 }"
-        class="x-badge x-badge-auxiliary"
+        :class="{ 'xds:badge-circle': x.selectedFilters.length <= 9 }"
+        class="xds:badge xds:badge-auxiliary"
       >
         {{ x.selectedFilters.length }}
       </span>

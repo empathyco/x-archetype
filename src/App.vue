@@ -6,7 +6,7 @@
     <UrlHandler />
     <ExperienceControls />
     <CustomTeleport v-if="isTeleportViewMode" />
-    <MainModal v-if="!isTeleportViewMode && isOpen" data-wysiwyg="layer" />
+    <CustomMainModal v-if="!isTeleportViewMode && isOpen" data-wysiwyg="layer" />
   </div>
 </template>
 
@@ -36,9 +36,9 @@ import { useDevice } from './composables/use-device.composable'
 import { FeatureFlag, useFeatureFlags } from './composables/use-feature-flags.composable'
 import { isIOS, removeSearchInputFocus } from './composables/use-ios-utils-composable'
 import currencies from './i18n/currencies'
-import './tailwind/index.css'
+import './tailwind/xds.css'
 
-const MainModal = defineAsyncComponent(() =>
+const CustomMainModal = defineAsyncComponent(() =>
   import('./components/custom-main-modal.vue').then(m => m.default),
 )
 const CustomTeleport = defineAsyncComponent(() =>
@@ -173,15 +173,13 @@ if (isIOS()) {
 }
 </style>
 
-<style lang="scss">
+<style>
 *:not(.x-keyboard-navigation *) {
   outline: none;
 }
 
-.x-banner,
-.x-promoted {
-  &__title {
-    display: none;
-  }
+.x-banner__title,
+.x-promoted__title {
+  display: none;
 }
 </style>

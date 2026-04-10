@@ -1,44 +1,44 @@
 <template>
   <button
     v-if="isLoading[result.id]"
-    class="x-button x-button-sm x-h-[35px] x-rounded-full x-border-neutral-50 x-bg-neutral-50 x-px-[34px]"
+    class="xds:button xds:h-8.75 xds:button-sm xds:rounded-full xds:border-neutral-50 xds:bg-neutral-50 xds:px-8.5"
   >
     <SpinnerIcon />
   </button>
-  <div v-else class="x-flex">
+  <div v-else class="xds:flex">
     <BaseAddToCart
       v-if="units === 0"
       :result="result"
-      class="x-button x-text2 x-text2-lg x-bottom-0 x-max-h-40 x-flex-auto x-rounded-full x-border-none x-bg-neutral-50 x-text-neutral-0 hover:x-bg-neutral-25"
+      class="xds:text2 xds:text2-lg xds:bottom-0 xds:button xds:max-h-40 xds:flex-auto xds:rounded-full xds:border-none xds:bg-neutral-50 xds:text-neutral-0 xds:hover:bg-neutral-25"
     >
       {{ $t('result.addToCart') }}
     </BaseAddToCart>
     <div
       v-else-if="units > 0"
-      class="x-flex x-h-[40px] x-w-full x-items-center x-justify-between x-rounded-full x-border x-border-neutral-50 x-bg-neutral-0"
+      class="xds:flex xds:h-40 xds:w-full xds:items-center xds:justify-between xds:rounded-full xds:border xds:border-neutral-50 xds:bg-neutral-0"
     >
       <BaseEventButton
-        class="x-button x-button-sm x-ml-4 x-h-[35px] x-w-[35px] x-rounded-full x-border-none x-bg-neutral-0 x-text-neutral-50 hover:x-bg-neutral-25"
+        class="xds:ml-4 xds:button xds:h-8.75 xds:button-sm xds:w-8.75 xds:rounded-full xds:border-none xds:bg-neutral-0 xds:text-neutral-50 xds:hover:bg-neutral-25"
         :events="removeUnitEvents"
       >
         <MinusIcon
           v-if="units > 1"
-          class="x-icon x-icon-stroke-width-lg x-h-20 x-w-20 x-text-lead-50"
+          class="xds:icon xds:h-20 xds:w-20 xds:icon-stroke-width-lg xds:text-lead-50"
         />
-        <TrashIcon v-else class="x-icon-lg" />
+        <TrashIcon v-else class="xds:icon-lg" />
       </BaseEventButton>
 
       <div
-        class="focus:outline-none x-text2 x-text2-lg x-flex x-h-full x-w-full x-appearance-none x-flex-col x-items-center x-justify-center x-font-bold x-text-neutral-90"
+        class="focus:outline-none xds:text2 xds:text2-lg xds:flex xds:h-full xds:w-full xds:appearance-none xds:flex-col xds:items-center xds:justify-center xds:font-bold xds:text-neutral-90"
       >
         <span
           v-if="!isEditing"
-          :class="{ 'x-text-error-50': hasMaxUnitsReached }"
+          :class="{ 'xds:text-error-50': hasMaxUnitsReached }"
           @click="enableEditing"
         >
           {{ inputUnits }}
         </span>
-        <div v-else class="x-flex x-items-center x-gap-1">
+        <div v-else class="xds:flex xds:items-center xds:gap-1">
           <input
             ref="inputRef"
             v-model.number="inputUnits"
@@ -48,8 +48,8 @@
             type="tel"
             step="1"
             :max="maximumQuantity"
-            class="x-w-[42px] x-text-center"
-            :class="{ 'x-text-error-50': hasMaxUnitsReached }"
+            class="xds:w-10.5 xds:text-center"
+            :class="{ 'xds:text-error-50': hasMaxUnitsReached }"
             placeholder=""
             @blur="updateUnits(Number(($event.target as HTMLInputElement)?.value))"
             @focus="clearInputValue"
@@ -58,7 +58,7 @@
         </div>
         <span
           v-if="hasMaxUnitsReached"
-          class="x-title4 x-mt-[-6px] x-text-center x-text-[8px] x-font-bold x-text-error-50"
+          class="xds:-mt-1.5 xds:text-center xds:title4 xds:text-[8px] xds:font-bold xds:text-error-50"
         >
           {{ $t('result.maxUnits') }}
         </span>
@@ -66,13 +66,13 @@
 
       <BaseAddToCart
         :result="result"
-        class="x-button x-button-sm x-mr-4 x-h-[35px] x-w-[35px] x-rounded-full x-border-l x-border-none x-bg-neutral-0 x-text-neutral-50 hover:x-bg-neutral-25"
+        class="xds:mr-4 xds:button xds:h-8.75 xds:button-sm xds:w-8.75 xds:rounded-full xds:border-l xds:border-none xds:bg-neutral-0 xds:text-neutral-50 xds:hover:bg-neutral-25"
         :disabled="hasMaxUnitsReached"
-        :class="{ 'x-border-none x-bg-neutral-25': hasMaxUnitsReached }"
+        :class="{ 'xds:border-none xds:bg-neutral-25': hasMaxUnitsReached }"
       >
         <PlusIcon
-          class="x-w-22 x-icon x-h-28"
-          :class="{ 'x-text-neutral-50': hasMaxUnitsReached }"
+          class="xds:icon xds:h-28 xds:w-22"
+          :class="{ 'xds:text-neutral-50': hasMaxUnitsReached }"
         />
       </BaseAddToCart>
     </div>
@@ -219,7 +219,7 @@ watch(units, (currentUnits, oldUnits) => {
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;

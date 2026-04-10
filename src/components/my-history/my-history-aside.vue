@@ -1,37 +1,41 @@
 <template>
   <div
-    class="x-scroll x-flex x-min-h-0 x-flex-1 x-flex-col x-bg-neutral-0 desktop:x-overflow-hidden"
+    class="xds:flex xds:scroll xds:min-h-0 xds:flex-1 xds:flex-col xds:bg-neutral-0 xds:desktop:overflow-hidden"
   >
     <div
-      class="x-sticky x-top-0 x-z-10 x-flex x-flex-row x-items-center x-gap-16 x-bg-lead-75 x-p-16 desktop:x-p-32"
+      class="xds:sticky xds:top-0 xds:z-10 xds:flex xds:flex-row xds:items-center xds:gap-16 xds:bg-lead-75 xds:p-16 xds:desktop:p-32"
     >
       <BaseIdModalClose
-        class="x-button-circle x-button-ghost hover:x-button-lead desktop:x-order-1 desktop:x-ml-auto"
+        class="xds:button-circle xds:button-ghost xds:hover:button-lead xds:desktop:order-1 xds:desktop:ml-auto"
         modal-id="my-history-aside"
       >
-        <CrossIcon class="x-icon-lg x-text-neutral-0" />
+        <CrossIcon class="xds:icon-lg xds:text-neutral-0" />
       </BaseIdModalClose>
-      <h1 class="desktop:x-title-md x-title2 x-title2-sm x-capitalize x-text-neutral-0">
+      <h1 class="xds:title2 xds:title2-sm xds:text-neutral-0 xds:capitalize xds:desktop:title2-md">
         {{ $t('myHistory.title') }}
       </h1>
     </div>
 
     <div
-      class="x-flex x-flex-col x-divide-y-1 x-divide-neutral-10 desktop:x-scroll desktop:x-flex-1 desktop:x-overflow-auto"
+      class="xds:flex xds:flex-col xds:divide-y-1 xds:divide-neutral-10 xds:desktop:scroll xds:desktop:flex-1 xds:desktop:overflow-auto"
     >
-      <section class="x-flex x-flex-col x-gap-16 x-px-16 x-pb-32 x-pt-24 desktop:x-pl-32">
-        <h2 class="x-title3 x-mb-8">{{ $t('myHistory.subtitle') }}</h2>
-        <p class="x-text1 x-text1-lg x-text-neutral-75">{{ $t('myHistory.message.header') }}</p>
-        <p class="x-text1 x-text1-lg x-text-neutral-75">{{ $t('myHistory.message.body') }}</p>
-        <p class="x-title3 x-text-neutral-75">{{ $t('myHistory.message.footer') }}</p>
+      <section
+        class="xds:flex xds:flex-col xds:gap-16 xds:px-16 xds:pt-24 xds:pb-32 xds:desktop:pl-32"
+      >
+        <h2 class="xds:mb-8 xds:title3">{{ $t('myHistory.subtitle') }}</h2>
+        <p class="xds:text1 xds:text1-lg xds:text-neutral-75">
+          {{ $t('myHistory.message.header') }}
+        </p>
+        <p class="xds:text1 xds:text1-lg xds:text-neutral-75">{{ $t('myHistory.message.body') }}</p>
+        <p class="xds:title3 xds:text-neutral-75">{{ $t('myHistory.message.footer') }}</p>
       </section>
 
       <section
-        class="x-flex x-items-center x-justify-between x-px-16 x-pb-32 x-pt-24 desktop:x-pl-32"
+        class="xds:flex xds:items-center xds:justify-between xds:px-16 xds:pt-24 xds:pb-32 xds:desktop:pl-32"
       >
-        <div class="x-flex x-flex-col x-gap-4">
-          <span class="x-title3 x-capitalize">{{ $t('myHistory.switch.title') }}</span>
-          <span class="x-text1 x-text1-lg x-text-neutral-75">
+        <div class="xds:flex xds:flex-col xds:gap-4">
+          <span class="xds:title3 xds:capitalize">{{ $t('myHistory.switch.title') }}</span>
+          <span class="xds:text1 xds:text1-lg xds:text-neutral-75">
             {{
               x.isHistoryQueriesEnabled
                 ? $t('myHistory.switch.disable')
@@ -40,7 +44,7 @@
           </span>
         </div>
         <HistoryQueriesSwitch
-          :class="{ 'x-switch--is-selected x-selected': x.isHistoryQueriesEnabled }"
+          :class="{ 'x-switch--is-selected xds:selected': x.isHistoryQueriesEnabled }"
         />
       </section>
 
@@ -66,7 +70,8 @@ onMounted(() => {
 
 const x = use$x()
 </script>
-<style lang="scss">
+
+<style>
 .x-layout__my-history-modal {
   z-index: 40 !important;
 }

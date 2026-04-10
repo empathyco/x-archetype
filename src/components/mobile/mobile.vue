@@ -1,17 +1,17 @@
 <template>
   <MobileLayout>
     <template #header>
-      <div class="x-flex x-w-full x-gap-8 x-py-16">
-        <CloseMainModal class="x-button-lead x-button-circle x-button-ghost">
-          <ArrowLeftIcon class="x-icon-lg" />
+      <div class="xds:flex xds:w-full xds:gap-8 xds:py-16">
+        <CloseMainModal class="xds:button-circle xds:button-ghost xds:button-lead">
+          <ArrowLeftIcon class="xds:icon-lg" />
         </CloseMainModal>
-        <SearchBox class="x-flex-1" />
+        <SearchBox class="xds:flex-1" />
       </div>
     </template>
 
     <template #sub-header>
       <LocationProvider location="predictive_layer">
-        <PredictiveLayer class="x-relative" />
+        <PredictiveLayer class="xds:relative" />
       </LocationProvider>
     </template>
 
@@ -31,19 +31,19 @@
     <template #main>
       <section v-if="x.query.search">
         <LocationProvider location="results">
-          <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
+          <SpellcheckMessage class="xds:mb-16" data-test="spellcheck-message" />
         </LocationProvider>
 
         <NoResultsMessage
           v-if="showNoResultsMessage"
-          class="x-mb-16"
+          class="xds:mb-16"
           data-test="no-results-message"
         />
 
-        <FallbackDisclaimerMessage class="x-mb-16" data-test="fallback-message" />
+        <FallbackDisclaimerMessage class="xds:mb-16" data-test="fallback-message" />
       </section>
       <LocationProvider location="no_query">
-        <PreSearchManager class="x-z-10 x-mt-16" />
+        <PreSearchManager class="xds:z-10 xds:mt-16" />
       </LocationProvider>
       <LocationProvider location="results">
         <Main />
@@ -51,12 +51,14 @@
     </template>
 
     <template #overlay>
-      <div class="x-mb-32 x-grid x-min-h-48 x-w-full x-grid-cols-12 x-items-center x-gap-24">
+      <div
+        class="xds:mb-32 xds:grid xds:min-h-48 xds:w-full xds:grid-cols-12 xds:items-center xds:gap-24"
+      >
         <MobileOpenAside
           v-if="x.totalResults > 0"
-          class="x-pointer-events-auto x-col-span-8 x-col-start-3 x-max-h-[40px] tablet:x-col-span-4 tablet:x-col-start-5"
+          class="xds:pointer-events-auto xds:col-span-8 xds:col-start-3 xds:max-h-40 xds:tablet:col-span-4 xds:tablet:col-start-5"
         />
-        <ScrollToTop class="x-button-lg x-pointer-events-auto x-col-start-11" />
+        <ScrollToTop class="xds:pointer-events-auto xds:col-start-11 xds:button-sm" />
       </div>
     </template>
   </MobileLayout>

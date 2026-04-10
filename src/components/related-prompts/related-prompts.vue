@@ -1,12 +1,12 @@
 <template>
   <RelatedPromptsTagList
-    button-class="x-button-lead x-button-circle x-button-ghost x-p-0"
-    class="x-mt-0 x-h-[80px] x-p-0 x-text-neutral-50"
+    button-class="xds:button-lead xds:button-circle xds:button-ghost xds:p-0"
+    class="xds:mt-0 xds:h-80 xds:p-0 xds:text-neutral-50"
     :tag-class="tagClass"
-    :tag-colors="['x-bg-neutral-10']"
+    :tag-colors="['xds:bg-neutral-10']"
   >
     <template #sliding-panel-left-button>
-      <ChevronLeftIcon class="x-icon-lg" />
+      <ChevronLeftIcon class="xds:icon-lg" />
     </template>
     <template #default="{ relatedPrompt, isSelected, onSelect }">
       <DisplayEmitter
@@ -27,7 +27,7 @@
       </DisplayEmitter>
     </template>
     <template #sliding-panel-right-button>
-      <ChevronRightIcon class="x-icon-lg" />
+      <ChevronRightIcon class="xds:icon-lg" />
     </template>
   </RelatedPromptsTagList>
 </template>
@@ -46,8 +46,8 @@ import { computed } from 'vue'
 const { selectedPrompt } = useState('relatedPrompts')
 const tagClass = computed(() =>
   selectedPrompt.value !== -1
-    ? 'x-rounded-t-md x-gap-8 x-w-[300px] x-p-8'
-    : 'x-rounded-md x-gap-8 x-w-[300px] x-p-8',
+    ? 'xds:rounded-t-md xds:gap-8 xds:w-[300px] xds:p-8'
+    : 'xds:rounded-md xds:gap-8 xds:w-[300px] xds:p-8',
 )
 const x = use$x()
 </script>

@@ -1,10 +1,10 @@
 <template>
   <CustomHeaderTogglePanel
     :data-test="facet?.label"
-    class="x-border-0 x-border-b x-border-neutral-10"
+    class="xds:border-0 xds:border-b xds:border-neutral-10"
   >
     <template #header>
-      <span class="x-title3">
+      <span class="xds:title3">
         {{ setFacetLabel($t(`facets.${facet?.label}`), facet?.label) }}
       </span>
       <FacetSelectedFilters :selected-filters="selectedFilters" />
@@ -53,7 +53,7 @@ const priceFilterValue = computed<EditableNumberRangeFilterModel | undefined>(()
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 /* Remove arrows from number inputs */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,

@@ -2,15 +2,15 @@
   <AiOverview
     :collapse-text="$t('overview.collapseButton')"
     :expand-text="$t('overview.expandButton')"
-    class="x-mb-32 x-mt-12 [--x-ai-overview-color:theme(colors.lead.25)]"
+    class="[--x-ai-overview-color:var(--xds-color-lead-25)] xds:mt-12 xds:mb-32"
   >
     <template #sliding-panel="{ results }">
       <CustomSlidingPanel>
-        <div class="x-flex x-gap-16 x-px-16 x-pb-16">
+        <div class="xds:flex xds:gap-16 xds:px-16 xds:pb-16">
           <Result
             v-for="result in results"
             :key="result.id"
-            class="x-w-[35vw] x-rounded-md x-bg-neutral-0 x-p-3 desktop:x-w-[216px]"
+            class="xds:w-[35vw] xds:rounded-md xds:bg-neutral-0 xds:p-3 xds:desktop:w-[216px]"
             :result="result"
           />
         </div>

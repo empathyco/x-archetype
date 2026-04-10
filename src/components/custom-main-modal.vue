@@ -1,5 +1,6 @@
 <template>
   <MainModal
+    class="xds:layout"
     :animation="animation"
     :class="`x-${deviceName}`"
     :content-class="contentClass"
@@ -31,6 +32,6 @@ const referenceSelector = computed(() => {
 })
 
 const contentClass = computed(() =>
-  !isDesktopOrGreater.value && x.query.searchBox ? '!x-overflow-clip x-touch-none' : '',
+  !isDesktopOrGreater.value && x.query.searchBox ? 'xds:overflow-clip! xds:touch-none' : '',
 )
 </script>
