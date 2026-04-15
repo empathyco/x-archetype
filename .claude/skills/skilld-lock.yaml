@@ -1,0 +1,47 @@
+skills:
+  vue-skilld:
+    packageName: vue
+    version: 3.5.30
+    packages: "vue@3.5.30"
+    repo: vuejs/core
+    source: "https://github.com/vuejs/core/tree/main/docs"
+    syncedAt: 2026-04-03
+    generator: skilld
+  typescript-skilld:
+    packageName: typescript
+    version: 5.9.3
+    repo: microsoft/TypeScript
+    source: "https://github.com/microsoft/TypeScript/tree/v5.9.3/docs"
+    syncedAt: 2026-04-02
+    generator: skilld
+  tailwindcss-skilld:
+    packageName: tailwindcss
+    version: 4.2.2
+    packages: "tailwindcss@4.2.2"
+    repo: tailwindlabs/tailwindcss
+    source: "https://github.com/tailwindlabs/tailwindcss/tree/main/docs"
+    syncedAt: 2026-04-03
+    generator: skilld
+  vuex-skilld:
+    packageName: vuex
+    version: 4.0.2
+    repo: vuejs/vuex
+    source: "ungh://vuejs/vuex@v4.0.2"
+    syncedAt: 2026-04-02
+    generator: skilld
+  vite-skilld:
+    packageName: vite
+    version: 7.3.2
+    packages: "vite@7.3.2"
+    repo: vitejs/vite
+    source: "https://github.com/vitejs/vite/tree/v7.3.2/docs"
+    syncedAt: 2026-04-09
+    generator: skilld
+  vueuse-core-skilld:
+    packageName: "@vueuse/core"
+    version: 14.2.1
+    packages: "@vueuse/core@14.2.1"
+    repo: vueuse/vueuse
+    source: "https://github.com/vueuse/vueuse/tree/main/docs"
+    syncedAt: 2026-04-03
+    generator: skilld

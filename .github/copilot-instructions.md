@@ -6,7 +6,7 @@
 
 This is an **Interface X Archetype** - a Vue 3 + TypeScript search interface implementation using Empathy.co's X Components library. The project follows a pattern shared by 17+ production implementations.
 
-**Core Stack**: Vue 3.4.38+, X Components 6.0.0-alpha.x, X Tailwind 2.0.0-alpha.x, TypeScript 5.8.3+
+**Core Stack**: Vue 3.5.30+, X Components 6.0.0-alpha.x, X Design System 0.1.0-alpha.x (Tailwind 4.2.2), TypeScript 5.9.3+, Vite 6.4.2+
 
 ## Documentation Index
 
@@ -30,7 +30,7 @@ Vue 3 component patterns (script setup, async loading, device-specific), TypeScr
 
 ### 4. [Design & Tailwind](../setup-ai-instructions/04-design-tailwind.md)
 
-**🚨 CRITICAL**: X Tailwind design system usage, device breakpoints synchronization, theme customization patterns, and anti-patterns to avoid.
+**🚨 CRITICAL**: X Design System with Tailwind 4 usage, device breakpoints synchronization, theme customization patterns, and anti-patterns to avoid. **ALL classes use `xds:` prefix** (e.g., `xds:button`, `xds:flex`, `xds:bg-white`).
 
 ### 5. [Figma MCP Workflow](../setup-ai-instructions/05-figma-workflow.md)
 
@@ -46,7 +46,7 @@ X module configuration, custom wiring patterns, adapter schema overrides, and co
 
 ### 8. [Build System](../setup-ai-instructions/08-build-system.md)
 
-Rollup configuration, Vite setup, CSS injection patterns, dev vs production differences, and environment configuration.
+Vite configuration (unified for dev and production), CSS injection patterns, environment configuration, and bundle analysis.
 
 ### 9. [Production Patterns](../setup-ai-instructions/09-production-patterns.md)
 
@@ -88,12 +88,13 @@ Feature flags, internationalization, code style, file naming, import conventions
 
 - **[X Components Monorepo](https://github.com/empathyco/x)**: Core library (components, adapters, design system)
 - **[X Archetype](https://github.com/empathyco/x-archetype)**: Reference implementation
-- **[X Tailwind Design System](https://github.com/empathyco/x/tree/main/packages/x-tailwindcss)**: Theme tokens, components, utilities
+- **[X Design System](https://github.com/empathyco/x/tree/main/packages/x-design-system)**: Tailwind 4 design system with components, theme tokens, and variants
 
 ### Critical Patterns to Remember
 
-1. **🚨 Device Breakpoints Synchronization**: `src/device-breakpoints.ts` must match `tailwind.config.ts` screens
-2. **Design System First**: Always use [X Tailwind tokens](https://github.com/empathyco/x/tree/main/packages/x-tailwindcss) before creating custom values
-3. **Type Extensions**: Declare in `src/shims-*.d.ts` files, override schemas in `adapter.ts`
-4. **Script Setup**: Prefer `<script setup lang="ts">` for new components
-5. **Custom Wiring**: Place in `src/x-components/wiring/` for reusable event handlers
+1. **🚨 Device Breakpoints Synchronization**: `src/composables/use-device.composable.ts` must match `@variant` breakpoints in `src/tailwind/xds.css`
+2. **Design System First**: Always use [X Design System tokens](https://github.com/empathyco/x/tree/main/packages/x-design-system) before creating custom values
+3. **Tailwind Classes**: ALL classes use `xds:` prefix (e.g., `xds:button`, `xds:flex`, `xds:bg-white`)
+4. **Type Extensions**: Declare in `src/shims-*.d.ts` files, override schemas in `adapter.ts`
+5. **Script Setup**: Prefer `<script setup lang="ts">` for new components
+6. **Custom Wiring**: Place in `src/x-components/wiring/` for reusable event handlers
