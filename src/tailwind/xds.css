@@ -1,0 +1,20 @@
+@import '../../node_modules/@empathyco/x-design-system/dist/index.css';
+
+/* Scan tailwind classes from x-components. */
+@source '../../node_modules/@empathyco/x-components';
+
+@utility message {
+  @apply xds:flex xds:flex-wrap xds:items-center xds:justify-center xds:gap-8 xds:bg-neutral-10 xds:px-8 xds:py-8 xds:text-center;
+
+  @variant desktop {
+    @apply xds:py-24;
+  }
+}
+
+@utility transform-style-3d {
+  @apply xds:transform-3d;
+}
+
+@utility suggestions--horizontal {
+  @apply xds:flex-row! xds:flex-nowrap! xds:items-center;
+}

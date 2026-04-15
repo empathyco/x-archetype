@@ -35,7 +35,7 @@ Then(
   function (this: TestContext, filterNumber: number, facetName: string, isSelected: boolean) {
     cy.getByDataTest(facetName)
       .contains(this[`clickedFilter${filterNumber}`].trim())
-      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-selected')
+      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'xds:selected')
       .should('have.attr', 'aria-checked')
   },
 )
@@ -81,7 +81,7 @@ Then(
       .getByDataTest('filter')
       .eq(childFilterIndex)
       .should('contain', this[`clickedChildFilter${childFilterIndex}`].replace(/[^a-z]/gi, ''))
-      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-selected')
+      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'xds:selected')
       .should('have.attr', 'aria-checked')
   },
 )
@@ -93,6 +93,6 @@ Then(
       .getByDataTest('base-filters-item')
       .eq(hierarchicalFilterIndex)
       .getByDataTest('filter')
-      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'x-selected')
+      .should(`${isSelected ? '' : 'not.'}to.have.class`, 'xds:selected')
   },
 )

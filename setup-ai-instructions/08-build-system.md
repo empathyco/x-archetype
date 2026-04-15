@@ -1,86 +1,134 @@
 # Build System
 
-## Rollup Configuration
+## Vite Configuration
 
-### Base Configuration
+### Unified Build System
 
-- **Location**: `build/instrumentation.build.mjs`
-- **Pattern**: Shared `createConfig` function
-- **Purpose**: Common build logic across all archetypal projects
+The project uses **Vite for both development and production builds** (no separate Rollup configuration).
 
-### Project Configuration
+**Location**: `vite.config.ts`
 
-**Location**: `rollup.config.mjs`
+### Build Configuration
 
-Override output chunk names for analytics tracking:
-
-```javascript
-export default createConfig({
-  output: {
-    chunkFileNames: chunkInfo => {
-      switch (chunkInfo.name) {
-        case 'custom-main-modal':
-          return 'x-empty-search-[hash].js'
-        case 'index':
-          return 'x-search-[hash].js'
-        default:
-          return '[name].[hash].js'
-      }
+```typescript
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      output: {
+        format: 'es',
+        assetFileNames: '[name][extname]',
+        entryFileNames: 'app.js',
+        chunkFileNames: ({ name }) => getChunkFileName(name),
+      },
     },
-  },
-  plugins: {
-    ...rollupCssInjectorConfig,
   },
 })
 ```
 
+### Chunk Naming for Analytics
+
+Override output chunk names for analytics tracking:
+
+```typescript
+function getChunkFileName(name: string) {
+  switch (name) {
+    case 'custom-main-modal':
+      return 'x-empty-search-[hash].js'
+    case 'index':
+      return 'x-search-[hash].js'
+    default:
+      return '[name]-[hash].js'
+  }
+}
+```
+
 ### CSS Injection Pattern
 
-Uses `@empathyco/x-archetype-utils` CSS injector:
+Uses `vite-plugin-css-injected-by-js` with custom CSS injector:
 
-```javascript
-import { rollupCssInjectorConfig } from '@empathyco/x-archetype-utils'
+```typescript
+cssInjectedByJsPlugin({
+  injectCodeFunction: cssCode => {
+    // Normalize CSS for Shadow DOM compatibility
+    const normalizedCssCodeForShadowRoot = cssCode
+      .replaceAll('((-webkit-hyphens:none)) and ', '') // BUILD
+      .replaceAll('(-webkit-hyphens: none) and ', '') // DEV
+    return window.xCSSInjector.addStyle({ source: normalizedCssCodeForShadowRoot })
+  },
+  topExecutionPriority: false, // Wait until `window.xCSSInjector` is created
+  dev: { enableDev: true },
+})
 ```
 
 This ensures CSS is properly injected into Shadow DOM when `isolate: true`.
 
+### X Components CSS Injector Override
+
+Custom plugin overrides X Components' CSS injector:
+
+```typescript
+function overrideXCssInjector(): PluginOption {
+  return {
+    name: 'override-x-css-injector',
+    enforce: 'pre',
+    transform(code: string, id: string) {
+      const stringInjector = '(cssCode) => window.xCSSInjector.addStyle({ source: cssCode });'
+      /* Replace the X CSS injector by xCSSInjector for both BUILD and DEV */
+      if (id.includes('node_modules/@empathyco/x-components/tools/inject-css.js')) {
+        return code.replace('export default injectCss', `export default ${stringInjector}`)
+      }
+      if (code.includes('// node_modules/@empathyco/x-components/tools/inject-css.js')) {
+        return code.replace(
+          'var inject_css_default = injectCss;',
+          `var inject_css_default = ${stringInjector}`,
+        )
+      }
+    },
+  }
+}
+```
+
 ## Dev vs Production
 
-### Development (Vite)
+### Development Mode
 
 - **Command**: `npm run serve`
 - **Features**:
   - Fast HMR (Hot Module Replacement)
-  - Inspector plugin for component debugging
   - Source maps enabled
+  - CSS injected with dev mode support
 - **Server**: `localhost:8080`
 
-### Production (Rollup)
+### Production Build
 
 - **Command**: `npm run build`
 - **Features**:
   - Code splitting for optimal loading
-  - Terser minification
+  - Minification enabled
   - Optimized chunks with semantic naming
   - Tree shaking for unused code removal
+  - CSS normalized for Shadow DOM
 - **Output**: `dist/`
 
-### Build and Serve
+### Build and Preview
 
 Test production build locally:
 
 ```bash
-npm run build:serve  # Builds + serves dist/
+npm run build
+npm run serve:preview  # Serves dist/ folder
 ```
 
 ## Environment Configuration
 
 ### Docker Development
 
-Set environment variable to use docker endpoints:
+Set environment variable to use docker endpoints (if docker.adapter.ts exists):
 
 ```bash
-VUE_APP_DEVELOPMENT_DOCKER=true npm run build
+VITE_APP_DEVELOPMENT_DOCKER=true npm run build
+# or
+npm run build:docker
 ```
 
 This activates `src/adapter/docker.adapter.ts` which overrides API endpoints.
@@ -91,17 +139,15 @@ Default build uses production endpoints from `src/adapter/adapter.ts`.
 
 ## Bundle Analysis
 
-Use Rollup visualizer plugin to analyze bundle size:
+Vite includes Rollup visualizer plugin for bundle analysis:
 
-```javascript
-import { visualizer } from 'rollup-plugin-visualizer'
+```typescript
+import visualizer from 'rollup-plugin-visualizer'
 
 plugins: [
-  visualizer({
-    filename: 'dist/stats.html',
-    open: true,
-  }),
+  // ...other plugins
+  visualizer(),
 ]
 ```
 
-Run build to see bundle composition.
+Run build to generate `stats.html` with bundle composition visualization.

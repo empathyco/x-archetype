@@ -1,19 +1,21 @@
 <template>
-  <MaxDesktopWidthItem class="x-pb-8">
-    <header class="x-grid x-grid-cols-6 x-items-center x-gap-12 x-pt-24">
+  <MaxDesktopWidthItem class="xds:pb-8">
+    <header class="xds:grid xds:grid-cols-6 xds:items-center xds:gap-12 xds:pt-24">
       <Logo />
 
-      <div class="x-col-span-4 x-flex x-flex-col x-gap-16">
-        <div class="x-relative">
+      <div class="xds:col-span-4 xds:flex xds:flex-col xds:gap-16">
+        <div class="xds:relative">
           <SearchBox />
           <LocationProvider location="predictive_layer">
-            <PredictiveLayer class="x-absolute x-shadow-lg" />
+            <PredictiveLayer class="xds:absolute xds:shadow-lg" />
           </LocationProvider>
         </div>
       </div>
 
-      <CloseMainModal class="x-button-lead x-button-circle x-button-ghost x-justify-self-end">
-        <CrossIcon class="x-icon-lg" />
+      <CloseMainModal
+        class="xds:button-circle xds:button-ghost xds:justify-self-end xds:button-lead"
+      >
+        <CrossIcon class="xds:icon-lg" />
       </CloseMainModal>
     </header>
   </MaxDesktopWidthItem>

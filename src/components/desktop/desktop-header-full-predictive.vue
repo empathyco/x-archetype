@@ -1,17 +1,19 @@
 <template>
-  <div class="x-relative x-pb-8">
+  <div class="xds:relative xds:pb-8">
     <MaxDesktopWidthItem>
-      <header class="x-flex x-items-center x-gap-48 x-pt-24">
+      <header class="xds:flex xds:items-center xds:gap-48 xds:pt-24">
         <Logo />
 
-        <div class="x-flex x-flex-1 x-flex-col x-gap-16">
-          <div class="x-relative">
+        <div class="xds:flex xds:flex-1 xds:flex-col xds:gap-16">
+          <div class="xds:relative">
             <SearchBox />
           </div>
         </div>
 
-        <CloseMainModal class="x-button-lead x-button-circle x-button-ghost x-justify-self-end">
-          <CrossIcon class="x-icon-lg" />
+        <CloseMainModal
+          class="xds:button-circle xds:button-ghost xds:justify-self-end xds:button-lead"
+        >
+          <CrossIcon class="xds:icon-lg" />
         </CloseMainModal>
       </header>
     </MaxDesktopWidthItem>

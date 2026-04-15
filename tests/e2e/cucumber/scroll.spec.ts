@@ -1,7 +1,7 @@
 import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
 
 When('scrolling down to result {string}', (resultId: string) => {
-  cy.get(`[data-scroll=${resultId}]`).eq(0).scrollIntoView().should('be.visible')
+  cy.getShadowRoot().find(`[data-scroll=${resultId}]`).eq(0).scrollIntoView().should('be.visible')
 })
 
 Then('url is updated with result {string}', (resultId: string) => {
@@ -13,7 +13,10 @@ When('the page is reloaded', () => {
 })
 
 Then('result {string} is visible', (resultId: string) => {
-  cy.get(`[data-scroll=${resultId}]`).getByDataTest('result-link').should('be.visible')
+  cy.getShadowRoot()
+    .find(`[data-scroll=${resultId}]`)
+    .getByDataTest('result-link')
+    .should('be.visible')
 })
 
 When('scroll to top is clicked', () => {

@@ -1,7 +1,7 @@
 <template>
-  <div class="x-mt-8 x-flex x-flex-col x-gap-4 desktop:x-mt-0">
-    <div class="x-flex x-min-h-32 x-items-center">
-      <h1 class="x-title4 x-title4-sm x-uppercase">
+  <div class="xds:mt-8 xds:flex xds:flex-col xds:gap-4 xds:desktop:mt-0">
+    <div class="xds:flex xds:min-h-32 xds:items-center">
+      <h1 class="xds:title4 xds:title4-sm xds:uppercase">
         {{ $t('popularSearches.title') }}
       </h1>
     </div>
@@ -9,24 +9,24 @@
       :is="horizontalLayout ? SlidingPanel : 'div'"
       :show-buttons="false"
       :reset-on-content-change="false"
-      button-class="x-button-lead x-button-circle x-button-ghost x-p-0"
+      button-class="xds:button-lead xds:button-circle xds:button-ghost xds:p-0"
     >
       <PopularSearches
         :animation="animation"
         :max-items-to-render="horizontalLayout ? 5 : 4"
-        class="x-gap-8 desktop:x-gap-4"
-        :class="{ 'x-suggestions--horizontal': horizontalLayout }"
+        class="xds:gap-8 xds:desktop:gap-4"
+        :class="{ 'xds:suggestions--horizontal': horizontalLayout }"
       >
         <template #suggestion="{ suggestion }">
           <PopularSearch
-            class="x-suggestion"
+            class="xds:suggestion"
             :class="{
-              'x-suggestion-outlined x-gap-8': horizontalLayout,
-              'x-suggestion-lg desktop:x-suggestion-md': !horizontalLayout,
+              'xds:gap-8 xds:suggestion-outlined': horizontalLayout,
+              'xds:suggestion-lg xds:desktop:suggestion-md': !horizontalLayout,
             }"
             :suggestion="suggestion"
           >
-            <TrendingIcon class="x-icon-lg x-mb-4 desktop:x-icon-md desktop:x-mb-0" />
+            <TrendingIcon class="xds:mb-4 xds:icon-lg xds:desktop:mb-0 xds:desktop:icon-md" />
             <span>{{ suggestion.query }}</span>
           </PopularSearch>
         </template>

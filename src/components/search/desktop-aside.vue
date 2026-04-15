@@ -1,27 +1,34 @@
 <template>
-  <div class="x-flex x-min-h-0 x-flex-auto x-flex-col x-bg-neutral-0">
-    <div class="x-flex x-items-center x-border-b x-border-neutral-90 x-p-24 x-pl-40 x-pr-32">
-      <span class="x-title2 x-mr-auto x-uppercase">
+  <div class="xds:flex xds:min-h-0 xds:flex-auto xds:flex-col xds:bg-neutral-0">
+    <div
+      class="xds:flex xds:items-center xds:border-b xds:border-neutral-90 xds:p-24 xds:pr-32 xds:pl-40"
+    >
+      <span class="xds:mr-auto xds:title2 xds:uppercase">
         {{ $t('facetsPanel.title') }}
       </span>
-      <BaseIdModalClose class="x-button-lead x-button-circle x-button-ghost" modal-id="right-aside">
-        <CrossIcon class="x-icon-lg" />
+      <BaseIdModalClose
+        class="xds:button xds:button-circle xds:button-ghost xds:button-lead"
+        modal-id="right-aside"
+      >
+        <CrossIcon class="xds:icon-lg" />
       </BaseIdModalClose>
     </div>
-    <div class="x-scroll x-flex-auto x-p-40 x-pr-24 x-pt-0">
+    <div class="xds:scroll xds:flex-auto xds:p-40 xds:pt-0 xds:pr-24">
       <Sort />
       <CustomFacets v-if="x.totalResults > 0" />
     </div>
-    <div class="x-flex x-gap-16 x-border-t x-border-neutral-90 x-p-40 x-pb-16 x-pt-24">
+    <div
+      class="xds:flex xds:gap-16 xds:border-t xds:border-neutral-90 xds:p-40 xds:pt-24 xds:pb-16"
+    >
       <ClearFilters
         v-slot="{ selectedFilters }"
-        class="x-button-lead x-button-outlined x-flex-auto x-rounded-full x-p-24 x-py-12 x-uppercase"
+        class="xds:flex-auto xds:button-outlined xds:rounded-full xds:button-lead xds:p-24 xds:py-12 xds:uppercase"
         :always-visible="false"
       >
         {{ $t('selectedFilters.clear', selectedFilters.length, { count: selectedFilters.length }) }}
       </ClearFilters>
       <BaseIdModalClose
-        class="x-button-lead x-flex-auto x-rounded-full x-p-24 x-py-12 x-uppercase"
+        class="xds:flex-auto xds:rounded-full xds:button-lead xds:p-24 xds:py-12 xds:uppercase"
         modal-id="right-aside"
       >
         {{

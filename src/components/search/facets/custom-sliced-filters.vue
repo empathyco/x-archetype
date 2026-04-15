@@ -1,11 +1,11 @@
 <template>
-  <SlicedFilters :filters :parent-id :max button-class="x-facet-filter-lg x-mt-8 x-w-full">
+  <SlicedFilters :filters :parent-id :max button-class="xds:filter-facet-lg xds:mt-8 xds:w-full">
     <template #show-more>
-      <PlusIcon class="x-icon-lg" />
+      <PlusIcon class="xds:icon-lg" />
       {{ $t('filters.showMore') }}
     </template>
     <template #show-less>
-      <MinusIcon class="x-icon-lg" />
+      <MinusIcon class="xds:icon-lg" />
       {{ $t('filters.showLess') }}
     </template>
     <slot />

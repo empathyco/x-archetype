@@ -1,13 +1,13 @@
 <template>
-  <div v-if="x.totalResults > 0" class="x-flex x-min-h-0 x-flex-auto x-flex-col">
-    <BaseScroll class="x-flex-auto x-p-16 x-pt-0" :reset-on-change="false">
+  <div v-if="x.totalResults > 0" class="xds:flex xds:min-h-0 xds:flex-auto xds:flex-col">
+    <BaseScroll class="xds:flex-auto xds:p-16 xds:pt-0" :reset-on-change="false">
       <Sort />
       <CustomFacets />
     </BaseScroll>
-    <div class="x-flex x-flex-col x-border-t x-border-neutral-90">
+    <div class="xds:flex xds:flex-col xds:border-t xds:border-neutral-90">
       <SelectedFilters
         v-if="x.selectedFilters.length"
-        class="x-flex x-flex-col x-items-stretch x-gap-16 x-py-16"
+        class="xds:flex xds:flex-col xds:items-stretch xds:gap-16 xds:py-16"
       />
       <MobileCloseAside />
     </div>

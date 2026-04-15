@@ -1,21 +1,23 @@
 <template>
-  <div class="x-flex x-items-center x-gap-8">
+  <div class="xds:flex xds:items-center xds:gap-8">
     <SlidingPanel
-      class="x-sliding-panel-show-buttons-on-hover"
+      class="xds:sliding-panel-show-buttons-on-hover"
       :show-buttons="!isTouchable"
-      button-class="x-button-lead x-button-circle x-button-ghost x-p-0"
-      scroll-container-class="desktop:x-sliding-panel-fade"
+      button-class="xds:button xds:button-lead xds:button-circle xds:button-ghost xds:p-0"
+      scroll-container-class="xds:dektop:sliding-panel-fade"
       :reset-on-content-change="false"
     >
       <template #sliding-panel-left-button>
-        <ChevronLeftIcon class="x-icon-lg" />
+        <ChevronLeftIcon class="xds:icon-lg" />
       </template>
       <SelectedFiltersList
-        class="x-flex-no-shrink x-flex x-flex-row x-flex-wrap x-gap-8 max-desktop:x-pl-16"
+        class="xds:flex-no-shrink xds:flex xds:flex-row xds:flex-wrap xds:gap-8 xds:max-desktop:pl-16"
       >
         <template #default="{ filter }">
           <SimpleFilter
-            :css-classes="['x-selected x-tag x-tag-auxiliary x-tag-outlined x-rounded-full']"
+            :css-classes="[
+              'xds:selected xds:tag xds:tag-auxiliary xds:tag-outlined xds:rounded-full xds:grid',
+            ]"
             :filter="filter"
           >
             <template #label="{ filter: simpleFilter }">
@@ -27,7 +29,9 @@
 
         <template #price="{ filter }">
           <NumberRangeFilter
-            :css-classes="['x-selected x-tag x-tag-auxiliary x-tag-outlined x-rounded-full']"
+            :css-classes="[
+              'xds:selected xds:tag xds:tag-auxiliary xds:tag-outlined xds:rounded-full',
+            ]"
             :filter="filter"
           >
             <template #label="{ filter: numberRangeFilter }">
@@ -38,7 +42,7 @@
         </template>
       </SelectedFiltersList>
       <template #sliding-panel-right-button>
-        <ChevronRightIcon class="x-icon-lg" />
+        <ChevronRightIcon class="xds:icon-lg" />
       </template>
     </SlidingPanel>
 
@@ -46,7 +50,7 @@
       v-if="isDesktopOrGreater"
       v-slot="{ selectedFilters }"
       data-test="clear-filters-toolbar"
-      class="x-button-lead x-button-sm x-button-outlined x-flex-none x-rounded-full x-uppercase"
+      class="xds:button xds:button-sm xds:flex-none xds:button-outlined xds:rounded-full xds:button-lead xds:uppercase"
       :always-visible="false"
     >
       {{ $t('selectedFilters.clear', selectedFilters.length, { count: selectedFilters.length }) }}

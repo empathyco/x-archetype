@@ -1,5 +1,5 @@
 <template>
-  <div v-if="hasSearched" class="x-flex x-flex-col">
+  <div v-if="hasSearched" class="xds:flex xds:flex-col">
     <Redirection />
     <LocationProvider location="results">
       <Results />

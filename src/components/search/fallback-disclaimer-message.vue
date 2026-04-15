@@ -1,13 +1,13 @@
 <template>
-  <FallbackDisclaimer v-if="x.fromNoResultsWithFilters" class="x-fallback-message x-message">
+  <FallbackDisclaimer v-if="x.fromNoResultsWithFilters" class="x-fallback-message xds:message">
     <i18n-t
-      class="x-text1 desktop:x-text1-lg"
+      class="xds:text1 xds:desktop:text1-lg"
       keypath="fallbackDisclaimer.message"
       tag="p"
       scope="global"
     >
       <template #query>
-        <span class="x-w-auto x-font-bold">"{{ x.query.search }}"</span>
+        <span class="xds:w-auto xds:font-bold">"{{ x.query.search }}"</span>
       </template>
     </i18n-t>
   </FallbackDisclaimer>

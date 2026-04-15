@@ -211,28 +211,20 @@ Delete the following files from the project root:
 
 ## Step 5: Remove Docker Development Environment Code
 
-### Remove Docker Variable from Build Configuration
+### Remove Docker Variable from Vite Configuration
 
-Edit `build/instrumentation.build.mjs` and remove the Docker environment variable replacement:
+Edit `vite.config.ts` and remove the Docker environment variable handling if present.
 
-**Find and remove these lines:**
-
-```javascript
-'process.env.VUE_APP_DEVELOPMENT_DOCKER': JSON.stringify(
-  !!process.env.VUE_APP_DEVELOPMENT_DOCKER,
-),
-```
-
-This is typically found within the `replace()` plugin configuration around line 80.
+**Note**: The current archetype uses environment variables differently. Check if there are any `VITE_APP_DEVELOPMENT_DOCKER` references and remove them if they exist.
 
 ### Remove Docker Condition from Plugin Options
 
 Edit `src/x-components/plugin.options.ts` and remove the entire Docker development condition:
 
-**Find and remove the entire if block:**
+**Find and remove the entire if block (if present):**
 
 ```typescript
-if (process.env.VUE_APP_DEVELOPMENT_DOCKER) {
+if (import.meta.env.VITE_APP_DEVELOPMENT_DOCKER) {
   const { overrideAdapter } = await import('../adapter/docker.adapter')
   overrideAdapter(adapter)
   ;(window.initX as SnippetConfig).queriesPreview = [

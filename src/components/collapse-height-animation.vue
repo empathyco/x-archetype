@@ -15,7 +15,7 @@ defineProps<{
 }>()
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .x-collapse-height {
   display: grid;
   grid-template-rows: 1fr;
@@ -30,6 +30,7 @@ defineProps<{
 
 .x-collapse-height--is-collapsed {
   grid-template-rows: 0fr;
+
   & > * {
     visibility: hidden;
   }

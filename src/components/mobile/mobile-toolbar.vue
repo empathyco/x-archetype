@@ -1,11 +1,11 @@
 <template>
   <div
     v-if="x.totalResults"
-    class="x-flex x-w-full x-flex-row x-items-center x-justify-between x-gap-16"
+    class="xds:flex xds:w-full xds:flex-row xds:items-center xds:justify-between xds:gap-16"
   >
-    <div class="x-flex x-flex-auto x-items-center x-justify-end">
+    <div class="xds:flex xds:flex-auto xds:items-center xds:justify-end">
       <i18n-t
-        class="x-text1 x-flex-auto"
+        class="xds:flex-auto xds:text1"
         keypath="totalResults.message"
         tag="span"
         scope="global"
@@ -15,7 +15,7 @@
           {{ x.totalResults }}
         </template>
         <template #query>
-          <span class="x-title3">
+          <span class="xds:title3">
             {{ x.spellcheckedQuery || query }}
           </span>
         </template>
