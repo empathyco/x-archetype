@@ -5,7 +5,7 @@
     </template>
 
     <template #filters-modal>
-      <MobileAside v-if="hasSearched" class="x-z-20 x-w-full" />
+      <MobileAside v-if="hasSearched" class="xds:z-20 xds:w-full" />
     </template>
 
     <template #my-history-modal>
@@ -14,26 +14,26 @@
     </template>
 
     <template #main>
-      <MainScroll :use-window="true" class="x-main-scroll x-flex x-flex-col">
+      <MainScroll :use-window="true" class="x-main-scroll xds:flex xds:flex-col">
         <Scroll id="main-scroll">
           <section v-if="x.query.search" class="x-layout-padding">
             <LocationProvider location="results">
-              <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
+              <SpellcheckMessage class="xds:mb-16" data-test="spellcheck-message" />
             </LocationProvider>
             <NoResultsMessage
               v-if="showNoResultsMessage"
-              class="x-mb-16"
+              class="xds:mb-16"
               data-test="no-results-message"
             />
-            <FallbackDisclaimerMessage class="x-mb-16" data-test="fallback-message" />
+            <FallbackDisclaimerMessage class="xds:mb-16" data-test="fallback-message" />
           </section>
           <LocationProvider location="results">
             <MainComponent />
           </LocationProvider>
           <PageLoaderButton
             v-if="x.query.searchBox && x.results.length > 0"
-            button-classes="x-button-outlined x-button-lead x-rounded-sm hover:x-bg-accent-25 x-text-neutral-75 hover:x-text-neutral-75 x-text2 x-text2-lg x-px-[42px] x-py-12"
-            :class="{ '!x-hidden': x.results.length >= x.totalResults }"
+            button-classes="xds:button-outlined xds:button-lead xds:rounded-sm xds:hover:bg-accent-25 xds:text-neutral-75 xds:hover:text-neutral-75 xds:text2 xds:text2-lg xds:px-[42px] xds:py-12"
+            :class="{ 'xds:hidden!': x.results.length >= x.totalResults }"
           >
             <template #textContent>
               <div></div>
@@ -45,12 +45,14 @@
     </template>
 
     <template #overlay>
-      <div class="x-mb-32 x-grid x-min-h-48 x-w-full x-grid-cols-12 x-items-center x-gap-24">
+      <div
+        class="xds:mb-32 xds:grid xds:min-h-48 xds:w-full xds:grid-cols-12 xds:items-center xds:gap-24"
+      >
         <MobileOpenAside
           v-if="x.totalResults > 0"
-          class="x-pointer-events-auto x-col-span-8 x-col-start-3 x-max-h-[40px] tablet:x-col-span-4 tablet:x-col-start-5"
+          class="xds:pointer-events-auto xds:col-span-8 xds:col-start-3 xds:max-h-40 xds:tablet:col-span-4 xds:tablet:col-start-5"
         />
-        <ScrollToTop class="x-button-lg x-pointer-events-auto x-col-start-11" />
+        <ScrollToTop class="xds:pointer-events-auto xds:col-start-11 xds:button-lg" />
       </div>
     </template>
   </MobileLayout>
@@ -66,6 +68,7 @@ import {
 } from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent, defineComponent, h } from 'vue'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import MainComponent from '../main.vue'
 import MobileLayout from '../mobile/mobile-layout.vue'
@@ -102,8 +105,12 @@ export default defineComponent({
     const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
     const { hasSearched } = useHasSearched()
     const { relatedPrompts } = useState('relatedPrompts')
+    const { getControlFromPath } = useExperienceControls()
+    const aiSearchFallback = getControlFromPath('aiSearchFallback')
 
-    const showNoResultsMessage = computed(() => !relatedPrompts.value?.length)
+    const showNoResultsMessage = computed(
+      () => !aiSearchFallback.value && !relatedPrompts.value?.length,
+    )
 
     return {
       filtersAsideAnimation,
@@ -118,7 +125,7 @@ export default defineComponent({
 
 <style scoped>
 .x-layout-padding {
-  padding-inline: var(--x-layout-min-margin);
+  padding-inline: var(--xds-layout-min-margin);
 }
 .x-scroll-to-top {
   justify-self: start !important;

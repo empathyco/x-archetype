@@ -1,23 +1,23 @@
 <template>
   <BaseTeleport :target="searchBoxTarget">
-    <section v-if="isDesktopOrGreater" class="x-relative">
+    <section v-if="isDesktopOrGreater" class="xds:relative">
       <SearchBox />
       <LocationProvider location="predictive_layer">
-        <PredictiveLayer v-if="openPredictiveLayer" class="x-absolute x-shadow-lg" />
+        <PredictiveLayer v-if="openPredictiveLayer" class="xds:absolute xds:shadow-lg" />
       </LocationProvider>
     </section>
     <section v-else>
-      <div class="x-flex x-w-full x-gap-8 x-bg-neutral-0 x-px-8">
+      <div class="xds:flex xds:w-full xds:gap-8 xds:bg-neutral-0 xds:px-8">
         <button @click="closeEmpathize">
-          <ChevronLeftIcon v-if="x.query.searchBox" class="x-icon x-text-neutral-75" />
-          <CrossTinyIcon v-else class="x-icon x-icon-lg x-text-neutral-75" />
+          <ChevronLeftIcon v-if="x.query.searchBox" class="xds:icon xds:text-neutral-75" />
+          <CrossTinyIcon v-else class="xds:icon xds:icon-lg xds:text-neutral-75" />
         </button>
-        <SearchBox class="x-flex-1" />
+        <SearchBox class="xds:flex-1" />
       </div>
       <LocationProvider location="predictive_layer">
         <PredictiveLayer
           v-if="openPredictiveLayer"
-          class="x-layout-min-margin-16 x-absolute x-left-0 x-w-full desktop:x-h-[600px]"
+          class="xds:absolute xds:left-0 xds:w-full xds:layout-min-margin-16 xds:desktop:h-150"
         />
       </LocationProvider>
     </section>
@@ -28,23 +28,23 @@
     <MobileTeleport v-else />
   </BaseTeleport>
 
-  <div class="x-z-40">
+  <div class="xds:z-40">
     <BaseIdModal
       key="my-history-aside"
-      class="!x-z-[50]"
+      class="xds:z-50!"
       :animation="rightAsideAnimation"
       modal-id="my-history-aside"
-      content-class="x-w-512 x-ml-auto x-h-full"
+      content-class="xds:w-512 xds:ml-auto xds:h-full"
     >
       <MyHistoryAside />
     </BaseIdModal>
 
     <BaseIdModal
       key="right-aside"
-      class="!x-z-[5]"
+      class="xds:z-5!"
       :animation="rightAsideAnimation"
       modal-id="right-aside"
-      content-class="!x-w-512 x-ml-auto x-h-full"
+      content-class="xds:w-512! xds:ml-auto xds:h-full"
     >
       <DesktopAside v-if="hasSearched" />
     </BaseIdModal>

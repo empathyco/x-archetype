@@ -1,9 +1,9 @@
 <template>
-  <div class="x-flex x-flex-auto x-flex-col">
+  <div class="xds:flex xds:flex-auto xds:flex-col">
     <LocationProvider location="predictive_layer">
-      <RelatedTags v-if="hasSearched" class="x-pb-16" />
+      <RelatedTags v-if="hasSearched" class="xds:pb-16" />
     </LocationProvider>
-    <MobileToolbar v-if="hasSearched" class="x-mb-16" />
+    <MobileToolbar v-if="hasSearched" class="xds:mb-16" />
   </div>
 </template>
 

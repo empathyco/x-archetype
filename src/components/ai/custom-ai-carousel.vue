@@ -1,11 +1,11 @@
 <template>
   <AiCarousel
-    class="x-mb-32 x-mt-6 [--x-ai-carousel-color-lighter:theme(colors.neutral.10)] [--x-ai-carousel-color:theme(colors.neutral.50)]"
+    class="[--x-ai-carousel-color-lighter:var(--xds-color-neutral-10)] [--x-ai-carousel-color:var(--xds-color-neutral-50)] xds:mt-6 xds:mb-32"
   >
     <template #result="{ result }: { result: ResultType }">
       <Result
         :key="result.id"
-        class="x-w-[35vw] x-rounded-md x-bg-neutral-0 x-p-3 desktop:x-w-[216px]"
+        class="xds:w-[35vw] xds:rounded-md xds:bg-neutral-0 xds:p-3 xds:desktop:w-54"
         :result="result"
       />
     </template>

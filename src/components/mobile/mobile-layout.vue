@@ -1,20 +1,20 @@
 <template>
   <div
-    class="x-layout x-layout-mobile x-layout-max-width-md x-layout-min-margin-16"
+    class="x-layout x-layout-mobile xds:layout-max-width-md xds:layout-min-margin-16"
     :class="{
       'x-layout--no-query': !x.query.search,
       'x-layout--no-results': x.noResults,
       'x-layout--collapsed': isScrollingDown,
     }"
   >
-    <header class="x-layout__header x-layout-item x-bg-neutral-0">
+    <header class="x-layout__header xds:layout-item xds:bg-neutral-0">
       <div class="x-layout__header-content">
         <!-- @slot Slot that can be used to insert content into the bottom part of the header. -->
         <slot name="header" :is-header-collapsed="isScrollingDown" />
       </div>
     </header>
 
-    <div class="x-layout__sub-header x-layout-stack">
+    <div class="x-layout__sub-header xds:layout-stack">
       <slot name="sub-header" />
     </div>
 
@@ -29,8 +29,8 @@
       modal-id="aside-modal"
       :animation="filtersAnimation"
       class="x-layout__filters-modal"
-      content-class="x-mt-64 x-w-full !x-h-[calc(100%-64px)] x-fixed x-flex-1 x-rounded-t-lg x-bg-neutral-0
-         desktop:x-rounded-none desktop:x-m-0"
+      content-class="xds:mt-64 xds:w-full xds:h-[calc(100%-64px)]! xds:fixed xds:flex-1 xds:rounded-t-lg xds:bg-neutral-0
+         xds:desktop:rounded-none xds:desktop:m-0"
     >
       <slot name="filters-modal" />
     </BaseIdModal>
@@ -40,16 +40,16 @@
       modal-id="my-history-aside"
       :animation="myHistoryAnimation"
       class="x-layout__my-history-modal"
-      content-class="x-bg-neutral-0"
+      content-class="xds:bg-neutral-0"
     >
       <slot name="my-history-modal" />
     </BaseIdModal>
 
-    <main class="x-layout__main x-flex x-flex-col x-flex-nowrap">
+    <main class="x-layout__main xds:flex xds:flex-col xds:flex-nowrap">
       <MainScroll>
         <Scroll
           id="main-scroll"
-          class="x-layout__main-scroll x-collapsible x-flex x-flex-auto x-flex-col"
+          class="x-layout__main-scroll x-collapsible xds:flex xds:flex-auto xds:flex-col"
           @scroll="closeEmpathize"
         >
           <!-- @slot Slot that can be used to insert content into the Main. -->
@@ -58,7 +58,7 @@
       </MainScroll>
     </main>
 
-    <div class="x-layout__overlay x-pointer-events-none">
+    <div class="x-layout__overlay xds:pointer-events-none">
       <slot name="overlay" :is-header-collapsed="isScrollingDown" />
     </div>
   </div>
@@ -161,7 +161,7 @@ const isScrollingDown = hasScrolledPastThreshold
   flex-wrap: nowrap;
   align-items: stretch;
   justify-content: stretch;
-  margin-inline: var(--x-layout-min-margin);
+  margin-inline: var(--xds-layout-min-margin);
 }
 
 .x-layout__filters-modal,
@@ -174,7 +174,7 @@ const isScrollingDown = hasScrolledPastThreshold
 .x-layout__overlay {
   position: fixed;
   bottom: 0;
-  padding-inline: var(--x-layout-min-margin);
+  padding-inline: var(--xds-layout-min-margin);
   width: 100%;
 }
 
@@ -187,6 +187,6 @@ const isScrollingDown = hasScrolledPastThreshold
 }
 
 .x-layout__main-scroll {
-  padding-inline: var(--x-layout-min-margin);
+  padding-inline: var(--xds-layout-min-margin);
 }
 </style>

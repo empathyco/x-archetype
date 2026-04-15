@@ -1,7 +1,7 @@
 <template>
-  <div class="x-flex x-flex-col x-gap-4">
-    <div class="x-flex x-min-h-32 x-items-center">
-      <h1 class="x-title4 x-title4-sm x-py-8 x-uppercase desktop:x-p-0">
+  <div class="xds:flex xds:flex-col xds:gap-4">
+    <div class="xds:flex xds:min-h-32 xds:items-center">
+      <h1 class="xds:py-8 xds:title4 xds:title4-sm xds:uppercase xds:desktop:p-0">
         {{ $t('nextQueries.title') }}
       </h1>
     </div>
@@ -9,28 +9,28 @@
       :is="horizontalLayout ? SlidingPanel : 'div'"
       :show-buttons="false"
       :reset-on-content-change="false"
-      button-class="x-button-lead x-button-circle x-button-ghost x-p-0"
+      button-class="xds:button-lead xds:button-circle xds:button-ghost xds:p-0"
     >
       <NextQueries
         :animation="animation"
         :max-items-to-render="horizontalLayout ? 5 : 3"
-        class="x-flex x-flex-col x-gap-8 desktop:x-gap-4"
-        :class="{ 'x-suggestions--horizontal': horizontalLayout }"
+        class="xds:flex xds:flex-col xds:gap-8 xds:desktop:gap-4"
+        :class="{ 'xds:suggestions--horizontal': horizontalLayout }"
       >
         <template #suggestion="{ suggestion }">
           <NextQuery
-            class="x-suggestion"
+            class="xds:suggestion"
             :class="{
-              'x-suggestion-outlined': horizontalLayout,
-              'x-suggestion-lg desktop:x-suggestion-md': !horizontalLayout,
+              'xds:suggestion-outlined': horizontalLayout,
+              'xds:suggestion-lg xds:desktop:suggestion-md': !horizontalLayout,
             }"
             :suggestion="suggestion"
           >
             <CuratedCheckIcon
               v-if="suggestion.isCurated"
-              class="x-icon-lg x-mb-4 desktop:x-icon-md desktop:x-mb-0"
+              class="xds:mb-4 xds:icon-lg xds:desktop:mb-0 xds:desktop:icon-md"
             />
-            <LightBulbOn v-else class="x-icon-lg x-mb-4 desktop:x-icon-md desktop:x-mb-0" />
+            <LightBulbOn v-else class="xds:mb-4 xds:icon-lg xds:desktop:mb-0 xds:desktop:icon-md" />
             <span>{{ suggestion.query }}</span>
           </NextQuery>
         </template>

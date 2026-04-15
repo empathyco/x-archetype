@@ -1,10 +1,10 @@
 <template>
   <div
     v-if="x.recommendations.length > 0"
-    class="x-flex x-flex-col x-items-start x-gap-16 x-pb-32 desktop:x-items-center desktop:x-gap-24"
+    class="xds:flex xds:flex-col xds:items-start xds:gap-16 xds:pb-32 xds:desktop:items-center xds:desktop:gap-24"
     data-wysiwyg="recommendations"
   >
-    <h1 class="x-title1 x-title1-sm x-text-neutral-90 desktop:x-title1-md">
+    <h1 class="xds:title1 xds:title1-sm xds:text-neutral-90 xds:desktop:title1-md">
       {{ $t('recommendations.title') }}
     </h1>
     <Recommendations v-if="!x.totalResults">
@@ -15,7 +15,7 @@
             :animation="staggeredFadeAndSlide"
             :columns="columns"
             :items="recommendations"
-            class="x-gap-x-16 x-gap-y-32"
+            class="xds:gap-x-16 xds:gap-y-32"
           >
             <Result :result="result" data-test="recommendation-item" />
           </BaseGrid>

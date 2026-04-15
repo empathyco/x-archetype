@@ -2,9 +2,9 @@
   <CollapseHeightAnimation :is-collapsed="hasScrolledPastThreshold">
     <MaxDesktopWidthItem>
       <DesktopSearchboxAlign>
-        <div class="x-layout-item" :class="{ 'x-grid x-grid-cols-6': !isFullPredictive }">
+        <div class="xds:layout-item" :class="{ 'xds:grid xds:grid-cols-6': !isFullPredictive }">
           <LocationProvider location="predictive_layer">
-            <RelatedTags v-if="x.relatedTags.length > 0" class="x-pb-24" />
+            <RelatedTags v-if="x.relatedTags.length > 0" class="xds:pb-24" />
           </LocationProvider>
         </div>
       </DesktopSearchboxAlign>
@@ -13,7 +13,7 @@
         <DesktopToolbar />
       </div>
       <div v-if="x.totalResults > 0 && hasSearched && x.selectedFilters.length">
-        <SelectedFilters class="x-py-16" />
+        <SelectedFilters class="xds:py-16" />
       </div>
     </MaxDesktopWidthItem>
   </CollapseHeightAnimation>

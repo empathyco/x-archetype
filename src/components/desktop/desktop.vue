@@ -1,26 +1,26 @@
 <template>
-  <div class="x-layout-container">
+  <div class="xds:layout-container">
     <DesktopTopSection />
 
-    <MainScroll class="x-flex x-flex-col">
+    <MainScroll class="xds:flex xds:flex-col">
       <Scroll id="main-scroll">
         <MaxDesktopWidthItem>
           <div v-if="hasSearched">
             <LocationProvider location="results">
-              <SpellcheckMessage class="x-mb-16" data-test="spellcheck-message" />
+              <SpellcheckMessage class="xds:mb-16" data-test="spellcheck-message" />
             </LocationProvider>
 
             <NoResultsMessage
               v-if="showNoResultsMessage"
-              class="x-mb-16"
+              class="xds:mb-16"
               data-test="no-results-message"
             />
 
-            <FallbackDisclaimerMessage class="x-mb-16" />
+            <FallbackDisclaimerMessage class="xds:mb-16" />
           </div>
 
           <LocationProvider location="no_query">
-            <PreSearchManager :max-popular-searches-to-render="5" class="x-mt-56" />
+            <PreSearchManager :max-popular-searches-to-render="5" class="xds:mt-56" />
           </LocationProvider>
 
           <LocationProvider location="results">
@@ -30,16 +30,16 @@
       </Scroll>
     </MainScroll>
 
-    <MaxDesktopWidthItem class="x-layout-on-margin-right x-layout-overlap">
+    <MaxDesktopWidthItem class="xds:layout-overlap xds:layout-on-margin-right">
       <ScrollToTop />
     </MaxDesktopWidthItem>
 
-    <div class="x-z-20">
+    <div class="xds:z-20">
       <BaseIdModal
         key="right-aside"
         :animation="rightAsideAnimation"
         modal-id="right-aside"
-        content-class="!x-w-512 x-ml-auto"
+        content-class="xds:w-512! xds:ml-auto"
       >
         <DesktopAside v-if="hasSearched" />
       </BaseIdModal>
@@ -48,7 +48,7 @@
         key="my-history-aside"
         :animation="rightAsideAnimation"
         modal-id="my-history-aside"
-        content-class="!x-w-512 x-ml-auto"
+        content-class="xds:w-512! xds:ml-auto"
       >
         <MyHistoryAside />
       </BaseIdModal>
@@ -68,6 +68,7 @@ import {
 } from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent, h } from 'vue'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import MainComponent from '../main.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
@@ -76,14 +77,6 @@ import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disab
 import PreSearchManager from '../pre-search/pre-search-manager.vue'
 import ScrollToTop from '../scroll-to-top.vue'
 import DesktopTopSection from './desktop-top-section.vue'
-
-const x = use$x()
-const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
-const { hasSearched } = useHasSearched()
-const { relatedPrompts } = useState('relatedPrompts')
-const showNoResultsMessage = computed(
-  () => !relatedPrompts.value?.length && !x.semanticQueries.length,
-)
 
 const DesktopAside = defineAsyncComponent(() => import('../search').then(m => m.DesktopAside))
 const NoResultsMessage = defineAsyncComponent(() =>
@@ -95,10 +88,16 @@ const SpellcheckMessage = defineAsyncComponent(() =>
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
   import('../search').then(m => m.FallbackDisclaimerMessage),
 )
-</script>
 
-<style>
-.x-layout-item > * {
-  min-width: 0;
-}
-</style>
+const x = use$x()
+const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
+
+const { hasSearched } = useHasSearched()
+const { relatedPrompts } = useState('relatedPrompts')
+const { getControlFromPath } = useExperienceControls()
+const aiSearchFallback = getControlFromPath('aiSearchFallback')
+
+const showNoResultsMessage = computed(
+  () => !aiSearchFallback.value && !relatedPrompts.value?.length && !x.semanticQueries.length,
+)
+</script>

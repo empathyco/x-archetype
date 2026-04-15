@@ -1,6 +1,6 @@
 <template>
   <svg
-    class="x-icon-my-history"
+    class="x-icon-my-history xds:icon"
     fill="none"
     viewBox="0 0 252 120"
     xmlns="http://www.w3.org/2000/svg"

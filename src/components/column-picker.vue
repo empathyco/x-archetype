@@ -1,15 +1,15 @@
 <template>
-  <div class="x-flex x-items-center x-gap-8">
-    <span class="x-title4">{{ $t('columnPicker.message') }}</span>
+  <div class="xds:flex xds:items-center xds:gap-8">
+    <span class="xds:title4">{{ $t('columnPicker.message') }}</span>
     <BaseColumnPickerList
       :columns="values"
-      button-class="x-button-sm x-button-circle x-button-ghost x-text-neutral-90"
+      button-class="xds:button xds:button-circle xds:button-sm xds:button-ghost xds:ps-0 xds:pe-0"
     >
       <template #divider>
-        <span class="x-button-group-divider x-mx-8 x-text-neutral-25" />
+        <span class="xds:mx-8 xds:button-group-divider xds:text-neutral-25" />
       </template>
       <template #default="{ column }: { column: 1 | 2 | 4 }">
-        <component :is="icons[column]" class="x-icon-lg" />
+        <component :is="icons[column]" class="xds:icon-lg" />
       </template>
     </BaseColumnPickerList>
   </div>

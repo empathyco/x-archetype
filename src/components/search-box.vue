@@ -1,34 +1,34 @@
 <template>
-  <div class="x-input-group x-input-group-lead x-rounded-sm">
+  <div class="xds:input-group xds:rounded-sm xds:input-group-lead">
     <SearchInput
       ref="searchInputRef"
       :autofocus="false"
       :placeholder="$t('searchBox.placeholder')"
       :instant="!!isDesktopOrGreater"
-      class="desktop:!x-pl-24"
+      class="xds:input xds:desktop:pl-24!"
     />
 
-    <button class="x-input-group-button x-rounded-full" @click="toggleVoiceRecognition">
+    <button class="xds:input-group-button xds:rounded-full" @click="toggleVoiceRecognition">
       <span v-if="isListening">🛑</span>
       <span v-else>🎤</span>
     </button>
 
     <ClearSearchInput
       v-if="isDesktopOrGreater && x.query.searchBox"
-      class="x-input-group-button x-input-group-button-rectangle"
+      class="xds:input-group-button xds:input-group-button-rectangle"
     >
       {{ $t('searchBox.clear') }}
     </ClearSearchInput>
 
     <SearchButton
       v-if="isDesktopOrGreater || !x.query.searchBox"
-      class="x-input-group-button-primary"
+      class="xds:input-group-button-primary xds:input-group-button xds:p-0"
     >
-      <SearchIcon class="x-icon-md" />
+      <SearchIcon />
     </SearchButton>
 
-    <ClearSearchInput v-else class="x-input-group-button-primary">
-      <CrossTinyIcon class="x-icon-lg" />
+    <ClearSearchInput v-else class="xds:input-group-button-primary xds:input-group-button">
+      <CrossTinyIcon class="xds:icon-lg" />
     </ClearSearchInput>
   </div>
 </template>

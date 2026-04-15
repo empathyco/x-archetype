@@ -1,11 +1,11 @@
 <template>
   <ScrollToTop
-    class="x-button-lead x-button-circle x-layout-on-margin-right x-justify-self-end desktop:x-mb-16 desktop:x-mr-16"
+    class="xds:layout-on-margin-right xds:button xds:button-circle xds:justify-self-end xds:button-lead xds:desktop:mr-16 xds:desktop:mb-16"
     scroll-id="main-scroll"
     :threshold-px="100"
     :animation="animation"
   >
-    <ChevronUpIcon class="x-icon-lg desktop:x-icon-md" />
+    <ChevronUpIcon class="xds:icon-lg xds:desktop:icon-md" />
   </ScrollToTop>
 </template>
 
