@@ -33,7 +33,7 @@
         <NextQuery
           v-for="(suggestion, index) in x.nextQueries"
           :key="index"
-          class="xds:tag xds:h-40 xds:gap-8 xds:tag-neutral xds:tag-solid xds:bg-neutral-0 xds:px-16 xds:text-neutral-50"
+          class="xds:tag xds:h-40 xds:gap-8 xds:tag-neutral xds:bg-neutral-0 xds:px-16 xds:text-neutral-50"
           :suggestion="suggestion"
         >
           <span>{{ suggestion.query }}</span>
