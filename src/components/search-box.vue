@@ -15,7 +15,7 @@
 
     <ClearSearchInput
       v-if="isDesktopOrGreater && x.query.searchBox"
-      class="xds:input-group-button xds:input-group-button-rectangle"
+      class="xds: xds:input-group-button xds:input-group-button-rectangle xds:hover:bg-neutral-10"
     >
       {{ $t('searchBox.clear') }}
     </ClearSearchInput>

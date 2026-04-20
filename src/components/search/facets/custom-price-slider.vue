@@ -102,17 +102,16 @@ watch([() => selectedRange.value.min, () => selectedRange.value.max], () => {
 </script>
 
 <style>
-.x-price-slider {
+.x-price-slider .x-base-slider__nouislider {
+  height: 4px;
+}
+
+.x-price-slider .noUi-base {
   .noUi-connect {
     background: var(--xds-color-lead-50);
     height: 4px;
   }
-  .x-base-slider__nouislider {
-    height: 4px;
-  }
-}
 
-.x-price-slider {
   .noUi-handle {
     height: 24px;
     width: 24px;

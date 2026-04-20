@@ -21,12 +21,12 @@
       </BaseResultLink>
 
       <BaseEventButton
-        class="xds:absolute xds:top-0 xds:right-0 xds:flex xds:button-circle xds:h-40 xds:w-40 xds:items-center xds:justify-center xds:justify-items-center"
+        class="xds:absolute xds:top-0 xds:right-0 xds:button xds:h-40 xds:w-40 xds:button-ghost xds:hover:bg-transparent!"
         :events="onWishlistClickEvents"
       >
         <HeartIcon
-          class="xds:mt-4 xds:icon-lg xds:hover:fill-red-500"
-          :class="{ 'xds:fill-red-500': isWishListed }"
+          class="xds:mt-4 xds:icon-lg xds:hover:fill-red-300"
+          :class="{ 'xds:fill-red-500 xds:hover:fill-red-500': isWishListed }"
         />
       </BaseEventButton>
 
