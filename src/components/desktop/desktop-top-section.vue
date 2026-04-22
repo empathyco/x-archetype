@@ -7,7 +7,7 @@
       data-test="sub-header"
       :has-searched="hasSearched"
       :is-full-predictive="isFullPredictiveLayer"
-      class="x-layout-item"
+      class="xds:layout-item"
     />
   </div>
 </template>

@@ -2,16 +2,16 @@
   <BaseSlider
     v-model="selectedRange"
     :threshold="threshold"
-    class="x-price-slider x-flex x-pb-24"
-    content-class="x-bg-neutral-15 x-h-8 x-my-16 !x-px-12 x-border-none"
+    class="x-price-slider xds:flex xds:pb-24"
+    content-class="xds:bg-neutral-15 xds:h-8 xds:my-16 xds:px-12! xds:border-none"
   >
-    <div class="x-flex x-flex-grow x-justify-between x-gap-8">
-      <div class="x-flex x-flex-col">
+    <div class="xds:flex xds:grow xds:justify-between xds:gap-8">
+      <div class="xds:flex xds:flex-col">
         <div
-          class="x-flex x-h-[40px] x-w-[165px] x-rounded-sm x-border-[1.4px] x-border-neutral-90 x-pl-16 x-pr-16 desktop:x-w-[184px]"
+          class="xds:flex xds:h-40 xds:w-41.25 xds:rounded-sm xds:border-[1.4px] xds:border-neutral-90 xds:pr-16 xds:pl-16 xds:desktop:w-46"
         >
           <input
-            class="x-my-8 x-max-w-[80px] x-text-center placeholder:x-text-neutral-75"
+            class="xds:my-8 xds:max-w-80 xds:text-center xds:placeholder:text-neutral-75"
             name="min"
             type="number"
             :value="Math.floor(selectedRange.min)"
@@ -22,12 +22,12 @@
         </div>
       </div>
 
-      <div class="x-flex x-flex-col">
+      <div class="xds:flex xds:flex-col">
         <div
-          class="x-flex x-h-[40px] x-w-[165px] x-rounded-sm x-border-[1.4px] x-border-neutral-90 x-pl-16 x-pr-16 desktop:x-w-[184px]"
+          class="xds:flex xds:h-40 xds:w-41.25 xds:rounded-sm xds:border-[1.4px] xds:border-neutral-90 xds:pr-16 xds:pl-16 xds:desktop:w-46"
         >
           <input
-            class="x-my-8 x-max-w-[80px] x-text-center placeholder:x-text-neutral-75"
+            class="xds:my-8 xds:max-w-80 xds:text-center xds:placeholder:text-neutral-75"
             name="max"
             type="number"
             :value="Math.floor(selectedRange.max)"
@@ -101,24 +101,23 @@ watch([() => selectedRange.value.min, () => selectedRange.value.max], () => {
 })
 </script>
 
-<style lang="scss">
-.x-price-slider {
-  .noUi-connect {
-    background: theme('colors.lead.50');
-    height: 4px;
-  }
-  .x-base-slider__nouislider {
-    height: 4px;
-  }
+<style>
+.x-price-slider .x-base-slider__nouislider {
+  height: 4px;
 }
 
-.x-price-slider {
+.x-price-slider .noUi-base {
+  .noUi-connect {
+    background: var(--xds-color-lead-50);
+    height: 4px;
+  }
+
   .noUi-handle {
     height: 24px;
     width: 24px;
     top: -10px;
     right: -12px; /* half the width */
-    background: theme('colors.lead.50');
+    background: var(--xds-color-lead-50);
     box-shadow: none;
     clip-path: circle(50%);
     border: none;

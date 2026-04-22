@@ -1,20 +1,23 @@
 <template>
   <MaxDesktopWidthItem
-    class="x-layout-no-margin-left x-layout-no-margin-right x-my-24"
-    :class="{ 'x-my-0': x.noResults }"
+    class="xds:my-24 xds:layout-no-margin-left xds:layout-no-margin-right"
+    :class="{ 'xds:my-0': x.noResults }"
   >
     <Message data-test="no-results-message">
       <div :key="aiState" data-test="no-results-info">
         <span
-          class="x-message x-title3 x-text-neutral-90 desktop:x-title2"
+          class="xds:message xds:title3 xds:text-neutral-90 xds:desktop:title2"
           data-test="no-results-title"
         >
           {{ $t(`aiFallback.${aiState}.title`) }}
         </span>
-        <span v-if="aiLoading" class="x-message x-pt-0" data-test="no-results-icon">
-          <AiSpinnerIcon class="x-h-64 x-w-64" />
+        <span v-if="aiLoading" class="xds:message xds:pt-0" data-test="no-results-icon">
+          <AISpinnerIcon class="xds:h-64 xds:w-64" />
         </span>
-        <span class="x-message x-text1 x-pt-0 x-text-neutral-90" data-test="no-results-subtitle">
+        <span
+          class="xds:message xds:pt-0 xds:text1 xds:text-neutral-90"
+          data-test="no-results-subtitle"
+        >
           {{ $t(`aiFallback.${aiState}.subtitle`) }}
         </span>
       </div>
@@ -28,9 +31,8 @@
 
 <script setup lang="ts">
 import type { FeatureLocation } from '@empathyco/x-components'
-import { LocationProvider, Message, use$x, useState } from '@empathyco/x-components'
+import { AISpinnerIcon, LocationProvider, Message, use$x, useState } from '@empathyco/x-components'
 import { computed, ref, watchEffect } from 'vue'
-import AiSpinnerIcon from '../icons/ai-spinner-icon.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
 import CustomAiCarousel from './custom-ai-carousel.vue'
 import CustomAiOverview from './custom-ai-overview.vue'

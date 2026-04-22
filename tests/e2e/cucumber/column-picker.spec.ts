@@ -5,13 +5,13 @@ Then('grid shows {int} results per row', (columns: number) => {
 })
 
 When('value {int} from column picker list is clicked', (columns: number) => {
-  cy.get(`.x-column-picker-list__button--${columns}-cols`).click({ scrollBehavior: false })
+  cy.getShadowRoot()
+    .find(`.x-column-picker-list__button--${columns}-cols`)
+    .click({ scrollBehavior: false })
 })
 
 Then('column picker list value {int} is selected', (columns: number) => {
-  cy.get(`.x-column-picker-list__button--${columns}-cols`).should(
-    'have.attr',
-    'aria-pressed',
-    'true',
-  )
+  cy.getShadowRoot()
+    .find(`.x-column-picker-list__button--${columns}-cols`)
+    .should('have.attr', 'aria-pressed', 'true')
 })

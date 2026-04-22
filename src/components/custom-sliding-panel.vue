@@ -6,15 +6,13 @@
     <SlidingPanel
       :show-buttons="!isTouchable"
       :reset-on-content-change="false"
-      button-class="x-button-lead x-button-circle x-button-ghost x-p-0"
-      scroll-container-class="desktop:x-sliding-panel-fade desktop:x-sliding-panel-fade-sm"
-      class="x-sliding-panel-show-buttons-on-hover"
+      button-class="xds:button xds:button-lead xds:button-circle xds:button-ghost xds:p-0"
     >
       <template #sliding-panel-left-button>
-        <ChevronLeftIcon class="x-icon-lg" />
+        <ChevronLeftIcon class="xds:icon-lg" />
       </template>
       <template #sliding-panel-right-button>
-        <ChevronRightIcon class="x-icon-lg" />
+        <ChevronRightIcon class="xds:icon-lg" />
       </template>
       <slot />
     </SlidingPanel>

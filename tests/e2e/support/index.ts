@@ -91,6 +91,7 @@ export interface CustomDualCommands {
    * @returns A Chainable object.
    */
   getByDataTest: (value: string, options?: CypressCommandOptions) => Cypress.Chainable<JQuery>
+  getShadowRoot: () => Cypress.Chainable<JQuery>
 }
 
 type AddPreviousParam<Functions extends Record<keyof Functions, AnyFunction>> = {
@@ -118,8 +119,11 @@ const customCommands: CustomCommands = {
 const customDualCommands: AddPreviousParam<CustomDualCommands> = {
   getByDataTest: (previous, value, options?: CypressCommandOptions) => {
     const selector = `[data-test=${value}]`
-    return previous ? cy.wrap(previous).find(selector, options) : cy.get(selector, options)
+    return previous
+      ? cy.getShadowRoot().wrap(previous).find(selector, options)
+      : cy.getShadowRoot().find(selector, options)
   },
+  getShadowRoot: () => cy.get('.x-root-container').shadow(),
 }
 
 // Register the commands

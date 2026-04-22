@@ -1,7 +1,7 @@
 <template>
   <!-- eslint-disable max-len -->
   <svg
-    class="x-icon x-icon-lg"
+    class="xds:icon xds:icon-lg"
     :class="`${animationClass} ${fillClass}`"
     width="21"
     height="20"
@@ -25,6 +25,6 @@ interface Props {
 }
 withDefaults(defineProps<Props>(), {
   animationClass: 'x-animate-spin',
-  fillClass: 'x-text-neutral-0',
+  fillClass: 'xds:text-neutral-0',
 })
 </script>

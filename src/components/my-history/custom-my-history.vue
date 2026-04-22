@@ -1,37 +1,37 @@
 <template>
-  <div class="x-flex-1">
+  <div class="xds:flex-1">
     <BaseIdModalClose modal-id="my-history-aside">
       <template #closing-element="{ closeModal }">
         <MyHistory
           v-if="x.isHistoryQueriesEnabled && x.fullHistoryQueries.length"
           :animation="animation"
-          class="x-px-16 x-pb-32 desktop:x-pl-32"
-          queries-list-class="x-gap-16"
+          class="xds:px-16 xds:pb-32 xds:desktop:pl-32"
+          queries-list-class="xds:gap-16"
         >
           <template #date="{ date }">
-            <div class="x-title4 x-title4-sm x-py-16 x-text-neutral-75">{{ date }}</div>
+            <div class="xds:py-16 xds:title4 xds:title4-sm xds:text-neutral-75">{{ date }}</div>
           </template>
 
           <template #suggestion="{ suggestion, formatTime }">
             <HistoryQuery
               data-test="my-history-query"
               :suggestion="suggestion"
-              suggestion-class="x-suggestion"
-              class="hover:x-no-underline"
+              suggestion-class="xds:suggestion"
+              class="xds:hover:no-underline"
               @click="closeModal"
             >
-              <HistoryIcon class="max-desktop:x-icon-lg" />
+              <HistoryIcon class="xds:max-desktop:icon-lg" />
 
-              <div class="x-group x-flex x-flex-col x-gap-2">
-                <p class="group-hover:x-underline">{{ suggestion.query }}</p>
+              <div class="xds:group xds:flex xds:flex-col xds:gap-2">
+                <p class="xds:group-hover:underline">{{ suggestion.query }}</p>
 
                 <HistoryQueryFilters
                   :show-length="true"
-                  class="x-w-224 desktop:x-w-320"
+                  class="xds:w-224 xds:desktop:w-320"
                   :filters-list="suggestion.selectedFilters"
                 />
 
-                <p class="x-text1 x-text1-sm x-text-neutral-75">
+                <p class="xds:text1 xds:text1-sm xds:text-neutral-75">
                   {{ formatTime(suggestion.timestamp) }}
                   <template v-if="suggestion.totalResults !== undefined">
                     -
@@ -45,7 +45,7 @@
               </div>
 
               <template #remove-button-content>
-                <CrossTinyIcon class="x-icon-lg" />
+                <CrossTinyIcon class="xds:icon-lg" />
               </template>
             </HistoryQuery>
           </template>

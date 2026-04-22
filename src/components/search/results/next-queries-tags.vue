@@ -1,16 +1,16 @@
 <template>
   <div
     v-if="showNextQueries"
-    class="x-relative x-flex x-flex-col x-gap-16 x-rounded-lg x-border-1 x-border-neutral-100 x-pb-20 x-pt-16 desktop:x-pl-[28px] desktop:x-pr-[80px]"
+    class="xds:relative xds:flex xds:flex-col xds:gap-16 xds:rounded-lg xds:border-1 xds:border-neutral-100 xds:pt-16 xds:pb-20 xds:desktop:pr-80 xds:desktop:pl-28"
   >
     <i18n-t
-      class="x-text1 x-text1-lg max-desktop:x-px-16"
+      class="xds:text1 xds:text1-lg xds:max-desktop:px-16"
       tag="h1"
       keypath="nextQueriesCta.message"
       scope="global"
     >
       <template #query>
-        <span class="x-title3">
+        <span class="xds:title3">
           {{ query }}
         </span>
       </template>
@@ -18,39 +18,39 @@
 
     <SlidingPanel
       :show-buttons="!isTouchable"
-      class="x-sliding-panel-show-buttons-on-hover"
+      class="xds:sliding-panel-show-buttons-on-hover"
       :button-class="
-        'x-button x-bg-neutral-0 x-button-sm' +
-        'x-button-outlined x-h-40 x-rounded-full x-border-neutral-25 x-px-16'
+        'xds:button xds:bg-neutral-0 xds:button-sm' +
+        'xds:button-outlined xds:h-40 xds:rounded-full xds:border-neutral-25 xds:px-16'
       "
-      scroll-container-class="desktop:x-sliding-panel-fade x-px-8 desktop:x-px-0"
+      scroll-container-class="xds:desktop:sliding-panel-fade xds:px-8 xds:desktop:px-0"
     >
       <template #sliding-panel-left-button>
-        <ChevronLeftIcon class="x-icon-neutral-90 x-icon-lg" />
+        <ChevronLeftIcon class="xds:icon-lg xds:icon-neutral-90" />
       </template>
 
-      <div class="x-flex x-gap-[10px]">
+      <div class="xds:flex xds:gap-2.5">
         <NextQuery
           v-for="(suggestion, index) in x.nextQueries"
           :key="index"
-          class="x-tag x-tag-neutral x-tag-solid x-h-[40px] x-gap-8 x-bg-neutral-0 x-px-16 x-text-neutral-50"
+          class="xds:tag xds:h-40 xds:gap-8 xds:tag-neutral xds:bg-neutral-0 xds:px-16 xds:text-neutral-50"
           :suggestion="suggestion"
         >
           <span>{{ suggestion.query }}</span>
-          <ArrowRightIcon class="x-icon-lg" />
+          <ArrowRightIcon class="xds:icon-lg" />
         </NextQuery>
       </div>
 
       <template #sliding-panel-right-button>
-        <ChevronRightIcon class="x-icon-neutral-90 x-icon-lg" />
+        <ChevronRightIcon class="xds:icon-lg xds:icon-neutral-90" />
       </template>
     </SlidingPanel>
     <button
-      class="x-button x-button-circle x-button-tight x-absolute x-right-2 x-top-2 desktop:x-right-0 desktop:x-top-0"
+      class="xds:absolute xds:top-2 xds:right-2 xds:button xds:button-circle xds:button-tight xds:desktop:top-0 xds:desktop:right-0"
       :ariaLabel="$t('nextQueries.close')"
       @click="emitCloseNextQueries"
     >
-      <CrossIcon class="x-icon x-icon-stroke-width-lg x-text-neutral-90" />
+      <CrossIcon class="xds:icon xds:icon-stroke-width-lg xds:text-neutral-90" />
     </button>
   </div>
 </template>

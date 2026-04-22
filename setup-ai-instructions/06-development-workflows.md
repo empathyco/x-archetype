@@ -41,7 +41,7 @@ npm run cy:run -- --env TAGS="not @skip"
 
 ## Docker Development
 
-Set `VUE_APP_DEVELOPMENT_DOCKER=true` to use docker adapter endpoints:
+Set `VITE_APP_DEVELOPMENT_DOCKER=true` to use docker adapter endpoints (if docker.adapter.ts exists):
 
 ```bash
 npm run serve:docker

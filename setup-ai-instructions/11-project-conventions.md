@@ -119,7 +119,7 @@ export const currencies = {
 ### Scoped Styles and Media Queries
 
 **❌ WRONG**: Hardcoded media queries in `<style>` blocks
-**✅ CORRECT**: Use Tailwind responsive classes (`mobile:`, `desktop:`) OR `useDevice()` composable for dynamic classes (see Architecture and Common Pitfalls docs)
+**✅ CORRECT**: Use Tailwind responsive utilities (`mobile:`, `desktop:`, `xds:*`) OR `useDevice()` composable for dynamic classes (see Architecture and Common Pitfalls docs)
 
 ### Custom Utility Classes
 
@@ -132,14 +132,14 @@ export const currencies = {
 
 **Where to define**:
 
-- **Global utilities**: `src/tailwind/index.css` for app-wide utilities
-- **Theme components**: `src/tailwind/plugin-options.ts` for component-specific styles
+- **Global utilities**: `src/tailwind/xds.css` using `@utility` directive for app-wide utilities
+- **Component-specific**: Define in `xds.css` for component-specific styles
 
 **❌ WRONG**: Creating one-off custom classes in component `<style>` blocks:
 
 ```vue
 <style scoped>
-.x-line-clamp-1 {
+.line-clamp-1 {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   /* ... */
@@ -147,11 +147,19 @@ export const currencies = {
 </style>
 ```
 
-**✅ CORRECT**: Define in global CSS if reusable, otherwise use Tailwind utilities:
+**✅ CORRECT**: Define in xds.css if reusable, otherwise use Tailwind utilities:
+
+```css
+/* src/tailwind/xds.css */
+@utility line-clamp-1 {
+  @apply xds:line-clamp-1;
+}
+```
+
+Or use existing Tailwind utilities:
 
 ```vue
-<!-- Use Tailwind's line-clamp plugin -->
-<h3 class="x-line-clamp-1">{{ title }}</h3>
+<h3 class="xds:line-clamp-1">{{ title }}</h3>
 ```
 
 ### Vue Component Pattern
