@@ -1,6 +1,7 @@
 export const xControlsState = {
   aiSearchFallback: true,
   fullPredictiveLayer: false,
+  facetsPanelOverlay: true,
   logo: 'https://empathy.co/assets/media/logo/logo-text-black.svg',
   styles: {
     'color-lead-25': '#bbc9cf',

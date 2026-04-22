@@ -25,6 +25,7 @@
     <ColumnPicker data-test="column-picker" />
 
     <BaseIdModalOpen
+      v-if="facetsPanelOverlay"
       modal-id="right-aside"
       class="xds:button-ghost xds:button-lead"
       data-test="toggle-facets-button"
@@ -46,9 +47,12 @@
 
 <script setup lang="ts">
 import { BaseIdModalOpen, FiltersIcon, use$x, useGetter } from '@empathyco/x-components'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import ColumnPicker from '../column-picker.vue'
 import SortSelector from '../search/sort-selector.vue'
 
 const x = use$x()
 const { query } = useGetter('search')
+const { getControlFromPath } = useExperienceControls()
+const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
 </script>
