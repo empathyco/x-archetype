@@ -1,6 +1,7 @@
 export const xControlsState = {
   aiSearchFallback: true,
   fullPredictiveLayer: false,
+  facetsPanelOverlay: true,
   styles: {
     'color-lead-25': '#bbc9cf',
     'color-lead-50': '#5e7782',
