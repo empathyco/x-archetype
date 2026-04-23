@@ -1,5 +1,10 @@
 <template>
-  <div class="xds:flex xds:min-h-0 xds:flex-auto xds:flex-col xds:bg-neutral-0">
+  <div
+    class="xds:flex xds:min-h-0 xds:flex-auto xds:flex-col xds:bg-neutral-0"
+    :class="{
+      'xds:sticky xds:top-0 xds:max-h-[640px] xds:min-h-[150px] xds:w-[340px]': !facetsPanelOverlay,
+    }"
+  >
     <div
       class="xds:flex xds:items-center xds:border-b xds:border-neutral-90 xds:p-24 xds:pr-32 xds:pl-40"
     >
@@ -7,6 +12,7 @@
         {{ $t('facetsPanel.title') }}
       </span>
       <BaseIdModalClose
+        v-if="facetsPanelOverlay"
         class="xds:button xds:button-circle xds:button-ghost xds:button-lead"
         modal-id="right-aside"
       >
@@ -18,6 +24,7 @@
       <CustomFacets v-if="x.totalResults > 0" />
     </div>
     <div
+      v-if="facetsPanelOverlay"
       class="xds:flex xds:gap-16 xds:border-t xds:border-neutral-90 xds:p-40 xds:pt-24 xds:pb-16"
     >
       <ClearFilters
@@ -45,8 +52,11 @@
 import type { TranslateOptions } from 'vue-i18n'
 import { BaseIdModalClose, CrossIcon, use$x } from '@empathyco/x-components'
 import { ClearFilters } from '@empathyco/x-components/facets'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import CustomFacets from './facets/custom-facets.vue'
 import Sort from './sort.vue'
 
 const x = use$x()
+const { getControlFromPath } = useExperienceControls()
+const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
 </script>
