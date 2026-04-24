@@ -1,0 +1,18 @@
+{
+  "variables": {
+    "colorLead25": "#bbc9cf",
+    "colorLead50": "#5e7782",
+    "colorLead75": "#243d48",
+    "colorNeutral10": "#eef1f2",
+    "colorNeutral25": "#dbe2e5",
+    "colorNeutral50": "#5f717b",
+    "colorNeutral75": "#3c494f",
+    "colorNeutral90": "#283034",
+
+    "fontFamilyMain": "inherit",
+
+    "fontWeightLight": "200",
+    "fontWeightRegular": "400",
+    "fontWeightBold": "700"
+  }
+}

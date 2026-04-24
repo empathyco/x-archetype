@@ -32,6 +32,7 @@ import {
   ref,
   watch,
 } from 'vue'
+import { useCustomization } from './composables/use-customization.composable'
 import { useDevice } from './composables/use-device.composable'
 import { FeatureFlag, useFeatureFlags } from './composables/use-feature-flags.composable'
 import { isIOS, removeSearchInputFocus } from './composables/use-ios-utils-composable'
@@ -44,6 +45,8 @@ const CustomMainModal = defineAsyncComponent(() =>
 const CustomTeleport = defineAsyncComponent(() =>
   import('./components/teleport/custom-teleport.vue').then(m => m.default),
 )
+
+useCustomization()
 
 const x = use$x()
 const appInstance = getCurrentInstance()
