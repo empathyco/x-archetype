@@ -8,10 +8,14 @@ function mapCustomizationStylesToCSS(customizationStyles: Dictionary<string>) {
 }
 
 export function useCustomization() {
-  const { controls } = useState('experienceControls')
+  const init = () => {
+    const { controls } = useState('experienceControls')
 
-  if (controls.value.styles) {
-    const xdsStyles = mapCustomizationStylesToCSS(controls.value.styles as Dictionary<string>)
-    window.xCSSInjector.addStyle({ source: `:root,:host{${xdsStyles}}` })
+    if (controls.value.styles) {
+      const xdsStyles = mapCustomizationStylesToCSS(controls.value.styles as Dictionary<string>)
+      window.xCSSInjector.addStyle({ source: `:root,:host{${xdsStyles}}` })
+    }
   }
+
+  return { init }
 }

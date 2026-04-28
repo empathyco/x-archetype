@@ -46,7 +46,8 @@ const CustomTeleport = defineAsyncComponent(() =>
   import('./components/teleport/custom-teleport.vue').then(m => m.default),
 )
 
-useCustomization()
+const { init } = useCustomization()
+init()
 
 const x = use$x()
 const appInstance = getCurrentInstance()
