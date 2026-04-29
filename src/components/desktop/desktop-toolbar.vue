@@ -5,7 +5,10 @@
     :class="{ 'xds:mb-8': !x.selectedFilters.length }"
     data-test="total-results"
   >
-    <div v-if="!facetsPanelOverlay" class="xds:flex xds:gap-8 xds:title3">
+    <div
+      v-if="!facetsPanelOverlay"
+      class="xds:flex xds:w-full xds:max-w-[340px] xds:gap-8 xds:title3"
+    >
       <FiltersIcon class="xds:icon-lg" />
       <span class="xds:capitalize">{{ $t('toggleAside.showAside') }}</span>
       <span
@@ -19,7 +22,6 @@
 
     <i18n-t
       class="xds:flex-auto xds:text1 xds:text1-lg"
-      :class="{ 'xds:ml-[274px]': !facetsPanelOverlay }"
       keypath="totalResults.message"
       tag="span"
       scope="global"

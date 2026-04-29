@@ -66,7 +66,9 @@
       "genres": "Generi",
       "isAdult": "Contenuto per adulti",
       "type": "Tipo",
-      "runtimeMinutes": "Durata minuti"
+      "runtimeMinutes": "Durata minuti",
+      "description": "Descrizione",
+      "name": "Nome"
     },
     "facetsPanel": {
       "title": "Ordina & filtra",

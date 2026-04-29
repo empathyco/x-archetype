@@ -40,6 +40,7 @@
     </BaseIdModal>
 
     <BaseIdModal
+      v-if="facetsPanelOverlay"
       key="right-aside"
       class="xds:z-5!"
       :animation="rightAsideAnimation"
@@ -68,6 +69,7 @@ import {
 } from '@empathyco/x-components'
 import { computed, defineAsyncComponent, defineComponent, h, inject, ref } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import { eventsToOpenEmpathize } from '../../x-components/constants'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
@@ -105,6 +107,8 @@ export default defineComponent({
     const { isDesktopOrGreater } = useDevice()
     const snippetConfig = inject<SnippetConfig>('snippetConfig')!
     const { hasSearched } = useHasSearched()
+    const { getControlFromPath } = useExperienceControls()
+    const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
 
     const visibleGrid = ref(false)
     const openPredictiveLayer = ref(false)
@@ -146,6 +150,7 @@ export default defineComponent({
       isDesktopOrGreater,
       hasSearched,
       openPredictiveLayer,
+      facetsPanelOverlay,
       closeEmpathize,
     }
   },
