@@ -12,16 +12,12 @@
       <div v-if="hasSearched">
         <DesktopToolbar />
       </div>
-      <div v-if="x.totalResults > 0 && hasSearched && x.selectedFilters.length">
-        <SelectedFilters class="xds:py-16" />
-      </div>
     </MaxDesktopWidthItem>
   </CollapseHeightAnimation>
 </template>
 
 <script setup lang="ts">
 import { LocationProvider, use$x } from '@empathyco/x-components'
-import { defineAsyncComponent } from 'vue'
 import { useHasScrollPastThreshold } from '../../composables/use-has-scroll-past-threshold.composable'
 import CollapseHeightAnimation from '../collapse-height-animation.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
@@ -33,8 +29,6 @@ defineProps<{
   hasSearched?: boolean
   isFullPredictive?: boolean
 }>()
-
-const SelectedFilters = defineAsyncComponent(() => import('../search').then(m => m.SelectedFilters))
 
 const { hasScrolledPastThreshold } = useHasScrollPastThreshold()
 const x = use$x()
