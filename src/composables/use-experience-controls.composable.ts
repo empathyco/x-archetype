@@ -20,7 +20,7 @@ export const useExperienceControls = (): {
     defaultValue?: SomeType,
   ): ComputedRef<SomeType> => {
     return computed(() => {
-      return getSafePropertyChain(experienceControls.value, path, defaultValue) as SomeType
+      return getSafePropertyChain(experienceControls.value.controls, path, defaultValue) as SomeType
     })
   }
 
