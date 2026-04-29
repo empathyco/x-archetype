@@ -10,10 +10,10 @@ function mapCustomizationStylesToCSS(customizationStyles: Dictionary<string>) {
 
 export function useCustomization() {
   const init = () => {
-    const { controls } = useState('experienceControls')
+    const { controls: experienceControls } = useState('experienceControls')
 
-    watch(controls, controlsData => {
-      const controlsCss = controlsData.controls as Dictionary<unknown>
+    watch(experienceControls, controls => {
+      const controlsCss = controls.controls as Dictionary<unknown>
       if (controlsCss.styles) {
         const xdsStyles = mapCustomizationStylesToCSS(controlsCss.styles as Dictionary<string>)
         window.xCSSInjector.addStyle({ source: `:root,:host{${xdsStyles}}` })

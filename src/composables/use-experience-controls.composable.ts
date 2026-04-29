@@ -1,3 +1,4 @@
+import type { Dictionary } from '@empathyco/x-utils'
 import type { ComputedRef } from 'vue'
 import { useState } from '@empathyco/x-components'
 import { getSafePropertyChain } from '@empathyco/x-utils'
@@ -20,7 +21,11 @@ export const useExperienceControls = (): {
     defaultValue?: SomeType,
   ): ComputedRef<SomeType> => {
     return computed(() => {
-      return getSafePropertyChain(experienceControls.value.controls, path, defaultValue) as SomeType
+      return getSafePropertyChain(
+        experienceControls.value.controls as Dictionary<unknown>,
+        path,
+        defaultValue,
+      ) as SomeType
     })
   }
 
