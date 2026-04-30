@@ -1,6 +1,12 @@
 <template>
-  <div class="xds:flex xds:min-h-0 xds:flex-auto xds:flex-col xds:bg-neutral-0">
+  <div
+    class="xds:flex xds:min-h-0 xds:flex-auto xds:flex-col xds:bg-neutral-0"
+    :class="{
+      'xds:sticky xds:top-0 xds:max-h-[640px] xds:min-h-[150px] xds:w-[340px]': !facetsPanelOverlay,
+    }"
+  >
     <div
+      v-if="facetsPanelOverlay"
       class="xds:flex xds:items-center xds:border-b xds:border-neutral-90 xds:p-24 xds:pr-32 xds:pl-40"
     >
       <span class="xds:mr-auto xds:title2 xds:uppercase">
@@ -13,30 +19,47 @@
         <CrossIcon class="xds:icon-lg" />
       </BaseIdModalClose>
     </div>
-    <div class="xds:scroll xds:flex-auto xds:p-40 xds:pt-0 xds:pr-24">
-      <Sort />
+
+    <SelectedFilters
+      v-if="x.selectedFilters.length && !facetsPanelOverlay"
+      class="xds:flex xds:flex-col xds:items-stretch xds:gap-16 xds:py-16"
+    />
+
+    <div
+      class="xds:scroll xds:flex-auto"
+      :class="facetsPanelOverlay ? 'xds:p-40 xds:pt-0 xds:pr-24' : 'xds:px-12 xds:pb-40'"
+    >
       <CustomFacets v-if="x.totalResults > 0" />
     </div>
     <div
-      class="xds:flex xds:gap-16 xds:border-t xds:border-neutral-90 xds:p-40 xds:pt-24 xds:pb-16"
+      v-if="facetsPanelOverlay"
+      class="xds:flex xds:flex-col xds:gap-16 xds:border-t xds:border-neutral-90 xds:p-40 xds:pt-24 xds:pb-16"
     >
-      <ClearFilters
-        v-slot="{ selectedFilters }"
-        class="xds:flex-auto xds:button-outlined xds:rounded-full xds:button-lead xds:p-24 xds:py-12 xds:uppercase"
-        :always-visible="false"
-      >
-        {{ $t('selectedFilters.clear', selectedFilters.length, { count: selectedFilters.length }) }}
-      </ClearFilters>
-      <BaseIdModalClose
-        class="xds:flex-auto xds:rounded-full xds:button-lead xds:p-24 xds:py-12 xds:uppercase"
-        modal-id="right-aside"
-      >
-        {{
-          $t('facetsPanel.viewResults', x.totalResults, {
-            count: x.totalResults,
-          } as TranslateOptions)
-        }}
-      </BaseIdModalClose>
+      <SelectedFilters
+        v-if="x.selectedFilters.length"
+        class="xds:flex xds:flex-col xds:items-stretch xds:gap-16"
+      />
+      <div class="xds:flex xds:gap-16">
+        <ClearFilters
+          v-slot="{ selectedFilters }"
+          class="xds:flex-auto xds:button-outlined xds:rounded-full xds:button-lead xds:p-24 xds:py-12 xds:uppercase"
+          :always-visible="false"
+        >
+          {{
+            $t('selectedFilters.clear', selectedFilters.length, { count: selectedFilters.length })
+          }}
+        </ClearFilters>
+        <BaseIdModalClose
+          class="xds:flex-auto xds:rounded-full xds:button-lead xds:p-24 xds:py-12 xds:uppercase"
+          modal-id="right-aside"
+        >
+          {{
+            $t('facetsPanel.viewResults', x.totalResults, {
+              count: x.totalResults,
+            } as TranslateOptions)
+          }}
+        </BaseIdModalClose>
+      </div>
     </div>
   </div>
 </template>
@@ -45,8 +68,11 @@
 import type { TranslateOptions } from 'vue-i18n'
 import { BaseIdModalClose, CrossIcon, use$x } from '@empathyco/x-components'
 import { ClearFilters } from '@empathyco/x-components/facets'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import CustomFacets from './facets/custom-facets.vue'
-import Sort from './sort.vue'
+import SelectedFilters from './facets/selected-filters.vue'
 
 const x = use$x()
+const { getControlFromPath } = useExperienceControls()
+const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
 </script>

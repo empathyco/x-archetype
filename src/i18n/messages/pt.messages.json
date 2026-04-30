@@ -66,7 +66,9 @@
       "genres": "Gêneros",
       "isAdult": "Conteúdo adulto",
       "type": "Cara",
-      "runtimeMinutes": "Duração em minutos"
+      "runtimeMinutes": "Duração em minutos",
+      "description": "Descrição",
+      "name": "Nome"
     },
     "facetsPanel": {
       "title": "Ordenar e filtrar",

@@ -66,7 +66,9 @@
       "genres": "Geschlechter",
       "isAdult": "Inhalt für",
       "type": "Kerl",
-      "runtimeMinutes": "Dauer in Minuten"
+      "runtimeMinutes": "Dauer in Minuten",
+      "description": "Beschreibung",
+      "name": "Name"
     },
     "facetsPanel": {
       "title": "Sortieren & filtern",

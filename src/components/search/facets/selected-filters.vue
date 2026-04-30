@@ -45,16 +45,6 @@
         <ChevronRightIcon class="xds:icon-lg" />
       </template>
     </SlidingPanel>
-
-    <ClearFilters
-      v-if="isDesktopOrGreater"
-      v-slot="{ selectedFilters }"
-      data-test="clear-filters-toolbar"
-      class="xds:button xds:button-sm xds:flex-none xds:button-outlined xds:rounded-full xds:button-lead xds:uppercase"
-      :always-visible="false"
-    >
-      {{ $t('selectedFilters.clear', selectedFilters.length, { count: selectedFilters.length }) }}
-    </ClearFilters>
   </div>
 </template>
 
@@ -66,7 +56,6 @@ import {
   SlidingPanel,
 } from '@empathyco/x-components'
 import {
-  ClearFilters,
   NumberRangeFilter,
   SelectedFiltersList,
   SimpleFilter,
@@ -74,5 +63,5 @@ import {
 import { useDevice } from '../../../composables/use-device.composable'
 import PriceFilterLabel from './price-filter-label.vue'
 
-const { isDesktopOrGreater, isTouchable } = useDevice()
+const { isTouchable } = useDevice()
 </script>
