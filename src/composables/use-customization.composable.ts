@@ -1,5 +1,7 @@
 import type { Dictionary } from '@empathyco/x-utils'
+import type { ComputedRef } from 'vue'
 import { useState } from '@empathyco/x-components'
+import { watch } from 'vue'
 
 function mapCustomizationStylesToCSS(customizationStyles: Dictionary<string>) {
   return Object.entries(customizationStyles)
@@ -7,15 +9,17 @@ function mapCustomizationStylesToCSS(customizationStyles: Dictionary<string>) {
     .join(';')
 }
 
-export function useCustomization() {
-  const init = () => {
-    const { controls } = useState('experienceControls')
-
-    if (controls.value.styles) {
-      const xdsStyles = mapCustomizationStylesToCSS(controls.value.styles as Dictionary<string>)
-      window.xCSSInjector.addStyle({ source: `:root,:host{${xdsStyles}}` })
-    }
+function init() {
+  const { controls: experienceControls } = useState('experienceControls') as {
+    controls: ComputedRef<{ controls?: { styles?: Dictionary<string> } }>
   }
 
-  return { init }
+  watch(experienceControls, ({ controls }) => {
+    if (controls?.styles) {
+      const xdsStyles = mapCustomizationStylesToCSS(controls.styles)
+      window.xCSSInjector.addStyle({ source: `:root,:host{${xdsStyles}}` })
+    }
+  })
 }
+
+export const useCustomization = () => ({ init })

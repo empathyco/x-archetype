@@ -10,7 +10,6 @@ import { useDevice } from '../composables/use-device.composable'
 import * as messages from '../i18n/messages'
 import store from '../store'
 import { mergeSemanticQueriesConfigWire } from './wiring/semantic-queries.wiring'
-import { xControlsState } from './xcontrols'
 
 const device = useDevice()
 
@@ -59,15 +58,6 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
     store,
     rootComponent: AppComponent,
     domElement: getDomElement,
-    __PRIVATE__xModules: {
-      experienceControls: {
-        storeModule: {
-          state: {
-            controls: xControlsState,
-          },
-        },
-      },
-    },
     xModules: {
       facets: {
         config: {
@@ -103,14 +93,6 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
         wiring: {
           UserAcceptedAQuery: {
             setUrlQuery: setUrlQueryFiltered,
-          },
-        },
-      },
-      experienceControls: {
-        wiring: {
-          ExperienceControlsRequestUpdated: {
-            // @ts-expect-error Disable default X wiring behavior
-            fetchAndSaveExperienceControlsWire: undefined,
           },
         },
       },
