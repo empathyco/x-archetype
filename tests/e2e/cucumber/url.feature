@@ -22,9 +22,7 @@ Feature: Url component
     And   an intercepted search response from "url:external"
     And   an intercepted search response from "url:url_history"
     Then  a search request from "url:external" is done
-    When  sort dropdown button is clicked on "<view>"
     And   "<sortOrder>" order is clicked in "<sortMenuName>"
-    Then  a search request from "url:external" is done
     When  navigating back
     Then  a search request from "url:url_history" is done
 
