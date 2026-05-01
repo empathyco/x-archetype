@@ -60,7 +60,7 @@
     "husky": "8.0.3",
     "lint-staged": "15.5.2",
     "rollup-plugin-visualizer": "7.0.1",
-    "skilld": "1.7.0",
+    "skilld": "1.7.2",
     "start-server-and-test": "2.1.5",
     "tailwindcss": "4.2.4",
     "typescript": "5.9.3",
