@@ -29,8 +29,12 @@
 
           <div
             v-else-if="showEmpathize"
-            class="xds:flex xds:flex-col xds:gap-8 xds:pl-8 xds:desktop:col-span-5 xds:desktop:pl-0"
-            :class="x.query.searchBox ? 'xds:desktop:gap-4' : 'xds:desktop:gap-16'"
+            class="xds:flex xds:flex-col xds:gap-8 xds:pl-8 xds:desktop:col-span-5 xds:desktop:gap-16 xds:desktop:pl-0"
+            :class="{
+              'xds:desktop:gap-4!': x.query.searchBox,
+              'xds:desktop:col-span-3!': fullPredictiveLayer,
+              'xds:desktop:col-start-3!': fullPredictiveLayer && x.query.searchBox,
+            }"
           >
             <BaseIdModalOpen
               v-if="isTabletOrLess && !x.query.searchBox"
@@ -68,7 +72,7 @@
 
           <SlidingRecommendations
             v-if="isDesktopOrGreater && !x.query.searchBox"
-            class="xds:col-span-7"
+            :class="fullPredictiveLayer ? 'xds:col-span-9' : 'xds:col-span-7'"
           />
         </BaseKeyboardNavigation>
       </div>
@@ -89,6 +93,7 @@ import {
 } from '@empathyco/x-components'
 import { Empathize } from '@empathyco/x-components/empathize'
 import { useDevice } from '../../composables/use-device.composable'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composable'
 import { eventsToOpenEmpathize } from '../../x-components/constants'
 import PredictiveHistoryQueries from './predictive-history-queries.vue'
@@ -120,6 +125,8 @@ const mobileCloseEvents: Array<keyof XEventsTypes> = [
 const desktopCloseEvents: Array<keyof XEventsTypes> = [...mobileCloseEvents, 'UserBlurredSearchBox']
 
 const x = use$x()
+const { getControlFromPath } = useExperienceControls()
+const fullPredictiveLayer = getControlFromPath('fullPredictiveLayer')
 </script>
 
 <style>
