@@ -2,7 +2,7 @@
   <div class="xds:relative xds:pb-8">
     <MaxDesktopWidthItem>
       <header class="xds:flex xds:items-center xds:gap-48 xds:pt-24">
-        <Logo />
+        <BrandLogo />
 
         <div class="xds:flex xds:flex-1 xds:flex-col xds:gap-16">
           <div class="xds:relative">
@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { CloseMainModal, CrossIcon, LocationProvider } from '@empathyco/x-components'
-import Logo from '../logo.vue'
+import BrandLogo from '../brand-logo.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
 import FullWidthPredictive from '../predictive-layer/full-width-predictive.vue'
 import SearchBox from '../search-box.vue'
