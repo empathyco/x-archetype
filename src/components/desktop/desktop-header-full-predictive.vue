@@ -19,7 +19,7 @@
     </MaxDesktopWidthItem>
 
     <LocationProvider location="predictive_layer">
-      <FullWidthPredictive />
+      <PredictiveLayer class="xds:absolute xds:shadow-lg" />
     </LocationProvider>
   </div>
 </template>
@@ -28,6 +28,6 @@
 import { CloseMainModal, CrossIcon, LocationProvider } from '@empathyco/x-components'
 import BrandLogo from '../brand-logo.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
-import FullWidthPredictive from '../predictive-layer/full-width-predictive.vue'
+import PredictiveLayer from '../predictive-layer/predictive-layer.vue'
 import SearchBox from '../search-box.vue'
 </script>
