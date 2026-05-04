@@ -66,10 +66,12 @@
       "genres": "Genres",
       "isAdult": "Is adult",
       "type": "Type",
-      "runtimeMinutes": "Runtime minutes"
+      "runtimeMinutes": "Runtime minutes",
+      "description": "Description",
+      "name": "Name"
     },
     "facetsPanel": {
-      "title": "Sort & filter",
+      "title": "Filter",
       "viewResults": "View 1 result | View {count} results"
     },
     "filters": {
@@ -88,7 +90,7 @@
       "from": "from {'{min}'}"
     },
     "toggleAside": {
-      "showAside": "Sort & filter"
+      "showAside": "Filter"
     },
     "totalResults": {
       "message": "1 result for {query} | {totalResults} results for {query}"

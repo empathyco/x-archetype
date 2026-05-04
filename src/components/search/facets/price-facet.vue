@@ -1,7 +1,7 @@
 <template>
   <CustomHeaderTogglePanel
     :data-test="facet?.label"
-    class="xds:border-0 xds:border-b xds:border-neutral-10"
+    class="xds:border-0 xds:border-t xds:border-neutral-10"
   >
     <template #header>
       <span class="xds:title3">

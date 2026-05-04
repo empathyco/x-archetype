@@ -24,9 +24,18 @@
             <FallbackDisclaimerMessage class="xds:mb-16" />
           </div>
 
-          <LocationProvider location="results">
-            <MainComponent />
-          </LocationProvider>
+          <div class="x-results-grid xds:flex xds:gap-24">
+            <div
+              v-if="!facetsPanelOverlay && x.results.length > 0"
+              class="xds:flex xds:h-auto xds:flex-col xds:justify-between xds:pb-64"
+            >
+              <DesktopAside />
+            </div>
+
+            <LocationProvider location="results">
+              <MainComponent />
+            </LocationProvider>
+          </div>
           <PageLoaderButton
             v-if="x.query.searchBox && x.results.length > 0"
             button-classes="xds:button-outlined xds:button-lead xds:rounded-sm xds:hover:bg-accent-25 xds:text-neutral-75 xds:hover:text-neutral-75 xds:text2 xds:text2-lg xds:px-[42px] xds:py-12"
@@ -43,56 +52,34 @@
   </div>
 </template>
 
-<script lang="ts">
-import {
-  AnimateTranslate,
-  LocationProvider,
-  PageLoaderButton,
-  use$x,
-  useState,
-} from '@empathyco/x-components'
+<script setup lang="ts">
+import { LocationProvider, PageLoaderButton, use$x, useState } from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
-import { computed, defineAsyncComponent, defineComponent, h } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import DesktopSubHeader from '../desktop/desktop-sub-header.vue'
 import MainComponent from '../main.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
 
-export default defineComponent({
-  components: {
-    PageLoaderButton,
-    DesktopSubHeader,
-    MaxDesktopWidthItem,
-    LocationProvider,
-    MainScroll,
-    Scroll,
-    MainComponent,
-    NoResultsMessage: defineAsyncComponent(() => import('../search').then(m => m.NoResultsMessage)),
-    SpellcheckMessage: defineAsyncComponent(() =>
-      import('../search').then(m => m.SpellcheckMessage),
-    ),
-    FallbackDisclaimerMessage: defineAsyncComponent(() =>
-      import('../search').then(m => m.FallbackDisclaimerMessage),
-    ),
-  },
-  setup() {
-    const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
-    const { hasSearched } = useHasSearched()
-    const { relatedPrompts } = useState('relatedPrompts')
-    const x = use$x()
-    const { getControlFromPath } = useExperienceControls()
-    const aiSearchFallback = getControlFromPath('aiSearchFallback')
-    const showNoResultsMessage = computed(
-      () => !aiSearchFallback.value && !relatedPrompts.value?.length,
-    )
+const DesktopAside = defineAsyncComponent(() => import('../search').then(m => m.DesktopAside))
+const NoResultsMessage = defineAsyncComponent(() =>
+  import('../search').then(m => m.NoResultsMessage),
+)
+const SpellcheckMessage = defineAsyncComponent(() =>
+  import('../search').then(m => m.SpellcheckMessage),
+)
+const FallbackDisclaimerMessage = defineAsyncComponent(() =>
+  import('../search').then(m => m.FallbackDisclaimerMessage),
+)
 
-    return {
-      hasSearched,
-      rightAsideAnimation,
-      showNoResultsMessage,
-      x,
-    }
-  },
-})
+const { hasSearched } = useHasSearched()
+const { relatedPrompts } = useState('relatedPrompts')
+const x = use$x()
+const { getControlFromPath } = useExperienceControls()
+const aiSearchFallback = getControlFromPath('aiSearchFallback')
+const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
+const showNoResultsMessage = computed(
+  () => !aiSearchFallback.value && !relatedPrompts.value?.length,
+)
 </script>

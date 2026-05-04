@@ -23,9 +23,18 @@
             <PreSearchManager :max-popular-searches-to-render="5" class="xds:mt-56" />
           </LocationProvider>
 
-          <LocationProvider location="results">
-            <MainComponent />
-          </LocationProvider>
+          <div class="x-results-grid xds:flex xds:gap-24">
+            <div
+              v-if="!facetsPanelOverlay && x.results.length > 0"
+              class="xds:flex xds:h-auto xds:flex-col xds:justify-between xds:pb-64"
+            >
+              <DesktopAside />
+            </div>
+
+            <LocationProvider location="results">
+              <MainComponent />
+            </LocationProvider>
+          </div>
         </MaxDesktopWidthItem>
       </Scroll>
     </MainScroll>
@@ -36,6 +45,7 @@
 
     <div class="xds:z-20">
       <BaseIdModal
+        v-if="facetsPanelOverlay"
         key="right-aside"
         :animation="rightAsideAnimation"
         modal-id="right-aside"
@@ -96,6 +106,7 @@ const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
 const { getControlFromPath } = useExperienceControls()
 const aiSearchFallback = getControlFromPath('aiSearchFallback')
+const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
 
 const showNoResultsMessage = computed(
   () => !aiSearchFallback.value && !relatedPrompts.value?.length && !x.semanticQueries.length,

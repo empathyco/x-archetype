@@ -66,10 +66,12 @@
       "genres": "Generi",
       "isAdult": "Contenuto per adulti",
       "type": "Tipo",
-      "runtimeMinutes": "Durata minuti"
+      "runtimeMinutes": "Durata minuti",
+      "description": "Descrizione",
+      "name": "Nome"
     },
     "facetsPanel": {
-      "title": "Ordina & filtra",
+      "title": "Filtra",
       "viewResults": "Vedi 1 risultato | Vedi {count} risultati"
     },
     "filters": {
@@ -88,7 +90,7 @@
       "from": "da {'{min}'}"
     },
     "toggleAside": {
-      "showAside": "Ordina & Filtra"
+      "showAside": "Filtra"
     },
     "totalResults": {
       "message": "1 risultato per {query} | {totalResults} risultati per {query}"

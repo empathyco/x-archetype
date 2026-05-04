@@ -66,10 +66,12 @@
       "genres": "Gêneros",
       "isAdult": "Conteúdo adulto",
       "type": "Cara",
-      "runtimeMinutes": "Duração em minutos"
+      "runtimeMinutes": "Duração em minutos",
+      "description": "Descrição",
+      "name": "Nome"
     },
     "facetsPanel": {
-      "title": "Ordenar e filtrar",
+      "title": "Filtrar",
       "viewResults": "Ver 1 resultado | Ver {count} resultados"
     },
     "filters": {
@@ -88,7 +90,7 @@
       "from": "Mais de {'{min}'}"
     },
     "toggleAside": {
-      "showAside": "Ordenar e Filtrar"
+      "showAside": "Filtrar"
     },
     "totalResults": {
       "message": "1 resultado para {query} | {totalResults} resultados para {query}"

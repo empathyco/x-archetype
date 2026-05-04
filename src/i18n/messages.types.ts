@@ -68,6 +68,8 @@ export interface Messages {
     isAdult: string
     type: string
     runtimeMinutes: string
+    description: string
+    name: string
   }
   facetsPanel: {
     title: string

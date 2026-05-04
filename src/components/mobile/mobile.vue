@@ -86,7 +86,9 @@ import MobileLayout from './mobile-layout.vue'
 import MobileOpenAside from './mobile-open-aside.vue'
 import MobileSubHeader from './mobile-sub-header.vue'
 
-const MobileAside = defineAsyncComponent(() => import('../search').then(m => m.MobileAside))
+const MobileAside = defineAsyncComponent(() =>
+  import('../mobile/mobile-aside.vue').then(m => m.default),
+)
 const NoResultsMessage = defineAsyncComponent(() =>
   import('../search').then(m => m.NoResultsMessage),
 )
