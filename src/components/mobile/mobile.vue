@@ -65,6 +65,7 @@
 </template>
 
 <script setup lang="ts">
+import type { Dictionary } from '@empathyco/x-utils'
 import {
   ArrowLeftIcon,
   CloseMainModal,
@@ -73,8 +74,8 @@ import {
   useState,
 } from '@empathyco/x-components'
 import { computed, defineAsyncComponent } from 'vue'
-import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
+import { xControlsState } from '../../x-components/xcontrols'
 import Main from '../main.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
@@ -100,9 +101,9 @@ const FallbackDisclaimerMessage = defineAsyncComponent(() =>
 const x = use$x()
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
-const { getControlFromPath } = useExperienceControls()
-const aiSearchFallback = getControlFromPath('aiSearchFallback')
+const controls = useState('experienceControls').controls.value.controls as Dictionary<unknown>
+const aiSearchFallback = (controls?.aiSearchFallback as boolean) ?? xControlsState.aiSearchFallback
 const showNoResultsMessage = computed(
-  () => !aiSearchFallback.value && !relatedPrompts.value?.length && !x.semanticQueries.length,
+  () => !aiSearchFallback && !relatedPrompts.value?.length && !x.semanticQueries.length,
 )
 </script>

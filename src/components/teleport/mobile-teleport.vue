@@ -59,6 +59,7 @@
 </template>
 
 <script lang="ts">
+import type { Dictionary } from '@empathyco/x-utils'
 import {
   AnimateTranslate,
   LocationProvider,
@@ -68,8 +69,8 @@ import {
 } from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent, defineComponent, h } from 'vue'
-import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
+import { xControlsState } from '../../x-components/xcontrols'
 import MainComponent from '../main.vue'
 import MobileLayout from '../mobile/mobile-layout.vue'
 import MobileOpenAside from '../mobile/mobile-open-aside.vue'
@@ -105,12 +106,11 @@ export default defineComponent({
     const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
     const { hasSearched } = useHasSearched()
     const { relatedPrompts } = useState('relatedPrompts')
-    const { getControlFromPath } = useExperienceControls()
-    const aiSearchFallback = getControlFromPath('aiSearchFallback')
+    const controls = useState('experienceControls').controls.value.controls as Dictionary<unknown>
+    const aiSearchFallback =
+      (controls?.aiSearchFallback as boolean) ?? xControlsState.aiSearchFallback
 
-    const showNoResultsMessage = computed(
-      () => !aiSearchFallback.value && !relatedPrompts.value?.length,
-    )
+    const showNoResultsMessage = computed(() => !aiSearchFallback && !relatedPrompts.value?.length)
 
     return {
       filtersAsideAnimation,

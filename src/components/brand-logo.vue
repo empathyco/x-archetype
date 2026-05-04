@@ -4,9 +4,10 @@
   </a>
 </template>
 <script setup lang="ts">
-import type { ComputedRef } from 'vue'
-import { useExperienceControls } from '../composables/use-experience-controls.composable'
+import type { Dictionary } from '@empathyco/x-utils'
+import { useState } from '@empathyco/x-components'
+import { xControlsState } from '../x-components/xcontrols'
 
-const { getControlFromPath } = useExperienceControls()
-const logo = getControlFromPath('logo') as ComputedRef<string>
+const controls = useState('experienceControls').controls.value.controls as Dictionary<unknown>
+const logo = (controls?.logo as string) ?? xControlsState.logo
 </script>
