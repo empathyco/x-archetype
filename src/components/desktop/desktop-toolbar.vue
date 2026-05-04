@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="x.totalResults"
-    class="xds:flex xds:items-center xds:justify-end xds:gap-24"
+    class="xds:mb-8 xds:flex xds:items-center xds:justify-end xds:gap-24"
     data-test="total-results"
   >
     <div v-if="!facetsPanelOverlay" class="xds:flex xds:w-full xds:max-w-85 xds:gap-8 xds:title3">
