@@ -17,6 +17,7 @@ import type { Dictionary } from '@empathyco/x-utils'
 import { useState } from '@empathyco/x-components'
 import { defineAsyncComponent } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
+import { xControlsState } from '../../x-components/xcontrols'
 import DesktopSubHeader from './desktop-sub-header.vue'
 const DesktopHeaderFloatingPredictive = defineAsyncComponent(() =>
   import('./desktop-header-floating-predictive.vue').then(m => m.default),
@@ -27,5 +28,6 @@ const DesktopHeaderFullPredictive = defineAsyncComponent(() =>
 
 const { hasSearched } = useHasSearched()
 const controls = useState('experienceControls').controls.value.controls as Dictionary<unknown>
-const isFullPredictiveLayer = controls.fullPredictiveLayer as boolean
+const isFullPredictiveLayer =
+  (controls?.fullPredictiveLayer as boolean) ?? xControlsState.fullPredictiveLayer
 </script>

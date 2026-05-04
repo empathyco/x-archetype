@@ -55,6 +55,7 @@ import {
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent, defineComponent, h } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
+import { xControlsState } from '../../x-components/xcontrols'
 import DesktopSubHeader from '../desktop/desktop-sub-header.vue'
 import MainComponent from '../main.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
@@ -82,7 +83,8 @@ export default defineComponent({
     const { relatedPrompts } = useState('relatedPrompts')
     const x = use$x()
     const controls = useState('experienceControls').controls.value.controls as Dictionary<unknown>
-    const aiSearchFallback = controls.aiSearchFallback as boolean
+    const aiSearchFallback =
+      (controls?.aiSearchFallback as boolean) ?? xControlsState.aiSearchFallback
     const showNoResultsMessage = computed(() => !aiSearchFallback && !relatedPrompts.value?.length)
 
     return {

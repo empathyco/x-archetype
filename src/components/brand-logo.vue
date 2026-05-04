@@ -6,7 +6,8 @@
 <script setup lang="ts">
 import type { Dictionary } from '@empathyco/x-utils'
 import { useState } from '@empathyco/x-components'
+import { xControlsState } from '../x-components/xcontrols'
 
 const controls = useState('experienceControls').controls.value.controls as Dictionary<unknown>
-const logo = controls.logo as string
+const logo = (controls?.logo as string) ?? xControlsState.logo
 </script>

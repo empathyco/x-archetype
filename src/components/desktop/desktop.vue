@@ -70,6 +70,7 @@ import {
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent, h } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
+import { xControlsState } from '../../x-components/xcontrols'
 import MainComponent from '../main.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
@@ -95,7 +96,7 @@ const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
 const controls = useState('experienceControls').controls.value.controls as Dictionary<unknown>
-const aiSearchFallback = controls.aiSearchFallback as boolean
+const aiSearchFallback = (controls?.aiSearchFallback as boolean) ?? xControlsState.aiSearchFallback
 
 const showNoResultsMessage = computed(
   () => !aiSearchFallback && !relatedPrompts.value?.length && !x.semanticQueries.length,

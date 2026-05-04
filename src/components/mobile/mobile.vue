@@ -75,6 +75,7 @@ import {
 } from '@empathyco/x-components'
 import { computed, defineAsyncComponent } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
+import { xControlsState } from '../../x-components/xcontrols'
 import Main from '../main.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
@@ -101,7 +102,7 @@ const x = use$x()
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
 const controls = useState('experienceControls').controls.value.controls as Dictionary<unknown>
-const aiSearchFallback = controls.aiSearchFallback as boolean
+const aiSearchFallback = (controls?.aiSearchFallback as boolean) ?? xControlsState.aiSearchFallback
 const showNoResultsMessage = computed(
   () => !aiSearchFallback && !relatedPrompts.value?.length && !x.semanticQueries.length,
 )

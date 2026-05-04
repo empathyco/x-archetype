@@ -15,6 +15,7 @@ import { LocationProvider, use$x, useState } from '@empathyco/x-components'
 import { computed, defineAsyncComponent } from 'vue'
 import { useHasSearched } from '../composables/use-has-searched.composable'
 import { lowResultsThreshold } from '../x-components/constants'
+import { xControlsState } from '../x-components/xcontrols'
 
 const Redirection = defineAsyncComponent(() => import('./search').then(m => m.Redirection))
 const Results = defineAsyncComponent(() => import('./search').then(m => m.Results))
@@ -29,7 +30,7 @@ const { hasSearched } = useHasSearched()
 const x = use$x()
 
 const controls = useState('experienceControls').controls.value.controls as Dictionary<unknown>
-const aiSearchFallback = controls.aiSearchFallback as boolean
+const aiSearchFallback = (controls?.aiSearchFallback as boolean) ?? xControlsState.aiSearchFallback
 
 const isLowResult = computed(() => x.totalResults > 0 && x.totalResults < lowResultsThreshold)
 

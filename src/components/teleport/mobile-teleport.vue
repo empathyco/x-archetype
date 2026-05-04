@@ -70,6 +70,7 @@ import {
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent, defineComponent, h } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
+import { xControlsState } from '../../x-components/xcontrols'
 import MainComponent from '../main.vue'
 import MobileLayout from '../mobile/mobile-layout.vue'
 import MobileOpenAside from '../mobile/mobile-open-aside.vue'
@@ -106,7 +107,8 @@ export default defineComponent({
     const { hasSearched } = useHasSearched()
     const { relatedPrompts } = useState('relatedPrompts')
     const controls = useState('experienceControls').controls.value.controls as Dictionary<unknown>
-    const aiSearchFallback = controls.aiSearchFallback as boolean
+    const aiSearchFallback =
+      (controls?.aiSearchFallback as boolean) ?? xControlsState.aiSearchFallback
 
     const showNoResultsMessage = computed(() => !aiSearchFallback && !relatedPrompts.value?.length)
 
