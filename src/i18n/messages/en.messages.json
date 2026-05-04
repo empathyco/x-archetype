@@ -71,7 +71,7 @@
       "name": "Name"
     },
     "facetsPanel": {
-      "title": "Sort & filter",
+      "title": "Filter",
       "viewResults": "View 1 result | View {count} results"
     },
     "filters": {

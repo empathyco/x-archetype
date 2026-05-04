@@ -71,7 +71,7 @@
       "name": "Nom"
     },
     "facetsPanel": {
-      "title": "Trier et filtrer",
+      "title": "Filtrer",
       "viewResults": "Voir 1 résultat | Voir {count} résultats"
     },
     "filters": {
@@ -90,7 +90,7 @@
       "from": "à partir de {'{min}'}"
     },
     "toggleAside": {
-      "showAside": "Trier et filtrer"
+      "showAside": "Filtrer"
     },
     "totalResults": {
       "message": "1 résultat pour {query} | {totalResults} résultats pour {query}"

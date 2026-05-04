@@ -2,7 +2,7 @@
   <div
     class="xds:flex xds:min-h-0 xds:flex-auto xds:flex-col xds:bg-neutral-0"
     :class="{
-      'xds:sticky xds:top-0 xds:max-h-[640px] xds:min-h-[150px] xds:w-[340px]': !facetsPanelOverlay,
+      'xds:sticky xds:top-0 xds:max-h-[640px] xds:min-h-37.5 xds:w-85': !facetsPanelOverlay,
     }"
   >
     <div
@@ -21,7 +21,7 @@
     </div>
 
     <SelectedFilters
-      v-if="x.selectedFilters.length && !facetsPanelOverlay"
+      v-if="!facetsPanelOverlay && x.selectedFilters.length"
       class="xds:flex xds:flex-col xds:items-stretch xds:gap-16 xds:py-16"
     />
 
@@ -69,8 +69,8 @@ import type { TranslateOptions } from 'vue-i18n'
 import { BaseIdModalClose, CrossIcon, use$x } from '@empathyco/x-components'
 import { ClearFilters } from '@empathyco/x-components/facets'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
-import CustomFacets from './facets/custom-facets.vue'
-import SelectedFilters from './facets/selected-filters.vue'
+import CustomFacets from '../search/facets/custom-facets.vue'
+import SelectedFilters from '../search/facets/selected-filters.vue'
 
 const x = use$x()
 const { getControlFromPath } = useExperienceControls()

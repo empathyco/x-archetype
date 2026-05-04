@@ -56,7 +56,7 @@
   <VariantSelector />
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import type { SnippetConfig } from '@empathyco/x-components'
 import {
   AnimateTranslate,
@@ -67,7 +67,7 @@ import {
   LocationProvider,
   use$x,
 } from '@empathyco/x-components'
-import { computed, defineAsyncComponent, defineComponent, h, inject, ref } from 'vue'
+import { computed, defineAsyncComponent, h, inject, ref } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
@@ -77,84 +77,57 @@ import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disab
 import SearchBox from '../search-box.vue'
 import { DesktopAside } from '../search/index'
 
-export default defineComponent({
-  components: {
-    DesktopAside,
-    BaseTeleport,
-    BaseIdModal,
-    MyHistoryAside,
-    MyHistoryConfirmDisableModal,
-    CrossTinyIcon,
-    ChevronLeftIcon,
-    SearchBox,
-    LocationProvider,
-    VariantSelector: defineAsyncComponent(() =>
-      import('../add2cart/variant-selector.vue').then(m => m.default),
-    ),
-    DesktopTeleport: defineAsyncComponent(() =>
-      import('./desktop-teleport.vue').then(m => m.default),
-    ),
-    MobileTeleport: defineAsyncComponent(() =>
-      import('./mobile-teleport.vue').then(m => m.default),
-    ),
-    PredictiveLayer: defineAsyncComponent(() =>
-      import('../predictive-layer/predictive-layer.vue').then(m => m.default),
-    ),
-  },
-  setup() {
-    const x = use$x()
-    const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
-    const { isDesktopOrGreater } = useDevice()
-    const snippetConfig = inject<SnippetConfig>('snippetConfig')!
-    const { hasSearched } = useHasSearched()
-    const { getControlFromPath } = useExperienceControls()
-    const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
+const VariantSelector = defineAsyncComponent(() =>
+  import('../add2cart/variant-selector.vue').then(m => m.default),
+)
+const DesktopTeleport = defineAsyncComponent(() =>
+  import('./desktop-teleport.vue').then(m => m.default),
+)
+const MobileTeleport = defineAsyncComponent(() =>
+  import('./mobile-teleport.vue').then(m => m.default),
+)
+const PredictiveLayer = defineAsyncComponent(() =>
+  import('../predictive-layer/predictive-layer.vue').then(m => m.default),
+)
 
-    const visibleGrid = ref(false)
-    const openPredictiveLayer = ref(false)
+const x = use$x()
+const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
+const { isDesktopOrGreater } = useDevice()
+const snippetConfig = inject<SnippetConfig>('snippetConfig')!
+const { hasSearched } = useHasSearched()
+const { getControlFromPath } = useExperienceControls()
+const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
 
-    const searchBoxTarget = computed(
-      () => snippetConfig.searchBoxSelector ?? "[data-teleport='empathy-search-box-container']",
-    )
-    const gridTarget = computed(
-      () => snippetConfig.resultsSelector ?? "[data-teleport='empathy-results-container']",
-    )
+const visibleGrid = ref(false)
+const openPredictiveLayer = ref(false)
 
-    x.on('UserClickedScrollToTop', false).subscribe(() => {
-      scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
-    })
+const searchBoxTarget = computed(
+  () => snippetConfig.searchBoxSelector ?? "[data-teleport='empathy-search-box-container']",
+)
+const gridTarget = computed(
+  () => snippetConfig.resultsSelector ?? "[data-teleport='empathy-results-container']",
+)
 
-    x.on('SearchBoxQueryChanged', false).subscribe(query => {
-      visibleGrid.value = query !== ''
-    })
-
-    const closeEmpathize = () => {
-      x.emit('UserClosedEmpathize')
-    }
-
-    eventsToOpenEmpathize.forEach(event =>
-      x.on(event, false).subscribe(() => {
-        openPredictiveLayer.value = true
-      }),
-    )
-
-    return {
-      x,
-      rightAsideAnimation,
-      visibleGrid,
-      searchBoxTarget,
-      gridTarget,
-      isDesktopOrGreater,
-      hasSearched,
-      openPredictiveLayer,
-      facetsPanelOverlay,
-      closeEmpathize,
-    }
-  },
+x.on('UserClickedScrollToTop', false).subscribe(() => {
+  scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  })
 })
+
+x.on('SearchBoxQueryChanged', false).subscribe(query => {
+  visibleGrid.value = query !== ''
+})
+
+const closeEmpathize = () => {
+  x.emit('UserClosedEmpathize')
+}
+
+eventsToOpenEmpathize.forEach(event =>
+  x.on(event, false).subscribe(() => {
+    openPredictiveLayer.value = true
+  }),
+)
 </script>
 
 <style>

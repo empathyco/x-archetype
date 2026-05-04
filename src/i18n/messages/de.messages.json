@@ -71,7 +71,7 @@
       "name": "Name"
     },
     "facetsPanel": {
-      "title": "Sortieren & filtern",
+      "title": "Filtern",
       "viewResults": "1 Ergebnis anzeigen | {count} Ergebnisse anzeigen"
     },
     "filters": {
@@ -90,7 +90,7 @@
       "from": "ab {'{min}'}"
     },
     "toggleAside": {
-      "showAside": "Sortieren & filtern"
+      "showAside": "Filtern"
     },
     "totalResults": {
       "message": "1 Ergebnis für {query} | {totalResults} Ergebnisse für {query}"

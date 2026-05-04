@@ -91,7 +91,9 @@ export default defineComponent({
     MainScroll,
     Scroll,
     MyHistoryConfirmDisableModal,
-    MobileAside: defineAsyncComponent(() => import('../search').then(m => m.MobileAside)),
+    MobileAside: defineAsyncComponent(() =>
+      import('../mobile/mobile-aside.vue').then(m => m.default),
+    ),
     NoResultsMessage: defineAsyncComponent(() => import('../search').then(m => m.NoResultsMessage)),
     SpellcheckMessage: defineAsyncComponent(() =>
       import('../search').then(m => m.SpellcheckMessage),
