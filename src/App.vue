@@ -4,7 +4,7 @@
     <SnippetCallbacks />
     <Tagging />
     <UrlHandler />
-    <ExperienceControls />
+    <ExperienceControls v-if="isOpen" />
     <CustomTeleport v-if="isTeleportViewMode" />
     <CustomMainModal v-if="!isTeleportViewMode && isOpen" data-wysiwyg="layer" />
   </div>
@@ -16,7 +16,6 @@ import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview'
 import type { InternalSearchRequest, InternalSearchResponse } from '@empathyco/x-components/search'
 import type { ComputedRef } from 'vue'
 import { SnippetCallbacks, use$x } from '@empathyco/x-components'
-import { ExperienceControls } from '@empathyco/x-components/experience-controls'
 import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params'
 import { Tagging } from '@empathyco/x-components/tagging'
 import { UrlHandler } from '@empathyco/x-components/url'
@@ -39,6 +38,9 @@ import { isIOS, removeSearchInputFocus } from './composables/use-ios-utils-compo
 import currencies from './i18n/currencies'
 import './tailwind/xds.css'
 
+const ExperienceControls = defineAsyncComponent(() =>
+  import('@empathyco/x-components/experience-controls').then(m => m.default),
+)
 const CustomMainModal = defineAsyncComponent(() =>
   import('./components/custom-main-modal.vue').then(m => m.default),
 )
