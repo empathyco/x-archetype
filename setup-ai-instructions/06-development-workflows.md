@@ -4,7 +4,6 @@
 
 ```bash
 npm run serve              # Dev server (localhost:8080)
-npm run serve:docker       # Dev with docker endpoints
 npm run build              # Production build via Rollup
 npm run test:e2e           # Cypress with Cucumber BDD
 npm run typecheck          # Vue TSC type checking
@@ -38,13 +37,3 @@ Use Cypress tags to filter scenarios:
 npm run cy:run -- --env TAGS="@smoke"
 npm run cy:run -- --env TAGS="not @skip"
 ```
-
-## Docker Development
-
-Set `VITE_APP_DEVELOPMENT_DOCKER=true` to use docker adapter endpoints (if docker.adapter.ts exists):
-
-```bash
-npm run serve:docker
-```
-
-This activates `src/adapter/docker.adapter.ts` which overrides API endpoints.

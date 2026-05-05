@@ -119,20 +119,6 @@ npm run build
 npm run serve:preview  # Serves dist/ folder
 ```
 
-## Environment Configuration
-
-### Docker Development
-
-Set environment variable to use docker endpoints (if docker.adapter.ts exists):
-
-```bash
-VITE_APP_DEVELOPMENT_DOCKER=true npm run build
-# or
-npm run build:docker
-```
-
-This activates `src/adapter/docker.adapter.ts` which overrides API endpoints.
-
 ### Production Build
 
 Default build uses production endpoints from `src/adapter/adapter.ts`.
