@@ -17,7 +17,6 @@ This is an Interface X Archetype - a Vue 3 + TypeScript search interface impleme
 - [`@empathyco/x-adapter`](https://github.com/empathyco/x/tree/main/packages/x-adapter) – Adapter base utilities and schema helpers for building custom adapters
 - [`@empathyco/x-archetype-utils`](https://github.com/empathyco/x/tree/main/packages/x-archetype-utils) – Utilities for archetype projects (CSS injection, analytics helpers)
 - [`@empathyco/x-utils`](https://github.com/empathyco/x/tree/main/packages/x-utils) – General utilities to ease development across X projects
-- [`@empathyco/storage-service`](https://github.com/empathyco/x/tree/main/packages/storage-service) – Wrapper on top of the Web Storage API with key prefixing and TTL
 
 ### X Archetype
 

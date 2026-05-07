@@ -38,7 +38,7 @@ Design token mapping strategy, Figma to code translation examples, and design sy
 
 ### 6. [Development Workflows](./setup-ai-instructions/06-development-workflows.md)
 
-Essential commands, local X Components development and E2E testing with Cypress/Cucumber.
+Essential commands and local X Components development.
 
 ### 7. [X Components Integration](./setup-ai-instructions/07-x-components-integration.md)
 
@@ -58,7 +58,7 @@ Proven patterns from 17+ production implementations: query filtering, semantic c
 
 ### 11. [Project Conventions](./setup-ai-instructions/11-project-conventions.md)
 
-Feature flags, internationalization, code style, file naming, import conventions, and testing patterns.
+Feature flags, internationalization, code style, file naming and import conventions.
 
 ### 12. [Setup New Instance](./setup-ai-instructions/12-setup-new-instance.md)
 

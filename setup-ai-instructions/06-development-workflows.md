@@ -5,7 +5,6 @@
 ```bash
 npm run serve              # Dev server (localhost:8080)
 npm run build              # Production build via Rollup
-npm run test:e2e           # Cypress with Cucumber BDD
 npm run typecheck          # Vue TSC type checking
 ```
 
@@ -18,22 +17,3 @@ npm run install:xds:local                # Install local x-tailwindcss
 ```
 
 These commands find the latest `.tgz` in `../x/packages/*/` - requires X monorepo at `../x/`
-
-## Testing
-
-### E2E Testing
-
-- **Framework**: Cypress with Cucumber BDD
-- **Location**: `tests/e2e/cucumber/` (`.feature` + `.spec.ts` pairs)
-- **Mocked responses**: `tests/e2e/cucumber/mocked-responses.spec.ts` for fixture data
-- **Interactive**: `npm run cy:open`
-- **CI**: `npm run cy:run`
-
-### Running Specific Scenarios
-
-Use Cypress tags to filter scenarios:
-
-```bash
-npm run cy:run -- --env TAGS="@smoke"
-npm run cy:run -- --env TAGS="not @skip"
-```

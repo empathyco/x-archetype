@@ -241,14 +241,6 @@ import type { Result, Facet } from '@empathyco/x-types'
 import { namespacedWireCommit, filter } from '@empathyco/x-components'
 ```
 
-## Testing Conventions
-
-### E2E Test Structure
-
-**Location**: `tests/e2e/cucumber/` - `.feature` and `.spec.ts` files must have matching names. Mocked responses in `mocked-responses.spec.ts`.
-
-**Commands**: `npm run cy:open` (interactive), `npm run cy:run` (CI), `npm run test:e2e` (full suite)
-
 ## Git Commit Conventions
 
 Follow conventional commits:
@@ -258,5 +250,4 @@ feat: add price range slider
 fix: correct facet filtering bug
 docs: update i18n documentation
 refactor: extract variant transformation logic
-test: add E2E tests for search flow
 ```
