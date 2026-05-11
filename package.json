@@ -49,7 +49,7 @@
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "24.0.1",
     "@bahmutov/cypress-esbuild-preprocessor": "2.2.8",
-    "@cucumber/messages": "31.2.0",
+    "@cucumber/messages": "32.3.1",
     "@empathyco/eslint-config": "1.10.31",
     "@empathyco/x-design-system": "1.0.1",
     "@tailwindcss/vite": "4.2.4",
