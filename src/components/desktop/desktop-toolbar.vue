@@ -22,7 +22,7 @@
       </template>
     </i18n-t>
 
-    <ColumnPicker data-test="column-picker" />
+    <ColumnPicker v-if="columnPicker" data-test="column-picker" />
 
     <BaseIdModalOpen
       modal-id="right-aside"
@@ -46,9 +46,15 @@
 
 <script setup lang="ts">
 import { BaseIdModalOpen, FiltersIcon, use$x, useGetter } from '@empathyco/x-components'
-import ColumnPicker from '../column-picker.vue'
+import { defineAsyncComponent } from 'vue'
+import { xControlsState } from '../../x-components/xcontrols'
 import SortSelector from '../search/sort-selector.vue'
+
+const ColumnPicker = defineAsyncComponent(() => import('../column-picker.vue').then(m => m.default))
 
 const x = use$x()
 const { query } = useGetter('search')
+//const controls = useState('experienceControls').controls.value.controls as Dictionary<unknown>
+const columnPicker = xControlsState.gridColumns.columnPicker
+//((controls?.gridColumns as Dictionary<unknown>).columnPicker as boolean) ?? xControlsState.gridColumns.columnPicker
 </script>

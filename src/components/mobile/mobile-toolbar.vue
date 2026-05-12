@@ -21,15 +21,21 @@
         </template>
       </i18n-t>
 
-      <ColumnPicker v-if="x.totalResults" />
+      <ColumnPicker v-if="columnPicker && x.totalResults" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { use$x, useGetter } from '@empathyco/x-components'
-import ColumnPicker from '../column-picker.vue'
+import { defineAsyncComponent } from 'vue'
+import { xControlsState } from '../../x-components/xcontrols'
+
+const ColumnPicker = defineAsyncComponent(() => import('../column-picker.vue').then(m => m.default))
 
 const x = use$x()
 const { query } = useGetter('search')
+//const controls = useState('experienceControls').controls.value.controls as Dictionary<unknown>
+const columnPicker = xControlsState.gridColumns.columnPicker
+//((controls?.gridColumns as Dictionary<unknown>).columnPicker as boolean) ?? xControlsState.gridColumns.columnPicker
 </script>

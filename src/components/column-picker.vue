@@ -24,11 +24,15 @@ import {
 } from '@empathyco/x-components'
 import { computed } from 'vue'
 import { useDevice } from '../composables/use-device.composable'
+import { xControlsState } from '../x-components/xcontrols'
 
 const { isMobile } = useDevice()
+//const controls = useState('experienceControls').controls.value.controls as Dictionary<unknown>
+const columnSelector = xControlsState.gridColumns.columnSelector
+//((controls?.gridColumns as Dictionary<unknown>).columnSelector as number[]) ?? xControlsState.gridColumns.columnSelector
 
-const columns = computed(() => (isMobile.value ? [2, 1] : [4, 2]))
+const columns = computed(() => (isMobile.value ? [2, 1] : columnSelector))
 
 const values = columns
-const icons = { 1: Grid1ColIcon, 2: Grid2ColIcon, 4: Grid4ColIcon }
+const icons = { 1: Grid1ColIcon, 2: Grid2ColIcon, columnSelector: Grid2ColIcon, 4: Grid4ColIcon }
 </script>

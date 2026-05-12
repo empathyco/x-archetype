@@ -2,6 +2,10 @@ export const xControlsState = {
   aiSearchFallback: true,
   fullPredictiveLayer: false,
   logo: 'https://empathy.co/assets/media/logo/logo-text-black.svg',
+  gridColumns: {
+    columnPicker: true,
+    columnSelector: [5, 3],
+  },
   styles: {
     'color-lead-25': '#bbc9cf',
     'color-lead-50': '#5e7782',
