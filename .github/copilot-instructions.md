@@ -38,7 +38,7 @@ Design token mapping strategy, Figma to code translation examples, and design sy
 
 ### 6. [Development Workflows](../setup-ai-instructions/06-development-workflows.md)
 
-Essential commands, local X Components development, E2E testing with Cypress/Cucumber, and Docker development setup.
+Essential commands, local X Components development, and E2E testing with Cypress/Cucumber.
 
 ### 7. [X Components Integration](../setup-ai-instructions/07-x-components-integration.md)
 

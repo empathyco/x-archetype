@@ -34,24 +34,6 @@ const setUrlQueryFiltered = filter(
  * Returns - the InstallXOptions.
  */
 export async function getInstallXOptions(): Promise<InstallXOptions> {
-  if (import.meta.env.VITE_APP_DEVELOPMENT_DOCKER) {
-    const { overrideAdapter } = await import('../adapter/docker.adapter')
-    overrideAdapter(adapter)
-    ;(window.initX as SnippetConfig).queriesPreview = [
-      {
-        query: 'short',
-        title: 'Short',
-      },
-      {
-        query: 'comedy',
-        title: 'Comedy',
-      },
-      {
-        query: 'family',
-        title: 'Family',
-      },
-    ]
-  }
   return {
     adapter,
     // eslint-disable-next-line ts/no-unsafe-assignment

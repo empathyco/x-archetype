@@ -10,10 +10,8 @@
   "scripts": {
     "prepare": "husky install && skilld update -b",
     "serve": "vite dev",
-    "serve:docker": "VITE_APP_DEVELOPMENT_DOCKER=true npm run serve",
     "build": "vite build",
     "preview": "vite preview",
-    "build:docker": "VITE_APP_DEVELOPMENT_DOCKER=true npm run build",
     "build:preview": "npm run build && npm run preview",
     "typecheck": "vue-tsc --noEmit",
     "lint": "eslint . --fix",

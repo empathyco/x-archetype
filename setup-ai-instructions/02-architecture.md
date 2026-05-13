@@ -11,7 +11,6 @@ The app initializes via `src/main.ts` → `XInstaller` with options from `src/x-
 ## Adapter System
 
 - Production: Uses `@empathyco/x-adapter-platform` endpoints
-- Docker dev: `src/adapter/docker.adapter.ts` (if present) overrides endpoints when `VITE_APP_DEVELOPMENT_DOCKER=true`
 - **Schema overrides**: Extend `resultSchema`, `facetSchema`, etc. to map platform-specific fields (see `adapter.ts` examples)
 - Custom facet logic: `src/adapter/facets/utils.ts` (e.g., price range as editable slider)
 
