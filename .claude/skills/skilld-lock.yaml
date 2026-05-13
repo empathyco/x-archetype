@@ -1,11 +1,11 @@
 skills:
   vue-skilld:
     packageName: vue
-    version: 3.5.30
-    packages: "vue@3.5.30"
+    version: 3.5.33
+    packages: "vue@3.5.33"
     repo: vuejs/core
-    source: "https://github.com/vuejs/core/tree/main/docs"
-    syncedAt: 2026-04-03
+    source: "https://github.com/vuejs/core/tree/v3.5.33/docs"
+    syncedAt: 2026-05-05
     generator: skilld
   typescript-skilld:
     packageName: typescript
@@ -16,11 +16,11 @@ skills:
     generator: skilld
   tailwindcss-skilld:
     packageName: tailwindcss
-    version: 4.2.2
-    packages: "tailwindcss@4.2.2"
+    version: 4.2.4
+    packages: "tailwindcss@4.2.4"
     repo: tailwindlabs/tailwindcss
-    source: "https://github.com/tailwindlabs/tailwindcss/tree/main/docs"
-    syncedAt: 2026-04-03
+    source: "ungh://tailwindlabs/tailwindcss/packages/tailwindcss@main"
+    syncedAt: 2026-05-05
     generator: skilld
   vuex-skilld:
     packageName: vuex
