@@ -87,7 +87,7 @@ export default defineConfig({
       dev: { enableDev: true },
       injectCodeFunction: injectCssCode,
     }),
-    visualizer(),
+    visualizer({ gzipSize: true }),
   ],
   server: { port: 8080 },
   preview: { port: 8080 },
