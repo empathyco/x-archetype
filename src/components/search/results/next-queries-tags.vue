@@ -3,7 +3,7 @@
     v-if="showNextQueries"
     class="xds:relative xds:flex xds:flex-col xds:gap-16 xds:rounded-lg xds:border-1 xds:border-neutral-100 xds:pt-16 xds:pb-20 xds:desktop:pr-80 xds:desktop:pl-28"
   >
-    <i18n-t
+    <Translation
       class="xds:text1 xds:text1-lg xds:max-desktop:px-16"
       tag="h1"
       keypath="nextQueriesCta.message"
@@ -14,7 +14,7 @@
           {{ query }}
         </span>
       </template>
-    </i18n-t>
+    </Translation>
 
     <SlidingPanel
       :show-buttons="!isTouchable"
@@ -68,6 +68,7 @@ import {
 } from '@empathyco/x-components'
 import { NextQuery } from '@empathyco/x-components/next-queries'
 import { computed, defineComponent, inject } from 'vue'
+import { Translation } from 'vue-i18n'
 import { useDevice } from '../../../composables/use-device.composable'
 
 export default defineComponent({
@@ -79,6 +80,7 @@ export default defineComponent({
     NextQuery,
     CrossIcon,
     SlidingPanel,
+    Translation,
   },
   setup() {
     const x = use$x()

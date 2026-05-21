@@ -1,5 +1,5 @@
 <template>
-  <i18n-t
+  <Translation
     v-if="x.noResults"
     class="x-no-results-message xds:message xds:text1 xds:desktop:mt-24 xds:desktop:text1-lg"
     keypath="noResults.message"
@@ -10,13 +10,13 @@
       <span class="xds:w-auto xds:font-bold">"{{ x.query.search }}"</span>
       <div class="xds:basis-full"></div>
     </template>
-  </i18n-t>
+  </Translation>
 </template>
 
 <script setup lang="ts">
 import { use$x } from '@empathyco/x-components'
+import { Translation } from 'vue-i18n'
 import { useDevice } from '../../composables/use-device.composable'
-
 const { isTabletOrLess } = useDevice()
 const x = use$x()
 </script>
