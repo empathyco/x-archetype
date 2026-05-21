@@ -23,16 +23,13 @@ import { useEventListener } from '@vueuse/core'
 import {
   computed,
   defineAsyncComponent,
-  getCurrentInstance,
   inject,
   onBeforeUnmount,
   onMounted,
   provide,
   ref,
-  watch,
 } from 'vue'
 import { useCustomization } from './composables/use-customization.composable'
-import { useDevice } from './composables/use-device.composable'
 import { FeatureFlag, useFeatureFlags } from './composables/use-feature-flags.composable'
 import { isIOS, removeSearchInputFocus } from './composables/use-ios-utils-composable'
 import currencies from './i18n/currencies'
@@ -52,8 +49,6 @@ const { init } = useCustomization()
 init()
 
 const x = use$x()
-const appInstance = getCurrentInstance()
-const { deviceName } = useDevice()
 const { isFeatureEnabled } = useFeatureFlags()
 const snippetConfig = inject<SnippetConfig>('snippetConfig')!
 const isOpen = ref(false)
@@ -142,15 +137,6 @@ provide<ComputedRef<QueryPreviewInfo[]> | undefined>('queriesPreviewInfo', queri
 
 const showNextQueries = computed(() => showNextQueriesTags.value)
 provide('showNextQueries', showNextQueries)
-
-watch(
-  () => snippetConfig.uiLang,
-  uiLang => appInstance?.appContext.config.globalProperties.$setLocale(uiLang ?? 'en'),
-)
-
-watch(deviceName, device =>
-  appInstance?.appContext.config.globalProperties.$setLocaleDevice(device),
-)
 
 const reloadSearch = (): void => {
   x.emit('ReloadSearchRequested')

@@ -6,7 +6,7 @@
     <div class="xds:flex xds:flex-auto xds:items-center xds:justify-end">
       <i18n-t
         class="xds:flex-auto xds:text1"
-        keypath="totalResults.message"
+        keypath="totalResults.device.mobile.message"
         tag="span"
         scope="global"
         :plural="x.totalResults"

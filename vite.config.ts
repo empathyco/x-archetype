@@ -1,4 +1,6 @@
 import type { PluginOption } from 'vite'
+import { resolve } from 'node:path'
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
 import visualizer from 'rollup-plugin-visualizer'
@@ -72,6 +74,13 @@ export default defineConfig({
   plugins: [
     overrideXCssInjector(),
     vue(),
+    VueI18nPlugin({
+      // Pre-compile JSON message files
+      include: [resolve(__dirname, './src/i18n/messages/**')],
+      compositionOnly: true,
+      fullInstall: false, // Exclude unused features
+      dropMessageCompiler: true, // Pre-compile messages at build time
+    }),
     tailwindcss(),
     cssInjectedByJsPlugin({
       topExecutionPriority: false, // Wait until `window.xCSSInjector` is created.

@@ -42,17 +42,16 @@ export interface Messages {
   nextQueriesCta: {
     message: string
   }
-  nextQueriesGroup: {
-    message: string
-  }
   nextQueryPreview: {
     message: string
     query: string
     totalResults: string
     viewResults: string
-  }
-  identifierResults: {
-    title: string
+    device?: {
+      mobile?: {
+        viewResults?: string
+      }
+    }
   }
   recommendations: {
     title: string
@@ -95,6 +94,11 @@ export interface Messages {
   }
   totalResults: {
     message: string
+    device?: {
+      mobile?: {
+        message?: string
+      }
+    }
   }
   semanticQueries: {
     title: string
@@ -147,9 +151,6 @@ export interface Messages {
   }
   columnPicker: {
     message: string
-  }
-  queryPreview: {
-    viewResults: string
   }
   redirections: {
     title: string
