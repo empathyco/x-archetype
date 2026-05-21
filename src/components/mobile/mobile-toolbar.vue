@@ -4,9 +4,9 @@
     class="xds:flex xds:w-full xds:flex-row xds:items-center xds:justify-between xds:gap-16"
   >
     <div class="xds:flex xds:flex-auto xds:items-center xds:justify-end">
-      <i18n-t
+      <Translation
         class="xds:flex-auto xds:text1"
-        keypath="totalResults.message"
+        keypath="totalResults.device.mobile.message"
         tag="span"
         scope="global"
         :plural="x.totalResults"
@@ -19,7 +19,7 @@
             {{ x.spellcheckedQuery || query }}
           </span>
         </template>
-      </i18n-t>
+      </Translation>
 
       <ColumnPicker v-if="x.totalResults" />
     </div>
@@ -28,6 +28,7 @@
 
 <script setup lang="ts">
 import { use$x, useGetter } from '@empathyco/x-components'
+import { Translation } from 'vue-i18n'
 import ColumnPicker from '../column-picker.vue'
 
 const x = use$x()

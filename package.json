@@ -37,12 +37,13 @@
     "@vueuse/core": "14.2.1",
     "tslib": "2.8.1",
     "vue": "3.5.33",
-    "vue-i18n": "9.14.5",
+    "vue-i18n": "11.4.4",
     "vuex": "4.0.2"
   },
   "devDependencies": {
     "@empathyco/eslint-config": "1.10.31",
     "@empathyco/x-design-system": "1.0.3",
+    "@intlify/unplugin-vue-i18n": "11.2.3",
     "@tailwindcss/vite": "4.2.4",
     "@types/dom-speech-recognition": "0.0.9",
     "@vitejs/plugin-vue": "5.2.4",

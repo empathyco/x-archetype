@@ -16,7 +16,7 @@
       </span>
     </div>
 
-    <i18n-t
+    <Translation
       class="xds:flex-auto xds:text1 xds:text1-lg"
       keypath="totalResults.message"
       tag="span"
@@ -31,7 +31,7 @@
           {{ x.spellcheckedQuery || query }}
         </span>
       </template>
-    </i18n-t>
+    </Translation>
 
     <ColumnPicker data-test="column-picker" />
 
@@ -58,6 +58,7 @@
 
 <script setup lang="ts">
 import { BaseIdModalOpen, FiltersIcon, use$x, useGetter } from '@empathyco/x-components'
+import { Translation } from 'vue-i18n'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import ColumnPicker from '../column-picker.vue'
 import SortSelector from '../search/sort-selector.vue'

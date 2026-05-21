@@ -1,6 +1,6 @@
 <template>
   <div class="xds:mb-64 xds:flex xds:flex-col">
-    <i18n-t
+    <Translation
       class="x-no-results-message xds:mb-24 xds:flex xds:flex-wrap xds:items-center xds:justify-center xds:gap-4 xds:bg-neutral-10 xds:p-24 xds:text-center xds:text1 xds:wrap-break-word xds:text-neutral-90 xds:desktop:text1-lg"
       keypath="relatedPrompts.title"
       tag="p"
@@ -12,7 +12,7 @@
       <template #message>
         <span class="xds:w-auto">{{ $t('relatedPrompts.message') }}</span>
       </template>
-    </i18n-t>
+    </Translation>
 
     <div class="xds:flex xds:flex-col">
       <RelatedPrompts :class="isDesktopOrGreater ? 'xds:mt-24' : 'xds:mt-16'" />
@@ -32,6 +32,7 @@ import type { RelatedPrompt, RelatedPromptNextQuery } from '@empathyco/x-types'
 import { use$x, useState } from '@empathyco/x-components'
 import { relatedPromptsXModule } from '@empathyco/x-components/related-prompts'
 import { computed } from 'vue'
+import { Translation } from 'vue-i18n'
 import { useDevice } from '../../composables/use-device.composable'
 import CustomQueryPreview from '../search/results/custom-query-preview.vue'
 import RelatedPrompts from './related-prompts.vue'
