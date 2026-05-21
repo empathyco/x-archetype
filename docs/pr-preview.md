@@ -6,7 +6,7 @@ environment **if the build and the tests execution were successful**.
 
 The url will follow the pattern:
 
-`https://x.test.empathy.co/preview/${instance}/${pr_number}/index.html`
+`https://x.staging.empathy.co/preview/${instance}/${pr_number}/index.html`
 
 Where the `instance` value must be configured for the `XComponentsPipeline`
 on the [Jenkinsfile](https://github.com/empathyco/x-archetype/blob/main/Jenkinsfile#L2) and the `pr_number` is the pull
@@ -16,7 +16,7 @@ Every commit to the origin branch will update the deployment automatically. Afte
 add a comment to the pull request with the url to the preview. In the case of the `Archetype` this value will be ignored
 and the url will follow:
 
-`https://x.test.empathy.co/preview/${pr_number}/index.html`
+`https://x.staging.empathy.co/preview/${pr_number}/index.html`
 
 ## Lifecycle
 

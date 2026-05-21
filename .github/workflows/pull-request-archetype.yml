@@ -31,9 +31,9 @@ jobs:
           r2_purge_strategy: |
             {
               "files": [
-                "https://x.test.empathy.co/preview/${{ github.event.number }}/app.js",
-                "https://x.test.empathy.co/preview/${{ github.event.number }}/index.html",
-                "https://x.test.empathy.co/preview/${{ github.event.number }}/snippet-script.js"
+                "https://x.staging.empathy.co/preview/${{ github.event.number }}/app.js",
+                "https://x.staging.empathy.co/preview/${{ github.event.number }}/index.html",
+                "https://x.staging.empathy.co/preview/${{ github.event.number }}/snippet-script.js"
               ]
             }
           delete_old_files: true
@@ -46,5 +46,5 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: `Check **PR ${{ github.event.number }}** preview 👀 <br> <br> \
-                    [https://x.test.empathy.co/preview/${{ github.event.number }}/index.html](https://x.test.empathy.co/preview/${{ github.event.number }}/index.html)`
+                    [https://x.staging.empathy.co/preview/${{ github.event.number }}/index.html](https://x.staging.empathy.co/preview/${{ github.event.number }}/index.html)`
             })
