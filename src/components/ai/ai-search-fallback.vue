@@ -23,8 +23,7 @@
       </div>
     </Message>
     <LocationProvider :location="location">
-      <CustomAiCarousel v-if="x.noResults" />
-      <CustomAiOverview v-else />
+      <CustomAiCarousel :group="x.noResults" />
     </LocationProvider>
   </MaxDesktopWidthItem>
 </template>
@@ -35,7 +34,6 @@ import { AISpinnerIcon, LocationProvider, Message, use$x, useState } from '@empa
 import { computed, ref, watchEffect } from 'vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
 import CustomAiCarousel from './custom-ai-carousel.vue'
-import CustomAiOverview from './custom-ai-overview.vue'
 
 const x = use$x()
 const { suggestionsStatus, suggestionsSearchStatus, suggestionsSearch } = useState('ai')

@@ -1,4 +1,4 @@
-import type { SnippetConfig, XEvent } from '@empathyco/x-components'
+import type { SnippetConfig } from '@empathyco/x-components'
 import type { SearchInput } from '@empathyco/x-components/search-box'
 import type { Ref } from 'vue'
 import { use$x } from '@empathyco/x-components'
@@ -49,7 +49,7 @@ export function useSpeechRecognition(inputRef: Ref<InstanceType<typeof SearchInp
       const inputEvent = new Event('input', { bubbles: true })
       inputElement.dispatchEvent(inputEvent)
 
-      x.emit('UserIsTypingAQuery' as XEvent, value, { target: inputElement })
+      x.emit('UserIsTypingAQuery', value, { target: inputElement })
     }
   }
 
@@ -96,7 +96,7 @@ export function useSpeechRecognition(inputRef: Ref<InstanceType<typeof SearchInp
       recognition.onend = () => {
         isListening.value = false
         const inputElement = inputRef.value?.inputElement as HTMLInputElement
-        x.emit('UserAcceptedAQuery' as XEvent, inputElement.value, {
+        x.emit('UserAcceptedAQuery', inputElement.value, {
           target: inputElement,
           feature: 'search_box',
         })

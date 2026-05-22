@@ -117,7 +117,7 @@ const currency = popFromURLParameters('currency') || 'EUR'
 const consent = popFromURLParameters('consent') !== 'false'
 const documentDirection = popFromURLParameters('doc-dir') || 'ltr'
 const store = popFromURLParameters('store') || undefined
-const viewMode = popFromURLParameters('viewMode') || 'fullScreen'
+const viewMode = popFromURLParameters('viewMode') || 'embedded'
 const isolate = getIsolationStrategy()
 var cart = {}
 var wishlist = []
