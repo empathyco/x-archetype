@@ -11,19 +11,14 @@
 
 <script setup lang="ts">
 import { LocationProvider, use$x } from '@empathyco/x-components'
-import { computed, defineAsyncComponent } from 'vue'
+import { computed } from 'vue'
 import { useExperienceControls } from '../composables/use-experience-controls.composable'
 import { useHasSearched } from '../composables/use-has-searched.composable'
 import { lowResultsThreshold } from '../x-components/constants'
-
-const Redirection = defineAsyncComponent(() => import('./search').then(m => m.Redirection))
-const Results = defineAsyncComponent(() => import('./search').then(m => m.Results))
-const AiSearchFallback = defineAsyncComponent(() =>
-  import('./ai/ai-search-fallback.vue').then(m => m.default),
-)
-const SearchFallback = defineAsyncComponent(() =>
-  import('./search/search-fallback.vue').then(m => m.default),
-)
+import AiSearchFallback from './ai/ai-search-fallback.vue'
+import Redirection from './search/redirection.vue'
+import Results from './search/results/results.vue'
+import SearchFallback from './search/search-fallback.vue'
 
 const { getControlFromPath } = useExperienceControls()
 const { hasSearched } = useHasSearched()

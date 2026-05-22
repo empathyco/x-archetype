@@ -33,7 +33,7 @@
             </div>
 
             <LocationProvider location="results">
-              <MainComponent />
+              <Main />
             </LocationProvider>
           </div>
           <PageLoaderButton
@@ -58,20 +58,22 @@ import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent } from 'vue'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
-import DesktopSubHeader from '../desktop/desktop-sub-header.vue'
-import MainComponent from '../main.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
 
-const DesktopAside = defineAsyncComponent(() => import('../search').then(m => m.DesktopAside))
-const NoResultsMessage = defineAsyncComponent(() =>
-  import('../search').then(m => m.NoResultsMessage),
-)
-const SpellcheckMessage = defineAsyncComponent(() =>
-  import('../search').then(m => m.SpellcheckMessage),
+const DesktopAside = defineAsyncComponent(() => import('../index-search').then(m => m.DesktopAside))
+const DesktopSubHeader = defineAsyncComponent(() =>
+  import('../index-search').then(m => m.DesktopSubHeader),
 )
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
-  import('../search').then(m => m.FallbackDisclaimerMessage),
+  import('../index-search').then(m => m.FallbackDisclaimerMessage),
 )
+const NoResultsMessage = defineAsyncComponent(() =>
+  import('../index-search').then(m => m.NoResultsMessage),
+)
+const SpellcheckMessage = defineAsyncComponent(() =>
+  import('../index-search').then(m => m.SpellcheckMessage),
+)
+const Main = defineAsyncComponent(() => import('../index-search').then(m => m.Main))
 
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')

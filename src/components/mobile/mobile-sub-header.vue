@@ -9,12 +9,10 @@
 
 <script setup lang="ts">
 import { LocationProvider } from '@empathyco/x-components'
-import { defineAsyncComponent } from 'vue'
 import MobileToolbar from '../mobile/mobile-toolbar.vue'
+import RelatedTags from '../search/related-tags.vue'
 
 defineProps<{
   hasSearched?: boolean
 }>()
-
-const RelatedTags = defineAsyncComponent(() => import('../search').then(m => m.RelatedTags))
 </script>

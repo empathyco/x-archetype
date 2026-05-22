@@ -28,7 +28,7 @@
             <FallbackDisclaimerMessage class="xds:mb-16" data-test="fallback-message" />
           </section>
           <LocationProvider location="results">
-            <MainComponent />
+            <Main />
           </LocationProvider>
           <PageLoaderButton
             v-if="x.query.searchBox && x.results.length > 0"
@@ -58,71 +58,41 @@
   </MobileLayout>
 </template>
 
-<script lang="ts">
-import {
-  AnimateTranslate,
-  LocationProvider,
-  PageLoaderButton,
-  use$x,
-  useState,
-} from '@empathyco/x-components'
+<script lang="ts" setup>
+import { LocationProvider, PageLoaderButton, useState } from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
-import { computed, defineAsyncComponent, defineComponent, h } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
-import MainComponent from '../main.vue'
 import MobileLayout from '../mobile/mobile-layout.vue'
 import MobileOpenAside from '../mobile/mobile-open-aside.vue'
-import MobileSubHeader from '../mobile/mobile-sub-header.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
 import ScrollToTop from '../scroll-to-top.vue'
 
-export default defineComponent({
-  components: {
-    PageLoaderButton,
-    ScrollToTop,
-    MobileOpenAside,
-    MobileLayout,
-    LocationProvider,
-    MobileSubHeader,
-    MainComponent,
-    MyHistoryAside,
-    MainScroll,
-    Scroll,
-    MyHistoryConfirmDisableModal,
-    MobileAside: defineAsyncComponent(() =>
-      import('../mobile/mobile-aside.vue').then(m => m.default),
-    ),
-    NoResultsMessage: defineAsyncComponent(() => import('../search').then(m => m.NoResultsMessage)),
-    SpellcheckMessage: defineAsyncComponent(() =>
-      import('../search').then(m => m.SpellcheckMessage),
-    ),
-    FallbackDisclaimerMessage: defineAsyncComponent(() =>
-      import('../search').then(m => m.FallbackDisclaimerMessage),
-    ),
-  },
-  setup() {
-    const filtersAsideAnimation = h(AnimateTranslate, { animationOrigin: 'bottom' })
-    const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
-    const { hasSearched } = useHasSearched()
-    const { relatedPrompts } = useState('relatedPrompts')
-    const { getControlFromPath } = useExperienceControls()
-    const aiSearchFallback = getControlFromPath('aiSearchFallback')
+const MobileSubHeader = defineAsyncComponent(() =>
+  import('../index-search').then(m => m.MobileSubHeader),
+)
+const MobileAside = defineAsyncComponent(() => import('../index-search').then(m => m.MobileAside))
+const FallbackDisclaimerMessage = defineAsyncComponent(() =>
+  import('../index-search').then(m => m.FallbackDisclaimerMessage),
+)
+const NoResultsMessage = defineAsyncComponent(() =>
+  import('../index-search').then(m => m.NoResultsMessage),
+)
+const SpellcheckMessage = defineAsyncComponent(() =>
+  import('../index-search').then(m => m.SpellcheckMessage),
+)
+const Main = defineAsyncComponent(() => import('../index-search').then(m => m.Main))
 
-    const showNoResultsMessage = computed(
-      () => !aiSearchFallback.value && !relatedPrompts.value?.length,
-    )
+const { hasSearched } = useHasSearched()
+const { relatedPrompts } = useState('relatedPrompts')
+const { getControlFromPath } = useExperienceControls()
+const aiSearchFallback = getControlFromPath('aiSearchFallback')
 
-    return {
-      filtersAsideAnimation,
-      rightAsideAnimation,
-      hasSearched,
-      x: use$x(),
-      showNoResultsMessage,
-    }
-  },
-})
+const showNoResultsMessage = computed(
+  () => !aiSearchFallback.value && !relatedPrompts.value?.length,
+)
 </script>
 
 <style scoped>

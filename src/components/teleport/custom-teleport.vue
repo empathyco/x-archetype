@@ -72,23 +72,15 @@ import { useDevice } from '../../composables/use-device.composable'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import { eventsToOpenEmpathize } from '../../x-components/constants'
+import VariantSelector from '../add2cart/variant-selector.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
+import PredictiveLayer from '../predictive-layer/predictive-layer.vue'
 import SearchBox from '../search-box.vue'
-import { DesktopAside } from '../search/index'
+import DesktopTeleport from './desktop-teleport.vue'
+import MobileTeleport from './mobile-teleport.vue'
 
-const VariantSelector = defineAsyncComponent(() =>
-  import('../add2cart/variant-selector.vue').then(m => m.default),
-)
-const DesktopTeleport = defineAsyncComponent(() =>
-  import('./desktop-teleport.vue').then(m => m.default),
-)
-const MobileTeleport = defineAsyncComponent(() =>
-  import('./mobile-teleport.vue').then(m => m.default),
-)
-const PredictiveLayer = defineAsyncComponent(() =>
-  import('../predictive-layer/predictive-layer.vue').then(m => m.default),
-)
+const DesktopAside = defineAsyncComponent(() => import('../index-search').then(m => m.DesktopAside))
 
 const x = use$x()
 const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })

@@ -32,7 +32,7 @@
             </div>
 
             <LocationProvider location="results">
-              <MainComponent />
+              <Main />
             </LocationProvider>
           </div>
         </MaxDesktopWidthItem>
@@ -80,7 +80,6 @@ import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent, h } from 'vue'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
-import MainComponent from '../main.vue'
 import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
@@ -88,16 +87,17 @@ import PreSearchManager from '../pre-search/pre-search-manager.vue'
 import ScrollToTop from '../scroll-to-top.vue'
 import DesktopTopSection from './desktop-top-section.vue'
 
-const DesktopAside = defineAsyncComponent(() => import('../search').then(m => m.DesktopAside))
+const DesktopAside = defineAsyncComponent(() => import('../index-search').then(m => m.DesktopAside))
+const FallbackDisclaimerMessage = defineAsyncComponent(() =>
+  import('../index-search').then(m => m.FallbackDisclaimerMessage),
+)
 const NoResultsMessage = defineAsyncComponent(() =>
-  import('../search').then(m => m.NoResultsMessage),
+  import('../index-search').then(m => m.NoResultsMessage),
 )
 const SpellcheckMessage = defineAsyncComponent(() =>
-  import('../search').then(m => m.SpellcheckMessage),
+  import('../index-search').then(m => m.SpellcheckMessage),
 )
-const FallbackDisclaimerMessage = defineAsyncComponent(() =>
-  import('../search').then(m => m.FallbackDisclaimerMessage),
-)
+const Main = defineAsyncComponent(() => import('../index-search').then(m => m.Main))
 
 const x = use$x()
 const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })

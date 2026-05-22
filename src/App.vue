@@ -39,10 +39,10 @@ const ExperienceControls = defineAsyncComponent(() =>
   import('@empathyco/x-components/experience-controls').then(m => m.default),
 )
 const CustomMainModal = defineAsyncComponent(() =>
-  import('./components/custom-main-modal.vue').then(m => m.default),
+  import('./components/index-empty-search').then(m => m.CustomMainModal),
 )
 const CustomTeleport = defineAsyncComponent(() =>
-  import('./components/teleport/custom-teleport.vue').then(m => m.default),
+  import('./components/index-empty-search').then(m => m.CustomTeleport),
 )
 
 const { init } = useCustomization()
