@@ -48,7 +48,7 @@
     "@types/dom-speech-recognition": "0.0.9",
     "@vitejs/plugin-vue": "5.2.4",
     "husky": "8.0.3",
-    "lint-staged": "15.5.2",
+    "lint-staged": "17.0.5",
     "rollup-plugin-visualizer": "7.0.1",
     "skilld": "2.0.0",
     "tailwindcss": "4.2.4",
