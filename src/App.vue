@@ -36,7 +36,7 @@ import currencies from './i18n/currencies'
 import './tailwind/xds.css'
 
 const ExperienceControls = defineAsyncComponent(() =>
-  import('@empathyco/x-components/experience-controls').then(m => m.default),
+  import('./components/index-empty-search').then(m => m.ExperienceControls),
 )
 const CustomMainModal = defineAsyncComponent(() =>
   import('./components/index-empty-search').then(m => m.CustomMainModal),

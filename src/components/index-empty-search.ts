@@ -1,3 +1,4 @@
+import { ExperienceControls } from '@empathyco/x-components/experience-controls'
 import CustomMainModal from './custom-main-modal.vue'
 import CustomTeleport from './teleport/custom-teleport.vue'
 
@@ -7,4 +8,4 @@ import CustomTeleport from './teleport/custom-teleport.vue'
  * the empty search chunk until one of them is needed.
  * Other components are just child components of this one and should be imported directly.
  */
-export { CustomMainModal, CustomTeleport }
+export { CustomMainModal, CustomTeleport, ExperienceControls }

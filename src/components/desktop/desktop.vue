@@ -4,7 +4,9 @@
 
     <MainScroll class="xds:flex xds:flex-col">
       <Scroll id="main-scroll">
-        <MaxDesktopWidthItem>
+        <div
+          class="xds:layout-item xds:layout-max-width-md xds:desktop:layout-min-margin-32 xds:large:layout-max-width-lg xds:large:layout-min-margin-48"
+        >
           <div v-if="hasSearched">
             <LocationProvider location="results">
               <SpellcheckMessage class="xds:mb-16" data-test="spellcheck-message" />
@@ -35,13 +37,15 @@
               <Main />
             </LocationProvider>
           </div>
-        </MaxDesktopWidthItem>
+        </div>
       </Scroll>
     </MainScroll>
 
-    <MaxDesktopWidthItem class="xds:layout-overlap xds:layout-on-margin-right">
+    <div
+      class="xds:layout-overlap xds:layout-item xds:layout-on-margin-right xds:layout-max-width-md xds:desktop:layout-min-margin-32 xds:large:layout-max-width-lg xds:large:layout-min-margin-48"
+    >
       <ScrollToTop />
-    </MaxDesktopWidthItem>
+    </div>
 
     <div class="xds:z-20">
       <BaseIdModal
@@ -80,7 +84,6 @@ import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent, h } from 'vue'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
-import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
 import PreSearchManager from '../pre-search/pre-search-manager.vue'
