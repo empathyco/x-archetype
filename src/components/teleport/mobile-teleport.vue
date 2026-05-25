@@ -59,7 +59,7 @@
 </template>
 
 <script lang="ts" setup>
-import { LocationProvider, PageLoaderButton, useState } from '@empathyco/x-components'
+import { LocationProvider, PageLoaderButton, use$x, useState } from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent } from 'vue'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
@@ -89,6 +89,7 @@ const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
 const { getControlFromPath } = useExperienceControls()
 const aiSearchFallback = getControlFromPath('aiSearchFallback')
+const x = use$x()
 
 const showNoResultsMessage = computed(
   () => !aiSearchFallback.value && !relatedPrompts.value?.length,
