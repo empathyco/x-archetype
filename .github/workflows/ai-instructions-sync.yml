@@ -7,5 +7,5 @@ on:
 jobs:
   sync:
     if: false
-    uses: empathyco/platform-reusable-github-actions/.github/workflows/ai-instructions-sync.yml@main
+    uses: empathyco/platform-reusable-github-actions/.github/workflows/ai-instructions-sync.yml@bb77254a21ec4b044e311f546e183adbe24e3ec4 # main
     secrets: inherit

@@ -10,5 +10,5 @@ concurrency:
 jobs:
   pr-preview:
     if: false
-    uses: empathyco/platform-reusable-github-actions/.github/workflows/x-archetype-pr-preview.yml@main
+    uses: empathyco/platform-reusable-github-actions/.github/workflows/x-archetype-pr-preview.yml@bb77254a21ec4b044e311f546e183adbe24e3ec4 # main
     secrets: inherit
