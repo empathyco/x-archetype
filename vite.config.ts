@@ -10,9 +10,9 @@ import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 function getChunkFileName(name: string) {
   switch (name) {
     case 'index-empty-search':
-      return 'x-empty-search-[hash].js'
+      return 'x-empty-search.[hash].js'
     case 'index-search':
-      return 'x-search-[hash].js'
+      return 'x-search.[hash].js'
     default:
       return '[name].[hash].js'
   }
