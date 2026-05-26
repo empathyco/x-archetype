@@ -30,16 +30,6 @@
 
   <div class="xds:z-40">
     <BaseIdModal
-      key="my-history-aside"
-      class="xds:z-50!"
-      :animation="rightAsideAnimation"
-      modal-id="my-history-aside"
-      content-class="xds:w-512 xds:ml-auto xds:h-full"
-    >
-      <MyHistoryAside />
-    </BaseIdModal>
-
-    <BaseIdModal
       v-if="facetsPanelOverlay"
       key="right-aside"
       class="xds:z-5!"
@@ -49,15 +39,13 @@
     >
       <DesktopAside v-if="hasSearched" />
     </BaseIdModal>
-
-    <MyHistoryConfirmDisableModal />
   </div>
 
   <VariantSelector />
 </template>
 
 <script setup lang="ts">
-import type { SnippetConfig } from '@empathyco/x-components'
+import type { SnippetConfig, XEventsTypes } from '@empathyco/x-components'
 import {
   AnimateTranslate,
   BaseIdModal,
@@ -71,16 +59,15 @@ import { computed, defineAsyncComponent, h, inject, ref } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
-import { eventsToOpenEmpathize } from '../../x-components/constants'
-import VariantSelector from '../add2cart/variant-selector.vue'
-import MyHistoryAside from '../my-history/my-history-aside.vue'
-import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
-import PredictiveLayer from '../predictive-layer/predictive-layer.vue'
+// import VariantSelector from '../add2cart/variant-selector.vue'
 import SearchBox from '../search-box.vue'
 import DesktopTeleport from './desktop-teleport.vue'
 import MobileTeleport from './mobile-teleport.vue'
 
 const DesktopAside = defineAsyncComponent(() => import('../index-search').then(m => m.DesktopAside))
+const PredictiveLayer = defineAsyncComponent(() =>
+  import('../index-empty-search').then(m => m.PredictiveLayer),
+)
 
 const x = use$x()
 const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
@@ -89,6 +76,12 @@ const snippetConfig = inject<SnippetConfig>('snippetConfig')!
 const { hasSearched } = useHasSearched()
 const { getControlFromPath } = useExperienceControls()
 const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
+
+const eventsToOpenEmpathize: Array<keyof XEventsTypes> = [
+  'UserFocusedSearchBox',
+  'UserIsTypingAQuery',
+  'UserClickedSearchBox',
+]
 
 const visibleGrid = ref(false)
 const openPredictiveLayer = ref(false)

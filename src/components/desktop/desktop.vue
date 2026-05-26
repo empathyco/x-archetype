@@ -34,7 +34,7 @@
             </div>
 
             <LocationProvider location="results">
-              <Main />
+              <Main v-if="hasSearched" />
             </LocationProvider>
           </div>
         </div>
@@ -90,6 +90,7 @@ import PreSearchManager from '../pre-search/pre-search-manager.vue'
 import ScrollToTop from '../scroll-to-top.vue'
 import DesktopTopSection from './desktop-top-section.vue'
 
+const Main = defineAsyncComponent(() => import('../index-search').then(m => m.Main))
 const DesktopAside = defineAsyncComponent(() => import('../index-search').then(m => m.DesktopAside))
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
   import('../index-search').then(m => m.FallbackDisclaimerMessage),
@@ -100,7 +101,6 @@ const NoResultsMessage = defineAsyncComponent(() =>
 const SpellcheckMessage = defineAsyncComponent(() =>
   import('../index-search').then(m => m.SpellcheckMessage),
 )
-const Main = defineAsyncComponent(() => import('../index-search').then(m => m.Main))
 
 const x = use$x()
 const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })

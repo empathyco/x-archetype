@@ -4,8 +4,8 @@
     <DesktopHeaderFloatingPredictive v-else />
 
     <DesktopSubHeader
+      v-if="hasSearched"
       data-test="sub-header"
-      :has-searched="hasSearched"
       :is-full-predictive="isFullPredictiveLayer"
       class="xds:layout-item"
     />

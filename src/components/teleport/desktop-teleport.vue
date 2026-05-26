@@ -2,8 +2,8 @@
   <div class="xds:layout-container xds:layout">
     <div class="xds:sticky xds:top-0 xds:z-1 xds:bg-neutral-0">
       <DesktopSubHeader
+        v-if="hasSearched"
         data-test="sub-header"
-        :has-searched="hasSearched"
         :is-full-predictive="false"
         class="xds:layout-item"
       />
@@ -35,7 +35,7 @@
             </div>
 
             <LocationProvider location="results">
-              <Main />
+              <Main v-if="hasSearched" />
             </LocationProvider>
           </div>
           <PageLoaderButton
@@ -61,10 +61,11 @@ import { computed, defineAsyncComponent } from 'vue'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 
-const DesktopAside = defineAsyncComponent(() => import('../index-search').then(m => m.DesktopAside))
 const DesktopSubHeader = defineAsyncComponent(() =>
   import('../index-search').then(m => m.DesktopSubHeader),
 )
+const Main = defineAsyncComponent(() => import('../index-search').then(m => m.Main))
+const DesktopAside = defineAsyncComponent(() => import('../index-search').then(m => m.DesktopAside))
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
   import('../index-search').then(m => m.FallbackDisclaimerMessage),
 )
@@ -74,7 +75,6 @@ const NoResultsMessage = defineAsyncComponent(() =>
 const SpellcheckMessage = defineAsyncComponent(() =>
   import('../index-search').then(m => m.SpellcheckMessage),
 )
-const Main = defineAsyncComponent(() => import('../index-search').then(m => m.Main))
 
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')

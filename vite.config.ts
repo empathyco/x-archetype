@@ -70,6 +70,7 @@ export default defineConfig({
         chunkFileNames: ({ name }) => getChunkFileName(name),
       },
     },
+    minify: false,
   },
   plugins: [
     overrideXCssInjector(),

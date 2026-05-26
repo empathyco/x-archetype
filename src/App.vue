@@ -29,20 +29,18 @@ import {
   provide,
   ref,
 } from 'vue'
+import CustomTeleport from './components/teleport/custom-teleport.vue'
 import { useCustomization } from './composables/use-customization.composable'
 import { FeatureFlag, useFeatureFlags } from './composables/use-feature-flags.composable'
 import { isIOS, removeSearchInputFocus } from './composables/use-ios-utils-composable'
 import currencies from './i18n/currencies'
 import './tailwind/xds.css'
 
-const ExperienceControls = defineAsyncComponent(() =>
-  import('./components/index-empty-search').then(m => m.ExperienceControls),
-)
+// const ExperienceControls = defineAsyncComponent(() =>
+//   import('./components/index-empty-search').then(m => m.ExperienceControls),
+// )
 const CustomMainModal = defineAsyncComponent(() =>
   import('./components/index-empty-search').then(m => m.CustomMainModal),
-)
-const CustomTeleport = defineAsyncComponent(() =>
-  import('./components/index-empty-search').then(m => m.CustomTeleport),
 )
 
 const { init } = useCustomization()

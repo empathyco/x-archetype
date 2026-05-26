@@ -11,9 +11,7 @@
         </div>
       </DesktopSearchboxAlign>
 
-      <div v-if="hasSearched">
-        <DesktopToolbar />
-      </div>
+      <DesktopToolbar />
     </div>
   </CollapseHeightAnimation>
 </template>
@@ -27,7 +25,6 @@ import DesktopSearchboxAlign from './desktop-searchbox-align.vue'
 import DesktopToolbar from './desktop-toolbar.vue'
 
 defineProps<{
-  hasSearched?: boolean
   isFullPredictive?: boolean
 }>()
 

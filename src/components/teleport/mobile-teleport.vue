@@ -1,7 +1,7 @@
 <template>
   <MobileLayout>
     <template #toolbar>
-      <MobileSubHeader v-if="!x.noResults" :has-searched="hasSearched" />
+      <MobileSubHeader v-if="!x.noResults" />
     </template>
 
     <template #filters-modal>
@@ -28,7 +28,7 @@
             <FallbackDisclaimerMessage class="xds:mb-16" data-test="fallback-message" />
           </section>
           <LocationProvider location="results">
-            <Main />
+            <Main v-if="hasSearched" />
           </LocationProvider>
           <PageLoaderButton
             v-if="x.query.searchBox && x.results.length > 0"
@@ -65,13 +65,16 @@ import { computed, defineAsyncComponent } from 'vue'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import MobileLayout from '../mobile/mobile-layout.vue'
-import MobileOpenAside from '../mobile/mobile-open-aside.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
 import ScrollToTop from '../scroll-to-top.vue'
 
 const MobileSubHeader = defineAsyncComponent(() =>
   import('../index-search').then(m => m.MobileSubHeader),
+)
+const Main = defineAsyncComponent(() => import('../index-search').then(m => m.Main))
+const MobileOpenAside = defineAsyncComponent(() =>
+  import('../index-search').then(m => m.MobileOpenAside),
 )
 const MobileAside = defineAsyncComponent(() => import('../index-search').then(m => m.MobileAside))
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
@@ -83,7 +86,6 @@ const NoResultsMessage = defineAsyncComponent(() =>
 const SpellcheckMessage = defineAsyncComponent(() =>
   import('../index-search').then(m => m.SpellcheckMessage),
 )
-const Main = defineAsyncComponent(() => import('../index-search').then(m => m.Main))
 
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
