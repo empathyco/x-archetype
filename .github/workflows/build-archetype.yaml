@@ -32,7 +32,7 @@ jobs:
                 "https://x.staging.empathy.co/v1/app.js",
                 "https://x.staging.empathy.co/v1/snippet-script.js",
                 "https://x.staging.empathy.co/v1/index.html",
-                "https://x.staging.empathy.co/v1/search.html",
+                "https://x.staging.empathy.co/v1/instances.html",
                 "https://x.staging.empathy.co/v1/instances.json"
               ]
             }
@@ -54,7 +54,7 @@ jobs:
                 "https://x.empathy.co/v1/app.js",
                 "https://x.empathy.co/v1/snippet-script.js",
                 "https://x.empathy.co/v1/index.html",
-                "https://x.empathy.co/v1/search.html",
+                "https://x.empathy.co/v1/instances.html",
                 "https://x.empathy.co/v1/instances.json"
               ]
             }
