@@ -78,18 +78,21 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
       },
     },
     async installExtraPlugins({ app, snippet }) {
+      // Normalize locale to first 2 characters in lowercase (e.g., 'es_ES' -> 'es')
+      const normalizedLocale = snippet.uiLang.substring(0, 2).toLowerCase()
+
       const i18n = createI18n({
         legacy: false,
-        locale: snippet.uiLang,
+        locale: normalizedLocale,
         fallbackLocale: 'en',
       })
 
       app.use(i18n)
 
-      const messages = (await import(`../i18n/messages/${snippet.uiLang}.messages.json`)) as {
+      const messages = (await import(`../i18n/messages/${normalizedLocale}.messages.json`)) as {
         default: Messages
       }
-      i18n.global.setLocaleMessage(snippet.uiLang, messages.default)
+      i18n.global.setLocaleMessage(normalizedLocale, messages.default)
     },
   }
 }
