@@ -4,8 +4,16 @@
     <SnippetCallbacks />
     <Tagging />
     <UrlHandler />
-    <ExperienceControls v-if="isOpen" />
-    <CustomTeleport v-if="isTeleportViewMode" />
+    <template v-if="isTeleportViewMode">
+      <template v-if="isDesktopOrGreater">
+        <DesktopInitTeleport :is-open="isOpen" />
+        <DesktopTeleport v-if="isOpen" />
+      </template>
+      <template v-else>
+        <MobileInitTeleport :is-open="isOpen" />
+        <MobileTeleport v-if="isOpen" />
+      </template>
+    </template>
     <CustomMainModal v-if="!isTeleportViewMode && isOpen" data-wysiwyg="layer" />
   </div>
 </template>
@@ -29,16 +37,22 @@ import {
   provide,
   ref,
 } from 'vue'
-import CustomTeleport from './components/teleport/custom-teleport.vue'
+import DesktopInitTeleport from './components/desktop/desktop-init-teleport.vue'
+import MobileInitTeleport from './components/mobile/mobile-init-teleport.vue'
 import { useCustomization } from './composables/use-customization.composable'
+import { useDevice } from './composables/use-device.composable'
 import { FeatureFlag, useFeatureFlags } from './composables/use-feature-flags.composable'
 import { isIOS, removeSearchInputFocus } from './composables/use-ios-utils-composable'
 import currencies from './i18n/currencies'
 import './tailwind/xds.css'
 
-// const ExperienceControls = defineAsyncComponent(() =>
-//   import('./components/index-empty-search').then(m => m.ExperienceControls),
-// )
+const MobileTeleport = defineAsyncComponent(() =>
+  import('./components/index-empty-search').then(m => m.MobileTeleport),
+)
+
+const DesktopTeleport = defineAsyncComponent(() =>
+  import('./components/index-empty-search').then(m => m.DesktopTeleport),
+)
 const CustomMainModal = defineAsyncComponent(() =>
   import('./components/index-empty-search').then(m => m.CustomMainModal),
 )
@@ -47,6 +61,7 @@ const { init } = useCustomization()
 init()
 
 const x = use$x()
+const { isDesktopOrGreater } = useDevice()
 const { isFeatureEnabled } = useFeatureFlags()
 const snippetConfig = inject<SnippetConfig>('snippetConfig')!
 const isOpen = ref(false)
