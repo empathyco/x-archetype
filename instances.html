@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="./favicon.ico" />
+    <title>Instance Selector</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: #f5f7fa;
+        font-family: 'Inter', sans-serif;
+      }
+
+      .instance-selector {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .instance-selector__header {
+        background: #243d48;
+        color: #fff;
+        padding: 24px 32px;
+      }
+
+      .instance-selector__header h1 {
+        margin: 0;
+        font-weight: 400;
+        font-size: 28px;
+      }
+
+      .instance-selector__header p {
+        margin: 8px 0 0;
+        font-size: 14px;
+        opacity: 0.8;
+      }
+
+      .instance-selector__main {
+        flex: 1;
+        padding: 32px;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .instance-selector__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 24px;
+      }
+
+      .instance-card {
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: box-shadow 0.2s ease;
+      }
+
+      .instance-card:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      }
+
+      .instance-card__header {
+        padding: 20px;
+        background: linear-gradient(135deg, #243d48 0%, #3a5c69 100%);
+        color: #fff;
+      }
+
+      .instance-card__title {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 600;
+        font-family: 'Courier New', monospace;
+      }
+
+      .instance-card__body {
+        padding: 12px 16px;
+      }
+
+      .instance-card__presets {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .preset-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 12px;
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        color: #283034;
+      }
+
+      .preset-btn:hover {
+        background: #e9ecef;
+        border-color: #243d48;
+        transform: translateY(-1px);
+      }
+
+      .preset-btn__info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+      }
+
+      .preset-btn__info span {
+        font-size: 12px;
+        font-weight: 600;
+        color: #283034;
+        font-family: 'Courier New', monospace;
+        display: block;
+        line-height: 1.2;
+      }
+
+      .preset-btn__arrow {
+        width: 16px;
+        height: 16px;
+        stroke: #243d48;
+      }
+
+      .instance-selector__footer {
+        background: #243d48;
+        color: #fff;
+        padding: 16px 32px;
+        text-align: center;
+      }
+
+      .instance-selector__footer p {
+        margin: 0;
+        font-size: 12px;
+        opacity: 0.7;
+      }
+
+      .loading {
+        text-align: center;
+        padding: 40px;
+        color: #6c757d;
+      }
+
+      .error {
+        text-align: center;
+        padding: 40px;
+        color: #dc3545;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="instance-selector">
+      <header class="instance-selector__header">
+        <h1>Select Your Instance</h1>
+        <p>Choose a configuration to start your search experience</p>
+      </header>
+
+      <main class="instance-selector__main">
+        <div id="instances-grid" class="instance-selector__grid"></div>
+      </main>
+
+      <footer class="instance-selector__footer">
+        <p>Instance Selector POC &copy; 2026</p>
+      </footer>
+    </div>
+
+    <script>
+      async function loadInstances() {
+        const grid = document.getElementById('instances-grid')
+
+        try {
+          const response = await fetch('./instances.json')
+          if (!response.ok) {
+            throw new Error('Failed to load instances')
+          }
+
+          const data = await response.json()
+          renderInstances(grid, data)
+        } catch (error) {
+          console.error('Error loading instances:', error)
+          grid.innerHTML = `<div class="error">Error loading instances: ${error.message}</div>`
+        }
+      }
+
+      function renderInstances(container, data) {
+        container.innerHTML = ''
+
+        if (!data || !data.instances || Object.keys(data.instances).length === 0) {
+          container.innerHTML = '<div class="error">No instances available</div>'
+          return
+        }
+
+        Object.entries(data.instances).forEach(([instanceKey, presets]) => {
+          const card = document.createElement('div')
+          card.className = 'instance-card'
+
+          const presetsHtml = presets
+            .map(preset => {
+              const paramsList = Object.entries(preset.config)
+                .map(([key, value]) => `<span>${key}: ${value}</span>`)
+                .join('')
+              return `
+              <a href="./index.html?instance=${instanceKey}&${Object.entries(preset.config)
+                .map(([k, v]) => `${k}=${v}`)
+                .join('&')}" class="preset-btn">
+                <div class="preset-btn__info">
+                  ${paramsList}
+                </div>
+                <svg class="preset-btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </a>
+            `
+            })
+            .join('')
+
+          card.innerHTML = `
+            <div class="instance-card__header">
+              <h3 class="instance-card__title">${instanceKey}</h3>
+            </div>
+            <div class="instance-card__body">
+              <div class="instance-card__presets">
+                ${presetsHtml}
+              </div>
+            </div>
+          `
+
+          container.appendChild(card)
+        })
+      }
+
+      // Load instances on page load
+      window.addEventListener('DOMContentLoaded', loadInstances)
+    </script>
+  </body>
+</html>

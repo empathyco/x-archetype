@@ -63,6 +63,10 @@ export default defineConfig({
   base: './',
   build: {
     rollupOptions: {
+      input: {
+        index: resolve(__dirname, 'index.html'),
+        instances: resolve(__dirname, 'instances.html'),
+      },
       output: {
         format: 'es',
         assetFileNames: '[name][extname]',
