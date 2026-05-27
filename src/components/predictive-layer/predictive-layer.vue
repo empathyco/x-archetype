@@ -94,16 +94,19 @@ import {
   use$x,
 } from '@empathyco/x-components'
 import { Empathize } from '@empathyco/x-components/empathize'
+import { defineAsyncComponent } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composable'
-import { eventsToOpenEmpathize } from '../../x-components/constants'
 import PredictiveHistoryQueries from './predictive-history-queries.vue'
 import PredictiveIdentifierResults from './predictive-identifier-results.vue'
-import PredictiveNextQueries from './predictive-next-queries.vue'
 import PredictivePopularSearches from './predictive-popular-searches.vue'
 import PredictiveQuerySuggestions from './predictive-query-suggestions.vue'
 import SlidingRecommendations from './sliding-recommendations.vue'
+
+const PredictiveNextQueries = defineAsyncComponent(() =>
+  import('../index-search').then(m => m.PredictiveNextQueries),
+)
 
 const empathizeAnimation = AnimateScale
 const suggestionsAnimation = StaggeredFadeAndSlide as any
@@ -118,6 +121,12 @@ const {
   showPopularSearches,
   showEmpathize,
 } = usePredictiveHelpers()
+
+const eventsToOpenEmpathize: Array<keyof XEventsTypes> = [
+  'UserFocusedSearchBox',
+  'UserIsTypingAQuery',
+  'UserClickedSearchBox',
+]
 
 const mobileCloseEvents: Array<keyof XEventsTypes> = [
   'UserClosedEmpathize',

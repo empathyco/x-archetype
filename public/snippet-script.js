@@ -139,6 +139,8 @@ window.initX = {
   viewMode,
   isolate,
   ...URLParameters,
+  searchBoxTarget: '.x-archetype-header__input-container',
+  gridTarget: '.body-container',
   callbacks: {
     UserClickedResultAddToCart: addToCartCallback,
     UserClickedResultRemoveFromCart: removeFromCartCallback,

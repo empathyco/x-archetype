@@ -50,9 +50,9 @@ import { NextQuery, NextQueryPreview } from '@empathyco/x-components/next-querie
 import { computed } from 'vue'
 import { Translation } from 'vue-i18n'
 import { useDevice } from '../../../composables/use-device.composable'
-import CustomSlidingPanel from '../../custom-sliding-panel.vue'
 import Result from '../../results/result.vue'
-import DisplayClickProvider from '../display-click-provider.vue'
+import CustomSlidingPanel from '../../search/custom-sliding-panel.vue'
+import DisplayClickProvider from '../../search/display-click-provider.vue'
 
 interface Props {
   nextQuery: NextQueryModel
