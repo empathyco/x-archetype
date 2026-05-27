@@ -31,7 +31,9 @@ jobs:
               "files": [
                 "https://x.staging.empathy.co/v1/app.js",
                 "https://x.staging.empathy.co/v1/snippet-script.js",
-                "https://x.staging.empathy.co/v1/index.html"
+                "https://x.staging.empathy.co/v1/index.html",
+                "https://x.staging.empathy.co/v1/search.html",
+                "https://x.staging.empathy.co/v1/instances.json"
               ]
             }
       # Only tags named as release-* will deploy to production
@@ -51,6 +53,8 @@ jobs:
               "files": [
                 "https://x.empathy.co/v1/app.js",
                 "https://x.empathy.co/v1/snippet-script.js",
-                "https://x.empathy.co/v1/index.html"
+                "https://x.empathy.co/v1/index.html",
+                "https://x.empathy.co/v1/search.html",
+                "https://x.empathy.co/v1/instances.json"
               ]
             }

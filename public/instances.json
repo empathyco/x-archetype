@@ -1,0 +1,9 @@
+{
+  "instances": {
+    "empathy": [{ "config": { "lang": "en", "currency": "USD" } }],
+    "perfumesclub": [
+      { "config": { "lang": "es", "currency": "MXN" } },
+      { "config": { "lang": "es", "currency": "USD" } }
+    ]
+  }
+}

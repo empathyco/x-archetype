@@ -32,8 +32,10 @@ jobs:
             {
               "files": [
                 "https://x.staging.empathy.co/preview/${{ github.event.number }}/app.js",
+                "https://x.staging.empathy.co/preview/${{ github.event.number }}/snippet-script.js",
                 "https://x.staging.empathy.co/preview/${{ github.event.number }}/index.html",
-                "https://x.staging.empathy.co/preview/${{ github.event.number }}/snippet-script.js"
+                "https://x.staging.empathy.co/preview/${{ github.event.number }}/search.html",
+                "https://x.staging.empathy.co/preview/${{ github.event.number }}/instances.json"
               ]
             }
           delete_old_files: true
