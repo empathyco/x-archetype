@@ -1,6 +1,6 @@
 <template>
-  <MaxDesktopWidthItem
-    class="xds:my-24 xds:layout-no-margin-left xds:layout-no-margin-right"
+  <div
+    class="xds:layout-item xds:my-24 xds:layout-max-width-md xds:layout-no-margin-left xds:layout-no-margin-right xds:desktop:layout-min-margin-32 xds:large:layout-max-width-lg xds:large:layout-min-margin-48"
     :class="{ 'xds:my-0': x.noResults }"
   >
     <Message data-test="no-results-message">
@@ -23,19 +23,16 @@
       </div>
     </Message>
     <LocationProvider :location="location">
-      <CustomAiCarousel v-if="x.noResults" />
-      <CustomAiOverview v-else />
+      <CustomAiCarousel :group="x.noResults" />
     </LocationProvider>
-  </MaxDesktopWidthItem>
+  </div>
 </template>
 
 <script setup lang="ts">
 import type { FeatureLocation } from '@empathyco/x-components'
 import { AISpinnerIcon, LocationProvider, Message, use$x, useState } from '@empathyco/x-components'
 import { computed, ref, watchEffect } from 'vue'
-import MaxDesktopWidthItem from '../max-desktop-width-item.vue'
 import CustomAiCarousel from './custom-ai-carousel.vue'
-import CustomAiOverview from './custom-ai-overview.vue'
 
 const x = use$x()
 const { suggestionsStatus, suggestionsSearchStatus, suggestionsSearch } = useState('ai')

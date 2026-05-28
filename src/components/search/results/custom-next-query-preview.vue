@@ -5,7 +5,7 @@
     :suggestion="nextQuery"
     :max-items-to-render="maxItemsToRender"
   >
-    <i18n-t
+    <Translation
       class="xds:text1 xds:text1-lg xds:max-desktop:px-16"
       tag="span"
       keypath="nextQueryPreview.message"
@@ -16,7 +16,7 @@
           {{ query }}
         </span>
       </template>
-    </i18n-t>
+    </Translation>
     <CustomSlidingPanel>
       <template #header>
         <NextQuery
@@ -48,10 +48,11 @@ import type { NextQuery as NextQueryModel } from '@empathyco/x-types'
 import { ArrowRightIcon, ItemsList, useGetter } from '@empathyco/x-components'
 import { NextQuery, NextQueryPreview } from '@empathyco/x-components/next-queries'
 import { computed } from 'vue'
+import { Translation } from 'vue-i18n'
 import { useDevice } from '../../../composables/use-device.composable'
-import CustomSlidingPanel from '../../custom-sliding-panel.vue'
 import Result from '../../results/result.vue'
-import DisplayClickProvider from '../display-click-provider.vue'
+import CustomSlidingPanel from '../../search/custom-sliding-panel.vue'
+import DisplayClickProvider from '../../search/display-click-provider.vue'
 
 interface Props {
   nextQuery: NextQueryModel

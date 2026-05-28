@@ -16,10 +16,10 @@
 
 <script setup lang="ts">
 import { BaseScroll, use$x } from '@empathyco/x-components'
-import MobileCloseAside from '../mobile/mobile-close-aside.vue'
-import CustomFacets from './facets/custom-facets.vue'
-import SelectedFilters from './facets/selected-filters.vue'
-import Sort from './sort.vue'
+import CustomFacets from '../search/facets/custom-facets.vue'
+import SelectedFilters from '../search/facets/selected-filters.vue'
+import Sort from '../search/sort.vue'
+import MobileCloseAside from './mobile-close-aside.vue'
 
 const x = use$x()
 </script>

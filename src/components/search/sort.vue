@@ -1,5 +1,5 @@
 <template>
-  <CustomHeaderTogglePanel data-test="sort" class="xds:border-0 xds:border-b xds:border-neutral-10">
+  <CustomHeaderTogglePanel data-test="sort">
     <template #header>
       <span class="xds:title3">
         {{ $t('sort.label') }}

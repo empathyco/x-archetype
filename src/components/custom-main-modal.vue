@@ -11,11 +11,13 @@
     <Desktop v-else />
   </MainModal>
   <VariantSelector />
+  <ExperienceControls />
 </template>
 
 <script setup lang="ts">
 import type { SnippetConfig } from '@empathyco/x-components'
 import { AnimateClipPath, MainModal, use$x } from '@empathyco/x-components'
+import { ExperienceControls } from '@empathyco/x-components/experience-controls'
 import { computed, inject } from 'vue'
 import { useDevice } from '../composables/use-device.composable'
 import VariantSelector from './add2cart/variant-selector.vue'

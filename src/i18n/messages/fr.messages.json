@@ -1,178 +1,165 @@
 {
-  "base": {
-    "searchBox": {
-      "clear": "Dégager",
-      "placeholder": "Que cherchez-vous?"
+  "searchBox": {
+    "clear": "Dégager",
+    "placeholder": "Que cherchez-vous?"
+  },
+  "popularSearches": {
+    "title": "Recherches populaires"
+  },
+  "historyQueries": {
+    "clear": "Tout effacer",
+    "removeLabel": "Supprimer {suggestion} des requêtes d'historique",
+    "title": "Recherches d'historique"
+  },
+  "myHistory": {
+    "title": "Mon histoire",
+    "subtitle": "Ceci est la liste complète des requêtes d'historique",
+    "message": {
+      "header": "Ces données sont stockées localement. Juste dans votre appareil et ne voyagez jamais en dehors de celui-ci.",
+      "body": "Vous pouvez désactiver les requêtes d'historique quand vous le souhaitez.",
+      "footer": "Votre vie privée sous votre contrôle."
     },
-    "popularSearches": {
-      "title": "Recherches populaires"
+    "noHistory": "Aucune activité d'historique à afficher",
+    "openButton": "Mon histoire",
+    "suggestionResults": "(aucun résultat) | ({count} résultat) | ({count} résultats)",
+    "switch": {
+      "title": "Requêtes d'historique",
+      "enable": "Activer",
+      "disable": "Désactiver et effacer"
     },
-    "historyQueries": {
-      "clear": "Tout effacer",
-      "removeLabel": "Supprimer {suggestion} des requêtes d'historique",
-      "title": "Recherches d'historique"
-    },
-    "myHistory": {
-      "title": "Mon histoire",
-      "subtitle": "Ceci est la liste complète des requêtes d'historique",
-      "message": {
-        "header": "Ces données sont stockées localement. Juste dans votre appareil et ne voyagez jamais en dehors de celui-ci.",
-        "body": "Vous pouvez désactiver les requêtes d'historique quand vous le souhaitez.",
-        "footer": "Votre vie privée sous votre contrôle."
-      },
-      "noHistory": "Aucune activité d'historique à afficher",
-      "openButton": "Mon histoire",
-      "suggestionResults": "(aucun résultat) | ({count} résultat) | ({count} résultats)",
-      "switch": {
-        "title": "Requêtes d'historique",
-        "enable": "Activer",
-        "disable": "Désactiver et effacer"
-      },
-      "confirmDisableModal": {
-        "title": "Désactiver les requêtes d'historique ?",
-        "message": "En désactivant les requêtes d'historique, vous effacez également toute la liste d'historique.",
-        "dismiss": "Annuler",
-        "confirm": "Désactiver"
-      }
-    },
-    "nextQueries": {
-      "title": "Et après"
-    },
-    "nextQueriesCta": {
-      "message": "Ceux qui cherchaient {query} également consulté:"
-    },
-    "nextQueriesGroup": {
-      "message": "Ceux qui cherchaient {query} également consulté:"
-    },
-    "nextQueryPreview": {
-      "message": "Ceux qui ont recherché {query} ont également consulté:",
-      "query": "{query}",
-      "totalResults": "({totalResults})",
-      "viewResults": "Voir tous les résultats"
-    },
-    "identifierResults": {
-      "title": "SKU chercher"
-    },
-    "recommendations": {
-      "title": "Top cliqué"
-    },
-    "facets": {
-      "gender": "Le genre",
-      "categoryPaths": "Catégories",
-      "price": "Prix",
-      "brand": "Marque",
-      "fit": "Fit",
-      "collection": "Collection",
-      "genres": "Genres",
-      "isAdult": "Contenu adulte",
-      "type": "Type",
-      "runtimeMinutes": "Durée en minutes"
-    },
-    "facetsPanel": {
-      "title": "Trier et filtrer",
-      "viewResults": "Voir 1 résultat | Voir {count} résultats"
-    },
-    "filters": {
-      "all": "Tout",
-      "showMore": "Montre plus",
-      "showLess": "Montrer moins"
-    },
-    "partialResults": {
-      "query": "{query}",
-      "totalResults": "({totalResults})",
-      "viewResults": "Afficher tous les résultats"
-    },
-    "priceFilter": {
-      "lessThan": "moins de {'{max}'}",
-      "fromTo": "{'{min}'} - {'{max}'}",
-      "from": "à partir de {'{min}'}"
-    },
-    "toggleAside": {
-      "showAside": "Trier et filtrer"
-    },
-    "totalResults": {
-      "message": "1 résultat pour {query} | {totalResults} résultats pour {query}"
-    },
-    "semanticQueries": {
-      "title": "Êtes-vous intéressé par «{query}»? Explorez ces suggestions:"
-    },
-    "sort": {
-      "label": "Trier par",
-      "values": {
-        "price asc": "Prix: Bas à Haut",
-        "price desc": "Prix: Haut à Bas",
-        "default": "Pertinence"
-      }
-    },
-    "selectedFilters": {
-      "clear": "Effacer 1 filtre | Effacer {count} filtres"
-    },
-    "result": {
-      "addToCart": "Ajouter au panier",
-      "seeVariants": "Voir les variantes",
-      "selectAllOptions": "Veuillez sélectionner une option de chaque variation",
-      "maxUnits": "Quantité maximale",
-      "viewDetails": "Voir les détails",
-      "selectOption": "Sélectionnez une option"
-    },
-    "spellcheck": {
-      "message": "Aucun résultat trouvé pour {query} Nous vous montrons les résultats pour"
-    },
-    "noResults": {
-      "message": "Désolé mais il n'y a pas de résultats pour {query}Vous pourriez être intéressé par ces produits"
-    },
-    "overview": {
-      "collapseButton": "Montrer moins",
-      "expandButton": "Montrer plus"
-    },
-    "aiFallback": {
-      "loading": {
-        "title": "Recherche d'alternatives...",
-        "subtitle": "Nous recherchons des produits similaires en fonction de votre recherche"
-      },
-      "success": {
-        "title": "Nous avons trouvé des alternatives!",
-        "subtitle": "Consultez ces produits qui pourraient vous intéresser"
-      },
-      "noResults": {
-        "title": "Nous n'avons pas trouvé d'alternatives",
-        "subtitle": "Essayez d'ajuster votre recherche ou vos filtres pour de meilleurs résultats"
-      }
-    },
-    "fallbackDisclaimer": {
-      "message": "Aucun résultat trouvé pour {query} avec les filtres sélectionnés. Les filtres ont été désélectionnés"
-    },
-    "columnPicker": {
-      "message": "Voir"
-    },
-    "queryPreview": {
-      "viewResults": "Voir tous les résultats"
-    },
-    "redirections": {
-      "title": "Votre recherche correspond à un endroit spécial de notre site, pour le visiter, vous êtes redirigé",
-      "accept": "Oui, redirigez-moi",
-      "reject": "Non, je reste ici"
-    },
-    "relatedPrompts": {
-      "title": "Êtes-vous intéressé par {query}? {message}",
-      "message": "Explorez ces suggestions:"
-    },
-    "pageLoaderButton": {
-      "message": "Charger plus de produits"
+    "confirmDisableModal": {
+      "title": "Désactiver les requêtes d'historique ?",
+      "message": "En désactivant les requêtes d'historique, vous effacez également toute la liste d'historique.",
+      "dismiss": "Annuler",
+      "confirm": "Désactiver"
     }
   },
-  "mobile": {
-    "nextQueriesGroup": {
-      "message": "Ceux qui cherchaient {query} également consulté:"
-    },
-    "nextQueryPreview": {
-      "viewResults": "Voir tout"
-    },
-    "totalResults": {
-      "message": "1 résultat | {totalResults} résultats"
-    },
-    "queryPreview": {
-      "viewResults": "Voir tout"
+  "nextQueries": {
+    "title": "Et après"
+  },
+  "nextQueriesCta": {
+    "message": "Ceux qui cherchaient {query} également consulté:"
+  },
+  "nextQueryPreview": {
+    "message": "Ceux qui ont recherché {query} ont également consulté:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Voir tous les résultats",
+    "device": {
+      "mobile": {
+        "viewResults": "Voir tout"
+      }
     }
+  },
+  "recommendations": {
+    "title": "Top cliqué"
+  },
+  "facets": {
+    "gender": "Le genre",
+    "categoryPaths": "Catégories",
+    "price": "Prix",
+    "brand": "Marque",
+    "fit": "Fit",
+    "collection": "Collection",
+    "genres": "Genres",
+    "isAdult": "Contenu adulte",
+    "type": "Type",
+    "runtimeMinutes": "Durée en minutes",
+    "description": "Description",
+    "name": "Nom"
+  },
+  "facetsPanel": {
+    "title": "Filtrer",
+    "viewResults": "Voir 1 résultat | Voir {count} résultats"
+  },
+  "filters": {
+    "all": "Tout",
+    "showMore": "Montre plus",
+    "showLess": "Montrer moins"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Afficher tous les résultats"
+  },
+  "priceFilter": {
+    "lessThan": "moins de {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "à partir de {'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "Filtrer"
+  },
+  "totalResults": {
+    "message": "1 résultat pour {query} | {totalResults} résultats pour {query}",
+    "device": {
+      "mobile": {
+        "message": "1 résultat | {totalResults} résultats"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "Êtes-vous intéressé par «{query}»? Explorez ces suggestions:"
+  },
+  "sort": {
+    "label": "Trier par",
+    "values": {
+      "price asc": "Prix: Bas à Haut",
+      "price desc": "Prix: Haut à Bas",
+      "default": "Pertinence"
+    }
+  },
+  "selectedFilters": {
+    "clear": "Effacer 1 filtre | Effacer {count} filtres"
+  },
+  "result": {
+    "addToCart": "Ajouter au panier",
+    "seeVariants": "Voir les variantes",
+    "selectAllOptions": "Veuillez sélectionner une option de chaque variation",
+    "maxUnits": "Quantité maximale",
+    "viewDetails": "Voir les détails",
+    "selectOption": "Sélectionnez une option"
+  },
+  "spellcheck": {
+    "message": "Aucun résultat trouvé pour {query} Nous vous montrons les résultats pour"
+  },
+  "noResults": {
+    "message": "Désolé mais il n'y a pas de résultats pour {query}Vous pourriez être intéressé par ces produits"
+  },
+  "overview": {
+    "collapseButton": "Montrer moins",
+    "expandButton": "Montrer plus"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Recherche d'alternatives...",
+      "subtitle": "Nous recherchons des produits similaires en fonction de votre recherche"
+    },
+    "success": {
+      "title": "Nous avons trouvé des alternatives!",
+      "subtitle": "Consultez ces produits qui pourraient vous intéresser"
+    },
+    "noResults": {
+      "title": "Nous n'avons pas trouvé d'alternatives",
+      "subtitle": "Essayez d'ajuster votre recherche ou vos filtres pour de meilleurs résultats"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "Aucun résultat trouvé pour {query} avec les filtres sélectionnés. Les filtres ont été désélectionnés"
+  },
+  "columnPicker": {
+    "message": "Voir"
+  },
+  "redirections": {
+    "title": "Votre recherche correspond à un endroit spécial de notre site, pour le visiter, vous êtes redirigé",
+    "accept": "Oui, redirigez-moi",
+    "reject": "Non, je reste ici"
+  },
+  "relatedPrompts": {
+    "title": "Êtes-vous intéressé par {query}? {message}",
+    "message": "Explorez ces suggestions:"
+  },
+  "pageLoaderButton": {
+    "message": "Charger plus de produits"
   }
 }

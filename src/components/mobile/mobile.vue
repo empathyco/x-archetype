@@ -16,7 +16,7 @@
     </template>
 
     <template #toolbar>
-      <MobileSubHeader :has-searched="hasSearched" />
+      <MobileSubHeader v-if="hasSearched" />
     </template>
 
     <template #filters-modal>
@@ -46,7 +46,7 @@
         <PreSearchManager class="xds:z-10 xds:mt-16" />
       </LocationProvider>
       <LocationProvider location="results">
-        <Main />
+        <Main v-if="hasSearched" />
       </LocationProvider>
     </template>
 
@@ -75,7 +75,6 @@ import {
 import { computed, defineAsyncComponent } from 'vue'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
-import Main from '../main.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
 import PreSearchManager from '../pre-search/pre-search-manager.vue'
@@ -83,18 +82,23 @@ import PredictiveLayer from '../predictive-layer/predictive-layer.vue'
 import ScrollToTop from '../scroll-to-top.vue'
 import SearchBox from '../search-box.vue'
 import MobileLayout from './mobile-layout.vue'
-import MobileOpenAside from './mobile-open-aside.vue'
-import MobileSubHeader from './mobile-sub-header.vue'
+const MobileOpenAside = defineAsyncComponent(() =>
+  import('../index-search').then(m => m.MobileOpenAside),
+)
 
-const MobileAside = defineAsyncComponent(() => import('../search').then(m => m.MobileAside))
+const MobileSubHeader = defineAsyncComponent(() =>
+  import('../index-search').then(m => m.MobileSubHeader),
+)
+const Main = defineAsyncComponent(() => import('../index-search').then(m => m.Main))
+const MobileAside = defineAsyncComponent(() => import('../index-search').then(m => m.MobileAside))
+const FallbackDisclaimerMessage = defineAsyncComponent(() =>
+  import('../index-search').then(m => m.FallbackDisclaimerMessage),
+)
 const NoResultsMessage = defineAsyncComponent(() =>
-  import('../search').then(m => m.NoResultsMessage),
+  import('../index-search').then(m => m.NoResultsMessage),
 )
 const SpellcheckMessage = defineAsyncComponent(() =>
-  import('../search').then(m => m.SpellcheckMessage),
-)
-const FallbackDisclaimerMessage = defineAsyncComponent(() =>
-  import('../search').then(m => m.FallbackDisclaimerMessage),
+  import('../index-search').then(m => m.SpellcheckMessage),
 )
 
 const x = use$x()

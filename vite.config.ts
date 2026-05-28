@@ -1,4 +1,6 @@
 import type { PluginOption } from 'vite'
+import { resolve } from 'node:path'
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
 import visualizer from 'rollup-plugin-visualizer'
@@ -7,12 +9,12 @@ import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 
 function getChunkFileName(name: string) {
   switch (name) {
-    case 'custom-main-modal':
-      return 'x-empty-search-[hash].js'
-    case 'index':
-      return 'x-search-[hash].js'
+    case 'index-empty-search':
+      return 'x-empty-search.[hash].js'
+    case 'index-search':
+      return 'x-search.[hash].js'
     default:
-      return '[name]-[hash].js'
+      return '[name].[hash].js'
   }
 }
 
@@ -61,6 +63,10 @@ export default defineConfig({
   base: './',
   build: {
     rollupOptions: {
+      input: {
+        index: resolve(__dirname, 'index.html'),
+        instances: resolve(__dirname, 'instances.html'),
+      },
       output: {
         format: 'es',
         assetFileNames: '[name][extname]',
@@ -72,13 +78,20 @@ export default defineConfig({
   plugins: [
     overrideXCssInjector(),
     vue(),
+    VueI18nPlugin({
+      // Pre-compile JSON message files
+      include: [resolve(__dirname, './src/i18n/messages/**')],
+      compositionOnly: true,
+      fullInstall: false, // Exclude unused features
+      dropMessageCompiler: true, // Pre-compile messages at build time
+    }),
     tailwindcss(),
     cssInjectedByJsPlugin({
       topExecutionPriority: false, // Wait until `window.xCSSInjector` is created.
       dev: { enableDev: true },
       injectCodeFunction: injectCssCode,
     }),
-    visualizer(),
+    visualizer({ gzipSize: true }),
   ],
   server: { port: 8080 },
   preview: { port: 8080 },

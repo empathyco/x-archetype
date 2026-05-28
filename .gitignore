@@ -3,10 +3,6 @@ node_modules
 /dist
 stats.html
 
-/tests/e2e/videos/
-/tests/e2e/screenshots/
-/tests/e2e/downloads/
-
 # local env files
 .env.local
 .env.*.local

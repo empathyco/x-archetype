@@ -14,7 +14,6 @@ import {
   facetSchema,
   platformAdapter,
   recommendationsRequestSchema,
-  relatedPromptsEndpointAdapter,
   resultSchema,
   semanticQueriesRequestSchema,
 } from '@empathyco/x-adapter-platform'
@@ -49,12 +48,6 @@ semanticQueriesRequestSchema.$override<
       filter_ids: 'NOT_ALL_WORDS,NOT_PARTIAL',
     }
   },
-})
-
-adapter.relatedPrompts = relatedPromptsEndpointAdapter.extends({
-  endpoint:
-    'https://api.empathy.co/relatedprompts/mymotivemarketplace?store=Labstore+London&lang=en',
-  requestMapper: ({ query }) => ({ query }),
 })
 
 /**

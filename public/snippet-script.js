@@ -117,7 +117,7 @@ const currency = popFromURLParameters('currency') || 'EUR'
 const consent = popFromURLParameters('consent') !== 'false'
 const documentDirection = popFromURLParameters('doc-dir') || 'ltr'
 const store = popFromURLParameters('store') || undefined
-const viewMode = popFromURLParameters('viewMode') || 'fullScreen'
+const viewMode = popFromURLParameters('viewMode') || 'embedded'
 const isolate = getIsolationStrategy()
 var cart = {}
 var wishlist = []
@@ -139,6 +139,8 @@ window.initX = {
   viewMode,
   isolate,
   ...URLParameters,
+  searchBoxTarget: '.x-archetype-header__input-container',
+  gridTarget: '.body-container',
   callbacks: {
     UserClickedResultAddToCart: addToCartCallback,
     UserClickedResultRemoveFromCart: removeFromCartCallback,

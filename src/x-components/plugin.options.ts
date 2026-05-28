@@ -1,17 +1,15 @@
 import type { InstallXOptions, SnippetConfig } from '@empathyco/x-components'
-import { cssInjector, I18n } from '@empathyco/x-archetype-utils'
+import type { Messages } from '../i18n/messages.types'
+import { cssInjector } from '@empathyco/x-archetype-utils'
 import { filter } from '@empathyco/x-components'
 import { addQueryToHistoryQueries } from '@empathyco/x-components/history-queries'
 import { setSearchQuery } from '@empathyco/x-components/search'
 import { setUrlQuery } from '@empathyco/x-components/url'
+import { createI18n } from 'vue-i18n'
 import { adapter } from '../adapter/adapter'
 import AppComponent from '../App.vue'
-import { useDevice } from '../composables/use-device.composable'
-import * as messages from '../i18n/messages'
 import store from '../store'
 import { mergeSemanticQueriesConfigWire } from './wiring/semantic-queries.wiring'
-
-const device = useDevice()
 
 const setSearchQueryFiltered = filter(
   setSearchQuery,
@@ -34,24 +32,6 @@ const setUrlQueryFiltered = filter(
  * Returns - the InstallXOptions.
  */
 export async function getInstallXOptions(): Promise<InstallXOptions> {
-  if (import.meta.env.VITE_APP_DEVELOPMENT_DOCKER) {
-    const { overrideAdapter } = await import('../adapter/docker.adapter')
-    overrideAdapter(adapter)
-    ;(window.initX as SnippetConfig).queriesPreview = [
-      {
-        query: 'short',
-        title: 'Short',
-      },
-      {
-        query: 'comedy',
-        title: 'Comedy',
-      },
-      {
-        query: 'family',
-        title: 'Family',
-      },
-    ]
-  }
   return {
     adapter,
     // eslint-disable-next-line ts/no-unsafe-assignment
@@ -98,16 +78,21 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
       },
     },
     async installExtraPlugins({ app, snippet }) {
-      const i18n = await I18n.create({
-        locale: snippet.uiLang,
-        device: (snippet.device as string) ?? device.deviceName.value,
+      // Normalize locale to first 2 characters in lowercase (e.g., 'es_ES' -> 'es')
+      const normalizedLocale = snippet.uiLang.substring(0, 2).toLowerCase()
+
+      const i18n = createI18n({
+        legacy: false,
+        locale: normalizedLocale,
         fallbackLocale: 'en',
-        messages,
       })
 
       app.use(i18n)
-      app.config.globalProperties.$setLocale = i18n.setLocale.bind(i18n)
-      app.config.globalProperties.$setLocaleDevice = i18n.setDevice.bind(i18n)
+
+      const messages = (await import(`../i18n/messages/${normalizedLocale}.messages.json`)) as {
+        default: Messages
+      }
+      i18n.global.setLocaleMessage(normalizedLocale, messages.default)
     },
   }
 }

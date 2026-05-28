@@ -23,9 +23,6 @@ metadata:
     - url: https://x.staging.empathy.co/
       title: Interface X Archetype Staging
       icon: web
-    - url: https://x.test.empathy.co/
-      title: Interface X Archetype Test
-      icon: web
     - url: https://docs.empathy.co/empathy-for-developers/build-search-ui/web-archetype-integration-guide.html
       title: Integrating the Archetype project documentation
       icon: web

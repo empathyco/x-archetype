@@ -22,23 +22,25 @@ jobs:
         uses: ./.github/actions/frontend-deploy
         with:
           r2_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          r2_access_key_id: ${{ secrets.R2_TEST_ACCESS_KEY }}
-          r2_secret_access_key: ${{ secrets.R2_TEST_ACCESS_SECRET }}
-          r2_bucket: ${{ secrets.R2_TEST_BUCKET }}
+          r2_access_key_id: ${{ secrets.R2_STAGING_ACCOUNT_KEY }}
+          r2_secret_access_key: ${{ secrets.R2_STAGING_ACCESS_SECRET }}
+          r2_bucket: ${{ secrets.R2_STAGING_BUCKET }}
           r2_bucket_path: preview/${{ github.event.number }}
-          r2_zone_id: ${{ secrets.CLOUDFLARE_TEST_ZONE_ID }}
+          r2_zone_id: ${{ secrets.CLOUDFLARE_STAGING_ZONE_ID }}
           r2_api_token: ${{ secrets.CLOUDFLARE_PURGE_TOKEN }}
           r2_purge_strategy: |
             {
               "files": [
-                "https://x.test.empathy.co/preview/${{ github.event.number }}/app.js",
-                "https://x.test.empathy.co/preview/${{ github.event.number }}/index.html",
-                "https://x.test.empathy.co/preview/${{ github.event.number }}/snippet-script.js"
+                "https://x.staging.empathy.co/preview/${{ github.event.number }}/app.js",
+                "https://x.staging.empathy.co/preview/${{ github.event.number }}/snippet-script.js",
+                "https://x.staging.empathy.co/preview/${{ github.event.number }}/index.html",
+                "https://x.staging.empathy.co/preview/${{ github.event.number }}/instances.html",
+                "https://x.staging.empathy.co/preview/${{ github.event.number }}/instances.json"
               ]
             }
           delete_old_files: true
       - name: Adding comment to PR with preview link and validation results
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
         with:
           script: |
             github.rest.issues.createComment({
@@ -46,5 +48,5 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: `Check **PR ${{ github.event.number }}** preview 👀 <br> <br> \
-                    [https://x.test.empathy.co/preview/${{ github.event.number }}/index.html](https://x.test.empathy.co/preview/${{ github.event.number }}/index.html)`
+                    [https://x.staging.empathy.co/preview/${{ github.event.number }}/index.html](https://x.staging.empathy.co/preview/${{ github.event.number }}/index.html)`
             })

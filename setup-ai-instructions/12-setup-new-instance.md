@@ -37,7 +37,6 @@ Remove the following from the `.github/` directory:
 - `.github/workflows/build-archetype.yml`
 - `.github/workflows/pull-request-archetype.yml`
 - `.github/workflows/codeql.yml`
-- `.github/workflows/deploy-docker.yml`
 
 **Other files to delete:**
 
@@ -137,10 +136,10 @@ queriesPreview: [
     title: 'Belted leggings',
   },
   // ... more query objects
-],
+]
 
 // To this:
-queriesPreview: [],
+queriesPreview: []
 ```
 
 This removes all the sample preview queries from the archetype.
@@ -153,12 +152,6 @@ const viewMode = popFromURLParameters('viewMode') || 'fullScreen' // Use user-pr
 ```
 
 ## Step 3: Clean Up Adapter Configuration
-
-### Delete Docker Adapter
-
-Remove the file:
-
-- `src/adapter/docker.adapter.ts`
 
 ### Modify Main Adapter
 
@@ -206,55 +199,19 @@ This is typically found after the schema overrides in the adapter configuration.
 
 Delete the following files from the project root:
 
-- `Dockerfile`
 - `renovate.json`
 
-## Step 5: Remove Docker Development Environment Code
-
-### Remove Docker Variable from Vite Configuration
-
-Edit `vite.config.ts` and remove the Docker environment variable handling if present.
-
-**Note**: The current archetype uses environment variables differently. Check if there are any `VITE_APP_DEVELOPMENT_DOCKER` references and remove them if they exist.
-
-### Remove Docker Condition from Plugin Options
-
-Edit `src/x-components/plugin.options.ts` and remove the entire Docker development condition:
-
-**Find and remove the entire if block (if present):**
-
-```typescript
-if (import.meta.env.VITE_APP_DEVELOPMENT_DOCKER) {
-  const { overrideAdapter } = await import('../adapter/docker.adapter')
-  overrideAdapter(adapter)
-  ;(window.initX as SnippetConfig).queriesPreview = [
-    {
-      query: 'short',
-      title: 'Short',
-    },
-    {
-      query: 'comedy',
-      title: 'Comedy',
-    },
-    {
-      query: 'family',
-      title: 'Family',
-    },
-  ]
-}
-```
-
-This block is typically found at the beginning of the `getInstallXOptions()` function around line 38.
-
-## Step 6: Update Package Configuration
+## Step 5: Update Package Configuration
 
 Edit `package.json`:
 
 ### Update Package Name
 
+Replace 'archetype' with instance name in the `name` field:
+
 ```json
 {
-  "name": "@empathyco/x-archetype" // Replace 'archetype' with instance name
+  "name": "@empathyco/x-archetype"
 }
 ```
 
@@ -262,31 +219,15 @@ Edit `package.json`:
 
 ### Update Description
 
+Replace 'Archetype' with Instance Display Name
+
 ```json
 {
-  "description": "Archetype integration with X Components" // Replace 'Archetype' with Instance Display Name
+  "description": "Archetype integration with X Components"
 }
 ```
 
 **Pattern**: `"{Instance Display Name} integration with X Components"`
-
-### Remove Docker Scripts
-
-Remove the Docker-related build scripts from the `scripts` section:
-
-```json
-{
-  "scripts": {
-    "build:docker": "..." // Remove this entire line
-    "serve:docker": "..." // Remove this entire line
-  }
-}
-```
-
-Examples:
-
-- `x-empathy` → `"Empathy integration with X Components"`
-- `x-brand` → `"Brand integration with X Components"`
 
 ## Verification Checklist
 
@@ -296,13 +237,8 @@ After completing all steps, verify:
 - [ ] Build and pull-request workflows are enabled (removed `if: false`)
 - [ ] `snippet-script.js` has correct instance, lang, currency, and viewMode fallbacks
 - [ ] `queriesPreview` is set to empty array
-- [ ] `docker.adapter.ts` has been removed
 - [ ] `adapter.ts` uses correct result schema (vtexResultSchema for VTEX, platformResultSchema otherwise)
 - [ ] `adapter.relatedPrompts` extension has been removed from `adapter.ts`
-- [ ] `Dockerfile` and `renovate.json` have been deleted
-- [ ] Docker variable replacement removed from `build/instrumentation.build.mjs`
-- [ ] Docker development condition removed from `src/x-components/plugin.options.ts`
-- [ ] `build:docker` and `serve:docker` scripts removed from `package.json`
 - [ ] `package.json` has correct name and description
 
 ## Example: Setting Up x-brand

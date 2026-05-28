@@ -18,11 +18,11 @@
 
 <script setup lang="ts">
 import { LocationProvider, use$x, useState } from '@empathyco/x-components'
-import { computed, defineAsyncComponent } from 'vue'
+import { computed } from 'vue'
 import CustomRelatedPrompts from '../related-prompts/custom-related-prompts.vue'
 import CustomRecommendations from '../results/custom-recommendations.vue'
 import CustomSemanticQueries from './custom-semantic-queries.vue'
-const PartialResults = defineAsyncComponent(() => import('./').then(m => m.PartialResults))
+import PartialResults from './results/partial-results.vue'
 
 const x = use$x()
 

@@ -23,6 +23,6 @@ runs:
     - name: Build project
       run: npm run build
       shell: bash
-    - name: Running e2e tests
+    - name: Running tests
       run: npm test
       shell: bash

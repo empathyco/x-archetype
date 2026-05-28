@@ -3,7 +3,7 @@
     v-if="showNextQueries"
     class="xds:relative xds:flex xds:flex-col xds:gap-16 xds:rounded-lg xds:border-1 xds:border-neutral-100 xds:pt-16 xds:pb-20 xds:desktop:pr-80 xds:desktop:pl-28"
   >
-    <i18n-t
+    <Translation
       class="xds:text1 xds:text1-lg xds:max-desktop:px-16"
       tag="h1"
       keypath="nextQueriesCta.message"
@@ -14,7 +14,7 @@
           {{ query }}
         </span>
       </template>
-    </i18n-t>
+    </Translation>
 
     <SlidingPanel
       :show-buttons="!isTouchable"
@@ -55,7 +55,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import type { Ref } from 'vue'
 import {
   ArrowRightIcon,
@@ -67,37 +67,17 @@ import {
   useGetter,
 } from '@empathyco/x-components'
 import { NextQuery } from '@empathyco/x-components/next-queries'
-import { computed, defineComponent, inject } from 'vue'
+import { computed, inject } from 'vue'
+import { Translation } from 'vue-i18n'
 import { useDevice } from '../../../composables/use-device.composable'
 
-export default defineComponent({
-  name: 'NextQueriesTags',
-  components: {
-    ArrowRightIcon,
-    ChevronLeftIcon,
-    ChevronRightIcon,
-    NextQuery,
-    CrossIcon,
-    SlidingPanel,
-  },
-  setup() {
-    const x = use$x()
-    const { isTouchable } = useDevice()
-    const query = useGetter('nextQueries').query
+const x = use$x()
+const { isTouchable } = useDevice()
+const query = useGetter('nextQueries').query
 
-    const showNextQueries = computed(() => inject<Ref<boolean>>('showNextQueries')?.value)
+const showNextQueries = computed(() => inject<Ref<boolean>>('showNextQueries')?.value)
 
-    const emitCloseNextQueries = (): void => {
-      x.emit('UserClickedCloseNextQueries')
-    }
-
-    return {
-      emitCloseNextQueries,
-      isTouchable,
-      query,
-      showNextQueries,
-      x,
-    }
-  },
-})
+const emitCloseNextQueries = (): void => {
+  x.emit('UserClickedCloseNextQueries')
+}
 </script>

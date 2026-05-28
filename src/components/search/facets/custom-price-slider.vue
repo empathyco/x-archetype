@@ -8,7 +8,8 @@
     <div class="xds:flex xds:grow xds:justify-between xds:gap-8">
       <div class="xds:flex xds:flex-col">
         <div
-          class="xds:flex xds:h-40 xds:w-41.25 xds:rounded-sm xds:border-[1.4px] xds:border-neutral-90 xds:pr-16 xds:pl-16 xds:desktop:w-46"
+          class="xds:flex xds:h-40 xds:rounded-sm xds:border-[1.4px] xds:border-neutral-90 xds:pr-16 xds:pl-16"
+          :class="{ 'xds:w-41.25 xds:desktop:w-46': facetsPanelOverlay }"
         >
           <input
             class="xds:my-8 xds:max-w-80 xds:text-center xds:placeholder:text-neutral-75"
@@ -24,7 +25,8 @@
 
       <div class="xds:flex xds:flex-col">
         <div
-          class="xds:flex xds:h-40 xds:w-41.25 xds:rounded-sm xds:border-[1.4px] xds:border-neutral-90 xds:pr-16 xds:pl-16 xds:desktop:w-46"
+          class="xds:flex xds:h-40 xds:rounded-sm xds:border-[1.4px] xds:border-neutral-90 xds:pr-16 xds:pl-16"
+          :class="{ 'xds:w-41.25 xds:desktop:w-46': facetsPanelOverlay }"
         >
           <input
             class="xds:my-8 xds:max-w-80 xds:text-center xds:placeholder:text-neutral-75"
@@ -46,6 +48,7 @@ import type { EditableNumberRangeFilter } from '@empathyco/x-types'
 import type { PropType } from 'vue'
 import { BaseSlider, use$x, useState } from '@empathyco/x-components'
 import { ref, watch } from 'vue'
+import { useExperienceControls } from '../../../composables/use-experience-controls.composable'
 
 const props = defineProps({
   priceFilter: {
@@ -60,6 +63,8 @@ const props = defineProps({
 
 const x = use$x()
 const { stats } = useState('search')
+const { getControlFromPath } = useExperienceControls()
+const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
 
 const selectedRange = ref({
   min: props.selectedFilter?.range?.min ?? Math.floor(stats.value.price.min!),
