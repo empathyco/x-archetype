@@ -86,7 +86,12 @@
     "showAside": "Filter"
   },
   "totalResults": {
-    "message": "1 result for {query} | {totalResults} results for {query}"
+    "message": "1 result for {query} | {totalResults} results for {query}",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} results"
+      }
+    }
   },
   "semanticQueries": {
     "title": "Are you interested in \"{query}\"? Explore this suggestions:"

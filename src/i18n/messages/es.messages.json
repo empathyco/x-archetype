@@ -91,7 +91,12 @@
     "showAside": "Filtrar"
   },
   "totalResults": {
-    "message": "1 resultado para {query} | {totalResults} resultados para {query}"
+    "message": "1 resultado para {query} | {totalResults} resultados para {query}",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} resultados"
+      }
+    }
   },
   "semanticQueries": {
     "title": "¿Estás interesado en \"{query}\"? Explora estas sugerencias:"
