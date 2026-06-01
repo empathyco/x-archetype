@@ -94,6 +94,7 @@ const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
 const { config } = useState('search')
 
 const snippetConfig = inject<SnippetConfig>('snippetConfig')!
+
 const showNextQueries = computed(() => inject<Ref<boolean>>('showNextQueries')?.value)
 
 const columns = computed(() => (isMobile.value ? 2 : 4))

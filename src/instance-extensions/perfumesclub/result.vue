@@ -1,9 +1,10 @@
 <template>
-  <component :is="resultComponent" :result="result" :show-description :show-add-to-cart />
+  <BaseResult :result :show-description :show-add-to-cart />
 </template>
+
 <script setup lang="ts">
 import type { Result } from '@empathyco/x-types'
-import { useInstanceExtensions } from '../../composables/use-instance-extensions.composable'
+import BaseResult from '../../components/results/base-result.vue'
 
 interface Props {
   result: Result
@@ -15,5 +16,4 @@ withDefaults(defineProps<Props>(), {
   showDescription: true,
   showAddToCart: true,
 })
-const { resultComponent } = useInstanceExtensions()
 </script>
