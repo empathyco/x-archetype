@@ -1,12 +1,23 @@
+import { BaseIdModalOpen, FiltersIcon } from '@empathyco/x-components'
 import { shallowMount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { ref } from 'vue'
 import { Translation } from 'vue-i18n'
 import ColumnPicker from '../column-picker.vue'
-import MobileToolbar from './mobile-toolbar.vue'
+import DesktopToolbar from './desktop-toolbar.vue'
 
-const getControlFromPathMock = vi.hoisted(() => vi.fn(() => ref({ columnPicker: true })))
-vi.mock('../composables/use-experience-controls.composable', () => ({
+const getControlFromPathMock = vi.hoisted(() =>
+  vi.fn((controlId: string) => {
+    if (controlId === 'gridConfig') {
+      return ref({ columnPicker: true })
+    }
+    if (controlId === 'facetsPanelOverlay') {
+      return ref(true)
+    }
+    return ref({})
+  }),
+)
+vi.mock('../../composables/use-experience-controls.composable', () => ({
   useExperienceControls: vi.fn(() => ({
     getControlFromPath: getControlFromPathMock,
   })),
@@ -15,6 +26,7 @@ vi.mock('../composables/use-experience-controls.composable', () => ({
 const use$xStub = {
   totalResults: 10,
   spellcheckedQuery: 'mocked spellcheckedQuery',
+  selectedFilters: [1, 2],
 }
 const useGetterStub = {
   query: 'mocked query',
@@ -30,25 +42,33 @@ vi.mock('@empathyco/x-components', async importOriginal => {
 })
 
 function render() {
-  const wrapper = shallowMount(MobileToolbar, {
+  const wrapper = shallowMount(DesktopToolbar, {
     global: {
       stubs: {
         'i18n-t': {
           template: `<span><slot name="totalResults" /><slot name="query" /></span>`,
           props: ['keypath', 'scope', 'tag', 'plural'],
         },
+        BaseIdModalOpen: {
+          template: '<div><slot /></div>',
+          props: ['modalId'],
+        },
       },
     },
   })
 
   return {
-    wrapper: wrapper.find('[data-test="mobile-toolbar"]'),
+    wrapper: wrapper.find('[data-test="desktop-toolbar"]'),
     totalResults: wrapper.findComponent(Translation),
     columnPicker: wrapper.findComponent(ColumnPicker),
+    baseIdModalOpen: wrapper.findComponent(BaseIdModalOpen),
+    filterText: wrapper.find('[data-test="desktop-toolbar-filter-text"]'),
+    selectedFiltersBadge: wrapper.find('[data-test="desktop-toolbar-selected-filters-badge"]'),
+    filtersIcon: wrapper.findComponent(FiltersIcon),
   }
 }
 
-describe('mobileToolbar component', () => {
+describe('desktopToolbar component', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     vi.restoreAllMocks()
@@ -58,7 +78,7 @@ describe('mobileToolbar component', () => {
     const sut = render()
 
     expect(sut.wrapper.exists()).toBeTruthy()
-    expect(sut.totalResults.props('keypath')).toBe('totalResults.device.mobile.message')
+    expect(sut.totalResults.props('keypath')).toBe('totalResults.message')
     expect(sut.totalResults.props('scope')).toBe('global')
     expect(sut.totalResults.props('tag')).toBe('span')
     expect(sut.totalResults.props('plural')).toBe(use$xStub.totalResults)
@@ -66,6 +86,13 @@ describe('mobileToolbar component', () => {
     expect(sut.totalResults.text()).toContain(use$xStub.spellcheckedQuery)
     expect(sut.totalResults.text()).not.toContain(useGetterStub.query)
     expect(sut.columnPicker.exists()).toBeTruthy()
+    expect(sut.baseIdModalOpen.exists()).toBeTruthy()
+    expect(sut.baseIdModalOpen.props('modalId')).toBe('right-aside')
+    expect(sut.filterText.text()).toBe('toggleAside.showAside')
+    expect(sut.selectedFiltersBadge.exists()).toBeTruthy()
+    expect(sut.selectedFiltersBadge.text()).toBe(use$xStub.selectedFilters.length.toString())
+    expect(sut.selectedFiltersBadge.classes()).toContain('xds:badge-circle')
+    expect(sut.filtersIcon.exists()).toBeTruthy()
   })
 
   it('should not render if there are no results', () => {
@@ -88,5 +115,27 @@ describe('mobileToolbar component', () => {
 
     expect(sut.totalResults.text()).toContain(useGetterStub.query)
     expect(sut.totalResults.text()).not.toContain(use$xStub.spellcheckedQuery)
+  })
+
+  it('should not render the badge if there are no selected filters', () => {
+    use$xMock.mockReturnValue({ ...use$xStub, selectedFilters: [] })
+    const sut = render()
+
+    expect(sut.selectedFiltersBadge.exists()).toBeFalsy()
+  })
+
+  it('should not render the badge with circle class if there are more than 9 selected filters', () => {
+    use$xMock.mockReturnValue({ ...use$xStub, selectedFilters: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] })
+    const sut = render()
+
+    expect(sut.selectedFiltersBadge.exists()).toBeTruthy()
+    expect(sut.selectedFiltersBadge.classes()).not.toContain('xds:badge-circle')
+  })
+
+  it('should not render BaseIdModalOpen if the facetsPanelOverlay control is disabled', () => {
+    getControlFromPathMock.mockReturnValue(ref(false))
+    const sut = render()
+
+    expect(sut.baseIdModalOpen.exists()).toBeFalsy()
   })
 })
