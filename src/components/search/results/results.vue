@@ -19,7 +19,11 @@
               data-test="base-grid"
             >
               <template #result="{ item: result }">
-                <Result :result="result" data-test="search-grid-result" />
+                <component
+                  :is="instanceResultComponent"
+                  :result="result"
+                  data-test="search-grid-result"
+                />
               </template>
               <template #next-queries-cta-group="{ item: { nextQueries } }">
                 <LocationProvider
@@ -81,7 +85,7 @@ import {
 import { computed, inject } from 'vue'
 import { useDevice } from '../../../composables/use-device.composable'
 import RelatedPrompts from '../../related-prompts/related-prompts.vue'
-import Result from '../../results/result.vue'
+import { componentsMap } from '../../results/result-cards'
 import CustomQueryPreview from './custom-query-preview.vue'
 import NextQueriesCta from './next-queries-cta.vue'
 import NextQueriesTags from './next-queries-tags.vue'
@@ -94,6 +98,9 @@ const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
 const { config } = useState('search')
 
 const snippetConfig = inject<SnippetConfig>('snippetConfig')!
+
+const instanceResultComponent = componentsMap[snippetConfig.instance as keyof typeof componentsMap]
+
 const showNextQueries = computed(() => inject<Ref<boolean>>('showNextQueries')?.value)
 
 const columns = computed(() => (isMobile.value ? 2 : 4))

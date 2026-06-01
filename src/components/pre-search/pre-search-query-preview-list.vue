@@ -33,7 +33,8 @@
             :query-tagging="queryTagging"
           >
             <div class="xds:flex xds:gap-16 xds:pt-16 xds:transform-style-3d xds:max-desktop:px-16">
-              <Result
+              <component
+                :is="instanceResultComponent"
                 v-for="result in results"
                 :key="result.id"
                 :result="result"
@@ -48,12 +49,13 @@
 </template>
 
 <script setup lang="ts">
-import type { QueryFeature } from '@empathyco/x-components'
+import type { QueryFeature, SnippetConfig } from '@empathyco/x-components'
 import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview'
 import { ArrowRightIcon, DisplayEmitter } from '@empathyco/x-components'
 import { QueryPreviewButton, QueryPreviewList } from '@empathyco/x-components/queries-preview'
+import { inject } from 'vue'
 import CustomSlidingPanel from '../custom-sliding-panel.vue'
-import Result from '../results/result.vue'
+import { componentsMap } from '../results/result-cards'
 import DisplayClickProvider from '../search/display-click-provider.vue'
 
 interface Props {
@@ -67,4 +69,8 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const metadata = { feature: props.queryFeature }
+
+const snippetConfig = inject<SnippetConfig>('snippetConfig')!
+
+const instanceResultComponent = componentsMap[snippetConfig.instance as keyof typeof componentsMap]
 </script>

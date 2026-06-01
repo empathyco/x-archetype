@@ -22,7 +22,8 @@
       >
         <template #default="{ recommendation }">
           <DisplayClickProvider result-feature="topclicked_recommendations">
-            <Result
+            <component
+              :is="instanceResultComponent"
               :result="recommendation"
               data-test="recommendation-item"
               :show-description="false"
@@ -40,10 +41,16 @@
   </div>
 </template>
 <script setup lang="ts">
+import type { SnippetConfig } from '@empathyco/x-components'
 import { ChevronLeftIcon, ChevronRightIcon, SlidingPanel, use$x } from '@empathyco/x-components'
 import { Recommendations } from '@empathyco/x-components/recommendations'
-import Result from '../results/result.vue'
+import { inject } from 'vue'
+import { componentsMap } from '../results/result-cards'
 import DisplayClickProvider from '../search/display-click-provider.vue'
 
 const x = use$x()
+
+const snippetConfig = inject<SnippetConfig>('snippetConfig')!
+
+const instanceResultComponent = componentsMap[snippetConfig.instance as keyof typeof componentsMap]
 </script>

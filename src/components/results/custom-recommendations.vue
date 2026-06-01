@@ -17,7 +17,11 @@
             :items="recommendations"
             class="xds:gap-x-16 xds:gap-y-32"
           >
-            <Result :result="result" data-test="recommendation-item" />
+            <component
+              :is="instanceResultComponent"
+              :result="result"
+              data-test="recommendation-item"
+            />
           </BaseGrid>
         </DisplayClickProvider>
       </template>
@@ -26,15 +30,20 @@
 </template>
 
 <script setup lang="ts">
+import type { SnippetConfig } from '@empathyco/x-components'
 import { BaseGrid, StaggeredFadeAndSlide, use$x } from '@empathyco/x-components'
 import { Recommendations } from '@empathyco/x-components/recommendations'
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
 import DisplayClickProvider from '../search/display-click-provider.vue'
-import Result from './result.vue'
+import { componentsMap } from './result-cards'
 
 const { isMobile } = useDevice()
 const staggeredFadeAndSlide = StaggeredFadeAndSlide as any
 const columns = computed(() => (isMobile.value ? 2 : 4))
 const x = use$x()
+
+const snippetConfig = inject<SnippetConfig>('snippetConfig')!
+
+const instanceResultComponent = componentsMap[snippetConfig.instance as keyof typeof componentsMap]
 </script>

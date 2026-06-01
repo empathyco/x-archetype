@@ -89,8 +89,8 @@ import {
 } from '@empathyco/x-components'
 import { MainScrollItem } from '@empathyco/x-components/scroll'
 import { computed, inject } from 'vue'
-import { useDevice } from '../../composables/use-device.composable'
-import AddToCart from './add-to-cart.vue'
+import { useDevice } from '../../../composables/use-device.composable'
+import AddToCart from '../add-to-cart.vue'
 
 interface Props {
   result: Result
