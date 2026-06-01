@@ -18,7 +18,7 @@
         >
           <template #result="{ item: result }">
             <component
-              :is="instanceResultComponent"
+              :is="resultComponent"
               :result="result"
               class="xds:w-[calc(38vw-16px)] xds:min-w-35.5 xds:desktop:w-224"
               :show-description="isTabletOrGreater"
@@ -35,9 +35,9 @@
 import { ArrowRightIcon, ItemsList } from '@empathyco/x-components'
 import { PartialQueryButton, PartialResultsList } from '@empathyco/x-components/search'
 import { useDevice } from '../../../composables/use-device.composable'
-import { useResult } from '../../../composables/use-result.composable'
+import { useInstanceExtensions } from '../../../composables/use-instance-extensions.composable'
 import CustomSlidingPanel from '../../custom-sliding-panel.vue'
 
-const { instanceResultComponent } = useResult()
+const { resultComponent } = useInstanceExtensions()
 const { isTabletOrGreater } = useDevice()
 </script>

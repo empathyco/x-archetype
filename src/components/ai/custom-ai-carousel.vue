@@ -4,7 +4,7 @@
   >
     <template #result="{ result }: { result: ResultType }">
       <component
-        :is="instanceResultComponent"
+        :is="resultComponent"
         :key="result.id"
         class="xds:w-[35vw] xds:rounded-md xds:bg-neutral-0 xds:p-3 xds:desktop:w-54"
         :result="result"
@@ -16,7 +16,7 @@
 <script setup lang="ts">
 import type { Result as ResultType } from '@empathyco/x-types'
 import { AiCarousel } from '@empathyco/x-components/ai'
-import { useResult } from '../../composables/use-result.composable'
+import { useInstanceExtensions } from '../../composables/use-instance-extensions.composable'
 
-const { instanceResultComponent } = useResult()
+const { resultComponent } = useInstanceExtensions()
 </script>

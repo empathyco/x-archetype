@@ -45,7 +45,7 @@
           >
             <div class="xds:flex xds:gap-16 xds:pt-16 xds:transform-style-3d xds:max-desktop:px-16">
               <component
-                :is="instanceResultComponent"
+                :is="resultComponent"
                 v-for="result in results"
                 :key="result.id"
                 :result="result"
@@ -71,7 +71,7 @@ import {
   useState,
 } from '@empathyco/x-components'
 import { QueryPreviewButton, QueryPreviewList } from '@empathyco/x-components/queries-preview'
-import { useResult } from '../../../composables/use-result.composable'
+import { useInstanceExtensions } from '../../../composables/use-instance-extensions.composable'
 import CustomSlidingPanel from '../../custom-sliding-panel.vue'
 
 interface Props {
@@ -101,5 +101,5 @@ const getToolingTagging = (
 
 const metadata = { feature: props.queryFeature }
 const x = use$x()
-const { instanceResultComponent } = useResult()
+const { resultComponent } = useInstanceExtensions()
 </script>

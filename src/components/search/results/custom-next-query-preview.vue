@@ -36,7 +36,7 @@
         <template #result="{ item: result }">
           <DisplayClickProvider result-feature="next_query_recommendations">
             <component
-              :is="instanceResultComponent"
+              :is="resultComponent"
               :result="result"
               class="xds:w-[calc(38vw-16px)] xds:desktop:max-w-66.25"
             />
@@ -54,7 +54,7 @@ import { NextQuery, NextQueryPreview } from '@empathyco/x-components/next-querie
 import { computed } from 'vue'
 import { Translation } from 'vue-i18n'
 import { useDevice } from '../../../composables/use-device.composable'
-import { useResult } from '../../../composables/use-result.composable'
+import { useInstanceExtensions } from '../../../composables/use-instance-extensions.composable'
 import CustomSlidingPanel from '../../search/custom-sliding-panel.vue'
 import DisplayClickProvider from '../../search/display-click-provider.vue'
 
@@ -67,7 +67,7 @@ defineProps<Props>()
 const { isTabletOrLess } = useDevice()
 const maxItemsToRender = computed(() => (isTabletOrLess.value ? undefined : 5))
 const { query } = useGetter('nextQueries')
-const { instanceResultComponent } = useResult()
+const { resultComponent } = useInstanceExtensions()
 </script>
 
 <style>

@@ -19,11 +19,7 @@
               data-test="base-grid"
             >
               <template #result="{ item: result }">
-                <component
-                  :is="instanceResultComponent"
-                  :result="result"
-                  data-test="search-grid-result"
-                />
+                <component :is="resultComponent" :result="result" data-test="search-grid-result" />
               </template>
               <template #next-queries-cta-group="{ item: { nextQueries } }">
                 <LocationProvider
@@ -84,7 +80,7 @@ import {
 } from '@empathyco/x-components/search'
 import { computed, inject } from 'vue'
 import { useDevice } from '../../../composables/use-device.composable'
-import { useResult } from '../../../composables/use-result.composable'
+import { useInstanceExtensions } from '../../../composables/use-instance-extensions.composable'
 import RelatedPrompts from '../../related-prompts/related-prompts.vue'
 import CustomQueryPreview from './custom-query-preview.vue'
 import NextQueriesCta from './next-queries-cta.vue'
@@ -99,7 +95,7 @@ const { config } = useState('search')
 
 const snippetConfig = inject<SnippetConfig>('snippetConfig')!
 
-const { instanceResultComponent } = useResult()
+const { resultComponent } = useInstanceExtensions()
 
 const showNextQueries = computed(() => inject<Ref<boolean>>('showNextQueries')?.value)
 

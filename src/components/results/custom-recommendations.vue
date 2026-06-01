@@ -17,11 +17,7 @@
             :items="recommendations"
             class="xds:gap-x-16 xds:gap-y-32"
           >
-            <component
-              :is="instanceResultComponent"
-              :result="result"
-              data-test="recommendation-item"
-            />
+            <component :is="resultComponent" :result="result" data-test="recommendation-item" />
           </BaseGrid>
         </DisplayClickProvider>
       </template>
@@ -34,12 +30,12 @@ import { BaseGrid, StaggeredFadeAndSlide, use$x } from '@empathyco/x-components'
 import { Recommendations } from '@empathyco/x-components/recommendations'
 import { computed } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
-import { useResult } from '../../composables/use-result.composable'
+import { useInstanceExtensions } from '../../composables/use-instance-extensions.composable'
 import DisplayClickProvider from '../search/display-click-provider.vue'
 
 const { isMobile } = useDevice()
 const staggeredFadeAndSlide = StaggeredFadeAndSlide as any
 const columns = computed(() => (isMobile.value ? 2 : 4))
 const x = use$x()
-const { instanceResultComponent } = useResult()
+const { resultComponent } = useInstanceExtensions()
 </script>

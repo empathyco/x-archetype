@@ -34,7 +34,7 @@
           >
             <div class="xds:flex xds:gap-16 xds:pt-16 xds:transform-style-3d xds:max-desktop:px-16">
               <component
-                :is="instanceResultComponent"
+                :is="resultComponent"
                 v-for="result in results"
                 :key="result.id"
                 :result="result"
@@ -53,7 +53,7 @@ import type { QueryFeature } from '@empathyco/x-components'
 import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview'
 import { ArrowRightIcon, DisplayEmitter } from '@empathyco/x-components'
 import { QueryPreviewButton, QueryPreviewList } from '@empathyco/x-components/queries-preview'
-import { useResult } from '../../composables/use-result.composable'
+import { useInstanceExtensions } from '../../composables/use-instance-extensions.composable'
 import CustomSlidingPanel from '../custom-sliding-panel.vue'
 import DisplayClickProvider from '../search/display-click-provider.vue'
 
@@ -69,5 +69,5 @@ const props = withDefaults(defineProps<Props>(), {
 
 const metadata = { feature: props.queryFeature }
 
-const { instanceResultComponent } = useResult()
+const { resultComponent } = useInstanceExtensions()
 </script>

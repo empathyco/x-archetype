@@ -35,7 +35,7 @@
           <DisplayClickProvider result-feature="semantic_recommendations">
             <div class="xds:flex xds:gap-16 xds:pt-16 xds:max-desktop:px-16">
               <component
-                :is="instanceResultComponent"
+                :is="resultComponent"
                 v-for="result in results.slice(0, resultsPerCarousel)"
                 :key="result.id"
                 :result="result"
@@ -53,7 +53,7 @@
 import { ArrowRightIcon, use$x, useState } from '@empathyco/x-components'
 import { QueryPreviewList, useQueriesPreview } from '@empathyco/x-components/queries-preview'
 import { SemanticQueries, SemanticQuery } from '@empathyco/x-components/semantic-queries'
-import { useResult } from '../../composables/use-result.composable'
+import { useInstanceExtensions } from '../../composables/use-instance-extensions.composable'
 import CustomSlidingPanel from '../custom-sliding-panel.vue'
 import DisplayClickProvider from './display-click-provider.vue'
 
@@ -62,5 +62,5 @@ const { config: semanticQueriesConfig } = useState('semanticQueries')
 
 const resultsPerCarousel = semanticQueriesConfig.value.maxItemsToRequest
 const x = use$x()
-const { instanceResultComponent } = useResult()
+const { resultComponent } = useInstanceExtensions()
 </script>
