@@ -43,7 +43,6 @@ import { useCustomization } from './composables/use-customization.composable'
 import { useDevice } from './composables/use-device.composable'
 import { FeatureFlag, useFeatureFlags } from './composables/use-feature-flags.composable'
 import { isIOS, removeSearchInputFocus } from './composables/use-ios-utils-composable'
-import currencies from './i18n/currencies'
 import './tailwind/xds.css'
 
 const MobileTeleport = defineAsyncComponent(() =>
@@ -141,9 +140,6 @@ const documentDirection = computed(() => {
 const isTeleportViewMode = computed(() =>
   snippetConfig.viewMode ? snippetConfig.viewMode === 'embedded' : teleportFeature.value,
 )
-
-const currencyFormat = computed(() => currencies[snippetConfig.currency!])
-provide('currencyFormat', currencyFormat)
 
 const queriesPreviewInfo = computed(() => snippetConfig.queriesPreview ?? [])
 provide<ComputedRef<QueryPreviewInfo[]> | undefined>('queriesPreviewInfo', queriesPreviewInfo)
