@@ -21,7 +21,6 @@
               :result="result"
               class="xds:w-[calc(38vw-16px)] xds:min-w-35.5 xds:desktop:w-224"
               :show-description="isTabletOrGreater"
-              show-compact-prices
             />
           </template>
         </ItemsList>
