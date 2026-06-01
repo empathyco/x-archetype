@@ -15,6 +15,6 @@ vi.mock('vue-i18n', async importOriginal => {
   }
 })
 
-window.xCSSInjector = {
+window.xCSSInjector = Object.assign({}, window.xCSSInjector, {
   addStyle: vi.fn(),
-}
+})
