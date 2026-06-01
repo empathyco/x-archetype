@@ -2,6 +2,7 @@
   <div
     v-if="x.totalResults"
     class="xds:flex xds:w-full xds:flex-row xds:items-center xds:justify-between xds:gap-16"
+    data-test="mobile-toolbar"
   >
     <div class="xds:flex xds:flex-auto xds:items-center xds:justify-end">
       <Translation
@@ -21,7 +22,7 @@
         </template>
       </Translation>
 
-      <ColumnPicker v-if="gridConfig.columnPicker && x.totalResults" />
+      <ColumnPicker v-if="gridConfig.columnPicker" />
     </div>
   </div>
 </template>
