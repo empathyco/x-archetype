@@ -2,7 +2,7 @@
   <div class="xds:flex xds:items-center xds:gap-8">
     <span class="xds:title4">{{ $t('columnPicker.message') }}</span>
     <BaseColumnPickerList
-      :columns="values"
+      :columns="columns"
       button-class="xds:button xds:button-circle xds:button-sm xds:button-ghost xds:ps-0 xds:pe-0"
     >
       <template #divider>
@@ -24,15 +24,34 @@ import {
 } from '@empathyco/x-components'
 import { computed } from 'vue'
 import { useDevice } from '../composables/use-device.composable'
-import { xControlsState } from '../x-components/xcontrols'
+import { useExperienceControls } from '../composables/use-experience-controls.composable'
+import GridListIcon from './icons/grid-list-icon.vue'
 
 const { isMobile } = useDevice()
-//const controls = useState('experienceControls').controls.value.controls as Dictionary<unknown>
-const columnSelector = xControlsState.gridColumns.columnSelector
-//((controls?.gridColumns as Dictionary<unknown>).columnSelector as number[]) ?? xControlsState.gridColumns.columnSelector
+const { getControlFromPath } = useExperienceControls()
 
-const columns = computed(() => (isMobile.value ? [2, 1] : columnSelector))
+const gridConfig = getControlFromPath<{ columnSelector: number[]; listMode: boolean }>('gridConfig')
 
-const values = columns
-const icons = { 1: Grid1ColIcon, 2: Grid2ColIcon, columnSelector: Grid2ColIcon, 4: Grid4ColIcon }
+const columns = computed(() =>
+  isMobile.value
+    ? [2, 1]
+    : gridConfig.value.listMode
+      ? [...gridConfig.value.columnSelector, 1] // asume that 1 won't be set in columnSelector when listMode is active
+      : gridConfig.value.columnSelector,
+)
+
+const icons = computed(() => {
+  const nonOneValues = columns.value.filter(v => v !== 1)
+  const min = Math.min(...nonOneValues)
+
+  return Object.fromEntries(
+    columns.value.map(column => {
+      if (column === 1) {
+        return [column, isMobile.value || !gridConfig.value.listMode ? Grid1ColIcon : GridListIcon]
+      }
+
+      return [column, column === min ? Grid2ColIcon : Grid4ColIcon]
+    }),
+  )
+})
 </script>

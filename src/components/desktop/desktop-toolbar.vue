@@ -33,7 +33,7 @@
       </template>
     </Translation>
 
-    <ColumnPicker v-if="columnPicker" data-test="column-picker" />
+    <ColumnPicker v-if="gridConfig.columnPicker" data-test="column-picker" />
 
     <BaseIdModalOpen
       v-if="facetsPanelOverlay"
@@ -60,17 +60,13 @@
 import { BaseIdModalOpen, FiltersIcon, use$x, useGetter } from '@empathyco/x-components'
 import { Translation } from 'vue-i18n'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
-import { xControlsState } from '../../x-components/xcontrols'
 import ColumnPicker from '../column-picker.vue'
 import SortSelector from '../search/sort-selector.vue'
 
 const x = use$x()
 const { query } = useGetter('search')
 
-//const controls = useState('experienceControls').controls.value.controls as Dictionary<unknown>
-const columnPicker = xControlsState.gridColumns.columnPicker
-//((controls?.gridColumns as Dictionary<unknown>).columnPicker as boolean) ?? xControlsState.gridColumns.columnPicker
-
 const { getControlFromPath } = useExperienceControls()
-const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
+const facetsPanelOverlay = getControlFromPath<boolean>('facetsPanelOverlay')
+const gridConfig = getControlFromPath<{ columnPicker: boolean }>('gridConfig')
 </script>

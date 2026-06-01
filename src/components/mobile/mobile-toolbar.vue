@@ -21,7 +21,7 @@
         </template>
       </Translation>
 
-      <ColumnPicker v-if="columnPicker && x.totalResults" />
+      <ColumnPicker v-if="gridConfig.columnPicker && x.totalResults" />
     </div>
   </div>
 </template>
@@ -29,12 +29,12 @@
 <script setup lang="ts">
 import { use$x, useGetter } from '@empathyco/x-components'
 import { Translation } from 'vue-i18n'
-import { xControlsState } from '../../x-components/xcontrols'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable.js'
 import ColumnPicker from '../column-picker.vue'
 
 const x = use$x()
 const { query } = useGetter('search')
-//const controls = useState('experienceControls').controls.value.controls as Dictionary<unknown>
-const columnPicker = xControlsState.gridColumns.columnPicker
-//((controls?.gridColumns as Dictionary<unknown>).columnPicker as boolean) ?? xControlsState.gridColumns.columnPicker
+const { getControlFromPath } = useExperienceControls()
+
+const gridConfig = getControlFromPath<{ columnPicker: boolean }>('gridConfig')
 </script>

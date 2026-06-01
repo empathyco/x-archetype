@@ -25,7 +25,7 @@
             <PreSearchManager :max-popular-searches-to-render="5" class="xds:mt-56" />
           </LocationProvider>
 
-          <div class="x-results-grid xds:flex xds:gap-24">
+          <div class="xds:flex xds:gap-24">
             <div
               v-if="!facetsPanelOverlay && x.results.length > 0"
               class="xds:flex xds:h-auto xds:flex-col xds:justify-between xds:pb-64"

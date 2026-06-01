@@ -13,13 +13,13 @@
         >
           <NextQueriesCta>
             <BaseVariableColumnGrid
-              class="xds:gap-x-16 xds:gap-y-32"
+              class="xds:w-full xds:gap-x-16 xds:gap-y-32"
               :animation="staggeredFadeAndSlide"
               :columns="columns"
-              data-test="base-grid"
             >
               <template #result="{ item: result }">
-                <Result :result="result" data-test="search-grid-result" />
+                <ListResult v-if="isListMode" :result="result" />
+                <Result v-else :result="result" />
               </template>
               <template #next-queries-cta-group="{ item: { nextQueries } }">
                 <LocationProvider
@@ -47,7 +47,7 @@
                   class="xds:rounded-b-xl xds:bg-neutral-10 xds:px-8 xds:desktop:px-16"
                   :queries-preview-info="queriesPreviewInfo"
                   query-feature="related_prompts"
-                ></CustomQueryPreview>
+                />
               </template>
             </BaseVariableColumnGrid>
           </NextQueriesCta>
@@ -78,9 +78,11 @@ import {
   PromotedsList,
   ResultsList,
 } from '@empathyco/x-components/search'
-import { computed, inject } from 'vue'
+import { computed, inject, ref } from 'vue'
 import { useDevice } from '../../../composables/use-device.composable'
+import { useExperienceControls } from '../../../composables/use-experience-controls.composable'
 import RelatedPrompts from '../../related-prompts/related-prompts.vue'
+import ListResult from '../../results/list-result.vue'
 import Result from '../../results/result.vue'
 import CustomQueryPreview from './custom-query-preview.vue'
 import NextQueriesCta from './next-queries-cta.vue'
@@ -88,12 +90,18 @@ import NextQueriesTags from './next-queries-tags.vue'
 
 const x = use$x()
 const { isMobile } = useDevice()
-
 const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
-
 const { config } = useState('search')
+const { getControlFromPath } = useExperienceControls()
+
+const gridConfig = getControlFromPath<{ listMode: boolean }>('gridConfig')
+
+const staggeredFadeAndSlide = StaggeredFadeAndSlide as any
 
 const snippetConfig = inject<SnippetConfig>('snippetConfig')!
+
+const isListMode = ref(false)
+
 const showNextQueries = computed(() => inject<Ref<boolean>>('showNextQueries')?.value)
 
 const columns = computed(() => (isMobile.value ? 2 : 4))
@@ -111,12 +119,14 @@ const queriesPreviewInfo = computed(() => {
   return []
 })
 
-const staggeredFadeAndSlide = StaggeredFadeAndSlide as any
-
 // If customer wants to use infinite scroll in embeded, we need to change the scroll target to 'html'.
 const vInfiniteScroll = computed(() =>
   snippetConfig.viewMode === 'fullScreen' ? infiniteScroll : undefined,
 )
+
+x.on('ColumnsNumberProvided', false).subscribe(selectedColumns => {
+  isListMode.value = gridConfig.value.listMode && !isMobile.value && selectedColumns === 1
+})
 </script>
 
 <style>

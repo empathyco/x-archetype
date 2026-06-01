@@ -2,10 +2,12 @@ export const xControlsState = {
   controls: {
     aiSearchFallback: true,
     fullPredictiveLayer: false,
+    facetsPanelOverlay: true,
     logo: 'https://empathy.co/assets/media/logo/logo-text-black.svg',
-    gridColumns: {
+    gridConfig: {
       columnPicker: true,
-      columnSelector: [5, 3],
+      listMode: true,
+      columnSelector: [5, 2],
     },
     styles: {
       'color-lead-25': '#bbc9cf',
