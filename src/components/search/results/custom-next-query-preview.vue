@@ -48,14 +48,13 @@
 </template>
 
 <script setup lang="ts">
-import type { SnippetConfig } from '@empathyco/x-components'
 import type { NextQuery as NextQueryModel } from '@empathyco/x-types'
 import { ArrowRightIcon, ItemsList, useGetter } from '@empathyco/x-components'
 import { NextQuery, NextQueryPreview } from '@empathyco/x-components/next-queries'
-import { computed, inject } from 'vue'
+import { computed } from 'vue'
 import { Translation } from 'vue-i18n'
 import { useDevice } from '../../../composables/use-device.composable'
-import { componentsMap } from '../../results/result-cards'
+import { useResult } from '../../../composables/use-result.composable'
 import CustomSlidingPanel from '../../search/custom-sliding-panel.vue'
 import DisplayClickProvider from '../../search/display-click-provider.vue'
 
@@ -68,8 +67,7 @@ defineProps<Props>()
 const { isTabletOrLess } = useDevice()
 const maxItemsToRender = computed(() => (isTabletOrLess.value ? undefined : 5))
 const { query } = useGetter('nextQueries')
-const snippetConfig = inject<SnippetConfig>('snippetConfig')!
-const instanceResultComponent = componentsMap[snippetConfig.instance as keyof typeof componentsMap]
+const { instanceResultComponent } = useResult()
 </script>
 
 <style>

@@ -84,8 +84,8 @@ import {
 } from '@empathyco/x-components/search'
 import { computed, inject } from 'vue'
 import { useDevice } from '../../../composables/use-device.composable'
+import { useResult } from '../../../composables/use-result.composable'
 import RelatedPrompts from '../../related-prompts/related-prompts.vue'
-import { componentsMap } from '../../results/result-cards'
 import CustomQueryPreview from './custom-query-preview.vue'
 import NextQueriesCta from './next-queries-cta.vue'
 import NextQueriesTags from './next-queries-tags.vue'
@@ -99,7 +99,7 @@ const { config } = useState('search')
 
 const snippetConfig = inject<SnippetConfig>('snippetConfig')!
 
-const instanceResultComponent = componentsMap[snippetConfig.instance as keyof typeof componentsMap]
+const { instanceResultComponent } = useResult()
 
 const showNextQueries = computed(() => inject<Ref<boolean>>('showNextQueries')?.value)
 

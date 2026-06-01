@@ -30,20 +30,16 @@
 </template>
 
 <script setup lang="ts">
-import type { SnippetConfig } from '@empathyco/x-components'
 import { BaseGrid, StaggeredFadeAndSlide, use$x } from '@empathyco/x-components'
 import { Recommendations } from '@empathyco/x-components/recommendations'
-import { computed, inject } from 'vue'
+import { computed } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
+import { useResult } from '../../composables/use-result.composable'
 import DisplayClickProvider from '../search/display-click-provider.vue'
-import { componentsMap } from './result-cards'
 
 const { isMobile } = useDevice()
 const staggeredFadeAndSlide = StaggeredFadeAndSlide as any
 const columns = computed(() => (isMobile.value ? 2 : 4))
 const x = use$x()
-
-const snippetConfig = inject<SnippetConfig>('snippetConfig')!
-
-const instanceResultComponent = componentsMap[snippetConfig.instance as keyof typeof componentsMap]
+const { instanceResultComponent } = useResult()
 </script>

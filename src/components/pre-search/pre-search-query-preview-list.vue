@@ -49,13 +49,12 @@
 </template>
 
 <script setup lang="ts">
-import type { QueryFeature, SnippetConfig } from '@empathyco/x-components'
+import type { QueryFeature } from '@empathyco/x-components'
 import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview'
 import { ArrowRightIcon, DisplayEmitter } from '@empathyco/x-components'
 import { QueryPreviewButton, QueryPreviewList } from '@empathyco/x-components/queries-preview'
-import { inject } from 'vue'
+import { useResult } from '../../composables/use-result.composable'
 import CustomSlidingPanel from '../custom-sliding-panel.vue'
-import { componentsMap } from '../results/result-cards'
 import DisplayClickProvider from '../search/display-click-provider.vue'
 
 interface Props {
@@ -70,7 +69,5 @@ const props = withDefaults(defineProps<Props>(), {
 
 const metadata = { feature: props.queryFeature }
 
-const snippetConfig = inject<SnippetConfig>('snippetConfig')!
-
-const instanceResultComponent = componentsMap[snippetConfig.instance as keyof typeof componentsMap]
+const { instanceResultComponent } = useResult()
 </script>

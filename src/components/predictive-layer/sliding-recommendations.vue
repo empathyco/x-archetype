@@ -41,16 +41,11 @@
   </div>
 </template>
 <script setup lang="ts">
-import type { SnippetConfig } from '@empathyco/x-components'
 import { ChevronLeftIcon, ChevronRightIcon, SlidingPanel, use$x } from '@empathyco/x-components'
 import { Recommendations } from '@empathyco/x-components/recommendations'
-import { inject } from 'vue'
-import { componentsMap } from '../results/result-cards'
+import { useResult } from '../../composables/use-result.composable'
 import DisplayClickProvider from '../search/display-click-provider.vue'
 
 const x = use$x()
-
-const snippetConfig = inject<SnippetConfig>('snippetConfig')!
-
-const instanceResultComponent = componentsMap[snippetConfig.instance as keyof typeof componentsMap]
+const { instanceResultComponent } = useResult()
 </script>

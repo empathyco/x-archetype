@@ -50,13 +50,11 @@
 </template>
 
 <script setup lang="ts">
-import type { SnippetConfig } from '@empathyco/x-components'
 import { ArrowRightIcon, use$x, useState } from '@empathyco/x-components'
 import { QueryPreviewList, useQueriesPreview } from '@empathyco/x-components/queries-preview'
 import { SemanticQueries, SemanticQuery } from '@empathyco/x-components/semantic-queries'
-import { inject } from 'vue'
+import { useResult } from '../../composables/use-result.composable'
 import CustomSlidingPanel from '../custom-sliding-panel.vue'
-import { componentsMap } from '../results/result-cards'
 import DisplayClickProvider from './display-click-provider.vue'
 
 const { isAnyQueryLoadedInPreview } = useQueriesPreview()
@@ -64,8 +62,5 @@ const { config: semanticQueriesConfig } = useState('semanticQueries')
 
 const resultsPerCarousel = semanticQueriesConfig.value.maxItemsToRequest
 const x = use$x()
-
-const snippetConfig = inject<SnippetConfig>('snippetConfig')!
-
-const instanceResultComponent = componentsMap[snippetConfig.instance as keyof typeof componentsMap]
+const { instanceResultComponent } = useResult()
 </script>

@@ -14,13 +14,9 @@
 </template>
 
 <script setup lang="ts">
-import type { SnippetConfig } from '@empathyco/x-components'
 import type { Result as ResultType } from '@empathyco/x-types'
 import { AiCarousel } from '@empathyco/x-components/ai'
-import { inject } from 'vue'
-import { componentsMap } from '../results/result-cards'
+import { useResult } from '../../composables/use-result.composable'
 
-const snippetConfig = inject<SnippetConfig>('snippetConfig')!
-
-const instanceResultComponent = componentsMap[snippetConfig.instance as keyof typeof componentsMap]
+const { instanceResultComponent } = useResult()
 </script>

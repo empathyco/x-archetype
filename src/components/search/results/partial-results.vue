@@ -32,15 +32,12 @@
 </template>
 
 <script setup lang="ts">
-import type { SnippetConfig } from '@empathyco/x-components'
 import { ArrowRightIcon, ItemsList } from '@empathyco/x-components'
 import { PartialQueryButton, PartialResultsList } from '@empathyco/x-components/search'
-import { inject } from 'vue'
 import { useDevice } from '../../../composables/use-device.composable'
+import { useResult } from '../../../composables/use-result.composable'
 import CustomSlidingPanel from '../../custom-sliding-panel.vue'
-import { componentsMap } from '../../results/result-cards'
 
-const snippetConfig = inject<SnippetConfig>('snippetConfig')!
-const instanceResultComponent = componentsMap[snippetConfig.instance as keyof typeof componentsMap]
+const { instanceResultComponent } = useResult()
 const { isTabletOrGreater } = useDevice()
 </script>
