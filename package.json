@@ -18,7 +18,7 @@
     "lint:check": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test:unit": "vitest run",
+    "test": "vitest run",
     "install:x-components:local": "npm install file:$(ls ../x/packages/x-components/*.tgz | sort -V | tail 1) --no-save",
     "install:x-design-system:local": "npm install file:$(ls ../x/packages/x-design-system/*.tgz | sort -V | tail 1) --no-save",
     "install:x-adapter:local": "npm install file:$(ls ../x/packages/x-adapter/*.tgz | sort -V | tail 1) --no-save",
