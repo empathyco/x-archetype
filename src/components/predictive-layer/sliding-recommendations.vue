@@ -22,8 +22,7 @@
       >
         <template #default="{ recommendation }">
           <DisplayClickProvider result-feature="topclicked_recommendations">
-            <component
-              :is="resultComponent"
+            <Result
               :result="recommendation"
               data-test="recommendation-item"
               :show-description="false"
@@ -43,9 +42,8 @@
 <script setup lang="ts">
 import { ChevronLeftIcon, ChevronRightIcon, SlidingPanel, use$x } from '@empathyco/x-components'
 import { Recommendations } from '@empathyco/x-components/recommendations'
-import { useInstanceExtensions } from '../../composables/use-instance-extensions.composable'
+import Result from '../results/result.vue'
 import DisplayClickProvider from '../search/display-click-provider.vue'
 
 const x = use$x()
-const { resultComponent } = useInstanceExtensions()
 </script>
