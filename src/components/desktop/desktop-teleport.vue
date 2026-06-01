@@ -1,7 +1,7 @@
 <template>
   <BaseTeleport v-if="visibleGrid" :target="gridTarget">
     <div class="xds:layout-container xds:layout">
-      <div class="xds:sticky xds:top-0 xds:z-1 xds:bg-neutral-0">
+      <div class="xds:sticky xds:top-0 xds:z-2 xds:bg-neutral-0">
         <DesktopSubHeader
           v-if="hasSearched"
           data-test="sub-header"
@@ -52,6 +52,28 @@
           </div>
         </Scroll>
       </MainScroll>
+      <div class="xds:z-20">
+        <BaseIdModal
+          v-if="facetsPanelOverlay"
+          key="right-aside"
+          :animation="rightAsideAnimation"
+          modal-id="right-aside"
+          content-class="xds:w-512! xds:ml-auto xds:h-full"
+        >
+          <DesktopAside v-if="hasSearched" />
+        </BaseIdModal>
+
+        <BaseIdModal
+          key="my-history-aside"
+          :animation="rightAsideAnimation"
+          modal-id="my-history-aside"
+          content-class="xds:w-512! xds:ml-auto xds:h-full"
+        >
+          <MyHistoryAside />
+        </BaseIdModal>
+
+        <MyHistoryConfirmDisableModal />
+      </div>
     </div>
   </BaseTeleport>
   <ExperienceControls />
@@ -60,6 +82,8 @@
 <script setup lang="ts">
 import type { SnippetConfig } from '@empathyco/x-components'
 import {
+  AnimateTranslate,
+  BaseIdModal,
   BaseTeleport,
   LocationProvider,
   PageLoaderButton,
@@ -68,9 +92,11 @@ import {
 } from '@empathyco/x-components'
 import { ExperienceControls } from '@empathyco/x-components/experience-controls'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
-import { computed, defineAsyncComponent, inject, ref } from 'vue'
+import { computed, defineAsyncComponent, h, inject, ref } from 'vue'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
+import MyHistoryAside from '../my-history/my-history-aside.vue'
+import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
 
 const DesktopSubHeader = defineAsyncComponent(() =>
   import('../index-search').then(m => m.DesktopSubHeader),
@@ -90,6 +116,7 @@ const SpellcheckMessage = defineAsyncComponent(() =>
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
 const x = use$x()
+const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
 const { getControlFromPath } = useExperienceControls()
 const aiSearchFallback = getControlFromPath('aiSearchFallback')
 const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
