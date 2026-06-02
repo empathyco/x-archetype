@@ -75,7 +75,12 @@
     </slot>
 
     <slot name="add-to-cart">
-      <AddToCart v-if="showAddToCart" :result="result" class="xds:my-4 xds:w-full" />
+      <BaseAddToCart
+        :result="result"
+        class="xds:text2 xds:text2-lg xds:mt-auto xds:button xds:max-h-40 xds:flex-auto xds:rounded-sm xds:border-none xds:bg-neutral-50 xds:text-neutral-0 xds:hover:bg-neutral-25"
+      >
+        {{ $t('result.addToCart') }}
+      </BaseAddToCart>
     </slot>
   </MainScrollItem>
 </template>
@@ -84,6 +89,7 @@
 import type { SnippetConfig } from '@empathyco/x-components'
 import type { Result } from '@empathyco/x-types'
 import {
+  BaseAddToCart,
   BaseEventButton,
   BaseFallbackImage,
   BasePlaceholderImage,
@@ -96,7 +102,6 @@ import {
 } from '@empathyco/x-components'
 import { MainScrollItem } from '@empathyco/x-components/scroll'
 import { computed, inject } from 'vue'
-import AddToCart from '../../components/results/add-to-cart.vue'
 import { useDevice } from '../../composables/use-device.composable'
 
 interface Props {
