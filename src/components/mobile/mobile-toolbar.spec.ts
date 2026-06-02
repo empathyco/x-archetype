@@ -6,7 +6,7 @@ import ColumnPicker from '../column-picker.vue'
 import MobileToolbar from './mobile-toolbar.vue'
 
 const getControlFromPathMock = vi.hoisted(() => vi.fn(() => ref({ columnPicker: true })))
-vi.mock('../composables/use-experience-controls.composable', () => ({
+vi.mock('../../composables/use-experience-controls.composable', () => ({
   useExperienceControls: vi.fn(() => ({
     getControlFromPath: getControlFromPathMock,
   })),

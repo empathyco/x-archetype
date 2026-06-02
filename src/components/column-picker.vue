@@ -49,16 +49,22 @@ const columns = computed(() => {
 })
 
 const icons = computed<Record<number, Component>>(() => {
-  const nonOneValues = columns.value.filter(v => v !== 1)
-  const min = Math.min(...nonOneValues)
+  // Filter out single-column mode to find the minimum multi-column value
+  const multiColumnOptions = columns.value.filter(columnCount => columnCount !== 1)
+  const minMultiColumnCount = Math.min(...multiColumnOptions)
 
   return Object.fromEntries(
-    columns.value.map(column => {
-      if (column === 1) {
-        return [column, isMobile.value || !gridConfig.value.listMode ? Grid1ColIcon : GridListIcon]
+    columns.value.map(columnCount => {
+      // Single column mode: show list icon or single column icon based on device/mode
+      if (columnCount === 1) {
+        const isSingleColumnMode = isMobile.value || !gridConfig.value.listMode
+        const icon = isSingleColumnMode ? Grid1ColIcon : GridListIcon
+        return [columnCount, icon]
       }
 
-      return [column, column === min ? Grid2ColIcon : Grid4ColIcon]
+      // Multi-column mode: use 2-col icon for minimum, 4-col icon for others
+      const icon = columnCount === minMultiColumnCount ? Grid2ColIcon : Grid4ColIcon
+      return [columnCount, icon]
     }),
   )
 })

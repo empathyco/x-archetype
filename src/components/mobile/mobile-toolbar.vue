@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import { use$x, useGetter } from '@empathyco/x-components'
 import { Translation } from 'vue-i18n'
-import { useExperienceControls } from '../../composables/use-experience-controls.composable.js'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import ColumnPicker from '../column-picker.vue'
 
 const x = use$x()
