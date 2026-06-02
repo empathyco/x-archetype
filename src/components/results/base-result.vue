@@ -65,14 +65,9 @@
           <span class="xds:text2 xds:text-lead-50">{{ result.brand }}</span>
         </template>
         <div class="xds:flex xds:flex-wrap xds:gap-8">
-          <BaseResultCurrentPrice
-            :result="result"
-            :format="currencyFormat"
-            class="xds:text2 xds:text2-lg xds:font-bold"
-          />
+          <BaseResultCurrentPrice :result="result" class="xds:text2 xds:text2-lg xds:font-bold" />
           <BaseResultPreviousPrice
             :result="result"
-            :format="currencyFormat"
             class="xds:text2 xds:leading-[1.7] xds:text-neutral-75 xds:line-through"
           />
         </div>
@@ -88,7 +83,6 @@
 <script setup lang="ts">
 import type { SnippetConfig } from '@empathyco/x-components'
 import type { Result } from '@empathyco/x-types'
-import type { ComputedRef } from 'vue'
 import {
   BaseEventButton,
   BaseFallbackImage,
@@ -115,8 +109,6 @@ const props = withDefaults(defineProps<Props>(), {
   showDescription: true,
   showAddToCart: true,
 })
-
-const currencyFormat = inject<ComputedRef<string>>('currencyFormat')!
 
 const events = { UserClickedResultWithVariants: props.result }
 const onWishlistClickEvents = { UserClickedResultWishlist: props.result }
