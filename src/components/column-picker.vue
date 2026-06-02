@@ -36,15 +36,16 @@ const { isMobile } = useDevice()
 const { getControlFromPath } = useExperienceControls()
 
 const gridConfig = getControlFromPath<{ columnSelector: number[]; listMode: boolean }>('gridConfig')
+const columnSelector = computed(() => gridConfig.value?.columnSelector.map(Number))
 
 const columns = computed(() => {
   if (isMobile.value) {
     return [2, 1]
   }
   if (gridConfig.value.listMode) {
-    return [...gridConfig.value.columnSelector, 1] // asume that 1 won't be set in columnSelector when listMode is active
+    return [...columnSelector.value, 1] // asume that 1 won't be set in columnSelector when listMode is active
   }
-  return gridConfig.value.columnSelector
+  return columnSelector.value
 })
 
 const icons = computed<Record<number, Component>>(() => {
