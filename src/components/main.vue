@@ -1,5 +1,5 @@
 <template>
-  <div class="xds:flex xds:flex-col">
+  <div class="xds:flex xds:w-full xds:flex-col">
     <Redirection />
     <LocationProvider location="results">
       <Results />

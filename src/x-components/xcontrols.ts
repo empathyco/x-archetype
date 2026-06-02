@@ -4,6 +4,11 @@ export const xControlsState = {
     fullPredictiveLayer: false,
     facetsPanelOverlay: true,
     logo: 'https://empathy.co/assets/media/logo/logo-text-black.svg',
+    gridConfig: {
+      columnPicker: true,
+      listMode: true,
+      columnSelector: ['5', '2'],
+    },
     styles: {
       'color-lead-25': '#bbc9cf',
       'color-lead-50': '#5e7782',

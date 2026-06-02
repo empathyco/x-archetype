@@ -18,7 +18,7 @@
     "lint:check": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "echo 'Pending creation of e2e tests with Playwright.'",
+    "test": "vitest run",
     "install:x-components:local": "npm install file:$(ls ../x/packages/x-components/*.tgz | sort -V | tail 1) --no-save",
     "install:x-design-system:local": "npm install file:$(ls ../x/packages/x-design-system/*.tgz | sort -V | tail 1) --no-save",
     "install:x-adapter:local": "npm install file:$(ls ../x/packages/x-adapter/*.tgz | sort -V | tail 1) --no-save",
@@ -47,6 +47,8 @@
     "@tailwindcss/vite": "4.3.0",
     "@types/dom-speech-recognition": "0.0.11",
     "@vitejs/plugin-vue": "6.0.7",
+    "@vue/test-utils": "2.4.10",
+    "happy-dom": "20.9.0",
     "husky": "9.1.7",
     "lint-staged": "17.0.5",
     "rollup-plugin-visualizer": "7.0.1",
@@ -55,7 +57,8 @@
     "typescript": "5.9.3",
     "vite": "7.3.3",
     "vite-plugin-css-injected-by-js": "4.0.1",
-    "vue-tsc": "3.3.2"
+    "vitest": "4.1.8",
+    "vue-tsc": "3.2.7"
   },
   "lint-staged": {
     "*": [
