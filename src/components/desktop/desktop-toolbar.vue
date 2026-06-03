@@ -41,17 +41,15 @@
     <BaseIdModalOpen
       v-if="facetsPanelOverlay"
       modal-id="right-aside"
-      class="xds:button-ghost xds:button-lead"
+      class="xds:button-ghost xds:button-lead xds:text-md xds:font-regular"
       data-test="desktop-toolbar-toggle-facets-button"
     >
       <FiltersIcon class="xds:icon-lg" />
-      <span class="xds: xds:text-md xds:font-regular" data-test="desktop-toolbar-filter-text">{{
-        t('toggleAside.showAside')
-      }}</span>
+      <span data-test="desktop-toolbar-filter-text">{{ t('toggleAside.showAside') }}</span>
       <span
         v-if="x.selectedFilters.length"
         :class="{ 'xds:badge-circle': x.selectedFilters.length <= 9 }"
-        class="xds:badge xds:badge-auxiliary xds:text-md"
+        class="xds:badge xds:badge-auxiliary"
         data-test="desktop-toolbar-selected-filters-badge"
       >
         {{ x.selectedFilters.length }}
