@@ -13,29 +13,17 @@ function init() {
   const { controls } = useState('experienceControls')
   const experienceControls = computed(() => controls.value ?? xControlsState)
 
-  watch(
-    experienceControls,
-    ({
-      controls,
-    }: {
-      controls?: {
-        button?: Dictionary<string>
-        tag?: Dictionary<string>
-        styles?: Dictionary<string>
-      }
-    }) => {
-      const customizationStyles = [
-        controls?.styles,
-        controls?.button,
-        controls?.tag,
-      ] as Dictionary<string>[]
-
-      customizationStyles.forEach(customization => {
-        const xdsStyles = mapCustomizationStylesToCSS(customization)
-        window.xCSSInjector.addStyle({ source: `:root,:host{${xdsStyles}}` })
+  watch(experienceControls, ({ controls }: { controls?: { styles?: Dictionary } }) => {
+    if (controls?.styles) {
+      Object.entries(controls.styles).forEach(value => {
+        value.forEach(customization => {
+          // eslint-disable-next-line ts/no-unsafe-argument
+          const xdsStyles = mapCustomizationStylesToCSS(customization)
+          window.xCSSInjector.addStyle({ source: `:root,:host{${xdsStyles}}` })
+        })
       })
-    },
-  )
+    }
+  })
 }
 
 export const useCustomization = () => ({ init })

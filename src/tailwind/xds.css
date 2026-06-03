@@ -30,3 +30,7 @@
 @utility suggestion {
   @apply xds:rounded-[var(--xds-tag-border-radius)]!;
 }
+
+@utility suggestion-group {
+  @apply xds:rounded-[var(--xds-tag-border-radius)]!;
+}

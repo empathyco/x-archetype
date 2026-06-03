@@ -26,8 +26,7 @@
           <HistoryQuery
             class="xds:hover:no-underline"
             :class="{
-              'xds:suggestion-group-outlined xds:rounded-[var(--xds-tag-border-radius)]':
-                horizontalLayout,
+              'xds:suggestion-group-outlined': horizontalLayout,
               'xds:suggestion-group-lg xds:desktop:suggestion-group-md': !horizontalLayout,
             }"
             :suggestion="suggestion"
