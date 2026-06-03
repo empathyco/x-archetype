@@ -42,7 +42,7 @@
       <div class="xds:flex xds:gap-16">
         <ClearFilters
           v-slot="{ selectedFilters }"
-          class="xds:flex-auto xds:button-outlined xds:rounded-full xds:button-lead xds:p-24 xds:py-12 xds:uppercase"
+          class="xds:flex-auto xds:button-outlined xds:rounded-full xds:button-lead xds:p-24 xds:py-12 xds:text-md xds:font-regular"
           :always-visible="false"
         >
           {{
@@ -50,7 +50,7 @@
           }}
         </ClearFilters>
         <BaseIdModalClose
-          class="xds:flex-auto xds:rounded-full xds:button-lead xds:p-24 xds:py-12 xds:uppercase"
+          class="xds:flex-auto xds:rounded-full xds:button-lead xds:p-24 xds:py-12 xds:text-md xds:font-regular"
           modal-id="right-aside"
         >
           {{

@@ -6,14 +6,14 @@
         class="xds:border-0 xds:border-t xds:border-neutral-10"
       >
         <template #header>
-          <span class="xds:text-md">{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="xds:text-lg xds:font-bold">{{ $t(`facets.${facet.label}`) }}</span>
         </template>
         <template #default>
           <CustomSlicedFilters :max="6" :filters="facet.filters" class="xds:pb-24">
             <FiltersList
               v-slot="{ filter }"
               :animation="staggeredFadeAndSlide"
-              class="xds:flex xds:flex-col xds:gap-8"
+              class="xds:flex xds:flex-col xds:gap-8 xds:text-md"
             >
               <SimpleFilter :filter="filter" :css-classes="['xds:filter-facet-lg xds:w-full']">
                 <template #label>
@@ -35,7 +35,7 @@
         class="xds:border-0 xds:border-t xds:border-neutral-10"
       >
         <template #header>
-          <span class="xds:text-md">{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="xds:text-lg xds:font-bold">{{ $t(`facets.${facet.label}`) }}</span>
         </template>
         <template #default>
           <CustomSlicedFilters :max="6" :filters="facet.filters" class="xds:pb-24">
@@ -46,7 +46,7 @@
             >
               <HierarchicalFilter
                 :filter="filter"
-                children-filters-class="xds:ml-16 xds:mt-8 xds:flex xds:flex-col xds:gap-8"
+                children-filters-class="xds:ml-16 xds:mt-8 xds:flex xds:flex-col xds:gap-8 xds:text-md"
                 filter-item-class="xds:w-full xds:filter-facet-lg"
               >
                 <template #label="{ filter: hierarchicalFilter }">
@@ -68,10 +68,10 @@
         class="xds:border-0 xds:border-t xds:border-neutral-10"
       >
         <template #header>
-          <span class="xds:text-md">{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="xds:text-lg xds:font-bold">{{ $t(`facets.${facet.label}`) }}</span>
         </template>
         <template #default>
-          <CustomSlicedFilters :max="6" :filters="facet.filters" class="xds:pb-24">
+          <CustomSlicedFilters :max="6" :filters="facet.filters" class="xds:pb-24 xds:text-md">
             <FiltersList
               v-slot="{ filter }"
               :animation="staggeredFadeAndSlide"

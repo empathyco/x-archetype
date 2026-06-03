@@ -7,7 +7,7 @@ export const xControlsState = {
     gridConfig: {
       columnPicker: true,
       listMode: true,
-      columnSelector: ['2', '5'],
+      columnSelector: ['5', '3'],
     },
     styles: {
       'color-lead-25': '#bbc9cf',
