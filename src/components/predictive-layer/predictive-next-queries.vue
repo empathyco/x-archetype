@@ -1,7 +1,7 @@
 <template>
   <div class="xds:flex xds:flex-col xds:gap-4">
     <div class="xds:flex xds:min-h-32 xds:items-center">
-      <h1 class="xds:py-8 xds:title4 xds:title4-sm xds:uppercase xds:desktop:p-0">
+      <h1 class="xds:py-8 xds:text-md xds:font-bold xds:desktop:p-0">
         {{ $t('nextQueries.title') }}
       </h1>
     </div>
@@ -31,7 +31,7 @@
               class="xds:mb-4 xds:icon-lg xds:desktop:mb-0 xds:desktop:icon-md"
             />
             <LightBulbOn v-else class="xds:mb-4 xds:icon-lg xds:desktop:mb-0 xds:desktop:icon-md" />
-            <span>{{ suggestion.query }}</span>
+            <span class="xds:text-md">{{ suggestion.query }}</span>
           </NextQuery>
         </template>
       </NextQueries>

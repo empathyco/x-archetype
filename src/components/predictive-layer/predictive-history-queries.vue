@@ -1,12 +1,12 @@
 <template>
   <div class="xds:flex xds:flex-col xds:gap-4">
     <div v-if="!x.query.searchBox" class="xds:flex xds:min-h-32 xds:items-center">
-      <h1 class="xds:flex-1 xds:title4 xds:title4-sm xds:uppercase">
+      <h1 class="xds:flex-1 xds:text-md xds:font-bold">
         {{ $t('historyQueries.title') }}
       </h1>
       <ClearHistoryQueries class="xds:button-sm xds:button-tight xds:button-neutral xds:px-8">
         <TrashIcon v-if="isTabletOrLess" class="xds:icon-lg" />
-        <span v-else>{{ $t('historyQueries.clear') }}</span>
+        <span v-else class="xds:text-sm xds:font-regular">{{ $t('historyQueries.clear') }}</span>
       </ClearHistoryQueries>
     </div>
 
@@ -38,10 +38,10 @@
                 <Highlight
                   :text="suggestion.query"
                   :highlight="query"
-                  class="xds:group-hover:no-underline"
+                  class="xds:text-md xds:group-hover:no-underline"
                 />
                 <HistoryQueryFilters
-                  class="xds:w-192 xds:desktop:w-128"
+                  class="xds:w-192 xds:text-sm xds:desktop:w-128"
                   :filters-list="suggestion.selectedFilters"
                 />
               </div>
