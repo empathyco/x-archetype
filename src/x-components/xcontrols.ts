@@ -1,4 +1,26 @@
-export const xControlsState = {
+export interface XControlsState {
+  controls: {
+    aiSearchFallback: boolean
+    fullPredictiveLayer: boolean
+    facetsPanelOverlay: boolean
+    logo: string
+    gridConfig: {
+      columnPicker: boolean
+      listMode: boolean
+      columnSelector: string[]
+    }
+    colors: {
+      lead: string
+      auxiliary: string
+      font: string
+    }
+    styles: {
+      [key: string]: string
+    }
+  }
+}
+
+export const xControlsState: XControlsState = {
   controls: {
     aiSearchFallback: true,
     fullPredictiveLayer: false,
@@ -9,15 +31,12 @@ export const xControlsState = {
       listMode: true,
       columnSelector: ['5', '2'],
     },
+    colors: {
+      lead: '#5e7782',
+      auxiliary: '#0086b2',
+      font: '#5f717b',
+    },
     styles: {
-      'color-lead-25': '#bbc9cf',
-      'color-lead-50': '#5e7782',
-      'color-lead-75': '#243d48',
-      'color-neutral-10': '#eef1f2',
-      'color-neutral-25': '#dbe2e5',
-      'color-neutral-50': '#5f717b',
-      'color-neutral-75': '#3c494f',
-      'color-neutral-90': '#283034',
       'font-family-main': 'inherit',
       'font-weight-light': '200',
       'font-weight-regular': '400',
