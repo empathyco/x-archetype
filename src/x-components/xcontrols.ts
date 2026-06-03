@@ -9,6 +9,12 @@ export const xControlsState = {
       listMode: true,
       columnSelector: ['5', '2'],
     },
+    button: {
+      'button-border-radius': '4px',
+    },
+    tag: {
+      'tag-border-radius': '16px',
+    },
     styles: {
       'color-lead-25': '#bbc9cf',
       'color-lead-50': '#5e7782',
