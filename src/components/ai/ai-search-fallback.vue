@@ -6,7 +6,7 @@
     <Message data-test="no-results-message">
       <div :key="aiState" data-test="no-results-info">
         <span
-          class="xds:message xds:text-md xds:text-neutral-90 xds:desktop:text-lg"
+          class="xds:message xds:text-lg xds:font-bold xds:text-neutral-90 xds:desktop:text-xl"
           data-test="no-results-title"
         >
           {{ $t(`aiFallback.${aiState}.title`) }}
@@ -15,7 +15,7 @@
           <AISpinnerIcon class="xds:h-64 xds:w-64" />
         </span>
         <span
-          class="xds:message xds:pt-0 xds:text-sm xds:text-neutral-90"
+          class="xds:message xds:pt-0 xds:text-md xds:text-neutral-90"
           data-test="no-results-subtitle"
         >
           {{ $t(`aiFallback.${aiState}.subtitle`) }}

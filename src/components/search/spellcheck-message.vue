@@ -1,17 +1,16 @@
 <template>
-  <Spellcheck v-if="x.totalResults > 0" v-slot="{ query }" class="xds:message xds:desktop:flex-col">
-    <Translation
-      class="xds:text-sm xds:desktop:text-md"
-      keypath="spellcheck.message"
-      scope="global"
-      tag="p"
-    >
+  <Spellcheck
+    v-if="x.totalResults > 0"
+    v-slot="{ query }"
+    class="xds:message xds:text-md xds:desktop:flex-col"
+  >
+    <Translation keypath="spellcheck.message" scope="global" tag="p">
       <template #query>
         <span class="xds:font-bold">"{{ query }}".</span>
       </template>
     </Translation>
     <SpellcheckButton
-      class="xds:button xds:button-link xds:button-lead xds:pl-2 xds:text-sm xds:font-bold xds:desktop:text-md"
+      class="xds:button xds:button-link xds:button-lead xds:pl-2 xds:text-md xds:font-bold"
     />
   </Spellcheck>
 </template>
