@@ -9,8 +9,8 @@
       class="x-my-history-confirm-disable-modal-content xds:flex xds:max-w-80.5 xds:flex-col xds:gap-16 xds:bg-neutral-0 xds:text-center"
       :class="isTabletOrLess ? 'xds:rounded-lg xds:p-24 xds:pb-8' : 'xds:p-56'"
     >
-      <h1 class="xds:title3">{{ $t('myHistory.confirmDisableModal.title') }}</h1>
-      <span class="xds:text1 xds:text-neutral-75">
+      <h1 class="xds:text-lg xds:font-bold">{{ $t('myHistory.confirmDisableModal.title') }}</h1>
+      <span class="xds:text-md xds:text-neutral-75">
         {{ $t('myHistory.confirmDisableModal.message') }}
       </span>
       <div class="xds:flex xds:justify-end xds:gap-24 xds:desktop:justify-center">

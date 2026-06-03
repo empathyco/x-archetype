@@ -1,5 +1,5 @@
 <template>
-  <div v-if="filtersWithLabel.length" class="xds:flex xds:gap-8 xds:text1-sm xds:text-lead-50">
+  <div v-if="filtersWithLabel.length" class="xds:flex xds:gap-8 xds:text-md xds:text-lead-50">
     <div class="xds:truncate">
       <span v-for="filter in filtersWithLabel" :key="filter.id" class="xds:pr-8">
         {{ filter.label }}

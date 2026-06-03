@@ -11,7 +11,7 @@
       >
         <CrossIcon class="xds:icon-lg xds:text-neutral-0" />
       </BaseIdModalClose>
-      <h1 class="xds:title2 xds:title2-sm xds:text-neutral-0 xds:capitalize xds:desktop:title2-md">
+      <h1 class="xds:text-xl xds:font-bold xds:text-neutral-0">
         {{ $t('myHistory.title') }}
       </h1>
     </div>
@@ -22,20 +22,24 @@
       <section
         class="xds:flex xds:flex-col xds:gap-16 xds:px-16 xds:pt-24 xds:pb-32 xds:desktop:pl-32"
       >
-        <h2 class="xds:mb-8 xds:title3">{{ $t('myHistory.subtitle') }}</h2>
-        <p class="xds:text1 xds:text1-lg xds:text-neutral-75">
+        <h2 class="xds:mb-8 xds:text-md xds:font-bold">{{ $t('myHistory.subtitle') }}</h2>
+        <p class="xds:text-sm xds:text-md xds:text-neutral-75">
           {{ $t('myHistory.message.header') }}
         </p>
-        <p class="xds:text1 xds:text1-lg xds:text-neutral-75">{{ $t('myHistory.message.body') }}</p>
-        <p class="xds:title3 xds:text-neutral-75">{{ $t('myHistory.message.footer') }}</p>
+        <p class="xds:text-sm xds:text-md xds:text-neutral-75">
+          {{ $t('myHistory.message.body') }}
+        </p>
+        <p class="xds:text-md xds:font-bold xds:text-neutral-75">
+          {{ $t('myHistory.message.footer') }}
+        </p>
       </section>
 
       <section
         class="xds:flex xds:items-center xds:justify-between xds:px-16 xds:pt-24 xds:pb-32 xds:desktop:pl-32"
       >
         <div class="xds:flex xds:flex-col xds:gap-4">
-          <span class="xds:title3 xds:capitalize">{{ $t('myHistory.switch.title') }}</span>
-          <span class="xds:text1 xds:text1-lg xds:text-neutral-75">
+          <span class="xds:text-lg xds:font-bold">{{ $t('myHistory.switch.title') }}</span>
+          <span class="xds:text-md xds:text-neutral-75">
             {{
               x.isHistoryQueriesEnabled
                 ? $t('myHistory.switch.disable')
