@@ -1,7 +1,7 @@
 <template>
   <CustomHeaderTogglePanel data-test="sort">
     <template #header>
-      <span class="xds:title3">
+      <span class="xds:text-md">
         {{ $t('sort.label') }}
       </span>
       <span>{{ $t(`sort.values.${x.selectedSort || 'default'}`) }}</span>

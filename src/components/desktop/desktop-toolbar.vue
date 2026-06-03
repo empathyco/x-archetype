@@ -4,7 +4,7 @@
     class="xds:mb-8 xds:flex xds:items-center xds:justify-end xds:gap-24"
     data-test="desktop-toolbar"
   >
-    <div v-if="!facetsPanelOverlay" class="xds:flex xds:w-full xds:max-w-85 xds:gap-8 xds:title3">
+    <div v-if="!facetsPanelOverlay" class="xds:flex xds:w-full xds:max-w-85 xds:gap-8 xds:text-md">
       <FiltersIcon class="xds:icon-lg" />
       <span class="xds:capitalize" data-test="desktop-toolbar-filter-text">{{
         t('toggleAside.showAside')
@@ -20,7 +20,7 @@
     </div>
 
     <Translation
-      class="xds:flex-auto xds:text1 xds:text1-lg"
+      class="xds:flex-auto xds:text-md"
       keypath="totalResults.message"
       tag="span"
       scope="global"
@@ -30,7 +30,7 @@
         {{ x.totalResults }}
       </template>
       <template #query>
-        <span class="xds:title3">
+        <span class="xds:font-bold">
           {{ x.spellcheckedQuery || query }}
         </span>
       </template>
@@ -45,13 +45,13 @@
       data-test="desktop-toolbar-toggle-facets-button"
     >
       <FiltersIcon class="xds:icon-lg" />
-      <span class="xds:capitalize" data-test="desktop-toolbar-filter-text">{{
+      <span class="xds: xds:text-md xds:font-regular" data-test="desktop-toolbar-filter-text">{{
         t('toggleAside.showAside')
       }}</span>
       <span
         v-if="x.selectedFilters.length"
         :class="{ 'xds:badge-circle': x.selectedFilters.length <= 9 }"
-        class="xds:badge xds:badge-auxiliary"
+        class="xds:badge xds:badge-auxiliary xds:text-md"
         data-test="desktop-toolbar-selected-filters-badge"
       >
         {{ x.selectedFilters.length }}

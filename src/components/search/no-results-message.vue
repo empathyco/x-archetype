@@ -1,7 +1,7 @@
 <template>
   <Translation
     v-if="x.noResults"
-    class="x-no-results-message xds:message xds:text1 xds:desktop:mt-24 xds:desktop:text1-lg"
+    class="x-no-results-message xds:message xds:text-sm xds:desktop:mt-24 xds:desktop:text-md"
     keypath="noResults.message"
     :class="{ 'xds:flex-col': isTabletOrLess }"
     tag="p"

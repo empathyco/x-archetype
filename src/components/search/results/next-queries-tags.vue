@@ -4,13 +4,13 @@
     class="xds:relative xds:flex xds:flex-col xds:gap-16 xds:rounded-lg xds:border-1 xds:border-neutral-100 xds:pt-16 xds:pb-20 xds:desktop:pr-80 xds:desktop:pl-28"
   >
     <Translation
-      class="xds:text1 xds:text1-lg xds:max-desktop:px-16"
+      class="xds:text-sm xds:text-md xds:max-desktop:px-16"
       tag="h1"
       keypath="nextQueriesCta.message"
       scope="global"
     >
       <template #query>
-        <span class="xds:title3">
+        <span class="xds:text-md">
           {{ query }}
         </span>
       </template>

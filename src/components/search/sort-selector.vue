@@ -7,7 +7,7 @@
   >
     <template #toggle="{ isOpen }">
       <div
-        class="xds:button xds:button-ghost xds:gap-8 xds:button-lead xds:font-normal xds:text-neutral-90"
+        class="xds:button xds:button-ghost xds:gap-8 xds:button-lead xds:text-md xds:font-normal xds:text-neutral-90"
       >
         <span>{{ $t('sort.label') }}</span>
         <span class="xds:font-bold xds:text-lead-75">
@@ -23,7 +23,7 @@
         class="xds:text-neutral-85 xds:filter-facet xds:bg-neutral-0 xds:px-16 xds:hover:bg-neutral-10 xds:hover:text-neutral-100"
         :class="{ 'xds:bg-neutral-25': isSelected }"
       >
-        <span class="xds:text2 xds:text2-sm">{{ $t(`sort.values.${item || 'default'}`) }}</span>
+        <span class="xds:text-md">{{ $t(`sort.values.${item || 'default'}`) }}</span>
       </div>
     </template>
   </SortDropdown>

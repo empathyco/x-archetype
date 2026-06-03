@@ -17,7 +17,7 @@
     >
       <template #related-tag-content="{ relatedTag, isSelected, shouldHighlightCurated }">
         <CuratedCheckIcon v-if="shouldHighlightCurated" />
-        {{ relatedTag.tag }}
+        <span class="xds:text-md">{{ relatedTag.tag }}</span>
         <CrossTinyIcon v-if="isSelected" />
         <PlusIcon v-else />
       </template>

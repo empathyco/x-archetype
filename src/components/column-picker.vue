@@ -1,6 +1,6 @@
 <template>
   <div class="xds:flex xds:items-center xds:gap-8">
-    <span class="xds:title4" data-test="column-picker-message">{{
+    <span class="xds:text-md" data-test="column-picker-message">{{
       t('columnPicker.message')
     }}</span>
     <BaseColumnPickerList

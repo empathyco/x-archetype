@@ -6,13 +6,13 @@
     :max-items-to-render="maxItemsToRender"
   >
     <Translation
-      class="xds:text1 xds:text1-lg xds:max-desktop:px-16"
+      class="xds:text-sm xds:text-md xds:max-desktop:px-16"
       tag="span"
       keypath="nextQueryPreview.message"
       scope="global"
     >
       <template #query>
-        <span class="xds:title3">
+        <span class="xds:text-md">
           {{ query }}
         </span>
       </template>

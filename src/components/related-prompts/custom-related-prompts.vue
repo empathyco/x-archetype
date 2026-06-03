@@ -1,13 +1,13 @@
 <template>
   <div class="xds:mb-64 xds:flex xds:flex-col">
     <Translation
-      class="x-no-results-message xds:mb-24 xds:flex xds:flex-wrap xds:items-center xds:justify-center xds:gap-4 xds:bg-neutral-10 xds:p-24 xds:text-center xds:text1 xds:wrap-break-word xds:text-neutral-90 xds:desktop:text1-lg"
+      class="x-no-results-message xds:mb-24 xds:flex xds:flex-wrap xds:items-center xds:justify-center xds:gap-4 xds:bg-neutral-10 xds:p-24 xds:text-center xds:text-sm xds:wrap-break-word xds:text-neutral-90 xds:desktop:text-md"
       keypath="relatedPrompts.title"
       tag="p"
       scope="global"
     >
       <template #query>
-        <span class="xds:w-auto xds:title3">"{{ x.query.search }}"</span>
+        <span class="xds:w-auto xds:text-md">"{{ x.query.search }}"</span>
       </template>
       <template #message>
         <span class="xds:w-auto">{{ $t('relatedPrompts.message') }}</span>

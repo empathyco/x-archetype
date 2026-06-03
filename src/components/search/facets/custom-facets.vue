@@ -6,7 +6,7 @@
         class="xds:border-0 xds:border-t xds:border-neutral-10"
       >
         <template #header>
-          <span class="xds:title3">{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="xds:text-md">{{ $t(`facets.${facet.label}`) }}</span>
         </template>
         <template #default>
           <CustomSlicedFilters :max="6" :filters="facet.filters" class="xds:pb-24">
@@ -35,7 +35,7 @@
         class="xds:border-0 xds:border-t xds:border-neutral-10"
       >
         <template #header>
-          <span class="xds:title3">{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="xds:text-md">{{ $t(`facets.${facet.label}`) }}</span>
         </template>
         <template #default>
           <CustomSlicedFilters :max="6" :filters="facet.filters" class="xds:pb-24">
@@ -68,7 +68,7 @@
         class="xds:border-0 xds:border-t xds:border-neutral-10"
       >
         <template #header>
-          <span class="xds:title3">{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="xds:text-md">{{ $t(`facets.${facet.label}`) }}</span>
         </template>
         <template #default>
           <CustomSlicedFilters :max="6" :filters="facet.filters" class="xds:pb-24">

@@ -1,7 +1,7 @@
 <template>
   <FallbackDisclaimer v-if="x.fromNoResultsWithFilters" class="x-fallback-message xds:message">
     <Translation
-      class="xds:text1 xds:desktop:text1-lg"
+      class="xds:text-sm xds:desktop:text-md"
       keypath="fallbackDisclaimer.message"
       tag="p"
       scope="global"
