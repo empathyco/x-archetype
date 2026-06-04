@@ -1,8 +1,6 @@
 <template>
   <div class="xds:input-group xds:input-group-line xds:rounded-sm xds:input-group-lead">
-    <div class="xds:ml-0!">
-      <SearchIcon class="xds:icon-lg" />
-    </div>
+    <SearchIcon class="xds:ml-0! xds:icon-lg" />
 
     <SearchInput
       ref="searchInputRef"
