@@ -4,7 +4,7 @@
     class="xds:flex xds:flex-col xds:items-start xds:gap-16 xds:pb-32 xds:desktop:items-center xds:desktop:gap-24"
     data-wysiwyg="recommendations"
   >
-    <h1 class="xds:text-lg xds:text-xl xds:text-neutral-90 xds:desktop:text-xl">
+    <h1 class="xds:text-lg xds:font-bold xds:text-neutral-90">
       {{ $t('recommendations.title') }}
     </h1>
     <Recommendations v-if="!x.totalResults">
