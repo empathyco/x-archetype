@@ -18,3 +18,19 @@
 @utility suggestions--horizontal {
   @apply xds:flex-row! xds:flex-nowrap! xds:items-center;
 }
+
+@utility button {
+  @apply xds:rounded-[var(--xds-button-border-radius)]!;
+}
+
+@utility tag {
+  @apply xds:rounded-[var(--xds-tag-border-radius)]!;
+}
+
+@utility suggestion {
+  @apply xds:rounded-[var(--xds-tag-border-radius)]!;
+}
+
+@utility suggestion-group {
+  @apply xds:rounded-[var(--xds-tag-border-radius)]!;
+}
