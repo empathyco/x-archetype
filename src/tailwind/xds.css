@@ -19,6 +19,22 @@
   @apply xds:flex-row! xds:flex-nowrap! xds:items-center;
 }
 
+@utility button {
+  @apply xds:rounded-[var(--xds-button-border-radius)]!;
+}
+
+@utility tag {
+  @apply xds:rounded-[var(--xds-tag-border-radius)]!;
+}
+
+@utility suggestion {
+  @apply xds:rounded-[var(--xds-tag-border-radius)]!;
+}
+
+@utility suggestion-group {
+  @apply xds:rounded-[var(--xds-tag-border-radius)]!;
+}
+
 /* These are the mappings from xds to the Figma variables */
 /* https://www.figma.com/design/5NqIoKOnXwiVYnAQXv1gT5/Empathy-X---Template-2026?node-id=29572-35972&view=variables&t=LlXa4djWN7RP0TCT-0 */
 @theme {
