@@ -1,5 +1,5 @@
 import type { Dictionary } from '@empathyco/x-utils'
-// import { useState } from '@empathyco/x-components'
+import { useState } from '@empathyco/x-components'
 import { computed, watch } from 'vue'
 import { xControlsState } from '../x-components/xcontrols'
 
@@ -10,8 +10,8 @@ function mapCustomizationStylesToCSS(customizationStyles: Dictionary<string>) {
 }
 
 function init() {
-  // const { controls } = useState('experienceControls')
-  const experienceControls = computed(() => xControlsState)
+  const { controls } = useState('experienceControls')
+  const experienceControls = computed(() => controls.value ?? xControlsState)
 
   watch(
     experienceControls,

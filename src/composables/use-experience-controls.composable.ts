@@ -1,6 +1,5 @@
-import type { Dictionary } from '@empathyco/x-utils'
 import type { ComputedRef } from 'vue'
-// import { useState } from '@empathyco/x-components'
+import { useState } from '@empathyco/x-components'
 import { getSafePropertyChain } from '@empathyco/x-utils'
 import { computed } from 'vue'
 import { xControlsState } from '../x-components/xcontrols'
@@ -15,19 +14,15 @@ import { xControlsState } from '../x-components/xcontrols'
 export const useExperienceControls = (): {
   getControlFromPath: <SomeType>(path: string, defaultValue?: SomeType) => ComputedRef<SomeType>
 } => {
-  // const { controls } = useState('experienceControls')
-  const experienceControls = computed(() => xControlsState.controls)
+  const { controls } = useState('experienceControls')
+  const experienceControls = computed(() => controls.value ?? xControlsState)
 
   const getControlFromPath = <SomeType>(
     path: string,
     defaultValue?: SomeType,
   ): ComputedRef<SomeType> => {
     return computed(() => {
-      return getSafePropertyChain(
-        experienceControls.value as Dictionary<unknown>,
-        path,
-        defaultValue,
-      ) as SomeType
+      return getSafePropertyChain(experienceControls.value, path, defaultValue) as SomeType
     })
   }
 
