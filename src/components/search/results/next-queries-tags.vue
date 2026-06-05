@@ -6,7 +6,6 @@
     <h1 class="xds:text-md xds:max-desktop:px-16">
       {{ t('nextQueriesCta.message', { query }) }}
     </h1>
-    h
     <SlidingPanel
       :show-buttons="!isTouchable"
       class="xds:sliding-panel-show-buttons-on-hover"
@@ -27,7 +26,7 @@
           class="xds:tag xds:h-40 xds:gap-8 xds:tag-neutral xds:bg-neutral-0 xds:px-16 xds:text-neutral-50"
           :suggestion="suggestion"
         >
-          <span>{{ suggestion.query }}</span>
+          <span class="xds:text-md">{{ suggestion.query }}</span>
           <ArrowRightIcon class="xds:icon-lg" />
         </NextQuery>
       </div>
