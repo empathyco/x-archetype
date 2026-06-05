@@ -19,11 +19,12 @@
     </template>
 
     <template #item="{ isSelected, item }">
-      <div
-        class="xds:text-neutral-85 xds:filter-facet xds:bg-neutral-0 xds:px-16 xds:hover:bg-neutral-10 xds:hover:text-neutral-100"
-        :class="{ 'xds:bg-neutral-25': isSelected }"
-      >
-        <span class="xds:text-md">{{ $t(`sort.values.${item || 'default'}`) }}</span>
+      <div class="xds:filter-facet xds:bg-neutral-0 xds:px-16 xds:hover:text-neutral-100">
+        <RadioButtonSelectedIcon v-if="isSelected" class="xds:icon-lg" />
+        <RadioButtonUnselectedIcon v-else class="xds:icon-lg" />
+        <span class="xds:text-md" :class="{ 'xds:font-bold': isSelected }">{{
+          $t(`sort.values.${item || 'default'}`)
+        }}</span>
       </div>
     </template>
   </SortDropdown>
@@ -31,7 +32,14 @@
 
 <script setup lang="ts">
 import type { Sort } from '@empathyco/x-types'
-import { AnimateScale, ChevronDownIcon, ChevronUpIcon, use$x } from '@empathyco/x-components'
+import {
+  AnimateScale,
+  ChevronDownIcon,
+  ChevronUpIcon,
+  RadioButtonSelectedIcon,
+  RadioButtonUnselectedIcon,
+  use$x,
+} from '@empathyco/x-components'
 import { SortDropdown } from '@empathyco/x-components/search'
 
 const sortValues: Sort[] = ['', 'price asc', 'price desc']
