@@ -12,14 +12,14 @@ export function initCustomization(xControlsState?: ExperienceControlsState) {
   const { controls } = xControlsState ?? defaultXControlsState
 
   if (controls?.styles) {
-    let xdsStyles = ''
+    let xdsVariables = ''
     Object.entries(controls.styles)
       .filter(([, value]) => typeof value === 'object' && value !== null)
       .forEach(([, values]: [string, Dictionary<string>]) => {
-        xdsStyles += mapCustomizationStylesToCSS(values)
+        xdsVariables += mapCustomizationStylesToCSS(values)
       })
-    if (xdsStyles) {
-      window.xCSSInjector.addStyle({ source: `:root,:host{${xdsStyles}}` })
+    if (xdsVariables) {
+      window.xCSSInjector.addStyle({ source: `:root,:host{${xdsVariables}}` })
     }
   }
 }
