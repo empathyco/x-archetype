@@ -44,7 +44,7 @@
           <BaseEventButton
             v-if="result.hasVariants"
             :events="events"
-            class="xds:m-16 xds:button xds:flex-auto xds:rounded-full xds:button-lead xds:uppercase"
+            class="xds:m-16 xds:button xds:flex-auto xds:rounded-full xds:button-lead xds:text-md xds:font-regular"
           >
             {{ $t('result.seeVariants') }}
           </BaseEventButton>
@@ -57,18 +57,18 @@
         class="x-result__description xds:flex xds:flex-col xds:gap-2 xds:desktop:gap-4"
         :result="result"
       >
-        <h2 class="xds:truncate xds:title4 xds:uppercase" data-test="result-title">
+        <h2 class="xds:truncate xds:text-md xds:font-bold" data-test="result-title">
           {{ result.description }}
         </h2>
         <template v-if="showDescription">
-          <span class="xds:text2">{{ result.collection }}</span>
-          <span class="xds:text2 xds:text-lead-50">{{ result.brand }}</span>
+          <span class="xds:text-md">{{ result.collection }}</span>
+          <span class="xds:text-md xds:text-lead-50">{{ result.brand }}</span>
         </template>
         <div class="xds:flex xds:flex-wrap xds:gap-8">
-          <BaseResultCurrentPrice :result="result" class="xds:text2 xds:text2-lg xds:font-bold" />
+          <BaseResultCurrentPrice :result="result" class="xds:text-md" />
           <BaseResultPreviousPrice
             :result="result"
-            class="xds:text2 xds:leading-[1.7] xds:text-neutral-75 xds:line-through"
+            class="xds:text-md xds:leading-[1.7] xds:text-neutral-75 xds:line-through"
           />
         </div>
       </BaseResultLink>
@@ -77,7 +77,7 @@
     <slot name="add-to-cart">
       <BaseAddToCart
         :result="result"
-        class="xds:text2 xds:text2-lg xds:mt-auto xds:button xds:max-h-40 xds:flex-auto xds:rounded-sm xds:border-none xds:bg-neutral-50 xds:text-neutral-0 xds:hover:bg-neutral-25"
+        class="xds:mt-auto xds:button xds:max-h-40 xds:flex-auto xds:rounded-sm xds:border-none xds:bg-neutral-50 xds:text-md xds:font-regular xds:text-neutral-0 xds:hover:bg-neutral-25"
       >
         {{ $t('result.addToCart') }}
       </BaseAddToCart>

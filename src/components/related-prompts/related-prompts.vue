@@ -22,6 +22,7 @@
           :selected="isSelected"
           data-wysiwyg="related-prompt"
           :data-wysiwyg-id="relatedPrompt.suggestionText"
+          class="xds:text-md xds:font-regular"
           @click="onSelect"
         />
       </DisplayEmitter>

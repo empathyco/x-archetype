@@ -7,7 +7,7 @@
       :autofocus="false"
       :placeholder="$t('searchBox.placeholder')"
       :instant="!!isDesktopOrGreater"
-      class="xds:input xds:desktop:pl-24!"
+      class="xds:input xds:text-md xds:desktop:pl-24!"
     />
 
     <ClearSearchInput

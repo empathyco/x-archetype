@@ -11,7 +11,7 @@
       >
         <template #default="{ query }">
           <SearchIcon class="xds:icon-lg xds:desktop:icon-md" />
-          <Highlight :text="suggestion.query" :highlight="query" />
+          <Highlight :text="suggestion.query" :highlight="query" class="xds:text-md" />
         </template>
       </QuerySuggestion>
     </template>
