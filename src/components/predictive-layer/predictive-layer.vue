@@ -92,12 +92,13 @@ import {
   SettingsIcon,
   StaggeredFadeAndSlide,
   use$x,
+  useState,
 } from '@empathyco/x-components'
 import { Empathize } from '@empathyco/x-components/empathize'
-import { defineAsyncComponent } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
-import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { usePredictiveHelpers } from '../../composables/use-predictive-helpers.composable'
+import { defaultXControlsState } from '../../x-components/xcontrols'
 import PredictiveHistoryQueries from './predictive-history-queries.vue'
 import PredictiveIdentifierResults from './predictive-identifier-results.vue'
 import PredictivePopularSearches from './predictive-popular-searches.vue'
@@ -136,8 +137,13 @@ const mobileCloseEvents: Array<keyof XEventsTypes> = [
 const desktopCloseEvents: Array<keyof XEventsTypes> = [...mobileCloseEvents, 'UserBlurredSearchBox']
 
 const x = use$x()
-const { getControlFromPath } = useExperienceControls()
-const fullPredictiveLayer = getControlFromPath('fullPredictiveLayer')
+
+const { controls } = useState('experienceControls')
+const fullPredictiveLayer = computed(
+  () =>
+    (controls.value?.fullPredictiveLayer as boolean) ??
+    defaultXControlsState.controls.fullPredictiveLayer,
+)
 </script>
 
 <style>

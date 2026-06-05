@@ -6,22 +6,12 @@ import { Translation } from 'vue-i18n'
 import ColumnPicker from '../column-picker.vue'
 import DesktopToolbar from './desktop-toolbar.vue'
 
-const getControlFromPathMock = vi.hoisted(() =>
-  vi.fn((controlId: string) => {
-    if (controlId === 'gridConfig') {
-      return ref({ columnPicker: true })
-    }
-    if (controlId === 'facetsPanelOverlay') {
-      return ref(true)
-    }
-    return ref({})
-  }),
-)
-vi.mock('../../composables/use-experience-controls.composable', () => ({
-  useExperienceControls: vi.fn(() => ({
-    getControlFromPath: getControlFromPathMock,
-  })),
-}))
+const controlsStub = ref({
+  controls: {
+    gridConfig: { columnPicker: true },
+    facetsPanelOverlay: true,
+  },
+})
 
 const use$xStub = {
   totalResults: 10,
@@ -33,11 +23,20 @@ const useGetterStub = {
 }
 const use$xMock = vi.hoisted(() => vi.fn(() => use$xStub))
 const useGetterMock = vi.hoisted(() => vi.fn(() => useGetterStub))
+const useStateMock = vi.hoisted(() =>
+  vi.fn((module: string) => {
+    if (module === 'experienceControls') {
+      return { controls: controlsStub }
+    }
+    return {}
+  }),
+)
 vi.mock('@empathyco/x-components', async importOriginal => {
   return {
     ...(await importOriginal<typeof import('@empathyco/x-components')>()),
     use$x: use$xMock,
     useGetter: useGetterMock,
+    useState: useStateMock,
   }
 })
 
@@ -72,6 +71,10 @@ describe('desktopToolbar component', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     vi.restoreAllMocks()
+    ;(controlsStub.value as any) = {
+      gridConfig: { columnPicker: true },
+      facetsPanelOverlay: true,
+    }
   })
 
   it('should render correctly by default', () => {
@@ -103,7 +106,10 @@ describe('desktopToolbar component', () => {
   })
 
   it('should not render the column picker if the control is disabled', () => {
-    getControlFromPathMock.mockReturnValue(ref({ columnPicker: false }))
+    ;(controlsStub.value as any) = {
+      gridConfig: { columnPicker: false },
+      facetsPanelOverlay: true,
+    }
     const sut = render()
 
     expect(sut.columnPicker.exists()).toBeFalsy()
@@ -133,7 +139,10 @@ describe('desktopToolbar component', () => {
   })
 
   it('should not render BaseIdModalOpen if the facetsPanelOverlay control is disabled', () => {
-    getControlFromPathMock.mockReturnValue(ref(false))
+    ;(controlsStub.value as any) = {
+      gridConfig: { columnPicker: true },
+      facetsPanelOverlay: false,
+    }
     const sut = render()
 
     expect(sut.baseIdModalOpen.exists()).toBeFalsy()

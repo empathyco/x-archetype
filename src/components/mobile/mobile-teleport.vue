@@ -73,8 +73,8 @@ import {
 import { ExperienceControls } from '@empathyco/x-components/experience-controls'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent, inject, ref } from 'vue'
-import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
+import { defaultXControlsState } from '../../x-components/xcontrols'
 import MobileLayout from '../mobile/mobile-layout.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
@@ -100,9 +100,14 @@ const SpellcheckMessage = defineAsyncComponent(() =>
 const snippetConfig = inject<SnippetConfig>('snippetConfig')
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
-const { getControlFromPath } = useExperienceControls()
-const aiSearchFallback = getControlFromPath('aiSearchFallback')
 const x = use$x()
+
+const { controls } = useState('experienceControls')
+const aiSearchFallback = computed(
+  () =>
+    (controls.value?.aiSearchFallback as boolean) ??
+    defaultXControlsState.controls.aiSearchFallback,
+)
 
 const showNoResultsMessage = computed(
   () => !aiSearchFallback.value && !relatedPrompts.value?.length,

@@ -10,20 +10,24 @@
 </template>
 
 <script setup lang="ts">
-import { LocationProvider, use$x } from '@empathyco/x-components'
+import { LocationProvider, use$x, useState } from '@empathyco/x-components'
 import { computed } from 'vue'
-import { useExperienceControls } from '../composables/use-experience-controls.composable'
+import { defaultXControlsState } from '../x-components/xcontrols'
 import AiSearchFallback from './ai/ai-search-fallback.vue'
 import Redirection from './search/redirection.vue'
 import Results from './search/results/results.vue'
 import SearchFallback from './search/search-fallback.vue'
 
-const { getControlFromPath } = useExperienceControls()
 const x = use$x()
 
 const lowResultsThreshold = 50
 
-const aiSearchFallback = getControlFromPath('aiSearchFallback')
+const { controls } = useState('experienceControls')
+const aiSearchFallback = computed(
+  () =>
+    (controls.value?.aiSearchFallback as boolean) ??
+    defaultXControlsState.controls.aiSearchFallback,
+)
 
 const isLowResult = computed(() => x.totalResults > 0 && x.totalResults < lowResultsThreshold)
 

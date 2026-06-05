@@ -14,12 +14,26 @@ const gridConfigStub = {
   columnSelector: ['5', '3', '1'],
   listMode: false,
 }
-const getControlFromPathMock = vi.hoisted(() => vi.fn(() => ref(gridConfigStub)))
-vi.mock('../composables/use-experience-controls.composable', () => ({
-  useExperienceControls: vi.fn(() => ({
-    getControlFromPath: getControlFromPathMock,
-  })),
-}))
+const controlsStub = ref({
+  controls: {
+    gridConfig: gridConfigStub,
+  },
+})
+const useStateMock = vi.hoisted(() =>
+  vi.fn((module: string) => {
+    if (module === 'experienceControls') {
+      return { controls: controlsStub }
+    }
+    return {}
+  }),
+)
+vi.mock('@empathyco/x-components', async importOriginal => {
+  const actual = await importOriginal<typeof import('@empathyco/x-components')>()
+  return {
+    ...actual,
+    useState: useStateMock,
+  }
+})
 
 const isMobileStub = ref(false)
 vi.mock('../composables/use-device.composable', () => ({
@@ -60,6 +74,9 @@ describe('columnPicker component', () => {
     vi.clearAllMocks()
     vi.restoreAllMocks()
     isMobileStub.value = false
+    ;(controlsStub.value as any) = {
+      gridConfig: gridConfigStub,
+    }
   })
 
   it('should render correctly by default (desktop)', () => {
@@ -87,7 +104,9 @@ describe('columnPicker component', () => {
   })
 
   it('should render list mode correctly in desktop', () => {
-    getControlFromPathMock.mockReturnValueOnce(ref({ columnSelector: ['5', '3'], listMode: true }))
+    ;(controlsStub.value as any) = {
+      gridConfig: { columnSelector: ['5', '3'], listMode: true },
+    }
     const sut = render()
 
     expect(sut.baseColumnPickerList.props('columns')).toStrictEqual([5, 3, 1])
@@ -99,7 +118,9 @@ describe('columnPicker component', () => {
 
   it('should not render list mode in mobile', () => {
     isMobileStub.value = true
-    getControlFromPathMock.mockReturnValueOnce(ref({ ...gridConfigStub, listMode: true }))
+    ;(controlsStub.value as any) = {
+      gridConfig: { ...gridConfigStub, listMode: true },
+    }
     const sut = render()
 
     expect(sut.baseColumnPickerList.props('columns')).toStrictEqual([2, 1])

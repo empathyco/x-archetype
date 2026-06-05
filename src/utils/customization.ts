@@ -1,6 +1,6 @@
 import type { ExperienceControlsState } from '@empathyco/x-components/experience-controls'
 import type { Dictionary } from '@empathyco/x-utils'
-import { xControlsState as defaultXControlState } from '../x-components/xcontrols'
+import { defaultXControlsState } from '../x-components/xcontrols'
 
 function mapCustomizationStylesToCSS(customizationStyles: Dictionary<string>) {
   return Object.entries(customizationStyles)
@@ -9,7 +9,7 @@ function mapCustomizationStylesToCSS(customizationStyles: Dictionary<string>) {
 }
 
 export function initCustomization(xControlsState?: ExperienceControlsState) {
-  const { controls } = xControlsState ?? defaultXControlState
+  const { controls } = xControlsState ?? defaultXControlsState
 
   if (controls?.styles) {
     let xdsStyles = ''

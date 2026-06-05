@@ -28,14 +28,19 @@
 </template>
 
 <script setup lang="ts">
-import { use$x, useGetter } from '@empathyco/x-components'
+import { use$x, useGetter, useState } from '@empathyco/x-components'
+import { computed } from 'vue'
 import { Translation } from 'vue-i18n'
-import { useExperienceControls } from '../../composables/use-experience-controls.composable'
+import { defaultXControlsState } from '../../x-components/xcontrols'
 import ColumnPicker from '../column-picker.vue'
 
 const x = use$x()
 const { query } = useGetter('search')
-const { getControlFromPath } = useExperienceControls()
 
-const gridConfig = getControlFromPath<{ columnPicker: boolean }>('gridConfig')
+const { controls } = useState('experienceControls')
+const gridConfig = computed(
+  () =>
+    (controls.value?.gridConfig as { columnPicker: boolean }) ??
+    defaultXControlsState.controls.gridConfig,
+)
 </script>

@@ -1,4 +1,4 @@
-export const xControlsState = {
+export const defaultXControlsState = {
   controls: {
     aiSearchFallback: true,
     fullPredictiveLayer: false,

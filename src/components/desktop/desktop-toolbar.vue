@@ -63,17 +63,26 @@
 </template>
 
 <script setup lang="ts">
-import { BaseIdModalOpen, FiltersIcon, use$x, useGetter } from '@empathyco/x-components'
+import { BaseIdModalOpen, FiltersIcon, use$x, useGetter, useState } from '@empathyco/x-components'
+import { computed } from 'vue'
 import { Translation, useI18n } from 'vue-i18n'
-import { useExperienceControls } from '../../composables/use-experience-controls.composable'
+import { defaultXControlsState } from '../../x-components/xcontrols'
 import ColumnPicker from '../column-picker.vue'
 import SortSelector from '../search/sort-selector.vue'
 
 const { t } = useI18n()
 const x = use$x()
 const { query } = useGetter('search')
-const { getControlFromPath } = useExperienceControls()
 
-const facetsPanelOverlay = getControlFromPath<boolean>('facetsPanelOverlay')
-const gridConfig = getControlFromPath<{ columnPicker: boolean }>('gridConfig')
+const { controls } = useState('experienceControls')
+const facetsPanelOverlay = computed(
+  () =>
+    (controls.value?.facetsPanelOverlay as boolean) ??
+    defaultXControlsState.controls.facetsPanelOverlay,
+)
+const gridConfig = computed(
+  () =>
+    (controls.value?.gridConfig as { columnPicker: boolean }) ??
+    defaultXControlsState.controls.gridConfig,
+)
 </script>

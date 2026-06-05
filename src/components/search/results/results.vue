@@ -80,7 +80,7 @@ import {
 } from '@empathyco/x-components/search'
 import { computed, inject, ref } from 'vue'
 import { useDevice } from '../../../composables/use-device.composable'
-import { useExperienceControls } from '../../../composables/use-experience-controls.composable'
+import { defaultXControlsState } from '../../../x-components/xcontrols'
 import RelatedPrompts from '../../related-prompts/related-prompts.vue'
 import ListResult from '../../results/list-result.vue'
 import Result from '../../results/result.vue'
@@ -92,9 +92,13 @@ const x = use$x()
 const { isMobile } = useDevice()
 const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
 const { config } = useState('search')
-const { getControlFromPath } = useExperienceControls()
 
-const gridConfig = getControlFromPath<{ listMode: boolean }>('gridConfig')
+const { controls } = useState('experienceControls')
+const gridConfig = computed(
+  () =>
+    (controls.value?.gridConfig as { listMode: boolean }) ??
+    defaultXControlsState.controls.gridConfig,
+)
 
 const staggeredFadeAndSlide = StaggeredFadeAndSlide as any
 

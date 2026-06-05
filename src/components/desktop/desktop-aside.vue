@@ -66,13 +66,19 @@
 
 <script setup lang="ts">
 import type { TranslateOptions } from 'vue-i18n'
-import { BaseIdModalClose, CrossIcon, use$x } from '@empathyco/x-components'
+import { BaseIdModalClose, CrossIcon, use$x, useState } from '@empathyco/x-components'
 import { ClearFilters } from '@empathyco/x-components/facets'
-import { useExperienceControls } from '../../composables/use-experience-controls.composable'
+import { computed } from 'vue'
+import { defaultXControlsState } from '../../x-components/xcontrols'
 import CustomFacets from '../search/facets/custom-facets.vue'
 import SelectedFilters from '../search/facets/selected-filters.vue'
 
 const x = use$x()
-const { getControlFromPath } = useExperienceControls()
-const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
+
+const { controls } = useState('experienceControls')
+const facetsPanelOverlay = computed(
+  () =>
+    (controls.value?.facetsPanelOverlay as boolean) ??
+    defaultXControlsState.controls.facetsPanelOverlay,
+)
 </script>

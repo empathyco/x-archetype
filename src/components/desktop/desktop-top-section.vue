@@ -13,10 +13,10 @@
 </template>
 
 <script setup lang="ts">
-import type { ComputedRef } from 'vue'
-import { defineAsyncComponent } from 'vue'
-import { useExperienceControls } from '../../composables/use-experience-controls.composable'
+import { useState } from '@empathyco/x-components'
+import { computed, defineAsyncComponent } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
+import { defaultXControlsState } from '../../x-components/xcontrols'
 import DesktopHeaderFloatingPredictive from './desktop-header-floating-predictive.vue'
 import DesktopHeaderFullPredictive from './desktop-header-full-predictive.vue'
 
@@ -25,6 +25,11 @@ const DesktopSubHeader = defineAsyncComponent(() =>
 )
 
 const { hasSearched } = useHasSearched()
-const { getControlFromPath } = useExperienceControls()
-const isFullPredictiveLayer = getControlFromPath('fullPredictiveLayer') as ComputedRef<boolean>
+
+const { controls } = useState('experienceControls')
+const isFullPredictiveLayer = computed(
+  () =>
+    (controls.value?.fullPredictiveLayer as boolean) ??
+    defaultXControlsState.controls.fullPredictiveLayer,
+)
 </script>

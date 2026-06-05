@@ -24,18 +24,23 @@ import {
   Grid1ColIcon,
   Grid2ColIcon,
   Grid4ColIcon,
+  useState,
 } from '@empathyco/x-components'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useDevice } from '../composables/use-device.composable'
-import { useExperienceControls } from '../composables/use-experience-controls.composable'
+import { defaultXControlsState } from '../x-components/xcontrols'
 import GridListIcon from './icons/grid-list-icon.vue'
 
 const { t } = useI18n()
 const { isMobile } = useDevice()
-const { getControlFromPath } = useExperienceControls()
 
-const gridConfig = getControlFromPath<{ columnSelector: number[]; listMode: boolean }>('gridConfig')
+const { controls } = useState('experienceControls')
+const gridConfig = computed(
+  () =>
+    (controls.value?.gridConfig as { columnSelector: number[]; listMode: boolean }) ??
+    defaultXControlsState.controls.gridConfig,
+)
 const columnSelector = computed(() => gridConfig.value?.columnSelector.map(Number))
 
 const columns = computed(() => {
