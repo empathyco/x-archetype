@@ -9,7 +9,7 @@
       v-if="facetsPanelOverlay"
       class="xds:flex xds:items-center xds:border-b xds:border-neutral-90 xds:p-24 xds:pr-32 xds:pl-40"
     >
-      <span class="xds:mr-auto xds:text-lg xds:uppercase">
+      <span class="xds:mr-auto xds:text-lg xds:font-bold">
         {{ $t('facetsPanel.title') }}
       </span>
       <BaseIdModalClose

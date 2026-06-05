@@ -4,7 +4,10 @@
     class="xds:mb-8 xds:flex xds:items-center xds:justify-end xds:gap-24"
     data-test="desktop-toolbar"
   >
-    <div v-if="!facetsPanelOverlay" class="xds:flex xds:w-full xds:max-w-85 xds:gap-8 xds:text-md">
+    <div
+      v-if="!facetsPanelOverlay"
+      class="xds:flex xds:w-full xds:max-w-85 xds:gap-8 xds:text-md xds:font-bold"
+    >
       <FiltersIcon class="xds:icon-lg" />
       <span class="xds:capitalize" data-test="desktop-toolbar-filter-text">{{
         t('toggleAside.showAside')

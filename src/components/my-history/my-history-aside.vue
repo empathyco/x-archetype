@@ -23,10 +23,10 @@
         class="xds:flex xds:flex-col xds:gap-16 xds:px-16 xds:pt-24 xds:pb-32 xds:desktop:pl-32"
       >
         <h2 class="xds:mb-8 xds:text-md xds:font-bold">{{ $t('myHistory.subtitle') }}</h2>
-        <p class="xds:text-sm xds:text-md xds:text-neutral-75">
+        <p class="xds:text-md xds:text-neutral-75">
           {{ $t('myHistory.message.header') }}
         </p>
-        <p class="xds:text-sm xds:text-md xds:text-neutral-75">
+        <p class="xds:text-md xds:text-neutral-75">
           {{ $t('myHistory.message.body') }}
         </p>
         <p class="xds:text-md xds:font-bold xds:text-neutral-75">

@@ -3,19 +3,10 @@
     v-if="showNextQueries"
     class="xds:relative xds:flex xds:flex-col xds:gap-16 xds:rounded-lg xds:border-1 xds:border-neutral-100 xds:pt-16 xds:pb-20 xds:desktop:pr-80 xds:desktop:pl-28"
   >
-    <Translation
-      class="xds:text-sm xds:text-md xds:max-desktop:px-16"
-      tag="h1"
-      keypath="nextQueriesCta.message"
-      scope="global"
-    >
-      <template #query>
-        <span class="xds:text-md">
-          {{ query }}
-        </span>
-      </template>
-    </Translation>
-
+    <h1 class="xds:text-md xds:max-desktop:px-16">
+      {{ t('nextQueriesCta.message', { query }) }}
+    </h1>
+    h
     <SlidingPanel
       :show-buttons="!isTouchable"
       class="xds:sliding-panel-show-buttons-on-hover"
@@ -68,12 +59,13 @@ import {
 } from '@empathyco/x-components'
 import { NextQuery } from '@empathyco/x-components/next-queries'
 import { computed, inject } from 'vue'
-import { Translation } from 'vue-i18n'
+import { useI18n } from 'vue-i18n'
 import { useDevice } from '../../../composables/use-device.composable'
 
 const x = use$x()
 const { isTouchable } = useDevice()
 const query = useGetter('nextQueries').query
+const { t } = useI18n()
 
 const showNextQueries = computed(() => inject<Ref<boolean>>('showNextQueries')?.value)
 

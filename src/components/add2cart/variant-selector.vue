@@ -65,7 +65,7 @@
                 </button>
 
                 <div
-                  class="focus:outline-none xds:flex xds:h-full xds:w-full xds:appearance-none xds:flex-col xds:items-center xds:justify-center xds:text-sm xds:text-md xds:font-bold xds:text-neutral-90"
+                  class="focus:outline-none xds:flex xds:h-full xds:w-full xds:appearance-none xds:flex-col xds:items-center xds:justify-center xds:text-md xds:font-bold xds:text-neutral-90"
                   @click="enableEditing"
                 >
                   <span
@@ -186,7 +186,7 @@
                     alt="Color variant image"
                     class="xds:h-56 xds:w-15.75"
                   />
-                  <span v-else class="xds:text-sm xds:text-md xds:leading-xs xds:font-bold">
+                  <span v-else class="xds:text-md xds:leading-xs xds:font-bold">
                     {{ value }}
                   </span>
                 </button>
@@ -229,7 +229,7 @@
                 alt="Color variant image"
                 class="xds:h-56 xds:w-15.75"
               />
-              <span v-else class="xds:text-sm xds:text-md xds:leading-xs xds:font-bold">
+              <span v-else class="xds:text-md xds:leading-xs xds:font-bold">
                 {{ value }}
               </span>
             </button>
