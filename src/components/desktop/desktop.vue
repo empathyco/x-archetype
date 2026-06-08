@@ -82,8 +82,8 @@ import {
 } from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent, h } from 'vue'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
-import { defaultXControlsState } from '../../x-components/xcontrols'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
 import PreSearchManager from '../pre-search/pre-search-manager.vue'
@@ -108,19 +108,11 @@ const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
 
-const { controls } = useState('experienceControls')
-const aiSearchFallback = computed(
-  () =>
-    (controls.value?.aiSearchFallback as boolean) ??
-    defaultXControlsState.controls.aiSearchFallback,
-)
-const facetsPanelOverlay = computed(
-  () =>
-    (controls.value?.facetsPanelOverlay as boolean) ??
-    defaultXControlsState.controls.facetsPanelOverlay,
-)
+const { getControl } = useExperienceControls()
+const aiSearchFallback = getControl<boolean>('aiSearchFallback')
+const facetsPanelOverlay = getControl<boolean>('facetsPanelOverlay')
 
 const showNoResultsMessage = computed(
-  () => !aiSearchFallback.value && !relatedPrompts.value?.length && !x.semanticQueries.length,
+  () => !aiSearchFallback && !relatedPrompts.value?.length && !x.semanticQueries.length,
 )
 </script>

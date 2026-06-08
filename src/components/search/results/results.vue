@@ -80,7 +80,7 @@ import {
 } from '@empathyco/x-components/search'
 import { computed, inject, ref } from 'vue'
 import { useDevice } from '../../../composables/use-device.composable'
-import { defaultXControlsState } from '../../../x-components/xcontrols'
+import { useExperienceControls } from '../../../composables/use-experience-controls.composable'
 import RelatedPrompts from '../../related-prompts/related-prompts.vue'
 import ListResult from '../../results/list-result.vue'
 import Result from '../../results/result.vue'
@@ -93,12 +93,8 @@ const { isMobile } = useDevice()
 const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
 const { config } = useState('search')
 
-const { controls } = useState('experienceControls')
-const gridConfig = computed(
-  () =>
-    (controls.value?.gridConfig as { listMode: boolean }) ??
-    defaultXControlsState.controls.gridConfig,
-)
+const { getControl } = useExperienceControls()
+const hasListMode = getControl<boolean>('gridConfig.listMode')
 
 const staggeredFadeAndSlide = StaggeredFadeAndSlide as any
 
@@ -129,7 +125,7 @@ const vInfiniteScroll = computed(() =>
 )
 
 x.on('ColumnsNumberProvided', false).subscribe(selectedColumns => {
-  isListMode.value = gridConfig.value.listMode && !isMobile.value && selectedColumns === 1
+  isListMode.value = hasListMode && !isMobile.value && selectedColumns === 1
 })
 </script>
 

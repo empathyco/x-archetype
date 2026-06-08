@@ -36,7 +36,7 @@
       </template>
     </Translation>
 
-    <ColumnPicker v-if="gridConfig.columnPicker" />
+    <ColumnPicker v-if="hasColumnPicker" />
 
     <BaseIdModalOpen
       v-if="facetsPanelOverlay"
@@ -63,10 +63,9 @@
 </template>
 
 <script setup lang="ts">
-import { BaseIdModalOpen, FiltersIcon, use$x, useGetter, useState } from '@empathyco/x-components'
-import { computed } from 'vue'
+import { BaseIdModalOpen, FiltersIcon, use$x, useGetter } from '@empathyco/x-components'
 import { Translation, useI18n } from 'vue-i18n'
-import { defaultXControlsState } from '../../x-components/xcontrols'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import ColumnPicker from '../column-picker.vue'
 import SortSelector from '../search/sort-selector.vue'
 
@@ -74,15 +73,7 @@ const { t } = useI18n()
 const x = use$x()
 const { query } = useGetter('search')
 
-const { controls } = useState('experienceControls')
-const facetsPanelOverlay = computed(
-  () =>
-    (controls.value?.facetsPanelOverlay as boolean) ??
-    defaultXControlsState.controls.facetsPanelOverlay,
-)
-const gridConfig = computed(
-  () =>
-    (controls.value?.gridConfig as { columnPicker: boolean }) ??
-    defaultXControlsState.controls.gridConfig,
-)
+const { getControl } = useExperienceControls()
+const facetsPanelOverlay = getControl<boolean>('facetsPanelOverlay')
+const hasColumnPicker = getControl<boolean>('gridConfig.columnPicker')
 </script>

@@ -47,8 +47,8 @@
 import type { EditableNumberRangeFilter } from '@empathyco/x-types'
 import type { PropType } from 'vue'
 import { BaseSlider, use$x, useState } from '@empathyco/x-components'
-import { computed, ref, watch } from 'vue'
-import { defaultXControlsState } from '../../../x-components/xcontrols'
+import { ref, watch } from 'vue'
+import { useExperienceControls } from '../../../composables/use-experience-controls.composable'
 
 const props = defineProps({
   priceFilter: {
@@ -64,12 +64,8 @@ const props = defineProps({
 const x = use$x()
 const { stats } = useState('search')
 
-const { controls } = useState('experienceControls')
-const facetsPanelOverlay = computed(
-  () =>
-    (controls.value?.facetsPanelOverlay as boolean) ??
-    defaultXControlsState.controls.facetsPanelOverlay,
-)
+const { getControl } = useExperienceControls()
+const facetsPanelOverlay = getControl<boolean>('facetsPanelOverlay')
 
 const selectedRange = ref({
   min: props.selectedFilter?.range?.min ?? Math.floor(stats.value.price.min!),

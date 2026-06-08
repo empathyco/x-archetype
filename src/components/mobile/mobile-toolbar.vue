@@ -22,25 +22,20 @@
         </template>
       </Translation>
 
-      <ColumnPicker v-if="gridConfig.columnPicker" />
+      <ColumnPicker v-if="hasColumnPicker" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { use$x, useGetter, useState } from '@empathyco/x-components'
-import { computed } from 'vue'
+import { use$x, useGetter } from '@empathyco/x-components'
 import { Translation } from 'vue-i18n'
-import { defaultXControlsState } from '../../x-components/xcontrols'
+import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import ColumnPicker from '../column-picker.vue'
 
 const x = use$x()
 const { query } = useGetter('search')
 
-const { controls } = useState('experienceControls')
-const gridConfig = computed(
-  () =>
-    (controls.value?.gridConfig as { columnPicker: boolean }) ??
-    defaultXControlsState.controls.gridConfig,
-)
+const { getControl } = useExperienceControls()
+const hasColumnPicker = getControl<boolean>('gridConfig.columnPicker')
 </script>

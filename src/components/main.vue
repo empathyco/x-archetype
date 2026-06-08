@@ -10,9 +10,9 @@
 </template>
 
 <script setup lang="ts">
-import { LocationProvider, use$x, useState } from '@empathyco/x-components'
+import { LocationProvider, use$x } from '@empathyco/x-components'
 import { computed } from 'vue'
-import { defaultXControlsState } from '../x-components/xcontrols'
+import { useExperienceControls } from '../composables/use-experience-controls.composable'
 import AiSearchFallback from './ai/ai-search-fallback.vue'
 import Redirection from './search/redirection.vue'
 import Results from './search/results/results.vue'
@@ -22,12 +22,8 @@ const x = use$x()
 
 const lowResultsThreshold = 50
 
-const { controls } = useState('experienceControls')
-const aiSearchFallback = computed(
-  () =>
-    (controls.value?.aiSearchFallback as boolean) ??
-    defaultXControlsState.controls.aiSearchFallback,
-)
+const { getControl } = useExperienceControls()
+const aiSearchFallback = getControl<boolean>('aiSearchFallback')
 
 const isLowResult = computed(() => x.totalResults > 0 && x.totalResults < lowResultsThreshold)
 
@@ -35,6 +31,6 @@ const showFallbacks = computed(
   () => (x.noResults || isLowResult.value) && x.status.search === 'success',
 )
 
-const showAiSearchFallback = computed(() => aiSearchFallback.value && showFallbacks.value)
-const showSearchFallbacks = computed(() => !aiSearchFallback.value && showFallbacks.value)
+const showAiSearchFallback = computed(() => aiSearchFallback && showFallbacks.value)
+const showSearchFallbacks = computed(() => !aiSearchFallback && showFallbacks.value)
 </script>

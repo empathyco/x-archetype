@@ -4,10 +4,8 @@
   </a>
 </template>
 <script setup lang="ts">
-import { useState } from '@empathyco/x-components'
-import { computed } from 'vue'
-import { defaultXControlsState } from '../x-components/xcontrols'
+import { useExperienceControls } from '../composables/use-experience-controls.composable'
 
-const { controls } = useState('experienceControls')
-const logo = computed(() => (controls.value?.logo as string) ?? defaultXControlsState.controls.logo)
+const { getControl } = useExperienceControls()
+const logo = getControl<string>('logo')
 </script>
