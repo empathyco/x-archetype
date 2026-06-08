@@ -15,15 +15,12 @@
       </span>
       <div class="xds:flex xds:justify-end xds:gap-24 xds:desktop:justify-center">
         <BaseEventButton
-          class="xds:button xds:button-outlined xds:rounded-full xds:button-lead"
+          class="xds:button xds:button-outlined xds:button-lead"
           :events="dismissEvents"
         >
           {{ $t('myHistory.confirmDisableModal.dismiss') }}
         </BaseEventButton>
-        <BaseEventButton
-          class="xds:button xds:rounded-full xds:button-lead"
-          :events="confirmEvents"
-        >
+        <BaseEventButton class="xds:button xds:button-lead" :events="confirmEvents">
           {{ $t('myHistory.confirmDisableModal.confirm') }}
         </BaseEventButton>
       </div>
