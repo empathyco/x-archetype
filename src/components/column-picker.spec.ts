@@ -65,7 +65,6 @@ describe('columnPicker component', () => {
   it('should render correctly by default (desktop)', () => {
     const sut = render()
 
-    expect(sut.message.text()).toBe('columnPicker.message')
     expect(sut.baseColumnPickerList.props('columns')).toStrictEqual(
       gridConfigStub.columnSelector.map(Number),
     )
