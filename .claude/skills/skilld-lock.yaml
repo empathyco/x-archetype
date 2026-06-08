@@ -45,3 +45,10 @@ skills:
     source: "https://github.com/vueuse/vueuse/tree/v14.3.0/docs"
     syncedAt: 2026-05-29
     generator: skilld
+  vitest-skilld:
+    packageName: vitest
+    version: 4.1.8
+    repo: vitest-dev/vitest
+    source: "https://github.com/vitest-dev/vitest/tree/v4.1.8/docs"
+    syncedAt: 2026-06-05
+    generator: skilld
