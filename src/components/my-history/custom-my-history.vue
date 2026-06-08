@@ -5,7 +5,6 @@
         <MyHistory
           v-if="x.isHistoryQueriesEnabled && x.fullHistoryQueries.length"
           :animation="animation"
-          class="xds:p-16"
           queries-list-class="xds:gap-16"
         >
           <template #date="{ date }">

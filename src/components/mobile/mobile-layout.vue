@@ -168,7 +168,7 @@ const isScrollingDown = hasScrolledPastThreshold
 .x-layout__my-history-modal {
   grid-column: page;
   grid-row: page;
-  z-index: 20;
+  z-index: 40;
 }
 
 .x-layout__overlay {
