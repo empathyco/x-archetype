@@ -114,11 +114,13 @@
   },
   "result": {
     "addToCart": "Añadir al carrito",
+    "addedToCart": "Añadido al carrito",
     "seeVariants": "Ver variantes",
     "selectAllOptions": "Por favor selecciona una opción de cada variante",
     "maxUnits": "Cantidad máxima",
     "viewDetails": "Ver detalles",
-    "selectOption": "Selecciona una opción"
+    "selectOption": "Selecciona una opción",
+    "new": "Nuevo"
   },
   "spellcheck": {
     "message": "No se han encontrado resultados para {query} Aquí tienes resultados para"
