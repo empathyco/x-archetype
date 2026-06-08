@@ -13,7 +13,7 @@
       class="xds:gap-8 xds:pl-16 xds:tablet:pl-24 xds:desktop:pl-0"
       :highlight-curated="true"
       :animation="relatedTagsAnimation"
-      item-class="xds:tag-outlined xds:rounded-full"
+      item-class="xds:tag-outlined"
     >
       <template #related-tag-content="{ relatedTag, isSelected, shouldHighlightCurated }">
         <CuratedCheckIcon v-if="shouldHighlightCurated" />

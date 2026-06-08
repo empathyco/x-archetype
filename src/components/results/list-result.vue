@@ -50,7 +50,7 @@
           <BaseEventButton
             v-if="result.hasVariants"
             :events="events"
-            class="xds:m-16 xds:button xds:flex-auto xds:rounded-full xds:button-lead xds:text-md xds:font-regular"
+            class="xds:m-16 xds:button xds:flex-auto xds:button-lead xds:text-md xds:font-regular"
           >
             {{ $t('result.seeVariants') }}
           </BaseEventButton>
@@ -75,7 +75,7 @@
       </BaseResultLink>
       <BaseAddToCart
         :result="result"
-        class="xds:button xds:max-h-40 xds:flex-auto xds:rounded-sm xds:border-none xds:bg-neutral-50 xds:text-md xds:font-regular xds:text-neutral-0 xds:hover:bg-neutral-25"
+        class="xds:button xds:max-h-40 xds:flex-auto xds:border-none xds:bg-neutral-50 xds:text-md xds:font-regular xds:text-neutral-0 xds:hover:bg-neutral-25"
       >
         {{ $t('result.addToCart') }}
       </BaseAddToCart>

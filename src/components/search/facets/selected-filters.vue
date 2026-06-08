@@ -16,7 +16,7 @@
         <template #default="{ filter }">
           <SimpleFilter
             :css-classes="[
-              'xds:selected xds:tag xds:tag-auxiliary xds:tag-outlined xds:rounded-full xds:grid xds:text-md xds:font-regular!',
+              'xds:selected xds:tag xds:tag-auxiliary xds:tag-outlined xds:grid xds:text-md xds:font-regular!',
             ]"
             :filter="filter"
           >
@@ -30,7 +30,7 @@
         <template #price="{ filter }">
           <NumberRangeFilter
             :css-classes="[
-              'xds:selected xds:tag xds:tag-auxiliary xds:tag-outlined xds:rounded-full xds:text-md xds:font-regular!',
+              'xds:selected xds:tag xds:tag-auxiliary xds:tag-outlined xds:text-md xds:font-regular!',
             ]"
             :filter="filter"
           >

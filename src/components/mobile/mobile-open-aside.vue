@@ -2,7 +2,7 @@
   <BaseIdModalOpen
     data-test="toggle-facets-button"
     modal-id="aside-modal"
-    class="xds:rounded-full xds:button-lead xds:px-16 xds:text-md xds:font-regular"
+    class="xds:button-lead xds:px-16 xds:text-md xds:font-regular"
   >
     <FiltersIcon class="xds:icon-lg" />
     <span>{{ $t('toggleAside.showAside') }}</span>

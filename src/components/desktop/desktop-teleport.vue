@@ -41,7 +41,7 @@
             </div>
             <PageLoaderButton
               v-if="x.query.searchBox && x.results.length > 0"
-              button-classes="xds:button-outlined xds:button-lead xds:rounded-sm xds:hover:bg-accent-25 xds:text-neutral-75 xds:hover:text-neutral-75 xds:text-md xds:font-regular xds:px-[42px] xds:py-12"
+              button-classes="xds:button-outlined xds:button-lead xds:hover:bg-accent-25 xds:text-neutral-75 xds:hover:text-neutral-75 xds:text-md xds:font-regular xds:px-[42px] xds:py-12"
               :class="{ 'xds:hidden!': x.results.length >= x.totalResults }"
             >
               <template #textContent>
