@@ -1,3 +1,4 @@
+import type { Mock } from 'vitest'
 import {
   BaseColumnPickerList,
   Grid1ColIcon,
@@ -10,14 +11,22 @@ import { ref } from 'vue'
 import ColumnPicker from './column-picker.vue'
 import GridListIcon from './icons/grid-list-icon.vue'
 
-const gridConfigStub = {
-  columnSelector: ['5', '3', '1'],
+const defaultGridConfig = {
+  columnSelector: [5, 3, 1],
   listMode: false,
 }
-const getControlFromPathMock = vi.hoisted(() => vi.fn(() => ref(gridConfigStub)))
+
+const getControlMock = vi.hoisted<Mock<(key: string) => any>>(() =>
+  vi.fn((key: string) => {
+    if (key === 'gridConfig') {
+      return { ...defaultGridConfig }
+    }
+    return undefined
+  }),
+)
 vi.mock('../composables/use-experience-controls.composable', () => ({
   useExperienceControls: vi.fn(() => ({
-    getControlFromPath: getControlFromPathMock,
+    getControl: getControlMock,
   })),
 }))
 
@@ -36,9 +45,6 @@ function render() {
           template: `<div><slot name="divider"/>
                         <slot v-for="column in columns" :column="column"/></div>`,
           props: ['columns'],
-          setup() {
-            return { columns: isMobileStub.value ? ['2', '1'] : gridConfigStub.columnSelector }
-          },
         },
       },
     },
@@ -46,7 +52,6 @@ function render() {
 
   return {
     wrapper,
-    message: wrapper.find('[data-test="column-picker-message"]'),
     baseColumnPickerList: wrapper.findComponent(BaseColumnPickerList),
     grid1ColIcon: wrapper.findComponent(Grid1ColIcon),
     grid2ColIcon: wrapper.findComponent(Grid2ColIcon),
@@ -65,10 +70,7 @@ describe('columnPicker component', () => {
   it('should render correctly by default (desktop)', () => {
     const sut = render()
 
-    expect(sut.message.text()).toBe('columnPicker.message')
-    expect(sut.baseColumnPickerList.props('columns')).toStrictEqual(
-      gridConfigStub.columnSelector.map(Number),
-    )
+    expect(sut.baseColumnPickerList.props('columns')).toStrictEqual([5, 3, 1])
     expect(sut.grid1ColIcon.exists()).toBeTruthy()
     expect(sut.grid2ColIcon.exists()).toBeTruthy()
     expect(sut.grid4ColIcon.exists()).toBeTruthy()
@@ -87,7 +89,12 @@ describe('columnPicker component', () => {
   })
 
   it('should render list mode correctly in desktop', () => {
-    getControlFromPathMock.mockReturnValueOnce(ref({ columnSelector: ['5', '3'], listMode: true }))
+    getControlMock.mockImplementation((key: string) => {
+      if (key === 'gridConfig') {
+        return { columnSelector: [5, 3], listMode: true }
+      }
+      return undefined
+    })
     const sut = render()
 
     expect(sut.baseColumnPickerList.props('columns')).toStrictEqual([5, 3, 1])
@@ -99,7 +106,12 @@ describe('columnPicker component', () => {
 
   it('should not render list mode in mobile', () => {
     isMobileStub.value = true
-    getControlFromPathMock.mockReturnValueOnce(ref({ ...gridConfigStub, listMode: true }))
+    getControlMock.mockImplementation((key: string) => {
+      if (key === 'gridConfig') {
+        return { columnSelector: [5, 3, 1], listMode: true }
+      }
+      return undefined
+    })
     const sut = render()
 
     expect(sut.baseColumnPickerList.props('columns')).toStrictEqual([2, 1])

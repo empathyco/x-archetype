@@ -4,9 +4,8 @@
   </a>
 </template>
 <script setup lang="ts">
-import type { ComputedRef } from 'vue'
 import { useExperienceControls } from '../composables/use-experience-controls.composable'
 
-const { getControlFromPath } = useExperienceControls()
-const logo = getControlFromPath('logo') as ComputedRef<string>
+const { getControl } = useExperienceControls()
+const logo = getControl<string>('logo')
 </script>

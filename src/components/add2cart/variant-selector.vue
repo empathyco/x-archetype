@@ -65,7 +65,7 @@
                 </button>
 
                 <div
-                  class="focus:outline-none xds:text2 xds:text2-sm xds:flex xds:h-full xds:w-full xds:appearance-none xds:flex-col xds:items-center xds:justify-center xds:font-bold xds:text-neutral-90"
+                  class="focus:outline-none xds:flex xds:h-full xds:w-full xds:appearance-none xds:flex-col xds:items-center xds:justify-center xds:text-md xds:font-bold xds:text-neutral-90"
                   @click="enableEditing"
                 >
                   <span
@@ -94,7 +94,7 @@
                   />
                   <span
                     v-if="hasMaxUnitsReached"
-                    class="xds:-mt-1.5 xds:text-center xds:title4 xds:text-[8px] xds:font-bold xds:text-error-50"
+                    class="xds:-mt-1.5 xds:text-center xds:text-sm xds:text-[8px] xds:font-bold xds:text-error-50"
                   >
                     {{ $t('result.maxUnits') }}
                   </span>
@@ -118,14 +118,14 @@
         <div class="xds:flex xds:max-w-[640px] xds:flex-col xds:justify-start xds:gap-4 xds:pr-16">
           <h2
             class="xds:line-clamp-3 xds:flex xds:leading-xs xds:text-neutral-100"
-            :class="isMobileOrLess ? 'xds:text1 xds:text1-sm xds:font-bold' : 'xds:pb-8 xds:title4'"
+            :class="isMobileOrLess ? 'xds:text-sm xds:font-bold' : 'xds:pb-8 xds:text-sm'"
             data-test="result-title"
           >
             {{ result?.name }}
           </h2>
           <div
-            class="xds:line-clamp-2 xds:flex xds:text1 xds:leading-xs xds:text-neutral-100"
-            :class="isMobileOrLess ? 'xds:h-7.5 xds:text-xxs' : 'xds:text1-sm'"
+            class="xds:line-clamp-2 xds:flex xds:text-sm xds:leading-xs xds:text-neutral-100"
+            :class="isMobileOrLess ? 'xds:h-7.5 xds:text-xxs' : 'xds:text-sm'"
           >
             {{ result?.description }}
           </div>
@@ -134,19 +134,19 @@
             <BaseResultCurrentPrice
               v-if="result"
               :result="result"
-              class="xds:flex xds:title2 xds:title2-sm xds:leading-xs xds:font-bold"
+              class="xds:flex xds:text-lg xds:text-md xds:leading-xs xds:font-bold"
               :class="{ 'xds:text-auxiliary-75': result?.price?.hasDiscount }"
             />
             <BaseResultPreviousPrice
               v-if="result"
               :result="result"
-              class="xds:text-neutral-65 xds:flex xds:items-center xds:text1 xds:text-xxs xds:leading-xs xds:line-through"
+              class="xds:text-neutral-65 xds:flex xds:items-center xds:text-sm xds:text-xxs xds:leading-xs xds:line-through"
             />
           </div>
 
           <BaseResultLink v-if="result" :result="result" class="xds:flex">
             <span
-              class="xds:line-clamp-2 xds:text1 xds:text1-sm xds:leading-xs xds:text-auxiliary-75 xds:underline"
+              class="xds:line-clamp-2 xds:text-sm xds:leading-xs xds:text-auxiliary-75 xds:underline"
             >
               {{ $t('result.viewDetails') }}
             </span>
@@ -159,7 +159,7 @@
               class="xds:mb-8 xds:flex xds:flex-col xds:gap-4"
             >
               <h2
-                class="xds:text-neutral-40 xds:line-clamp-3 xds:flex xds:text1 xds:text1-sm xds:leading-xs"
+                class="xds:text-neutral-40 xds:line-clamp-3 xds:flex xds:text-sm xds:leading-xs"
                 data-test="result-title"
               >
                 <span>{{ variant.name }}</span>
@@ -186,7 +186,7 @@
                     alt="Color variant image"
                     class="xds:h-56 xds:w-15.75"
                   />
-                  <span v-else class="xds:text1 xds:text-md xds:leading-xs xds:font-bold">
+                  <span v-else class="xds:text-md xds:leading-xs xds:font-bold">
                     {{ value }}
                   </span>
                 </button>
@@ -202,7 +202,7 @@
           class="xds:mb-8 xds:flex xds:flex-col xds:gap-4"
         >
           <h2
-            class="xds:text-neutral-40 xds:line-clamp-3 xds:flex xds:text1 xds:text1-sm xds:leading-xs"
+            class="xds:text-neutral-40 xds:line-clamp-3 xds:flex xds:text-sm xds:leading-xs"
             data-test="result-title"
           >
             <span>{{ variant.name }}</span>
@@ -229,7 +229,7 @@
                 alt="Color variant image"
                 class="xds:h-56 xds:w-15.75"
               />
-              <span v-else class="xds:text1 xds:text-md xds:leading-xs xds:font-bold">
+              <span v-else class="xds:text-md xds:leading-xs xds:font-bold">
                 {{ value }}
               </span>
             </button>

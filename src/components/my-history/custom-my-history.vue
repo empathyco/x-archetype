@@ -9,7 +9,7 @@
           queries-list-class="xds:gap-16"
         >
           <template #date="{ date }">
-            <div class="xds:py-16 xds:title4 xds:title4-sm xds:text-neutral-75">{{ date }}</div>
+            <div class="xds:py-16 xds:text-lg xds:font-bold xds:text-neutral-75">{{ date }}</div>
           </template>
 
           <template #suggestion="{ suggestion, formatTime }">
@@ -23,7 +23,9 @@
               <HistoryIcon class="xds:max-desktop:icon-lg" />
 
               <div class="xds:group xds:flex xds:flex-col xds:gap-2">
-                <p class="xds:group-hover:underline">{{ suggestion.query }}</p>
+                <p class="xds:text-md xds:font-bold xds:group-hover:underline">
+                  {{ suggestion.query }}
+                </p>
 
                 <HistoryQueryFilters
                   :show-length="true"
@@ -31,7 +33,7 @@
                   :filters-list="suggestion.selectedFilters"
                 />
 
-                <p class="xds:text1 xds:text1-sm xds:text-neutral-75">
+                <p class="xds:text-md xds:text-neutral-75">
                   {{ formatTime(suggestion.timestamp) }}
                   <template v-if="suggestion.totalResults !== undefined">
                     -

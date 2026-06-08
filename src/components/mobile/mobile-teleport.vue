@@ -33,7 +33,7 @@
             </LocationProvider>
             <PageLoaderButton
               v-if="x.query.searchBox && x.results.length > 0"
-              button-classes="xds:button-outlined xds:button-lead xds:rounded-sm xds:hover:bg-accent-25 xds:text-neutral-75 xds:hover:text-neutral-75 xds:text2 xds:text2-lg xds:px-[42px] xds:py-12"
+              button-classes="xds:button-outlined xds:button-lead xds:hover:bg-accent-25 xds:text-neutral-75 xds:hover:text-neutral-75 xds:text-md xds:font-regular xds:px-[42px] xds:py-12"
               :class="{ 'xds:hidden!': x.results.length >= x.totalResults }"
             >
               <template #textContent>
@@ -100,13 +100,12 @@ const SpellcheckMessage = defineAsyncComponent(() =>
 const snippetConfig = inject<SnippetConfig>('snippetConfig')
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
-const { getControlFromPath } = useExperienceControls()
-const aiSearchFallback = getControlFromPath('aiSearchFallback')
 const x = use$x()
 
-const showNoResultsMessage = computed(
-  () => !aiSearchFallback.value && !relatedPrompts.value?.length,
-)
+const { getControl } = useExperienceControls()
+const aiSearchFallback = getControl<boolean>('aiSearchFallback')
+
+const showNoResultsMessage = computed(() => !aiSearchFallback && !relatedPrompts.value?.length)
 
 const gridTarget = computed(() => snippetConfig?.gridTarget ?? '#maincontent')
 const visibleGrid = ref(false)

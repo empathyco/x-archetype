@@ -2,7 +2,7 @@
   <BaseSlider
     v-model="selectedRange"
     :threshold="threshold"
-    class="x-price-slider xds:flex xds:pb-24"
+    class="x-price-slider xds:flex xds:pb-24 xds:text-md xds:font-regular"
     content-class="xds:bg-neutral-15 xds:h-8 xds:my-16 xds:px-12! xds:border-none"
   >
     <div class="xds:flex xds:grow xds:justify-between xds:gap-8">
@@ -63,8 +63,9 @@ const props = defineProps({
 
 const x = use$x()
 const { stats } = useState('search')
-const { getControlFromPath } = useExperienceControls()
-const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
+
+const { getControl } = useExperienceControls()
+const facetsPanelOverlay = getControl<boolean>('facetsPanelOverlay')
 
 const selectedRange = ref({
   min: props.selectedFilter?.range?.min ?? Math.floor(stats.value.price.min!),

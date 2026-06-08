@@ -5,26 +5,17 @@
     :suggestion="nextQuery"
     :max-items-to-render="maxItemsToRender"
   >
-    <Translation
-      class="xds:text1 xds:text1-lg xds:max-desktop:px-16"
-      tag="span"
-      keypath="nextQueryPreview.message"
-      scope="global"
-    >
-      <template #query>
-        <span class="xds:title3">
-          {{ query }}
-        </span>
-      </template>
-    </Translation>
+    <span class="xds:text-md xds:max-desktop:px-16">{{
+      t('nextQueryPreview.message', { query })
+    }}</span>
     <CustomSlidingPanel>
       <template #header>
         <NextQuery
           :suggestion="nextQuery"
           class="xds:button xds:button-tight xds:button-lead xds:max-desktop:px-16"
         >
-          {{ $t('nextQueryPreview.query', { query: suggestion.query }) }}
-          {{ $t('nextQueryPreview.totalResults', { totalResults }) }}
+          {{ t('nextQueryPreview.query', { query: suggestion.query }) }}
+          {{ t('nextQueryPreview.totalResults', { totalResults }) }}
           <ArrowRightIcon class="xds:icon-lg" />
         </NextQuery>
       </template>
@@ -48,7 +39,7 @@ import type { NextQuery as NextQueryModel } from '@empathyco/x-types'
 import { ArrowRightIcon, ItemsList, useGetter } from '@empathyco/x-components'
 import { NextQuery, NextQueryPreview } from '@empathyco/x-components/next-queries'
 import { computed } from 'vue'
-import { Translation } from 'vue-i18n'
+import { useI18n } from 'vue-i18n'
 import { useDevice } from '../../../composables/use-device.composable'
 import Result from '../../results/result.vue'
 import CustomSlidingPanel from '../../search/custom-sliding-panel.vue'
@@ -63,6 +54,7 @@ defineProps<Props>()
 const { isTabletOrLess } = useDevice()
 const maxItemsToRender = computed(() => (isTabletOrLess.value ? undefined : 5))
 const { query } = useGetter('nextQueries')
+const { t } = useI18n()
 </script>
 
 <style>

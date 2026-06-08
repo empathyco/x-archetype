@@ -1,11 +1,9 @@
 <template>
-  <FallbackDisclaimer v-if="x.fromNoResultsWithFilters" class="x-fallback-message xds:message">
-    <Translation
-      class="xds:text1 xds:desktop:text1-lg"
-      keypath="fallbackDisclaimer.message"
-      tag="p"
-      scope="global"
-    >
+  <FallbackDisclaimer
+    v-if="x.fromNoResultsWithFilters"
+    class="x-fallback-message xds:message xds:text-md"
+  >
+    <Translation keypath="fallbackDisclaimer.message" tag="p" scope="global">
       <template #query>
         <span class="xds:w-auto xds:font-bold">"{{ x.query.search }}"</span>
       </template>

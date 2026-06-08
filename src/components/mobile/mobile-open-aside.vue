@@ -2,10 +2,10 @@
   <BaseIdModalOpen
     data-test="toggle-facets-button"
     modal-id="aside-modal"
-    class="xds:rounded-full xds:button-lead xds:px-16"
+    class="xds:button-lead xds:px-16 xds:text-md xds:font-regular"
   >
     <FiltersIcon class="xds:icon-lg" />
-    <span class="xds:uppercase">{{ $t('toggleAside.showAside') }}</span>
+    <span>{{ $t('toggleAside.showAside') }}</span>
     <span
       v-if="x.selectedFilters.length > 0"
       :class="{ 'xds:badge-circle': x.selectedFilters.length <= 9 }"

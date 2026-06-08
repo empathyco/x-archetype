@@ -20,6 +20,7 @@
 
 <script setup lang="ts">
 import type { SnippetConfig, UrlParams, XEvent } from '@empathyco/x-components'
+import type { ExperienceControlsState } from '@empathyco/x-components/experience-controls'
 import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview'
 import type { InternalSearchRequest, InternalSearchResponse } from '@empathyco/x-components/search'
 import type { ComputedRef } from 'vue'
@@ -39,10 +40,10 @@ import {
 } from 'vue'
 import DesktopInitTeleport from './components/desktop/desktop-init-teleport.vue'
 import MobileInitTeleport from './components/mobile/mobile-init-teleport.vue'
-import { useCustomization } from './composables/use-customization.composable'
 import { useDevice } from './composables/use-device.composable'
 import { FeatureFlag, useFeatureFlags } from './composables/use-feature-flags.composable'
 import { isIOS, removeSearchInputFocus } from './composables/use-ios-utils-composable'
+import { initCustomization } from './utils/customization'
 import './tailwind/xds.css'
 
 const MobileTeleport = defineAsyncComponent(() =>
@@ -55,9 +56,6 @@ const DesktopTeleport = defineAsyncComponent(() =>
 const CustomMainModal = defineAsyncComponent(() =>
   import('./components/index-empty-search').then(m => m.CustomMainModal),
 )
-
-const { init } = useCustomization()
-init()
 
 const x = use$x()
 const { isDesktopOrGreater } = useDevice()
@@ -92,6 +90,10 @@ const excludedExtraParams = [
 const close = (): void => {
   window.wysiwyg?.close()
 }
+
+x.on('ExperienceControlsChanged', false).subscribe(payload => {
+  initCustomization(payload as unknown as ExperienceControlsState)
+})
 
 x.on('UserClickedCloseX', false).subscribe(close)
 

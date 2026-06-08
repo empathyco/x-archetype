@@ -9,7 +9,7 @@
       v-if="facetsPanelOverlay"
       class="xds:flex xds:items-center xds:border-b xds:border-neutral-90 xds:p-24 xds:pr-32 xds:pl-40"
     >
-      <span class="xds:mr-auto xds:title2 xds:uppercase">
+      <span class="xds:mr-auto xds:text-xl xds:font-bold">
         {{ $t('facetsPanel.title') }}
       </span>
       <BaseIdModalClose
@@ -42,7 +42,7 @@
       <div class="xds:flex xds:gap-16">
         <ClearFilters
           v-slot="{ selectedFilters }"
-          class="xds:flex-auto xds:button-outlined xds:rounded-full xds:button-lead xds:p-24 xds:py-12 xds:uppercase"
+          class="xds:flex-auto xds:button-outlined xds:button-lead xds:p-24 xds:py-12 xds:text-md xds:font-regular"
           :always-visible="false"
         >
           {{
@@ -50,7 +50,7 @@
           }}
         </ClearFilters>
         <BaseIdModalClose
-          class="xds:flex-auto xds:rounded-full xds:button-lead xds:p-24 xds:py-12 xds:uppercase"
+          class="xds:flex-auto xds:button-lead xds:p-24 xds:py-12 xds:text-md xds:font-regular"
           modal-id="right-aside"
         >
           {{
@@ -73,6 +73,7 @@ import CustomFacets from '../search/facets/custom-facets.vue'
 import SelectedFilters from '../search/facets/selected-filters.vue'
 
 const x = use$x()
-const { getControlFromPath } = useExperienceControls()
-const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
+
+const { getControl } = useExperienceControls()
+const facetsPanelOverlay = getControl<boolean>('facetsPanelOverlay')
 </script>

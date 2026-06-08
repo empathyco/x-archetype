@@ -20,15 +20,15 @@
 }
 
 @utility button {
-  @apply xds:rounded-[var(--xds-button-border-radius)]!;
+  @apply xds:rounded-[var(--xds-button-border-radius)];
 }
 
 @utility tag {
-  @apply xds:rounded-[var(--xds-tag-border-radius)]!;
+  @apply xds:rounded-[var(--xds-tag-border-radius)];
 }
 
 @utility suggestion {
-  @apply xds:rounded-[var(--xds-tag-border-radius)]!;
+  @apply xds:rounded-[var(--xds-tag-border-radius)];
 }
 
 @utility suggestion-group {

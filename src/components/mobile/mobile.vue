@@ -104,9 +104,10 @@ const SpellcheckMessage = defineAsyncComponent(() =>
 const x = use$x()
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
-const { getControlFromPath } = useExperienceControls()
-const aiSearchFallback = getControlFromPath('aiSearchFallback')
+
+const { getControl } = useExperienceControls()
+const aiSearchFallback = getControl<boolean>('aiSearchFallback')
 const showNoResultsMessage = computed(
-  () => !aiSearchFallback.value && !relatedPrompts.value?.length && !x.semanticQueries.length,
+  () => !aiSearchFallback && !relatedPrompts.value?.length && !x.semanticQueries.length,
 )
 </script>

@@ -7,5 +7,5 @@ concurrency:
 jobs:
   build:
     if: false
-    uses: empathyco/platform-reusable-github-actions/.github/workflows/x-archetype-build.yml@main
+    uses: empathyco/platform-reusable-github-actions/.github/workflows/x-archetype-build.yml@a3a73bcada87ffcc89da9f9dc251050c5bab7a09 # main
     secrets: inherit

@@ -1,37 +1,49 @@
-import type { Dictionary } from '@empathyco/x-utils'
-import type { ComputedRef } from 'vue'
 import { useState } from '@empathyco/x-components'
-import { getSafePropertyChain } from '@empathyco/x-utils'
-import { computed } from 'vue'
-import { xControlsState } from '../x-components/xcontrols'
+import { defaultXControlsState } from '../x-components/xcontrols'
 
-/**
- * Given a controls' object property chain, gets the experience controls values from the response.
- * A defaultValue can be set as a safeguard in case the controls response was empty.
- *
- * @returns An object containing the function to search for a configuration
- * and set the experience controls property value.
- */
-export const useExperienceControls = (): {
-  getControlFromPath: <SomeType>(path: string, defaultValue?: SomeType) => ComputedRef<SomeType>
-} => {
+export function useExperienceControls() {
   const { controls } = useState('experienceControls')
-  const experienceControls = computed(() => controls.value?.controls ?? xControlsState.controls)
 
-  const getControlFromPath = <SomeType>(
-    path: string,
-    defaultValue?: SomeType,
-  ): ComputedRef<SomeType> => {
-    return computed(() => {
-      return getSafePropertyChain(
-        experienceControls.value as Dictionary<unknown>,
-        path,
-        defaultValue,
-      ) as SomeType
-    })
+  /**
+   * Safely gets a nested value from an object using dot notation.
+   * @param obj - The object to traverse
+   * @param path - The path to the value (e.g., 'styles.colors')
+   * @returns The value at the path or undefined if not found
+   */
+  function getNestedValue(obj: Record<string, unknown>, path: string): unknown {
+    const keys = path.split('.')
+    let current: unknown = obj
+
+    for (const key of keys) {
+      if (current && typeof current === 'object' && key in current) {
+        current = (current as Record<string, unknown>)[key]
+      } else {
+        return undefined
+      }
+    }
+
+    return current
+  }
+
+  /**
+   * Gets a control value by key, supporting nested keys using dot notation.
+   * @param key - The control key, supports dot notation (e.g., 'styles.colors')
+   * @returns The control value (assumes the key exists in controls or default controls)
+   * @example
+   * getControl('showSuggestions') // Direct key
+   * getControl('styles.colors') // Nested key
+   */
+  function getControl<T>(key: string): T {
+    const value = getNestedValue(controls.value, key)
+
+    if (value === undefined) {
+      return getNestedValue(defaultXControlsState.controls, key) as T
+    }
+
+    return value as T
   }
 
   return {
-    getControlFromPath,
+    getControl,
   }
 }
