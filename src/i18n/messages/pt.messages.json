@@ -147,9 +147,6 @@
   "fallbackDisclaimer": {
     "message": "Sem resultados encontrados para {query} com os filtros seleccionados. Os filtros foram não seleccionados"
   },
-  "columnPicker": {
-    "message": "Ver"
-  },
   "redirections": {
     "title": "A sua pesquisa corresponde a um local especial no nosso sítio Web, para o visitar, está a ser redireccionado",
     "accept": "Sim, redirecionar-me",

@@ -46,7 +46,6 @@ function render() {
 
   return {
     wrapper,
-    message: wrapper.find('[data-test="column-picker-message"]'),
     baseColumnPickerList: wrapper.findComponent(BaseColumnPickerList),
     grid1ColIcon: wrapper.findComponent(Grid1ColIcon),
     grid2ColIcon: wrapper.findComponent(Grid2ColIcon),
