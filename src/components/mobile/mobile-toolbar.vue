@@ -22,7 +22,7 @@
         </template>
       </Translation>
 
-      <ColumnPicker v-if="gridConfig.columnPicker" />
+      <ColumnPicker v-if="hasColumnPicker" />
     </div>
   </div>
 </template>
@@ -35,7 +35,7 @@ import ColumnPicker from '../column-picker.vue'
 
 const x = use$x()
 const { query } = useGetter('search')
-const { getControlFromPath } = useExperienceControls()
 
-const gridConfig = getControlFromPath<{ columnPicker: boolean }>('gridConfig')
+const { getControl } = useExperienceControls()
+const hasColumnPicker = getControl<boolean>('gridConfig.columnPicker')
 </script>

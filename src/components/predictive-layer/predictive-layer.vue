@@ -136,8 +136,9 @@ const mobileCloseEvents: Array<keyof XEventsTypes> = [
 const desktopCloseEvents: Array<keyof XEventsTypes> = [...mobileCloseEvents, 'UserBlurredSearchBox']
 
 const x = use$x()
-const { getControlFromPath } = useExperienceControls()
-const fullPredictiveLayer = getControlFromPath('fullPredictiveLayer')
+
+const { getControl } = useExperienceControls()
+const fullPredictiveLayer = getControl<boolean>('fullPredictiveLayer')
 </script>
 
 <style>

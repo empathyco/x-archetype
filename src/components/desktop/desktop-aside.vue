@@ -73,6 +73,7 @@ import CustomFacets from '../search/facets/custom-facets.vue'
 import SelectedFilters from '../search/facets/selected-filters.vue'
 
 const x = use$x()
-const { getControlFromPath } = useExperienceControls()
-const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
+
+const { getControl } = useExperienceControls()
+const facetsPanelOverlay = getControl<boolean>('facetsPanelOverlay')
 </script>

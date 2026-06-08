@@ -107,11 +107,12 @@ const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
 
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
-const { getControlFromPath } = useExperienceControls()
-const aiSearchFallback = getControlFromPath('aiSearchFallback')
-const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
+
+const { getControl } = useExperienceControls()
+const aiSearchFallback = getControl<boolean>('aiSearchFallback')
+const facetsPanelOverlay = getControl<boolean>('facetsPanelOverlay')
 
 const showNoResultsMessage = computed(
-  () => !aiSearchFallback.value && !relatedPrompts.value?.length && !x.semanticQueries.length,
+  () => !aiSearchFallback && !relatedPrompts.value?.length && !x.semanticQueries.length,
 )
 </script>

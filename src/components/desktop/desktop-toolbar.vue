@@ -39,7 +39,7 @@
       </template>
     </Translation>
 
-    <ColumnPicker v-if="gridConfig.columnPicker" />
+    <ColumnPicker v-if="hasColumnPicker" />
 
     <BaseIdModalOpen
       v-if="facetsPanelOverlay"
@@ -73,8 +73,8 @@ import SortSelector from '../search/sort-selector.vue'
 const { t } = useI18n()
 const x = use$x()
 const { query } = useGetter('search')
-const { getControlFromPath } = useExperienceControls()
 
-const facetsPanelOverlay = getControlFromPath<boolean>('facetsPanelOverlay')
-const gridConfig = getControlFromPath<{ columnPicker: boolean }>('gridConfig')
+const { getControl } = useExperienceControls()
+const facetsPanelOverlay = getControl<boolean>('facetsPanelOverlay')
+const hasColumnPicker = getControl<boolean>('gridConfig.columnPicker')
 </script>

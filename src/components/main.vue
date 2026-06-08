@@ -18,12 +18,12 @@ import Redirection from './search/redirection.vue'
 import Results from './search/results/results.vue'
 import SearchFallback from './search/search-fallback.vue'
 
-const { getControlFromPath } = useExperienceControls()
 const x = use$x()
 
 const lowResultsThreshold = 50
 
-const aiSearchFallback = getControlFromPath('aiSearchFallback')
+const { getControl } = useExperienceControls()
+const aiSearchFallback = getControl<boolean>('aiSearchFallback')
 
 const isLowResult = computed(() => x.totalResults > 0 && x.totalResults < lowResultsThreshold)
 
@@ -31,6 +31,6 @@ const showFallbacks = computed(
   () => (x.noResults || isLowResult.value) && x.status.search === 'success',
 )
 
-const showAiSearchFallback = computed(() => aiSearchFallback.value && showFallbacks.value)
-const showSearchFallbacks = computed(() => !aiSearchFallback.value && showFallbacks.value)
+const showAiSearchFallback = computed(() => aiSearchFallback && showFallbacks.value)
+const showSearchFallbacks = computed(() => !aiSearchFallback && showFallbacks.value)
 </script>

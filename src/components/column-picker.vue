@@ -24,19 +24,19 @@ import { useExperienceControls } from '../composables/use-experience-controls.co
 import GridListIcon from './icons/grid-list-icon.vue'
 
 const { isMobile } = useDevice()
-const { getControlFromPath } = useExperienceControls()
 
-const gridConfig = getControlFromPath<{ columnSelector: number[]; listMode: boolean }>('gridConfig')
-const columnSelector = computed(() => gridConfig.value?.columnSelector.map(Number))
+const { getControl } = useExperienceControls()
+const gridConfig = getControl<{ columnSelector: number[]; listMode: boolean }>('gridConfig')
+const columnSelector = gridConfig.columnSelector.map(Number)
 
 const columns = computed(() => {
   if (isMobile.value) {
     return [2, 1]
   }
-  if (gridConfig.value.listMode) {
-    return [...columnSelector.value, 1] // asume that 1 won't be set in columnSelector when listMode is active
+  if (gridConfig.listMode) {
+    return [...columnSelector, 1] // asume that 1 won't be set in columnSelector when listMode is active
   }
-  return columnSelector.value
+  return columnSelector
 })
 
 const icons = computed<Record<number, Component>>(() => {
@@ -48,7 +48,7 @@ const icons = computed<Record<number, Component>>(() => {
     columns.value.map(columnCount => {
       // Single column mode: show list icon or single column icon based on device/mode
       if (columnCount === 1) {
-        const isSingleColumnMode = isMobile.value || !gridConfig.value.listMode
+        const isSingleColumnMode = isMobile.value || !gridConfig.listMode
         const icon = isSingleColumnMode ? Grid1ColIcon : GridListIcon
         return [columnCount, icon]
       }

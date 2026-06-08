@@ -92,9 +92,9 @@ const x = use$x()
 const { isMobile } = useDevice()
 const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
 const { config } = useState('search')
-const { getControlFromPath } = useExperienceControls()
 
-const gridConfig = getControlFromPath<{ listMode: boolean }>('gridConfig')
+const { getControl } = useExperienceControls()
+const hasListMode = getControl<boolean>('gridConfig.listMode')
 
 const staggeredFadeAndSlide = StaggeredFadeAndSlide as any
 
@@ -125,7 +125,7 @@ const vInfiniteScroll = computed(() =>
 )
 
 x.on('ColumnsNumberProvided', false).subscribe(selectedColumns => {
-  isListMode.value = gridConfig.value.listMode && !isMobile.value && selectedColumns === 1
+  isListMode.value = hasListMode && !isMobile.value && selectedColumns === 1
 })
 </script>
 
