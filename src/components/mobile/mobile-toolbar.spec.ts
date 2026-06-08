@@ -1,15 +1,9 @@
+import type { Mock } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { ref } from 'vue'
 import { Translation } from 'vue-i18n'
 import ColumnPicker from '../column-picker.vue'
 import MobileToolbar from './mobile-toolbar.vue'
-
-const controlsStub = ref({
-  controls: {
-    gridConfig: { columnPicker: true },
-  },
-})
 
 const use$xStub = {
   totalResults: 10,
@@ -20,22 +14,25 @@ const useGetterStub = {
 }
 const use$xMock = vi.hoisted(() => vi.fn(() => use$xStub))
 const useGetterMock = vi.hoisted(() => vi.fn(() => useGetterStub))
-const useStateMock = vi.hoisted(() =>
-  vi.fn((module: string) => {
-    if (module === 'experienceControls') {
-      return { controls: controlsStub }
-    }
-    return {}
-  }),
-)
 vi.mock('@empathyco/x-components', async importOriginal => {
   return {
     ...(await importOriginal<typeof import('@empathyco/x-components')>()),
     use$x: use$xMock,
     useGetter: useGetterMock,
-    useState: useStateMock,
   }
 })
+
+const getControlMock = vi.hoisted<Mock<(key: string) => any>>(() =>
+  vi.fn((key: string) => {
+    if (key === 'gridConfig.columnPicker') return true
+    return undefined
+  }),
+)
+vi.mock('../../composables/use-experience-controls.composable', () => ({
+  useExperienceControls: vi.fn(() => ({
+    getControl: getControlMock,
+  })),
+}))
 
 function render() {
   const wrapper = shallowMount(MobileToolbar, {
@@ -60,9 +57,6 @@ describe('mobileToolbar component', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     vi.restoreAllMocks()
-    ;(controlsStub.value as any) = {
-      gridConfig: { columnPicker: true },
-    }
   })
 
   it('should render correctly by default', () => {
@@ -87,9 +81,10 @@ describe('mobileToolbar component', () => {
   })
 
   it('should not render the column picker if the control is disabled', () => {
-    ;(controlsStub.value as any) = {
-      gridConfig: { columnPicker: false },
-    }
+    getControlMock.mockImplementation((key: string) => {
+      if (key === 'gridConfig.columnPicker') return false
+      return undefined
+    })
     const sut = render()
 
     expect(sut.columnPicker.exists()).toBeFalsy()
