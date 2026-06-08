@@ -74,18 +74,11 @@
         </div>
       </BaseResultLink>
       <BaseAddToCart
-        v-if="!isAdded2Cart"
         :result="result"
         class="xds:button xds:max-h-40 xds:flex-auto xds:border-none xds:bg-lead xds:text-md xds:font-regular xds:text-neutral-0 xds:hover:bg-lead-75"
       >
         {{ t('result.addToCart') }}
       </BaseAddToCart>
-      <span
-        v-else
-        class="xds:pointer-events-none xds:button xds:max-h-40 xds:flex-auto xds:bg-neutral-100 xds:text-md xds:font-regular xds:text-neutral-0"
-      >
-        {{ t('result.addedToCart') }}
-      </span>
     </div>
 
     <BaseEventButton
@@ -140,10 +133,5 @@ const snippetConfig = inject<SnippetConfig>('snippetConfig')
 const isWishListed = computed(() => {
   const wishlist = snippetConfig?.wishlist ?? []
   return wishlist.includes(props.result.id)
-})
-
-const isAdded2Cart = computed(() => {
-  const cart = snippetConfig?.cart ?? {}
-  return cart[props.result.id]
 })
 </script>

@@ -116,7 +116,6 @@ export interface Messages {
   }
   result: {
     addToCart: string
-    addedToCart: string
     seeVariants: string
     selectAllOptions: string
     maxUnits: string

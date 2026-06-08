@@ -28,7 +28,6 @@
 
       <slot name="cta">
         <div
-          v-if="!isAdded2Cart"
           class="x-result__overlay xds:invisible xds:absolute xds:bottom-0 xds:flex xds:w-full xds:flex-col xds:gap-16 xds:bg-neutral-0 xds:p-8 xds:group-hover/result:visible xds:desktop:p-16"
         >
           <BaseAddToCart
@@ -37,16 +36,6 @@
           >
             {{ t('result.addToCart') }}
           </BaseAddToCart>
-        </div>
-        <div
-          v-else
-          class="x-result__overlay xds:absolute xds:bottom-0 xds:w-full xds:p-8 xds:desktop:p-16"
-        >
-          <span
-            class="xds:pointer-events-none xds:button xds:min-h-32 xds:w-full xds:bg-neutral-100 xds:px-16 xds:text-md xds:font-regular xds:text-neutral-0"
-          >
-            {{ t('result.addedToCart') }}
-          </span>
         </div>
 
         <span
@@ -129,10 +118,5 @@ const snippetConfig = inject<SnippetConfig>('snippetConfig')
 const isWishListed = computed(() => {
   const wishlist = snippetConfig?.wishlist ?? []
   return wishlist.includes(props.result.id)
-})
-
-const isAdded2Cart = computed(() => {
-  const cart = snippetConfig?.cart ?? {}
-  return cart[props.result.id]
 })
 </script>
