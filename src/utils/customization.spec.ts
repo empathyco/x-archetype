@@ -28,13 +28,13 @@ describe('initCustomization', () => {
     initCustomization(xControlsState)
 
     expect(addStyleSpy).toHaveBeenCalledTimes(1)
-    const callArg = addStyleSpy.mock.calls[0][0]
+    const [{ source }] = addStyleSpy.mock.calls.map(([arg]) => arg)
 
-    expect(callArg.source).toMatch(/^:root,:host/)
-    expect(callArg.source).toContain('--xds-font-family:Helvetica')
-    expect(callArg.source).toContain('--xds-font-size:16px')
-    expect(callArg.source).toContain('--xds-spacing-md:16px')
-    expect(callArg.source).toContain('--xds-spacing-lg:24px')
+    expect(source).toMatch(/^:root,:host/)
+    expect(source).toContain('--xds-font-family:Helvetica')
+    expect(source).toContain('--xds-font-size:16px')
+    expect(source).toContain('--xds-spacing-md:16px')
+    expect(source).toContain('--xds-spacing-lg:24px')
   })
 
   it('should inject color styles with three variants (base, lighter, darker)', () => {
@@ -52,14 +52,14 @@ describe('initCustomization', () => {
     initCustomization(xControlsState)
 
     expect(addStyleSpy).toHaveBeenCalledTimes(1)
-    const callArg = addStyleSpy.mock.calls[0][0]
+    const [{ source }] = addStyleSpy.mock.calls.map(([arg]) => arg)
 
-    expect(callArg.source).toContain('--xds-brand-50:#AABBCC')
-    expect(callArg.source).toContain('--xds-brand-25:color-mix(in srgb, #AABBCC 50%, white)')
-    expect(callArg.source).toContain('--xds-brand-75:color-mix(in srgb, #AABBCC 50%, black)')
+    expect(source).toContain('--xds-brand-50:#AABBCC')
+    expect(source).toContain('--xds-brand-25:color-mix(in srgb, #AABBCC 50%, white)')
+    expect(source).toContain('--xds-brand-75:color-mix(in srgb, #AABBCC 50%, black)')
 
-    expect(callArg.source).toContain('--xds-accent-50:#FF5733')
-    expect(callArg.source).toContain('--xds-accent-25:color-mix(in srgb, #FF5733 50%, white)')
-    expect(callArg.source).toContain('--xds-accent-75:color-mix(in srgb, #FF5733 50%, black)')
+    expect(source).toContain('--xds-accent-50:#FF5733')
+    expect(source).toContain('--xds-accent-25:color-mix(in srgb, #FF5733 50%, white)')
+    expect(source).toContain('--xds-accent-75:color-mix(in srgb, #FF5733 50%, black)')
   })
 })
