@@ -9,10 +9,7 @@
     <SlidingPanel
       :show-buttons="!isTouchable"
       class="xds:sliding-panel-show-buttons-on-hover"
-      :button-class="
-        'xds:button xds:bg-neutral-0 xds:button-sm' +
-        'xds:button-outlined xds:h-40 xds:border-neutral-25 xds:px-16'
-      "
+      button-class="xds:button xds:bg-neutral-0 xds:button-sm xds:button-outlined xds:h-40 xds:border-neutral-25 xds:px-16"
       scroll-container-class="xds:desktop:sliding-panel-fade xds:px-8 xds:desktop:px-0"
     >
       <template #sliding-panel-left-button>
