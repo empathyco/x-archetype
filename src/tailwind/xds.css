@@ -3,6 +3,14 @@
 /* Scan tailwind classes from x-components. */
 @source '../../node_modules/@empathyco/x-components';
 
+@theme {
+  --text-xs: 10px;
+  --text-sm: 12px;
+  --text-md: 14px;
+  --text-lg: 18px;
+  --text-xl: 24px;
+}
+
 @utility message {
   @apply xds:flex xds:flex-wrap xds:items-center xds:justify-center xds:gap-8 xds:bg-neutral-10 xds:px-8 xds:py-8 xds:text-center;
 

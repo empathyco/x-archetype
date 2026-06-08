@@ -3,10 +3,10 @@
     <Scroll id="my-history-scroll">
       <div class="xds:sticky xds:top-0 xds:z-10 xds:layout-item xds:border-b xds:border-neutral-50">
         <section class="x-my-history-aside__header">
-          <h1 class="xds:text-xl xds:font-bold">
+          <h1 class="xds:title1 xds:font-family-alternative xds:title1-sm">
             {{ $t('myHistory.title') }}
           </h1>
-          <BaseIdModalClose class="xds:button xds:button-ghost" modal-id="my-history-aside">
+          <BaseIdModalClose class="xds:button-ghost xds:button-tight" modal-id="my-history-aside">
             <CrossIcon class="xds:icon-lg" />
           </BaseIdModalClose>
         </section>
@@ -14,27 +14,29 @@
 
       <div class="xds:layout-item">
         <div class="x-my-history-aside__content-message">
-          <h2 class="xds:text-md xds:font-bold">{{ $t('myHistory.subtitle') }}</h2>
-          <p class="xds:text-md xds:text-neutral-75">
+          <h3 class="xds:title3">{{ $t('myHistory.subtitle') }}</h3>
+          <p class="xds:text1 xds:text1-lg">
             {{ $t('myHistory.message.body') }}
           </p>
-          <p class="xds:text-md xds:font-bold xds:text-neutral-75">
+          <h3 class="xds:title3">
             {{ $t('myHistory.message.footer') }}
-          </p>
+          </h3>
         </div>
       </div>
 
       <div class="xds:layout-item">
         <div class="x-my-history-aside__content-tool">
           <div class="xds:flex xds:flex-col xds:gap-16">
-            <span class="xds:text-lg xds:font-bold">{{ $t('myHistory.switch.title') }}</span>
-            <span class="xds:text-md xds:text-neutral-75">
+            <h2 class="xds:title2 xds:font-family-alternative xds:title2-sm">
+              {{ $t('myHistory.switch.title') }}
+            </h2>
+            <p class="xds:text1 xds:text1-lg">
               {{
                 x.isHistoryQueriesEnabled
                   ? $t('myHistory.switch.disable')
                   : $t('myHistory.switch.enable')
               }}
-            </span>
+            </p>
           </div>
           <HistoryQueriesSwitch
             :class="{ 'x-switch--is-selected xds:selected': x.isHistoryQueriesEnabled }"
