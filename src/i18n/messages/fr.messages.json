@@ -15,8 +15,7 @@
     "title": "Mon histoire",
     "subtitle": "Ceci est la liste complète des requêtes d'historique",
     "message": {
-      "header": "Ces données sont stockées localement. Juste dans votre appareil et ne voyagez jamais en dehors de celui-ci.",
-      "body": "Vous pouvez désactiver les requêtes d'historique quand vous le souhaitez.",
+      "body": "Ces données sont stockées localement. Juste dans votre appareil et ne voyage jamais en dehors de celui-ci. Vous pouvez désactiver les requêtes d'historique quand vous le souhaitez.",
       "footer": "Votre vie privée sous votre contrôle."
     },
     "noHistory": "Aucune activité d'historique à afficher",

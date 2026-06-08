@@ -40,7 +40,7 @@
       modal-id="my-history-aside"
       :animation="myHistoryAnimation"
       class="x-layout__my-history-modal"
-      content-class="xds:bg-neutral-0"
+      content-class="xds:bg-neutral-0 xds:w-512! xds:ml-auto xds:h-full"
     >
       <slot name="my-history-modal" />
     </BaseIdModal>

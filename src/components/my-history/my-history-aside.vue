@@ -1,31 +1,22 @@
 <template>
-  <div
-    class="xds:flex xds:scroll xds:min-h-0 xds:flex-1 xds:flex-col xds:bg-neutral-0 xds:desktop:overflow-hidden"
-  >
-    <div
-      class="xds:sticky xds:top-0 xds:z-10 xds:flex xds:flex-row xds:items-center xds:gap-16 xds:bg-lead-75 xds:p-16 xds:desktop:p-32"
-    >
-      <BaseIdModalClose
-        class="xds:button-circle xds:button-ghost xds:hover:button-lead xds:desktop:order-1 xds:desktop:ml-auto"
-        modal-id="my-history-aside"
-      >
-        <CrossIcon class="xds:icon-lg xds:text-neutral-0" />
-      </BaseIdModalClose>
-      <h1 class="xds:text-xl xds:font-bold xds:text-neutral-0">
+  <div class="x-my-history-aside xds:scroll xds:desktop:overflow-hidden">
+    <div class="x-my-history-aside__header">
+      <h1 class="xds:text-xl xds:font-bold">
         {{ $t('myHistory.title') }}
       </h1>
+      <BaseIdModalClose
+        class="xds:button-circle xds:button-ghost xds:hover:button-lead"
+        modal-id="my-history-aside"
+      >
+        <CrossIcon class="xds:icon-lg" />
+      </BaseIdModalClose>
     </div>
 
     <div
-      class="xds:flex xds:flex-col xds:divide-y-1 xds:divide-neutral-10 xds:desktop:scroll xds:desktop:flex-1 xds:desktop:overflow-auto"
+      class="x-my-history-aside__content xds:desktop:scroll xds:desktop:flex-1 xds:desktop:overflow-auto"
     >
-      <section
-        class="xds:flex xds:flex-col xds:gap-16 xds:px-16 xds:pt-24 xds:pb-32 xds:desktop:pl-32"
-      >
+      <section class="x-my-history-aside__content-message">
         <h2 class="xds:mb-8 xds:text-md xds:font-bold">{{ $t('myHistory.subtitle') }}</h2>
-        <p class="xds:text-md xds:text-neutral-75">
-          {{ $t('myHistory.message.header') }}
-        </p>
         <p class="xds:text-md xds:text-neutral-75">
           {{ $t('myHistory.message.body') }}
         </p>
@@ -34,9 +25,7 @@
         </p>
       </section>
 
-      <section
-        class="xds:flex xds:items-center xds:justify-between xds:px-16 xds:pt-24 xds:pb-32 xds:desktop:pl-32"
-      >
+      <section class="x-my-history-aside__content-tool">
         <div class="xds:flex xds:flex-col xds:gap-4">
           <span class="xds:text-lg xds:font-bold">{{ $t('myHistory.switch.title') }}</span>
           <span class="xds:text-md xds:text-neutral-75">
@@ -76,6 +65,46 @@ const x = use$x()
 </script>
 
 <style>
+.x-my-history-aside {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1;
+  background-color: var(--xds-color-neutral-0);
+}
+
+.x-my-history-aside__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--xds-spacing-16);
+  background-color: var(--xds-color-neutral-0);
+  padding: var(--xds-spacing-16);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.x-my-history-aside__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.x-my-history-aside__content-message {
+  display: flex;
+  flex-direction: column;
+  gap: var(--xds-spacing-16);
+  padding: var(--xds-spacing-16);
+}
+
+.x-my-history-aside__content-tool {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--xds-spacing-16);
+}
+
 .x-layout__my-history-modal {
   z-index: 40 !important;
 }
