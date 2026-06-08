@@ -143,9 +143,6 @@
   "fallbackDisclaimer": {
     "message": "No results found for {query} with the selected filters. The filters have been unselected"
   },
-  "columnPicker": {
-    "message": "View"
-  },
   "redirections": {
     "title": "Your search matches a special place in our website, to visit it, you are being redirected",
     "accept": "Yes, redirect me",

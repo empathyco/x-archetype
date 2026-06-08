@@ -46,7 +46,6 @@ function render() {
 
   return {
     wrapper,
-    message: wrapper.find('[data-test="column-picker-message"]'),
     baseColumnPickerList: wrapper.findComponent(BaseColumnPickerList),
     grid1ColIcon: wrapper.findComponent(Grid1ColIcon),
     grid2ColIcon: wrapper.findComponent(Grid2ColIcon),
@@ -65,7 +64,6 @@ describe('columnPicker component', () => {
   it('should render correctly by default (desktop)', () => {
     const sut = render()
 
-    expect(sut.message.text()).toBe('columnPicker.message')
     expect(sut.baseColumnPickerList.props('columns')).toStrictEqual(
       gridConfigStub.columnSelector.map(Number),
     )

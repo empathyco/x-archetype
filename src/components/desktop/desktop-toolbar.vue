@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="x.totalResults"
-    class="xds:mb-8 xds:flex xds:items-center xds:justify-end xds:gap-24"
+    class="xds:mb-8 xds:flex xds:items-center xds:justify-end"
     data-test="desktop-toolbar"
   >
     <div
@@ -44,7 +44,7 @@
     <BaseIdModalOpen
       v-if="facetsPanelOverlay"
       modal-id="right-aside"
-      class="xds:button-ghost xds:button-lead xds:text-md xds:font-regular"
+      class="xds:button-ghost xds:button-lead xds:px-8 xds:text-md xds:font-regular"
       data-test="desktop-toolbar-toggle-facets-button"
     >
       <FiltersIcon class="xds:icon-lg" />

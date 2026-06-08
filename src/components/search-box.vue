@@ -12,14 +12,14 @@
 
     <ClearSearchInput
       v-if="isDesktopOrGreater && x.query.searchBox"
-      class="xds:input-group-button xds:input-group-button-rectangle xds:hover:bg-neutral-10"
+      class="xds:input-group-button xds:input-group-button-rectangle xds:input-group-button-ghost"
     >
       {{ $t('searchBox.clear') }}
     </ClearSearchInput>
 
     <ClearSearchInput
       v-if="!isDesktopOrGreater && x.query.searchBox"
-      class="xds:input-group-button-primary xds:input-group-button"
+      class="xds:input-group-button xds:input-group-button-ghost"
     >
       <CrossTinyIcon class="xds:icon-lg" />
     </ClearSearchInput>

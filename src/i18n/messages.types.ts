@@ -150,9 +150,6 @@ export interface Messages {
   fallbackDisclaimer: {
     message: string
   }
-  columnPicker: {
-    message: string
-  }
   redirections: {
     title: string
     accept: string

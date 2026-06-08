@@ -148,9 +148,6 @@
   "fallbackDisclaimer": {
     "message": "Keine Ergebnisse gefunden für {query} mit den ausgewählten Filtern. Die Filter wurden aufgehoben"
   },
-  "columnPicker": {
-    "message": "Ansicht"
-  },
   "redirections": {
     "title": "Ihre Suche entspricht einem besonderen Ort auf unserer Website. Um ihn zu besuchen, werden Sie umgeleitet",
     "accept": "Ja, leite mich um",
