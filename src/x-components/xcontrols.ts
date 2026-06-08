@@ -7,7 +7,7 @@ export const defaultXControlsState = {
     gridConfig: {
       columnPicker: true,
       listMode: true,
-      columnSelector: ['5', '2'],
+      columnSelector: ['5', '3'],
     },
     styles: {
       colors: {
@@ -25,6 +25,10 @@ export const defaultXControlsState = {
         'font-weight-light': '200',
         'font-weight-regular': '400',
         'font-weight-bold': '700',
+        'text-sm': '12px',
+        'text-md': '14px',
+        'text-lg': '18px',
+        'text-xl': '24px',
       },
       button: {
         'button-border-radius': '4px',

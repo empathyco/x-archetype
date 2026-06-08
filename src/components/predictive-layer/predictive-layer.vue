@@ -41,7 +41,7 @@
             <BaseIdModalOpen
               v-if="isTabletOrLess && !x.query.searchBox"
               modal-id="my-history-aside"
-              class="xds:button-sm xds:button-tight xds:self-end xds:button-neutral xds:pr-8 xds:capitalize"
+              class="xds:button-sm xds:button-tight xds:self-end xds:button-neutral xds:pr-8 xds:text-md xds:font-bold xds:capitalize"
             >
               {{ $t('myHistory.openButton') }}
               <SettingsIcon class="xds:icon-lg" />
@@ -64,7 +64,7 @@
             <BaseIdModalOpen
               v-if="isDesktopOrGreater && !x.query.searchBox"
               modal-id="my-history-aside"
-              class="xds:button-sm xds:button-tight xds:self-start xds:button-neutral"
+              class="xds:button-sm xds:button-tight xds:self-start xds:button-neutral xds:text-md xds:font-bold"
               data-test="my-history-button"
             >
               <SettingsIcon />

@@ -1,10 +1,12 @@
 <template>
   <CustomHeaderTogglePanel data-test="sort">
     <template #header>
-      <span class="xds:title3">
+      <span class="xds:text-lg xds:font-bold">
         {{ $t('sort.label') }}
       </span>
-      <span>{{ $t(`sort.values.${x.selectedSort || 'default'}`) }}</span>
+      <span class="xds:h-min xds:self-center xds:text-md">{{
+        $t(`sort.values.${x.selectedSort || 'default'}`)
+      }}</span>
     </template>
     <template #default>
       <SortPickerList
@@ -16,7 +18,7 @@
         <template #default="{ item, isSelected }">
           <RadioButtonSelectedIcon v-if="isSelected" class="xds:icon-lg" />
           <RadioButtonUnselectedIcon v-else class="xds:icon-lg" />
-          {{ $t(`sort.values.${item || 'default'}`) }}
+          <span class="xds:text-md">{{ $t(`sort.values.${item || 'default'}`) }}</span>
         </template>
       </SortPickerList>
     </template>

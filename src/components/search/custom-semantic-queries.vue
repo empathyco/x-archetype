@@ -9,10 +9,7 @@
     }"
   >
     <section>
-      <h1
-        v-if="isAnyQueryLoadedInPreview(queries)"
-        class="xds:my-64 xds:text-center xds:title1 xds:title1-md"
-      >
+      <h1 v-if="isAnyQueryLoadedInPreview(queries)" class="xds:my-64 xds:text-center xds:text-xl">
         {{ $t('semanticQueries.title', { query: x.query.search }) }}
       </h1>
       <QueryPreviewList

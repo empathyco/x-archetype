@@ -6,7 +6,7 @@
   >
     <div class="xds:flex xds:flex-auto xds:items-center xds:justify-end">
       <Translation
-        class="xds:flex-auto xds:text1"
+        class="xds:flex-auto xds:text-md"
         keypath="totalResults.device.mobile.message"
         tag="span"
         scope="global"
@@ -16,7 +16,7 @@
           {{ x.totalResults }}
         </template>
         <template #query>
-          <span class="xds:title3">
+          <span class="xds:text-md">
             {{ x.spellcheckedQuery || query }}
           </span>
         </template>
