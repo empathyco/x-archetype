@@ -11,9 +11,9 @@ export const defaultXControlsState = {
     },
     styles: {
       colors: {
-        'color-lead': '#5e7782',
-        'color-auxiliary': '#0086b2',
-        'color-font': '#5f717b',
+        'color-lead': '#0060FC',
+        'color-auxiliary': '#E138AE',
+        'color-font': '#000000',
       },
       font: {
         'font-family-main': 'inherit',
