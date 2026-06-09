@@ -3,7 +3,7 @@
     <Scroll id="my-history-scroll">
       <div class="xds:sticky xds:top-0 xds:z-10 xds:layout-item xds:border-b xds:border-neutral-50">
         <section class="x-my-history-aside__header">
-          <h1 class="xds:title1 xds:font-family-alternative xds:title1-sm">
+          <h1 class="xds:font-family-alternative xds:text-xl xds:font-bold">
             {{ $t('myHistory.title') }}
           </h1>
           <BaseIdModalClose class="xds:button-ghost xds:button-tight" modal-id="my-history-aside">
@@ -14,11 +14,11 @@
 
       <div class="xds:layout-item">
         <div class="x-my-history-aside__content-message">
-          <h3 class="xds:title3">{{ $t('myHistory.subtitle') }}</h3>
-          <p class="xds:text1 xds:text1-lg">
+          <h3 class="xds:text-md xds:font-bold">{{ $t('myHistory.subtitle') }}</h3>
+          <p class="xds:text-md">
             {{ $t('myHistory.message.body') }}
           </p>
-          <h3 class="xds:title3">
+          <h3 class="xds:text-md xds:font-bold">
             {{ $t('myHistory.message.footer') }}
           </h3>
         </div>
@@ -27,10 +27,10 @@
       <div class="xds:layout-item">
         <div class="x-my-history-aside__content-tool">
           <div class="xds:flex xds:flex-col xds:gap-16">
-            <h2 class="xds:title2 xds:font-family-alternative xds:title2-sm">
+            <h2 class="xds:font-family-alternative xds:text-lg xds:font-bold">
               {{ $t('myHistory.switch.title') }}
             </h2>
-            <p class="xds:text1 xds:text1-lg">
+            <p class="xds:text-md">
               {{
                 x.isHistoryQueriesEnabled
                   ? $t('myHistory.switch.disable')

@@ -7,7 +7,7 @@
         queries-list-class="xds:gap-16"
       >
         <template #date="{ date }">
-          <h2 class="xds:py-16 xds:title2 xds:font-family-alternative xds:title2-sm">
+          <h2 class="xds:py-16 xds:font-family-alternative xds:text-lg xds:font-bold">
             {{ date }}
           </h2>
         </template>
@@ -23,7 +23,7 @@
             <HistoryIcon class="xds:icon-lg!" />
 
             <div class="xds:group xds:flex xds:flex-col xds:gap-8">
-              <h3 class="xds:title3 xds:group-hover:underline">
+              <h3 class="xds:text-md xds:group-hover:underline">
                 {{ suggestion.query }}
               </h3>
 
@@ -33,7 +33,7 @@
                 :filters-list="suggestion.selectedFilters"
               />
 
-              <p class="xds:text1 xds:text1-lg">
+              <p class="xds:text-md">
                 {{ formatTime(suggestion.timestamp) }}
                 <template v-if="suggestion.totalResults !== undefined">
                   -
