@@ -1,12 +1,14 @@
 <template>
   <div class="xds:flex xds:flex-col xds:gap-4">
     <div v-if="!x.query.searchBox" class="xds:flex xds:min-h-32 xds:items-center">
-      <h1 class="xds:flex-1 xds:text-md xds:font-bold">
+      <h1 class="xds:flex-1 xds:text-md xds:font-bold xds:text-font">
         {{ $t('historyQueries.title') }}
       </h1>
       <ClearHistoryQueries class="xds:button-sm xds:button-tight xds:button-neutral xds:px-8">
-        <TrashIcon v-if="isTabletOrLess" class="xds:icon-lg" />
-        <span v-else class="xds:text-sm xds:font-regular">{{ $t('historyQueries.clear') }}</span>
+        <TrashIcon v-if="isTabletOrLess" class="xds:icon-lg xds:text-font" />
+        <span v-else class="xds:text-sm xds:font-regular xds:text-font">{{
+          $t('historyQueries.clear')
+        }}</span>
       </ClearHistoryQueries>
     </div>
 
@@ -24,13 +26,13 @@
       >
         <template #suggestion="{ suggestion }">
           <HistoryQuery
-            class="xds:hover:no-underline"
+            class="xds:text-font xds:hover:no-underline"
             :class="{
-              'xds:suggestion-group-outlined': horizontalLayout,
+              'xds:suggestion-group-outlined xds:border-lead': horizontalLayout,
               'xds:suggestion-group-lg xds:desktop:suggestion-group-md': !horizontalLayout,
             }"
             :suggestion="suggestion"
-            :suggestion-class="`xds:suggestion  ${!horizontalLayout ? 'xds:suggestion-lg xds:desktop:suggestion-md' : ''}`"
+            :suggestion-class="`xds:suggestion ${!horizontalLayout ? 'xds:suggestion-lg xds:desktop:suggestion-md' : ''}`"
           >
             <template #default="{ query }">
               <HistoryIcon class="xds:mb-4 xds:icon-lg xds:desktop:mb-0 xds:desktop:icon-md" />

@@ -4,7 +4,7 @@
 @source '../../node_modules/@empathyco/x-components';
 
 @utility message {
-  @apply xds:flex xds:flex-wrap xds:items-center xds:justify-center xds:gap-8 xds:bg-neutral-10 xds:px-8 xds:py-8 xds:text-center;
+  @apply xds:flex xds:flex-wrap xds:items-center xds:justify-center xds:gap-8 xds:bg-lead-light xds:px-8 xds:py-8 xds:text-center;
 
   @variant desktop {
     @apply xds:py-24;

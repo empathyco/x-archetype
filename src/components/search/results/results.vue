@@ -44,7 +44,7 @@
                 <CustomQueryPreview
                   v-if="selectedPrompt !== -1"
                   :key="queriesPreviewInfo.length"
-                  class="xds:rounded-b-xl xds:bg-neutral-10 xds:px-8 xds:desktop:px-16"
+                  class="xds:rounded-b-md xds:border xds:border-neutral-25 xds:bg-neutral-0 xds:px-8 xds:desktop:px-16"
                   :queries-preview-info="queriesPreviewInfo"
                   query-feature="related_prompts"
                 />

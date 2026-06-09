@@ -9,11 +9,11 @@
       v-if="facetsPanelOverlay"
       class="xds:flex xds:items-center xds:border-b xds:border-neutral-90 xds:p-24 xds:pr-32 xds:pl-40"
     >
-      <span class="xds:mr-auto xds:text-xl xds:font-bold">
+      <span class="xds:mr-auto xds:text-xl xds:font-bold xds:text-font">
         {{ $t('facetsPanel.title') }}
       </span>
       <BaseIdModalClose
-        class="xds:button xds:button-circle xds:button-ghost xds:button-lead"
+        class="xds:button xds:button-circle xds:button-ghost xds:text-font"
         modal-id="right-aside"
       >
         <CrossIcon class="xds:icon-lg" />

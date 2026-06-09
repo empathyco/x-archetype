@@ -1,7 +1,7 @@
 <template>
   <div class="xds:flex xds:flex-col xds:gap-4">
     <div class="xds:flex xds:min-h-32 xds:items-center">
-      <h1 class="xds:py-8 xds:text-md xds:font-bold xds:desktop:p-0">
+      <h1 class="xds:py-8 xds:text-md xds:font-bold xds:text-font xds:desktop:p-0">
         {{ $t('nextQueries.title') }}
       </h1>
     </div>
@@ -19,9 +19,9 @@
       >
         <template #suggestion="{ suggestion }">
           <NextQuery
-            class="xds:suggestion"
+            class="xds:suggestion xds:text-font"
             :class="{
-              'xds:suggestion-outlined': horizontalLayout,
+              'xds:suggestion-outlined xds:border-lead': horizontalLayout,
               'xds:suggestion-lg xds:desktop:suggestion-md': !horizontalLayout,
             }"
             :suggestion="suggestion"

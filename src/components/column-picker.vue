@@ -2,7 +2,7 @@
   <BaseColumnPickerList
     :columns="columns"
     class="xds:gap-8 xds:px-16"
-    button-class="xds:button xds:button-tight xds:ps-0 xds:pe-0 xds:text-neutral-25 xds:selected:text-neutral-100"
+    button-class="xds:button xds:button-tight xds:ps-0 xds:pe-0 xds:text-neutral-25 xds:selected:text-font! xds:hover:text-font!"
   >
     <template #default="{ column }: { column: number }">
       <component :is="icons[column]" class="xds:icon-lg" />

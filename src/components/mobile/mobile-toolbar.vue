@@ -6,7 +6,7 @@
   >
     <div class="xds:flex xds:flex-auto xds:items-center xds:justify-end">
       <Translation
-        class="xds:flex-auto xds:text-md"
+        class="xds:flex-auto xds:text-md xds:text-font"
         keypath="totalResults.device.mobile.message"
         tag="span"
         scope="global"

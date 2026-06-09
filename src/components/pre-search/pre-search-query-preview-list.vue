@@ -9,7 +9,9 @@
     data-wysiwyg="query-previews"
   >
     <div class="xds:mb-40 xds:flex xds:flex-col xds:gap-2 xds:desktop:mb-64 xds:desktop:gap-16">
-      <h1 class="xds:text-xl xds:max-desktop:px-16 xds:max-desktop:text-lg">
+      <h1
+        class="xds:text-xl xds:font-bold xds:text-font xds:max-desktop:px-16 xds:max-desktop:text-lg"
+      >
         {{ queryPreviewInfo.title }}
       </h1>
       <DisplayEmitter
@@ -21,7 +23,7 @@
             <QueryPreviewButton
               :query-preview-info="queryPreviewInfo"
               :metadata="metadata"
-              class="xds:button xds:button-tight xds:button-lead xds:max-desktop:px-16"
+              class="xds:button xds:button-tight xds:text-md xds:font-bold xds:text-font xds:max-desktop:px-16"
             >
               {{ queryPreviewInfo.query }}
               ({{ totalResults }})

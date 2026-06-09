@@ -4,7 +4,7 @@
     class="xds:border-0 xds:border-t xds:border-neutral-10"
   >
     <template #header>
-      <span class="xds:text-lg xds:font-bold">
+      <span class="xds:text-lg xds:font-bold xds:text-font">
         {{ setFacetLabel($t(`facets.${facet?.label}`), facet?.label) }}
       </span>
       <FacetSelectedFilters :selected-filters="selectedFilters" />

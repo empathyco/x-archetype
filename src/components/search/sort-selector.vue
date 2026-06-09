@@ -7,19 +7,21 @@
   >
     <template #toggle="{ isOpen }">
       <div
-        class="xds:button xds:button-ghost xds:gap-8 xds:button-lead xds:text-md xds:font-normal xds:text-neutral-90"
+        class="xds:button xds:button-ghost xds:gap-8 xds:text-md xds:font-normal xds:text-font xds:hover:text-font-dark"
       >
         <span>{{ $t('sort.label') }}</span>
-        <span class="xds:font-bold xds:text-lead-75">
+        <span class="xds:font-bold">
           {{ $t(`sort.values.${x.selectedSort || 'default'}`) }}
         </span>
-        <ChevronUpIcon v-if="isOpen" class="xds:text-lead-100 xds:icon-lg" />
-        <ChevronDownIcon v-else class="xds:text-lead-100 xds:icon-lg" />
+        <ChevronUpIcon v-if="isOpen" class="xds:icon-lg" />
+        <ChevronDownIcon v-else class="xds:icon-lg" />
       </div>
     </template>
 
     <template #item="{ isSelected, item }">
-      <div class="xds:filter-facet xds:bg-neutral-0 xds:px-16 xds:hover:text-neutral-100">
+      <div
+        class="xds:filter-facet xds:bg-neutral-0 xds:px-16 xds:text-font xds:hover:text-font-dark"
+      >
         <RadioButtonSelectedIcon v-if="isSelected" class="xds:icon-lg" />
         <RadioButtonUnselectedIcon v-else class="xds:icon-lg" />
         <span class="xds:text-md" :class="{ 'xds:font-bold': isSelected }">{{

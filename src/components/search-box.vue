@@ -1,5 +1,5 @@
 <template>
-  <div class="xds:input-group xds:input-group-line xds:rounded-sm xds:input-group-lead">
+  <div class="xds:input-group xds:input-group-line xds:rounded-sm xds:input-group-neutral">
     <SearchIcon class="xds:ml-0! xds:icon-lg" />
 
     <SearchInput

@@ -2,7 +2,7 @@
   <MobileLayout>
     <template #header>
       <div class="xds:flex xds:w-full xds:gap-8 xds:py-16">
-        <CloseMainModal class="xds:button-circle xds:button-ghost xds:button-lead">
+        <CloseMainModal class="xds:button-circle xds:button-ghost xds:text-neutral-100">
           <ArrowLeftIcon class="xds:icon-lg" />
         </CloseMainModal>
         <SearchBox class="xds:flex-1" />
