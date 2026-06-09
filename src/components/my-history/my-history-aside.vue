@@ -2,18 +2,20 @@
   <div class="xds:layout-container xds:gap-8 xds:layout-min-margin-24">
     <Scroll id="my-history-scroll">
       <div class="xds:sticky xds:top-0 xds:z-10 xds:layout-item xds:border-b xds:border-neutral-50">
-        <section class="x-my-history-aside__header">
+        <div
+          class="xds:flex xds:h-80 xds:flex-row xds:items-center xds:justify-between xds:bg-neutral-0"
+        >
           <h1 class="xds:font-family-alternative xds:text-xl xds:font-bold">
             {{ $t('myHistory.title') }}
           </h1>
           <BaseIdModalClose class="xds:button-ghost xds:button-tight" modal-id="my-history-aside">
             <CrossIcon class="xds:icon-lg" />
           </BaseIdModalClose>
-        </section>
+        </div>
       </div>
 
       <div class="xds:layout-item">
-        <div class="x-my-history-aside__content-message">
+        <div class="xds:flex xds:flex-col xds:gap-12 xds:border-b xds:border-neutral-25 xds:py-16">
           <h3 class="xds:text-md xds:font-bold">{{ $t('myHistory.subtitle') }}</h3>
           <p class="xds:text-md">
             {{ $t('myHistory.message.body') }}
@@ -25,7 +27,7 @@
       </div>
 
       <div class="xds:layout-item">
-        <div class="x-my-history-aside__content-tool">
+        <div class="xds:flex xds:items-center xds:justify-between xds:py-8">
           <div class="xds:flex xds:flex-col xds:gap-16">
             <h2 class="xds:font-family-alternative xds:text-lg xds:font-bold">
               {{ $t('myHistory.switch.title') }}
@@ -69,29 +71,3 @@ onMounted(() => {
 
 const x = use$x()
 </script>
-
-<style scoped>
-.x-my-history-aside__header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--xds-color-neutral-0);
-  height: var(--xds-spacing-80);
-}
-
-.x-my-history-aside__content-message {
-  display: flex;
-  flex-direction: column;
-  gap: var(--xds-spacing-12);
-  padding-block: var(--xds-spacing-16);
-  border-bottom: 1px solid var(--xds-color-neutral-25);
-}
-
-.x-my-history-aside__content-tool {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-block: var(--xds-spacing-8);
-}
-</style>
