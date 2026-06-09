@@ -1,67 +1,64 @@
 <template>
-  <div
-    class="xds:flex xds:scroll xds:min-h-0 xds:flex-1 xds:flex-col xds:bg-neutral-0 xds:desktop:overflow-hidden"
-  >
-    <div
-      class="xds:sticky xds:top-0 xds:z-10 xds:flex xds:flex-row xds:items-center xds:gap-16 xds:bg-lead-75 xds:p-16 xds:desktop:p-32"
-    >
-      <BaseIdModalClose
-        class="xds:button-circle xds:button-ghost xds:hover:button-lead xds:desktop:order-1 xds:desktop:ml-auto"
-        modal-id="my-history-aside"
-      >
-        <CrossIcon class="xds:icon-lg xds:text-neutral-0" />
-      </BaseIdModalClose>
-      <h1 class="xds:text-xl xds:font-bold xds:text-neutral-0">
-        {{ $t('myHistory.title') }}
-      </h1>
-    </div>
-
-    <div
-      class="xds:flex xds:flex-col xds:divide-y-1 xds:divide-neutral-10 xds:desktop:scroll xds:desktop:flex-1 xds:desktop:overflow-auto"
-    >
-      <section
-        class="xds:flex xds:flex-col xds:gap-16 xds:px-16 xds:pt-24 xds:pb-32 xds:desktop:pl-32"
-      >
-        <h2 class="xds:mb-8 xds:text-md xds:font-bold">{{ $t('myHistory.subtitle') }}</h2>
-        <p class="xds:text-md xds:text-neutral-75">
-          {{ $t('myHistory.message.header') }}
-        </p>
-        <p class="xds:text-md xds:text-neutral-75">
-          {{ $t('myHistory.message.body') }}
-        </p>
-        <p class="xds:text-md xds:font-bold xds:text-neutral-75">
-          {{ $t('myHistory.message.footer') }}
-        </p>
-      </section>
-
-      <section
-        class="xds:flex xds:items-center xds:justify-between xds:px-16 xds:pt-24 xds:pb-32 xds:desktop:pl-32"
-      >
-        <div class="xds:flex xds:flex-col xds:gap-4">
-          <span class="xds:text-lg xds:font-bold">{{ $t('myHistory.switch.title') }}</span>
-          <span class="xds:text-md xds:text-neutral-75">
-            {{
-              x.isHistoryQueriesEnabled
-                ? $t('myHistory.switch.disable')
-                : $t('myHistory.switch.enable')
-            }}
-          </span>
+  <div class="xds:layout-container xds:gap-8 xds:layout-min-margin-24">
+    <Scroll id="my-history-scroll">
+      <div class="xds:sticky xds:top-0 xds:z-10 xds:layout-item xds:border-b xds:border-neutral-50">
+        <div
+          class="xds:flex xds:h-80 xds:flex-row xds:items-center xds:justify-between xds:bg-neutral-0"
+        >
+          <h1 class="xds:font-family-alternative xds:text-xl xds:font-bold">
+            {{ $t('myHistory.title') }}
+          </h1>
+          <BaseIdModalClose class="xds:button-ghost xds:button-tight" modal-id="my-history-aside">
+            <CrossIcon class="xds:icon-lg" />
+          </BaseIdModalClose>
         </div>
-        <HistoryQueriesSwitch
-          :class="{ 'x-switch--is-selected xds:selected': x.isHistoryQueriesEnabled }"
-        />
-      </section>
+      </div>
 
-      <LocationProvider location="my_history">
-        <CustomMyHistory />
-      </LocationProvider>
-    </div>
+      <div class="xds:layout-item">
+        <div class="xds:flex xds:flex-col xds:gap-12 xds:border-b xds:border-neutral-25 xds:py-16">
+          <h3 class="xds:text-md xds:font-bold">{{ $t('myHistory.subtitle') }}</h3>
+          <p class="xds:text-md">
+            {{ $t('myHistory.message.body') }}
+          </p>
+          <h3 class="xds:text-md xds:font-bold">
+            {{ $t('myHistory.message.footer') }}
+          </h3>
+        </div>
+      </div>
+
+      <div class="xds:layout-item">
+        <div class="xds:flex xds:items-center xds:justify-between xds:py-8">
+          <div class="xds:flex xds:flex-col xds:gap-16">
+            <h2 class="xds:font-family-alternative xds:text-lg xds:font-bold">
+              {{ $t('myHistory.switch.title') }}
+            </h2>
+            <p class="xds:text-md">
+              {{
+                x.isHistoryQueriesEnabled
+                  ? $t('myHistory.switch.disable')
+                  : $t('myHistory.switch.enable')
+              }}
+            </p>
+          </div>
+          <HistoryQueriesSwitch
+            :class="{ 'x-switch--is-selected xds:selected': x.isHistoryQueriesEnabled }"
+          />
+        </div>
+      </div>
+
+      <div class="xds:layout-item">
+        <LocationProvider location="my_history">
+          <CustomMyHistory />
+        </LocationProvider>
+      </div>
+    </Scroll>
   </div>
 </template>
 
 <script setup lang="ts">
 import { BaseIdModalClose, CrossIcon, LocationProvider, use$x } from '@empathyco/x-components'
 import { HistoryQueriesSwitch } from '@empathyco/x-components/history-queries'
+import { Scroll } from '@empathyco/x-components/scroll'
 import { onMounted } from 'vue'
 import CustomMyHistory from './custom-my-history.vue'
 
@@ -74,9 +71,3 @@ onMounted(() => {
 
 const x = use$x()
 </script>
-
-<style>
-.x-layout__my-history-modal {
-  z-index: 40 !important;
-}
-</style>

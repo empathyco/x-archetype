@@ -12,11 +12,10 @@
     "title": "Histórico de buscas"
   },
   "myHistory": {
-    "title": "Meu histórico",
+    "title": "Meu Histórico",
     "subtitle": "Esse é seu histórico de buscas",
     "message": {
-      "header": "Seus dados são salvos localmente. Ficam apenas em seu dispositivo e não são compartilhados externamente.",
-      "body": "Você pode desativar o seu histórico de buscas sempre que desejar.",
+      "body": "Seus dados são salvos localmente. Ficam apenas em seu dispositivo e não são compartilhados externamente. Você pode desativar o seu histórico de buscas sempre que desejar.",
       "footer": "Sua privacidade sob seu controle."
     },
     "noHistory": "Não há histórico de buscas para mostrar",

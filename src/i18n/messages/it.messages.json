@@ -12,11 +12,10 @@
     "title": "Cronologia"
   },
   "myHistory": {
-    "title": "La mia cronologia",
+    "title": "La Mia Cronologia",
     "subtitle": "Questa e' la tua cronologia ricerche",
     "message": {
-      "header": "I dati vengono salvati localmente solo sul tuo dispositivo.",
-      "body": "Puoi disattivare la cronologia ricerche in qualsiasi momento.",
+      "body": "I dati vengono salvati localmente solo sul tuo dispositivo. Puoi disattivare la cronologia ricerche in qualsiasi momento.",
       "footer": "La tua privacy sotto il tuo controllo."
     },
     "noHistory": "La cronologia e' vuota",

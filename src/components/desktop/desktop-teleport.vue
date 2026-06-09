@@ -67,7 +67,7 @@
           key="my-history-aside"
           :animation="rightAsideAnimation"
           modal-id="my-history-aside"
-          content-class="xds:w-512! xds:ml-auto xds:h-full"
+          content-class="xds:bg-neutral-0 xds:w-512! xds:ml-auto xds:h-full"
         >
           <MyHistoryAside />
         </BaseIdModal>

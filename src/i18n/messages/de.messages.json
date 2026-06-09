@@ -12,11 +12,10 @@
     "title": "Verlaufsanfragen"
   },
   "myHistory": {
-    "title": "Mein verlauf",
+    "title": "Mein Verlauf",
     "subtitle": "Dies ist die vollständige Liste der Verlaufsanfragen",
     "message": {
-      "header": "Diese Daten werden lokal gespeichert. Nur auf Ihrem Gerät und verlassen es nie.",
-      "body": "Sie können die Verlaufsanfragen jederzeit deaktivieren.",
+      "body": "Diese Daten werden lokal gespeichert. Nur auf Ihrem Gerät und verlassen es nie. Sie können die Verlaufsanfragen jederzeit deaktivieren.",
       "footer": "Ihre Privatsphäre unter Ihrer Kontrolle."
     },
     "noHistory": "Keine Verlaufaktivität vorhanden",

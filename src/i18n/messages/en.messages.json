@@ -12,11 +12,10 @@
     "title": "History queries"
   },
   "myHistory": {
-    "title": "My history",
+    "title": "My History",
     "subtitle": "This is the complete list of history queries",
     "message": {
-      "header": "This data is stored locally. Just in your device and never travel outside of it.",
-      "body": "You can disable the history queries whenever you want.",
+      "body": "This data is stored locally. Just in your device and never travels outside of it. You can disable the history queries whenever you want.",
       "footer": "Your privacy under your control."
     },
     "noHistory": "No history activity to show",

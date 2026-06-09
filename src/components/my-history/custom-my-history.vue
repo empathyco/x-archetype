@@ -1,62 +1,59 @@
 <template>
-  <div class="xds:flex-1">
-    <BaseIdModalClose modal-id="my-history-aside">
-      <template #closing-element="{ closeModal }">
-        <MyHistory
-          v-if="x.isHistoryQueriesEnabled && x.fullHistoryQueries.length"
-          :animation="animation"
-          class="xds:px-16 xds:pb-32 xds:desktop:pl-32"
-          queries-list-class="xds:gap-16"
-        >
-          <template #date="{ date }">
-            <div class="xds:py-16 xds:text-lg xds:font-bold xds:text-neutral-75">{{ date }}</div>
-          </template>
+  <BaseIdModalClose modal-id="my-history-aside">
+    <template #closing-element="{ closeModal }">
+      <MyHistory
+        v-if="x.isHistoryQueriesEnabled && x.fullHistoryQueries.length"
+        :animation="animation"
+        queries-list-class="xds:gap-16"
+      >
+        <template #date="{ date }">
+          <h2 class="xds:py-16 xds:font-family-alternative xds:text-lg xds:font-bold">
+            {{ date }}
+          </h2>
+        </template>
 
-          <template #suggestion="{ suggestion, formatTime }">
-            <HistoryQuery
-              data-test="my-history-query"
-              :suggestion="suggestion"
-              suggestion-class="xds:suggestion"
-              class="xds:hover:no-underline"
-              @click="closeModal"
-            >
-              <HistoryIcon class="xds:max-desktop:icon-lg" />
+        <template #suggestion="{ suggestion, formatTime }">
+          <HistoryQuery
+            data-test="my-history-query"
+            :suggestion="suggestion"
+            suggestion-class="xds:suggestion xds:gap-16!"
+            class="xds:hover:no-underline"
+            @click="closeModal"
+          >
+            <HistoryIcon class="xds:icon-lg!" />
 
-              <div class="xds:group xds:flex xds:flex-col xds:gap-2">
-                <p class="xds:text-md xds:font-bold xds:group-hover:underline">
-                  {{ suggestion.query }}
-                </p>
+            <div class="xds:group xds:flex xds:flex-col xds:gap-8">
+              <h3 class="xds:text-md xds:group-hover:underline">
+                {{ suggestion.query }}
+              </h3>
 
-                <HistoryQueryFilters
-                  :show-length="true"
-                  class="xds:w-224 xds:desktop:w-320"
-                  :filters-list="suggestion.selectedFilters"
-                />
+              <HistoryQueryFilters
+                :show-length="true"
+                class="xds:w-224 xds:desktop:w-320"
+                :filters-list="suggestion.selectedFilters"
+              />
 
-                <p class="xds:text-md xds:text-neutral-75">
-                  {{ formatTime(suggestion.timestamp) }}
-                  <template v-if="suggestion.totalResults !== undefined">
-                    -
-                    {{
-                      $t('myHistory.suggestionResults', suggestion.totalResults, {
-                        count: suggestion.totalResults,
-                      })
-                    }}
-                  </template>
-                </p>
-              </div>
+              <p class="xds:text-md">
+                {{ formatTime(suggestion.timestamp) }}
+                <template v-if="suggestion.totalResults !== undefined">
+                  -
+                  {{
+                    $t('myHistory.suggestionResults', suggestion.totalResults, {
+                      count: suggestion.totalResults,
+                    })
+                  }}
+                </template>
+              </p>
+            </div>
 
-              <template #remove-button-content>
-                <CrossTinyIcon class="xds:icon-lg" />
-              </template>
-            </HistoryQuery>
-          </template>
-        </MyHistory>
-
-        <div v-else />
-      </template>
-    </BaseIdModalClose>
-  </div>
+            <template #remove-button-content>
+              <CrossTinyIcon class="xds:icon-lg!" />
+            </template>
+          </HistoryQuery>
+        </template>
+      </MyHistory>
+    </template>
+  </BaseIdModalClose>
 </template>
 
 <script setup lang="ts">
@@ -70,6 +67,6 @@ import {
 import { HistoryQuery, MyHistory } from '@empathyco/x-components/history-queries'
 import HistoryQueryFilters from '../history-query-filters.vue'
 
-const animation = StaggeredFadeAndSlide as any
+const animation = StaggeredFadeAndSlide
 const x = use$x()
 </script>
