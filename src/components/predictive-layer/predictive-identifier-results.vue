@@ -3,7 +3,7 @@
     v-slot="{ identifierResult }"
     :max-items-to-render="5"
     :animation="animation"
-    class="xds:flex xds:flex-col xds:gap-8 xds:desktop:col-span-12 xds:desktop:gap-4"
+    class="xds:flex xds:flex-col xds:gap-8 xds:text-font xds:desktop:col-span-12 xds:desktop:gap-4"
   >
     <BaseResultLink
       v-slot="{ result }"

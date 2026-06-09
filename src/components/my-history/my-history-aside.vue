@@ -5,7 +5,7 @@
         <div
           class="xds:flex xds:h-80 xds:flex-row xds:items-center xds:justify-between xds:bg-neutral-0"
         >
-          <h1 class="xds:font-family-alternative xds:text-xl xds:font-bold">
+          <h1 class="xds:font-family-alternative xds:text-xl xds:font-bold xds:text-font">
             {{ $t('myHistory.title') }}
           </h1>
           <BaseIdModalClose class="xds:button-ghost xds:button-tight" modal-id="my-history-aside">
@@ -15,7 +15,9 @@
       </div>
 
       <div class="xds:layout-item">
-        <div class="xds:flex xds:flex-col xds:gap-12 xds:border-b xds:border-neutral-25 xds:py-16">
+        <div
+          class="xds:flex xds:flex-col xds:gap-12 xds:border-b xds:border-neutral-25 xds:py-16 xds:text-font"
+        >
           <h3 class="xds:text-md xds:font-bold">{{ $t('myHistory.subtitle') }}</h3>
           <p class="xds:text-md">
             {{ $t('myHistory.message.body') }}
@@ -28,7 +30,7 @@
 
       <div class="xds:layout-item">
         <div class="xds:flex xds:items-center xds:justify-between xds:py-8">
-          <div class="xds:flex xds:flex-col xds:gap-16">
+          <div class="xds:flex xds:flex-col xds:gap-16 xds:text-font">
             <h2 class="xds:font-family-alternative xds:text-lg xds:font-bold">
               {{ $t('myHistory.switch.title') }}
             </h2>
@@ -41,7 +43,9 @@
             </p>
           </div>
           <HistoryQueriesSwitch
-            :class="{ 'x-switch--is-selected xds:selected': x.isHistoryQueriesEnabled }"
+            :class="{
+              'x-switch--is-selected xds:selected xds:bg-lead!': x.isHistoryQueriesEnabled,
+            }"
           />
         </div>
       </div>

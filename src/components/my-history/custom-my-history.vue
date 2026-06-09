@@ -7,7 +7,7 @@
         queries-list-class="xds:gap-16"
       >
         <template #date="{ date }">
-          <h2 class="xds:py-16 xds:font-family-alternative xds:text-lg xds:font-bold">
+          <h2 class="xds:py-16 xds:font-family-alternative xds:text-lg xds:font-bold xds:text-font">
             {{ date }}
           </h2>
         </template>
@@ -17,7 +17,7 @@
             data-test="my-history-query"
             :suggestion="suggestion"
             suggestion-class="xds:suggestion xds:gap-16!"
-            class="xds:hover:no-underline"
+            class="xds:text-font xds:hover:no-underline"
             @click="closeModal"
           >
             <HistoryIcon class="xds:icon-lg!" />

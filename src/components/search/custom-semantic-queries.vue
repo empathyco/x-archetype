@@ -22,7 +22,7 @@
           <template #header>
             <SemanticQuery
               :suggestion="findSemanticQuery(query)"
-              class="xds:button xds:button-tight xds:button-neutral xds:max-desktop:px-16"
+              class="xds:button xds:button-tight xds:text-font xds:max-desktop:px-16"
             >
               {{ query }}
               ({{ totalResults }})
