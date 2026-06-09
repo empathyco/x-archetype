@@ -34,3 +34,27 @@
 @utility suggestion-group {
   @apply xds:rounded-[var(--xds-tag-border-radius)]!;
 }
+
+/* These are the mappings from xds to the Figma variables */
+/* https://www.figma.com/design/5NqIoKOnXwiVYnAQXv1gT5/Empathy-X---Template-2026?node-id=29572-35972&view=variables&t=LlXa4djWN7RP0TCT-0 */
+@theme {
+  --color-lead: var(--xds-color-lead-50);
+  --color-lead-dark: var(--xds-color-lead-75);
+  --color-lead-light: var(--xds-color-lead-25);
+
+  --color-auxiliary: var(--xds-color-auxiliary-50);
+  --color-auxiliary-dark: var(--xds-color-auxiliary-75);
+  --color-auxiliary-light: var(--xds-color-auxiliary-25);
+
+  --color-font: var(--xds-color-font-50);
+  --color-font-dark: var(--xds-color-font-75);
+  --color-font-light: var(--xds-color-font-25);
+
+  --color-neutral-0: #ffffff;
+  --color-neutral-10: #e5e5e5;
+  --color-neutral-25: #bfbfbf;
+  --color-neutral-50: #808080;
+  --color-neutral-75: #404040;
+  --color-neutral-90: #1a1a1a;
+  --color-neutral-100: #000000;
+}
