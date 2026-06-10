@@ -12,11 +12,10 @@
     "title": "Historial"
   },
   "myHistory": {
-    "title": "Mi historial",
+    "title": "Mi Historial",
     "subtitle": "Este es tu historial de búsqueda",
     "message": {
-      "header": "Los datos se guardan en local. Solo están en tu dispositivo y nunca salen de ahí.",
-      "body": "Puedes desactivar el historial de búsqueda cuando quieras.",
+      "body": "Los datos se guardan en local. Solo están en tu dispositivo y nunca salen de ahí. Puedes desactivar el historial de búsqueda cuando quieras.",
       "footer": "Tu privacidad bajo tu control."
     },
     "noHistory": "No hay historial de búsqueda para mostrar",

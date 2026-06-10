@@ -1,4 +1,4 @@
-export const xControlsState = {
+export const defaultXControlsState = {
   controls: {
     aiSearchFallback: true,
     fullPredictiveLayer: false,
@@ -11,14 +11,9 @@ export const xControlsState = {
     },
     styles: {
       colors: {
-        'color-lead-25': '#bbc9cf',
-        'color-lead-50': '#5e7782',
-        'color-lead-75': '#243d48',
-        'color-neutral-10': '#eef1f2',
-        'color-neutral-25': '#dbe2e5',
-        'color-neutral-50': '#5f717b',
-        'color-neutral-75': '#3c494f',
-        'color-neutral-90': '#283034',
+        'color-lead': '#0060FC',
+        'color-auxiliary': '#E138AE',
+        'color-font': '#000000',
       },
       font: {
         'font-family-main': 'inherit',

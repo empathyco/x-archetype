@@ -1,7 +1,7 @@
 <template>
   <div class="xds:mt-8 xds:flex xds:flex-col xds:gap-4 xds:desktop:mt-0">
     <div class="xds:flex xds:min-h-32 xds:items-center">
-      <h1 class="xds:text-md xds:font-bold">
+      <h1 class="xds:text-md xds:font-bold xds:text-font">
         {{ $t('popularSearches.title') }}
       </h1>
     </div>
@@ -19,9 +19,9 @@
       >
         <template #suggestion="{ suggestion }">
           <PopularSearch
-            class="xds:suggestion"
+            class="xds:suggestion xds:text-font"
             :class="{
-              'xds:gap-8 xds:suggestion-outlined': horizontalLayout,
+              'xds:gap-8 xds:suggestion-outlined xds:border-lead': horizontalLayout,
               'xds:suggestion-lg xds:desktop:suggestion-md': !horizontalLayout,
             }"
             :suggestion="suggestion"

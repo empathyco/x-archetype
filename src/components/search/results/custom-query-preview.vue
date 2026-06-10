@@ -24,7 +24,7 @@
             <QueryPreviewButton
               :query-preview-info="queryPreviewInfo"
               :metadata="metadata"
-              class="xds:button xds:button-tight xds:button-lead xds:text-md xds:max-desktop:px-16 xds:desktop:text-md"
+              class="xds:button xds:button-tight xds:text-md xds:text-font xds:max-desktop:px-16 xds:desktop:text-md"
             >
               {{ queryPreviewInfo.query }}
               ({{ totalResults }})

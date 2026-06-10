@@ -63,8 +63,9 @@ const props = defineProps({
 
 const x = use$x()
 const { stats } = useState('search')
-const { getControlFromPath } = useExperienceControls()
-const facetsPanelOverlay = getControlFromPath('facetsPanelOverlay')
+
+const { getControl } = useExperienceControls()
+const facetsPanelOverlay = getControl<boolean>('facetsPanelOverlay')
 
 const selectedRange = ref({
   min: props.selectedFilter?.range?.min ?? Math.floor(stats.value.price.min!),

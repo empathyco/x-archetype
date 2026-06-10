@@ -40,7 +40,7 @@
       modal-id="my-history-aside"
       :animation="myHistoryAnimation"
       class="x-layout__my-history-modal"
-      content-class="xds:bg-neutral-0"
+      content-class="xds:bg-neutral-0 xds:w-512! xds:ml-auto xds:h-full"
     >
       <slot name="my-history-modal" />
     </BaseIdModal>
@@ -168,7 +168,7 @@ const isScrollingDown = hasScrolledPastThreshold
 .x-layout__my-history-modal {
   grid-column: page;
   grid-row: page;
-  z-index: 20;
+  z-index: 40 !important;
 }
 
 .x-layout__overlay {

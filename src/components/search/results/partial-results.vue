@@ -5,7 +5,7 @@
         <template #header>
           <PartialQueryButton
             :query="partialResult.query"
-            class="xds:button xds:button-tight xds:button-lead xds:max-desktop:px-16"
+            class="xds:button xds:button-tight xds:text-font xds:max-desktop:px-16"
           >
             {{ $t('partialResults.query', { query: partialResult.query }) }}
             {{ $t('partialResults.totalResults', { totalResults: partialResult.totalResults }) }}

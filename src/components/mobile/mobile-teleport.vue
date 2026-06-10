@@ -100,13 +100,12 @@ const SpellcheckMessage = defineAsyncComponent(() =>
 const snippetConfig = inject<SnippetConfig>('snippetConfig')
 const { hasSearched } = useHasSearched()
 const { relatedPrompts } = useState('relatedPrompts')
-const { getControlFromPath } = useExperienceControls()
-const aiSearchFallback = getControlFromPath('aiSearchFallback')
 const x = use$x()
 
-const showNoResultsMessage = computed(
-  () => !aiSearchFallback.value && !relatedPrompts.value?.length,
-)
+const { getControl } = useExperienceControls()
+const aiSearchFallback = getControl<boolean>('aiSearchFallback')
+
+const showNoResultsMessage = computed(() => !aiSearchFallback && !relatedPrompts.value?.length)
 
 const gridTarget = computed(() => snippetConfig?.gridTarget ?? '#maincontent')
 const visibleGrid = ref(false)

@@ -6,7 +6,9 @@
         class="xds:border-0 xds:border-t xds:border-neutral-10"
       >
         <template #header>
-          <span class="xds:text-lg xds:font-bold">{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="xds:text-lg xds:font-bold xds:text-font">{{
+            $t(`facets.${facet.label}`)
+          }}</span>
         </template>
         <template #default>
           <CustomSlicedFilters :max="6" :filters="facet.filters" class="xds:pb-24">
@@ -15,7 +17,12 @@
               :animation="staggeredFadeAndSlide"
               class="xds:flex xds:flex-col xds:gap-8 xds:text-md"
             >
-              <SimpleFilter :filter="filter" :css-classes="['xds:filter-facet-lg xds:w-full']">
+              <SimpleFilter
+                :filter="filter"
+                :css-classes="[
+                  'xds:filter-facet-lg xds:w-full xds:text-font xds:hover:text-font-light xds:selected:text-font',
+                ]"
+              >
                 <template #label>
                   <RadioButtonSelectedIcon v-if="filter.selected" class="xds:icon-lg" />
                   <RadioButtonUnselectedIcon v-else class="xds:icon-lg" />
@@ -35,7 +42,9 @@
         class="xds:border-0 xds:border-t xds:border-neutral-10"
       >
         <template #header>
-          <span class="xds:text-lg xds:font-bold">{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="xds:text-lg xds:font-bold xds:text-font">{{
+            $t(`facets.${facet.label}`)
+          }}</span>
         </template>
         <template #default>
           <CustomSlicedFilters :max="6" :filters="facet.filters" class="xds:pb-24">
@@ -47,7 +56,7 @@
               <HierarchicalFilter
                 :filter="filter"
                 children-filters-class="xds:ml-16 xds:mt-8 xds:flex xds:flex-col xds:gap-8 xds:text-md"
-                filter-item-class="xds:w-full xds:filter-facet-lg"
+                filter-item-class="xds:w-full xds:filter-facet-lg xds:text-font xds:hover:text-font-light xds:selected:text-font"
               >
                 <template #label="{ filter: hierarchicalFilter }">
                   <RadioButtonSelectedIcon v-if="filter.selected" class="xds:icon-lg" />
@@ -68,7 +77,9 @@
         class="xds:border-0 xds:border-t xds:border-neutral-10"
       >
         <template #header>
-          <span class="xds:text-lg xds:font-bold">{{ $t(`facets.${facet.label}`) }}</span>
+          <span class="xds:text-lg xds:font-bold xds:text-font">{{
+            $t(`facets.${facet.label}`)
+          }}</span>
         </template>
         <template #default>
           <CustomSlicedFilters :max="6" :filters="facet.filters" class="xds:pb-24 xds:text-md">
@@ -77,7 +88,12 @@
               :animation="staggeredFadeAndSlide"
               class="xds:flex xds:flex-col xds:gap-8"
             >
-              <NumberRangeFilter :filter="filter" :css-classes="['xds:filter-facet-lg xds:w-full']">
+              <NumberRangeFilter
+                :filter="filter"
+                :css-classes="[
+                  'xds:filter-facet-lg xds:w-full xds:text-font xds:hover:text-font-light xds:selected:text-font',
+                ]"
+              >
                 <template #label>
                   <RadioButtonSelectedIcon v-if="filter.selected" class="xds:icon-lg" />
                   <RadioButtonUnselectedIcon v-else class="xds:icon-lg" />

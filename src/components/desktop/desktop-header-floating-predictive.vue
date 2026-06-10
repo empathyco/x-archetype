@@ -15,7 +15,7 @@
       </div>
 
       <CloseMainModal
-        class="xds:button-circle xds:button-ghost xds:justify-self-end xds:button-lead"
+        class="xds:button-circle xds:button-ghost xds:justify-self-end xds:text-neutral-100"
       >
         <CrossIcon class="xds:icon-lg" />
       </CloseMainModal>

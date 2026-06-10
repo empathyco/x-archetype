@@ -6,7 +6,7 @@
   >
     <div
       v-if="!facetsPanelOverlay"
-      class="xds:flex xds:w-full xds:max-w-85 xds:gap-8 xds:text-md xds:font-bold"
+      class="xds:flex xds:w-full xds:max-w-85 xds:gap-8 xds:text-md xds:font-bold xds:text-font"
     >
       <FiltersIcon class="xds:icon-lg" />
       <span class="xds:capitalize" data-test="desktop-toolbar-filter-text">{{
@@ -15,7 +15,7 @@
       <span
         v-if="x.selectedFilters.length"
         :class="{ 'xds:badge-circle': x.selectedFilters.length <= 9 }"
-        class="xds:badge xds:badge-auxiliary"
+        class="xds:badge xds:bg-font"
         data-test="desktop-toolbar-selected-filters"
       >
         {{ x.selectedFilters.length }}
@@ -23,7 +23,7 @@
     </div>
 
     <Translation
-      class="xds:flex-auto xds:text-md"
+      class="xds:flex-auto xds:text-md xds:text-font"
       keypath="totalResults.message"
       tag="span"
       scope="global"
@@ -39,12 +39,12 @@
       </template>
     </Translation>
 
-    <ColumnPicker v-if="gridConfig.columnPicker" />
+    <ColumnPicker v-if="hasColumnPicker" />
 
     <BaseIdModalOpen
       v-if="facetsPanelOverlay"
       modal-id="right-aside"
-      class="xds:button-ghost xds:button-lead xds:px-8 xds:text-md xds:font-regular"
+      class="xds:button-ghost xds:px-8 xds:text-md xds:font-regular xds:text-font xds:hover:text-font-dark"
       data-test="desktop-toolbar-toggle-facets-button"
     >
       <FiltersIcon class="xds:icon-lg" />
@@ -52,7 +52,7 @@
       <span
         v-if="x.selectedFilters.length"
         :class="{ 'xds:badge-circle': x.selectedFilters.length <= 9 }"
-        class="xds:badge xds:badge-auxiliary"
+        class="xds:badge xds:bg-font"
         data-test="desktop-toolbar-selected-filters-badge"
       >
         {{ x.selectedFilters.length }}
@@ -73,8 +73,8 @@ import SortSelector from '../search/sort-selector.vue'
 const { t } = useI18n()
 const x = use$x()
 const { query } = useGetter('search')
-const { getControlFromPath } = useExperienceControls()
 
-const facetsPanelOverlay = getControlFromPath<boolean>('facetsPanelOverlay')
-const gridConfig = getControlFromPath<{ columnPicker: boolean }>('gridConfig')
+const { getControl } = useExperienceControls()
+const facetsPanelOverlay = getControl<boolean>('facetsPanelOverlay')
+const hasColumnPicker = getControl<boolean>('gridConfig.columnPicker')
 </script>

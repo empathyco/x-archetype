@@ -13,7 +13,6 @@
 </template>
 
 <script setup lang="ts">
-import type { ComputedRef } from 'vue'
 import { defineAsyncComponent } from 'vue'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
@@ -25,6 +24,7 @@ const DesktopSubHeader = defineAsyncComponent(() =>
 )
 
 const { hasSearched } = useHasSearched()
-const { getControlFromPath } = useExperienceControls()
-const isFullPredictiveLayer = getControlFromPath('fullPredictiveLayer') as ComputedRef<boolean>
+
+const { getControl } = useExperienceControls()
+const isFullPredictiveLayer = getControl<boolean>('fullPredictiveLayer')
 </script>

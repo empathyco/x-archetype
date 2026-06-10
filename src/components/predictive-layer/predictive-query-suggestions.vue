@@ -7,7 +7,7 @@
     <template #suggestion="{ suggestion }">
       <QuerySuggestion
         :suggestion="suggestion"
-        class="xds:suggestion xds:suggestion-lg xds:desktop:suggestion-md"
+        class="xds:suggestion xds:suggestion-lg xds:text-font xds:desktop:suggestion-md"
       >
         <template #default="{ query }">
           <SearchIcon class="xds:icon-lg xds:desktop:icon-md" />

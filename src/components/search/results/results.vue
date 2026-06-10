@@ -44,7 +44,7 @@
                 <CustomQueryPreview
                   v-if="selectedPrompt !== -1"
                   :key="queriesPreviewInfo.length"
-                  class="xds:rounded-b-xl xds:bg-neutral-10 xds:px-8 xds:desktop:px-16"
+                  class="xds:rounded-b-md xds:border xds:border-neutral-25 xds:bg-neutral-0 xds:px-8 xds:desktop:px-16"
                   :queries-preview-info="queriesPreviewInfo"
                   query-feature="related_prompts"
                 />
@@ -92,9 +92,9 @@ const x = use$x()
 const { isMobile } = useDevice()
 const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
 const { config } = useState('search')
-const { getControlFromPath } = useExperienceControls()
 
-const gridConfig = getControlFromPath<{ listMode: boolean }>('gridConfig')
+const { getControl } = useExperienceControls()
+const hasListMode = getControl<boolean>('gridConfig.listMode')
 
 const staggeredFadeAndSlide = StaggeredFadeAndSlide as any
 
@@ -125,7 +125,7 @@ const vInfiniteScroll = computed(() =>
 )
 
 x.on('ColumnsNumberProvided', false).subscribe(selectedColumns => {
-  isListMode.value = gridConfig.value.listMode && !isMobile.value && selectedColumns === 1
+  isListMode.value = hasListMode && !isMobile.value && selectedColumns === 1
 })
 </script>
 

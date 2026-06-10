@@ -1,16 +1,9 @@
+import type { Mock } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { ref } from 'vue'
 import { Translation } from 'vue-i18n'
 import ColumnPicker from '../column-picker.vue'
 import MobileToolbar from './mobile-toolbar.vue'
-
-const getControlFromPathMock = vi.hoisted(() => vi.fn(() => ref({ columnPicker: true })))
-vi.mock('../../composables/use-experience-controls.composable', () => ({
-  useExperienceControls: vi.fn(() => ({
-    getControlFromPath: getControlFromPathMock,
-  })),
-}))
 
 const use$xStub = {
   totalResults: 10,
@@ -28,6 +21,18 @@ vi.mock('@empathyco/x-components', async importOriginal => {
     useGetter: useGetterMock,
   }
 })
+
+const getControlMock = vi.hoisted<Mock<(key: string) => any>>(() =>
+  vi.fn((key: string) => {
+    if (key === 'gridConfig.columnPicker') return true
+    return undefined
+  }),
+)
+vi.mock('../../composables/use-experience-controls.composable', () => ({
+  useExperienceControls: vi.fn(() => ({
+    getControl: getControlMock,
+  })),
+}))
 
 function render() {
   const wrapper = shallowMount(MobileToolbar, {
@@ -76,7 +81,10 @@ describe('mobileToolbar component', () => {
   })
 
   it('should not render the column picker if the control is disabled', () => {
-    getControlFromPathMock.mockReturnValue(ref({ columnPicker: false }))
+    getControlMock.mockImplementation((key: string) => {
+      if (key === 'gridConfig.columnPicker') return false
+      return undefined
+    })
     const sut = render()
 
     expect(sut.columnPicker.exists()).toBeFalsy()
