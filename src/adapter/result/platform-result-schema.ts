@@ -18,4 +18,12 @@ export const platformResultSchema: DeepPartial<Schema<any, Result>> & Schema<any
     hasVariants: ({ variants }: EmpathyDemoPlatformResult): boolean => !!variants?.length,
     images: ({ __images }: EmpathyDemoPlatformResult) =>
       Array.isArray(__images) ? __images.reverse() : [__images],
+    price: ({ __prices }: EmpathyDemoPlatformResult) => ({
+      value: __prices?.current?.value ?? 0,
+      originalValue: __prices?.previous?.value ?? __prices?.current?.value ?? 0,
+      futureValue: __prices?.future?.value ?? __prices?.current?.value ?? 0,
+      hasDiscount:
+        (__prices?.current?.value ?? 0) <
+        (__prices?.previous?.value ?? __prices?.current?.value ?? 0),
+    }),
   }

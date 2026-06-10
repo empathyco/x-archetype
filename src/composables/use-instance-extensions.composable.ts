@@ -10,9 +10,9 @@ export function useInstanceExtensions() {
   const snippetConfig = inject<SnippetConfig>('snippetConfig')!
   const resultComponent = computed(() =>
     defineAsyncComponent(async () =>
-      import(`../instance-extensions/${snippetConfig.instance}.ts`).then(
-        (m: InstanceExtensionModule) => m.Result,
-      ),
+      import(`../instance-extensions/${snippetConfig.instance}.ts`)
+        .then((m: InstanceExtensionModule) => m.Result)
+        .catch(async () => import('../components/results/base-result.vue')),
     ),
   )
 
