@@ -2,7 +2,7 @@
   <MainScrollItem
     :item="result"
     tag="article"
-    class="x-result x-group/result xds:flex xds:flex-col xds:gap-4"
+    class="xds:group/result xds:flex xds:flex-col xds:gap-4"
     data-wysiwyg="result"
     :data-wysiwyg-id="result.id"
     :data-wysiwyg-image-url="result.images ? result.images[0] : ''"
@@ -10,7 +10,7 @@
   >
     <div class="xds:relative">
       <slot name="product-image">
-        <BaseResultLink class="x-result__picture" :result="result">
+        <BaseResultLink :result="result">
           <BaseResultImage
             :result="result"
             :load-animation="imageAnimation"
@@ -26,61 +26,58 @@
         </BaseResultLink>
       </slot>
 
-      <slot name="cta">
-        <BaseEventButton
-          class="xds:absolute xds:top-0 xds:right-0 xds:button xds:h-40 xds:w-40 xds:button-ghost xds:hover:bg-transparent!"
-          :events="onWishlistClickEvents"
-        >
-          <HeartIcon
-            class="xds:mt-4 xds:icon-lg xds:hover:fill-red-300"
-            :class="{ 'xds:fill-red-500 xds:hover:fill-red-500': isWishListed }"
-          />
-        </BaseEventButton>
-
+      <slot name="add-to-cart">
         <div
-          v-if="isDesktopOrGreater"
-          class="x-result__overlay xds:invisible xds:absolute xds:bottom-0 xds:flex xds:w-full xds:group-hover:visible"
+          class="x-result__overlay xds:invisible xds:absolute xds:bottom-0 xds:flex xds:w-full xds:flex-col xds:gap-16 xds:bg-neutral-0 xds:p-8 xds:group-hover/result:visible xds:desktop:p-16"
         >
-          <BaseEventButton
-            v-if="result.hasVariants"
-            :events="events"
-            class="xds:m-16 xds:button xds:flex-auto xds:button-lead xds:text-md xds:font-regular"
+          <BaseAddToCart
+            :result="result"
+            class="xds:button xds:min-h-32 xds:w-full xds:flex-auto xds:border-none xds:bg-lead xds:px-16 xds:text-md xds:font-regular xds:text-neutral-0 xds:hover:bg-lead-dark"
           >
-            {{ $t('result.seeVariants') }}
-          </BaseEventButton>
+            {{ t('result.addToCart') }}
+          </BaseAddToCart>
         </div>
       </slot>
+      <span
+        class="xds:pointer-events-none xds:absolute xds:top-8 xds:right-8 xds:tag xds:h-6.5 xds:min-h-min xds:border xds:border-lead xds:bg-neutral-0 xds:px-3.5 xds:text-sm xds:font-regular xds:text-lead"
+      >
+        {{ t('result.new') }}
+      </span>
     </div>
 
     <slot name="product-info">
       <BaseResultLink
-        class="x-result__description xds:flex xds:flex-col xds:gap-2 xds:desktop:gap-4"
+        class="xds:flex xds:flex-col xds:gap-8 xds:p-8 xds:pb-16 xds:desktop:gap-4 xds:desktop:p-16 xds:desktop:pb-24"
         :result="result"
       >
-        <h2 class="xds:truncate xds:text-md xds:font-bold" data-test="result-title">
-          {{ result.description }}
-        </h2>
-        <template v-if="showDescription">
-          <span class="xds:text-md">{{ result.collection }}</span>
-          <span class="xds:text-md xds:text-lead-50">{{ result.brand }}</span>
-        </template>
-        <div class="xds:flex xds:flex-wrap xds:gap-8">
-          <BaseResultCurrentPrice :result="result" class="xds:text-md" />
+        <div class="xds:flex xds:items-center xds:justify-between xds:gap-16 xds:py-8">
+          <h2 class="xds:truncate xds:text-md xds:font-bold xds:text-font">
+            {{ result.name }}
+          </h2>
+          <slot name="cta">
+            <BaseEventButton
+              class="xds:button xds:min-h-min xds:button-ghost xds:p-0 xds:hover:bg-transparent!"
+              :events="onWishlistClickEvents"
+              @click.stop.prevent
+            >
+              <HeartIcon
+                class="xds:icon-md xds:desktop:icon-lg"
+                :class="isWishListed ? 'xds:fill-lead' : 'xds:hover:fill-lead-light'"
+              />
+            </BaseEventButton>
+          </slot>
+        </div>
+        <div class="xds:flex xds:gap-8">
+          <BaseResultCurrentPrice
+            :result="result"
+            class="xds:text-md xds:font-semibold xds:text-font"
+          />
           <BaseResultPreviousPrice
             :result="result"
-            class="xds:text-md xds:leading-[1.7] xds:text-neutral-75 xds:line-through"
+            class="xds:text-sm xds:text-neutral-50 xds:line-through"
           />
         </div>
       </BaseResultLink>
-    </slot>
-
-    <slot name="add-to-cart">
-      <BaseAddToCart
-        :result="result"
-        class="xds:mt-auto xds:button xds:max-h-40 xds:flex-auto xds:border-none xds:bg-neutral-50 xds:text-md xds:font-regular xds:text-neutral-0 xds:hover:bg-neutral-25"
-      >
-        {{ $t('result.addToCart') }}
-      </BaseAddToCart>
     </slot>
   </MainScrollItem>
 </template>
@@ -88,6 +85,7 @@
 <script setup lang="ts">
 import type { SnippetConfig } from '@empathyco/x-components'
 import type { Result } from '@empathyco/x-types'
+import type { PropType } from 'vue'
 import {
   BaseAddToCart,
   BaseEventButton,
@@ -102,23 +100,18 @@ import {
 } from '@empathyco/x-components'
 import { MainScrollItem } from '@empathyco/x-components/scroll'
 import { computed, inject } from 'vue'
-import { useDevice } from '../../composables/use-device.composable'
+import { useI18n } from 'vue-i18n'
 
-interface Props {
-  result: Result
-  showDescription?: boolean
-  showAddToCart?: boolean
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  showDescription: true,
-  showAddToCart: true,
+const props = defineProps({
+  result: {
+    type: Object as PropType<Result>,
+    required: true,
+  },
 })
 
-const events = { UserClickedResultWithVariants: props.result }
-const onWishlistClickEvents = { UserClickedResultWishlist: props.result }
+const { t } = useI18n()
 
-const { isDesktopOrGreater } = useDevice()
+const onWishlistClickEvents = { UserClickedResultWishlist: props.result }
 const imageAnimation = CrossFade
 
 const snippetConfig = inject<SnippetConfig>('snippetConfig')

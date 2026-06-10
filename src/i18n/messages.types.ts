@@ -121,6 +121,7 @@ export interface Messages {
     maxUnits: string
     viewDetails: string
     selectOption: string
+    new: string
   }
   spellcheck: {
     message: string

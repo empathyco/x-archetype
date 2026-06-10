@@ -117,7 +117,8 @@
     "selectAllOptions": "Si prega di selezionare un'opzione da ogni variante",
     "maxUnits": "Quantità massima",
     "viewDetails": "Vedi dettagli",
-    "selectOption": "Seleziona un'opzione"
+    "selectOption": "Seleziona un'opzione",
+    "new": "Nuovo"
   },
   "spellcheck": {
     "message": "Nessun risultato trovato per {query} Ecco i risultati per"

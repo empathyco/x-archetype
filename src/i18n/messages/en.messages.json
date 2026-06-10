@@ -112,7 +112,8 @@
     "selectAllOptions": "Please select an option from each variation",
     "maxUnits": "Max units",
     "viewDetails": "View details",
-    "selectOption": "Select option"
+    "selectOption": "Select option",
+    "new": "New"
   },
   "spellcheck": {
     "message": "No results found for {query} We show you results for"
