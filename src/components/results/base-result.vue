@@ -2,7 +2,7 @@
   <MainScrollItem
     :item="result"
     tag="article"
-    class="x-result xds:group/result xds:flex xds:flex-col xds:gap-4"
+    class="xds:group/result xds:flex xds:flex-col xds:gap-4"
     data-wysiwyg="result"
     :data-wysiwyg-id="result.id"
     :data-wysiwyg-image-url="result.images ? result.images[0] : ''"
@@ -10,7 +10,7 @@
   >
     <div class="xds:relative">
       <slot name="product-image">
-        <BaseResultLink class="x-result__picture" :result="result">
+        <BaseResultLink :result="result">
           <BaseResultImage
             :result="result"
             :load-animation="imageAnimation"
@@ -26,50 +26,51 @@
         </BaseResultLink>
       </slot>
 
-      <slot name="cta">
+      <slot name="add-to-cart">
         <div
           class="x-result__overlay xds:invisible xds:absolute xds:bottom-0 xds:flex xds:w-full xds:flex-col xds:gap-16 xds:bg-neutral-0 xds:p-8 xds:group-hover/result:visible xds:desktop:p-16"
         >
           <BaseAddToCart
             :result="result"
-            class="xds:button xds:min-h-32 xds:w-full xds:flex-auto xds:border-none xds:bg-lead xds:px-16 xds:text-md xds:font-regular xds:text-neutral-0 xds:hover:bg-lead-75"
+            class="xds:button xds:min-h-32 xds:w-full xds:flex-auto xds:border-none xds:bg-lead xds:px-16 xds:text-md xds:font-regular xds:text-neutral-0 xds:hover:bg-lead-dark"
           >
             {{ t('result.addToCart') }}
           </BaseAddToCart>
         </div>
-
-        <span
-          class="xds:pointer-events-none xds:absolute xds:top-8 xds:right-8 xds:tag xds:h-6.5 xds:min-h-min xds:border xds:border-lead xds:bg-neutral-0 xds:px-3.5 xds:text-sm xds:font-regular xds:text-lead"
-        >
-          {{ t('result.new') }}
-        </span>
       </slot>
+      <span
+        class="xds:pointer-events-none xds:absolute xds:top-8 xds:right-8 xds:tag xds:h-6.5 xds:min-h-min xds:border xds:border-lead xds:bg-neutral-0 xds:px-3.5 xds:text-sm xds:font-regular xds:text-lead"
+      >
+        {{ t('result.new') }}
+      </span>
     </div>
 
     <slot name="product-info">
       <BaseResultLink
-        class="x-result__description xds:flex xds:flex-col xds:gap-8 xds:p-8 xds:pb-16 xds:desktop:gap-4 xds:desktop:p-16 xds:desktop:pb-24"
+        class="xds:flex xds:flex-col xds:gap-8 xds:p-8 xds:pb-16 xds:desktop:gap-4 xds:desktop:p-16 xds:desktop:pb-24"
         :result="result"
       >
         <div class="xds:flex xds:items-center xds:justify-between xds:gap-16 xds:py-8">
-          <h2 class="xds:truncate xds:text-md xds:font-bold xds:text-neutral-100">
+          <h2 class="xds:truncate xds:text-md xds:font-bold xds:text-font">
             {{ result.name }}
           </h2>
-          <BaseEventButton
-            class="xds:button xds:min-h-min xds:button-ghost xds:p-0 xds:hover:bg-transparent!"
-            :events="onWishlistClickEvents"
-            @click.stop.prevent
-          >
-            <HeartIcon
-              class="xds:icon-md xds:desktop:icon-lg"
-              :class="isWishListed ? 'xds:fill-lead' : 'xds:hover:fill-lead-25'"
-            />
-          </BaseEventButton>
+          <slot name="cta">
+            <BaseEventButton
+              class="xds:button xds:min-h-min xds:button-ghost xds:p-0 xds:hover:bg-transparent!"
+              :events="onWishlistClickEvents"
+              @click.stop.prevent
+            >
+              <HeartIcon
+                class="xds:icon-md xds:desktop:icon-lg"
+                :class="isWishListed ? 'xds:fill-lead' : 'xds:hover:fill-lead-light'"
+              />
+            </BaseEventButton>
+          </slot>
         </div>
         <div class="xds:flex xds:gap-8">
           <BaseResultCurrentPrice
             :result="result"
-            class="xds:text-md xds:font-semibold xds:text-neutral-100"
+            class="xds:text-md xds:font-semibold xds:text-font"
           />
           <BaseResultPreviousPrice
             :result="result"
