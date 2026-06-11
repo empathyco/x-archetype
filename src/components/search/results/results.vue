@@ -125,7 +125,7 @@ const vInfiniteScroll = computed(() =>
 )
 
 x.on('ColumnsNumberProvided', false).subscribe(selectedColumns => {
-  isListMode.value = hasListMode && !isMobile.value && selectedColumns === 1
+  isListMode.value = hasListMode.value && !isMobile.value && selectedColumns === 1
 })
 </script>
 

@@ -31,6 +31,6 @@ const showFallbacks = computed(
   () => (x.noResults || isLowResult.value) && x.status.search === 'success',
 )
 
-const showAiSearchFallback = computed(() => aiSearchFallback && showFallbacks.value)
-const showSearchFallbacks = computed(() => !aiSearchFallback && showFallbacks.value)
+const showAiSearchFallback = computed(() => aiSearchFallback.value && showFallbacks.value)
+const showSearchFallbacks = computed(() => !aiSearchFallback.value && showFallbacks.value)
 </script>

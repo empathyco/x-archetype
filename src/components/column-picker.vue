@@ -27,13 +27,13 @@ const { isMobile } = useDevice()
 
 const { getControl } = useExperienceControls()
 const gridConfig = getControl<{ columnSelector: number[]; listMode: boolean }>('gridConfig')
-const columnSelector = gridConfig.columnSelector.map(Number)
+const columnSelector = gridConfig.value.columnSelector.map(Number)
 
 const columns = computed(() => {
   if (isMobile.value) {
     return [2, 1]
   }
-  if (gridConfig.listMode) {
+  if (gridConfig.value.listMode) {
     return [...columnSelector, 1] // asume that 1 won't be set in columnSelector when listMode is active
   }
   return columnSelector
@@ -48,7 +48,7 @@ const icons = computed<Record<number, Component>>(() => {
     columns.value.map(columnCount => {
       // Single column mode: show list icon or single column icon based on device/mode
       if (columnCount === 1) {
-        const isSingleColumnMode = isMobile.value || !gridConfig.listMode
+        const isSingleColumnMode = isMobile.value || !gridConfig.value.listMode
         const icon = isSingleColumnMode ? Grid1ColIcon : GridListIcon
         return [columnCount, icon]
       }
