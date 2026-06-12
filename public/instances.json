@@ -4,6 +4,7 @@
     "perfumesclub": [
       { "config": { "lang": "es", "currency": "MXN" } },
       { "config": { "lang": "es", "currency": "USD" } }
-    ]
+    ],
+    "distriplac": [{ "config": { "lang": "es", "currency": "EUR" } }]
   }
 }
