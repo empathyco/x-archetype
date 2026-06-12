@@ -113,6 +113,6 @@ const aiSearchFallback = getControl<boolean>('aiSearchFallback')
 const facetsPanelOverlay = getControl<boolean>('facetsPanelOverlay')
 
 const showNoResultsMessage = computed(
-  () => !aiSearchFallback && !relatedPrompts.value?.length && !x.semanticQueries.length,
+  () => !aiSearchFallback.value && !relatedPrompts.value?.length && !x.semanticQueries.length,
 )
 </script>

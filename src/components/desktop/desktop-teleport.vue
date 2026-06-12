@@ -121,7 +121,9 @@ const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
 const { getControl } = useExperienceControls()
 const aiSearchFallback = getControl<boolean>('aiSearchFallback')
 const facetsPanelOverlay = getControl<boolean>('facetsPanelOverlay')
-const showNoResultsMessage = computed(() => !aiSearchFallback && !relatedPrompts.value?.length)
+const showNoResultsMessage = computed(
+  () => !aiSearchFallback.value && !relatedPrompts.value?.length,
+)
 const snippetConfig = inject<SnippetConfig>('snippetConfig')
 const gridTarget = computed(() => snippetConfig?.gridTarget ?? '#maincontent')
 const visibleGrid = ref(false)

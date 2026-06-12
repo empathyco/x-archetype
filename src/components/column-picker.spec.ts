@@ -19,7 +19,7 @@ const defaultGridConfig = {
 const getControlMock = vi.hoisted<Mock<(key: string) => any>>(() =>
   vi.fn((key: string) => {
     if (key === 'gridConfig') {
-      return { ...defaultGridConfig }
+      return ref({ ...defaultGridConfig })
     }
     return undefined
   }),
@@ -91,7 +91,7 @@ describe('columnPicker component', () => {
   it('should render list mode correctly in desktop', () => {
     getControlMock.mockImplementation((key: string) => {
       if (key === 'gridConfig') {
-        return { columnSelector: [5, 3], listMode: true }
+        return ref({ columnSelector: [5, 3], listMode: true })
       }
       return undefined
     })
@@ -108,7 +108,7 @@ describe('columnPicker component', () => {
     isMobileStub.value = true
     getControlMock.mockImplementation((key: string) => {
       if (key === 'gridConfig') {
-        return { columnSelector: [5, 3, 1], listMode: true }
+        return ref({ columnSelector: [5, 3, 1], listMode: true })
       }
       return undefined
     })

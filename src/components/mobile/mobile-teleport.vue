@@ -105,7 +105,9 @@ const x = use$x()
 const { getControl } = useExperienceControls()
 const aiSearchFallback = getControl<boolean>('aiSearchFallback')
 
-const showNoResultsMessage = computed(() => !aiSearchFallback && !relatedPrompts.value?.length)
+const showNoResultsMessage = computed(
+  () => !aiSearchFallback.value && !relatedPrompts.value?.length,
+)
 
 const gridTarget = computed(() => snippetConfig?.gridTarget ?? '#maincontent')
 const visibleGrid = ref(false)

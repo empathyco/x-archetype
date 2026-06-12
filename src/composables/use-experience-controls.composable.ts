@@ -1,8 +1,13 @@
-import { useState } from '@empathyco/x-components'
+import type { Dictionary } from '@empathyco/x-utils'
+import type { ComputedRef } from 'vue'
+import { createSharedComposable } from '@vueuse/core'
+import { computed, ref } from 'vue'
 import { defaultXControlsState } from '../x-components/xcontrols'
 
-export function useExperienceControls() {
-  const { controls } = useState('experienceControls')
+export const useExperienceControls = createSharedComposable(setup)
+
+function setup() {
+  const controls = ref(defaultXControlsState.controls as Dictionary<unknown>)
 
   /**
    * Safely gets a nested value from an object using dot notation.
@@ -33,17 +38,20 @@ export function useExperienceControls() {
    * getControl('showSuggestions') // Direct key
    * getControl('styles.colors') // Nested key
    */
-  function getControl<T>(key: string): T {
-    const value = getNestedValue(controls.value, key)
+  function getControl<T>(key: string): ComputedRef<T> {
+    return computed(() => {
+      const value = getNestedValue(controls.value, key)
 
-    if (value === undefined) {
-      return getNestedValue(defaultXControlsState.controls, key) as T
-    }
+      if (value === undefined) {
+        return getNestedValue(defaultXControlsState.controls, key) as T
+      }
 
-    return value as T
+      return value as T
+    })
   }
 
   return {
     getControl,
+    controls,
   }
 }
