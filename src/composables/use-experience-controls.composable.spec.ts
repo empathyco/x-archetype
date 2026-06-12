@@ -1,4 +1,3 @@
-import type { ExperienceControlsState } from '@empathyco/x-components/experience-controls'
 import { describe, expect, it } from 'vitest'
 import { defaultXControlsState } from '../x-components/xcontrols'
 
@@ -11,7 +10,7 @@ describe('useExperienceControls', () => {
       useExperienceControls().controls.value = {
         logo: 'custom-logo.png',
         aiSearchFallback: true,
-      } as unknown as ExperienceControlsState
+      }
 
       const { getControl } = useExperienceControls()
 
@@ -20,7 +19,7 @@ describe('useExperienceControls', () => {
     })
 
     it('returns the default control value when not in store', () => {
-      useExperienceControls().controls.value = {} as unknown as ExperienceControlsState
+      useExperienceControls().controls.value = {}
 
       const { getControl } = useExperienceControls()
 
@@ -37,7 +36,7 @@ describe('useExperienceControls', () => {
           listMode: false,
           columnSelector: [2, 4],
         },
-      } as unknown as ExperienceControlsState
+      }
 
       const { getControl } = useExperienceControls()
 
@@ -47,7 +46,7 @@ describe('useExperienceControls', () => {
     })
 
     it('supports nested keys using dot notation from defaults', () => {
-      useExperienceControls().controls.value = {} as unknown as ExperienceControlsState
+      useExperienceControls().controls.value = {}
 
       const { getControl } = useExperienceControls()
 
@@ -70,7 +69,7 @@ describe('useExperienceControls', () => {
             secondary: '#FFFFFF',
           },
         },
-      } as unknown as ExperienceControlsState
+      }
 
       const { getControl } = useExperienceControls()
 
@@ -79,7 +78,7 @@ describe('useExperienceControls', () => {
     })
 
     it('returns undefined for non-existent nested keys', () => {
-      useExperienceControls().controls.value = {} as unknown as ExperienceControlsState
+      useExperienceControls().controls.value = {}
 
       const { getControl } = useExperienceControls()
 
@@ -91,7 +90,7 @@ describe('useExperienceControls', () => {
         gridConfig: {
           columnPicker: false,
         },
-      } as unknown as ExperienceControlsState
+      }
 
       const { getControl } = useExperienceControls()
 

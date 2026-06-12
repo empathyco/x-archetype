@@ -1,4 +1,4 @@
-import type { ExperienceControlsState } from '@empathyco/x-components/experience-controls'
+import type { Dictionary } from '@empathyco/x-utils'
 import type { ComputedRef } from 'vue'
 import { createSharedComposable } from '@vueuse/core'
 import { computed, ref } from 'vue'
@@ -7,7 +7,7 @@ import { defaultXControlsState } from '../x-components/xcontrols'
 export const useExperienceControls = createSharedComposable(setup)
 
 function setup() {
-  const controls = ref(defaultXControlsState.controls as unknown as ExperienceControlsState)
+  const controls = ref(defaultXControlsState.controls as Dictionary<unknown>)
 
   /**
    * Safely gets a nested value from an object using dot notation.

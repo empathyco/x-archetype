@@ -92,9 +92,10 @@ const close = (): void => {
   window.wysiwyg?.close()
 }
 
+// TODO: review controls.controls in X project to avoid this type assertions
 x.on('ExperienceControlsChanged', false).subscribe(payload => {
   initCustomization(payload as unknown as ExperienceControlsState)
-  useExperienceControls().controls.value = payload.controls as unknown as ExperienceControlsState
+  useExperienceControls().controls.value = payload.controls as ExperienceControlsState['controls']
 })
 
 x.on('UserClickedCloseX', false).subscribe(close)
