@@ -48,14 +48,14 @@ import { initCustomization } from './utils/customization'
 import './tailwind/xds.css'
 
 const MobileTeleport = defineAsyncComponent(() =>
-  import('./components/index-empty-search').then(m => m.MobileTeleport),
+  import('./components/x-empty-search').then(m => m.MobileTeleport),
 )
 
 const DesktopTeleport = defineAsyncComponent(() =>
-  import('./components/index-empty-search').then(m => m.DesktopTeleport),
+  import('./components/x-empty-search').then(m => m.DesktopTeleport),
 )
 const CustomMainModal = defineAsyncComponent(() =>
-  import('./components/index-empty-search').then(m => m.CustomMainModal),
+  import('./components/x-empty-search').then(m => m.CustomMainModal),
 )
 
 const x = use$x()

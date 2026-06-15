@@ -12,9 +12,9 @@ export function useInstanceExtensions() {
 
   const resultComponent = defineAsyncComponent({
     loader: async () =>
-      import(`../instance-extensions/${snippetConfig.instance}/index-empty-search.ts`).then(
-        (m: InstanceExtensionModule) => m.Result,
-      ),
+      import(
+        `../instance-extensions/${snippetConfig.instance}/${snippetConfig.instance}-empty-search.ts`
+      ).then((m: InstanceExtensionModule) => m.Result),
     loadingComponent: BaseResult,
     errorComponent: BaseResult,
     timeout: 3000,

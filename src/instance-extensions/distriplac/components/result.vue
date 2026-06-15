@@ -45,7 +45,7 @@ import {
   BaseResultLink,
   CrossFade,
 } from '@empathyco/x-components'
-import { BaseResult } from '../../../components/index-empty-search'
+import { BaseResult } from '../../../components/x-empty-search'
 withDefaults(defineProps<Props>(), {
   showDescription: true,
   showAddToCart: true,

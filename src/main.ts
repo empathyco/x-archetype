@@ -31,7 +31,7 @@ getInstallXOptions()
   .then(async installXOptions => {
     const instance = (window.initX as SnippetConfig).instance
     try {
-      await import(`./instance-extensions/${instance}/index-init.ts`).then(
+      await import(`./instance-extensions/${instance}/${instance}-init.ts`).then(
         (m: { adapter?: XComponentsAdapter }) => {
           if (m.adapter) {
             installXOptions.adapter = m.adapter

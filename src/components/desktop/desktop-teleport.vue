@@ -99,18 +99,18 @@ import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
 
 const DesktopSubHeader = defineAsyncComponent(() =>
-  import('../index-search').then(m => m.DesktopSubHeader),
+  import('../x-search').then(m => m.DesktopSubHeader),
 )
-const Main = defineAsyncComponent(() => import('../index-search').then(m => m.Main))
-const DesktopAside = defineAsyncComponent(() => import('../index-search').then(m => m.DesktopAside))
+const Main = defineAsyncComponent(() => import('../x-search').then(m => m.Main))
+const DesktopAside = defineAsyncComponent(() => import('../x-search').then(m => m.DesktopAside))
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
-  import('../index-search').then(m => m.FallbackDisclaimerMessage),
+  import('../x-search').then(m => m.FallbackDisclaimerMessage),
 )
 const NoResultsMessage = defineAsyncComponent(() =>
-  import('../index-search').then(m => m.NoResultsMessage),
+  import('../x-search').then(m => m.NoResultsMessage),
 )
 const SpellcheckMessage = defineAsyncComponent(() =>
-  import('../index-search').then(m => m.SpellcheckMessage),
+  import('../x-search').then(m => m.SpellcheckMessage),
 )
 
 const { hasSearched } = useHasSearched()

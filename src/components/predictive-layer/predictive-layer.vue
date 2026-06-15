@@ -105,7 +105,7 @@ import PredictiveQuerySuggestions from './predictive-query-suggestions.vue'
 import SlidingRecommendations from './sliding-recommendations.vue'
 
 const PredictiveNextQueries = defineAsyncComponent(() =>
-  import('../index-search').then(m => m.PredictiveNextQueries),
+  import('../x-search').then(m => m.PredictiveNextQueries),
 )
 
 const empathizeAnimation = AnimateScale

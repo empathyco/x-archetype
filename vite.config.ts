@@ -1,37 +1,11 @@
-import type { PreRenderedChunk } from 'rollup'
 import type { PluginOption } from 'vite'
-import { basename, dirname, resolve } from 'node:path'
+import { resolve } from 'node:path'
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
 import visualizer from 'rollup-plugin-visualizer'
 import { defineConfig } from 'vite'
 import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
-
-function getChunkFileName({ name, facadeModuleId }: PreRenderedChunk) {
-  // Handle instance-specific chunks by extracting the instance name from the file path
-  if (facadeModuleId) {
-    const instanceChunkMap: Record<string, string> = {
-      'index-init.ts': 'init.js',
-      'index-empty-search.ts': 'empty-search.js',
-    }
-
-    for (const [filename, suffix] of Object.entries(instanceChunkMap)) {
-      if (facadeModuleId.endsWith(filename)) {
-        const instance = basename(dirname(facadeModuleId))
-        return `${instance}-${suffix}`
-      }
-    }
-  }
-  switch (name) {
-    case 'index-empty-search':
-      return 'x-empty-search.[hash].js'
-    case 'index-search':
-      return 'x-search.[hash].js'
-    default:
-      return '[name].[hash].js'
-  }
-}
 
 function overrideXCssInjector(): PluginOption {
   return {
@@ -86,7 +60,6 @@ export default defineConfig({
         format: 'es',
         assetFileNames: '[name][extname]',
         entryFileNames: 'app.js',
-        chunkFileNames: getChunkFileName,
       },
     },
   },
