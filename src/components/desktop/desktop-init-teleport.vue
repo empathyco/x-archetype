@@ -18,7 +18,7 @@ import SearchBox from '../search-box.vue'
 const props = defineProps<{ isOpen: boolean }>()
 
 const PredictiveLayer = defineAsyncComponent(() =>
-  import('../../components/index-empty-search').then(m => m.PredictiveLayer),
+  import('../x-empty-search').then(m => m.PredictiveLayer),
 )
 
 const x = use$x()

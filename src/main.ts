@@ -1,4 +1,6 @@
 import type { XCSSInjector } from '@empathyco/x-archetype-utils'
+import type { SnippetConfig } from '@empathyco/x-components'
+import type { XComponentsAdapter } from '@empathyco/x-types'
 import { CssInjector } from '@empathyco/x-archetype-utils'
 import { XInstaller } from '@empathyco/x-components'
 import { getInstallXOptions } from './x-components/plugin.options'
@@ -26,7 +28,23 @@ declare global {
 new CssInjector(true)
 
 getInstallXOptions()
-  .then(async installXOptions => new XInstaller(installXOptions).init())
+  .then(async installXOptions => {
+    const instance = (window.initX as SnippetConfig).instance
+    try {
+      await import(`./instance-extensions/${instance}/${instance}-init.ts`).then(
+        (m: { adapter?: XComponentsAdapter }) => {
+          if (m.adapter) {
+            installXOptions.adapter = m.adapter
+          } else {
+            console.warn(`No instance adapter found for ${instance}, using default adapter:`)
+          }
+        },
+      )
+    } catch {
+      console.warn(`No instance extension found for ${instance}, using defaults`)
+    }
+    return new XInstaller(installXOptions).init()
+  })
   .catch(error => {
     console.error('Error initializing XInstaller:', error)
   })

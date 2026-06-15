@@ -7,17 +7,6 @@ import visualizer from 'rollup-plugin-visualizer'
 import { defineConfig } from 'vite'
 import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 
-function getChunkFileName(name: string) {
-  switch (name) {
-    case 'index-empty-search':
-      return 'x-empty-search.[hash].js'
-    case 'index-search':
-      return 'x-search.[hash].js'
-    default:
-      return '[name].[hash].js'
-  }
-}
-
 function overrideXCssInjector(): PluginOption {
   return {
     name: 'override-x-css-injector',
@@ -71,7 +60,6 @@ export default defineConfig({
         format: 'es',
         assetFileNames: '[name][extname]',
         entryFileNames: 'app.js',
-        chunkFileNames: ({ name }) => getChunkFileName(name),
       },
     },
   },

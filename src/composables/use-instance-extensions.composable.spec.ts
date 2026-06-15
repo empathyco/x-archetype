@@ -23,7 +23,7 @@ vi.mock('../components/results/base-result.vue', () => ({
   default: 'BaseResult',
 }))
 
-vi.mock('../instance-extensions/perfumesclub.ts', () => ({
+vi.mock('../instance-extensions/perfumesclub/perfumesclub-empty-search.ts', () => ({
   Result: PerfumesclubResult,
 }))
 
@@ -33,7 +33,7 @@ describe('useInstanceExtensions composable', () => {
     vi.restoreAllMocks()
   })
 
-  it('should set up the result componet correctly', async () => {
+  it('should set up the result component correctly', async () => {
     const { useInstanceExtensions } = await import('./use-instance-extensions.composable')
     useInstanceExtensions()
 

@@ -26,7 +26,7 @@
         </BaseResultLink>
       </slot>
 
-      <slot name="add-to-cart">
+      <slot v-if="showAddToCart" name="add-to-cart">
         <div
           class="x-result__overlay xds:invisible xds:absolute xds:bottom-0 xds:flex xds:w-full xds:flex-col xds:gap-16 xds:bg-neutral-0 xds:p-8 xds:group-hover/result:visible xds:desktop:p-16"
         >
@@ -38,14 +38,9 @@
           </BaseAddToCart>
         </div>
       </slot>
-      <span
-        class="xds:pointer-events-none xds:absolute xds:top-8 xds:right-8 xds:tag xds:h-6.5 xds:min-h-min xds:border xds:border-lead xds:bg-neutral-0 xds:px-3.5 xds:text-sm xds:font-regular xds:text-lead"
-      >
-        {{ t('result.new') }}
-      </span>
     </div>
 
-    <slot name="product-info">
+    <slot v-if="showDescription" name="product-info">
       <BaseResultLink
         class="xds:flex xds:flex-col xds:gap-8 xds:p-8 xds:pb-16 xds:desktop:gap-4 xds:desktop:p-16 xds:desktop:pb-24"
         :result="result"
@@ -106,6 +101,14 @@ const props = defineProps({
   result: {
     type: Object as PropType<Result>,
     required: true,
+  },
+  showDescription: {
+    type: Boolean,
+    default: true,
+  },
+  showAddToCart: {
+    type: Boolean,
+    default: true,
   },
 })
 

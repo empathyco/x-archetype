@@ -83,22 +83,22 @@ import ScrollToTop from '../scroll-to-top.vue'
 import SearchBox from '../search-box.vue'
 import MobileLayout from './mobile-layout.vue'
 const MobileOpenAside = defineAsyncComponent(() =>
-  import('../index-search').then(m => m.MobileOpenAside),
+  import('../x-search').then(m => m.MobileOpenAside),
 )
 
 const MobileSubHeader = defineAsyncComponent(() =>
-  import('../index-search').then(m => m.MobileSubHeader),
+  import('../x-search').then(m => m.MobileSubHeader),
 )
-const Main = defineAsyncComponent(() => import('../index-search').then(m => m.Main))
-const MobileAside = defineAsyncComponent(() => import('../index-search').then(m => m.MobileAside))
+const Main = defineAsyncComponent(() => import('../x-search').then(m => m.Main))
+const MobileAside = defineAsyncComponent(() => import('../x-search').then(m => m.MobileAside))
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
-  import('../index-search').then(m => m.FallbackDisclaimerMessage),
+  import('../x-search').then(m => m.FallbackDisclaimerMessage),
 )
 const NoResultsMessage = defineAsyncComponent(() =>
-  import('../index-search').then(m => m.NoResultsMessage),
+  import('../x-search').then(m => m.NoResultsMessage),
 )
 const SpellcheckMessage = defineAsyncComponent(() =>
-  import('../index-search').then(m => m.SpellcheckMessage),
+  import('../x-search').then(m => m.SpellcheckMessage),
 )
 
 const x = use$x()

@@ -20,7 +20,7 @@ import DesktopHeaderFloatingPredictive from './desktop-header-floating-predictiv
 import DesktopHeaderFullPredictive from './desktop-header-full-predictive.vue'
 
 const DesktopSubHeader = defineAsyncComponent(() =>
-  import('../index-search').then(m => m.DesktopSubHeader),
+  import('../x-search').then(m => m.DesktopSubHeader),
 )
 
 const { hasSearched } = useHasSearched()

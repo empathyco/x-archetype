@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import type { Result } from '@empathyco/x-types'
-import BaseResult from '../../components/results/base-result.vue'
+import BaseResult from '../../../components/results/base-result.vue'
 
 interface Props {
   result: Result
