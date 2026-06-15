@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import type { DistriplacResult } from './types'
+import type { DistriplacResult } from '../types'
 import {
   BaseFallbackImage,
   BasePlaceholderImage,
@@ -45,7 +45,7 @@ import {
   BaseResultLink,
   CrossFade,
 } from '@empathyco/x-components'
-import BaseResult from '../../components/results/base-result.vue'
+import { BaseResult } from '../../../components/index-empty-search'
 withDefaults(defineProps<Props>(), {
   showDescription: true,
   showAddToCart: true,

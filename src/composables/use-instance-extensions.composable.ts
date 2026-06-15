@@ -12,7 +12,7 @@ export function useInstanceExtensions() {
 
   const resultComponent = defineAsyncComponent({
     loader: async () =>
-      import(`../instance-extensions/${snippetConfig.instance}.ts`).then(
+      import(`../instance-extensions/${snippetConfig.instance}/index-empty-search.ts`).then(
         (m: InstanceExtensionModule) => m.Result,
       ),
     loadingComponent: BaseResult,

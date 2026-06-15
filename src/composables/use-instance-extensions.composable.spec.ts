@@ -23,7 +23,7 @@ vi.mock('../components/results/base-result.vue', () => ({
   default: 'BaseResult',
 }))
 
-vi.mock('../instance-extensions/perfumesclub.ts', () => ({
+vi.mock('../instance-extensions/perfumesclub/index-empty-search.ts', () => ({
   Result: PerfumesclubResult,
 }))
 

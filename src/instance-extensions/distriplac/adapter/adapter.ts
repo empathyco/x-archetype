@@ -11,7 +11,7 @@ import type {
   SimpleFacet,
 } from '@empathyco/x-types'
 
-import type { DistriplacResult } from './types'
+import type { DistriplacResult } from '../types'
 import {
   facetSchema,
   platformAdapter,
