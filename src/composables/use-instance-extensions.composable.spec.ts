@@ -45,6 +45,7 @@ describe('useInstanceExtensions composable', () => {
     expect(options).toHaveProperty('loadingComponent', BaseResult)
     expect(options).toHaveProperty('errorComponent', BaseResult)
     expect(options).toHaveProperty('timeout', 3000)
+    expect(options).toHaveProperty('delay', 0)
 
     // eslint-disable-next-line ts/no-unsafe-assignment, ts/no-unsafe-member-access, ts/no-unsafe-call
     const loaderResult = await options.loader()
