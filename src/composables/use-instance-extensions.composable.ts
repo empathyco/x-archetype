@@ -18,6 +18,7 @@ export function useInstanceExtensions() {
     loadingComponent: BaseResult,
     errorComponent: BaseResult,
     timeout: 3000,
+    delay: 0,
   })
 
   return { resultComponent }
