@@ -77,7 +77,7 @@ describe('main', () => {
 
     await import('./main')
 
-    expect(cssInjectorCalled).toBe(true)
+    expect(cssInjectorCalled).toBeTruthy()
   })
 
   it('should handle XInstaller initialization successfully', async () => {
@@ -113,7 +113,7 @@ describe('main', () => {
 
     await import('./main')
 
-    expect(xInstallerCalled).toBe(true)
+    expect(xInstallerCalled).toBeTruthy()
   })
 
   it('should log error if initialization fails', async () => {
