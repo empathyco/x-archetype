@@ -1,4 +1,5 @@
 import type { HsnResult } from './types'
+import BagIcon from './components/icons/bag-icon.vue'
 import Result from './components/result.vue'
 
-export { HsnResult, Result }
+export { BagIcon, HsnResult, Result }

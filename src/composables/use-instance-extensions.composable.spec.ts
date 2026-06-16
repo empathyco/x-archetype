@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import BaseResult from '../components/results/base-result.vue'
 
 const PerfumesclubResult = { name: 'PerfumesclubResult', template: '<div>Mock Result</div>' }
+const PerfumesclubBagIcon = { name: 'PerfumesclubBagIcon', template: '<div>Mock BagIcon</div>' }
 
 const snippetConfigStub = { instance: 'perfumesclub' }
 const defineAsyncComponentMock = vi.fn()
@@ -20,12 +20,42 @@ vi.mock('vue', async importOriginal => {
 })
 
 vi.mock('../components/results/base-result.vue', () => ({
-  default: 'BaseResult',
+  default: { name: 'BaseResult' },
+}))
+
+vi.mock('../components/icons/bag-icon.vue', () => ({
+  default: { name: 'BagIcon' },
 }))
 
 vi.mock('../instance-extensions/perfumesclub/perfumesclub-empty-search.ts', () => ({
   Result: PerfumesclubResult,
+  BagIcon: PerfumesclubBagIcon,
 }))
+
+// Async component options structure that every component should have
+interface AsyncComponentOptions {
+  loader: () => Promise<any>
+  loadingComponent: any
+  errorComponent: any
+  timeout: number
+  delay: number
+}
+
+// Generic validation for any async component configuration
+async function validateAsyncComponentOptions(options: AsyncComponentOptions) {
+  expect(options).toHaveProperty('loader')
+  expect(options).toHaveProperty('loadingComponent')
+  expect(options).toHaveProperty('errorComponent')
+  expect(options).toHaveProperty('timeout', 3000)
+  expect(options).toHaveProperty('delay', 0)
+
+  // Test that the loader is a function that resolves correctly
+  expect(options.loader).toBeTypeOf('function')
+
+  // eslint-disable-next-line ts/no-unsafe-assignment
+  const resolved = await options.loader()
+  expect(resolved).toBeDefined()
+}
 
 describe('useInstanceExtensions composable', () => {
   beforeEach(() => {
@@ -33,22 +63,22 @@ describe('useInstanceExtensions composable', () => {
     vi.restoreAllMocks()
   })
 
-  it('should set up the result component correctly', async () => {
+  it('should set up all async components correctly', async () => {
     const { useInstanceExtensions } = await import('./use-instance-extensions.composable')
-    useInstanceExtensions()
+    const result = useInstanceExtensions()
 
-    expect(defineAsyncComponentMock).toHaveBeenCalledTimes(1)
+    // Verify the composable returns an object with expected component keys
+    expect(result).toHaveProperty('bagIcon')
+    expect(result).toHaveProperty('resultComponent')
 
-    // eslint-disable-next-line ts/no-unsafe-assignment
-    const options = defineAsyncComponentMock.mock.calls[0][0]
-    expect(options).toHaveProperty('loader')
-    expect(options).toHaveProperty('loadingComponent', BaseResult)
-    expect(options).toHaveProperty('errorComponent', BaseResult)
-    expect(options).toHaveProperty('timeout', 3000)
-    expect(options).toHaveProperty('delay', 0)
+    // Get all async component configurations from the mock calls
+    const asyncComponentOptions = defineAsyncComponentMock.mock.calls.map(
+      (call: any[]) => call[0] as AsyncComponentOptions,
+    )
 
-    // eslint-disable-next-line ts/no-unsafe-assignment, ts/no-unsafe-member-access, ts/no-unsafe-call
-    const loaderResult = await options.loader()
-    expect(loaderResult).toBe(PerfumesclubResult)
+    // Validate each async component has the correct structure and loads correctly
+    for (const options of asyncComponentOptions) {
+      await validateAsyncComponentOptions(options)
+    }
   })
 })

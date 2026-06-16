@@ -3,7 +3,7 @@
     :events="{ UserClickedCartIcon: undefined }"
     class="xds:relative xds:button xds:button-circle xds:button-ghost"
   >
-    <BagIcon class="xds:icon-lg" />
+    <component :is="bagIcon" class="xds:icon-lg" />
     <span
       v-if="productsInCart > 0"
       data-test="cart-count"
@@ -17,9 +17,11 @@
 import type { SnippetConfig } from '@empathyco/x-components'
 import { BaseEventButton } from '@empathyco/x-components'
 import { computed, inject } from 'vue'
-import BagIcon from '../icons/bag-icon.vue'
+import { useInstanceExtensions } from '../../composables/use-instance-extensions.composable'
 
 const snippetConfig = inject<SnippetConfig>('snippetConfig')
+
+const { bagIcon } = useInstanceExtensions()
 
 /**
  * Gets the number of products in the cart.
