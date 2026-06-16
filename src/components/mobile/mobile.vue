@@ -108,6 +108,6 @@ const { relatedPrompts } = useState('relatedPrompts')
 const { getControl } = useExperienceControls()
 const aiSearchFallback = getControl<boolean>('aiSearchFallback')
 const showNoResultsMessage = computed(
-  () => !aiSearchFallback.value && !relatedPrompts.value?.length && !x.semanticQueries.length,
+  () => !aiSearchFallback.value && !relatedPrompts.value?.length,
 )
 </script>
