@@ -20,7 +20,7 @@
             class="xds:flex xds:items-center xds:gap-2 xds:text-md xds:font-semibold xds:text-font"
           >
             <StarIcon />
-            <div>{{ result.rating ?? 4.9 }}</div>
+            <div>{{ result.rating?.value ?? 4.9 }}</div>
           </div>
         </div>
         <div class="xds:flex xds:flex-wrap xds:items-center xds:gap-8">
