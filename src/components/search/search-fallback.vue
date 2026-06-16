@@ -27,23 +27,17 @@ import PartialResults from './results/partial-results.vue'
 const x = use$x()
 
 const { relatedPrompts } = useState('relatedPrompts')
-const { config: semanticQueriesConfig } = useState('semanticQueries')
 const { config } = useState('search')
 
 const location = computed(() => (x.results.length > 0 ? 'low_results' : 'no_results'))
-const showRecommendations = computed(
-  () => x.noResults && !x.partialResults.length && !x.semanticQueries.length,
-)
+const showRecommendations = computed(() => x.noResults && !x.partialResults.length)
 
 const showPartials = computed(
   () => x.noResults && !x.semanticQueries.length && !relatedPrompts.value?.length,
 )
 
 const showSemantics = computed(
-  () =>
-    x.totalResults > 0 &&
-    x.totalResults < semanticQueriesConfig.value.threshold &&
-    !relatedPrompts.value?.length,
+  () => (x.noResults || x.totalResults < config.value?.pageSize) && !relatedPrompts.value?.length,
 )
 
 const showRelatedPrompts = computed(
