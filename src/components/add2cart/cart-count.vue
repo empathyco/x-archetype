@@ -6,7 +6,8 @@
     <BagIcon class="xds:icon-lg" />
     <span
       v-if="productsInCart > 0"
-      class="xds:absolute xds:-right-4 xds:h-20 xds:w-20 xds:rounded-full xds:bg-lead xds:font-family-main xds:text-sm xds:font-bold xds:text-neutral-0"
+      data-test="cart-count"
+      class="xds:absolute xds:-right-4 xds:badge xds:badge-sm xds:badge-circle xds:bg-lead xds:font-bold"
     >
       {{ productsInCart }}
     </span>
