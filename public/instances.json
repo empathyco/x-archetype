@@ -56,7 +56,7 @@
       { "config": { "lang": "eu", "currency": "EUR" } },
       { "config": { "lang": "ca", "currency": "EUR" } }
     ],
-    "gandhi": [{ "config": { "lang": "es-MX", "currency": "EUR" } }],
+    "gandhi": [{ "config": { "lang": "es-MX", "currency": "MXN" } }],
     "ametller": [
       { "config": { "lang": "ca", "currency": "EUR" } },
       { "config": { "lang": "es", "currency": "EUR" } }
@@ -111,7 +111,7 @@
       { "config": { "lang": "fr", "currency": "EUR", "catalog": "FR" } },
       { "config": { "lang": "it", "currency": "EUR", "catalog": "IT" } },
       { "config": { "lang": "de", "currency": "EUR", "catalog": "DE" } },
-      { "config": { "lang": "zh", "currency": "CNY", "catalog": "CH" } },
+      { "config": { "lang": "zh", "currency": "CHF", "catalog": "CH" } },
       { "config": { "lang": "ja", "currency": "JPY", "catalog": "JP" } }
     ],
     "martimotos": [
@@ -121,10 +121,10 @@
       { "config": { "lang": "en", "currency": "EUR" } },
       { "config": { "lang": "it", "currency": "EUR" } },
       { "config": { "lang": "ca", "currency": "EUR" } },
-      { "config": { "lang": "da", "currency": "EUR" } },
-      { "config": { "lang": "cz", "currency": "EUR" } },
+      { "config": { "lang": "da", "currency": "DKK" } },
+      { "config": { "lang": "cz", "currency": "CZK" } },
       { "config": { "lang": "nl", "currency": "EUR" } },
-      { "config": { "lang": "pl", "currency": "EUR" } }
+      { "config": { "lang": "pl", "currency": "PLN" } }
     ],
     "medipiel": [{ "config": { "lang": "es", "currency": "EUR" } }],
     "totalenergies": [
@@ -189,13 +189,13 @@
     "ticnova": [{ "config": { "lang": "es", "currency": "EUR" } }],
     "subdued": [
       { "config": { "lang": "es", "currency": "EUR", "store": "es" } },
-      { "config": { "lang": "en", "currency": "EUR", "store": "uk" } },
-      { "config": { "lang": "en", "currency": "EUR", "store": "us" } },
+      { "config": { "lang": "en", "currency": "GBP", "store": "uk" } },
+      { "config": { "lang": "en", "currency": "USD", "store": "us" } },
       { "config": { "lang": "fr", "currency": "EUR", "store": "fr" } },
       { "config": { "lang": "de", "currency": "EUR", "store": "de" } },
       { "config": { "lang": "it", "currency": "EUR", "store": "it" } },
-      { "config": { "lang": "sv", "currency": "EUR", "store": "se" } },
-      { "config": { "lang": "nb", "currency": "EUR", "store": "no" } }
+      { "config": { "lang": "sv", "currency": "SEK", "store": "se" } },
+      { "config": { "lang": "nb", "currency": "NOK", "store": "no" } }
     ]
   }
 }
