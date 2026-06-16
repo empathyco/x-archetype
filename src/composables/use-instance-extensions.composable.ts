@@ -14,7 +14,9 @@ export function useInstanceExtensions() {
     loader: async () =>
       import(
         `../instance-extensions/${snippetConfig.instance}/${snippetConfig.instance}-empty-search.ts`
-      ).then((m: InstanceExtensionModule) => m.Result),
+      )
+        .then((m: InstanceExtensionModule) => m.Result)
+        .catch(() => BaseResult),
     loadingComponent: BaseResult,
     errorComponent: BaseResult,
     timeout: 3000,
