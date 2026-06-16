@@ -21,9 +21,7 @@
 <script setup lang="ts">
 import type { SnippetConfig, UrlParams, XEvent } from '@empathyco/x-components'
 import type { ExperienceControlsState } from '@empathyco/x-components/experience-controls'
-import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview'
 import type { InternalSearchRequest, InternalSearchResponse } from '@empathyco/x-components/search'
-import type { ComputedRef } from 'vue'
 import { SnippetCallbacks, use$x } from '@empathyco/x-components'
 import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params'
 import { Tagging } from '@empathyco/x-components/tagging'
@@ -81,7 +79,6 @@ const excludedExtraParams = [
   'cart',
   'currency',
   'layerSelector',
-  'queriesPreview',
   'resultsSelector',
   'searchBoxSelector',
   'viewMode',
@@ -145,9 +142,6 @@ const documentDirection = computed(() => {
 const isTeleportViewMode = computed(() =>
   snippetConfig.viewMode ? snippetConfig.viewMode === 'embedded' : teleportFeature.value,
 )
-
-const queriesPreviewInfo = computed(() => snippetConfig.queriesPreview ?? [])
-provide<ComputedRef<QueryPreviewInfo[]> | undefined>('queriesPreviewInfo', queriesPreviewInfo)
 
 const showNextQueries = computed(() => showNextQueriesTags.value)
 provide('showNextQueries', showNextQueries)

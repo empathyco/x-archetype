@@ -118,32 +118,6 @@ const lang = popFromURLParameters('lang') || 'en' // Use user-provided lang
 const currency = popFromURLParameters('currency') || 'EUR' // Use user-provided currency
 ```
 
-### Set Queries Preview to Empty Array
-
-Find the `queriesPreview` property inside the `window.initX` object and change it from an array with sample queries to an empty array:
-
-```javascript
-// Change from this:
-queriesPreview: [
-  {
-    query: 'dress',
-    title: 'Autumn dresses by Marni',
-    filters: ['brand:marni', 'categoryIds:12fad53d7'],
-  },
-  {
-    query: 'belted legging',
-    filters: ['categoryIds:1b5f82125'],
-    title: 'Belted leggings',
-  },
-  // ... more query objects
-]
-
-// To this:
-queriesPreview: []
-```
-
-This removes all the sample preview queries from the archetype.
-
 ### Modify View Mode Fallback
 
 ```javascript
@@ -236,7 +210,6 @@ After completing all steps, verify:
 - [ ] All specified `.github/` files and folders have been deleted
 - [ ] Build and pull-request workflows are enabled (removed `if: false`)
 - [ ] `snippet-script.js` has correct instance, lang, currency, and viewMode fallbacks
-- [ ] `queriesPreview` is set to empty array
 - [ ] `adapter.ts` uses correct result schema (vtexResultSchema for VTEX, platformResultSchema otherwise)
 - [ ] `adapter.relatedPrompts` extension has been removed from `adapter.ts`
 - [ ] `package.json` has correct name and description

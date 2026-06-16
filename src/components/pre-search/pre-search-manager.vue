@@ -1,9 +1,9 @@
 <template>
-  <div v-if="!x.query.searchBox">
-    <h1 v-if="!hasQueryPreviews" class="xds:text-xl xds:max-desktop:px-16 xds:max-desktop:text-lg">
+  <div v-if="!x.query.searchBox && popularSearchesRendered.length">
+    <h1 class="xds:text-xl xds:max-desktop:px-16 xds:max-desktop:text-lg">
       {{ $t('popularSearches.title') }}
     </h1>
-    <PreSearchQueryPreviewList :queries-preview-info="queriesPreviewToRender" />
+    <PreSearchQueryPreviewList :queries-preview-info="popularSearchesRendered" />
   </div>
 </template>
 
@@ -11,7 +11,7 @@
 import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview'
 import { use$x, useState } from '@empathyco/x-components'
 import { popularSearchesXModule } from '@empathyco/x-components/popular-searches'
-import { computed, inject } from 'vue'
+import { computed } from 'vue'
 import PreSearchQueryPreviewList from './pre-search-query-preview-list.vue'
 
 defineOptions({
@@ -26,27 +26,14 @@ const props = withDefaults(
     maxPopularSearchesToRender: 4,
   },
 )
-
+const x = use$x()
 const { popularSearches } = useState('popularSearches')
 
-const injectedQueriesPreviewInfo = computed<QueryPreviewInfo[]>(() => {
-  const injectedQueriesPreview = inject<QueryPreviewInfo[] | { value: QueryPreviewInfo[] }>(
-    'queriesPreviewInfo',
-    [],
-  )
-  return 'value' in injectedQueriesPreview ? injectedQueriesPreview.value : injectedQueriesPreview
-})
-
-const hasQueryPreviews = computed(() => injectedQueriesPreviewInfo.value.length !== 0)
-
-const queriesPreviewToRender = computed<QueryPreviewInfo[]>(() => {
-  const queryPreviewInfo: QueryPreviewInfo[] = popularSearches.value.map(({ query }) => ({
-    query,
-  }))
-  return hasQueryPreviews.value
-    ? injectedQueriesPreviewInfo.value
-    : queryPreviewInfo.slice(0, props.maxPopularSearchesToRender)
-})
-
-const x = use$x()
+const popularSearchesRendered = computed<QueryPreviewInfo[]>(() =>
+  popularSearches.value
+    .map(({ query }) => ({
+      query,
+    }))
+    .slice(0, props.maxPopularSearchesToRender),
+)
 </script>
