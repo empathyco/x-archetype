@@ -12,11 +12,13 @@
           </div>
         </div>
 
-        <CloseMainModal
-          class="xds:button-circle xds:button-ghost xds:justify-self-end xds:text-neutral-100"
-        >
-          <CrossIcon class="xds:icon-lg" />
-        </CloseMainModal>
+        <div class="xds:flex xds:justify-self-end xds:text-neutral-100 xds:desktop:gap-32">
+          <CartCount />
+
+          <CloseMainModal class="xds:button-circle xds:button-ghost">
+            <CrossIcon class="xds:icon-lg" />
+          </CloseMainModal>
+        </div>
       </header>
     </div>
 
@@ -28,6 +30,7 @@
 
 <script setup lang="ts">
 import { CloseMainModal, CrossIcon, LocationProvider } from '@empathyco/x-components'
+import CartCount from '../add2cart/cart-count.vue'
 import BrandLogo from '../brand-logo.vue'
 import PredictiveLayer from '../predictive-layer/predictive-layer.vue'
 import SearchBox from '../search-box.vue'
