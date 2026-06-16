@@ -93,6 +93,44 @@
         display: flex;
         flex-direction: column;
         gap: 6px;
+        max-height: 300px;
+        overflow-y: auto;
+        /* Scroll shadows technique with pure CSS */
+        background:
+          /* Shadow at top */
+          linear-gradient(white 30%, rgba(255, 255, 255, 0)) center top,
+          /* Shadow at bottom */ linear-gradient(rgba(255, 255, 255, 0), white 70%) center bottom,
+          /* Shadow cover at top */
+          radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)) center top,
+          /* Shadow cover at bottom */
+          radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)) center
+            bottom;
+        background-repeat: no-repeat;
+        background-size:
+          100% 40px,
+          100% 40px,
+          100% 14px,
+          100% 14px;
+        background-attachment: local, local, scroll, scroll;
+      }
+
+      /* Scrollbar styling */
+      .instance-card__presets::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .instance-card__presets::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+      }
+
+      .instance-card__presets::-webkit-scrollbar-thumb {
+        background: #243d48;
+        border-radius: 3px;
+      }
+
+      .instance-card__presets::-webkit-scrollbar-thumb:hover {
+        background: #3a5c69;
       }
 
       .preset-btn {
@@ -217,7 +255,7 @@
               return `
               <a href="./index.html?instance=${instanceKey}&${Object.entries(preset.config)
                 .map(([k, v]) => `${k}=${v}`)
-                .join('&')}" class="preset-btn">
+                .join('&')}" class="preset-btn" target="_blank">
                 <div class="preset-btn__info">
                   ${paramsList}
                 </div>
