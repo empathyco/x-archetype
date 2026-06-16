@@ -21,22 +21,13 @@ import {
 
 export const adapter = platformAdapter
 
-interface HsnPlatformResult extends PlatformResult {
-  description: string
-  collection: string
-  brand: string
-  brandImage: string
-}
+interface HsnPlatformResult extends PlatformResult {}
 
 interface HsnPlatformResult extends PlatformFacet {
   label: string
 }
 
 resultSchema.$override<HsnPlatformResult, Partial<HsnResult>>({
-  description: 'description',
-  collection: 'collection',
-  brand: 'brand',
-  brandImage: 'brandImage',
   images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
 })
 
