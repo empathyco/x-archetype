@@ -5,6 +5,35 @@
       { "config": { "lang": "es", "currency": "MXN" } },
       { "config": { "lang": "es", "currency": "USD" } }
     ],
-    "distriplac": [{ "config": { "lang": "es", "currency": "EUR" } }]
+    "distriplac": [{ "config": { "lang": "es", "currency": "EUR" } }],
+    "conforama": [{ "config": { "lang": "es", "currency": "EUR", "store": "es" } }],
+    "preunic": [{ "config": { "lang": "es", "currency": "CLP" } }],
+    "jlj": [{ "config": { "lang": "es", "currency": "EUR", "store": "es" } }],
+    "kutxabankadm": [{ "config": { "lang": "es", "currency": "EUR" } }],
+    "gandhi": [{ "config": { "lang": "es-MX", "currency": "EUR" } }],
+    "ametller": [{ "config": { "lang": "ca", "currency": "EUR" } }],
+    "bigbuy": [{ "config": { "lang": "es", "currency": "EUR" } }],
+    "froiz": [{ "config": { "lang": "es", "currency": "EUR" } }],
+    "miincosmetics": [{ "config": { "lang": "es", "currency": "EUR", "store": "es" } }],
+    "steren": [{ "config": { "lang": "es", "currency": "EUR" } }],
+    "pdpaola": [{ "config": { "lang": "es", "currency": "EUR", "catalog": "ES" } }],
+    "martimotos": [{ "config": { "lang": "es", "currency": "EUR" } }],
+    "medipiel": [{ "config": { "lang": "es", "currency": "EUR" } }],
+    "totalenergies": [
+      {
+        "config": { "lang": "es", "currency": "EUR", "branch": "GRP", "searchSegment": ["Hogares"] }
+      }
+    ],
+    "xtra": [{ "config": { "lang": "es", "currency": "USD" } }],
+    "ktuin": [{ "config": { "lang": "es", "currency": "EUR" } }],
+    "pronovias": [{ "config": { "lang": "es", "currency": "EUR", "store": "es" } }],
+    "cingolani": [{ "config": { "lang": "it", "currency": "EUR" } }],
+    "auteco": [{ "config": { "lang": "es", "currency": "MXN" } }],
+    "itemint": [{ "config": { "lang": "es", "currency": "EUR" } }],
+    "magicprices": [{ "config": { "lang": "fr", "currency": "EUR" } }],
+    "parisina": [{ "config": { "lang": "es", "currency": "MXN" } }],
+    "sanitas": [{ "config": { "lang": "es", "currency": "EUR", "portal": "Sanitas" } }],
+    "ticnova": [{ "config": { "lang": "es", "currency": "EUR" } }],
+    "subdued": [{ "config": { "lang": "it", "currency": "EUR", "store": "it" } }]
   }
 }
