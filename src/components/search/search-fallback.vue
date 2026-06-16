@@ -30,14 +30,16 @@ const { relatedPrompts } = useState('relatedPrompts')
 const { config } = useState('search')
 
 const location = computed(() => (x.results.length > 0 ? 'low_results' : 'no_results'))
-const showRecommendations = computed(() => x.noResults && !x.partialResults.length)
+const showRecommendations = computed(
+  () => x.noResults && !x.partialResults.length && !x.semanticQueries.length,
+)
 
 const showPartials = computed(
   () => x.noResults && !x.semanticQueries.length && !relatedPrompts.value?.length,
 )
 
 const showSemantics = computed(
-  () => (x.noResults || x.totalResults < config.value?.pageSize) && !relatedPrompts.value?.length,
+  () => (x.noResults || x.totalResults < config.value?.pageSize) && x.semanticQueries.length,
 )
 
 const showRelatedPrompts = computed(
