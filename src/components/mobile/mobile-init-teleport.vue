@@ -11,6 +11,7 @@
           @click="emitUserClickedOpenX"
           @focusin="emitUserClickedOpenX"
         />
+        <CartCount />
       </div>
       <LocationProvider location="predictive_layer">
         <PredictiveLayer
@@ -32,6 +33,7 @@ import {
   use$x,
 } from '@empathyco/x-components'
 import { computed, defineAsyncComponent, inject, ref } from 'vue'
+import CartCount from '../add2cart/cart-count.vue'
 import SearchBox from '../search-box.vue'
 
 const props = defineProps<{ isOpen: boolean }>()

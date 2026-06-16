@@ -57,6 +57,7 @@ declare module '@empathyco/x-components' {
     UserClickedResultVariantRemoveFromCart: Result
     UserClickedResultRemoveFromCart: Result
     UserClickedResultWishlist: Result
+    UserClickedCartIcon: void
   }
 }
 

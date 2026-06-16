@@ -6,6 +6,7 @@
           <ArrowLeftIcon class="xds:icon-lg" />
         </CloseMainModal>
         <SearchBox class="xds:flex-1" />
+        <CartCount />
       </div>
     </template>
 
@@ -75,6 +76,7 @@ import {
 import { computed, defineAsyncComponent } from 'vue'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
+import CartCount from '../add2cart/cart-count.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
 import PreSearchManager from '../pre-search/pre-search-manager.vue'
@@ -82,6 +84,7 @@ import PredictiveLayer from '../predictive-layer/predictive-layer.vue'
 import ScrollToTop from '../scroll-to-top.vue'
 import SearchBox from '../search-box.vue'
 import MobileLayout from './mobile-layout.vue'
+
 const MobileOpenAside = defineAsyncComponent(() =>
   import('../x-search').then(m => m.MobileOpenAside),
 )
