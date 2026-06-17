@@ -45,7 +45,7 @@ import {
   BaseResultLink,
   CrossFade,
 } from '@empathyco/x-components'
-import { BaseResult } from '../../../components/x-empty-search'
+import BaseResult from '../../../components/results/base-result.vue'
 withDefaults(defineProps<Props>(), {
   showDescription: true,
   showAddToCart: true,
