@@ -148,33 +148,6 @@ window.initX = {
     UserClickedResultVariantAddToCart: addToCartCallback,
     UserClickedResultVariantRemoveFromCart: removeFromCartCallback,
   },
-  queriesPreview: [
-    {
-      query: 'dress',
-      title: 'Autumn dresses by Marni',
-      filters: ['brand:marni', 'categoryIds:12fad53d7'],
-    },
-    {
-      query: 'belted legging',
-      filters: ['categoryIds:1b5f82125'],
-      title: 'Belted leggings',
-    },
-    {
-      query: 'bags',
-      extraParams: {
-        sort: 'price desc',
-      },
-      title: 'Exclusive bags',
-    },
-    {
-      query: 'sunglasses',
-      title: 'Sunshine ready',
-    },
-    {
-      query: 'woven hat',
-      title: 'Elegant Sunshield',
-    },
-  ],
 }
 
 window.addEventListener('load', () => {

@@ -1,6 +1,10 @@
 <template>
   <div v-if="!x.query.searchBox">
-    <h1 v-if="!hasQueryPreviews" class="xds:text-xl xds:max-desktop:px-16 xds:max-desktop:text-lg">
+    <h1
+      v-if="!hasQueryPreviews"
+      class="xds:text-xl xds:max-desktop:px-16 xds:max-desktop:text-lg"
+      data-test="pre-search-manager-title"
+    >
       {{ $t('popularSearches.title') }}
     </h1>
     <PreSearchQueryPreviewList :queries-preview-info="queriesPreviewToRender" />
