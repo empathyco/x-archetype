@@ -147,9 +147,8 @@
     "accept": "Yes, redirect me",
     "reject": "No, I'll stay here"
   },
-  "relatedPrompts": {
-    "title": "Are you interested in {query}? {message}",
-    "message": "Explore this suggestions:"
+  "lowResults": {
+    "message": "Are you interested in {query}? Explore this suggestions:"
   },
   "pageLoaderButton": {
     "message": "Load more products"

@@ -19,11 +19,7 @@
               <LocationProvider location="results">
                 <SpellcheckMessage class="xds:mb-16" data-test="spellcheck-message" />
               </LocationProvider>
-              <NoResultsMessage
-                v-if="showNoResultsMessage"
-                class="xds:mb-16"
-                data-test="no-results-message"
-              />
+
               <FallbackDisclaimerMessage class="xds:mb-16" />
             </div>
 
@@ -88,7 +84,6 @@ import {
   LocationProvider,
   PageLoaderButton,
   use$x,
-  useState,
 } from '@empathyco/x-components'
 import { ExperienceControls } from '@empathyco/x-components/experience-controls'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
@@ -106,24 +101,16 @@ const DesktopAside = defineAsyncComponent(() => import('../x-search').then(m => 
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
   import('../x-search').then(m => m.FallbackDisclaimerMessage),
 )
-const NoResultsMessage = defineAsyncComponent(() =>
-  import('../x-search').then(m => m.NoResultsMessage),
-)
 const SpellcheckMessage = defineAsyncComponent(() =>
   import('../x-search').then(m => m.SpellcheckMessage),
 )
 
 const { hasSearched } = useHasSearched()
-const { relatedPrompts } = useState('relatedPrompts')
 const x = use$x()
 const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
 
 const { getControl } = useExperienceControls()
-const aiSearchFallback = getControl<boolean>('aiSearchFallback')
 const facetsPanelOverlay = getControl<boolean>('facetsPanelOverlay')
-const showNoResultsMessage = computed(
-  () => !aiSearchFallback.value && !relatedPrompts.value?.length,
-)
 const snippetConfig = inject<SnippetConfig>('snippetConfig')
 const gridTarget = computed(() => snippetConfig?.gridTarget ?? '#maincontent')
 const visibleGrid = ref(false)

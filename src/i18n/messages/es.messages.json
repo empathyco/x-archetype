@@ -152,9 +152,8 @@
     "accept": "Sí, redirígeme",
     "reject": "No, me quedaré aquí"
   },
-  "relatedPrompts": {
-    "title": "¿Estás interesado en {query}? {message}",
-    "message": "Explora estas sugerencias:"
+  "lowResults": {
+    "message": "¿Estás interesado en {query}? Explora estas sugerencias:"
   },
   "pageLoaderButton": {
     "message": "Cargar más productos"

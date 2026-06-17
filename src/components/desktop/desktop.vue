@@ -12,12 +12,6 @@
               <SpellcheckMessage class="xds:mb-16" data-test="spellcheck-message" />
             </LocationProvider>
 
-            <NoResultsMessage
-              v-if="showNoResultsMessage"
-              class="xds:mb-16"
-              data-test="no-results-message"
-            />
-
             <FallbackDisclaimerMessage class="xds:mb-16" />
           </div>
 
@@ -73,15 +67,9 @@
 </template>
 
 <script setup lang="ts">
-import {
-  AnimateTranslate,
-  BaseIdModal,
-  LocationProvider,
-  use$x,
-  useState,
-} from '@empathyco/x-components'
+import { AnimateTranslate, BaseIdModal, LocationProvider, use$x } from '@empathyco/x-components'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
-import { computed, defineAsyncComponent, h } from 'vue'
+import { defineAsyncComponent, h } from 'vue'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
@@ -95,9 +83,6 @@ const DesktopAside = defineAsyncComponent(() => import('../x-search').then(m => 
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
   import('../x-search').then(m => m.FallbackDisclaimerMessage),
 )
-const NoResultsMessage = defineAsyncComponent(() =>
-  import('../x-search').then(m => m.NoResultsMessage),
-)
 const SpellcheckMessage = defineAsyncComponent(() =>
   import('../x-search').then(m => m.SpellcheckMessage),
 )
@@ -106,13 +91,7 @@ const x = use$x()
 const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
 
 const { hasSearched } = useHasSearched()
-const { relatedPrompts } = useState('relatedPrompts')
 
 const { getControl } = useExperienceControls()
-const aiSearchFallback = getControl<boolean>('aiSearchFallback')
 const facetsPanelOverlay = getControl<boolean>('facetsPanelOverlay')
-
-const showNoResultsMessage = computed(
-  () => !aiSearchFallback.value && !relatedPrompts.value?.length && !x.semanticQueries.length,
-)
 </script>
