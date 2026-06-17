@@ -6,7 +6,6 @@ import MobileOpenAside from './mobile/mobile-open-aside.vue'
 import MobileSubHeader from './mobile/mobile-sub-header.vue'
 import PredictiveNextQueries from './predictive-layer/predictive-next-queries.vue'
 import FallbackDisclaimerMessage from './search/fallback-disclaimer-message.vue'
-import NoResultsMessage from './search/no-results-message.vue'
 import SpellcheckMessage from './search/spellcheck-message.vue'
 
 /**
@@ -23,7 +22,6 @@ export {
   MobileAside,
   MobileOpenAside,
   MobileSubHeader,
-  NoResultsMessage,
   PredictiveNextQueries,
   SpellcheckMessage,
 }

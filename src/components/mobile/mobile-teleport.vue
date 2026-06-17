@@ -21,11 +21,7 @@
               <LocationProvider location="results">
                 <SpellcheckMessage class="xds:mb-16" data-test="spellcheck-message" />
               </LocationProvider>
-              <NoResultsMessage
-                v-if="showNoResultsMessage"
-                class="xds:mb-16"
-                data-test="no-results-message"
-              />
+
               <FallbackDisclaimerMessage class="xds:mb-16" data-test="fallback-message" />
             </section>
             <LocationProvider location="results">
@@ -63,17 +59,10 @@
 
 <script lang="ts" setup>
 import type { SnippetConfig } from '@empathyco/x-components'
-import {
-  BaseTeleport,
-  LocationProvider,
-  PageLoaderButton,
-  use$x,
-  useState,
-} from '@empathyco/x-components'
+import { BaseTeleport, LocationProvider, PageLoaderButton, use$x } from '@empathyco/x-components'
 import { ExperienceControls } from '@empathyco/x-components/experience-controls'
 import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { computed, defineAsyncComponent, inject, ref } from 'vue'
-import { useExperienceControls } from '../../composables/use-experience-controls.composable'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import MobileLayout from '../mobile/mobile-layout.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
@@ -90,24 +79,13 @@ const MobileAside = defineAsyncComponent(() => import('../x-search').then(m => m
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
   import('../x-search').then(m => m.FallbackDisclaimerMessage),
 )
-const NoResultsMessage = defineAsyncComponent(() =>
-  import('../x-search').then(m => m.NoResultsMessage),
-)
 const SpellcheckMessage = defineAsyncComponent(() =>
   import('../x-search').then(m => m.SpellcheckMessage),
 )
 
 const snippetConfig = inject<SnippetConfig>('snippetConfig')
 const { hasSearched } = useHasSearched()
-const { relatedPrompts } = useState('relatedPrompts')
 const x = use$x()
-
-const { getControl } = useExperienceControls()
-const aiSearchFallback = getControl<boolean>('aiSearchFallback')
-
-const showNoResultsMessage = computed(
-  () => !aiSearchFallback.value && !relatedPrompts.value?.length,
-)
 
 const gridTarget = computed(() => snippetConfig?.gridTarget ?? '#maincontent')
 const visibleGrid = ref(false)

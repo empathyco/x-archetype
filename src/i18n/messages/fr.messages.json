@@ -152,9 +152,8 @@
     "accept": "Oui, redirigez-moi",
     "reject": "Non, je reste ici"
   },
-  "relatedPrompts": {
-    "title": "Êtes-vous intéressé par {query}? {message}",
-    "message": "Explorez ces suggestions:"
+  "lowResults": {
+    "message": "Êtes-vous intéressé par {query}? Explorez ces suggestions:"
   },
   "pageLoaderButton": {
     "message": "Charger plus de produits"

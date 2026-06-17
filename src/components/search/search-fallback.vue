@@ -1,4 +1,10 @@
 <template>
+  <FallbackResultsMessage
+    v-if="showFallbackResultsMessage"
+    :key-path="keyPath"
+    class="xds:mb-16"
+    data-test="no-results-message"
+  />
   <LocationProvider v-if="showRelatedPrompts" :location="location">
     <CustomRelatedPrompts
       :related-prompt-list="relatedPrompts"
@@ -8,7 +14,7 @@
   <LocationProvider v-if="showSemantics" :location="location">
     <CustomSemanticQueries />
   </LocationProvider>
-  <LocationProvider v-if="showPartials" location="results">
+  <LocationProvider v-if="showPartials" location="no_results">
     <PartialResults />
   </LocationProvider>
   <LocationProvider v-if="showRecommendations" location="no_results">
@@ -22,6 +28,7 @@ import { computed } from 'vue'
 import CustomRelatedPrompts from '../related-prompts/custom-related-prompts.vue'
 import CustomRecommendations from '../results/custom-recommendations.vue'
 import CustomSemanticQueries from './custom-semantic-queries.vue'
+import FallbackResultsMessage from './fallback-results-message.vue'
 import PartialResults from './results/partial-results.vue'
 
 const x = use$x()
@@ -29,20 +36,34 @@ const x = use$x()
 const { relatedPrompts } = useState('relatedPrompts')
 const { config } = useState('search')
 
+const keyPath = computed(() => (x.results.length > 0 ? 'lowResults' : 'noResults'))
 const location = computed(() => (x.results.length > 0 ? 'low_results' : 'no_results'))
+const isLowResults = computed(() => x.totalResults > 0 && x.totalResults < config.value?.pageSize)
 const showRecommendations = computed(
   () => x.noResults && !x.partialResults.length && !x.semanticQueries.length,
 )
 
 const showPartials = computed(
-  () => x.noResults && !x.semanticQueries.length && !relatedPrompts.value?.length,
+  () =>
+    x.noResults &&
+    x.partialResults.length &&
+    !x.semanticQueries.length &&
+    !relatedPrompts.value?.length,
 )
 
 const showSemantics = computed(
-  () => (x.noResults || x.totalResults < config.value?.pageSize) && x.semanticQueries.length,
+  () => (x.noResults || isLowResults.value) && x.semanticQueries.length,
 )
 
 const showRelatedPrompts = computed(
-  () => (x.noResults || x.totalResults < config.value?.pageSize) && relatedPrompts.value?.length,
+  () => (x.noResults || isLowResults.value) && relatedPrompts.value?.length,
+)
+
+const showFallbackResultsMessage = computed(
+  () =>
+    showRelatedPrompts.value ||
+    showSemantics.value ||
+    showPartials.value ||
+    showRecommendations.value,
 )
 </script>

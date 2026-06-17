@@ -34,12 +34,6 @@
           <SpellcheckMessage class="xds:mb-16" data-test="spellcheck-message" />
         </LocationProvider>
 
-        <NoResultsMessage
-          v-if="showNoResultsMessage"
-          class="xds:mb-16"
-          data-test="no-results-message"
-        />
-
         <FallbackDisclaimerMessage class="xds:mb-16" data-test="fallback-message" />
       </section>
       <LocationProvider location="no_query">
@@ -65,15 +59,8 @@
 </template>
 
 <script setup lang="ts">
-import {
-  ArrowLeftIcon,
-  CloseMainModal,
-  LocationProvider,
-  use$x,
-  useState,
-} from '@empathyco/x-components'
-import { computed, defineAsyncComponent } from 'vue'
-import { useExperienceControls } from '../../composables/use-experience-controls.composable'
+import { ArrowLeftIcon, CloseMainModal, LocationProvider, use$x } from '@empathyco/x-components'
+import { defineAsyncComponent } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
@@ -94,20 +81,10 @@ const MobileAside = defineAsyncComponent(() => import('../x-search').then(m => m
 const FallbackDisclaimerMessage = defineAsyncComponent(() =>
   import('../x-search').then(m => m.FallbackDisclaimerMessage),
 )
-const NoResultsMessage = defineAsyncComponent(() =>
-  import('../x-search').then(m => m.NoResultsMessage),
-)
 const SpellcheckMessage = defineAsyncComponent(() =>
   import('../x-search').then(m => m.SpellcheckMessage),
 )
 
 const x = use$x()
 const { hasSearched } = useHasSearched()
-const { relatedPrompts } = useState('relatedPrompts')
-
-const { getControl } = useExperienceControls()
-const aiSearchFallback = getControl<boolean>('aiSearchFallback')
-const showNoResultsMessage = computed(
-  () => !aiSearchFallback.value && !relatedPrompts.value?.length,
-)
 </script>
