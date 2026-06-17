@@ -14,10 +14,10 @@
   <LocationProvider v-if="showSemantics" :location="location">
     <CustomSemanticQueries />
   </LocationProvider>
-  <LocationProvider v-if="showPartials" location="no_results">
+  <LocationProvider v-if="showPartials" :location="location">
     <PartialResults />
   </LocationProvider>
-  <LocationProvider v-if="showRecommendations" location="no_results">
+  <LocationProvider v-if="showRecommendations" :location="location">
     <CustomRecommendations />
   </LocationProvider>
 </template>
