@@ -46,10 +46,8 @@ getInstallXOptions()
       installXOptions.adapter = instanceExtensions.adapter
     }
 
-    if (instanceExtensions.ui) {
-      installXOptions.onCreateApp = app => {
-        app.provide(UI_CONFIG_KEY, instanceExtensions.ui ?? {})
-      }
+    installXOptions.onCreateApp = app => {
+      app.provide(UI_CONFIG_KEY, instanceExtensions.ui ?? {})
     }
 
     return new XInstaller(installXOptions).init()
