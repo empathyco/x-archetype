@@ -7,6 +7,7 @@
       { "config": { "lang": "fr", "currency": "EUR" } },
       { "config": { "lang": "ja", "currency": "JPY" } }
     ],
+    "hsn": [{ "config": { "lang": "es", "currency": "EUR" } }],
     "perfumesclub": [
       { "config": { "lang": "es", "currency": "EUR", "store": "es" } },
       { "config": { "lang": "en", "currency": "GBP", "store": "gb" } },
