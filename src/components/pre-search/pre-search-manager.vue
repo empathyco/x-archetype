@@ -1,12 +1,13 @@
 <template>
-  <div v-if="!x.query.searchBox && popularSearchesRendered.length">
+  <div v-if="!x.query.searchBox">
     <h1
+      v-if="!hasQueryPreviews"
       class="xds:text-xl xds:max-desktop:px-16 xds:max-desktop:text-lg"
       data-test="pre-search-manager-title"
     >
-      {{ t('popularSearches.title') }}
+      {{ $t('popularSearches.title') }}
     </h1>
-    <PreSearchQueryPreviewList :queries-preview-info="popularSearchesRendered" />
+    <PreSearchQueryPreviewList :queries-preview-info="queriesPreviewToRender" />
   </div>
 </template>
 
@@ -14,8 +15,7 @@
 import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview'
 import { use$x, useState } from '@empathyco/x-components'
 import { popularSearchesXModule } from '@empathyco/x-components/popular-searches'
-import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { computed, inject } from 'vue'
 import PreSearchQueryPreviewList from './pre-search-query-preview-list.vue'
 
 defineOptions({
@@ -30,15 +30,27 @@ const props = withDefaults(
     maxPopularSearchesToRender: 4,
   },
 )
-const x = use$x()
-const { t } = useI18n()
+
 const { popularSearches } = useState('popularSearches')
 
-const popularSearchesRendered = computed<QueryPreviewInfo[]>(() =>
-  popularSearches.value
-    .map(({ query }) => ({
-      query,
-    }))
-    .slice(0, props.maxPopularSearchesToRender),
-)
+const injectedQueriesPreviewInfo = computed<QueryPreviewInfo[]>(() => {
+  const injectedQueriesPreview = inject<QueryPreviewInfo[] | { value: QueryPreviewInfo[] }>(
+    'queriesPreviewInfo',
+    [],
+  )
+  return 'value' in injectedQueriesPreview ? injectedQueriesPreview.value : injectedQueriesPreview
+})
+
+const hasQueryPreviews = computed(() => injectedQueriesPreviewInfo.value.length !== 0)
+
+const queriesPreviewToRender = computed<QueryPreviewInfo[]>(() => {
+  const queryPreviewInfo: QueryPreviewInfo[] = popularSearches.value.map(({ query }) => ({
+    query,
+  }))
+  return hasQueryPreviews.value
+    ? injectedQueriesPreviewInfo.value
+    : queryPreviewInfo.slice(0, props.maxPopularSearchesToRender)
+})
+
+const x = use$x()
 </script>

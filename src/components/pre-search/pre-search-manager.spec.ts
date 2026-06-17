@@ -29,10 +29,23 @@ vi.mock('@empathyco/x-components', async importOriginal => {
   }
 })
 
-function render(options?: { maxPopularSearchesToRender?: number }) {
+function render(options?: {
+  maxPopularSearchesToRender?: number
+  queriesPreviewInfo?: QueryPreviewInfo[]
+}) {
   const wrapper = mount(PreSearchManager, {
-    props: options,
+    props: {
+      maxPopularSearchesToRender: options?.maxPopularSearchesToRender,
+    },
     global: {
+      provide: options?.queriesPreviewInfo
+        ? {
+            queriesPreviewInfo: options.queriesPreviewInfo,
+          }
+        : {},
+      mocks: {
+        $t: (key: string) => key,
+      },
       stubs: {
         PreSearchQueryPreviewList: true,
       },
@@ -66,13 +79,15 @@ describe('preSearchManager component', () => {
     expect(sut.queryPreviewList.exists()).toBeFalsy()
   })
 
-  it('should not render when there are no popular searches', () => {
+  it('should render title and empty list when there are no popular searches', () => {
     use$xStub.query.searchBox = ''
 
     const sut = render()
 
-    expect(sut.title.exists()).toBeFalsy()
-    expect(sut.queryPreviewList.exists()).toBeFalsy()
+    expect(sut.title.exists()).toBeTruthy()
+    expect(sut.title.text()).toBe('popularSearches.title')
+    expect(sut.queryPreviewList.exists()).toBeTruthy()
+    expect(sut.queryPreviewList.props('queriesPreviewInfo')).toEqual([])
   })
 
   it('should render title and query preview list when popularSearches exist', () => {
@@ -128,5 +143,72 @@ describe('preSearchManager component', () => {
       .slice(0, 2)
     expect(sut.queryPreviewList.props('queriesPreviewInfo')).toEqual(expectedPopularSearches)
     expect(sut.queryPreviewList.props('queriesPreviewInfo')).toHaveLength(2)
+  })
+
+  describe('with injected queriesPreviewInfo', () => {
+    it('should render injected queries instead of popular searches', () => {
+      popularSearchesStub.push(
+        { query: 'dress', isCurated: false },
+        { query: 'shoes', isCurated: false },
+      )
+
+      const injectedQueries: QueryPreviewInfo[] = [
+        { query: 'injected query 1' },
+        { query: 'injected query 2' },
+        { query: 'injected query 3' },
+      ]
+
+      const sut = render({ queriesPreviewInfo: injectedQueries })
+
+      expect(sut.queryPreviewList.exists()).toBeTruthy()
+      expect(sut.queryPreviewList.props('queriesPreviewInfo')).toEqual(injectedQueries)
+      expect(sut.queryPreviewList.props('queriesPreviewInfo')).toHaveLength(3)
+    })
+
+    it('should not render title when injected queries are provided', () => {
+      popularSearchesStub.push(
+        { query: 'dress', isCurated: false },
+        { query: 'shoes', isCurated: false },
+      )
+
+      const injectedQueries: QueryPreviewInfo[] = [
+        { query: 'injected query 1' },
+        { query: 'injected query 2' },
+      ]
+
+      const sut = render({ queriesPreviewInfo: injectedQueries })
+
+      expect(sut.title.exists()).toBeFalsy()
+      expect(sut.queryPreviewList.exists()).toBeTruthy()
+    })
+
+    it('should not apply maxPopularSearchesToRender limit to injected queries', () => {
+      const injectedQueries: QueryPreviewInfo[] = [
+        { query: 'injected query 1' },
+        { query: 'injected query 2' },
+        { query: 'injected query 3' },
+        { query: 'injected query 4' },
+        { query: 'injected query 5' },
+        { query: 'injected query 6' },
+      ]
+
+      const sut = render({
+        queriesPreviewInfo: injectedQueries,
+        maxPopularSearchesToRender: 2,
+      })
+
+      expect(sut.queryPreviewList.props('queriesPreviewInfo')).toEqual(injectedQueries)
+      expect(sut.queryPreviewList.props('queriesPreviewInfo')).toHaveLength(6)
+    })
+
+    it('should render empty list when injected queries array is empty', () => {
+      popularSearchesStub.push({ query: 'dress', isCurated: false })
+
+      const sut = render({ queriesPreviewInfo: [] })
+
+      // Empty injected array means hasQueryPreviews is false, so title should show and popular searches should be used
+      expect(sut.title.exists()).toBeTruthy()
+      expect(sut.queryPreviewList.props('queriesPreviewInfo')).toEqual([{ query: 'dress' }])
+    })
   })
 })
