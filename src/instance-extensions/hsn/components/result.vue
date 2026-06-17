@@ -68,5 +68,3 @@ withDefaults(defineProps<Props>(), {
   showAddToCart: true,
 })
 </script>
-
-<style></style>
