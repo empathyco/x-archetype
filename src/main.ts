@@ -1,8 +1,9 @@
 import type { XCSSInjector } from '@empathyco/x-archetype-utils'
 import type { SnippetConfig } from '@empathyco/x-components'
-import type { XComponentsAdapter } from '@empathyco/x-types'
+import type { InstanceExtensions } from './types'
 import { CssInjector } from '@empathyco/x-archetype-utils'
 import { XInstaller } from '@empathyco/x-components'
+import { UI_CONFIG_KEY } from './types'
 import { getInstallXOptions } from './x-components/plugin.options'
 
 declare global {
@@ -30,19 +31,27 @@ new CssInjector(true)
 getInstallXOptions()
   .then(async installXOptions => {
     const instance = (window.initX as SnippetConfig).instance
+
+    let instanceExtensions: InstanceExtensions = {}
+
     try {
-      await import(`./instance-extensions/${instance}/${instance}-init.ts`).then(
-        (m: { adapter?: XComponentsAdapter }) => {
-          if (m.adapter) {
-            installXOptions.adapter = m.adapter
-          } else {
-            console.warn(`No instance adapter found for ${instance}, using default adapter:`)
-          }
-        },
-      )
+      instanceExtensions = (await import(
+        `./instance-extensions/${instance}/${instance}-init.ts`
+      )) as InstanceExtensions
     } catch {
       console.warn(`No instance extension found for ${instance}, using defaults`)
     }
+
+    if (instanceExtensions.adapter) {
+      installXOptions.adapter = instanceExtensions.adapter
+    }
+
+    if (instanceExtensions.ui) {
+      installXOptions.onCreateApp = app => {
+        app.provide(UI_CONFIG_KEY, instanceExtensions.ui ?? {})
+      }
+    }
+
     return new XInstaller(installXOptions).init()
   })
   .catch(error => {
