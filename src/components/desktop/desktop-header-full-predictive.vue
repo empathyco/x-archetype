@@ -1,9 +1,12 @@
 <template>
-  <div class="xds:relative xds:pb-8">
+  <div class="xds:relative" :class="ui('header')?.root">
     <div
       class="xds:layout-item xds:layout-max-width-md xds:desktop:layout-min-margin-32 xds:large:layout-max-width-lg xds:large:layout-min-margin-48"
     >
-      <header class="xds:flex xds:items-center xds:gap-48 xds:pt-24">
+      <header
+        class="xds:flex xds:items-center xds:gap-48 xds:pt-24 xds:pb-8"
+        :class="ui('header')?.content"
+      >
         <BrandLogo />
 
         <div class="xds:flex xds:flex-1 xds:flex-col xds:gap-16">
@@ -30,8 +33,11 @@
 
 <script setup lang="ts">
 import { CloseMainModal, CrossIcon, LocationProvider } from '@empathyco/x-components'
+import { useInstanceExtensions } from '../../composables/use-instance-extensions.composable'
 import CartCount from '../add2cart/cart-count.vue'
 import BrandLogo from '../brand-logo.vue'
 import PredictiveLayer from '../predictive-layer/predictive-layer.vue'
 import SearchBox from '../search-box.vue'
+
+const { ui } = useInstanceExtensions()
 </script>
