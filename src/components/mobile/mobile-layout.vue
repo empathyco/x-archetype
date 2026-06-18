@@ -7,10 +7,7 @@
       'x-layout--collapsed': isScrollingDown,
     }"
   >
-    <header
-      class="x-layout__header xds:layout-item"
-      :class="[ui('header')?.root ? ui('header')?.root : 'xds:bg-neutral-0']"
-    >
+    <header class="x-layout__header xds:layout-item xds:bg-neutral-0" :class="ui('header')?.root">
       <div class="x-layout__header-content" :class="ui('header')?.content">
         <!-- @slot Slot that can be used to insert content into the bottom part of the header. -->
         <slot name="header" :is-header-collapsed="isScrollingDown" />
