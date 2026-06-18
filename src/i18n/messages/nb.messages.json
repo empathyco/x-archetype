@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "Tøm",
+    "placeholder": "Hva leter du etter?"
+  },
+  "popularSearches": {
+    "title": "Populære søk"
+  },
+  "historyQueries": {
+    "clear": "Tøm alt",
+    "removeLabel": "Fjern {suggestion} fra søkehistorikk",
+    "title": "Søkehistorikk"
+  },
+  "myHistory": {
+    "title": "Min Historikk",
+    "subtitle": "Dette er den komplette listen over søkehistorikk",
+    "message": {
+      "body": "Disse dataene er lagret lokalt. Bare på enheten din og forlater aldri den. Du kan deaktivere søkehistorikk når som helst.",
+      "footer": "Ditt personvern under din kontroll."
+    },
+    "noHistory": "Ingen historikk å vise",
+    "openButton": "Min historikk",
+    "suggestionResults": "(ingen resultater) | ({count} resultat) | ({count} resultater)",
+    "switch": {
+      "title": "Søkehistorikk",
+      "enable": "Aktiver",
+      "disable": "Deaktiver og tøm"
+    },
+    "confirmDisableModal": {
+      "title": "Deaktivere søkehistorikk?",
+      "message": "Ved å deaktivere søkehistorikk vil du også tømme hele historikklisten.",
+      "dismiss": "Avbryt",
+      "confirm": "Deaktiver"
+    }
+  },
+  "nextQueries": {
+    "title": "Hva nå"
+  },
+  "nextQueriesCta": {
+    "message": "De som søkte etter {query} så også:"
+  },
+  "nextQueryPreview": {
+    "message": "De som søkte etter {query} så også:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Se alle resultater"
+  },
+  "recommendations": {
+    "title": "Mest klikket"
+  },
+  "facets": {
+    "gender": "Kjønn",
+    "categoryPaths": "Kategorier",
+    "price": "Pris",
+    "brand": "Merke",
+    "fit": "Passform",
+    "collection": "Samling",
+    "genres": "Sjangere",
+    "isAdult": "For voksne",
+    "type": "Type",
+    "runtimeMinutes": "Spilletid i minutter",
+    "description": "Beskrivelse",
+    "name": "Navn"
+  },
+  "facetsPanel": {
+    "title": "Filter",
+    "viewResults": "Se 1 resultat | Se {count} resultater"
+  },
+  "filters": {
+    "all": "Alle",
+    "showMore": "Vis mer",
+    "showLess": "Vis mindre"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Se alle"
+  },
+  "priceFilter": {
+    "lessThan": "mindre enn {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "fra {'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "Filter"
+  },
+  "totalResults": {
+    "message": "1 resultat for {query} | {totalResults} resultater for {query}",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} resultater"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "Er du interessert i \"{query}\"? Utforsk disse forslagene:"
+  },
+  "sort": {
+    "label": "Sorter etter",
+    "values": {
+      "price asc": "Pris: Lav til Høy",
+      "price desc": "Pris: Høy til Lav",
+      "default": "Relevans"
+    }
+  },
+  "selectedFilters": {
+    "clear": "Tøm 1 filter | Tøm {count} filtre"
+  },
+  "result": {
+    "addToCart": "Legg til i handlekurv",
+    "seeVariants": "Se varianter",
+    "selectAllOptions": "Vennligst velg et alternativ fra hver variant",
+    "maxUnits": "Maks antall",
+    "viewDetails": "Se detaljer",
+    "selectOption": "Velg alternativ",
+    "new": "Ny"
+  },
+  "spellcheck": {
+    "message": "Ingen resultater funnet for {query}. Vi viser deg resultater for"
+  },
+  "noResults": {
+    "message": "Beklager, men det er ingen resultater for {query}. Du kan være interessert i disse produktene"
+  },
+  "overview": {
+    "collapseButton": "Vis mindre",
+    "expandButton": "Vis mer"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Søker etter alternativer...",
+      "subtitle": "Vi søker etter lignende produkter basert på søket ditt"
+    },
+    "success": {
+      "title": "Vi fant alternativer!",
+      "subtitle": "Sjekk ut disse produktene som kan interessere deg"
+    },
+    "noResults": {
+      "title": "Vi kunne ikke finne alternativer",
+      "subtitle": "Prøv å justere søket eller filtrene for bedre resultater"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "Ingen resultater funnet for {query} med de valgte filtrene. Filtrene har blitt fjernet"
+  },
+  "redirections": {
+    "title": "Søket ditt matcher et spesielt sted på nettstedet vårt. For å besøke det blir du omdirigert",
+    "accept": "Ja, omdiriger meg",
+    "reject": "Nei, jeg blir her"
+  },
+  "lowResults": {
+    "message": "Er du interessert i {query}? Utforsk disse forslagene:"
+  },
+  "pageLoaderButton": {
+    "message": "Last flere produkter"
+  }
+}

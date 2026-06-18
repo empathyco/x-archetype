@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "清除",
+    "placeholder": "您在找什么？"
+  },
+  "popularSearches": {
+    "title": "热门搜索"
+  },
+  "historyQueries": {
+    "clear": "清除全部",
+    "removeLabel": "从搜索历史中删除{suggestion}",
+    "title": "搜索历史"
+  },
+  "myHistory": {
+    "title": "我的历史",
+    "subtitle": "这是您的搜索历史完整列表",
+    "message": {
+      "body": "此数据存储在本地。仅在您的设备上，永远不会传输到外部。您可以随时禁用搜索历史。",
+      "footer": "您的隐私由您掌控。"
+    },
+    "noHistory": "没有历史记录可显示",
+    "openButton": "我的历史",
+    "suggestionResults": "(无结果) | ({count}个结果) | ({count}个结果)",
+    "switch": {
+      "title": "搜索历史",
+      "enable": "启用",
+      "disable": "禁用并清除"
+    },
+    "confirmDisableModal": {
+      "title": "禁用搜索历史？",
+      "message": "禁用搜索历史也会清除所有历史列表。",
+      "dismiss": "取消",
+      "confirm": "禁用"
+    }
+  },
+  "nextQueries": {
+    "title": "接下来"
+  },
+  "nextQueriesCta": {
+    "message": "搜索{query}的人还查看了："
+  },
+  "nextQueryPreview": {
+    "message": "搜索{query}的人还查看了：",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "查看所有结果"
+  },
+  "recommendations": {
+    "title": "热门点击"
+  },
+  "facets": {
+    "gender": "性别",
+    "categoryPaths": "分类",
+    "price": "价格",
+    "brand": "品牌",
+    "fit": "尺寸",
+    "collection": "系列",
+    "genres": "类型",
+    "isAdult": "成人",
+    "type": "类别",
+    "runtimeMinutes": "时长（分钟）",
+    "description": "描述",
+    "name": "名称"
+  },
+  "facetsPanel": {
+    "title": "筛选",
+    "viewResults": "查看1个结果 | 查看{count}个结果"
+  },
+  "filters": {
+    "all": "全部",
+    "showMore": "显示更多",
+    "showLess": "显示更少"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "查看全部"
+  },
+  "priceFilter": {
+    "lessThan": "少于{'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "从{'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "筛选"
+  },
+  "totalResults": {
+    "message": "{query}的1个结果 | {query}的{totalResults}个结果",
+    "device": {
+      "mobile": {
+        "message": "{totalResults}个结果"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "您对\"{query}\"感兴趣吗？探索这些建议："
+  },
+  "sort": {
+    "label": "排序方式",
+    "values": {
+      "price asc": "价格：从低到高",
+      "price desc": "价格：从高到低",
+      "default": "相关性"
+    }
+  },
+  "selectedFilters": {
+    "clear": "清除1个筛选器 | 清除{count}个筛选器"
+  },
+  "result": {
+    "addToCart": "加入购物车",
+    "seeVariants": "查看变体",
+    "selectAllOptions": "请从每个变体中选择一个选项",
+    "maxUnits": "最大数量",
+    "viewDetails": "查看详情",
+    "selectOption": "选择选项",
+    "new": "新品"
+  },
+  "spellcheck": {
+    "message": "未找到{query}的结果。我们为您显示以下结果"
+  },
+  "noResults": {
+    "message": "抱歉，没有找到{query}的结果。您可能对这些产品感兴趣"
+  },
+  "overview": {
+    "collapseButton": "显示更少",
+    "expandButton": "显示更多"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "正在寻找替代品...",
+      "subtitle": "我们正在根据您的搜索查找类似产品"
+    },
+    "success": {
+      "title": "我们找到了一些替代品！",
+      "subtitle": "查看这些可能让您感兴趣的产品"
+    },
+    "noResults": {
+      "title": "我们未能找到替代品",
+      "subtitle": "尝试调整您的搜索或筛选器以获得更好的结果"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "使用所选筛选器未找到{query}的结果。筛选器已被取消选择"
+  },
+  "redirections": {
+    "title": "您的搜索匹配我们网站上的一个特殊位置，要访问它，您将被重定向",
+    "accept": "是的，重定向我",
+    "reject": "不，我留在这里"
+  },
+  "lowResults": {
+    "message": "您对{query}感兴趣吗？探索这些建议："
+  },
+  "pageLoaderButton": {
+    "message": "加载更多产品"
+  }
+}

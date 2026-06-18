@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "Garbitu",
+    "placeholder": "Zer bilatzen ari zara?"
+  },
+  "popularSearches": {
+    "title": "Bilaketa ezagunak"
+  },
+  "historyQueries": {
+    "clear": "Garbitu guztia",
+    "removeLabel": "Kendu {suggestion} bilaketa historiatik",
+    "title": "Bilaketa historia"
+  },
+  "myHistory": {
+    "title": "Nire Historia",
+    "subtitle": "Hau da zure bilaketa historiaren zerrenda osoa",
+    "message": {
+      "body": "Datu hauek lokalean gordetzen dira. Zure gailuan soilik eta ez dira inoiz kanpora ateratzen. Bilaketa historia edonoiz desaktibatu dezakezu.",
+      "footer": "Zure pribatutasuna zure kontrolpean."
+    },
+    "noHistory": "Ez dago historiarik erakusteko",
+    "openButton": "Nire historia",
+    "suggestionResults": "(emaitzarik ez) | (emaitza {count}) | ({count} emaitza)",
+    "switch": {
+      "title": "Bilaketa historia",
+      "enable": "Gaitu",
+      "disable": "Desaktibatu eta garbitu"
+    },
+    "confirmDisableModal": {
+      "title": "Bilaketa historia desaktibatu?",
+      "message": "Bilaketa historia desaktibatuz gero, historia zerrenda osoa ere garbituko da.",
+      "dismiss": "Utzi",
+      "confirm": "Desaktibatu"
+    }
+  },
+  "nextQueries": {
+    "title": "Jarraian"
+  },
+  "nextQueriesCta": {
+    "message": "{query} bilatu zutenek ere ikusi zuten:"
+  },
+  "nextQueryPreview": {
+    "message": "{query} bilatu zutenek ere ikusi zuten:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Ikusi emaitza guztiak"
+  },
+  "recommendations": {
+    "title": "Gehien klikatu direnak"
+  },
+  "facets": {
+    "gender": "Generoa",
+    "categoryPaths": "Kategoriak",
+    "price": "Prezioa",
+    "brand": "Marka",
+    "fit": "Doikuntza",
+    "collection": "Bilduma",
+    "genres": "Generoak",
+    "isAdult": "Helduentzat",
+    "type": "Mota",
+    "runtimeMinutes": "Iraupena minututan",
+    "description": "Deskribapena",
+    "name": "Izena"
+  },
+  "facetsPanel": {
+    "title": "Iragazi",
+    "viewResults": "Ikusi emaitza 1 | Ikusi {count} emaitza"
+  },
+  "filters": {
+    "all": "Guztiak",
+    "showMore": "Erakutsi gehiago",
+    "showLess": "Erakutsi gutxiago"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Ikusi guztiak"
+  },
+  "priceFilter": {
+    "lessThan": "{'{max}'} baino gutxiago",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "{'{min}'}-tik"
+  },
+  "toggleAside": {
+    "showAside": "Iragazi"
+  },
+  "totalResults": {
+    "message": "Emaitza 1 {query}-rako | {totalResults} emaitza {query}-rako",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} emaitza"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "\"{query}\"-n interesatuta al zaude? Aztertu proposamen hauek:"
+  },
+  "sort": {
+    "label": "Ordenatu honen arabera",
+    "values": {
+      "price asc": "Prezioa: Txikienetik handienera",
+      "price desc": "Prezioa: Handienetik txikienera",
+      "default": "Garrantzia"
+    }
+  },
+  "selectedFilters": {
+    "clear": "Garbitu iragazki 1 | Garbitu {count} iragazki"
+  },
+  "result": {
+    "addToCart": "Gehitu saskira",
+    "seeVariants": "Ikusi aldaerak",
+    "selectAllOptions": "Mesedez, hautatu aukera bat aldaera bakoitzetik",
+    "maxUnits": "Gehienezko kopurua",
+    "viewDetails": "Ikusi xehetasunak",
+    "selectOption": "Hautatu aukera",
+    "new": "Berria"
+  },
+  "spellcheck": {
+    "message": "Ez da emaitzarik aurkitu {query}-rako. Emaitzak erakusten dizkizugu honetarako"
+  },
+  "noResults": {
+    "message": "Barkatu, baina ez dago emaitzarik {query}-rako. Produktu hauek interesagarriak izan daitezke"
+  },
+  "overview": {
+    "collapseButton": "Erakutsi gutxiago",
+    "expandButton": "Erakutsi gehiago"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Alternatibak bilatzen...",
+      "subtitle": "Zure bilaketaren arabera antzeko produktuak bilatzen ari gara"
+    },
+    "success": {
+      "title": "Alternatibak aurkitu ditugu!",
+      "subtitle": "Begiratu interesgarriak izan daitezkeen produktu hauek"
+    },
+    "noResults": {
+      "title": "Ezin izan ditugu alternatibak aurkitu",
+      "subtitle": "Saiatu zure bilaketa edo iragazkiak doituz emaitza hobeak lortzeko"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "Ez da emaitzarik aurkitu {query}-rako hautatutako iragazkiekin. Iragazkiak desautatuak izan dira"
+  },
+  "redirections": {
+    "title": "Zure bilaketak gure webguneko leku berezi batekin bat egiten du. Bertara joateko, birbideratuko zaitu",
+    "accept": "Bai, birbideratu",
+    "reject": "Ez, hemen geldituko naiz"
+  },
+  "lowResults": {
+    "message": "{query}-n interesatuta al zaude? Aztertu proposamen hauek:"
+  },
+  "pageLoaderButton": {
+    "message": "Kargatu produktu gehiago"
+  }
+}

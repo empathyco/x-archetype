@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "Wissen",
+    "placeholder": "Waar ben je naar op zoek?"
+  },
+  "popularSearches": {
+    "title": "Populaire zoekopdrachten"
+  },
+  "historyQueries": {
+    "clear": "Alles wissen",
+    "removeLabel": "Verwijder {suggestion} uit zoekgeschiedenis",
+    "title": "Zoekgeschiedenis"
+  },
+  "myHistory": {
+    "title": "Mijn Geschiedenis",
+    "subtitle": "Dit is de volledige lijst van je zoekgeschiedenis",
+    "message": {
+      "body": "Deze gegevens worden lokaal opgeslagen. Alleen op je apparaat en worden nooit extern verzonden. Je kunt de zoekgeschiedenis op elk moment uitschakelen.",
+      "footer": "Jouw privacy onder jouw controle."
+    },
+    "noHistory": "Geen geschiedenis om te tonen",
+    "openButton": "Mijn geschiedenis",
+    "suggestionResults": "(geen resultaten) | ({count} resultaat) | ({count} resultaten)",
+    "switch": {
+      "title": "Zoekgeschiedenis",
+      "enable": "Inschakelen",
+      "disable": "Uitschakelen en wissen"
+    },
+    "confirmDisableModal": {
+      "title": "Zoekgeschiedenis uitschakelen?",
+      "message": "Door de zoekgeschiedenis uit te schakelen, wis je ook de hele geschiedenislijst.",
+      "dismiss": "Annuleren",
+      "confirm": "Uitschakelen"
+    }
+  },
+  "nextQueries": {
+    "title": "Wat nu"
+  },
+  "nextQueriesCta": {
+    "message": "Degenen die zochten naar {query} bekeken ook:"
+  },
+  "nextQueryPreview": {
+    "message": "Degenen die zochten naar {query} bekeken ook:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Alle resultaten bekijken"
+  },
+  "recommendations": {
+    "title": "Meest geklikt"
+  },
+  "facets": {
+    "gender": "Geslacht",
+    "categoryPaths": "Categorieën",
+    "price": "Prijs",
+    "brand": "Merk",
+    "fit": "Pasvorm",
+    "collection": "Collectie",
+    "genres": "Genres",
+    "isAdult": "Voor volwassenen",
+    "type": "Type",
+    "runtimeMinutes": "Speelduur in minuten",
+    "description": "Beschrijving",
+    "name": "Naam"
+  },
+  "facetsPanel": {
+    "title": "Filteren",
+    "viewResults": "Bekijk 1 resultaat | Bekijk {count} resultaten"
+  },
+  "filters": {
+    "all": "Alle",
+    "showMore": "Meer tonen",
+    "showLess": "Minder tonen"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Alles bekijken"
+  },
+  "priceFilter": {
+    "lessThan": "minder dan {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "vanaf {'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "Filteren"
+  },
+  "totalResults": {
+    "message": "1 resultaat voor {query} | {totalResults} resultaten voor {query}",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} resultaten"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "Ben je geïnteresseerd in \"{query}\"? Verken deze suggesties:"
+  },
+  "sort": {
+    "label": "Sorteren op",
+    "values": {
+      "price asc": "Prijs: Laag naar Hoog",
+      "price desc": "Prijs: Hoog naar Laag",
+      "default": "Relevantie"
+    }
+  },
+  "selectedFilters": {
+    "clear": "Wis 1 filter | Wis {count} filters"
+  },
+  "result": {
+    "addToCart": "Toevoegen aan winkelwagen",
+    "seeVariants": "Zie varianten",
+    "selectAllOptions": "Selecteer een optie uit elke variatie",
+    "maxUnits": "Maximum aantal",
+    "viewDetails": "Bekijk details",
+    "selectOption": "Selecteer optie",
+    "new": "Nieuw"
+  },
+  "spellcheck": {
+    "message": "Geen resultaten gevonden voor {query}. We tonen je resultaten voor"
+  },
+  "noResults": {
+    "message": "Sorry, maar er zijn geen resultaten voor {query}. Misschien ben je geïnteresseerd in deze producten"
+  },
+  "overview": {
+    "collapseButton": "Minder tonen",
+    "expandButton": "Meer tonen"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Zoeken naar alternatieven...",
+      "subtitle": "We zoeken naar vergelijkbare producten op basis van je zoekopdracht"
+    },
+    "success": {
+      "title": "We hebben alternatieven gevonden!",
+      "subtitle": "Bekijk deze producten die je mogelijk interesseren"
+    },
+    "noResults": {
+      "title": "We konden geen alternatieven vinden",
+      "subtitle": "Probeer je zoekopdracht of filters aan te passen voor betere resultaten"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "Geen resultaten gevonden voor {query} met de geselecteerde filters. De filters zijn gedeselecteerd"
+  },
+  "redirections": {
+    "title": "Je zoekopdracht komt overeen met een speciale plaats op onze website. Om deze te bezoeken, word je doorgestuurd",
+    "accept": "Ja, stuur me door",
+    "reject": "Nee, ik blijf hier"
+  },
+  "lowResults": {
+    "message": "Ben je geïnteresseerd in {query}? Verken deze suggesties:"
+  },
+  "pageLoaderButton": {
+    "message": "Meer producten laden"
+  }
+}

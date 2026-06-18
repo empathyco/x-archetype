@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "Notīrīt",
+    "placeholder": "Ko meklējat?"
+  },
+  "popularSearches": {
+    "title": "Populārās meklēšanas"
+  },
+  "historyQueries": {
+    "clear": "Notīrīt visu",
+    "removeLabel": "Noņemt {suggestion} no meklēšanas vēstures",
+    "title": "Meklēšanas vēsture"
+  },
+  "myHistory": {
+    "title": "Mana Vēsture",
+    "subtitle": "Šis ir pilns jūsu meklēšanas vēstures saraksts",
+    "message": {
+      "body": "Šie dati tiek glabāti lokāli. Tikai jūsu ierīcē un nekad to neatstāj. Jūs varat atspējot meklēšanas vēsturi jebkurā laikā.",
+      "footer": "Jūsu privātums jūsu kontrolē."
+    },
+    "noHistory": "Nav vēstures, ko parādīt",
+    "openButton": "Mana vēsture",
+    "suggestionResults": "(nav rezultātu) | ({count} rezultāts) | ({count} rezultāti)",
+    "switch": {
+      "title": "Meklēšanas vēsture",
+      "enable": "Iespējot",
+      "disable": "Atspējot un notīrīt"
+    },
+    "confirmDisableModal": {
+      "title": "Atspējot meklēšanas vēsturi?",
+      "message": "Atspējojot meklēšanas vēsturi, jūs arī notīrīsiet visu vēstures sarakstu.",
+      "dismiss": "Atcelt",
+      "confirm": "Atspējot"
+    }
+  },
+  "nextQueries": {
+    "title": "Kas tālāk"
+  },
+  "nextQueriesCta": {
+    "message": "Tie, kas meklēja {query}, arī skatījās:"
+  },
+  "nextQueryPreview": {
+    "message": "Tie, kas meklēja {query}, arī skatījās:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Skatīt visus rezultātus"
+  },
+  "recommendations": {
+    "title": "Visvairāk klikšķināti"
+  },
+  "facets": {
+    "gender": "Dzimums",
+    "categoryPaths": "Kategorijas",
+    "price": "Cena",
+    "brand": "Zīmols",
+    "fit": "Izmērs",
+    "collection": "Kolekcija",
+    "genres": "Žanri",
+    "isAdult": "Pieaugušajiem",
+    "type": "Tips",
+    "runtimeMinutes": "Ilgums minūtēs",
+    "description": "Apraksts",
+    "name": "Nosaukums"
+  },
+  "facetsPanel": {
+    "title": "Filtrēt",
+    "viewResults": "Skatīt 1 rezultātu | Skatīt {count} rezultātus"
+  },
+  "filters": {
+    "all": "Visi",
+    "showMore": "Rādīt vairāk",
+    "showLess": "Rādīt mazāk"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Skatīt visus"
+  },
+  "priceFilter": {
+    "lessThan": "mazāk nekā {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "no {'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "Filtrēt"
+  },
+  "totalResults": {
+    "message": "1 rezultāts {query} | {totalResults} rezultāti {query}",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} rezultāti"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "Vai jūs interesē \"{query}\"? Izpētiet šos ieteikumus:"
+  },
+  "sort": {
+    "label": "Kārtot pēc",
+    "values": {
+      "price asc": "Cena: No zemākās uz augstāko",
+      "price desc": "Cena: No augstākās uz zemāko",
+      "default": "Atbilstība"
+    }
+  },
+  "selectedFilters": {
+    "clear": "Notīrīt 1 filtru | Notīrīt {count} filtrus"
+  },
+  "result": {
+    "addToCart": "Pievienot grozam",
+    "seeVariants": "Skatīt variantus",
+    "selectAllOptions": "Lūdzu, izvēlieties opciju no katra varianta",
+    "maxUnits": "Maksimālais daudzums",
+    "viewDetails": "Skatīt detaļas",
+    "selectOption": "Izvēlēties opciju",
+    "new": "Jauns"
+  },
+  "spellcheck": {
+    "message": "Nav atrasti rezultāti {query}. Mēs rādām jums rezultātus"
+  },
+  "noResults": {
+    "message": "Atvainojiet, bet nav rezultātu {query}. Jūs varētu interesēt šie produkti"
+  },
+  "overview": {
+    "collapseButton": "Rādīt mazāk",
+    "expandButton": "Rādīt vairāk"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Meklē alternatīvas...",
+      "subtitle": "Mēs meklējam līdzīgus produktus, pamatojoties uz jūsu meklēšanu"
+    },
+    "success": {
+      "title": "Mēs atradām alternatīvas!",
+      "subtitle": "Apskatiet šos produktus, kas varētu jūs interesēt"
+    },
+    "noResults": {
+      "title": "Mēs nevarējām atrast alternatīvas",
+      "subtitle": "Mēģiniet pielāgot savu meklēšanu vai filtrus labākiem rezultātiem"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "Nav atrasti rezultāti {query} ar izvēlētajiem filtriem. Filtri ir noņemti"
+  },
+  "redirections": {
+    "title": "Jūsu meklēšana atbilst īpašai vietai mūsu vietnē. Lai to apmeklētu, jūs tiksiet pārvirzīts",
+    "accept": "Jā, pārvirzīt mani",
+    "reject": "Nē, es palikshu šeit"
+  },
+  "lowResults": {
+    "message": "Vai jūs interesē {query}? Izpētiet šos ieteikumus:"
+  },
+  "pageLoaderButton": {
+    "message": "Ielādēt vairāk produktu"
+  }
+}

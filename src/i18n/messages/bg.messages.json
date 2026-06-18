@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "Изчисти",
+    "placeholder": "Какво търсите?"
+  },
+  "popularSearches": {
+    "title": "Популярни търсения"
+  },
+  "historyQueries": {
+    "clear": "Изчисти всички",
+    "removeLabel": "Премахни {suggestion} от историята на търсенията",
+    "title": "История на търсенията"
+  },
+  "myHistory": {
+    "title": "Моята История",
+    "subtitle": "Това е пълният списък на вашата история на търсенията",
+    "message": {
+      "body": "Тези данни се съхраняват локално. Само на вашето устройство и никога не го напускат. Можете да деактивирате историята на търсенията по всяко време.",
+      "footer": "Вашата поверителност под ваш контрол."
+    },
+    "noHistory": "Няма история за показване",
+    "openButton": "Моята история",
+    "suggestionResults": "(няма резултати) | ({count} резултат) | ({count} резултата)",
+    "switch": {
+      "title": "История на търсенията",
+      "enable": "Активирай",
+      "disable": "Деактивирай и изчисти"
+    },
+    "confirmDisableModal": {
+      "title": "Деактивиране на историята на търсенията?",
+      "message": "Като деактивирате историята на търсенията, ще изчистите и целия списък с история.",
+      "dismiss": "Отказ",
+      "confirm": "Деактивирай"
+    }
+  },
+  "nextQueries": {
+    "title": "Какво следва"
+  },
+  "nextQueriesCta": {
+    "message": "Тези, които търсиха {query}, също видяха:"
+  },
+  "nextQueryPreview": {
+    "message": "Тези, които търсиха {query}, също видяха:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Вижте всички резултати"
+  },
+  "recommendations": {
+    "title": "Най-кликвани"
+  },
+  "facets": {
+    "gender": "Пол",
+    "categoryPaths": "Категории",
+    "price": "Цена",
+    "brand": "Марка",
+    "fit": "Размер",
+    "collection": "Колекция",
+    "genres": "Жанрове",
+    "isAdult": "За възрастни",
+    "type": "Тип",
+    "runtimeMinutes": "Продължителност в минути",
+    "description": "Описание",
+    "name": "Име"
+  },
+  "facetsPanel": {
+    "title": "Филтър",
+    "viewResults": "Вижте 1 резултат | Вижте {count} резултата"
+  },
+  "filters": {
+    "all": "Всички",
+    "showMore": "Покажи повече",
+    "showLess": "Покажи по-малко"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Вижте всички"
+  },
+  "priceFilter": {
+    "lessThan": "по-малко от {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "от {'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "Филтър"
+  },
+  "totalResults": {
+    "message": "1 резултат за {query} | {totalResults} резултата за {query}",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} резултата"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "Интересувате ли се от \"{query}\"? Разгледайте тези предложения:"
+  },
+  "sort": {
+    "label": "Сортирай по",
+    "values": {
+      "price asc": "Цена: От ниска към висока",
+      "price desc": "Цена: От висока към ниска",
+      "default": "Релевантност"
+    }
+  },
+  "selectedFilters": {
+    "clear": "Изчисти 1 филтър | Изчисти {count} филтри"
+  },
+  "result": {
+    "addToCart": "Добави в количката",
+    "seeVariants": "Вижте варианти",
+    "selectAllOptions": "Моля, изберете опция от всеки вариант",
+    "maxUnits": "Максимално количество",
+    "viewDetails": "Вижте детайли",
+    "selectOption": "Изберете опция",
+    "new": "Ново"
+  },
+  "spellcheck": {
+    "message": "Не са намерени резултати за {query}. Показваме ви резултати за"
+  },
+  "noResults": {
+    "message": "Съжаляваме, но няма резултати за {query}. Може да се интересувате от тези продукти"
+  },
+  "overview": {
+    "collapseButton": "Покажи по-малко",
+    "expandButton": "Покажи повече"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Търсене на алтернативи...",
+      "subtitle": "Търсим подобни продукти въз основа на вашето търсене"
+    },
+    "success": {
+      "title": "Намерихме някои алтернативи!",
+      "subtitle": "Разгледайте тези продукти, които може да ви интересуват"
+    },
+    "noResults": {
+      "title": "Не успяхме да намерим алтернативи",
+      "subtitle": "Опитайте да коригирате търсенето или филтрите си за по-добри резултати"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "Не са намерени резултати за {query} с избраните филтри. Филтрите са премахнати"
+  },
+  "redirections": {
+    "title": "Вашето търсене съвпада със специално място в нашия уебсайт. За да го посетите, ще бъдете пренасочени",
+    "accept": "Да, пренасочете ме",
+    "reject": "Не, ще остана тук"
+  },
+  "lowResults": {
+    "message": "Интересувате ли се от {query}? Разгледайте тези предложения:"
+  },
+  "pageLoaderButton": {
+    "message": "Зареди повече продукти"
+  }
+}

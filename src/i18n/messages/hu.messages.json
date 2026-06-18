@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "Törlés",
+    "placeholder": "Mit keresel?"
+  },
+  "popularSearches": {
+    "title": "Népszerű keresések"
+  },
+  "historyQueries": {
+    "clear": "Összes törlése",
+    "removeLabel": "{suggestion} eltávolítása a keresési előzményekből",
+    "title": "Keresési előzmények"
+  },
+  "myHistory": {
+    "title": "Előzményeim",
+    "subtitle": "Ez a keresési előzmények teljes listája",
+    "message": {
+      "body": "Ezek az adatok helyileg tárolódnak. Csak az eszközön és soha nem hagyják el azt. Bármikor letilthatja a keresési előzményeket.",
+      "footer": "Az adatvédelem az Ön kezében van."
+    },
+    "noHistory": "Nincs megjeleníthető előzmény",
+    "openButton": "Előzményeim",
+    "suggestionResults": "(nincs eredmény) | ({count} eredmény) | ({count} eredmény)",
+    "switch": {
+      "title": "Keresési előzmények",
+      "enable": "Engedélyezés",
+      "disable": "Letiltás és törlés"
+    },
+    "confirmDisableModal": {
+      "title": "Letiltja a keresési előzményeket?",
+      "message": "A keresési előzmények letiltásával a teljes előzménylistát is törli.",
+      "dismiss": "Mégse",
+      "confirm": "Letiltás"
+    }
+  },
+  "nextQueries": {
+    "title": "Mi következik"
+  },
+  "nextQueriesCta": {
+    "message": "Azok, akik {query} után kerestek, ezeket is megnézték:"
+  },
+  "nextQueryPreview": {
+    "message": "Azok, akik {query} után kerestek, ezeket is megnézték:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Összes eredmény megtekintése"
+  },
+  "recommendations": {
+    "title": "Leggyakrabban kattintott"
+  },
+  "facets": {
+    "gender": "Nem",
+    "categoryPaths": "Kategóriák",
+    "price": "Ár",
+    "brand": "Márka",
+    "fit": "Szabás",
+    "collection": "Kollekció",
+    "genres": "Műfajok",
+    "isAdult": "Felnőtt",
+    "type": "Típus",
+    "runtimeMinutes": "Futásidő percekben",
+    "description": "Leírás",
+    "name": "Név"
+  },
+  "facetsPanel": {
+    "title": "Szűrő",
+    "viewResults": "1 eredmény megtekintése | {count} eredmény megtekintése"
+  },
+  "filters": {
+    "all": "Összes",
+    "showMore": "Több mutatása",
+    "showLess": "Kevesebb mutatása"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Összes megtekintése"
+  },
+  "priceFilter": {
+    "lessThan": "kevesebb, mint {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "{'{min}'} -tól"
+  },
+  "toggleAside": {
+    "showAside": "Szűrő"
+  },
+  "totalResults": {
+    "message": "1 eredmény a(z) {query} keresésre | {totalResults} eredmény a(z) {query} keresésre",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} eredmény"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "Érdekel a(z) \"{query}\"? Fedezze fel ezeket a javaslatokat:"
+  },
+  "sort": {
+    "label": "Rendezés",
+    "values": {
+      "price asc": "Ár: Alacsonyról magasra",
+      "price desc": "Ár: Magasról alacsonyra",
+      "default": "Relevancia"
+    }
+  },
+  "selectedFilters": {
+    "clear": "1 szűrő törlése | {count} szűrő törlése"
+  },
+  "result": {
+    "addToCart": "Kosárba",
+    "seeVariants": "Változatok megtekintése",
+    "selectAllOptions": "Kérjük, válasszon egy lehetőséget minden változatból",
+    "maxUnits": "Maximális mennyiség",
+    "viewDetails": "Részletek megtekintése",
+    "selectOption": "Válassza ki a lehetőséget",
+    "new": "Új"
+  },
+  "spellcheck": {
+    "message": "Nincs találat a(z) {query} keresésre. Az alábbi eredményeket mutatjuk"
+  },
+  "noResults": {
+    "message": "Sajnáljuk, de nincs találat a(z) {query} keresésre. Érdekelhetik ezek a termékek"
+  },
+  "overview": {
+    "collapseButton": "Kevesebb mutatása",
+    "expandButton": "Több mutatása"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Alternatívák keresése...",
+      "subtitle": "Hasonló termékeket keresünk a keresése alapján"
+    },
+    "success": {
+      "title": "Találtunk alternatívákat!",
+      "subtitle": "Nézze meg ezeket a termékeket, amelyek érdekesek lehetnek"
+    },
+    "noResults": {
+      "title": "Nem találtunk alternatívákat",
+      "subtitle": "Próbálja módosítani a keresést vagy a szűrőket jobb eredmények érdekében"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "Nincs találat a(z) {query} keresésre a kiválasztott szűrőkkel. A szűrők törölve lettek"
+  },
+  "redirections": {
+    "title": "A keresése egy különleges hellyel egyezik weboldalunkon. A meglátogatáshoz átirányítjuk",
+    "accept": "Igen, irányíts át",
+    "reject": "Nem, itt maradok"
+  },
+  "lowResults": {
+    "message": "Érdekel a(z) {query}? Fedezze fel ezeket a javaslatokat:"
+  },
+  "pageLoaderButton": {
+    "message": "További termékek betöltése"
+  }
+}

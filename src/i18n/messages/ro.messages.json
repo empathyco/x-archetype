@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "Șterge",
+    "placeholder": "Ce cauți?"
+  },
+  "popularSearches": {
+    "title": "Căutări populare"
+  },
+  "historyQueries": {
+    "clear": "Șterge tot",
+    "removeLabel": "Elimină {suggestion} din istoricul căutărilor",
+    "title": "Istoricul căutărilor"
+  },
+  "myHistory": {
+    "title": "Istoricul Meu",
+    "subtitle": "Aceasta este lista completă a istoricului căutărilor tale",
+    "message": {
+      "body": "Aceste date sunt stocate local. Doar pe dispozitivul tău și nu îl părăsesc niciodată. Poți dezactiva istoricul căutărilor oricând.",
+      "footer": "Confidențialitatea ta sub controlul tău."
+    },
+    "noHistory": "Nu există istoric de afișat",
+    "openButton": "Istoricul meu",
+    "suggestionResults": "(fără rezultate) | ({count} rezultat) | ({count} rezultate)",
+    "switch": {
+      "title": "Istoricul căutărilor",
+      "enable": "Activează",
+      "disable": "Dezactivează și șterge"
+    },
+    "confirmDisableModal": {
+      "title": "Dezactivezi istoricul căutărilor?",
+      "message": "Dezactivând istoricul căutărilor, vei șterge și întreaga listă de istoric.",
+      "dismiss": "Anulează",
+      "confirm": "Dezactivează"
+    }
+  },
+  "nextQueries": {
+    "title": "Ce urmează"
+  },
+  "nextQueriesCta": {
+    "message": "Cei care au căutat {query} au vizualizat și:"
+  },
+  "nextQueryPreview": {
+    "message": "Cei care au căutat {query} au vizualizat și:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Vizualizează toate rezultatele"
+  },
+  "recommendations": {
+    "title": "Cele mai accesate"
+  },
+  "facets": {
+    "gender": "Gen",
+    "categoryPaths": "Categorii",
+    "price": "Preț",
+    "brand": "Marcă",
+    "fit": "Potrivire",
+    "collection": "Colecție",
+    "genres": "Genuri",
+    "isAdult": "Pentru adulți",
+    "type": "Tip",
+    "runtimeMinutes": "Durata în minute",
+    "description": "Descriere",
+    "name": "Nume"
+  },
+  "facetsPanel": {
+    "title": "Filtrează",
+    "viewResults": "Vizualizează 1 rezultat | Vizualizează {count} rezultate"
+  },
+  "filters": {
+    "all": "Toate",
+    "showMore": "Afișează mai multe",
+    "showLess": "Afișează mai puține"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Vizualizează tot"
+  },
+  "priceFilter": {
+    "lessThan": "mai puțin de {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "de la {'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "Filtrează"
+  },
+  "totalResults": {
+    "message": "1 rezultat pentru {query} | {totalResults} rezultate pentru {query}",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} rezultate"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "Ești interesat de \"{query}\"? Explorează aceste sugestii:"
+  },
+  "sort": {
+    "label": "Sortează după",
+    "values": {
+      "price asc": "Preț: De la mic la mare",
+      "price desc": "Preț: De la mare la mic",
+      "default": "Relevanță"
+    }
+  },
+  "selectedFilters": {
+    "clear": "Șterge 1 filtru | Șterge {count} filtre"
+  },
+  "result": {
+    "addToCart": "Adaugă în coș",
+    "seeVariants": "Vezi variante",
+    "selectAllOptions": "Te rugăm să selectezi o opțiune din fiecare variantă",
+    "maxUnits": "Cantitate maximă",
+    "viewDetails": "Vezi detalii",
+    "selectOption": "Selectează opțiune",
+    "new": "Nou"
+  },
+  "spellcheck": {
+    "message": "Nu s-au găsit rezultate pentru {query}. Îți arătăm rezultate pentru"
+  },
+  "noResults": {
+    "message": "Ne pare rău, dar nu există rezultate pentru {query}. Ai putea fi interesat de aceste produse"
+  },
+  "overview": {
+    "collapseButton": "Afișează mai puține",
+    "expandButton": "Afișează mai multe"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Căutăm alternative...",
+      "subtitle": "Căutăm produse similare bazate pe căutarea ta"
+    },
+    "success": {
+      "title": "Am găsit alternative!",
+      "subtitle": "Verifică aceste produse care ar putea să te intereseze"
+    },
+    "noResults": {
+      "title": "Nu am putut găsi alternative",
+      "subtitle": "Încearcă să ajustezi căutarea sau filtrele pentru rezultate mai bune"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "Nu s-au găsit rezultate pentru {query} cu filtrele selectate. Filtrele au fost deselectate"
+  },
+  "redirections": {
+    "title": "Căutarea ta se potrivește cu un loc special de pe site-ul nostru. Pentru a-l vizita, vei fi redirecționat",
+    "accept": "Da, redirecționează-mă",
+    "reject": "Nu, rămân aici"
+  },
+  "lowResults": {
+    "message": "Ești interesat de {query}? Explorează aceste sugestii:"
+  },
+  "pageLoaderButton": {
+    "message": "Încarcă mai multe produse"
+  }
+}

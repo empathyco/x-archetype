@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "Išvalyti",
+    "placeholder": "Ko ieškai?"
+  },
+  "popularSearches": {
+    "title": "Populiarios paieškos"
+  },
+  "historyQueries": {
+    "clear": "Išvalyti viską",
+    "removeLabel": "Pašalinti {suggestion} iš paieškos istorijos",
+    "title": "Paieškos istorija"
+  },
+  "myHistory": {
+    "title": "Mano Istorija",
+    "subtitle": "Tai visas jūsų paieškos istorijos sąrašas",
+    "message": {
+      "body": "Šie duomenys saugomi vietoje. Tik jūsų įrenginyje ir niekada jo nepalieka. Galite bet kada išjungti paieškos istoriją.",
+      "footer": "Jūsų privatumas jūsų kontrolėje."
+    },
+    "noHistory": "Nėra istorijos, kurią galima rodyti",
+    "openButton": "Mano istorija",
+    "suggestionResults": "(nėra rezultatų) | ({count} rezultatas) | ({count} rezultatų)",
+    "switch": {
+      "title": "Paieškos istorija",
+      "enable": "Įjungti",
+      "disable": "Išjungti ir išvalyti"
+    },
+    "confirmDisableModal": {
+      "title": "Išjungti paieškos istoriją?",
+      "message": "Išjungdami paieškos istoriją taip pat išvalysite visą istorijos sąrašą.",
+      "dismiss": "Atšaukti",
+      "confirm": "Išjungti"
+    }
+  },
+  "nextQueries": {
+    "title": "Kas toliau"
+  },
+  "nextQueriesCta": {
+    "message": "Tie, kurie ieškojo {query}, taip pat peržiūrėjo:"
+  },
+  "nextQueryPreview": {
+    "message": "Tie, kurie ieškojo {query}, taip pat peržiūrėjo:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Peržiūrėti visus rezultatus"
+  },
+  "recommendations": {
+    "title": "Daugiausiai spustelėta"
+  },
+  "facets": {
+    "gender": "Lytis",
+    "categoryPaths": "Kategorijos",
+    "price": "Kaina",
+    "brand": "Prekės ženklas",
+    "fit": "Tinkamumas",
+    "collection": "Kolekcija",
+    "genres": "Žanrai",
+    "isAdult": "Suaugusiems",
+    "type": "Tipas",
+    "runtimeMinutes": "Trukmė minutėmis",
+    "description": "Aprašymas",
+    "name": "Pavadinimas"
+  },
+  "facetsPanel": {
+    "title": "Filtruoti",
+    "viewResults": "Peržiūrėti 1 rezultatą | Peržiūrėti {count} rezultatų"
+  },
+  "filters": {
+    "all": "Visi",
+    "showMore": "Rodyti daugiau",
+    "showLess": "Rodyti mažiau"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Peržiūrėti viską"
+  },
+  "priceFilter": {
+    "lessThan": "mažiau nei {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "nuo {'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "Filtruoti"
+  },
+  "totalResults": {
+    "message": "1 rezultatas {query} | {totalResults} rezultatų {query}",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} rezultatų"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "Ar jus domina \"{query}\"? Išbandykite šiuos pasiūlymus:"
+  },
+  "sort": {
+    "label": "Rūšiuoti pagal",
+    "values": {
+      "price asc": "Kaina: Nuo mažiausios iki didžiausios",
+      "price desc": "Kaina: Nuo didžiausios iki mažiausios",
+      "default": "Aktualumas"
+    }
+  },
+  "selectedFilters": {
+    "clear": "Išvalyti 1 filtrą | Išvalyti {count} filtrų"
+  },
+  "result": {
+    "addToCart": "Pridėti į krepšelį",
+    "seeVariants": "Peržiūrėti variantus",
+    "selectAllOptions": "Pasirinkite parinktį iš kiekvieno varianto",
+    "maxUnits": "Maksimalus kiekis",
+    "viewDetails": "Peržiūrėti informaciją",
+    "selectOption": "Pasirinkti parinktį",
+    "new": "Nauja"
+  },
+  "spellcheck": {
+    "message": "Nerasta rezultatų {query}. Rodome jums rezultatus"
+  },
+  "noResults": {
+    "message": "Atsiprašome, bet nėra rezultatų {query}. Jus gali sudominti šie produktai"
+  },
+  "overview": {
+    "collapseButton": "Rodyti mažiau",
+    "expandButton": "Rodyti daugiau"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Ieškoma alternatyvų...",
+      "subtitle": "Ieškome panašių produktų pagal jūsų paiešką"
+    },
+    "success": {
+      "title": "Radome alternatyvų!",
+      "subtitle": "Peržiūrėkite šiuos produktus, kurie gali jus sudominti"
+    },
+    "noResults": {
+      "title": "Nepavyko rasti alternatyvų",
+      "subtitle": "Pabandykite patikslinti paiešką arba filtrus, kad gautumėte geresnių rezultatų"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "Nerasta rezultatų {query} su pasirinktais filtrais. Filtrai buvo atšaukti"
+  },
+  "redirections": {
+    "title": "Jūsų paieška atitinka specialią vietą mūsų svetainėje. Norėdami ją aplankyti, būsite nukreipti",
+    "accept": "Taip, nukreipti mane",
+    "reject": "Ne, liksiu čia"
+  },
+  "lowResults": {
+    "message": "Ar jus domina {query}? Išbandykite šiuos pasiūlymus:"
+  },
+  "pageLoaderButton": {
+    "message": "Įkelti daugiau produktų"
+  }
+}

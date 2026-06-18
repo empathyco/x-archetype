@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "Rensa",
+    "placeholder": "Vad letar du efter?"
+  },
+  "popularSearches": {
+    "title": "Populära sökningar"
+  },
+  "historyQueries": {
+    "clear": "Rensa allt",
+    "removeLabel": "Ta bort {suggestion} från sökhistorik",
+    "title": "Sökhistorik"
+  },
+  "myHistory": {
+    "title": "Min Historik",
+    "subtitle": "Detta är den fullständiga listan över sökhistorik",
+    "message": {
+      "body": "Denna data lagras lokalt. Bara på din enhet och lämnar aldrig den. Du kan inaktivera sökhistorik när som helst.",
+      "footer": "Din integritet under din kontroll."
+    },
+    "noHistory": "Ingen historik att visa",
+    "openButton": "Min historik",
+    "suggestionResults": "(inga resultat) | ({count} resultat) | ({count} resultat)",
+    "switch": {
+      "title": "Sökhistorik",
+      "enable": "Aktivera",
+      "disable": "Inaktivera och rensa"
+    },
+    "confirmDisableModal": {
+      "title": "Inaktivera sökhistorik?",
+      "message": "Genom att inaktivera sökhistorik rensar du också hela historiklistan.",
+      "dismiss": "Avbryt",
+      "confirm": "Inaktivera"
+    }
+  },
+  "nextQueries": {
+    "title": "Vad händer nu"
+  },
+  "nextQueriesCta": {
+    "message": "De som sökte efter {query} tittade också på:"
+  },
+  "nextQueryPreview": {
+    "message": "De som sökte efter {query} tittade också på:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Visa alla resultat"
+  },
+  "recommendations": {
+    "title": "Mest klickade"
+  },
+  "facets": {
+    "gender": "Kön",
+    "categoryPaths": "Kategorier",
+    "price": "Pris",
+    "brand": "Varumärke",
+    "fit": "Passform",
+    "collection": "Kollektion",
+    "genres": "Genrer",
+    "isAdult": "För vuxna",
+    "type": "Typ",
+    "runtimeMinutes": "Speltid i minuter",
+    "description": "Beskrivning",
+    "name": "Namn"
+  },
+  "facetsPanel": {
+    "title": "Filtrera",
+    "viewResults": "Visa 1 resultat | Visa {count} resultat"
+  },
+  "filters": {
+    "all": "Alla",
+    "showMore": "Visa mer",
+    "showLess": "Visa mindre"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Visa alla"
+  },
+  "priceFilter": {
+    "lessThan": "mindre än {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "från {'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "Filtrera"
+  },
+  "totalResults": {
+    "message": "1 resultat för {query} | {totalResults} resultat för {query}",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} resultat"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "Är du intresserad av \"{query}\"? Utforska dessa förslag:"
+  },
+  "sort": {
+    "label": "Sortera efter",
+    "values": {
+      "price asc": "Pris: Lågt till Högt",
+      "price desc": "Pris: Högt till Lågt",
+      "default": "Relevans"
+    }
+  },
+  "selectedFilters": {
+    "clear": "Rensa 1 filter | Rensa {count} filter"
+  },
+  "result": {
+    "addToCart": "Lägg till i kundvagn",
+    "seeVariants": "Se varianter",
+    "selectAllOptions": "Vänligen välj ett alternativ från varje variant",
+    "maxUnits": "Max antal",
+    "viewDetails": "Visa detaljer",
+    "selectOption": "Välj alternativ",
+    "new": "Nyhet"
+  },
+  "spellcheck": {
+    "message": "Inga resultat hittades för {query}. Vi visar dig resultat för"
+  },
+  "noResults": {
+    "message": "Tyvärr finns det inga resultat för {query}. Du kanske är intresserad av dessa produkter"
+  },
+  "overview": {
+    "collapseButton": "Visa mindre",
+    "expandButton": "Visa mer"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Söker efter alternativ...",
+      "subtitle": "Vi söker efter liknande produkter baserat på din sökning"
+    },
+    "success": {
+      "title": "Vi hittade alternativ!",
+      "subtitle": "Kolla in dessa produkter som kan intressera dig"
+    },
+    "noResults": {
+      "title": "Vi kunde inte hitta alternativ",
+      "subtitle": "Försök justera din sökning eller filter för bättre resultat"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "Inga resultat hittades för {query} med de valda filtren. Filtren har avmarkerats"
+  },
+  "redirections": {
+    "title": "Din sökning matchar en speciell plats på vår webbplats. För att besöka den omdirigeras du",
+    "accept": "Ja, omdirigera mig",
+    "reject": "Nej, jag stannar här"
+  },
+  "lowResults": {
+    "message": "Är du intresserad av {query}? Utforska dessa förslag:"
+  },
+  "pageLoaderButton": {
+    "message": "Ladda fler produkter"
+  }
+}

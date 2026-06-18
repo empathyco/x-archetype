@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "Очистить",
+    "placeholder": "Что вы ищете?"
+  },
+  "popularSearches": {
+    "title": "Популярные запросы"
+  },
+  "historyQueries": {
+    "clear": "Очистить все",
+    "removeLabel": "Удалить {suggestion} из истории поиска",
+    "title": "История поиска"
+  },
+  "myHistory": {
+    "title": "Моя История",
+    "subtitle": "Это полный список вашей истории поиска",
+    "message": {
+      "body": "Эти данные хранятся локально. Только на вашем устройстве и никогда не покидают его. Вы можете отключить историю поиска в любое время.",
+      "footer": "Ваша конфиденциальность под вашим контролем."
+    },
+    "noHistory": "Нет истории для отображения",
+    "openButton": "Моя история",
+    "suggestionResults": "(нет результатов) | ({count} результат) | ({count} результатов)",
+    "switch": {
+      "title": "История поиска",
+      "enable": "Включить",
+      "disable": "Отключить и очистить"
+    },
+    "confirmDisableModal": {
+      "title": "Отключить историю поиска?",
+      "message": "Отключая историю поиска, вы также очистите весь список истории.",
+      "dismiss": "Отмена",
+      "confirm": "Отключить"
+    }
+  },
+  "nextQueries": {
+    "title": "Что дальше"
+  },
+  "nextQueriesCta": {
+    "message": "Те, кто искал {query}, также просматривали:"
+  },
+  "nextQueryPreview": {
+    "message": "Те, кто искал {query}, также просматривали:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Посмотреть все результаты"
+  },
+  "recommendations": {
+    "title": "Самые популярные"
+  },
+  "facets": {
+    "gender": "Пол",
+    "categoryPaths": "Категории",
+    "price": "Цена",
+    "brand": "Бренд",
+    "fit": "Размер",
+    "collection": "Коллекция",
+    "genres": "Жанры",
+    "isAdult": "Для взрослых",
+    "type": "Тип",
+    "runtimeMinutes": "Продолжительность в минутах",
+    "description": "Описание",
+    "name": "Название"
+  },
+  "facetsPanel": {
+    "title": "Фильтр",
+    "viewResults": "Показать 1 результат | Показать {count} результатов"
+  },
+  "filters": {
+    "all": "Все",
+    "showMore": "Показать больше",
+    "showLess": "Показать меньше"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Показать все"
+  },
+  "priceFilter": {
+    "lessThan": "меньше {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "от {'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "Фильтр"
+  },
+  "totalResults": {
+    "message": "1 результат для {query} | {totalResults} результатов для {query}",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} результатов"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "Вас интересует \"{query}\"? Изучите эти предложения:"
+  },
+  "sort": {
+    "label": "Сортировать по",
+    "values": {
+      "price asc": "Цена: По возрастанию",
+      "price desc": "Цена: По убыванию",
+      "default": "Релевантность"
+    }
+  },
+  "selectedFilters": {
+    "clear": "Очистить 1 фильтр | Очистить {count} фильтров"
+  },
+  "result": {
+    "addToCart": "Добавить в корзину",
+    "seeVariants": "Смотреть варианты",
+    "selectAllOptions": "Пожалуйста, выберите опцию из каждого варианта",
+    "maxUnits": "Максимальное количество",
+    "viewDetails": "Посмотреть детали",
+    "selectOption": "Выбрать опцию",
+    "new": "Новинка"
+  },
+  "spellcheck": {
+    "message": "Результатов для {query} не найдено. Мы показываем вам результаты для"
+  },
+  "noResults": {
+    "message": "К сожалению, нет результатов для {query}. Вас могут заинтересовать эти продукты"
+  },
+  "overview": {
+    "collapseButton": "Показать меньше",
+    "expandButton": "Показать больше"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Ищем альтернативы...",
+      "subtitle": "Мы ищем похожие продукты на основе вашего запроса"
+    },
+    "success": {
+      "title": "Мы нашли альтернативы!",
+      "subtitle": "Посмотрите эти продукты, которые могут вас заинтересовать"
+    },
+    "noResults": {
+      "title": "Мы не смогли найти альтернативы",
+      "subtitle": "Попробуйте изменить ваш поиск или фильтры для лучших результатов"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "Результатов для {query} с выбранными фильтрами не найдено. Фильтры были сняты"
+  },
+  "redirections": {
+    "title": "Ваш поиск соответствует специальному месту на нашем сайте. Чтобы посетить его, вы будете перенаправлены",
+    "accept": "Да, перенаправить меня",
+    "reject": "Нет, я останусь здесь"
+  },
+  "lowResults": {
+    "message": "Вас интересует {query}? Изучите эти предложения:"
+  },
+  "pageLoaderButton": {
+    "message": "Загрузить больше продуктов"
+  }
+}

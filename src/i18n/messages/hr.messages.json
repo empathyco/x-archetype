@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "Očisti",
+    "placeholder": "Što tražite?"
+  },
+  "popularSearches": {
+    "title": "Popularna pretraživanja"
+  },
+  "historyQueries": {
+    "clear": "Očisti sve",
+    "removeLabel": "Ukloni {suggestion} iz povijesti pretraživanja",
+    "title": "Povijest pretraživanja"
+  },
+  "myHistory": {
+    "title": "Moja Povijest",
+    "subtitle": "Ovo je potpuni popis vaše povijesti pretraživanja",
+    "message": {
+      "body": "Ovi se podaci pohranjuju lokalno. Samo na vašem uređaju i nikada ga ne napuštaju. Možete onemogućiti povijest pretraživanja u bilo kojem trenutku.",
+      "footer": "Vaša privatnost pod vašom kontrolom."
+    },
+    "noHistory": "Nema povijesti za prikaz",
+    "openButton": "Moja povijest",
+    "suggestionResults": "(nema rezultata) | ({count} rezultat) | ({count} rezultata)",
+    "switch": {
+      "title": "Povijest pretraživanja",
+      "enable": "Omogući",
+      "disable": "Onemogući i očisti"
+    },
+    "confirmDisableModal": {
+      "title": "Onemogućiti povijest pretraživanja?",
+      "message": "Onemogućavanjem povijesti pretraživanja također ćete izbrisati cijeli popis povijesti.",
+      "dismiss": "Otkaži",
+      "confirm": "Onemogući"
+    }
+  },
+  "nextQueries": {
+    "title": "Što je sljedeće"
+  },
+  "nextQueriesCta": {
+    "message": "Oni koji su tražili {query} također su pogledali:"
+  },
+  "nextQueryPreview": {
+    "message": "Oni koji su tražili {query} također su pogledali:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Prikaži sve rezultate"
+  },
+  "recommendations": {
+    "title": "Najklikutije"
+  },
+  "facets": {
+    "gender": "Spol",
+    "categoryPaths": "Kategorije",
+    "price": "Cijena",
+    "brand": "Marka",
+    "fit": "Kroj",
+    "collection": "Kolekcija",
+    "genres": "Žanrovi",
+    "isAdult": "Za odrasle",
+    "type": "Vrsta",
+    "runtimeMinutes": "Trajanje u minutama",
+    "description": "Opis",
+    "name": "Ime"
+  },
+  "facetsPanel": {
+    "title": "Filtriraj",
+    "viewResults": "Prikaži 1 rezultat | Prikaži {count} rezultata"
+  },
+  "filters": {
+    "all": "Sve",
+    "showMore": "Prikaži više",
+    "showLess": "Prikaži manje"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Prikaži sve"
+  },
+  "priceFilter": {
+    "lessThan": "manje od {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "od {'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "Filtriraj"
+  },
+  "totalResults": {
+    "message": "1 rezultat za {query} | {totalResults} rezultata za {query}",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} rezultata"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "Jeste li zainteresirani za \"{query}\"? Istražite ove prijedloge:"
+  },
+  "sort": {
+    "label": "Poredaj po",
+    "values": {
+      "price asc": "Cijena: Od niže prema višoj",
+      "price desc": "Cijena: Od više prema nižoj",
+      "default": "Relevantnost"
+    }
+  },
+  "selectedFilters": {
+    "clear": "Očisti 1 filter | Očisti {count} filtera"
+  },
+  "result": {
+    "addToCart": "Dodaj u košaricu",
+    "seeVariants": "Pogledaj varijante",
+    "selectAllOptions": "Molimo odaberite opciju iz svake varijante",
+    "maxUnits": "Maksimalna količina",
+    "viewDetails": "Prikaži detalje",
+    "selectOption": "Odaberi opciju",
+    "new": "Novo"
+  },
+  "spellcheck": {
+    "message": "Nema rezultata za {query}. Prikazujemo vam rezultate za"
+  },
+  "noResults": {
+    "message": "Žao nam je, ali nema rezultata za {query}. Možda vas zanimaju ovi proizvodi"
+  },
+  "overview": {
+    "collapseButton": "Prikaži manje",
+    "expandButton": "Prikaži više"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Tražimo alternative...",
+      "subtitle": "Tražimo slične proizvode na temelju vašeg pretraživanja"
+    },
+    "success": {
+      "title": "Pronašli smo alternative!",
+      "subtitle": "Pogledajte ove proizvode koji bi vas mogli zanimati"
+    },
+    "noResults": {
+      "title": "Nismo mogli pronaći alternative",
+      "subtitle": "Pokušajte prilagoditi pretraživanje ili filtere za bolje rezultate"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "Nema rezultata za {query} s odabranim filterima. Filteri su poništeni"
+  },
+  "redirections": {
+    "title": "Vaše pretraživanje odgovara posebnom mjestu na našoj web stranici. Da biste ga posjetili, bit ćete preusmjereni",
+    "accept": "Da, preusmjeri me",
+    "reject": "Ne, ostat ću ovdje"
+  },
+  "lowResults": {
+    "message": "Jeste li zainteresirani za {query}? Istražite ove prijedloge:"
+  },
+  "pageLoaderButton": {
+    "message": "Učitaj više proizvoda"
+  }
+}

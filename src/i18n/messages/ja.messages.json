@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "クリア",
+    "placeholder": "何をお探しですか？"
+  },
+  "popularSearches": {
+    "title": "人気の検索"
+  },
+  "historyQueries": {
+    "clear": "すべてクリア",
+    "removeLabel": "検索履歴から{suggestion}を削除",
+    "title": "検索履歴"
+  },
+  "myHistory": {
+    "title": "マイ履歴",
+    "subtitle": "これはあなたの検索履歴の完全なリストです",
+    "message": {
+      "body": "このデータはローカルに保存されます。お使いのデバイスのみに保存され、外部に送信されることはありません。検索履歴はいつでも無効にすることができます。",
+      "footer": "プライバシーはあなたの管理下にあります。"
+    },
+    "noHistory": "表示する履歴がありません",
+    "openButton": "マイ履歴",
+    "suggestionResults": "(結果なし) | ({count}件の結果) | ({count}件の結果)",
+    "switch": {
+      "title": "検索履歴",
+      "enable": "有効にする",
+      "disable": "無効にしてクリア"
+    },
+    "confirmDisableModal": {
+      "title": "検索履歴を無効にしますか？",
+      "message": "検索履歴を無効にすると、すべての履歴リストもクリアされます。",
+      "dismiss": "キャンセル",
+      "confirm": "無効にする"
+    }
+  },
+  "nextQueries": {
+    "title": "次のおすすめ"
+  },
+  "nextQueriesCta": {
+    "message": "{query}を検索した人はこちらも閲覧しています："
+  },
+  "nextQueryPreview": {
+    "message": "{query}を検索した人はこちらも閲覧しています：",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "すべての結果を表示"
+  },
+  "recommendations": {
+    "title": "トップクリック"
+  },
+  "facets": {
+    "gender": "性別",
+    "categoryPaths": "カテゴリー",
+    "price": "価格",
+    "brand": "ブランド",
+    "fit": "フィット",
+    "collection": "コレクション",
+    "genres": "ジャンル",
+    "isAdult": "成人向け",
+    "type": "タイプ",
+    "runtimeMinutes": "実行時間（分）",
+    "description": "説明",
+    "name": "名前"
+  },
+  "facetsPanel": {
+    "title": "フィルター",
+    "viewResults": "1件の結果を表示 | {count}件の結果を表示"
+  },
+  "filters": {
+    "all": "すべて",
+    "showMore": "もっと見る",
+    "showLess": "少なく表示"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "すべて表示"
+  },
+  "priceFilter": {
+    "lessThan": "{'{max}'}未満",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "{'{min}'}から"
+  },
+  "toggleAside": {
+    "showAside": "フィルター"
+  },
+  "totalResults": {
+    "message": "{query}の検索結果1件 | {query}の検索結果{totalResults}件",
+    "device": {
+      "mobile": {
+        "message": "{totalResults}件の結果"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "「{query}」に興味がありますか？これらの提案を探索してください："
+  },
+  "sort": {
+    "label": "並び替え",
+    "values": {
+      "price asc": "価格：低い順",
+      "price desc": "価格：高い順",
+      "default": "関連性"
+    }
+  },
+  "selectedFilters": {
+    "clear": "1件のフィルターをクリア | {count}件のフィルターをクリア"
+  },
+  "result": {
+    "addToCart": "カートに追加",
+    "seeVariants": "バリエーションを見る",
+    "selectAllOptions": "各バリエーションからオプションを選択してください",
+    "maxUnits": "最大単位",
+    "viewDetails": "詳細を表示",
+    "selectOption": "オプションを選択",
+    "new": "新着"
+  },
+  "spellcheck": {
+    "message": "{query}の検索結果が見つかりませんでした。代わりに次の結果を表示します"
+  },
+  "noResults": {
+    "message": "申し訳ございませんが、{query}の検索結果はありません。これらの製品に興味があるかもしれません"
+  },
+  "overview": {
+    "collapseButton": "少なく表示",
+    "expandButton": "もっと見る"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "代替品を探しています...",
+      "subtitle": "検索に基づいて類似製品を検索しています"
+    },
+    "success": {
+      "title": "代替品が見つかりました！",
+      "subtitle": "興味を持つかもしれない製品をご覧ください"
+    },
+    "noResults": {
+      "title": "代替品が見つかりませんでした",
+      "subtitle": "より良い結果を得るために検索やフィルターを調整してください"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "選択したフィルターで{query}の検索結果が見つかりませんでした。フィルターの選択が解除されました"
+  },
+  "redirections": {
+    "title": "あなたの検索は当サイトの特別なページと一致します。そのページにリダイレクトされます",
+    "accept": "はい、リダイレクトします",
+    "reject": "いいえ、ここに留まります"
+  },
+  "lowResults": {
+    "message": "{query}に興味がありますか？これらの提案を探索してください："
+  },
+  "pageLoaderButton": {
+    "message": "さらに製品を読み込む"
+  }
+}

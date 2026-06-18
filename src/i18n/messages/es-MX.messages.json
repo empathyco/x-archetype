@@ -1,0 +1,161 @@
+{
+  "searchBox": {
+    "clear": "Borrar",
+    "placeholder": "¿Qué estás buscando?"
+  },
+  "popularSearches": {
+    "title": "Búsquedas populares"
+  },
+  "historyQueries": {
+    "clear": "Limpiar historial",
+    "removeLabel": "Borrar {suggestion} del historial",
+    "title": "Historial"
+  },
+  "myHistory": {
+    "title": "Mi Historial",
+    "subtitle": "Este es tu historial de búsqueda",
+    "message": {
+      "body": "Los datos se guardan en local. Solo están en tu dispositivo y nunca salen de ahí. Puedes desactivar el historial de búsqueda cuando quieras.",
+      "footer": "Tu privacidad bajo tu control."
+    },
+    "noHistory": "No hay historial de búsqueda para mostrar",
+    "openButton": "Mi historial",
+    "suggestionResults": "(sin resultados) | (1 resultado) | ({count} resultados)",
+    "switch": {
+      "title": "Historial de búsqueda",
+      "enable": "Activar",
+      "disable": "Desactivar y eliminar historial"
+    },
+    "confirmDisableModal": {
+      "title": "¿Desactivar el historial de búsqueda?",
+      "message": "Si desactivas el historial de búsqueda, las búsquedas de tu historial serán eliminadas.",
+      "dismiss": "Cancelar",
+      "confirm": "Desactivar"
+    }
+  },
+  "nextQueries": {
+    "title": "Quizás te interese"
+  },
+  "nextQueriesCta": {
+    "message": "Los que buscaron {query} también han visto:"
+  },
+  "nextQueryPreview": {
+    "message": "Los que buscaron {query} también han visto:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Ver todos los resultados",
+    "device": {
+      "mobile": {
+        "viewResults": "Ver todo"
+      }
+    }
+  },
+  "recommendations": {
+    "title": "Más clickeados"
+  },
+  "facets": {
+    "gender": "Género",
+    "categoryPaths": "Categorías",
+    "price": "Precio",
+    "brand": "Marca",
+    "fit": "Fit",
+    "collection": "Colección",
+    "genres": "Géneros",
+    "isAdult": "Contenido adulto",
+    "type": "Tipo",
+    "runtimeMinutes": "Minutos de duración",
+    "description": "Descripción",
+    "name": "Nombre"
+  },
+  "facetsPanel": {
+    "title": "Filtrar",
+    "viewResults": "Ver 1 resultado | Ver {count} resultados"
+  },
+  "filters": {
+    "all": "Todo",
+    "showMore": "Mostrar más",
+    "showLess": "Mostrar menos"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Ver todos los resultados"
+  },
+  "priceFilter": {
+    "lessThan": "hasta {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "desde {'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "Filtrar"
+  },
+  "totalResults": {
+    "message": "1 resultado para {query} | {totalResults} resultados para {query}",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} resultados"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "¿Estás interesado en \"{query}\"? Explora estas sugerencias:"
+  },
+  "sort": {
+    "label": "Ordenar por",
+    "values": {
+      "price asc": "Precio: De menor a mayor",
+      "price desc": "Precio: De mayor a menor",
+      "default": "Relevancia"
+    }
+  },
+  "selectedFilters": {
+    "clear": "Limpiar 1 filtro | Limpiar {count} filtros"
+  },
+  "result": {
+    "addToCart": "Añadir al carrito",
+    "seeVariants": "Ver variantes",
+    "selectAllOptions": "Por favor selecciona una opción de cada variante",
+    "maxUnits": "Cantidad máxima",
+    "viewDetails": "Ver detalles",
+    "selectOption": "Selecciona una opción",
+    "new": "Nuevo"
+  },
+  "spellcheck": {
+    "message": "No se han encontrado resultados para {query} Aquí tienes resultados para"
+  },
+  "noResults": {
+    "message": "No se han encontrado resultados para {query}Quizás te interesen estos productos"
+  },
+  "overview": {
+    "collapseButton": "Mostrar menos",
+    "expandButton": "Mostrar más"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Buscando alternativas...",
+      "subtitle": "Estamos buscando productos similares basados en tu búsqueda"
+    },
+    "success": {
+      "title": "¡Encontramos algunas alternativas!",
+      "subtitle": "Mira estos productos que podrían interesarte"
+    },
+    "noResults": {
+      "title": "No pudimos encontrar alternativas",
+      "subtitle": "Intenta ajustar tu búsqueda o filtros para obtener mejores resultados"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "No se han encontrado resultados para {query} con los filtros seleccionados. Los filtros se han deseleccionado"
+  },
+  "redirections": {
+    "title": "Tu búsqueda coincide con una página especial de nuestra web, vas a ser redirigido a:",
+    "accept": "Sí, redirígeme",
+    "reject": "No, me quedaré aquí"
+  },
+  "lowResults": {
+    "message": "¿Estás interesado en {query}? Explora estas sugerencias:"
+  },
+  "pageLoaderButton": {
+    "message": "Cargar más productos"
+  }
+}

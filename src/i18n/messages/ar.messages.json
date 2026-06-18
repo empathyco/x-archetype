@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "مسح",
+    "placeholder": "ماذا تبحث عن؟"
+  },
+  "popularSearches": {
+    "title": "عمليات البحث الشائعة"
+  },
+  "historyQueries": {
+    "clear": "مسح الكل",
+    "removeLabel": "إزالة {suggestion} من سجل البحث",
+    "title": "سجل البحث"
+  },
+  "myHistory": {
+    "title": "سجلي",
+    "subtitle": "هذه هي القائمة الكاملة لسجل البحث الخاص بك",
+    "message": {
+      "body": "يتم تخزين هذه البيانات محليًا. فقط على جهازك ولا تخرج منه أبدًا. يمكنك تعطيل سجل البحث في أي وقت.",
+      "footer": "خصوصيتك تحت سيطرتك."
+    },
+    "noHistory": "لا يوجد سجل لعرضه",
+    "openButton": "سجلي",
+    "suggestionResults": "(لا توجد نتائج) | ({count} نتيجة) | ({count} نتيجة)",
+    "switch": {
+      "title": "سجل البحث",
+      "enable": "تفعيل",
+      "disable": "تعطيل ومسح"
+    },
+    "confirmDisableModal": {
+      "title": "تعطيل سجل البحث؟",
+      "message": "بتعطيل سجل البحث، ستقوم أيضًا بمسح قائمة السجل بالكامل.",
+      "dismiss": "إلغاء",
+      "confirm": "تعطيل"
+    }
+  },
+  "nextQueries": {
+    "title": "ما التالي"
+  },
+  "nextQueriesCta": {
+    "message": "الذين بحثوا عن {query} شاهدوا أيضًا:"
+  },
+  "nextQueryPreview": {
+    "message": "الذين بحثوا عن {query} شاهدوا أيضًا:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "عرض جميع النتائج"
+  },
+  "recommendations": {
+    "title": "الأكثر نقرًا"
+  },
+  "facets": {
+    "gender": "الجنس",
+    "categoryPaths": "الفئات",
+    "price": "السعر",
+    "brand": "العلامة التجارية",
+    "fit": "المقاس",
+    "collection": "المجموعة",
+    "genres": "الأنواع",
+    "isAdult": "للبالغين",
+    "type": "النوع",
+    "runtimeMinutes": "المدة بالدقائق",
+    "description": "الوصف",
+    "name": "الاسم"
+  },
+  "facetsPanel": {
+    "title": "فلتر",
+    "viewResults": "عرض نتيجة واحدة | عرض {count} نتيجة"
+  },
+  "filters": {
+    "all": "الكل",
+    "showMore": "إظهار المزيد",
+    "showLess": "إظهار أقل"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "عرض الكل"
+  },
+  "priceFilter": {
+    "lessThan": "أقل من {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "من {'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "فلتر"
+  },
+  "totalResults": {
+    "message": "نتيجة واحدة لـ {query} | {totalResults} نتيجة لـ {query}",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} نتيجة"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "هل أنت مهتم بـ \"{query}\"؟ استكشف هذه الاقتراحات:"
+  },
+  "sort": {
+    "label": "ترتيب حسب",
+    "values": {
+      "price asc": "السعر: من الأقل إلى الأعلى",
+      "price desc": "السعر: من الأعلى إلى الأقل",
+      "default": "الصلة"
+    }
+  },
+  "selectedFilters": {
+    "clear": "مسح فلتر واحد | مسح {count} فلتر"
+  },
+  "result": {
+    "addToCart": "إضافة إلى السلة",
+    "seeVariants": "عرض المتغيرات",
+    "selectAllOptions": "يرجى تحديد خيار من كل متغير",
+    "maxUnits": "الحد الأقصى للوحدات",
+    "viewDetails": "عرض التفاصيل",
+    "selectOption": "اختر خيار",
+    "new": "جديد"
+  },
+  "spellcheck": {
+    "message": "لم يتم العثور على نتائج لـ {query}. نعرض لك نتائج لـ"
+  },
+  "noResults": {
+    "message": "عذرًا، لا توجد نتائج لـ {query}. قد تكون مهتمًا بهذه المنتجات"
+  },
+  "overview": {
+    "collapseButton": "إظهار أقل",
+    "expandButton": "إظهار المزيد"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "البحث عن بدائل...",
+      "subtitle": "نحن نبحث عن منتجات مماثلة بناءً على بحثك"
+    },
+    "success": {
+      "title": "وجدنا بعض البدائل!",
+      "subtitle": "تحقق من هذه المنتجات التي قد تهمك"
+    },
+    "noResults": {
+      "title": "لم نتمكن من العثور على بدائل",
+      "subtitle": "حاول تعديل بحثك أو الفلاتر للحصول على نتائج أفضل"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "لم يتم العثور على نتائج لـ {query} مع الفلاتر المحددة. تم إلغاء تحديد الفلاتر"
+  },
+  "redirections": {
+    "title": "بحثك يطابق مكانًا خاصًا في موقعنا، لزيارته، سيتم إعادة توجيهك",
+    "accept": "نعم، أعد توجيهي",
+    "reject": "لا، سأبقى هنا"
+  },
+  "lowResults": {
+    "message": "هل أنت مهتم بـ {query}؟ استكشف هذه الاقتراحات:"
+  },
+  "pageLoaderButton": {
+    "message": "تحميل المزيد من المنتجات"
+  }
+}

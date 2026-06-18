@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "Tyhjennä",
+    "placeholder": "Mitä etsit?"
+  },
+  "popularSearches": {
+    "title": "Suositut haut"
+  },
+  "historyQueries": {
+    "clear": "Tyhjennä kaikki",
+    "removeLabel": "Poista {suggestion} hakuhistoriasta",
+    "title": "Hakuhistoria"
+  },
+  "myHistory": {
+    "title": "Minun Historiani",
+    "subtitle": "Tämä on täydellinen luettelo hakuhistoriastasi",
+    "message": {
+      "body": "Nämä tiedot tallennetaan paikallisesti. Vain laitteellesi eikä niitä koskaan siirretä muualle. Voit poistaa hakuhistorian käytöstä milloin tahansa.",
+      "footer": "Tietosuojasi hallinnassasi."
+    },
+    "noHistory": "Ei näytettävää historiaa",
+    "openButton": "Minun historiani",
+    "suggestionResults": "(ei tuloksia) | ({count} tulos) | ({count} tulosta)",
+    "switch": {
+      "title": "Hakuhistoria",
+      "enable": "Ota käyttöön",
+      "disable": "Poista käytöstä ja tyhjennä"
+    },
+    "confirmDisableModal": {
+      "title": "Poistetaanko hakuhistoria käytöstä?",
+      "message": "Poistamalla hakuhistorian käytöstä tyhjennät myös koko historialuettelon.",
+      "dismiss": "Peruuta",
+      "confirm": "Poista käytöstä"
+    }
+  },
+  "nextQueries": {
+    "title": "Mitä seuraavaksi"
+  },
+  "nextQueriesCta": {
+    "message": "Ne, jotka etsivät {query}, katselivat myös:"
+  },
+  "nextQueryPreview": {
+    "message": "Ne, jotka etsivät {query}, katselivat myös:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Näytä kaikki tulokset"
+  },
+  "recommendations": {
+    "title": "Eniten klikatut"
+  },
+  "facets": {
+    "gender": "Sukupuoli",
+    "categoryPaths": "Kategoriat",
+    "price": "Hinta",
+    "brand": "Merkki",
+    "fit": "Istuvuus",
+    "collection": "Kokoelma",
+    "genres": "Lajityypit",
+    "isAdult": "Aikuisille",
+    "type": "Tyyppi",
+    "runtimeMinutes": "Kesto minuutteina",
+    "description": "Kuvaus",
+    "name": "Nimi"
+  },
+  "facetsPanel": {
+    "title": "Suodata",
+    "viewResults": "Näytä 1 tulos | Näytä {count} tulosta"
+  },
+  "filters": {
+    "all": "Kaikki",
+    "showMore": "Näytä enemmän",
+    "showLess": "Näytä vähemmän"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Näytä kaikki"
+  },
+  "priceFilter": {
+    "lessThan": "alle {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "alkaen {'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "Suodata"
+  },
+  "totalResults": {
+    "message": "1 tulos haulle {query} | {totalResults} tulosta haulle {query}",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} tulosta"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "Oletko kiinnostunut \"{query}\"? Tutki näitä ehdotuksia:"
+  },
+  "sort": {
+    "label": "Järjestä",
+    "values": {
+      "price asc": "Hinta: Matalasta korkeaan",
+      "price desc": "Hinta: Korkeasta matalaan",
+      "default": "Osuvuus"
+    }
+  },
+  "selectedFilters": {
+    "clear": "Tyhjennä 1 suodatin | Tyhjennä {count} suodatinta"
+  },
+  "result": {
+    "addToCart": "Lisää ostoskoriin",
+    "seeVariants": "Näytä variantit",
+    "selectAllOptions": "Valitse vaihtoehto jokaisesta variantista",
+    "maxUnits": "Maksimimäärä",
+    "viewDetails": "Näytä tiedot",
+    "selectOption": "Valitse vaihtoehto",
+    "new": "Uusi"
+  },
+  "spellcheck": {
+    "message": "Ei tuloksia haulle {query}. Näytämme sinulle tuloksia haulle"
+  },
+  "noResults": {
+    "message": "Valitettavasti ei tuloksia haulle {query}. Saatat olla kiinnostunut näistä tuotteista"
+  },
+  "overview": {
+    "collapseButton": "Näytä vähemmän",
+    "expandButton": "Näytä enemmän"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Etsitään vaihtoehtoja...",
+      "subtitle": "Etsimme samanlaisia tuotteita hakusi perusteella"
+    },
+    "success": {
+      "title": "Löysimme vaihtoehtoja!",
+      "subtitle": "Tutustu näihin tuotteisiin, jotka saattavat kiinnostaa sinua"
+    },
+    "noResults": {
+      "title": "Emme löytäneet vaihtoehtoja",
+      "subtitle": "Yritä säätää hakuasi tai suodattimiasi parempia tuloksia varten"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "Ei tuloksia haulle {query} valituilla suodattimilla. Suodattimet on poistettu"
+  },
+  "redirections": {
+    "title": "Hakusi vastaa erityistä paikkaa verkkosivustollamme. Vieraillaksesi siellä sinut ohjataan uudelleen",
+    "accept": "Kyllä, ohjaa minut",
+    "reject": "Ei, jään tänne"
+  },
+  "lowResults": {
+    "message": "Oletko kiinnostunut {query}? Tutki näitä ehdotuksia:"
+  },
+  "pageLoaderButton": {
+    "message": "Lataa lisää tuotteita"
+  }
+}

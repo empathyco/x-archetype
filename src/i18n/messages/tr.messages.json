@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "Temizle",
+    "placeholder": "Ne arıyorsunuz?"
+  },
+  "popularSearches": {
+    "title": "Popüler aramalar"
+  },
+  "historyQueries": {
+    "clear": "Tümünü temizle",
+    "removeLabel": "{suggestion} arama geçmişinden kaldır",
+    "title": "Arama geçmişi"
+  },
+  "myHistory": {
+    "title": "Geçmişim",
+    "subtitle": "Bu, arama geçmişinizin tam listesidir",
+    "message": {
+      "body": "Bu veriler yerel olarak saklanır. Yalnızca cihazınızda ve asla dışarı çıkmaz. Arama geçmişini istediğiniz zaman devre dışı bırakabilirsiniz.",
+      "footer": "Gizliliğiniz kontrolünüz altında."
+    },
+    "noHistory": "Gösterilecek geçmiş yok",
+    "openButton": "Geçmişim",
+    "suggestionResults": "(sonuç yok) | ({count} sonuç) | ({count} sonuç)",
+    "switch": {
+      "title": "Arama geçmişi",
+      "enable": "Etkinleştir",
+      "disable": "Devre dışı bırak ve temizle"
+    },
+    "confirmDisableModal": {
+      "title": "Arama geçmişi devre dışı bırakılsın mı?",
+      "message": "Arama geçmişini devre dışı bırakarak tüm geçmiş listesini de temizlersiniz.",
+      "dismiss": "İptal",
+      "confirm": "Devre dışı bırak"
+    }
+  },
+  "nextQueries": {
+    "title": "Sırada ne var"
+  },
+  "nextQueriesCta": {
+    "message": "{query} arayanlar ayrıca şunları görüntüledi:"
+  },
+  "nextQueryPreview": {
+    "message": "{query} arayanlar ayrıca şunları görüntüledi:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Tüm sonuçları görüntüle"
+  },
+  "recommendations": {
+    "title": "En çok tıklananlar"
+  },
+  "facets": {
+    "gender": "Cinsiyet",
+    "categoryPaths": "Kategoriler",
+    "price": "Fiyat",
+    "brand": "Marka",
+    "fit": "Kesim",
+    "collection": "Koleksiyon",
+    "genres": "Türler",
+    "isAdult": "Yetişkin",
+    "type": "Tip",
+    "runtimeMinutes": "Süre (dakika)",
+    "description": "Açıklama",
+    "name": "İsim"
+  },
+  "facetsPanel": {
+    "title": "Filtrele",
+    "viewResults": "1 sonucu görüntüle | {count} sonucu görüntüle"
+  },
+  "filters": {
+    "all": "Tümü",
+    "showMore": "Daha fazla göster",
+    "showLess": "Daha az göster"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Tümünü görüntüle"
+  },
+  "priceFilter": {
+    "lessThan": "{'{max}'} den az",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "{'{min}'} den"
+  },
+  "toggleAside": {
+    "showAside": "Filtrele"
+  },
+  "totalResults": {
+    "message": "{query} için 1 sonuç | {query} için {totalResults} sonuç",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} sonuç"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "\"{query}\" ile ilgileniyor musunuz? Bu önerileri keşfedin:"
+  },
+  "sort": {
+    "label": "Sırala",
+    "values": {
+      "price asc": "Fiyat: Düşükten Yükseğe",
+      "price desc": "Fiyat: Yüksekten Düşüğe",
+      "default": "İlgililik"
+    }
+  },
+  "selectedFilters": {
+    "clear": "1 filtreyi temizle | {count} filtreyi temizle"
+  },
+  "result": {
+    "addToCart": "Sepete ekle",
+    "seeVariants": "Varyantları gör",
+    "selectAllOptions": "Lütfen her varyanttan bir seçenek seçin",
+    "maxUnits": "Maksimum adet",
+    "viewDetails": "Detayları görüntüle",
+    "selectOption": "Seçenek seç",
+    "new": "Yeni"
+  },
+  "spellcheck": {
+    "message": "{query} için sonuç bulunamadı. Size şunun için sonuçlar gösteriyoruz"
+  },
+  "noResults": {
+    "message": "Üzgünüz, {query} için sonuç yok. Bu ürünlerle ilgilenebilirsiniz"
+  },
+  "overview": {
+    "collapseButton": "Daha az göster",
+    "expandButton": "Daha fazla göster"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Alternatifler aranıyor...",
+      "subtitle": "Aramanıza göre benzer ürünler arıyoruz"
+    },
+    "success": {
+      "title": "Bazı alternatifler bulduk!",
+      "subtitle": "İlginizi çekebilecek bu ürünlere göz atın"
+    },
+    "noResults": {
+      "title": "Alternatif bulamadık",
+      "subtitle": "Daha iyi sonuçlar için aramanızı veya filtrelerinizi ayarlamayı deneyin"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "Seçili filtrelerle {query} için sonuç bulunamadı. Filtreler seçimi kaldırıldı"
+  },
+  "redirections": {
+    "title": "Aramanız web sitemizde özel bir yerle eşleşiyor, ziyaret etmek için yönlendirileceksiniz",
+    "accept": "Evet, yönlendir",
+    "reject": "Hayır, burada kalacağım"
+  },
+  "lowResults": {
+    "message": "{query} ile ilgileniyor musunuz? Bu önerileri keşfedin:"
+  },
+  "pageLoaderButton": {
+    "message": "Daha fazla ürün yükle"
+  }
+}

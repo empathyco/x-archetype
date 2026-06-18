@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "Vymazat",
+    "placeholder": "Co hledáte?"
+  },
+  "popularSearches": {
+    "title": "Oblíbená vyhledávání"
+  },
+  "historyQueries": {
+    "clear": "Vymazat vše",
+    "removeLabel": "Odstranit {suggestion} z historie vyhledávání",
+    "title": "Historie vyhledávání"
+  },
+  "myHistory": {
+    "title": "Moje Historie",
+    "subtitle": "Toto je úplný seznam vaší historie vyhledávání",
+    "message": {
+      "body": "Tato data jsou uložena lokálně. Pouze na vašem zařízení a nikdy je neopouštějí. Historii vyhledávání můžete kdykoli deaktivovat.",
+      "footer": "Vaše soukromí pod vaší kontrolou."
+    },
+    "noHistory": "Žádná historie k zobrazení",
+    "openButton": "Moje historie",
+    "suggestionResults": "(žádné výsledky) | ({count} výsledek) | ({count} výsledků)",
+    "switch": {
+      "title": "Historie vyhledávání",
+      "enable": "Povolit",
+      "disable": "Zakázat a vymazat"
+    },
+    "confirmDisableModal": {
+      "title": "Zakázat historii vyhledávání?",
+      "message": "Zakázáním historie vyhledávání také vymažete celý seznam historie.",
+      "dismiss": "Zrušit",
+      "confirm": "Zakázat"
+    }
+  },
+  "nextQueries": {
+    "title": "Co dál"
+  },
+  "nextQueriesCta": {
+    "message": "Ti, kteří hledali {query}, také viděli:"
+  },
+  "nextQueryPreview": {
+    "message": "Ti, kteří hledali {query}, také viděli:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Zobrazit všechny výsledky"
+  },
+  "recommendations": {
+    "title": "Nejklikanější"
+  },
+  "facets": {
+    "gender": "Pohlaví",
+    "categoryPaths": "Kategorie",
+    "price": "Cena",
+    "brand": "Značka",
+    "fit": "Střih",
+    "collection": "Kolekce",
+    "genres": "Žánry",
+    "isAdult": "Pro dospělé",
+    "type": "Typ",
+    "runtimeMinutes": "Doba trvání v minutách",
+    "description": "Popis",
+    "name": "Název"
+  },
+  "facetsPanel": {
+    "title": "Filtrovat",
+    "viewResults": "Zobrazit 1 výsledek | Zobrazit {count} výsledků"
+  },
+  "filters": {
+    "all": "Vše",
+    "showMore": "Zobrazit více",
+    "showLess": "Zobrazit méně"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Zobrazit vše"
+  },
+  "priceFilter": {
+    "lessThan": "méně než {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "od {'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "Filtrovat"
+  },
+  "totalResults": {
+    "message": "1 výsledek pro {query} | {totalResults} výsledků pro {query}",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} výsledků"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "Zajímá vás \"{query}\"? Prozkoumejte tyto návrhy:"
+  },
+  "sort": {
+    "label": "Seřadit podle",
+    "values": {
+      "price asc": "Cena: Od nejnižší",
+      "price desc": "Cena: Od nejvyšší",
+      "default": "Relevance"
+    }
+  },
+  "selectedFilters": {
+    "clear": "Vymazat 1 filtr | Vymazat {count} filtrů"
+  },
+  "result": {
+    "addToCart": "Přidat do košíku",
+    "seeVariants": "Zobrazit varianty",
+    "selectAllOptions": "Prosím vyberte možnost z každé varianty",
+    "maxUnits": "Maximální počet",
+    "viewDetails": "Zobrazit podrobnosti",
+    "selectOption": "Vyberte možnost",
+    "new": "Nový"
+  },
+  "spellcheck": {
+    "message": "Nebyly nalezeny žádné výsledky pro {query}. Zobrazujeme vám výsledky pro"
+  },
+  "noResults": {
+    "message": "Omlouváme se, ale nebyly nalezeny žádné výsledky pro {query}. Mohly by vás zajímat tyto produkty"
+  },
+  "overview": {
+    "collapseButton": "Zobrazit méně",
+    "expandButton": "Zobrazit více"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Hledání alternativ...",
+      "subtitle": "Hledáme podobné produkty na základě vašeho vyhledávání"
+    },
+    "success": {
+      "title": "Našli jsme alternativy!",
+      "subtitle": "Podívejte se na tyto produkty, které by vás mohly zajímat"
+    },
+    "noResults": {
+      "title": "Nemohli jsme najít alternativy",
+      "subtitle": "Zkuste upravit vyhledávání nebo filtry pro lepší výsledky"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "Nebyly nalezeny žádné výsledky pro {query} s vybranými filtry. Filtry byly odznačeny"
+  },
+  "redirections": {
+    "title": "Vaše vyhledávání odpovídá speciálnímu místu na našem webu. Pro návštěvu budete přesměrováni",
+    "accept": "Ano, přesměrujte mě",
+    "reject": "Ne, zůstanu zde"
+  },
+  "lowResults": {
+    "message": "Zajímá vás {query}? Prozkoumejte tyto návrhy:"
+  },
+  "pageLoaderButton": {
+    "message": "Načíst více produktů"
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "Kustuta",
+    "placeholder": "Mida otsite?"
+  },
+  "popularSearches": {
+    "title": "Populaarsed otsingud"
+  },
+  "historyQueries": {
+    "clear": "Kustuta kõik",
+    "removeLabel": "Eemalda {suggestion} otsinguajaloost",
+    "title": "Otsinguajalugu"
+  },
+  "myHistory": {
+    "title": "Minu Ajalugu",
+    "subtitle": "See on teie otsinguajaloo täielik loend",
+    "message": {
+      "body": "Need andmed salvestatakse kohalikult. Ainult teie seadmesse ja need ei lahku sealt kunagi. Saate otsinguajaloo igal ajal välja lülitada.",
+      "footer": "Teie privaatsus teie kontrolli all."
+    },
+    "noHistory": "Ajalugu pole kuvamiseks",
+    "openButton": "Minu ajalugu",
+    "suggestionResults": "(tulemusi pole) | ({count} tulemus) | ({count} tulemust)",
+    "switch": {
+      "title": "Otsinguajalugu",
+      "enable": "Luba",
+      "disable": "Keela ja kustuta"
+    },
+    "confirmDisableModal": {
+      "title": "Keela otsinguajalugu?",
+      "message": "Otsinguajaloo väljalülitamisel kustutatakse ka kogu ajaloo loend.",
+      "dismiss": "Tühista",
+      "confirm": "Keela"
+    }
+  },
+  "nextQueries": {
+    "title": "Mis järgmisena"
+  },
+  "nextQueriesCta": {
+    "message": "Need, kes otsisid {query}, vaatasid ka:"
+  },
+  "nextQueryPreview": {
+    "message": "Need, kes otsisid {query}, vaatasid ka:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Vaata kõiki tulemusi"
+  },
+  "recommendations": {
+    "title": "Enim klikitud"
+  },
+  "facets": {
+    "gender": "Sugu",
+    "categoryPaths": "Kategooriad",
+    "price": "Hind",
+    "brand": "Bränd",
+    "fit": "Istuvus",
+    "collection": "Kollektsioon",
+    "genres": "Žanrid",
+    "isAdult": "Täiskasvanutele",
+    "type": "Tüüp",
+    "runtimeMinutes": "Kestus minutites",
+    "description": "Kirjeldus",
+    "name": "Nimi"
+  },
+  "facetsPanel": {
+    "title": "Filtreeri",
+    "viewResults": "Vaata 1 tulemust | Vaata {count} tulemust"
+  },
+  "filters": {
+    "all": "Kõik",
+    "showMore": "Näita rohkem",
+    "showLess": "Näita vähem"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Vaata kõiki"
+  },
+  "priceFilter": {
+    "lessThan": "vähem kui {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "alates {'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "Filtreeri"
+  },
+  "totalResults": {
+    "message": "1 tulemus {query} kohta | {totalResults} tulemust {query} kohta",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} tulemust"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "Kas olete huvitatud \"{query}\" kohta? Uurige neid ettepanekuid:"
+  },
+  "sort": {
+    "label": "Sorteeri",
+    "values": {
+      "price asc": "Hind: Madalast kõrgeni",
+      "price desc": "Hind: Kõrgest madalani",
+      "default": "Asjakohasus"
+    }
+  },
+  "selectedFilters": {
+    "clear": "Kustuta 1 filter | Kustuta {count} filtrit"
+  },
+  "result": {
+    "addToCart": "Lisa ostukorvi",
+    "seeVariants": "Vaata variante",
+    "selectAllOptions": "Palun valige iga variandi jaoks üks valik",
+    "maxUnits": "Maksimaalne kogus",
+    "viewDetails": "Vaata üksikasju",
+    "selectOption": "Vali valik",
+    "new": "Uus"
+  },
+  "spellcheck": {
+    "message": "{query} jaoks tulemusi ei leitud. Näitame teile tulemusi"
+  },
+  "noResults": {
+    "message": "Vabandust, kuid {query} jaoks pole tulemusi. Teid võivad huvitada need tooted"
+  },
+  "overview": {
+    "collapseButton": "Näita vähem",
+    "expandButton": "Näita rohkem"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Alternatiivide otsimine...",
+      "subtitle": "Otsime sarnaseid tooteid teie otsingu põhjal"
+    },
+    "success": {
+      "title": "Leidsime mõned alternatiivid!",
+      "subtitle": "Vaadake neid tooteid, mis võivad teid huvitada"
+    },
+    "noResults": {
+      "title": "Me ei leidnud alternatiive",
+      "subtitle": "Proovige paremate tulemuste saamiseks oma otsingut või filtreid kohandada"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "{query} jaoks ei leitud valitud filtritega tulemusi. Filtrid on eemaldatud"
+  },
+  "redirections": {
+    "title": "Teie otsing vastab meie veebisaidi erililisele kohale. Selle külastamiseks suunatakse teid ümber",
+    "accept": "Jah, suuna mind ümber",
+    "reject": "Ei, jään siia"
+  },
+  "lowResults": {
+    "message": "Kas olete huvitatud {query} kohta? Uurige neid ettepanekuid:"
+  },
+  "pageLoaderButton": {
+    "message": "Laadi rohkem tooteid"
+  }
+}

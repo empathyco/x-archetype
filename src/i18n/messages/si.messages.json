@@ -1,0 +1,156 @@
+{
+  "searchBox": {
+    "clear": "Počisti",
+    "placeholder": "Kaj iščete?"
+  },
+  "popularSearches": {
+    "title": "Priljubljena iskanja"
+  },
+  "historyQueries": {
+    "clear": "Počisti vse",
+    "removeLabel": "Odstrani {suggestion} iz zgodovine iskanj",
+    "title": "Zgodovina iskanj"
+  },
+  "myHistory": {
+    "title": "Moja Zgodovina",
+    "subtitle": "To je popoln seznam vaše zgodovine iskanj",
+    "message": {
+      "body": "Ti podatki so shranjeni lokalno. Samo na vaši napravi in je nikoli ne zapustijo. Zgodovino iskanj lahko kadar koli onemogočite.",
+      "footer": "Vaša zasebnost pod vašim nadzorom."
+    },
+    "noHistory": "Ni zgodovine za prikaz",
+    "openButton": "Moja zgodovina",
+    "suggestionResults": "(ni rezultatov) | ({count} rezultat) | ({count} rezultatov)",
+    "switch": {
+      "title": "Zgodovina iskanj",
+      "enable": "Omogoči",
+      "disable": "Onemogoči in počisti"
+    },
+    "confirmDisableModal": {
+      "title": "Onemogočiti zgodovino iskanj?",
+      "message": "Z onemogočanjem zgodovine iskanj boste tudi izbrisali celoten seznam zgodovine.",
+      "dismiss": "Prekliči",
+      "confirm": "Onemogoči"
+    }
+  },
+  "nextQueries": {
+    "title": "Kaj sledi"
+  },
+  "nextQueriesCta": {
+    "message": "Tisti, ki so iskali {query}, so si ogledali tudi:"
+  },
+  "nextQueryPreview": {
+    "message": "Tisti, ki so iskali {query}, so si ogledali tudi:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Prikaži vse rezultate"
+  },
+  "recommendations": {
+    "title": "Najbolj klikano"
+  },
+  "facets": {
+    "gender": "Spol",
+    "categoryPaths": "Kategorije",
+    "price": "Cena",
+    "brand": "Znamka",
+    "fit": "Kroj",
+    "collection": "Kolekcija",
+    "genres": "Žanri",
+    "isAdult": "Za odrasle",
+    "type": "Tip",
+    "runtimeMinutes": "Trajanje v minutah",
+    "description": "Opis",
+    "name": "Ime"
+  },
+  "facetsPanel": {
+    "title": "Filtriraj",
+    "viewResults": "Prikaži 1 rezultat | Prikaži {count} rezultatov"
+  },
+  "filters": {
+    "all": "Vse",
+    "showMore": "Prikaži več",
+    "showLess": "Prikaži manj"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Prikaži vse"
+  },
+  "priceFilter": {
+    "lessThan": "manj kot {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "od {'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "Filtriraj"
+  },
+  "totalResults": {
+    "message": "1 rezultat za {query} | {totalResults} rezultatov za {query}",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} rezultatov"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "Vas zanima \"{query}\"? Raziščite te predloge:"
+  },
+  "sort": {
+    "label": "Razvrsti po",
+    "values": {
+      "price asc": "Cena: Od najnižje do najvišje",
+      "price desc": "Cena: Od najvišje do najnižje",
+      "default": "Relevantnost"
+    }
+  },
+  "selectedFilters": {
+    "clear": "Počisti 1 filter | Počisti {count} filtrov"
+  },
+  "result": {
+    "addToCart": "Dodaj v košarico",
+    "seeVariants": "Poglej variante",
+    "selectAllOptions": "Prosimo, izberite možnost iz vsake variante",
+    "maxUnits": "Največja količina",
+    "viewDetails": "Prikaži podrobnosti",
+    "selectOption": "Izberi možnost",
+    "new": "Novo"
+  },
+  "spellcheck": {
+    "message": "Ni rezultatov za {query}. Prikazujemo vam rezultate za"
+  },
+  "noResults": {
+    "message": "Opravičujemo se, vendar ni rezultatov za {query}. Morda vas zanimajo ti izdelki"
+  },
+  "overview": {
+    "collapseButton": "Prikaži manj",
+    "expandButton": "Prikaži več"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Iskanje alternativ...",
+      "subtitle": "Iščemo podobne izdelke na podlagi vašega iskanja"
+    },
+    "success": {
+      "title": "Našli smo alternative!",
+      "subtitle": "Oglejte si te izdelke, ki bi vas lahko zanimali"
+    },
+    "noResults": {
+      "title": "Nismo našli alternativ",
+      "subtitle": "Poskusite prilagoditi iskanje ali filtre za boljše rezultate"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "Ni rezultatov za {query} z izbranimi filtri. Filtri so bili odstranjeni"
+  },
+  "redirections": {
+    "title": "Vaše iskanje se ujema s posebnim mestom na naši spletni strani. Za obisk boste preusmerjeni",
+    "accept": "Da, preusmeri me",
+    "reject": "Ne, ostanem tukaj"
+  },
+  "lowResults": {
+    "message": "Vas zanima {query}? Raziščite te predloge:"
+  },
+  "pageLoaderButton": {
+    "message": "Naloži več izdelkov"
+  }
+}
