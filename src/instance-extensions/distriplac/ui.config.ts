@@ -2,6 +2,7 @@ import type { UiConfig } from '../../types'
 
 export const ui: UiConfig = {
   header: {
-    root: 'xds:bg-lead xds:desktop:pl-32',
+    root: 'xds:bg-lead',
+    content: 'xds:desktop:pb-24',
   },
 }

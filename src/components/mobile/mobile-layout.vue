@@ -7,7 +7,10 @@
       'x-layout--collapsed': isScrollingDown,
     }"
   >
-    <header class="x-layout__header xds:layout-item xds:bg-neutral-0">
+    <header
+      class="x-layout__header xds:layout-item"
+      :class="[ui('header')?.root ? ui('header')?.root : 'xds:bg-neutral-0']"
+    >
       <div class="x-layout__header-content">
         <!-- @slot Slot that can be used to insert content into the bottom part of the header. -->
         <slot name="header" :is-header-collapsed="isScrollingDown" />
@@ -70,6 +73,7 @@ import { MainScroll, Scroll } from '@empathyco/x-components/scroll'
 import { useElementSize } from '@vueuse/core'
 import { computed, h, ref } from 'vue'
 import { useHasScrollPastThreshold } from '../../composables/use-has-scroll-past-threshold.composable'
+import { useInstanceExtensions } from '../../composables/use-instance-extensions.composable'
 
 /**
  * Component for use as Layout to be filled with the rest of the Components.
@@ -79,6 +83,8 @@ import { useHasScrollPastThreshold } from '../../composables/use-has-scroll-past
 const toolbarWrapperRef = ref(null)
 
 const x = use$x()
+
+const { ui } = useInstanceExtensions()
 const closeEmpathize = (): void => {
   x.emit('UserClosedEmpathize')
 }

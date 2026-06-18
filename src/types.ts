@@ -9,6 +9,7 @@ import type { InjectionKey } from 'vue'
 export interface UiConfig {
   header?: {
     root?: string
+    content?: string
   }
 }
 

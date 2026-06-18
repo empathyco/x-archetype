@@ -1,9 +1,9 @@
 <template>
-  <div class="xds:relative xds:pb-8" :class="ui('header')?.root">
+  <div class="xds:relative" :class="ui('header')?.root">
     <div
       class="xds:layout-item xds:layout-max-width-md xds:desktop:layout-min-margin-32 xds:large:layout-max-width-lg xds:large:layout-min-margin-48"
     >
-      <header class="xds:flex xds:items-center xds:gap-48 xds:pt-24">
+      <header class="xds:flex xds:items-center xds:gap-48 xds:pt-24" :class="ui('header')?.content">
         <BrandLogo />
 
         <div class="xds:flex xds:flex-1 xds:flex-col xds:gap-16">
