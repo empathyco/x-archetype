@@ -71,7 +71,7 @@ export default defineConfig({
       include: [resolve(__dirname, './src/i18n/messages/**')],
       compositionOnly: true,
       fullInstall: false, // Exclude unused features
-      dropMessageCompiler: true, // Pre-compile messages at build time
+      dropMessageCompiler: false, // disable Pre-compile messages at build time, since we merge base messages with instance-specific messages at runtime.
     }),
     tailwindcss(),
     cssInjectedByJsPlugin({
