@@ -67,7 +67,6 @@ import {
   DisplayClickProvider,
   DisplayEmitter,
   use$x,
-  useState,
 } from '@empathyco/x-components'
 import { QueryPreviewButton, QueryPreviewList } from '@empathyco/x-components/queries-preview'
 import CustomSlidingPanel from '../../custom-sliding-panel.vue'
@@ -83,21 +82,20 @@ const props = withDefaults(defineProps<Props>(), {
   queriesPreviewInfo: () => [],
 })
 
-const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
+const metadata = { feature: props.queryFeature }
+const x = use$x()
+
 const getToolingTagging = (
   queryPreviewInfo: QueryPreviewInfo,
   toolingTagging: string,
 ): TaggingRequest => {
-  if (relatedPrompts.value.length) {
+  if (x.relatedPrompts.length) {
     const nextQuery: Record<string, any> =
-      relatedPrompts.value[selectedPrompt.value]?.relatedPromptNextQueries?.find(
+      x.relatedPrompts[x.selectedPrompt]?.relatedPromptNextQueries?.find(
         (nextQuery: RelatedPromptNextQuery) => nextQuery.query === queryPreviewInfo.query,
       ) ?? {}
     return nextQuery[toolingTagging]
   }
   return {} as TaggingRequest
 }
-
-const metadata = { feature: props.queryFeature }
-const x = use$x()
 </script>

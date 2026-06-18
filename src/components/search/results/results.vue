@@ -39,10 +39,10 @@
                   <Promoted :promoted="promoted" />
                 </MainScrollItem>
               </template>
-              <template v-if="!isLowResult" #related-prompts-group>
+              <template v-if="!x.lowResults" #related-prompts-group>
                 <RelatedPrompts class="xds:mt-24 xds:-mb-1 xds:desktop:mt-0" />
                 <CustomQueryPreview
-                  v-if="selectedPrompt !== -1"
+                  v-if="x.selectedPrompt !== -1"
                   :key="queriesPreviewInfo.length"
                   class="xds:rounded-b-md xds:border xds:border-neutral-25 xds:bg-neutral-0 xds:px-8 xds:desktop:px-16"
                   :queries-preview-info="queriesPreviewInfo"
@@ -67,7 +67,6 @@ import {
   LocationProvider,
   StaggeredFadeAndSlide,
   use$x,
-  useState,
 } from '@empathyco/x-components'
 import { RelatedPromptsList } from '@empathyco/x-components/related-prompts'
 import { MainScrollItem } from '@empathyco/x-components/scroll'
@@ -90,8 +89,6 @@ import NextQueriesTags from './next-queries-tags.vue'
 
 const x = use$x()
 const { isMobile } = useDevice()
-const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
-const { config } = useState('search')
 
 const { getControl } = useExperienceControls()
 const hasListMode = getControl<boolean>('gridConfig.listMode')
@@ -106,12 +103,10 @@ const showNextQueries = computed(() => inject<Ref<boolean>>('showNextQueries')?.
 
 const columns = computed(() => (isMobile.value ? 2 : 4))
 
-const isLowResult = computed(() => x.totalResults > 0 && x.totalResults < config.value?.pageSize)
-
 const queriesPreviewInfo = computed(() => {
-  if (relatedPrompts.value.length) {
+  if (x.relatedPrompts.length) {
     const queries = [] as string[]
-    relatedPrompts.value[selectedPrompt.value].relatedPromptNextQueries?.forEach(
+    x.relatedPrompts[x.selectedPrompt]?.relatedPromptNextQueries?.forEach(
       (nextQuery: RelatedPromptNextQuery) => queries.push(nextQuery.query),
     )
     return queries.map(query => ({ query }))

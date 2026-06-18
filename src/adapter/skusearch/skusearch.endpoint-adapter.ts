@@ -5,7 +5,7 @@ import {
   schemaMapperFactory,
 } from '@empathyco/x-adapter'
 import { searchResponseMapper } from '@empathyco/x-adapter-platform'
-import { getDefaultHeaders, getSearchServiceUrl } from '../utils'
+import { getSearchServiceUrl } from '../utils'
 
 const skuSearchRequestSchema = createMutableSchema<any, any>({
   query: 'query',
@@ -21,9 +21,6 @@ export const skuSearchEndpointAdapter = endpointAdapterFactory({
   responseMapper: searchResponseMapper,
   defaultRequestOptions: {
     id: 'search',
-    properties: {
-      headers: getDefaultHeaders(),
-    },
     parameters: {
       taggingEnabled: false,
     },
