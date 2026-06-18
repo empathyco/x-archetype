@@ -2,7 +2,7 @@
   <div class="xds:flex xds:flex-col">
     <RelatedPrompts :class="isDesktopOrGreater ? 'xds:mt-24' : 'xds:mt-16'" />
     <CustomQueryPreview
-      v-if="selectedPrompt !== -1"
+      v-if="x.selectedPrompt !== -1"
       :key="queriesPreviewInfo.length"
       class="xds:rounded-b-md xds:border xds:border-neutral-25 xds:bg-neutral-0 xds:px-16"
       :queries-preview-info="queriesPreviewInfo"
@@ -12,8 +12,8 @@
 </template>
 
 <script setup lang="ts">
-import type { RelatedPrompt, RelatedPromptNextQuery } from '@empathyco/x-types'
-import { useState } from '@empathyco/x-components'
+import type { RelatedPromptNextQuery } from '@empathyco/x-types'
+import { use$x } from '@empathyco/x-components'
 import { relatedPromptsXModule } from '@empathyco/x-components/related-prompts'
 import { computed } from 'vue'
 import { useDevice } from '../../composables/use-device.composable'
@@ -24,17 +24,13 @@ defineOptions({
   xModule: relatedPromptsXModule.name,
 })
 
-defineProps<{
-  relatedPromptList?: RelatedPrompt[]
-}>()
-
+const x = use$x()
 const { isDesktopOrGreater } = useDevice()
-const { relatedPrompts, selectedPrompt } = useState('relatedPrompts')
 
 const queriesPreviewInfo = computed(() => {
-  if (relatedPrompts.value.length) {
+  if (x.relatedPrompts.length) {
     const queries = [] as string[]
-    relatedPrompts.value[selectedPrompt.value].relatedPromptNextQueries?.forEach(
+    x.relatedPrompts[x.selectedPrompt]?.relatedPromptNextQueries?.forEach(
       (nextQuery: RelatedPromptNextQuery) => queries.push(nextQuery.query),
     )
     return queries.map(query => ({ query }))

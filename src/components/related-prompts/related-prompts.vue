@@ -34,23 +34,17 @@
 </template>
 
 <script setup lang="ts">
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  DisplayEmitter,
-  use$x,
-  useState,
-} from '@empathyco/x-components'
+import { ChevronLeftIcon, ChevronRightIcon, DisplayEmitter, use$x } from '@empathyco/x-components'
 import { RelatedPrompt, RelatedPromptsTagList } from '@empathyco/x-components/related-prompts'
 import { computed } from 'vue'
 
-const { selectedPrompt } = useState('relatedPrompts')
+const x = use$x()
+
 const tagClass = computed(() =>
-  selectedPrompt.value !== -1
+  x.selectedPrompt !== -1
     ? 'xds:rounded-t-md xds:gap-8 xds:w-[300px] xds:p-8 xds:border xds:border-b-0 xds:border-neutral-25'
     : 'xds:rounded-md xds:gap-8 xds:w-[300px] xds:p-8 xds:border xds:border-neutral-25',
 )
-const x = use$x()
 </script>
 
 <style>

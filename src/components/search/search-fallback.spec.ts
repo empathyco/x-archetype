@@ -8,15 +8,16 @@ import PartialResults from './results/partial-results.vue'
 import SearchFallback from './search-fallback.vue'
 
 const xStub = {
+  lowResults: false,
   noResults: false,
   partialResults: [] as unknown[],
-  semanticQueries: [] as unknown[],
+  relatedPrompts: [] as unknown[],
   results: [] as unknown[],
+  semanticQueries: [] as unknown[],
   totalResults: 0,
 }
 
 const stateStub = {
-  relatedPrompts: [] as unknown[],
   search: { config: { pageSize: 24 } },
 }
 
@@ -24,7 +25,7 @@ const use$xMock = vi.hoisted(() => vi.fn(() => xStub))
 const useStateMock = vi.hoisted(() =>
   vi.fn((module: string) => {
     if (module === 'relatedPrompts') {
-      return { relatedPrompts: { value: stateStub.relatedPrompts } }
+      return { relatedPrompts: { value: xStub.relatedPrompts } }
     }
     if (module === 'search') {
       return { config: { value: stateStub.search.config } }
@@ -68,18 +69,21 @@ describe('searchFallback component', () => {
     vi.clearAllMocks()
 
     xStub.noResults = false
+    xStub.lowResults = false
     xStub.partialResults = []
     xStub.semanticQueries = []
+    xStub.relatedPrompts = []
     xStub.results = []
     xStub.totalResults = 100
-    stateStub.relatedPrompts = []
     stateStub.search.config.pageSize = 24
   })
 
   it('should render related prompts and low_results location when total results are below page size', () => {
+    xStub.noResults = false
+    xStub.lowResults = true
     xStub.totalResults = 10
     xStub.results = [{}]
-    stateStub.relatedPrompts = [{}]
+    xStub.relatedPrompts = [{}]
 
     const sut = render()
 
@@ -95,7 +99,7 @@ describe('searchFallback component', () => {
   it('should render semantic queries when no results and semantic queries exist', () => {
     xStub.noResults = true
     xStub.semanticQueries = [{}]
-    stateStub.relatedPrompts = []
+    xStub.relatedPrompts = []
     const sut = render()
 
     expect(sut.relatedPrompts.exists()).toBeFalsy()
@@ -110,7 +114,7 @@ describe('searchFallback component', () => {
   it('should render partial results when no results, without semantic queries and without related prompts', () => {
     xStub.noResults = true
     xStub.semanticQueries = []
-    stateStub.relatedPrompts = []
+    xStub.relatedPrompts = []
     xStub.partialResults = [{}]
 
     const sut = render()
@@ -128,7 +132,7 @@ describe('searchFallback component', () => {
     xStub.noResults = true
     xStub.partialResults = []
     xStub.semanticQueries = []
-    stateStub.relatedPrompts = []
+    xStub.relatedPrompts = []
     const sut = render()
 
     expect(sut.relatedPrompts.exists()).toBeFalsy()
@@ -143,7 +147,7 @@ describe('searchFallback component', () => {
   it('should render related prompts and semantic queries together when both conditions are met', () => {
     xStub.noResults = true
     xStub.semanticQueries = [{}]
-    stateStub.relatedPrompts = [{}]
+    xStub.relatedPrompts = [{}]
 
     const sut = render()
 

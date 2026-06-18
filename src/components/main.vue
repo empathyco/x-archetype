@@ -20,16 +20,10 @@ import SearchFallback from './search/search-fallback.vue'
 
 const x = use$x()
 
-const lowResultsThreshold = 50
-
 const { getControl } = useExperienceControls()
 const aiSearchFallback = getControl<boolean>('aiSearchFallback')
 
-const isLowResult = computed(() => x.totalResults > 0 && x.totalResults < lowResultsThreshold)
-
-const showFallbacks = computed(
-  () => (x.noResults || isLowResult.value) && x.status.search === 'success',
-)
+const showFallbacks = computed(() => (x.noResults || x.lowResults) && x.status.search === 'success')
 
 const showAiSearchFallback = computed(() => aiSearchFallback.value && showFallbacks.value)
 const showSearchFallbacks = computed(() => !aiSearchFallback.value && showFallbacks.value)
