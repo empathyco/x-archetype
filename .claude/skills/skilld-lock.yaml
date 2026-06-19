@@ -52,3 +52,10 @@ skills:
     source: "https://github.com/vitest-dev/vitest/tree/v4.1.8/docs"
     syncedAt: 2026-06-05
     generator: skilld
+  playwright-test-skilld:
+    packageName: "@playwright/test"
+    version: 1.61.0
+    repo: microsoft/playwright
+    source: "https://github.com/microsoft/playwright/tree/v1.61.0/docs"
+    syncedAt: 2026-06-19
+    generator: skilld
