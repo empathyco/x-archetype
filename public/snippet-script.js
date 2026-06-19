@@ -139,8 +139,8 @@ window.initX = {
   viewMode,
   isolate,
   ...URLParameters,
-  searchBoxTarget: '.x-archetype-header__input-container',
-  gridTarget: '.body-container',
+  searchBoxSelector: '[data-teleport="empathy-search-box-container"]', // This is the default selector. Just keep it here for reference.
+  resultsSelector: '[data-teleport="empathy-results-container"]', // This is the default selector. Just keep it here for reference.
   callbacks: {
     UserClickedResultAddToCart: addToCartCallback,
     UserClickedResultRemoveFromCart: removeFromCartCallback,

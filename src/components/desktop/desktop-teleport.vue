@@ -1,5 +1,5 @@
 <template>
-  <BaseTeleport v-if="visibleGrid" :target="gridTarget">
+  <BaseTeleport v-if="visibleGrid" :target="resultsSelector">
     <div class="xds:layout-container xds:layout">
       <div class="xds:sticky xds:top-0 xds:z-2 xds:bg-neutral-0">
         <DesktopSubHeader
@@ -111,8 +111,10 @@ const rightAsideAnimation = h(AnimateTranslate, { animationOrigin: 'right' })
 
 const { getControl } = useExperienceControls()
 const facetsPanelOverlay = getControl<boolean>('facetsPanelOverlay')
-const snippetConfig = inject<SnippetConfig>('snippetConfig')
-const gridTarget = computed(() => snippetConfig?.gridTarget ?? '#maincontent')
+const snippetConfig = inject<SnippetConfig>('snippetConfig')!
+const resultsSelector = computed(
+  () => snippetConfig.resultsSelector ?? "[data-teleport='empathy-results-container']",
+)
 const visibleGrid = ref(false)
 
 x.on('UserClickedCloseX', false).subscribe(() => (visibleGrid.value = false))
