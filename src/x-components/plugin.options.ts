@@ -1,5 +1,6 @@
 import type { InstallXOptions, SnippetConfig } from '@empathyco/x-components'
 import type { Messages } from '../i18n/messages.types'
+import type { InstanceExtensions } from '../types'
 import { cssInjector } from '@empathyco/x-archetype-utils'
 import { filter } from '@empathyco/x-components'
 import { addQueryToHistoryQueries } from '@empathyco/x-components/history-queries'
@@ -89,10 +90,30 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
 
       app.use(i18n)
 
-      const messages = (await import(`../i18n/messages/${normalizedLocale}.messages.json`)) as {
+      const baseMessages = (await import(`../i18n/messages/${normalizedLocale}.messages.json`)) as {
         default: Messages
       }
-      i18n.global.setLocaleMessage(normalizedLocale, messages.default)
+
+      // Set base messages first
+      i18n.global.setLocaleMessage(normalizedLocale, baseMessages.default)
+
+      // Try to load and merge instance-specific messages
+      try {
+        const instanceExtensions = (await import(
+          `../instance-extensions/${snippet.instance}/${snippet.instance}-init.ts`
+        )) as InstanceExtensions
+
+        if (instanceExtensions.messages?.[normalizedLocale]) {
+          i18n.global.mergeLocaleMessage(
+            normalizedLocale,
+            instanceExtensions.messages[normalizedLocale],
+          )
+        }
+      } catch {
+        console.warn(
+          `No instance-specific messages found for ${snippet.instance} (${normalizedLocale}), using base messages only`,
+        )
+      }
     },
   }
 }
