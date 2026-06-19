@@ -1,3 +1,4 @@
+import type { PrivateXModulesOptions, XModulesOptions } from '@empathyco/x-components'
 import type { XComponentsAdapter } from '@empathyco/x-types'
 import type { InjectionKey } from 'vue'
 import type { Messages } from './i18n/messages.types'
@@ -20,4 +21,6 @@ export interface InstanceExtensions {
   adapter?: XComponentsAdapter
   ui?: UiConfig
   messages?: Record<string, Partial<Messages>>
+  xModules?: XModulesOptions
+  xPrivateModules?: PrivateXModulesOptions
 }
