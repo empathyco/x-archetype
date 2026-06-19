@@ -94,7 +94,7 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
         default: Messages
       }
 
-      // Set core messages first
+      // Set base messages first
       i18n.global.setLocaleMessage(normalizedLocale, baseMessages.default)
 
       // Try to load and merge instance-specific messages
@@ -111,7 +111,7 @@ export async function getInstallXOptions(): Promise<InstallXOptions> {
         }
       } catch {
         console.warn(
-          `No instance-specific messages found for ${snippet.instance} (${normalizedLocale}), using core messages only`,
+          `No instance-specific messages found for ${snippet.instance} (${normalizedLocale}), using base messages only`,
         )
       }
     },

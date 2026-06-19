@@ -1,5 +1,9 @@
 {
-  "popularSearches": {
-    "title": "populacho"
+  "facets": {
+    "colorFacet": "Color",
+    "brandFacet": "Marca",
+    "typeFacet": "Tipo",
+    "facetCategories": "Categorías",
+    "availability": "Disponibilidad"
   }
 }
