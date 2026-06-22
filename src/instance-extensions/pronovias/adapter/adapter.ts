@@ -11,7 +11,7 @@ import type {
   SimpleFacet,
 } from '@empathyco/x-types'
 
-import type { HsnResult } from '../types'
+import type { PronoviasResult } from '../types'
 import {
   facetSchema,
   platformAdapter,
@@ -21,14 +21,16 @@ import {
 
 export const adapter = platformAdapter
 
-interface HsnPlatformResult extends PlatformResult {}
+interface PronoviasPlatformResult extends PlatformResult {
+  magentoId: string
+}
 
-interface HsnPlatformFacet extends PlatformFacet {
+interface PronoviasPlatformFacet extends PlatformFacet {
   label: string
 }
 
-resultSchema.$override<HsnPlatformResult, Partial<HsnResult>>({
-  images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
+resultSchema.$override<PronoviasPlatformResult, Partial<PronoviasResult>>({
+  id: rawResult => rawResult.magentoId ?? rawResult.__id,
 })
 
 recommendationsRequestSchema.$override<
@@ -40,7 +42,7 @@ recommendationsRequestSchema.$override<
 })
 
 facetSchema.$override<
-  HsnPlatformFacet,
+  PronoviasPlatformFacet,
   Partial<EditableNumberRangeFacet | HierarchicalFacet | NumberRangeFacet | SimpleFacet>
 >({
   label: 'label',

@@ -11,7 +11,7 @@ import type {
   SimpleFacet,
 } from '@empathyco/x-types'
 
-import type { HsnResult } from '../types'
+import type { ConforamaResult } from '../types'
 import {
   facetSchema,
   platformAdapter,
@@ -21,14 +21,32 @@ import {
 
 export const adapter = platformAdapter
 
-interface HsnPlatformResult extends PlatformResult {}
+interface ConforamaPlatformResult extends PlatformResult {
+  description: string
+  brandLogoUrl: string
+  energyIconUrl: string
+  discount: number
+  customLabel1Text: string
+  customLabel2Text: string
+  customLabel3Text: string
+  discountPercentage: string
+  itemUrl: string
+}
 
-interface HsnPlatformFacet extends PlatformFacet {
+interface ConforamaPlatformFacet extends PlatformFacet {
   label: string
 }
 
-resultSchema.$override<HsnPlatformResult, Partial<HsnResult>>({
+resultSchema.$override<ConforamaPlatformResult, Partial<ConforamaResult>>({
+  description: 'description',
+  customLabel1Text: 'customLabel1Text',
+  customLabel2Text: 'customLabel2Text',
+  customLabel3Text: 'customLabel3Text',
   images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
+  brandLogoUrl: 'brandLogoUrl',
+  energyIconUrl: 'energyIconUrl',
+  discount: 'discountPercentage',
+  url: rawResult => rawResult.itemUrl ?? rawResult.__url,
 })
 
 recommendationsRequestSchema.$override<
@@ -40,7 +58,7 @@ recommendationsRequestSchema.$override<
 })
 
 facetSchema.$override<
-  HsnPlatformFacet,
+  ConforamaPlatformFacet,
   Partial<EditableNumberRangeFacet | HierarchicalFacet | NumberRangeFacet | SimpleFacet>
 >({
   label: 'label',

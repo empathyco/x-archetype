@@ -11,24 +11,42 @@ import type {
   SimpleFacet,
 } from '@empathyco/x-types'
 
-import type { HsnResult } from '../types'
+import type { JLJResult } from '../types'
 import {
   facetSchema,
   platformAdapter,
   recommendationsRequestSchema,
   resultSchema,
 } from '@empathyco/x-adapter-platform'
+import { mapPrice } from './utils/price.utils'
 
 export const adapter = platformAdapter
 
-interface HsnPlatformResult extends PlatformResult {}
+export interface JLJPlatformResult extends PlatformResult {
+  description: string
+  brand: string
+  price: number
+  id: string
+  new: boolean
+  collection: string
+  isLetter: boolean
+  googleProductCategory: string
+}
 
-interface HsnPlatformFacet extends PlatformFacet {
+interface JLJPlatformFacet extends PlatformFacet {
   label: string
 }
 
-resultSchema.$override<HsnPlatformResult, Partial<HsnResult>>({
+resultSchema.$override<JLJPlatformResult, Partial<JLJResult>>({
+  description: 'description',
+  brand: 'brand',
   images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
+  price: mapPrice,
+  id: 'id',
+  isNew: 'new',
+  collection: 'collection',
+  isLetter: 'isLetter',
+  googleProductCategory: 'googleProductCategory',
 })
 
 recommendationsRequestSchema.$override<
@@ -40,7 +58,7 @@ recommendationsRequestSchema.$override<
 })
 
 facetSchema.$override<
-  HsnPlatformFacet,
+  JLJPlatformFacet,
   Partial<EditableNumberRangeFacet | HierarchicalFacet | NumberRangeFacet | SimpleFacet>
 >({
   label: 'label',

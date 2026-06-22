@@ -11,7 +11,7 @@ import type {
   SimpleFacet,
 } from '@empathyco/x-types'
 
-import type { HsnResult } from '../types'
+import type { MartimotosResult } from '../types'
 import {
   facetSchema,
   platformAdapter,
@@ -21,13 +21,20 @@ import {
 
 export const adapter = platformAdapter
 
-interface HsnPlatformResult extends PlatformResult {}
+interface MartimotosPlatformResult extends PlatformResult {
+  stock: number
+  discount: number
+  discountPercentage: number
+}
 
-interface HsnPlatformFacet extends PlatformFacet {
+interface MartimotosPlatformFacet extends PlatformFacet {
   label: string
 }
 
-resultSchema.$override<HsnPlatformResult, Partial<HsnResult>>({
+resultSchema.$override<MartimotosPlatformResult, Partial<MartimotosResult>>({
+  stock: 'stock',
+  discount: 'discount',
+  discountPercentage: 'discountPercentage',
   images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
 })
 
@@ -40,7 +47,7 @@ recommendationsRequestSchema.$override<
 })
 
 facetSchema.$override<
-  HsnPlatformFacet,
+  MartimotosPlatformFacet,
   Partial<EditableNumberRangeFacet | HierarchicalFacet | NumberRangeFacet | SimpleFacet>
 >({
   label: 'label',

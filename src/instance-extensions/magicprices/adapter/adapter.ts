@@ -11,7 +11,7 @@ import type {
   SimpleFacet,
 } from '@empathyco/x-types'
 
-import type { HsnResult } from '../types'
+import type { MagicpricesResult } from '../types'
 import {
   facetSchema,
   platformAdapter,
@@ -21,14 +21,18 @@ import {
 
 export const adapter = platformAdapter
 
-interface HsnPlatformResult extends PlatformResult {}
+interface MagicpricesPlatformResult extends PlatformResult {
+  isDeal: boolean
+  hasPromoCode: boolean
+}
 
-interface HsnPlatformFacet extends PlatformFacet {
+interface MagicpricesPlatformFacet extends PlatformFacet {
   label: string
 }
 
-resultSchema.$override<HsnPlatformResult, Partial<HsnResult>>({
-  images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
+resultSchema.$override<MagicpricesPlatformResult, Partial<MagicpricesResult>>({
+  isDeal: 'isDeal',
+  hasPromoCode: 'hasPromoCode',
 })
 
 recommendationsRequestSchema.$override<
@@ -40,7 +44,7 @@ recommendationsRequestSchema.$override<
 })
 
 facetSchema.$override<
-  HsnPlatformFacet,
+  MagicpricesPlatformFacet,
   Partial<EditableNumberRangeFacet | HierarchicalFacet | NumberRangeFacet | SimpleFacet>
 >({
   label: 'label',

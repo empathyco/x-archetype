@@ -11,7 +11,7 @@ import type {
   SimpleFacet,
 } from '@empathyco/x-types'
 
-import type { HsnResult } from '../types'
+import type { KtuinResult } from '../types'
 import {
   facetSchema,
   platformAdapter,
@@ -21,13 +21,16 @@ import {
 
 export const adapter = platformAdapter
 
-interface HsnPlatformResult extends PlatformResult {}
+interface KtuinPlatformResult extends PlatformResult {
+  eficienciaEnergeticaImage: string
+}
 
-interface HsnPlatformFacet extends PlatformFacet {
+interface KtuinPlatformFacet extends PlatformFacet {
   label: string
 }
 
-resultSchema.$override<HsnPlatformResult, Partial<HsnResult>>({
+resultSchema.$override<KtuinPlatformResult, Partial<KtuinResult>>({
+  eficienciaEnergeticaImage: 'eficienciaEnergeticaImage',
   images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
 })
 
@@ -40,7 +43,7 @@ recommendationsRequestSchema.$override<
 })
 
 facetSchema.$override<
-  HsnPlatformFacet,
+  KtuinPlatformFacet,
   Partial<EditableNumberRangeFacet | HierarchicalFacet | NumberRangeFacet | SimpleFacet>
 >({
   label: 'label',
