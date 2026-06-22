@@ -11,6 +11,24 @@ runs:
     - name: Installing dependencies
       run: npm ci
       shell: bash
+
+    - name: Cache Playwright browsers
+      uses: actions/cache@v4
+      id: playwright-cache
+      with:
+        path: ~/.cache/ms-playwright
+        key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+    - name: Install Playwright Browsers
+      if: steps.playwright-cache.outputs.cache-hit != 'true'
+      run: npx playwright install --with-deps
+      shell: bash
+
+    - name: Install Playwright system dependencies
+      if: steps.playwright-cache.outputs.cache-hit == 'true'
+      run: npx playwright install-deps
+      shell: bash
+
     - name: Run typecheck
       run: npm run typecheck
       shell: bash
@@ -25,9 +43,6 @@ runs:
       shell: bash
     - name: Running unit tests
       run: npm run test:unit
-      shell: bash
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
       shell: bash
     - name: Running e2e tests
       run: npm run test:e2e
