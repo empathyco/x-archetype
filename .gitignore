@@ -24,3 +24,10 @@ pnpm-debug.log*
 
 # Skilld references (recreated by `skilld install`)
 .skilld
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/

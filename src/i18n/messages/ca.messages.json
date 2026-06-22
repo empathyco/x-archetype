@@ -1,0 +1,161 @@
+{
+  "searchBox": {
+    "clear": "Esborrar",
+    "placeholder": "Què estàs buscant?"
+  },
+  "popularSearches": {
+    "title": "Cerques populars"
+  },
+  "historyQueries": {
+    "clear": "Netejar historial",
+    "removeLabel": "Esborrar {suggestion} de l'historial",
+    "title": "Historial"
+  },
+  "myHistory": {
+    "title": "El meu historial",
+    "subtitle": "Aquest és el teu historial de cerca",
+    "message": {
+      "body": "Les dades es guarden en local. Només estan al teu dispositiu i mai surten d'aquí. Pots desactivar l'historial de cerca quan vulguis.",
+      "footer": "La teva privacitat sota el teu control."
+    },
+    "noHistory": "No hi ha historial de cerca per mostrar",
+    "openButton": "El meu historial",
+    "suggestionResults": "(sense resultats) | (1 resultat) | ({count} resultats)",
+    "switch": {
+      "title": "Historial de cerca",
+      "enable": "Activar",
+      "disable": "Desactivar i eliminar historial"
+    },
+    "confirmDisableModal": {
+      "title": "Desactivar l'historial de cerca?",
+      "message": "Si desactives l'historial de cerca, les cerques del teu historial seran eliminades.",
+      "dismiss": "Cancel·lar",
+      "confirm": "Desactivar"
+    }
+  },
+  "nextQueries": {
+    "title": "Potser t'interessa"
+  },
+  "nextQueriesCta": {
+    "message": "Els que han cercat {query} també han vist:"
+  },
+  "nextQueryPreview": {
+    "message": "Els que han cercat {query} també han vist:",
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Veure tots els resultats",
+    "device": {
+      "mobile": {
+        "viewResults": "Veure tot"
+      }
+    }
+  },
+  "recommendations": {
+    "title": "Top clicked"
+  },
+  "facets": {
+    "gender": "Gènere",
+    "categoryPaths": "Categories",
+    "price": "Preu",
+    "brand": "Marca",
+    "fit": "Fit",
+    "collection": "Col·lecció",
+    "genres": "Gèneres",
+    "isAdult": "Contingut adult",
+    "type": "Tipus",
+    "runtimeMinutes": "Minuts de durada",
+    "description": "Descripció",
+    "name": "Nom"
+  },
+  "facetsPanel": {
+    "title": "Filtrar",
+    "viewResults": "Veure 1 resultat | Veure {count} resultats"
+  },
+  "filters": {
+    "all": "Tot",
+    "showMore": "Mostrar més",
+    "showLess": "Mostrar menys"
+  },
+  "partialResults": {
+    "query": "{query}",
+    "totalResults": "({totalResults})",
+    "viewResults": "Veure tots els resultats"
+  },
+  "priceFilter": {
+    "lessThan": "fins a {'{max}'}",
+    "fromTo": "{'{min}'} - {'{max}'}",
+    "from": "des de {'{min}'}"
+  },
+  "toggleAside": {
+    "showAside": "Filtrar"
+  },
+  "totalResults": {
+    "message": "1 resultat per a {query} | {totalResults} resultats per a {query}",
+    "device": {
+      "mobile": {
+        "message": "{totalResults} resultats"
+      }
+    }
+  },
+  "semanticQueries": {
+    "title": "T'interessa \"{query}\"? Explora aquests suggeriments:"
+  },
+  "sort": {
+    "label": "Ordenar per",
+    "values": {
+      "price asc": "Preu: De menor a major",
+      "price desc": "Preu: De major a menor",
+      "default": "Rellevància"
+    }
+  },
+  "selectedFilters": {
+    "clear": "Netejar 1 filtre | Netejar {count} filtres"
+  },
+  "result": {
+    "addToCart": "Afegir a la cistella",
+    "seeVariants": "Veure variants",
+    "selectAllOptions": "Si us plau selecciona una opció de cada variant",
+    "maxUnits": "Quantitat màxima",
+    "viewDetails": "Veure detalls",
+    "selectOption": "Selecciona una opció",
+    "new": "Nou"
+  },
+  "spellcheck": {
+    "message": "No s'han trobat resultats per a {query} Aquí tens resultats per a"
+  },
+  "noResults": {
+    "message": "No s'han trobat resultats per a {query}Potser t'interessin aquests productes"
+  },
+  "overview": {
+    "collapseButton": "Mostrar menys",
+    "expandButton": "Mostrar més"
+  },
+  "aiFallback": {
+    "loading": {
+      "title": "Cercant alternatives...",
+      "subtitle": "Estem cercant productes similars basats en la teva cerca"
+    },
+    "success": {
+      "title": "Hem trobat algunes alternatives!",
+      "subtitle": "Mira aquests productes que podrien interessar-te"
+    },
+    "noResults": {
+      "title": "No hem pogut trobar alternatives",
+      "subtitle": "Intenta ajustar la teva cerca o filtres per obtenir millors resultats"
+    }
+  },
+  "fallbackDisclaimer": {
+    "message": "No s'han trobat resultats per a {query} amb els filtres seleccionats. Els filtres s'han desseleccionat"
+  },
+  "redirections": {
+    "title": "La teva cerca coincideix amb una pàgina especial de la nostra web, seràs redirigit a:",
+    "accept": "Sí, redirigeix-me",
+    "reject": "No, em quedaré aquí"
+  },
+  "lowResults": {
+    "message": "T'interessa {query}? Explora aquests suggeriments:"
+  },
+  "pageLoaderButton": {
+    "message": "Carregar més productes"
+  }
+}
