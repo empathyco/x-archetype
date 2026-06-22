@@ -46,6 +46,14 @@ getInstallXOptions()
       installXOptions.adapter = instanceExtensions.adapter
     }
 
+    if (instanceExtensions.xModules) {
+      installXOptions.xModules = instanceExtensions.xModules
+    }
+
+    if (instanceExtensions.xPrivateModules) {
+      installXOptions.__PRIVATE__xModules = instanceExtensions.xPrivateModules
+    }
+
     installXOptions.onCreateApp = app => {
       app.provide(UI_CONFIG_KEY, instanceExtensions.ui ?? {})
     }

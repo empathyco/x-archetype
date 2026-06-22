@@ -46,23 +46,23 @@
   "devDependencies": {
     "@empathyco/eslint-config": "1.10.32",
     "@empathyco/x-design-system": "1.0.7",
-    "@intlify/unplugin-vue-i18n": "11.2.3",
+    "@intlify/unplugin-vue-i18n": "11.2.4",
     "@playwright/test": "1.61.0",
-    "@tailwindcss/vite": "4.3.0",
+    "@tailwindcss/vite": "4.3.1",
     "@types/node": "25.9.3",
     "@vitejs/plugin-vue": "6.0.7",
     "@vue/test-utils": "2.4.11",
-    "happy-dom": "20.10.2",
+    "happy-dom": "20.10.6",
     "husky": "9.1.7",
     "lint-staged": "17.0.7",
     "rollup-plugin-visualizer": "7.0.1",
     "skilld": "2.0.0",
-    "tailwindcss": "4.3.0",
+    "tailwindcss": "4.3.1",
     "typescript": "5.9.3",
     "vite": "7.3.5",
     "vite-plugin-css-injected-by-js": "4.0.1",
-    "vitest": "4.1.8",
-    "vue-tsc": "3.3.4"
+    "vitest": "4.1.9",
+    "vue-tsc": "3.3.5"
   },
   "lint-staged": {
     "*": [

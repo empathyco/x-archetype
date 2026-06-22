@@ -1,5 +1,7 @@
+import type { PrivateXModulesOptions, XModulesOptions } from '@empathyco/x-components'
 import type { XComponentsAdapter } from '@empathyco/x-types'
 import type { InjectionKey } from 'vue'
+import type { Messages } from './i18n/messages.types'
 
 /**
  * UI configuration interface for instance-specific tailwind classes by component.
@@ -18,4 +20,7 @@ export const UI_CONFIG_KEY: InjectionKey<UiConfig> = Symbol('ui')
 export interface InstanceExtensions {
   adapter?: XComponentsAdapter
   ui?: UiConfig
+  messages?: Record<string, Partial<Messages>>
+  xModules?: XModulesOptions
+  xPrivateModules?: PrivateXModulesOptions
 }
