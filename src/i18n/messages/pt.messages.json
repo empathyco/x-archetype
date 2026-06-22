@@ -144,6 +144,9 @@
       "subtitle": "Tente ajustar sua busca ou filtros para obter melhores resultados"
     }
   },
+  "aiCarousel": {
+    "title": "Buscando por {queryList}"
+  },
   "fallbackDisclaimer": {
     "message": "Sem resultados encontrados para {query} com os filtros seleccionados. Os filtros foram não seleccionados"
   },

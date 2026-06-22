@@ -139,6 +139,9 @@
       "subtitle": "Try adjusting your search or filters for better results"
     }
   },
+  "aiCarousel": {
+    "title": "Searching for {queryList}"
+  },
   "fallbackDisclaimer": {
     "message": "No results found for {query} with the selected filters. The filters have been unselected"
   },

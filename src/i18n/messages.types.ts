@@ -147,6 +147,9 @@ export interface Messages {
       subtitle: string
     }
   }
+  aiCarousel: {
+    title: string
+  }
   fallbackDisclaimer: {
     message: string
   }
