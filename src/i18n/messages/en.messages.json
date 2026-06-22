@@ -126,7 +126,6 @@
     "expandButton": "Show more"
   },
   "aiFallback": {
-    "title": "Searching for {queryList}",
     "loading": {
       "title": "Looking for alternatives...",
       "subtitle": "We are searching for similar products based on your search"
@@ -139,6 +138,9 @@
       "title": "We couldn't find alternatives",
       "subtitle": "Try adjusting your search or filters for better results"
     }
+  },
+  "aiCarousel": {
+    "title": "Searching for {queryList}"
   },
   "fallbackDisclaimer": {
     "message": "No results found for {query} with the selected filters. The filters have been unselected"

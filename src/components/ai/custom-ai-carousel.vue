@@ -14,21 +14,25 @@
 </template>
 
 <script setup lang="ts">
+import type { SnippetConfig } from '@empathyco/x-components'
 import type { Result as ResultType } from '@empathyco/x-types'
 import { useState } from '@empathyco/x-components'
 import { AiCarousel } from '@empathyco/x-components/ai'
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 import { useI18n } from 'vue-i18n'
 import Result from '../results/result.vue'
 
 const { t } = useI18n()
 const { queries } = useState('ai')
 
+const snippetConfig = inject<SnippetConfig>('snippetConfig')!
+const uiLang = snippetConfig.uiLang ?? snippetConfig.lang
+
 const title = computed(() => {
-  const queryList = new Intl.ListFormat('en', {
+  const queryList = new Intl.ListFormat(uiLang, {
     style: 'long',
     type: 'conjunction',
   }).format(queries.value.map(({ query }) => query))
-  return t('aiFallback.title', { queryList })
+  return t('aiCarousel.title', { queryList })
 })
 </script>

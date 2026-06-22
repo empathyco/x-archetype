@@ -134,7 +134,6 @@ export interface Messages {
     expandButton: string
   }
   aiFallback: {
-    title: string
     loading: {
       title: string
       subtitle: string
@@ -147,6 +146,9 @@ export interface Messages {
       title: string
       subtitle: string
     }
+  }
+  aiCarousel: {
+    title: string
   }
   fallbackDisclaimer: {
     message: string

@@ -131,7 +131,6 @@
     "expandButton": "Mostrar mais"
   },
   "aiFallback": {
-    "title": "Buscando por {queryList}",
     "loading": {
       "title": "Buscando alternativas...",
       "subtitle": "Estamos procurando produtos semelhantes com base na sua busca"
@@ -144,6 +143,9 @@
       "title": "Não conseguimos encontrar alternativas",
       "subtitle": "Tente ajustar sua busca ou filtros para obter melhores resultados"
     }
+  },
+  "aiCarousel": {
+    "title": "Buscando por {queryList}"
   },
   "fallbackDisclaimer": {
     "message": "Sem resultados encontrados para {query} com os filtros seleccionados. Os filtros foram não seleccionados"
