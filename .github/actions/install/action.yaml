@@ -26,6 +26,9 @@ runs:
     - name: Running unit tests
       run: npm run test:unit
       shell: bash
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+      shell: bash
     - name: Running e2e tests
       run: npm run test:e2e
       shell: bash
