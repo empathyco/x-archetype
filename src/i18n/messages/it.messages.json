@@ -131,6 +131,7 @@
     "expandButton": "Mostra di più"
   },
   "aiFallback": {
+    "title": "Ricerca di {queryList}",
     "loading": {
       "title": "Cerco alternative...",
       "subtitle": "Stiamo cercando prodotti simili in base alla tua ricerca"

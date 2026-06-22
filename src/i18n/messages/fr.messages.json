@@ -131,6 +131,7 @@
     "expandButton": "Montrer plus"
   },
   "aiFallback": {
+    "title": "Recherche de {queryList}",
     "loading": {
       "title": "Recherche d'alternatives...",
       "subtitle": "Nous recherchons des produits similaires en fonction de votre recherche"
