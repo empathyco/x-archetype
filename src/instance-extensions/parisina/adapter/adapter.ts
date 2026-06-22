@@ -1,3 +1,4 @@
+import type { Schema } from '@empathyco/x-adapter'
 import type {
   PlatformFacet,
   PlatformRecommendationsRequest,
@@ -18,7 +19,6 @@ import {
   recommendationsRequestSchema,
   resultSchema,
 } from '@empathyco/x-adapter-platform'
-import { Schema } from '@empathyco/x-adapter'
 
 export const adapter = platformAdapter
 
