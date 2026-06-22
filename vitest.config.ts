@@ -8,7 +8,7 @@ export default mergeConfig(
       setupFiles: ['vitest-setup.ts'],
       environment: 'happy-dom',
       root: fileURLToPath(new URL('./', import.meta.url)),
-      exclude: [...configDefaults.exclude],
+      exclude: [...configDefaults.exclude, 'e2e/**'],
     },
   }),
   viteConfig,

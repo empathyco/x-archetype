@@ -113,14 +113,13 @@ for (const [instanceName, configs] of Object.entries(instances)) {
       // ========================================
       const allowedChunksInit = [
         /^app\.js$/,
+        /^[a-z]{2}\.messages-.*\.js$/, // i18n message chunks (e.g., en.messages-*.js, es.messages-*.js)
         new RegExp(`^${instanceName}-init.*\\.js$`), // Optional instance init
         /^snippet-script\.js$/, // Snippet script loaded from public folder
         /^vite.*\.js$/, // Vite dev runtime chunks (only in dev mode)
         /@vite/, // Vite client
         /^wysiwyg.*\.js$/, // WYSIWYG editor component
-        /^[a-z]{2}\.messages-.*\.js$/, // i18n message chunks (e.g., en.messages-*.js, es.messages-*.js)
-        /^use-config-.*\.js$/, // Config composable chunk
-        /\.vue_vue_type_style.*\.js$/, // Vue component CSS chunks (Vite scoped styles)
+        /^use-config-.*\.js$/, // WYSIWYG Config composable chunk
       ]
 
       const unexpectedChunksInit = await getUnexpectedChunks(page, allowedChunksInit)
