@@ -1,5 +1,5 @@
 <template>
-  <BaseTeleport :target="searchBoxTarget">
+  <BaseTeleport :target="searchBoxSelector">
     <section>
       <div class="xds:flex xds:w-full xds:gap-8 xds:bg-neutral-0 xds:px-8">
         <button @click="closeEmpathize">
@@ -55,7 +55,7 @@ eventsToOpenEmpathize.forEach(event =>
   x.on(event, false).subscribe(() => (openPredictiveLayer.value = true)),
 )
 
-const searchBoxTarget = computed(
+const searchBoxSelector = computed(
   () => snippetConfig.searchBoxSelector ?? "[data-teleport='empathy-search-box-container']",
 )
 

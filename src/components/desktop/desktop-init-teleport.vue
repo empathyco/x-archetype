@@ -1,5 +1,5 @@
 <template>
-  <BaseTeleport :target="searchBoxTarget">
+  <BaseTeleport :target="searchBoxSelector">
     <section class="xds:relative">
       <SearchBox @click="emitUserClickedOpenX" @focusin="emitUserClickedOpenX" />
       <LocationProvider location="predictive_layer">
@@ -22,10 +22,11 @@ const PredictiveLayer = defineAsyncComponent(() =>
 )
 
 const x = use$x()
-const snippetConfig = inject<SnippetConfig>('snippetConfig')
+const snippetConfig = inject<SnippetConfig>('snippetConfig')!
 
-const searchBoxTarget = computed(() => snippetConfig?.searchBoxTarget ?? '#header form')
-
+const searchBoxSelector = computed(
+  () => snippetConfig.searchBoxSelector ?? "[data-teleport='empathy-search-box-container']",
+)
 const openPredictiveLayer = ref(false)
 const eventsToOpenEmpathize: Array<keyof XEventsTypes> = [
   'UserFocusedSearchBox',

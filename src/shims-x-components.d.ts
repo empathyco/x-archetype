@@ -37,16 +37,6 @@ declare module '@empathyco/x-components' {
      * @default 'fullScreen'
      */
     viewMode?: 'fullScreen' | 'embedded'
-    /**
-     * When embedded mode, this is the CSS Selector to look into the searchbox.
-     *
-     */
-    searchBoxTarget: string
-    /**
-     * When embedded mode, this is the CSS Selector to look into the grid.
-     *
-     */
-    gridTarget: string
   }
 
   interface XEventsTypes {

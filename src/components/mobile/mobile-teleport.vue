@@ -1,5 +1,5 @@
 <template>
-  <BaseTeleport v-if="visibleGrid" :target="gridTarget">
+  <BaseTeleport v-if="visibleGrid" :target="resultsSelector">
     <MobileLayout>
       <template #toolbar>
         <MobileSubHeader v-if="hasSearched && !x.noResults" />
@@ -83,11 +83,13 @@ const SpellcheckMessage = defineAsyncComponent(() =>
   import('../x-search').then(m => m.SpellcheckMessage),
 )
 
-const snippetConfig = inject<SnippetConfig>('snippetConfig')
+const snippetConfig = inject<SnippetConfig>('snippetConfig')!
 const { hasSearched } = useHasSearched()
 const x = use$x()
 
-const gridTarget = computed(() => snippetConfig?.gridTarget ?? '#maincontent')
+const resultsSelector = computed(
+  () => snippetConfig.resultsSelector ?? "[data-teleport='empathy-results-container']",
+)
 const visibleGrid = ref(false)
 
 x.on('UserClickedCloseX', false).subscribe(() => (visibleGrid.value = false))
