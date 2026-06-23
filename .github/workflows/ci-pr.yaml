@@ -6,8 +6,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  ci-pr:
     runs-on: [self-hosted, linux, x64, vm, docker, big, frontend]
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
       - name: Install deps, lint, build and test project

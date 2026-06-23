@@ -5,7 +5,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}
   cancel-in-progress: true
 jobs:
-  build:
+  pr-preview:
     runs-on: [self-hosted, linux, x64, vm, docker, big, frontend]
     # These permissions are needed to interact with GitHub's OIDC Token endpoint.
     permissions:
