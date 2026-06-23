@@ -1,0 +1,39 @@
+name: Deploy to Production
+on:
+  push:
+    tags:
+      - 'release-*'
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+jobs:
+  deploy-production:
+    runs-on: ubuntu-latest
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+      - name: Install deps, lint, build and test project
+        uses: ./.github/actions/install
+      - name: Deploy to prod
+        uses: ./.github/actions/frontend-deploy
+        with:
+          r2_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          r2_access_key_id: ${{ secrets.R2_PROD_ACCOUNT_KEY }}
+          r2_secret_access_key: ${{ secrets.R2_PROD_ACCESS_SECRET }}
+          r2_bucket: ${{ secrets.R2_PROD_BUCKET }}
+          r2_bucket_path: v1
+          r2_zone_id: ${{ secrets.CLOUDFLARE_PROD_ZONE_ID }}
+          r2_api_token: ${{ secrets.CLOUDFLARE_PURGE_TOKEN }}
+          r2_purge_strategy: |
+            {
+              "files": [
+                "https://x.empathy.co/v1/app.js",
+                "https://x.empathy.co/v1/snippet-script.js",
+                "https://x.empathy.co/v1/index.html",
+                "https://x.empathy.co/v1/instances.html",
+                "https://x.empathy.co/v1/instances.json"
+              ]
+            }

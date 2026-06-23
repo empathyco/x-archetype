@@ -1,14 +1,12 @@
 name: PR Validate & Preview
 on:
   pull_request:
-    branches:
-      - main
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}
   cancel-in-progress: true
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64, vm, docker, big, frontend]
     # These permissions are needed to interact with GitHub's OIDC Token endpoint.
     permissions:
       id-token: write
@@ -16,8 +14,16 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
-      - name: Install deps, lint, build and test project
-        uses: ./.github/actions/install
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Installing dependencies
+        run: npm ci
+        shell: bash
+      - name: Build project
+        run: npm run build
+        shell: bash
       - name: Deploy PR Preview
         uses: ./.github/actions/frontend-deploy
         with:
