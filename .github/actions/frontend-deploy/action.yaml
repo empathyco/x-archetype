@@ -57,6 +57,7 @@ runs:
       env:
         AWS_ACCESS_KEY_ID: ${{ inputs.r2_access_key_id }}
         AWS_SECRET_ACCESS_KEY: ${{ inputs.r2_secret_access_key }}
+        AWS_REGION: auto
 
     - name: Purge strategy validation
       run: |
