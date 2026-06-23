@@ -1,5 +1,4 @@
 import type {
-  PlatformFacet,
   PlatformNextQueriesRequest,
   PlatformPopularSearchesRequest,
   PlatformQuerySuggestionsRequest,
@@ -9,21 +8,16 @@ import type {
   PlatformSearchRequest,
 } from '@empathyco/x-adapter-platform'
 import type {
-  EditableNumberRangeFacet,
-  HierarchicalFacet,
   NextQueriesRequest,
-  NumberRangeFacet,
   PopularSearchesRequest,
   QuerySuggestionsRequest,
   RecommendationsRequest,
   RelatedTagsRequest,
   SearchRequest,
-  SimpleFacet,
 } from '@empathyco/x-types'
 import type { KutxabankResult } from '../types'
 
 import {
-  facetSchema,
   nextQueriesRequestSchema,
   platformAdapter,
   popularSearchesRequestSchema,
@@ -55,10 +49,6 @@ export interface KutxabankPlatformResult extends PlatformResult {
   tipo: string
 }
 
-interface KutxabankPlatformFacet extends PlatformFacet {
-  label: string
-}
-
 resultSchema.$override<KutxabankPlatformResult, Partial<KutxabankResult>>({
   text: 'textoFormat',
   url: result => mapUrl(result),
@@ -69,13 +59,6 @@ resultSchema.$override<KutxabankPlatformResult, Partial<KutxabankResult>>({
   store: 'store',
   storeName: 'storeName',
   officeType: 'tipo',
-})
-
-facetSchema.$override<
-  KutxabankPlatformFacet,
-  Partial<EditableNumberRangeFacet | HierarchicalFacet | NumberRangeFacet | SimpleFacet>
->({
-  label: 'label',
 })
 
 recommendationsRequestSchema.$override<

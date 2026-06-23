@@ -1,25 +1,13 @@
-import type {
-  PlatformFacet,
-  PlatformRecommendationsRequest,
-  PlatformResult,
-} from '@empathyco/x-adapter-platform'
-import type {
-  EditableNumberRangeFacet,
-  HierarchicalFacet,
-  NumberRangeFacet,
-  RecommendationsRequest,
-  ResultVariant,
-  SimpleFacet,
-} from '@empathyco/x-types'
+import type { Schema } from '@empathyco/x-adapter'
+import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
 
+import type { RecommendationsRequest, ResultVariant } from '@empathyco/x-types'
 import type { CingolaniResult, CingolaniResultVariant } from '../types'
 import {
-  facetSchema,
   platformAdapter,
   recommendationsRequestSchema,
   resultSchema,
 } from '@empathyco/x-adapter-platform'
-import { Schema } from '@empathyco/x-adapter'
 
 export const adapter = platformAdapter
 
@@ -57,10 +45,6 @@ interface CingolaniPlatformVariant {
   variants?: ResultVariant[]
 }
 
-interface CingolaniPlatformFacet extends PlatformFacet {
-  label: string
-}
-
 const variantsSchema: Schema<any, CingolaniResultVariant> = {
   availability: ({ availability }: CingolaniPlatformVariant) => availability,
   barCode: 'barCode',
@@ -73,7 +57,7 @@ const variantsSchema: Schema<any, CingolaniResultVariant> = {
   variantValue: 'variantValue',
 }
 
-resultSchema.$override<CingolaniPlatformResult, Partial<CingolaniResult>>({
+resultSchema.$override<any, Partial<CingolaniResult>>({
   id: '__id',
   availability: ({ availability }: CingolaniPlatformResult) => availability === true,
   brand: 'facetBrand',
@@ -102,11 +86,4 @@ recommendationsRequestSchema.$override<
 >({
   // TODO Top clicked demo endpoint breaks if it receives the scope parameter
   extraParams: ({ extraParams: { scope, ...extraParams } = {} }) => extraParams,
-})
-
-facetSchema.$override<
-  CingolaniPlatformFacet,
-  Partial<EditableNumberRangeFacet | HierarchicalFacet | NumberRangeFacet | SimpleFacet>
->({
-  label: 'label',
 })

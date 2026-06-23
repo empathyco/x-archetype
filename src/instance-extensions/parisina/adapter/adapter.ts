@@ -1,20 +1,9 @@
 import type { Schema } from '@empathyco/x-adapter'
-import type {
-  PlatformFacet,
-  PlatformRecommendationsRequest,
-  PlatformResult,
-} from '@empathyco/x-adapter-platform'
-import type {
-  EditableNumberRangeFacet,
-  HierarchicalFacet,
-  NumberRangeFacet,
-  RecommendationsRequest,
-  SimpleFacet,
-} from '@empathyco/x-types'
+import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
+import type { RecommendationsRequest } from '@empathyco/x-types'
 
 import type { ParisinaResult, ParisinaResultVariant } from '../types'
 import {
-  facetSchema,
   platformAdapter,
   recommendationsRequestSchema,
   resultSchema,
@@ -31,10 +20,6 @@ interface ParisinaPlatformResult extends PlatformResult {
   price: number
 }
 
-interface ParisinaPlatformFacet extends PlatformFacet {
-  label: string
-}
-
 const variantsSchema: Schema<any, ParisinaResultVariant> = {
   originalPrice: 'price',
   specialPrice: 'specialPrice',
@@ -44,7 +29,7 @@ const variantsSchema: Schema<any, ParisinaResultVariant> = {
   sku: 'sku',
 }
 
-resultSchema.$override<ParisinaPlatformResult, Partial<ParisinaResult>>({
+resultSchema.$override<any, Partial<ParisinaResult>>({
   sku: 'sku',
   image: 'image',
   attributes: 'attributes',
@@ -54,8 +39,9 @@ resultSchema.$override<ParisinaPlatformResult, Partial<ParisinaResult>>({
     $path: 'variants',
     $subSchema: variantsSchema,
   },
-  images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
-  hasVariants: ({ variants }) => !!variants?.length,
+  images: ({ __images }: ParisinaPlatformResult) =>
+    Array.isArray(__images) ? __images.reverse() : [__images],
+  hasVariants: ({ variants }: ParisinaPlatformResult) => !!variants?.length,
 })
 
 recommendationsRequestSchema.$override<
@@ -64,11 +50,4 @@ recommendationsRequestSchema.$override<
 >({
   // TODO Top clicked demo endpoint breaks if it receives the scope parameter
   extraParams: ({ extraParams: { scope, ...extraParams } = {} }) => extraParams,
-})
-
-facetSchema.$override<
-  ParisinaPlatformFacet,
-  Partial<EditableNumberRangeFacet | HierarchicalFacet | NumberRangeFacet | SimpleFacet>
->({
-  label: 'label',
 })

@@ -1,19 +1,8 @@
-import type {
-  PlatformFacet,
-  PlatformRecommendationsRequest,
-  PlatformResult,
-} from '@empathyco/x-adapter-platform'
-import type {
-  EditableNumberRangeFacet,
-  HierarchicalFacet,
-  NumberRangeFacet,
-  RecommendationsRequest,
-  SimpleFacet,
-} from '@empathyco/x-types'
+import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
+import type { RecommendationsRequest } from '@empathyco/x-types'
 
 import type { TotalenergiesResult } from '../types'
 import {
-  facetSchema,
   platformAdapter,
   recommendationsRequestSchema,
   resultSchema,
@@ -26,10 +15,6 @@ interface TotalenergiesPlatformResult extends PlatformResult {
   privateUrl: string
   subcategory: string
   description: string
-}
-
-interface TotalenergiesPlatformFacet extends PlatformFacet {
-  label: string
 }
 
 resultSchema.$override<TotalenergiesPlatformResult, Partial<TotalenergiesResult>>({
@@ -46,11 +31,4 @@ recommendationsRequestSchema.$override<
 >({
   // TODO Top clicked demo endpoint breaks if it receives the scope parameter
   extraParams: ({ extraParams: { scope, ...extraParams } = {} }) => extraParams,
-})
-
-facetSchema.$override<
-  TotalenergiesPlatformFacet,
-  Partial<EditableNumberRangeFacet | HierarchicalFacet | NumberRangeFacet | SimpleFacet>
->({
-  label: 'label',
 })

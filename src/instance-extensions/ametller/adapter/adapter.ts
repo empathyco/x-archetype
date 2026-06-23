@@ -3,13 +3,7 @@ import type {
   PlatformRecommendationsRequest,
   PlatformResult,
 } from '@empathyco/x-adapter-platform'
-import type {
-  EditableNumberRangeFacet,
-  HierarchicalFacet,
-  NumberRangeFacet,
-  RecommendationsRequest,
-  SimpleFacet,
-} from '@empathyco/x-types'
+import type { NumberRangeFacet, RecommendationsRequest } from '@empathyco/x-types'
 import type { AmetllerResult } from '../types'
 import {
   facetSchema,
@@ -29,10 +23,6 @@ interface AmetllerPlatformResult extends PlatformResult {
   maximumQuantity: number
 }
 
-interface AmetllerPlatformFacet extends PlatformFacet {
-  label: string
-}
-
 resultSchema.$override<AmetllerPlatformResult, Partial<AmetllerResult>>({
   bulkPrice: 'bulkPrice',
   images: '__images',
@@ -48,13 +38,6 @@ recommendationsRequestSchema.$override<
 >({
   // TODO Top clicked demo endpoint breaks if it receives the scope parameter
   extraParams: ({ extraParams: { scope, ...extraParams } = {} }) => extraParams,
-})
-
-facetSchema.$override<
-  AmetllerPlatformFacet,
-  Partial<EditableNumberRangeFacet | HierarchicalFacet | NumberRangeFacet | SimpleFacet>
->({
-  label: 'label',
 })
 
 facetSchema.$override<PlatformFacet, Partial<NumberRangeFacet>>({

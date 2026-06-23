@@ -1,19 +1,8 @@
-import type {
-  PlatformFacet,
-  PlatformRecommendationsRequest,
-  PlatformResult,
-} from '@empathyco/x-adapter-platform'
-import type {
-  EditableNumberRangeFacet,
-  HierarchicalFacet,
-  NumberRangeFacet,
-  RecommendationsRequest,
-  SimpleFacet,
-} from '@empathyco/x-types'
+import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
+import type { RecommendationsRequest } from '@empathyco/x-types'
 
 import type { MiincosmeticsResult } from '../types'
 import {
-  facetSchema,
   platformAdapter,
   recommendationsRequestSchema,
   resultSchema,
@@ -23,10 +12,6 @@ export const adapter = platformAdapter
 
 interface MiincosmeticsPlatformResult extends PlatformResult {
   availability: string
-}
-
-interface MiincosmeticsPlatformFacet extends PlatformFacet {
-  label: string
 }
 
 resultSchema.$override<MiincosmeticsPlatformResult, Partial<MiincosmeticsResult>>({
@@ -40,11 +25,4 @@ recommendationsRequestSchema.$override<
 >({
   // TODO Top clicked demo endpoint breaks if it receives the scope parameter
   extraParams: ({ extraParams: { scope, ...extraParams } = {} }) => extraParams,
-})
-
-facetSchema.$override<
-  MiincosmeticsPlatformFacet,
-  Partial<EditableNumberRangeFacet | HierarchicalFacet | NumberRangeFacet | SimpleFacet>
->({
-  label: 'label',
 })

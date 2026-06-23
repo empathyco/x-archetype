@@ -1,19 +1,8 @@
-import type {
-  PlatformFacet,
-  PlatformRecommendationsRequest,
-  PlatformResult,
-} from '@empathyco/x-adapter-platform'
-import type {
-  EditableNumberRangeFacet,
-  HierarchicalFacet,
-  NumberRangeFacet,
-  RecommendationsRequest,
-  SimpleFacet,
-} from '@empathyco/x-types'
+import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
+import type { RecommendationsRequest } from '@empathyco/x-types'
 
 import type { FroizResult } from '../types'
 import {
-  facetSchema,
   platformAdapter,
   recommendationsRequestSchema,
   resultSchema,
@@ -37,10 +26,6 @@ interface FroizPlatformResult extends PlatformResult {
   perUnit?: boolean
   perUnitUnit?: string
   perUnitWeight?: number
-}
-
-interface FroizPlatformFacet extends PlatformFacet {
-  label: string
 }
 
 resultSchema.$override<FroizPlatformResult, Partial<FroizResult>>({
@@ -84,11 +69,4 @@ recommendationsRequestSchema.$override<
 >({
   // TODO Top clicked demo endpoint breaks if it receives the scope parameter
   extraParams: ({ extraParams: { scope, ...extraParams } = {} }) => extraParams,
-})
-
-facetSchema.$override<
-  FroizPlatformFacet,
-  Partial<EditableNumberRangeFacet | HierarchicalFacet | NumberRangeFacet | SimpleFacet>
->({
-  label: 'label',
 })

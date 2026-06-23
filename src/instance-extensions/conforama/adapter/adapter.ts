@@ -1,19 +1,8 @@
-import type {
-  PlatformFacet,
-  PlatformRecommendationsRequest,
-  PlatformResult,
-} from '@empathyco/x-adapter-platform'
-import type {
-  EditableNumberRangeFacet,
-  HierarchicalFacet,
-  NumberRangeFacet,
-  RecommendationsRequest,
-  SimpleFacet,
-} from '@empathyco/x-types'
+import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
+import type { RecommendationsRequest } from '@empathyco/x-types'
 
 import type { ConforamaResult } from '../types'
 import {
-  facetSchema,
   platformAdapter,
   recommendationsRequestSchema,
   resultSchema,
@@ -31,10 +20,6 @@ interface ConforamaPlatformResult extends PlatformResult {
   customLabel3Text: string
   discountPercentage: string
   itemUrl: string
-}
-
-interface ConforamaPlatformFacet extends PlatformFacet {
-  label: string
 }
 
 resultSchema.$override<ConforamaPlatformResult, Partial<ConforamaResult>>({
@@ -55,11 +40,4 @@ recommendationsRequestSchema.$override<
 >({
   // TODO Top clicked demo endpoint breaks if it receives the scope parameter
   extraParams: ({ extraParams: { scope, ...extraParams } = {} }) => extraParams,
-})
-
-facetSchema.$override<
-  ConforamaPlatformFacet,
-  Partial<EditableNumberRangeFacet | HierarchicalFacet | NumberRangeFacet | SimpleFacet>
->({
-  label: 'label',
 })
