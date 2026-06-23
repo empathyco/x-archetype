@@ -1,7 +1,7 @@
 import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
 import type { RecommendationsRequest } from '@empathyco/x-types'
 
-import type { DistriplacPlatformResult, DistriplacResult } from '../types'
+import type { TotalenergiesPlatformResult, TotalenergiesResult } from '../types'
 import {
   platformAdapter,
   recommendationsRequestSchema,
@@ -10,11 +10,11 @@ import {
 
 export const adapter = platformAdapter
 
-resultSchema.$override<DistriplacPlatformResult, Partial<DistriplacResult>>({
+resultSchema.$override<TotalenergiesPlatformResult, Partial<TotalenergiesResult>>({
+  season: 'season',
+  subcategory: 'subcategory',
   description: 'description',
-  collection: 'collection',
-  brand: 'brand',
-  brandImage: 'brandImage',
+  url: ({ __url, privateUrl }) => privateUrl ?? __url,
   images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
 })
 

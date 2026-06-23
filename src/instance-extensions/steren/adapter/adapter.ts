@@ -1,7 +1,7 @@
 import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
 import type { RecommendationsRequest } from '@empathyco/x-types'
 
-import type { DistriplacPlatformResult, DistriplacResult } from '../types'
+import type { SterenPlatformResult, SterenResult } from '../types'
 import {
   platformAdapter,
   recommendationsRequestSchema,
@@ -10,11 +10,20 @@ import {
 
 export const adapter = platformAdapter
 
-resultSchema.$override<DistriplacPlatformResult, Partial<DistriplacResult>>({
-  description: 'description',
-  collection: 'collection',
-  brand: 'brand',
-  brandImage: 'brandImage',
+resultSchema.$override<SterenPlatformResult, Partial<SterenResult>>({
+  hasVariants: ({ variants }) => !!variants?.length,
+  price: rawResult => {
+    const value = rawResult.specialPrice ?? rawResult.price ?? 0
+    const originalValue = rawResult.price ?? 0
+    const futureValue = rawResult.__prices?.future?.value ?? value
+
+    return {
+      value,
+      originalValue,
+      futureValue,
+      hasDiscount: originalValue > value,
+    }
+  },
   images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
 })
 

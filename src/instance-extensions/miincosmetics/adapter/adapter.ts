@@ -1,7 +1,7 @@
 import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
 import type { RecommendationsRequest } from '@empathyco/x-types'
 
-import type { DistriplacPlatformResult, DistriplacResult } from '../types'
+import type { MiincosmeticsPlatformResult, MiincosmeticsResult } from '../types'
 import {
   platformAdapter,
   recommendationsRequestSchema,
@@ -10,11 +10,8 @@ import {
 
 export const adapter = platformAdapter
 
-resultSchema.$override<DistriplacPlatformResult, Partial<DistriplacResult>>({
-  description: 'description',
-  collection: 'collection',
-  brand: 'brand',
-  brandImage: 'brandImage',
+resultSchema.$override<MiincosmeticsPlatformResult, Partial<MiincosmeticsResult>>({
+  availability: ({ availability }) => availability?.toLowerCase() === 'in_stock',
   images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
 })
 

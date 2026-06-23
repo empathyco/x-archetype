@@ -1,7 +1,7 @@
 import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
 import type { RecommendationsRequest } from '@empathyco/x-types'
 
-import type { DistriplacPlatformResult, DistriplacResult } from '../types'
+import type { ConforamaPlatformResult, ConforamaResult } from '../types'
 import {
   platformAdapter,
   recommendationsRequestSchema,
@@ -10,12 +10,16 @@ import {
 
 export const adapter = platformAdapter
 
-resultSchema.$override<DistriplacPlatformResult, Partial<DistriplacResult>>({
+resultSchema.$override<ConforamaPlatformResult, Partial<ConforamaResult>>({
   description: 'description',
-  collection: 'collection',
-  brand: 'brand',
-  brandImage: 'brandImage',
+  customLabel1Text: 'customLabel1Text',
+  customLabel2Text: 'customLabel2Text',
+  customLabel3Text: 'customLabel3Text',
   images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
+  brandLogoUrl: 'brandLogoUrl',
+  energyIconUrl: 'energyIconUrl',
+  discount: 'discountPercentage',
+  url: rawResult => rawResult.itemUrl ?? rawResult.__url,
 })
 
 // TODO Remove this logic when backend finishes this task https://searchbroker.atlassian.net/browse/ENG-1057

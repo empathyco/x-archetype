@@ -1,7 +1,7 @@
 import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
-import type { RecommendationsRequest } from '@empathyco/x-types'
+import type { RecommendationsRequest, Result } from '@empathyco/x-types'
+import type { PronoviasPlatformResult } from '../types'
 
-import type { DistriplacPlatformResult, DistriplacResult } from '../types'
 import {
   platformAdapter,
   recommendationsRequestSchema,
@@ -10,12 +10,8 @@ import {
 
 export const adapter = platformAdapter
 
-resultSchema.$override<DistriplacPlatformResult, Partial<DistriplacResult>>({
-  description: 'description',
-  collection: 'collection',
-  brand: 'brand',
-  brandImage: 'brandImage',
-  images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
+resultSchema.$override<PronoviasPlatformResult, Partial<Result>>({
+  id: rawResult => rawResult.magentoId ?? rawResult.__id,
 })
 
 // TODO Remove this logic when backend finishes this task https://searchbroker.atlassian.net/browse/ENG-1057
