@@ -7,13 +7,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}
   cancel-in-progress: true
 jobs:
-  ci-pr:
-    uses: empathyco/platform-reusable-github-actions/.github/workflows/frontend-ci-pr.yml@main # main
-    secrets: inherit
-    with:
-      runner: "['self-hosted', 'linux', 'x64', 'vm', 'docker', 'big', 'frontend']"
-      build-script: ''
-  deploy:
+  build:
     runs-on: ubuntu-latest
     # These permissions are needed to interact with GitHub's OIDC Token endpoint.
     permissions:
@@ -22,19 +16,10 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
-      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
-        with:
-          node-version-file: .nvmrc
-          cache: npm
-      - name: Installing dependencies
-        run: npm ci
-        shell: bash
-      - name: Build project
-        run: npm run build
-        shell: bash
-      - name: Deploy project on Cloudflare R2
-        uses: ./.github/actions/cloudflare-r2
-        id: cloudflare
+      - name: Install deps, lint, build and test project
+        uses: ./.github/actions/install
+      - name: Deploy PR Preview
+        uses: ./.github/actions/frontend-deploy
         with:
           r2_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           r2_access_key_id: ${{ secrets.R2_STAGING_ACCOUNT_KEY }}
@@ -54,17 +39,14 @@ jobs:
               ]
             }
           delete_old_files: true
-      # - name: Get current date
-      #   id: date
-      #   run: echo "current=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
-
-      #- name: Leave a comment after deployment
-      # uses: marocchino/sticky-pull-request-comment@v2
-      #with:
-      #  header: pr-preview
-      # message: |
-      # :rocket: PR preview output at _${{ steps.date.outputs.current }}_:
-      #  ${{ steps.cloudflare.outputs.deployment-url }}
-      # ${{ steps.cloudflare.outputs.pages-deployment-alias-url }}
-#
-#           ![QR Code](${{ steps.cloudflare.outputs.deployment-url }}/qrcode.png)
+      - name: Adding comment to PR with preview link and validation results
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Check **PR ${{ github.event.number }}** preview 👀 <br> <br> \
+                    [https://x.staging.empathy.co/preview/${{ github.event.number }}/index.html](https://x.staging.empathy.co/preview/${{ github.event.number }}/index.html)`
+            })

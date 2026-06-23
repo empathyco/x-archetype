@@ -1,0 +1,14 @@
+name: PR Validate & Preview
+on:
+  pull_request:
+    branches:
+      - main
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  pr-preview:
+    if: false
+    uses: empathyco/platform-reusable-github-actions/.github/workflows/x-archetype-pr-preview.yml@a3a73bcada87ffcc89da9f9dc251050c5bab7a09 # main
+    secrets: inherit
