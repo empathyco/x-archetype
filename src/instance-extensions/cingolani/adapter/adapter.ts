@@ -58,6 +58,7 @@ const variantsSchema: Schema<any, CingolaniResultVariant> = {
   variantValue: 'variantValue',
 }
 
+// TODO We should fix this any typing. When we have to map variants, a memory leak error appears in the linter, and we need to use any to avoid it.
 resultSchema.$override<any, Partial<CingolaniResult>>({
   id: '__id',
   availability: ({ availability }: CingolaniPlatformResult) => availability === true,

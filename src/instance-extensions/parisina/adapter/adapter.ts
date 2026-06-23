@@ -29,6 +29,7 @@ const variantsSchema: Schema<any, any> = {
   sku: 'sku',
 }
 
+// TODO We should fix this any typing. When we have to map variants, a memory leak error appears in the linter, and we need to use any to avoid it.
 resultSchema.$override<any, Partial<ParisinaResult>>({
   sku: 'sku',
   image: 'image',
