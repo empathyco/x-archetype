@@ -1,10 +1,6 @@
-import type {
-  PlatformFacet,
-  PlatformRecommendationsRequest,
-  PlatformResult,
-} from '@empathyco/x-adapter-platform'
+import type { PlatformFacet, PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
 import type { NumberRangeFacet, RecommendationsRequest } from '@empathyco/x-types'
-import type { AmetllerResult } from '../types'
+import type { AmetllerPlatformResult, AmetllerResult } from '../types'
 import {
   facetSchema,
   platformAdapter,
@@ -14,14 +10,6 @@ import {
 import { getFacetConfigWithEditable } from '../../../adapter/facets/utils'
 
 export const adapter = platformAdapter
-
-interface AmetllerPlatformResult extends PlatformResult {
-  bulkPrice: string
-  unitInfo: string
-  measurementUnit: string
-  clusters: string[]
-  maximumQuantity: number
-}
 
 resultSchema.$override<AmetllerPlatformResult, Partial<AmetllerResult>>({
   bulkPrice: 'bulkPrice',

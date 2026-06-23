@@ -1,7 +1,7 @@
-import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
+import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
 import type { RecommendationsRequest } from '@empathyco/x-types'
 
-import type { JLJResult } from '../types'
+import type { JLJPlatformResult, JLJResult } from '../types'
 import {
   platformAdapter,
   recommendationsRequestSchema,
@@ -10,17 +10,6 @@ import {
 import { mapPrice } from './utils/price.utils'
 
 export const adapter = platformAdapter
-
-export interface JLJPlatformResult extends PlatformResult {
-  description: string
-  brand: string
-  price: number
-  id: string
-  new: boolean
-  collection: string
-  isLetter: boolean
-  googleProductCategory: string
-}
 
 resultSchema.$override<JLJPlatformResult, Partial<JLJResult>>({
   description: 'description',

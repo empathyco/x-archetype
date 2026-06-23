@@ -1,7 +1,7 @@
-import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
+import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
 import type { RecommendationsRequest } from '@empathyco/x-types'
 
-import type { SterenResult } from '../types'
+import type { SterenPlatformResult, SterenResult } from '../types'
 import {
   platformAdapter,
   recommendationsRequestSchema,
@@ -9,12 +9,6 @@ import {
 } from '@empathyco/x-adapter-platform'
 
 export const adapter = platformAdapter
-
-interface SterenPlatformResult extends PlatformResult {
-  variants?: any[]
-  price: number
-  specialPrice?: number
-}
 
 resultSchema.$override<SterenPlatformResult, Partial<SterenResult>>({
   hasVariants: ({ variants }) => !!variants?.length,

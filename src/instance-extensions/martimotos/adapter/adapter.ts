@@ -1,7 +1,7 @@
-import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
+import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
 import type { RecommendationsRequest } from '@empathyco/x-types'
 
-import type { MartimotosResult } from '../types'
+import type { MartimotosPlatformResult, MartimotosResult } from '../types'
 import {
   platformAdapter,
   recommendationsRequestSchema,
@@ -9,12 +9,6 @@ import {
 } from '@empathyco/x-adapter-platform'
 
 export const adapter = platformAdapter
-
-interface MartimotosPlatformResult extends PlatformResult {
-  stock: number
-  discount: number
-  discountPercentage: number
-}
 
 resultSchema.$override<MartimotosPlatformResult, Partial<MartimotosResult>>({
   stock: 'stock',

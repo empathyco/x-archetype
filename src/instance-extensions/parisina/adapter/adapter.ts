@@ -1,8 +1,8 @@
 import type { Schema } from '@empathyco/x-adapter'
-import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
+import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
 import type { RecommendationsRequest } from '@empathyco/x-types'
 
-import type { ParisinaResult } from '../types'
+import type { ParisinaPlatformResult, ParisinaResult } from '../types'
 import {
   platformAdapter,
   recommendationsRequestSchema,
@@ -10,15 +10,6 @@ import {
 } from '@empathyco/x-adapter-platform'
 
 export const adapter = platformAdapter
-
-interface ParisinaPlatformResult extends PlatformResult {
-  variants?: any[]
-  sku: string
-  specialPrice?: number
-  attributes?: any
-  image: string
-  price: number
-}
 
 const variantsSchema: Schema<any, any> = {
   originalPrice: 'price',

@@ -1,7 +1,7 @@
-import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
+import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
 import type { RecommendationsRequest } from '@empathyco/x-types'
 
-import type { MiincosmeticsResult } from '../types'
+import type { MiincosmeticsPlatformResult, MiincosmeticsResult } from '../types'
 import {
   platformAdapter,
   recommendationsRequestSchema,
@@ -9,10 +9,6 @@ import {
 } from '@empathyco/x-adapter-platform'
 
 export const adapter = platformAdapter
-
-interface MiincosmeticsPlatformResult extends PlatformResult {
-  availability: string
-}
 
 resultSchema.$override<MiincosmeticsPlatformResult, Partial<MiincosmeticsResult>>({
   availability: ({ availability }) => availability?.toLowerCase() === 'in_stock',

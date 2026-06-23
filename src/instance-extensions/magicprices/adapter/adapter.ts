@@ -1,7 +1,7 @@
-import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
+import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
 import type { RecommendationsRequest } from '@empathyco/x-types'
 
-import type { MagicpricesResult } from '../types'
+import type { MagicpricesPlatformResult, MagicpricesResult } from '../types'
 import {
   platformAdapter,
   recommendationsRequestSchema,
@@ -9,11 +9,6 @@ import {
 } from '@empathyco/x-adapter-platform'
 
 export const adapter = platformAdapter
-
-interface MagicpricesPlatformResult extends PlatformResult {
-  isDeal: boolean
-  hasPromoCode: boolean
-}
 
 resultSchema.$override<MagicpricesPlatformResult, Partial<MagicpricesResult>>({
   isDeal: 'isDeal',

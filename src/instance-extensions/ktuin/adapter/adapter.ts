@@ -1,7 +1,7 @@
-import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
+import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
 import type { RecommendationsRequest } from '@empathyco/x-types'
 
-import type { KtuinResult } from '../types'
+import type { KtuinPlatformResult, KtuinResult } from '../types'
 import {
   platformAdapter,
   recommendationsRequestSchema,
@@ -9,10 +9,6 @@ import {
 } from '@empathyco/x-adapter-platform'
 
 export const adapter = platformAdapter
-
-interface KtuinPlatformResult extends PlatformResult {
-  eficienciaEnergeticaImage: string
-}
 
 resultSchema.$override<KtuinPlatformResult, Partial<KtuinResult>>({
   eficienciaEnergeticaImage: 'eficienciaEnergeticaImage',

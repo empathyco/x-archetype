@@ -1,8 +1,13 @@
 import type { Schema } from '@empathyco/x-adapter'
-import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
+import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
 
-import type { RecommendationsRequest, ResultVariant } from '@empathyco/x-types'
-import type { CingolaniResult, CingolaniResultVariant } from '../types'
+import type { RecommendationsRequest } from '@empathyco/x-types'
+import type {
+  CingolaniPlatformResult,
+  CingolaniPlatformVariant,
+  CingolaniResult,
+  CingolaniResultVariant,
+} from '../types'
 import {
   platformAdapter,
   recommendationsRequestSchema,
@@ -11,40 +16,6 @@ import {
 } from '@empathyco/x-adapter-platform'
 
 export const adapter = platformAdapter
-
-interface CingolaniPlatformResult extends PlatformResult {
-  availability?: boolean
-  facetBrand?: string
-  collection?: string
-  description?: string
-  image: string
-  name: string
-  variants?: CingolaniPlatformVariant[]
-  isNew?: string
-  oxCustom2?: string
-  oxCustom3?: string
-  oxCustom4?: string
-  oxCustom5?: string
-  oxCustom6?: string
-  productType?: string
-  url: string
-}
-
-interface CingolaniPlatformVariant {
-  availability: boolean
-  barCode: string
-  currentPrice: number
-  facetCurrentPrice: number
-  facetSeason: string
-  image: string
-  link: string
-  previousPrice: number
-  productType: string
-  season: string
-  variantSKU: string
-  variantValue: string
-  variants?: ResultVariant[]
-}
 
 const variantsSchema: Schema<any, CingolaniResultVariant> = {
   availability: ({ availability }: CingolaniPlatformVariant) => availability,

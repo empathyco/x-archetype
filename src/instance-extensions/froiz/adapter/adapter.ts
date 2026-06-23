@@ -1,7 +1,7 @@
-import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
+import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
 import type { RecommendationsRequest } from '@empathyco/x-types'
 
-import type { FroizResult } from '../types'
+import type { FroizPlatformResult, FroizResult } from '../types'
 import {
   platformAdapter,
   recommendationsRequestSchema,
@@ -9,24 +9,6 @@ import {
 } from '@empathyco/x-adapter-platform'
 
 export const adapter = platformAdapter
-
-interface FroizPlatformResult extends PlatformResult {
-  isBio: boolean
-  isGlutenfree: boolean
-  isLactosefree: boolean
-  isRefrigerated: boolean
-  isEco: boolean
-  isFrozen: boolean
-  measurementUnit: string
-  measurementUnitRatio: number
-  offerType?: 'C' | 'I' | '3'
-  offerDescription?: string
-  offerCode?: string
-  fractional?: boolean
-  perUnit?: boolean
-  perUnitUnit?: string
-  perUnitWeight?: number
-}
 
 resultSchema.$override<FroizPlatformResult, Partial<FroizResult>>({
   isBio: 'isBio',

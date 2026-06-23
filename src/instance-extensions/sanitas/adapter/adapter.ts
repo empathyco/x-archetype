@@ -1,7 +1,7 @@
-import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
+import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
 import type { RecommendationsRequest } from '@empathyco/x-types'
 
-import type { SanitasResult } from '../types'
+import type { SanitasPlatformResult, SanitasResult } from '../types'
 import {
   platformAdapter,
   recommendationsRequestSchema,
@@ -9,10 +9,6 @@ import {
 } from '@empathyco/x-adapter-platform'
 
 export const adapter = platformAdapter
-
-interface SanitasPlatformResult extends PlatformResult {
-  metaDescription: string
-}
 
 resultSchema.$override<SanitasPlatformResult, Partial<SanitasResult>>({
   description: 'metaDescription',

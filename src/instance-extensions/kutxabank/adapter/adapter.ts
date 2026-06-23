@@ -4,7 +4,6 @@ import type {
   PlatformQuerySuggestionsRequest,
   PlatformRecommendationsRequest,
   PlatformRelatedTagsRequest,
-  PlatformResult,
   PlatformSearchRequest,
 } from '@empathyco/x-adapter-platform'
 import type {
@@ -15,7 +14,7 @@ import type {
   RelatedTagsRequest,
   SearchRequest,
 } from '@empathyco/x-types'
-import type { KutxabankResult } from '../types'
+import type { KutxabankPlatformResult, KutxabankResult } from '../types'
 
 import {
   nextQueriesRequestSchema,
@@ -83,24 +82,6 @@ export function mapDate(
     }
     return dateObject
   })
-}
-
-export interface KutxabankPlatformResult extends PlatformResult {
-  latitud: string
-  longitud: string
-  textoFormat: string
-  direccion: string
-  codPostal: string
-  provincia: string
-  telefono: string
-  lugar: string
-  fecha: {
-    startDate: string[]
-    endDate: string[]
-  }
-  store: string
-  storeName: string
-  tipo: string
 }
 
 resultSchema.$override<KutxabankPlatformResult, Partial<KutxabankResult>>({

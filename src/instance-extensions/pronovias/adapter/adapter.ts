@@ -1,5 +1,6 @@
-import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
+import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
 import type { RecommendationsRequest, Result } from '@empathyco/x-types'
+import type { PronoviasPlatformResult } from '../types'
 
 import {
   platformAdapter,
@@ -8,10 +9,6 @@ import {
 } from '@empathyco/x-adapter-platform'
 
 export const adapter = platformAdapter
-
-interface PronoviasPlatformResult extends PlatformResult {
-  magentoId: string
-}
 
 resultSchema.$override<PronoviasPlatformResult, Partial<Result>>({
   id: rawResult => rawResult.magentoId ?? rawResult.__id,

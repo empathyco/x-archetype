@@ -1,5 +1,5 @@
 import type { ResultPrice } from '@empathyco/x-types'
-import type { JLJPlatformResult } from '../adapter'
+import type { JLJPlatformResult } from '../../types'
 
 /**
  * Maps the price.
