@@ -7,9 +7,25 @@ import {
   recommendationsRequestSchema,
   resultSchema,
 } from '@empathyco/x-adapter-platform'
-import { mapPrice } from './utils/price.utils'
 
 export const adapter = platformAdapter
+
+/**
+ * Maps the price.
+ *
+ * @param rawResult - The result to map the price from.
+ * @returns The mapped price.
+ */
+export function mapPrice(rawResult: JLJPlatformResult): ResultPrice {
+  const value: number = rawResult.__prices?.current?.value ?? rawResult.price
+  const originalValue: number = rawResult.__prices?.previous?.value ?? rawResult.price
+
+  return {
+    value,
+    originalValue,
+    hasDiscount: value < originalValue,
+  }
+}
 
 resultSchema.$override<JLJPlatformResult, Partial<JLJResult>>({
   description: 'description',
