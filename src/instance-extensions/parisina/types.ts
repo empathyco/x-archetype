@@ -1,4 +1,4 @@
-import type { Result, ResultVariant } from '@empathyco/x-types'
+import type { Result } from '@empathyco/x-types'
 
 export interface ParisinaResult extends Result {
   hasVariants?: boolean
@@ -11,13 +11,5 @@ export interface ParisinaResult extends Result {
   specialPrice?: number
   image: string
   originalPrice: number
-}
-
-export interface ParisinaResultVariant extends ResultVariant {
-  originalPrice: number
-  specialPrice: number
-  name: string
-  attributes: string[]
-  image: string
-  sku: string
+  variants?: any[]
 }

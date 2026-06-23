@@ -2,7 +2,7 @@ import type { Schema } from '@empathyco/x-adapter'
 import type { PlatformRecommendationsRequest, PlatformResult } from '@empathyco/x-adapter-platform'
 import type { RecommendationsRequest } from '@empathyco/x-types'
 
-import type { ParisinaResult, ParisinaResultVariant } from '../types'
+import type { ParisinaResult } from '../types'
 import {
   platformAdapter,
   recommendationsRequestSchema,
@@ -20,7 +20,7 @@ interface ParisinaPlatformResult extends PlatformResult {
   price: number
 }
 
-const variantsSchema: Schema<any, ParisinaResultVariant> = {
+const variantsSchema: Schema<any, any> = {
   originalPrice: 'price',
   specialPrice: 'specialPrice',
   name: 'name',
@@ -44,10 +44,11 @@ resultSchema.$override<any, Partial<ParisinaResult>>({
   hasVariants: ({ variants }: ParisinaPlatformResult) => !!variants?.length,
 })
 
+// TODO Remove this logic when backend finishes this task https://searchbroker.atlassian.net/browse/ENG-1057
 recommendationsRequestSchema.$override<
   RecommendationsRequest,
   Partial<PlatformRecommendationsRequest>
 >({
-  // TODO Top clicked demo endpoint breaks if it receives the scope parameter
+  // Top clicked demo endpoint breaks if it receives the scope parameter
   extraParams: ({ extraParams: { scope, ...extraParams } = {} }) => extraParams,
 })

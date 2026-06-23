@@ -61,11 +61,12 @@ resultSchema.$override<KutxabankPlatformResult, Partial<KutxabankResult>>({
   officeType: 'tipo',
 })
 
+// TODO Remove this logic when backend finishes this task https://searchbroker.atlassian.net/browse/ENG-1057
 recommendationsRequestSchema.$override<
   RecommendationsRequest,
   Partial<PlatformRecommendationsRequest>
 >({
-  // TODO Top clicked demo endpoint breaks if it receives the scope parameter
+  // Top clicked demo endpoint breaks if it receives the scope parameter
   extraParams: ({ extraParams: { scope, ...extraParams } = {} }) => ({
     extraParams: {
       ...extraParams,

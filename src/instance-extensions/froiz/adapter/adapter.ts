@@ -63,10 +63,11 @@ resultSchema.$override<FroizPlatformResult, Partial<FroizResult>>({
   images: ({ __images }) => (Array.isArray(__images) ? __images.reverse() : [__images]),
 })
 
+// TODO Remove this logic when backend finishes this task https://searchbroker.atlassian.net/browse/ENG-1057
 recommendationsRequestSchema.$override<
   RecommendationsRequest,
   Partial<PlatformRecommendationsRequest>
 >({
-  // TODO Top clicked demo endpoint breaks if it receives the scope parameter
+  // Top clicked demo endpoint breaks if it receives the scope parameter
   extraParams: ({ extraParams: { scope, ...extraParams } = {} }) => extraParams,
 })
