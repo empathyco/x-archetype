@@ -1,14 +1,22 @@
 <template>
   <div class="xds:layout-container xds:gap-8 xds:layout-min-margin-24">
     <Scroll id="my-history-scroll">
-      <div class="xds:sticky xds:top-0 xds:z-10 xds:layout-item xds:border-b xds:border-neutral-50">
-        <div
-          class="xds:flex xds:h-80 xds:flex-row xds:items-center xds:justify-between xds:bg-neutral-0"
-        >
-          <h1 class="xds:font-family-alternative xds:text-xl xds:font-bold xds:text-font">
+      <div
+        class="xds:sticky xds:top-0 xds:z-10 xds:layout-item xds:border-b xds:border-neutral-50 xds:bg-neutral-0"
+        :class="ui('aside')?.header"
+      >
+        <div class="xds:flex xds:h-80 xds:flex-row xds:items-center xds:justify-between">
+          <h1
+            class="xds:font-family-alternative xds:text-xl xds:font-bold xds:text-font"
+            :class="ui('aside')?.title"
+          >
             {{ $t('myHistory.title') }}
           </h1>
-          <BaseIdModalClose class="xds:button-ghost xds:button-tight" modal-id="my-history-aside">
+          <BaseIdModalClose
+            class="xds:button-circle xds:button-ghost"
+            modal-id="my-history-aside"
+            :class="ui('aside')?.closeModal"
+          >
             <CrossIcon class="xds:icon-lg" />
           </BaseIdModalClose>
         </div>
@@ -64,6 +72,7 @@ import { BaseIdModalClose, CrossIcon, LocationProvider, use$x } from '@empathyco
 import { HistoryQueriesSwitch } from '@empathyco/x-components/history-queries'
 import { Scroll } from '@empathyco/x-components/scroll'
 import { onMounted } from 'vue'
+import { useInstanceExtensions } from '../../composables/use-instance-extensions.composable'
 import CustomMyHistory from './custom-my-history.vue'
 
 onMounted(() => {
@@ -74,4 +83,6 @@ onMounted(() => {
 })
 
 const x = use$x()
+
+const { ui } = useInstanceExtensions()
 </script>

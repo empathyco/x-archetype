@@ -8,12 +8,14 @@
     <div
       v-if="facetsPanelOverlay"
       class="xds:flex xds:items-center xds:border-b xds:border-neutral-90 xds:p-24 xds:pr-32 xds:pl-40"
+      :class="ui('aside')?.header"
     >
-      <span class="xds:mr-auto xds:text-xl xds:font-bold xds:text-font">
+      <span class="xds:mr-auto xds:text-xl xds:font-bold xds:text-font" :class="ui('aside')?.title">
         {{ $t('facetsPanel.title') }}
       </span>
       <BaseIdModalClose
         class="xds:button xds:button-circle xds:button-ghost xds:text-font"
+        :class="ui('aside')?.closeModal"
         modal-id="right-aside"
       >
         <CrossIcon class="xds:icon-lg" />
@@ -69,6 +71,7 @@ import type { TranslateOptions } from 'vue-i18n'
 import { BaseIdModalClose, CrossIcon, use$x } from '@empathyco/x-components'
 import { ClearFilters } from '@empathyco/x-components/facets'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
+import { useInstanceExtensions } from '../../composables/use-instance-extensions.composable'
 import CustomFacets from '../search/facets/custom-facets.vue'
 import SelectedFilters from '../search/facets/selected-filters.vue'
 
@@ -76,4 +79,6 @@ const x = use$x()
 
 const { getControl } = useExperienceControls()
 const facetsPanelOverlay = getControl<boolean>('facetsPanelOverlay')
+
+const { ui } = useInstanceExtensions()
 </script>

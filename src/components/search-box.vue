@@ -1,6 +1,6 @@
 <template>
   <div class="xds:input-group xds:input-group-line xds:rounded-sm xds:input-group-neutral">
-    <SearchIcon class="xds:ml-0! xds:icon-lg" />
+    <SearchIcon class="xds:ml-0! xds:icon-lg" :class="ui('header')?.searchBox?.icon" />
 
     <SearchInput
       ref="searchInputRef"
@@ -31,8 +31,10 @@ import { CrossTinyIcon, SearchIcon, use$x } from '@empathyco/x-components'
 import { ClearSearchInput, SearchInput } from '@empathyco/x-components/search-box'
 import { ref } from 'vue'
 import { useDevice } from '../composables/use-device.composable'
+import { useInstanceExtensions } from '../composables/use-instance-extensions.composable'
 
 const { isDesktopOrGreater } = useDevice()
 const x = use$x()
+const { ui } = useInstanceExtensions()
 const searchInputRef = ref<InstanceType<typeof SearchInput>>(null as any)
 </script>

@@ -10,11 +10,18 @@
       >
         <div
           class="xds:layout-item"
-          :class="{ 'xds:grid xds:grid-cols-6': !isFullPredictive }"
+          :class="[
+            { 'xds:grid xds:grid-cols-6': !isFullPredictive },
+            ui('subHeader')?.relatedTagsContainer,
+          ]"
           data-test="desktop-sub-header-related-tags-container"
         >
           <LocationProvider location="predictive_layer">
-            <RelatedTags v-if="x.relatedTags.length > 0" class="xds:pb-24" />
+            <RelatedTags
+              v-if="x.relatedTags.length > 0"
+              class="xds:pb-24"
+              :class="ui('subHeader')?.relatedTags"
+            />
           </LocationProvider>
         </div>
       </div>
@@ -27,6 +34,7 @@
 <script setup lang="ts">
 import { CollapseHeight, LocationProvider, use$x } from '@empathyco/x-components'
 import { useHasScrollPastThreshold } from '../../composables/use-has-scroll-past-threshold.composable'
+import { useInstanceExtensions } from '../../composables/use-instance-extensions.composable'
 import RelatedTags from '../search/related-tags.vue'
 import DesktopToolbar from './desktop-toolbar.vue'
 
@@ -36,4 +44,5 @@ defineProps<{
 
 const { hasScrolledPastThreshold } = useHasScrollPastThreshold()
 const x = use$x()
+const { ui } = useInstanceExtensions()
 </script>
