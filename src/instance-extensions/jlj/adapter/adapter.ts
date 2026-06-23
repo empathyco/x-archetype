@@ -1,5 +1,5 @@
 import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
-import type { RecommendationsRequest } from '@empathyco/x-types'
+import type { RecommendationsRequest, ResultPrice } from '@empathyco/x-types'
 
 import type { JLJPlatformResult, JLJResult } from '../types'
 import {
