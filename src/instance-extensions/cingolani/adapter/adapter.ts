@@ -1,7 +1,5 @@
 import type { Schema } from '@empathyco/x-adapter'
-import type { PlatformRecommendationsRequest } from '@empathyco/x-adapter-platform'
 
-import type { RecommendationsRequest } from '@empathyco/x-types'
 import type {
   CingolaniPlatformResult,
   CingolaniPlatformVariant,
@@ -10,7 +8,6 @@ import type {
 } from '../types'
 import {
   platformAdapter,
-  recommendationsRequestSchema,
   relatedTagsEndpointAdapter,
   resultSchema,
 } from '@empathyco/x-adapter-platform'
@@ -55,13 +52,4 @@ resultSchema.$override<any, Partial<CingolaniResult>>({
 
 adapter.relatedTags = relatedTagsEndpointAdapter.extends({
   endpoint: 'https://beacon-api.internal.staging.empathy.co/relatedtags/cingolani/synthetic',
-})
-
-// TODO Remove this logic when backend finishes this task https://searchbroker.atlassian.net/browse/ENG-1057
-recommendationsRequestSchema.$override<
-  RecommendationsRequest,
-  Partial<PlatformRecommendationsRequest>
->({
-  // Top clicked demo endpoint breaks if it receives the scope parameter
-  extraParams: ({ extraParams: { scope, ...extraParams } = {} }) => extraParams,
 })
