@@ -14,7 +14,7 @@
       }}</span>
       <span
         v-if="x.selectedFilters.length"
-        :class="{ 'xds:badge-circle': x.selectedFilters.length <= 9 }"
+        :class="[{ 'xds:badge-circle': x.selectedFilters.length <= 9 }, ui('toolbar')?.badge]"
         class="xds:badge xds:bg-font"
         data-test="desktop-toolbar-selected-filters"
       >
@@ -51,7 +51,7 @@
       <span data-test="desktop-toolbar-filter-text">{{ t('toggleAside.showAside') }}</span>
       <span
         v-if="x.selectedFilters.length"
-        :class="{ 'xds:badge-circle': x.selectedFilters.length <= 9 }"
+        :class="[{ 'xds:badge-circle': x.selectedFilters.length <= 9 }, ui('toolbar')?.badge]"
         class="xds:badge xds:bg-font"
         data-test="desktop-toolbar-selected-filters-badge"
       >
@@ -67,6 +67,7 @@
 import { BaseIdModalOpen, FiltersIcon, use$x, useGetter } from '@empathyco/x-components'
 import { Translation, useI18n } from 'vue-i18n'
 import { useExperienceControls } from '../../composables/use-experience-controls.composable'
+import { useInstanceExtensions } from '../../composables/use-instance-extensions.composable'
 import ColumnPicker from '../column-picker.vue'
 import SortSelector from '../search/sort-selector.vue'
 
@@ -77,4 +78,6 @@ const { query } = useGetter('search')
 const { getControl } = useExperienceControls()
 const facetsPanelOverlay = getControl<boolean>('facetsPanelOverlay')
 const hasColumnPicker = getControl<boolean>('gridConfig.columnPicker')
+
+const { ui } = useInstanceExtensions()
 </script>

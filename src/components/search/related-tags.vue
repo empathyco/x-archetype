@@ -10,7 +10,7 @@
       <ChevronLeftIcon class="xds:icon-lg" />
     </template>
     <RelatedTags
-      class="xds:gap-8 xds:pl-16 xds:tablet:pl-24 xds:desktop:pl-0"
+      class="xds:gap-8"
       :highlight-curated="true"
       :animation="relatedTagsAnimation"
       item-class="xds:tag-outlined xds:text-font xds:border-lead! xds:selected:bg-lead xds:selected:text-neutral-0"

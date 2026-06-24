@@ -8,8 +8,8 @@
     <span>{{ $t('toggleAside.showAside') }}</span>
     <span
       v-if="x.selectedFilters.length > 0"
-      :class="{ 'xds:badge-circle': x.selectedFilters.length <= 9 }"
       class="xds:badge xds:badge-lead"
+      :class="[{ 'xds:badge-circle': x.selectedFilters.length <= 9 }, ui('toolbar')?.badge]"
     >
       {{ x.selectedFilters.length }}
     </span>
@@ -18,6 +18,8 @@
 
 <script setup lang="ts">
 import { BaseIdModalOpen, FiltersIcon, use$x } from '@empathyco/x-components'
+import { useInstanceExtensions } from '../../composables/use-instance-extensions.composable'
 
 const x = use$x()
+const { ui } = useInstanceExtensions()
 </script>

@@ -7,7 +7,7 @@
         class="xds:flex xds:items-center xds:gap-48 xds:pt-24 xds:pb-8"
         :class="ui('header')?.content"
       >
-        <BrandLogo />
+        <BrandLogo :class="ui('header')?.logo" />
 
         <div class="xds:flex xds:flex-1 xds:flex-col xds:gap-16">
           <div class="xds:relative">
@@ -16,9 +16,12 @@
         </div>
 
         <div class="xds:flex xds:justify-self-end xds:text-neutral-100 xds:desktop:gap-32">
-          <CartCount />
+          <CartCount :class="ui('header')?.cartCount" />
 
-          <CloseMainModal class="xds:button-circle xds:button-ghost">
+          <CloseMainModal
+            class="xds:button-circle xds:button-ghost"
+            :class="ui('header')?.closeModal"
+          >
             <CrossIcon class="xds:icon-lg" />
           </CloseMainModal>
         </div>

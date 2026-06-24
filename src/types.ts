@@ -12,6 +12,27 @@ export interface UiConfig {
   header?: {
     root?: string
     content?: string
+    logo?: string
+    cartCount?: string
+    closeModal?: string
+  }
+  searchBox?: {
+    icon?: string
+  }
+  subHeader?: {
+    relatedTagsContainer?: string
+    relatedTags?: string
+  }
+  aside?: {
+    header?: string
+    title?: string
+    closeModal?: string
+  }
+  scrollToTop?: {
+    root?: string
+  }
+  toolbar?: {
+    badge?: string
   }
 }
 

@@ -2,11 +2,14 @@
   <MobileLayout>
     <template #header>
       <div class="xds:flex xds:w-full xds:gap-8 xds:py-16">
-        <CloseMainModal class="xds:button-circle xds:button-ghost xds:text-neutral-100">
+        <CloseMainModal
+          class="xds:button-circle xds:button-ghost xds:text-neutral-100"
+          :class="ui('header')?.closeModal"
+        >
           <ArrowLeftIcon class="xds:icon-lg" />
         </CloseMainModal>
         <SearchBox class="xds:flex-1" />
-        <CartCount />
+        <CartCount :class="ui('header')?.cartCount" />
       </div>
     </template>
 
@@ -63,6 +66,7 @@
 import { ArrowLeftIcon, CloseMainModal, LocationProvider, use$x } from '@empathyco/x-components'
 import { defineAsyncComponent } from 'vue'
 import { useHasSearched } from '../../composables/use-has-searched.composable'
+import { useInstanceExtensions } from '../../composables/use-instance-extensions.composable'
 import CartCount from '../add2cart/cart-count.vue'
 import MyHistoryAside from '../my-history/my-history-aside.vue'
 import MyHistoryConfirmDisableModal from '../my-history/my-history-confirm-disable-modal.vue'
@@ -90,4 +94,5 @@ const SpellcheckMessage = defineAsyncComponent(() =>
 
 const x = use$x()
 const { hasSearched } = useHasSearched()
+const { ui } = useInstanceExtensions()
 </script>
