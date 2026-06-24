@@ -15,9 +15,9 @@ export interface UiConfig {
     logo?: string
     cartCount?: string
     closeModal?: string
-    searchBox?: {
-      icon?: string
-    }
+  }
+  searchBox?: {
+    icon?: string
   }
   subHeader?: {
     relatedTagsContainer?: string

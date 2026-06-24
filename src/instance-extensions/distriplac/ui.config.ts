@@ -8,9 +8,9 @@ export const ui: UiConfig = {
     cartCount: 'xds:hidden',
     closeModal:
       'xds:text-neutral-0! xds:desktop:bg-warning xds:desktop:hover:bg-warning-75 xds:desktop:text-neutral-0 xds:desktop:hover:text-neutral-0',
-    searchBox: {
-      icon: 'xds:ml-16!',
-    },
+  },
+  searchBox: {
+    icon: 'xds:ml-16!',
   },
   subHeader: {
     relatedTagsContainer: 'xds:block!',

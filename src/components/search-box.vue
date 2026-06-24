@@ -1,6 +1,6 @@
 <template>
   <div class="xds:input-group xds:input-group-line xds:rounded-sm xds:input-group-neutral">
-    <SearchIcon class="xds:ml-0! xds:icon-lg" :class="ui('header')?.searchBox?.icon" />
+    <SearchIcon class="xds:ml-0! xds:icon-lg" :class="ui('searchBox')?.icon" />
 
     <SearchInput
       ref="searchInputRef"
