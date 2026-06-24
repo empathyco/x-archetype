@@ -41,15 +41,32 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Deploy project on Cloudflare R2
-      uses: ./.github/actions/cloudflare-r2
-      with:
-        r2_account_id: ${{ inputs.r2_account_id }}
-        r2_access_key_id: ${{ inputs.r2_access_key_id }}
-        r2_secret_access_key: ${{ inputs.r2_secret_access_key }}
-        r2_bucket: ${{ inputs.r2_bucket }}
-        r2_bucket_path: ${{ inputs.r2_bucket_path }}
-        r2_zone_id: ${{ inputs.r2_zone_id }}
-        r2_api_token: ${{ inputs.r2_api_token }}
-        r2_purge_strategy: ${{ inputs.r2_purge_strategy }}
-        delete_old_files: ${{ inputs.delete_old_files }}
+    - name: Deploy to Cloudflare R2
+      run: |
+        DELETE_FLAG=""
+        if [ "${{ inputs.delete_old_files }}" = "true" ]; then
+          DELETE_FLAG="--delete"
+        fi
+        aws s3 sync ./dist "s3://${{ inputs.r2_bucket }}/${{ inputs.r2_bucket_path }}" \
+          --endpoint-url "https://${{ inputs.r2_account_id }}.r2.cloudflarestorage.com" \
+          $DELETE_FLAG \
+          --exact-timestamps \
+          --cache-control "public, max-age=300, s-maxage=120, stale-while-revalidate=21600, stale-if-error=3600, proxy-revalidate" \
+          --no-progress
+      shell: bash
+      env:
+        AWS_ACCESS_KEY_ID: ${{ inputs.r2_access_key_id }}
+        AWS_SECRET_ACCESS_KEY: ${{ inputs.r2_secret_access_key }}
+        AWS_REGION: auto
+
+    - name: Purge strategy validation
+      run: |
+        echo '${{ inputs.r2_purge_strategy }}' | jq . || { echo "Invalid JSON in r2_purge_strategy"; exit 1; }
+      shell: bash
+    - name: Purge Cloudflare Cache
+      run: |
+        curl -XPOST --location https://api.cloudflare.com/client/v4/zones/${{ inputs.r2_zone_id }}/purge_cache \
+          --header "Authorization: Bearer ${{ inputs.r2_api_token }}" \
+          --header "Content-Type: application/json" \
+          --data '${{ inputs.r2_purge_strategy }}'
+      shell: bash
