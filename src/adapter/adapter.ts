@@ -1,19 +1,9 @@
-import type {
-  PlatformFacet,
-  PlatformRecommendationsRequest,
-  PlatformSemanticQueriesRequest,
-} from '@empathyco/x-adapter-platform'
-import type {
-  NumberRangeFacet,
-  RecommendationsRequest,
-  Result,
-  SemanticQueriesRequest,
-} from '@empathyco/x-types'
+import type { PlatformFacet, PlatformSemanticQueriesRequest } from '@empathyco/x-adapter-platform'
+import type { NumberRangeFacet, Result, SemanticQueriesRequest } from '@empathyco/x-types'
 
 import {
   facetSchema,
   platformAdapter,
-  recommendationsRequestSchema,
   resultSchema,
   semanticQueriesRequestSchema,
 } from '@empathyco/x-adapter-platform'
@@ -29,14 +19,6 @@ export const adapter = platformAdapter
  * We have two result schemas examples (one for VTEX and other for Empathy Platform).
  */
 resultSchema.$override<any, Partial<Result>>(platformResultSchema)
-
-recommendationsRequestSchema.$override<
-  RecommendationsRequest,
-  Partial<PlatformRecommendationsRequest>
->({
-  // TODO Top clicked demo endpoint breaks if it receives the scope parameter
-  extraParams: ({ extraParams: { scope, ...extraParams } = {} }) => extraParams,
-})
 
 semanticQueriesRequestSchema.$override<
   SemanticQueriesRequest,
