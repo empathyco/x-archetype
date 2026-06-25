@@ -18,6 +18,7 @@
               :columns="columns"
             >
               <template #result="{ item: result }">
+                <component :is="`${'criteo-promotion'}`" />
                 <ListResult v-if="isListMode" :result="result" />
                 <Result v-else :result="result" />
               </template>
