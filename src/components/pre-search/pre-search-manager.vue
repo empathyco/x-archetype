@@ -33,13 +33,14 @@ const props = withDefaults(
 
 const { popularSearches } = useState('popularSearches')
 
-const injectedQueriesPreviewInfo = computed<QueryPreviewInfo[]>(() => {
-  const injectedQueriesPreview = inject<QueryPreviewInfo[] | { value: QueryPreviewInfo[] }>(
-    'queriesPreviewInfo',
-    [],
-  )
-  return 'value' in injectedQueriesPreview ? injectedQueriesPreview.value : injectedQueriesPreview
-})
+const injectedQueriesPreview = inject<QueryPreviewInfo[] | { value: QueryPreviewInfo[] }>(
+  'queriesPreviewInfo',
+  [],
+)
+
+const injectedQueriesPreviewInfo = computed<QueryPreviewInfo[]>(() =>
+  'value' in injectedQueriesPreview ? injectedQueriesPreview.value : injectedQueriesPreview,
+)
 
 const hasQueryPreviews = computed(() => injectedQueriesPreviewInfo.value.length !== 0)
 

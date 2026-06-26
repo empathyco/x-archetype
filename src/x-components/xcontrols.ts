@@ -33,4 +33,5 @@ export const defaultXControlsState = {
       },
     },
   },
+  initialQueryPreviews: [],
 }
