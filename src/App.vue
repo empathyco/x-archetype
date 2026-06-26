@@ -24,6 +24,7 @@ import type { ExperienceControlsState } from '@empathyco/x-components/experience
 import type { QueryPreviewInfo } from '@empathyco/x-components/queries-preview'
 import type { InternalSearchRequest, InternalSearchResponse } from '@empathyco/x-components/search'
 import type { ComputedRef } from 'vue'
+import type { InitialQueryPreview } from './utils/initial-query-previews'
 import { SnippetCallbacks, use$x } from '@empathyco/x-components'
 import { SnippetConfigExtraParams } from '@empathyco/x-components/extra-params'
 import { Tagging } from '@empathyco/x-components/tagging'
@@ -45,6 +46,7 @@ import { useExperienceControls } from './composables/use-experience-controls.com
 import { FeatureFlag, useFeatureFlags } from './composables/use-feature-flags.composable'
 import { isIOS, removeSearchInputFocus } from './composables/use-ios-utils-composable'
 import { initCustomization } from './utils/customization'
+import { transformInitialQueryPreviews } from './utils/initial-query-previews'
 import './tailwind/xds.css'
 
 const MobileTeleport = defineAsyncComponent(() =>
@@ -61,6 +63,7 @@ const CustomMainModal = defineAsyncComponent(() =>
 const x = use$x()
 const { isDesktopOrGreater } = useDevice()
 const { isFeatureEnabled } = useFeatureFlags()
+const { controls, getControl } = useExperienceControls()
 const snippetConfig = inject<SnippetConfig>('snippetConfig')!
 const isOpen = ref(false)
 const showNextQueriesTags = ref(true)
@@ -95,7 +98,7 @@ const close = (): void => {
 // TODO: review controls.controls in X project to avoid this type assertions
 x.on('ExperienceControlsChanged', false).subscribe(payload => {
   initCustomization(payload as unknown as ExperienceControlsState)
-  useExperienceControls().controls.value = payload.controls as ExperienceControlsState['controls']
+  controls.value = payload.controls as ExperienceControlsState['controls']
 })
 
 x.on('UserClickedCloseX', false).subscribe(close)
@@ -146,7 +149,11 @@ const isTeleportViewMode = computed(() =>
   snippetConfig.viewMode ? snippetConfig.viewMode === 'embedded' : teleportFeature.value,
 )
 
-const queriesPreviewInfo = computed(() => snippetConfig.queriesPreview ?? [])
+const queriesPreviewInfo = computed(() => {
+  const initialQueryPreviews = (getControl('initialQueryPreviews').value ??
+    []) as InitialQueryPreview[]
+  return transformInitialQueryPreviews(initialQueryPreviews)[snippetConfig.lang] ?? []
+})
 provide<ComputedRef<QueryPreviewInfo[]> | undefined>('queriesPreviewInfo', queriesPreviewInfo)
 
 const showNextQueries = computed(() => showNextQueriesTags.value)
